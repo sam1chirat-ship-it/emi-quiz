@@ -611,6 +611,160 @@
       ],
       "a": 0,
       "why": "L'importateur veut fixer aujourd'hui le prix d'achat des dollars futurs : achat à terme."
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "q": "Le compte de transferts (TC) inclut principalement :",
+      "choices": [
+        "les envois de fonds des migrants et les aides internationales",
+        "les investissements directs étrangers (IDE)",
+        "les variations de réserves officielles",
+        "les échanges de biens de consommation"
+      ],
+      "a": 0,
+      "why": "TC couvre les transferts unilatéraux : remises de fonds, dons, aide au développement.",
+      "id": "bdp-009"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "q": "Un pays a une PEN de −800 Md€ et un déficit courant annuel constant de 40 Md€. Sans effets de valorisation, dans combien d'années la PEN atteindra-t-elle −1 000 Md€ ?",
+      "choices": [
+        "5 ans",
+        "10 ans",
+        "20 ans",
+        "25 ans"
+      ],
+      "a": 0,
+      "trap": "stock-flux",
+      "why": "ΔPEN = CC hors valorisation = −40 Md€/an. Pour aller de −800 à −1 000 : 200 / 40 = 5 ans.",
+      "id": "pen-009"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "q": "Un swap de change est utilisé principalement pour :",
+      "choices": [
+        "gérer la trésorerie court terme en devises sans exposition nette",
+        "spéculer sur la volatilité",
+        "réaliser un arbitrage triangulaire",
+        "financer un investissement de long terme"
+      ],
+      "a": 0,
+      "why": "Swap = spot + terme inverse : l'exposition nette est nulle, seule la trésorerie change.",
+      "id": "forex-009"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 1,
+      "q": "L'usage international dominant pour coter un taux de change est :",
+      "choices": [
+        "au certain, sauf pour le dollar contre la plupart des devises",
+        "toujours à l'incertain",
+        "toujours au certain",
+        "une convention aléatoire pays par pays"
+      ],
+      "a": 0,
+      "why": "Le dollar est le plus souvent coté à l'incertain (1 USD = X yens), sauf paires majeures comme EUR/USD et GBP/USD.",
+      "id": "cot-009"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "q": "Le régime de l'étalon de change-or (Gold Exchange Standard, 1922-1939) se distingue de l'étalon-or classique par :",
+      "choices": [
+        "l'ajout de devises fortes convertibles comme réserves",
+        "l'abandon complet de l'or",
+        "l'adoption des changes flottants",
+        "la centralisation par le FMI"
+      ],
+      "a": 0,
+      "why": "Gold Exchange Standard : réserves en or ET en devises convertibles (livre sterling puis dollar) ; élargit la base monétaire mondiale.",
+      "id": "smi-009"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "q": "Dans Dornbusch, la vitesse de convergence vers le nouvel équilibre de long terme dépend de :",
+      "choices": [
+        "la vitesse d'ajustement des prix",
+        "la crédibilité de la banque centrale seule",
+        "l'élasticité des exportations",
+        "la parité fixe éventuelle"
+      ],
+      "a": 0,
+      "trap": "statique-dyn",
+      "why": "Le retour à la PPA est piloté par la rigidité des prix : plus les prix sont rapides à ajuster, plus le surajustement se résorbe vite.",
+      "id": "monet-010"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 2,
+      "q": "Une hausse durable des coûts salariaux unitaires dans un pays, à taux nominal fixe, provoque :",
+      "choices": [
+        "une appréciation réelle et une perte de compétitivité",
+        "une dépréciation réelle",
+        "aucun effet sur la balance commerciale",
+        "une amélioration mécanique du solde courant"
+      ],
+      "a": 0,
+      "why": "P ↑ à P* et e constants ⇒ q = e × P/P* augmente : appréciation réelle.",
+      "id": "depr-010"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "q": "Le TCER (taux de change effectif réel) diffère du TCR bilatéral par :",
+      "choices": [
+        "l'agrégation pondérée sur plusieurs partenaires",
+        "l'utilisation d'un indice de matières premières",
+        "l'exclusion de l'inflation",
+        "la fréquence annuelle plutôt que trimestrielle"
+      ],
+      "a": 0,
+      "why": "TCER : moyenne géométrique pondérée par les parts commerciales des taux de change réels bilatéraux.",
+      "id": "equil-009"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "q": "En Mundell-Fleming, changes flexibles et mobilité imparfaite des capitaux, une hausse de G :",
+      "choices": [
+        "augmente Y mais moins qu'en économie fermée",
+        "n'a aucun effet sur Y",
+        "provoque une éviction totale",
+        "déprécie fortement la monnaie"
+      ],
+      "a": 0,
+      "trap": "mf-regime",
+      "why": "Mobilité imparfaite = l'ajustement du change est partiel, l'effet expansionniste subsiste (mais amoindri).",
+      "id": "mf-011"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "q": "La différence essentielle entre PCTI et PNCTI est :",
+      "choices": [
+        "la couverture (PCTI utilise le taux à terme, PNCTI l'anticipation)",
+        "la maturité (PCTI = court terme, PNCTI = long terme)",
+        "la monnaie de référence",
+        "l'existence d'un contrôle des capitaux"
+      ],
+      "a": 0,
+      "trap": "sens-parite",
+      "why": "PCTI : arbitrage couvert via forward, tient toujours. PNCTI : condition d'anticipation, testable et souvent réfutée.",
+      "id": "parite-009"
     }
   ],
   "VF": [
@@ -936,6 +1090,192 @@
       "q": "Le pricing to market atténue le pass-through et allonge la phase descendante de la courbe en J.",
       "a": true,
       "why": "Les marges absorbent le change ⇒ ajustement des prix (et donc des volumes) plus lent ⇒ creux du J prolongé."
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 1,
+      "q": "Le compte courant (CC) inclut la balance commerciale des biens, la balance des services et les revenus primaires et secondaires.",
+      "a": true,
+      "why": "Structure du CC dans la comptabilité BdP : biens + services + revenus + transferts courants.",
+      "id": "bdp-010"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "q": "Le compte de capital (TC) et le compte financier (CF) mesurent la même chose sous deux angles différents.",
+      "a": false,
+      "trap": "bc-bcour",
+      "why": "TC = transferts en capital (remises de dettes, brevets). CF = flux de financement (IDE, portefeuille, réserves). Différents postes.",
+      "id": "bdp-011"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 2,
+      "q": "Un pays créancier net dont la monnaie s'apprécie voit mécaniquement sa PEN baisser (effets de valorisation).",
+      "a": true,
+      "trap": "stock-flux",
+      "why": "Actifs à l'étranger libellés en devises valent moins en monnaie nationale forte.",
+      "id": "pen-010"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "q": "Les déficits jumeaux (twin deficits) traduisent la propagation d'un déficit budgétaire vers un déficit courant, toutes choses égales par ailleurs.",
+      "a": true,
+      "why": "(S − I) + (T − G) = X − M : à S, I inchangés, (T − G) ↓ ⇒ X − M ↓.",
+      "id": "si-009"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "q": "Une option d'achat (call) donne l'obligation d'acheter la devise au prix d'exercice.",
+      "a": false,
+      "why": "Une option donne le DROIT (pas l'obligation) d'acheter (call) ou de vendre (put).",
+      "id": "forex-010"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 1,
+      "q": "Le marché des changes fonctionne 24 h/24 grâce à la succession des places (Sydney → Tokyo → Londres → New York).",
+      "a": true,
+      "why": "Marché mondial décentralisé, actif en continu du lundi matin au vendredi soir.",
+      "id": "forex-011"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 1,
+      "q": "L'euro est traditionnellement coté au certain (1 € = X $), en cohérence avec l'usage européen.",
+      "a": true,
+      "why": "Convention historique : les paires impliquant l'euro sont cotées avec l'euro comme monnaie de base.",
+      "id": "cot-010"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "q": "Une baisse du taux de change effectif réel (TCER) traduit un gain de compétitivité-prix.",
+      "a": true,
+      "why": "TCER ↓ ⇒ prix relatifs domestiques baissent ⇒ compétitivité ↑ (image miroir de la hausse).",
+      "id": "tcr-009"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "q": "En base de logs, le TCER est simplement la somme pondérée des taux réels bilatéraux.",
+      "a": true,
+      "trap": "niveau-log",
+      "why": "En logs, produit géométrique ⇒ somme arithmétique. En niveaux : moyenne géométrique.",
+      "id": "tcr-010"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 2,
+      "q": "Sous Bretton Woods, seules les banques centrales pouvaient convertir des dollars en or auprès de la Fed.",
+      "a": true,
+      "why": "Convertibilité or restreinte : les particuliers en étaient exclus, seules les BC officielles y avaient accès.",
+      "id": "smi-010"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "q": "Le dilemme de Triffin ne s'applique qu'à un régime d'étalon-or et ne concerne pas les monnaies fiat modernes.",
+      "a": false,
+      "why": "Il est un enseignement plus général : toute monnaie internationale doit être fournie en excès par son émetteur, ce qui pose des tensions sur sa crédibilité.",
+      "id": "smi-011"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "q": "L'hypothèse d'anticipations rationnelles est nécessaire pour que la PNCTI tienne empiriquement.",
+      "a": false,
+      "why": "Même avec anticipations rationnelles, la PNCTI est régulièrement rejetée empiriquement (forward premium puzzle).",
+      "id": "parite-010"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "q": "Le « forward premium puzzle » observe que des taux d'intérêt élevés sont associés en moyenne à des appréciations, pas à des dépréciations.",
+      "a": true,
+      "why": "Contredit la PNCTI : ex ante on prédit une dépréciation, ex post on observe souvent l'inverse.",
+      "id": "parite-011"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans Dornbusch, à long terme le change nominal revient exactement à sa valeur de PPA.",
+      "a": true,
+      "trap": "statique-dyn",
+      "why": "Le surajustement est un phénomène de court terme ; à long terme la PPA est rétablie.",
+      "id": "monet-011"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 2,
+      "q": "La « guerre des monnaies » désigne les tentatives concurrentes de dépréciation compétitive pour améliorer la balance commerciale.",
+      "a": true,
+      "why": "Chaque pays cherche à faire baisser sa monnaie pour gagner en compétitivité ; comportement non coopératif à somme nulle.",
+      "id": "monet-012"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 2,
+      "q": "L'effet valeur d'une dépréciation joue en faveur de la balance commerciale dès le premier jour.",
+      "a": false,
+      "trap": "ml-symetrie",
+      "why": "L'effet valeur est défavorable à court terme (imports plus chers), ce qui creuse temporairement le déficit.",
+      "id": "depr-011"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 2,
+      "q": "Une dépréciation améliore mécaniquement le solde courant si le pays n'exporte pratiquement pas.",
+      "a": false,
+      "why": "Sans exportations, l'effet volume est nul et l'effet valeur (imports plus chers) dégrade uniquement le solde.",
+      "id": "depr-012"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 3,
+      "q": "Le TCEF (FEER) est atteignable à court terme par une intervention concertée des banques centrales.",
+      "a": false,
+      "why": "TCEF est un concept de moyen terme et de convergence ; il ne se pilote pas au comptant.",
+      "id": "equil-010"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "q": "La loi du prix unique est mieux vérifiée pour les biens standardisés (matières premières) que pour les services locaux.",
+      "a": true,
+      "why": "Écarts persistants sur les biens non échangeables (services, immobilier) ; convergence forte sur les biens homogènes internationaux.",
+      "id": "equil-011"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 2,
+      "q": "En Mundell-Fleming, en changes fixes et sans mobilité des capitaux, la politique monétaire est efficace.",
+      "a": true,
+      "trap": "mf-regime",
+      "why": "Sans mobilité, la BC contrôle Ms sans être contrainte par les flux ; la politique monétaire retrouve son effet expansionniste sur Y.",
+      "id": "mf-012"
     }
   ],
   "SENS": [
@@ -1316,9 +1656,425 @@
       "a": "up",
       "trap": "mf-regime",
       "why": "G ↑ ⇒ i tend à ↑ ⇒ entrées de capitaux ⇒ la BC achète des devises pour tenir la parité ⇒ réserves ↑."
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Économie ouverte, hors effets de valorisation",
+      "shock": "Hausse simultanée des exports et baisse des imports",
+      "var": "Solde courant CC",
+      "a": "up",
+      "why": "Excédent commercial ↑ + inchangé sur revenus/transferts ⇒ CC augmente.",
+      "id": "bdp-012"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Effets de valorisation neutres sur la période",
+      "shock": "Chute durable des exportations d'un pays",
+      "var": "Position extérieure nette PEN à moyen terme",
+      "a": "down",
+      "trap": "stock-flux",
+      "why": "Chute des X ⇒ CC ↓ (déficits) ⇒ ΔPEN cumulée négative ⇒ PEN baisse.",
+      "id": "pen-011"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Économie ouverte, S et I inchangés",
+      "shock": "Hausse de l'épargne publique (T − G ↑)",
+      "var": "Solde courant X − M",
+      "a": "up",
+      "why": "(S − I) + (T − G) = X − M : à S, I fixes, la hausse de T − G se retrouve dans X − M.",
+      "id": "si-010"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Salle de marché, contrats d'options sur EUR/USD",
+      "shock": "Hausse de la volatilité anticipée de l'EUR/USD",
+      "var": "Prime d'une option (call ou put)",
+      "a": "up",
+      "why": "La valeur temps d'une option croît avec la volatilité (formule de Black-Scholes).",
+      "id": "forex-012"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Cotation au certain, taux croisé, S(EUR/USD) et S(EUR/JPY) montent conjointement du même pourcentage",
+      "shock": "Appréciation identique de l'euro face aux deux devises",
+      "var": "Taux croisé S(USD/JPY)",
+      "a": "same",
+      "why": "Si l'euro s'apprécie identiquement face aux deux, le taux croisé USD/JPY reste inchangé (les effets s'annulent dans la division).",
+      "id": "cot-011"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "TCER au certain, TCEN inchangé",
+      "shock": "Inflation étrangère supérieure à l'inflation domestique (π* > π)",
+      "var": "Taux de change réel TCER",
+      "a": "down",
+      "why": "Δq = Δe + (π − π*) : à Δe = 0, π < π* ⇒ q ↓ (dépréciation réelle, gain de compétitivité).",
+      "id": "tcr-011"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Régime de changes fixes, mobilité parfaite des capitaux",
+      "shock": "La banque centrale baisse son taux directeur",
+      "var": "Réserves de change officielles",
+      "a": "down",
+      "trap": "mf-regime",
+      "why": "i < i* ⇒ sortie de capitaux ⇒ BC vend des devises pour tenir la parité ⇒ réserves ↓.",
+      "id": "smi-012"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "PCTI en logs, à couvert",
+      "shock": "Hausse du taux d'intérêt domestique i (i* et e inchangés)",
+      "var": "Taux à terme f (au certain)",
+      "a": "down",
+      "trap": "sens-parite",
+      "why": "PCTI : f − e = i* − i. Si i ↑ à i* et e donnés, alors f − e diminue ⇒ f baisse : la monnaie est en décote à terme.",
+      "id": "parite-012"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "PNCTI, prime de risque ρ > 0 exigée par les investisseurs",
+      "shock": "Introduction d'une prime de risque positive sur la monnaie domestique",
+      "var": "Taux de change au certain e aujourd'hui",
+      "a": "down",
+      "trap": "sens-parite",
+      "why": "i = i* + ρ − (eᵃ − e). ρ ↑ ⇒ à i, i*, eᵃ donnés, e ↓ (dépréciation compensatoire immédiate).",
+      "id": "parite-013"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle Frenkel, PPA vérifiée, long terme",
+      "shock": "Hausse permanente de l'offre de monnaie étrangère Ms*",
+      "var": "Taux de change au certain e (domestique)",
+      "a": "up",
+      "trap": "fixe-flexible",
+      "why": "Ms* ↑ ⇒ P* ↑ ⇒ par PPA, e = P/P* : e ↑ (monnaie domestique s'apprécie relativement).",
+      "id": "monet-013"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 2,
+      "ctx": "Condition Marshall-Lerner vérifiée, moyen terme",
+      "shock": "Appréciation nominale de la monnaie",
+      "var": "Solde commercial X − M",
+      "a": "down",
+      "trap": "ml-symetrie",
+      "why": "Effet symétrique à la dépréciation : appréciation + ML vérifiée ⇒ solde ↓.",
+      "id": "depr-013"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "ctx": "PPA relative, long terme, taux au certain",
+      "shock": "Différentiel d'inflation négatif : π < π* durablement",
+      "var": "Taux de change nominal au certain",
+      "a": "up",
+      "why": "PPA relative : Δe = π* − π > 0 ⇒ appréciation nominale de la monnaie domestique.",
+      "id": "equil-012"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, change flexible, mobilité parfaite",
+      "shock": "Hausse permanente de l'offre de monnaie Ms",
+      "var": "Solde commercial X − M à moyen terme",
+      "a": "up",
+      "trap": "mf-regime",
+      "why": "Ms ↑ ⇒ i ↓ ⇒ sortie K ⇒ dépréciation ⇒ X − M ↑ ⇒ Y ↑.",
+      "id": "mf-013"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, mobilité imparfaite (contrôle partiel des capitaux), régime fixe",
+      "shock": "Hausse des dépenses publiques G",
+      "var": "Production Y",
+      "a": "up",
+      "trap": "mf-regime",
+      "why": "Sans mobilité parfaite, l'ajustement des capitaux est incomplet : la politique budgétaire garde une efficacité, Y augmente.",
+      "id": "mf-014"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Taux croisé mécanique : S(A/B) × S(B/C) = S(A/C)",
+      "shock": "Hausse de S(A/B) à S(A/C) inchangé",
+      "var": "Taux croisé S(B/C)",
+      "a": "down",
+      "trap": "certain-incertain",
+      "why": "Si le produit reste constant et l'un des facteurs monte, l'autre baisse (arithmétique).",
+      "id": "cot-012"
     }
   ],
-  "ORDRE": [],
+  "ORDRE": [
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "ctx": "Effet Balassa-Samuelson dans un pays émergent",
+      "title": "Remettre les étapes de l'effet Balassa-Samuelson dans l'ordre",
+      "steps": [
+        "Gains de productivité dans le secteur échangeable",
+        "Hausse des salaires dans le secteur échangeable",
+        "Contagion des salaires au secteur abrité (marché du travail unique)",
+        "Hausse des prix des non-échangeables",
+        "Hausse du niveau général des prix ⇒ appréciation réelle"
+      ],
+      "trap": "bs-etapes",
+      "why": "Le prof exige toutes les étapes : la contagion salariale du secteur échangeable vers l'abrité est celle qu'on oublie.",
+      "id": "equil-013"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 2,
+      "ctx": "Après une dépréciation de la monnaie nationale, avec Marshall-Lerner vérifiée",
+      "title": "Ordonner les étapes de la courbe en J",
+      "steps": [
+        "Court terme : contrats en cours, volumes rigides",
+        "Effet valeur domine (imports plus chers en monnaie nationale)",
+        "Solde commercial se dégrade",
+        "Moyen terme : les volumes s'ajustent",
+        "Effet volume l'emporte (Marshall-Lerner) ⇒ solde s'améliore"
+      ],
+      "trap": "ml-symetrie",
+      "why": "Court terme : creux du J. Moyen/long terme : remontée quand ML tient.",
+      "id": "depr-014"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle de Dornbusch, hausse permanente et anticipée de l'offre de monnaie",
+      "title": "Ordonner les étapes du surajustement",
+      "steps": [
+        "Prix rigides à court terme, Ms ↑",
+        "Le taux d'intérêt domestique baisse",
+        "Par PNCTI, la monnaie doit se déprécier de plus que sa valeur de long terme",
+        "Long terme : les prix montent ⇒ retour à la PPA",
+        "Le taux revient vers son nouvel équilibre de long terme"
+      ],
+      "trap": "statique-dyn",
+      "why": "Le surajustement est le pas de côté à court terme pour compenser la rigidité des prix ; la dynamique corrige à long terme.",
+      "id": "monet-014"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, changes fixes, mobilité parfaite des capitaux",
+      "title": "Ordonner les effets d'une hausse permanente de G",
+      "steps": [
+        "G ↑ ⇒ courbe IS se déplace à droite",
+        "Le taux d'intérêt tend à monter",
+        "Entrées de capitaux pour arbitrer i > i*",
+        "La banque centrale achète des devises pour tenir la parité",
+        "Ms ↑ ⇒ courbe LM se déplace à droite ⇒ Y ↑"
+      ],
+      "trap": "mf-regime",
+      "why": "En fixe + mobilité parfaite, la politique budgétaire est efficace : la BC accommode l'entrée de capitaux.",
+      "id": "mf-015"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Un pays enregistre un déficit courant important",
+      "title": "Ordonner les conséquences comptables (convention du cours)",
+      "steps": [
+        "CC < 0 : besoin de financement",
+        "TC + CC ≈ 0 (négatif) ⇒ le pays a un besoin de financement",
+        "CF < 0 par l'identité TC + CC − CF + EO = 0",
+        "CF négatif ⇒ entrée nette de capitaux",
+        "Le pays est financé par le reste du monde"
+      ],
+      "trap": "signe-bdp",
+      "why": "Convention du cours : CF < 0 = entrée nette. Le déficit courant appelle mécaniquement des capitaux extérieurs.",
+      "id": "bdp-013"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Exportateur français encaissant 100 000 USD dans 3 mois",
+      "title": "Ordonner les étapes de la couverture à terme",
+      "steps": [
+        "Signature du contrat commercial libellé en dollars",
+        "Identification du risque : baisse du dollar dans 3 mois",
+        "Vente des 100 000 USD à terme à 3 mois",
+        "Livraison des dollars par l'importateur",
+        "Conversion au taux fixé aujourd'hui, résultat certain"
+      ],
+      "why": "Couverture parfaite : le prix en euros est connu dès la signature.",
+      "id": "forex-013"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "title": "Ordonner les grands moments de l'histoire monétaire internationale",
+      "steps": [
+        "Étalon-or classique (avant 1914)",
+        "Bretton Woods (1944)",
+        "Dilemme de Triffin (années 1960)",
+        "Fin de la convertibilité or (Nixon, 1971)",
+        "Accords de la Jamaïque : changes flottants (1976)"
+      ],
+      "why": "Chronologie à connaître par cœur pour le partiel.",
+      "id": "smi-013"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "On connaît 1 € = 1,25 $ et 1 € = 150 JPY",
+      "title": "Ordonner l'arbitrage triangulaire pour trouver 1 $ = ? JPY",
+      "steps": [
+        "Écrire la relation par la monnaie commune (€)",
+        "Isoler le dollar : 1 $ = 1/1,25 €",
+        "Multiplier par le taux €/JPY",
+        "1 $ = (1/1,25) × 150 = 120 JPY"
+      ],
+      "why": "L'arbitrage triangulaire élimine la monnaie de passage par une simple division.",
+      "id": "cot-013"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "PNCTI en logs, choc positif de politique monétaire domestique (baisse surprise de i)",
+      "title": "Ordonner les effets immédiats sur le taux de change au certain e",
+      "steps": [
+        "i ↓ (surprise, i* et eᵃ inchangés)",
+        "Différentiel i − i* devient négatif",
+        "e = eᵃ + (i − i*) ⇒ e baisse",
+        "Dépréciation immédiate de la monnaie"
+      ],
+      "trap": "sens-parite",
+      "why": "Baisse surprise du taux ⇒ dépréciation immédiate pour rétablir l'arbitrage.",
+      "id": "parite-014"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Économie ouverte, identité (S − I) + (T − G) = X − M",
+      "title": "Ordonner les étapes d'analyse d'un déficit courant",
+      "steps": [
+        "Constater X − M < 0 (déficit courant)",
+        "En déduire (S − I) + (T − G) < 0",
+        "Insuffisance d'épargne globale par rapport à l'investissement",
+        "Financé par entrée nette de capitaux étrangers"
+      ],
+      "why": "Le déficit courant est toujours financé par une entrée équivalente de capitaux — c'est l'autre facette de l'identité.",
+      "id": "si-011"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Position extérieure nette (PEN) d'un pays sur deux périodes",
+      "title": "Ordonner le calcul de ΔPEN entre t et t+1",
+      "steps": [
+        "PEN(t) : stock de créances nettes à l'instant t",
+        "Ajouter les flux courants CC(t → t+1)",
+        "Appliquer les effets de valorisation (change, prix des actifs)",
+        "PEN(t+1) = PEN(t) + CC + effets de valorisation"
+      ],
+      "trap": "stock-flux",
+      "why": "La PEN est un stock : flux courants et valorisation la modifient simultanément.",
+      "id": "pen-012"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Formule log-linéarisée du TCR",
+      "title": "Ordonner les étapes du passage TCEN → TCR (variation)",
+      "steps": [
+        "Partir de TCER = TCEN × P/P*",
+        "Passer en logs : q = e + p − p*",
+        "Différencier : Δq = Δe + (π − π*)",
+        "Interpréter : appréciation réelle si Δe + π − π* > 0"
+      ],
+      "trap": "niveau-log",
+      "why": "En niveau : multiplication et moyenne géométrique. En log : addition et moyenne arithmétique.",
+      "id": "tcr-012"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "title": "Ordonner l'exposé du triangle d'incompatibilité de Mundell",
+      "steps": [
+        "Énoncer les trois objectifs : parité fixe, mobilité parfaite, politique monétaire autonome",
+        "Montrer que la parité fixe fixe i = i* (arbitrage)",
+        "Mobilité parfaite ⇒ tout écart i ≠ i* provoque des flux massifs",
+        "Conclusion : au plus deux objectifs sur trois",
+        "En pratique, chaque pays choisit son coin du triangle"
+      ],
+      "why": "Le triangle est un théorème d'impossibilité, à énoncer complètement.",
+      "id": "mf-016"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 3,
+      "ctx": "Condition Marshall-Lerner et effets d'une dépréciation",
+      "title": "Ordonner la démonstration mécanique",
+      "steps": [
+        "Dépréciation nominale de x %",
+        "Effet valeur : prix des importations ↑ en monnaie nationale",
+        "Effet volume : quantités exportées ↑, quantités importées ↓",
+        "Le solde s'améliore ssi εX + εM > 1"
+      ],
+      "trap": "ml-symetrie",
+      "why": "La démonstration part de la décomposition prix × quantités : ML se déduit de la comparaison des deux effets.",
+      "id": "depr-015"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle monétaire prix flexibles (Frenkel), PPA vérifiée",
+      "title": "Ordonner les étapes reliant Ms domestique et e nominal",
+      "steps": [
+        "Équation quantitative : Ms/P = L(Y, i)",
+        "Prix flexibles ⇒ P ajuste : P ∝ Ms à Y et i donnés",
+        "PPA absolue : e = P/P*",
+        "Substituer : e ∝ Ms/Ms*"
+      ],
+      "trap": "fixe-flexible",
+      "why": "Le lien direct Ms → e passe par P (neutralité monétaire) et la PPA continue.",
+      "id": "monet-015"
+    }
+  ],
   "OUVERTE": [],
   "ETOILE": []
 }

@@ -415,6 +415,84 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   min-height: 52px;
 }
 
+/* format ordre : pile + choix + verdict */
+.order-lbl {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  font-size: 11px;
+  color: var(--bleu);
+  text-transform: uppercase;
+  margin: 10px 0 4px;
+}
+.order-pile {
+  list-style: decimal inside;
+  margin: 0 0 6px;
+  padding: 8px 10px;
+  background: var(--ink3);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  color: var(--cream);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.order-pile li { padding: 2px 0; }
+.order-pile li.empty { color: var(--muted); }
+.order-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.order-choices > button {
+  text-align: left;
+  font-family: var(--serif);
+  font-size: 14px;
+  letter-spacing: 0;
+  padding: 10px 12px;
+  white-space: normal;
+  line-height: 1.35;
+}
+.order-choices > button:disabled {
+  opacity: .35;
+  text-decoration: line-through;
+}
+.order-recap { font-size: 14px; line-height: 1.4; margin: 6px 0; }
+.order-recap li.mismatch { color: var(--rouge); }
+.order-recap li.match    { color: var(--vert); }
+
+/* coup bas — bandeau au-dessus de la question et bandeau de verdict */
+.coup-bas-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 4px 0 6px;
+}
+.coup-bas-btn button {
+  background: rgba(255, 159, 67, .15);
+  color: var(--orange);
+  border-color: rgba(255, 159, 67, .4);
+  border-bottom-color: rgba(255, 159, 67, .5);
+}
+.coupbas-note {
+  background: rgba(255, 159, 67, .12);
+  border: 1px solid rgba(255, 159, 67, .35);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--cream);
+}
+.coupbas-note .cb-lbl {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  font-size: 11px;
+  color: var(--orange);
+  margin-right: 6px;
+}
+.coupbas-note .cb-hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
 /* verdict d'une manche de duel */
 .duel-round {
   font-family: var(--sans);
@@ -638,7 +716,7 @@ const T = {
   },
   manches: {
     envoi:   { name: "Coup d'envoi",     rules: "4 candidats · 8 questions max · QCM & Vrai/Faux · 100 pts." },
-    cpc:     { name: "Coup par coup",    rules: "À venir (J3)." },
+    cpc:     { name: "Coup par coup",    rules: "3 candidats · 6 questions max · Sens & Ordre · 150 / 200 pts · 1 coup bas possible." },
     fatal:   { name: "Coup fatal",       rules: "À venir (J4)." },
     maitre:  { name: "Coup de maître",   rules: "À venir (J5)." },
     etoile:  { name: "Étoile mystérieuse", rules: "À venir (J5)." },
@@ -797,9 +875,10 @@ function srsUpdate(id, ok) {
 // Pas de pondération par faiblesse de catégorie en J1 (NOTES §5).
 function pickDue(fmt, cats) {
   const bank =
-    (fmt === "qcm")  ? DATA.QCM :
-    (fmt === "vf")   ? DATA.VF :
-    (fmt === "sens") ? DATA.SENS :
+    (fmt === "qcm")   ? DATA.QCM :
+    (fmt === "vf")    ? DATA.VF :
+    (fmt === "sens")  ? DATA.SENS :
+    (fmt === "ordre") ? DATA.ORDRE :
     null;
   if (!bank) throw new Error("pickDue: format inconnu " + fmt);
   const now = Date.now();
@@ -881,6 +960,8 @@ function newShow(settings) {
     manchesLoggees: [],
     newlyRed: null,
     elimInfo: null,
+    orderPick: null,
+    orderPerm: null,
   };
 }
 
@@ -900,21 +981,43 @@ function banner(kind, text) {
 }
 
 // ---------- flux question ----------
+function fmtForNext() {
+  // Alternance des formats selon la manche.
+  if (S.manche === "envoi") return (S.qIdx % 2 === 0) ? "qcm" : "vf";
+  if (S.manche === "cpc")   return (S.qIdx % 2 === 0) ? "sens" : "ordre";
+  throw new Error("fmtForNext: manche non gérée " + S.manche);
+}
+
+function maxQForManche(m) {
+  if (m === "envoi") return 8;
+  if (m === "cpc")   return 6;
+  return 0;
+}
+
 function nextQ() {
-  // Alterne qcm / vf dans le coup d'envoi. Utile en J1 pour couvrir
-  // les deux formats à chaque partie.
-  const fmt = (S.qIdx % 2 === 0) ? "qcm" : "vf";
+  const fmt = fmtForNext();
   const it = pickDue(fmt, S.cats);
   if (!it) {
-    // Aucune banque disponible dans les cats cochées : fin de manche.
-    endManche();
-    return;
+    // Aucune banque disponible dans les cats cochées pour ce format :
+    // tenter l'autre format de la manche (fallback pédagogique).
+    const otherFmt =
+      (fmt === "qcm")  ? "vf"   :
+      (fmt === "vf")   ? "qcm"  :
+      (fmt === "sens") ? "ordre":
+      "sens";
+    const it2 = pickDue(otherFmt, S.cats);
+    if (!it2) { endManche(); return; }
+    S.q = it2;
+    S.qFmt = otherFmt;
+  } else {
+    S.q = it;
+    S.qFmt = fmt;
   }
-  S.q = it;
-  S.qFmt = fmt;
-  S.asked.push(it.id);
+  S.asked.push(S.q.id);
   S.phase = "q";
   S.answered = null;
+  S.orderPick = null;
+  S.orderPerm = null;
   render();
 }
 
@@ -994,6 +1097,7 @@ function pickDuelOpponent(red) {
 function endQ() {
   // La question qui vient d'être répondue compte : on incrémente qIdx.
   S.qIdx = (S.qIdx | 0) + 1;
+  const max = maxQForManche(S.manche);
 
   // Duel déclenché par feu rouge ?
   if (S.newlyRed && S.newlyRed.length > 0) {
@@ -1001,14 +1105,14 @@ function endQ() {
     S.newlyRed = null;
     const opp = pickDuelOpponent(red);
     if (opp >= 0) {
-      const afterCont = (S.manche === "envoi" && S.qIdx >= 8) ? "endManche" : "nextQ";
+      const afterCont = (max && S.qIdx >= max) ? "endManche" : "nextQ";
       enterDuel(red, opp, afterCont);
       return;
     }
   }
 
   // Flux normal.
-  if (S.manche === "envoi" && S.qIdx >= 8) {
+  if (max && S.qIdx >= max) {
     checkEndOfManche();
     return;
   }
@@ -1182,7 +1286,33 @@ function emissionOver() {
 }
 
 function endManche() {
-  // Bilan de manche : le joueur est vivant (sinon on serait passé par emissionOver).
+  // Transition manche → manche suivante (SPEC §1.4).
+  // Joueur out ? emissionOver a déjà été appelé.
+  const aliveBots = S.players.slice(1).filter(p => !p.out).length;
+
+  if (S.manche === "envoi") {
+    if (aliveBots < 1) { emissionOver(); return; }
+    S.manche = "cpc";
+    S.qIdx = 0;
+    S.newlyRed = null;
+    S.elimInfo = null;
+    S.coupBas = true;         // relance le droit au coup bas (SPEC §1.4)
+    S.orderPick = null;
+    S.orderPerm = null;
+    S.phase = "intro";
+    render();
+    return;
+  }
+
+  if (S.manche === "cpc") {
+    // Fin cpc → fatal (J4). En attendant J4 : bilan de fin de cpc.
+    S.screen = "bilan";
+    S.phase = "endcpc";
+    render();
+    return;
+  }
+
+  // Fatal/maitre/etoile pas encore implémentés (J4/J5).
   S.screen = "bilan";
   S.phase = "";
   render();
@@ -1309,6 +1439,40 @@ function renderQuestion() {
       '</article>'
     );
   }
+  if (fmt === "ordre") {
+    // Génère la permutation à l'affichage initial.
+    if (!S.orderPerm) {
+      S.orderPerm = rngShuffle(q.steps.map((_, i) => i));
+      S.orderPick = [];
+    }
+    const pile = q.steps.map((_, i) => {
+      const idx = S.orderPick[i];
+      if (idx == null) return '<li class="empty">—</li>';
+      return '<li>' + esc(q.steps[idx]) + '</li>';
+    }).join("");
+    const choices = S.orderPerm.map(realIdx => {
+      const used = S.orderPick.includes(realIdx);
+      return '<button data-act="order" data-v="' + realIdx + '"' + (used ? ' disabled' : '') + '>' +
+        esc(q.steps[realIdx]) + '</button>';
+    }).join("");
+    const canValid = S.orderPick.length === q.steps.length;
+    const canUndo  = S.orderPick.length > 0;
+    return (
+      '<article class="card">' +
+        '<div class="eyebrow">' + eyebrow + '</div>' +
+        (q.ctx   ? '<div class="sens-ctx">' + esc(q.ctx) + '</div>' : '') +
+        (q.title ? '<div class="qtext">' + esc(q.title) + '</div>' : '') +
+        '<div class="order-lbl">Ton ordre</div>' +
+        '<ol class="order-pile">' + pile + '</ol>' +
+        '<div class="order-lbl">Étapes disponibles</div>' +
+        '<div class="order-choices">' + choices + '</div>' +
+        '<div class="btnrow" style="margin-top:12px">' +
+          '<button class="b-gold" data-act="orderValid"' + (canValid ? '' : ' disabled') + '>Valider</button>' +
+          '<button class="b-ghost" data-act="orderUndo"' + (canUndo ? '' : ' disabled') + '>Annuler</button>' +
+        '</div>' +
+      '</article>'
+    );
+  }
   return '<article class="card"><div class="qtext">Format inconnu : ' + esc(fmt) + '</div></article>';
 }
 
@@ -1319,6 +1483,12 @@ function renderQuestionRestate(q, fmt) {
       '<div class="sens-ctx">' + esc(q.ctx || "") + '</div>' +
       '<div class="sens-shock"><span class="sens-lbl">Choc</span> ' + esc(q.shock) + '</div>' +
       '<div class="sens-var"><span class="sens-lbl">Effet sur</span> ' + esc(q.var) + ' ?</div>'
+    );
+  }
+  if (fmt === "ordre") {
+    return (
+      (q.ctx   ? '<div class="sens-ctx">' + esc(q.ctx) + '</div>' : '') +
+      (q.title ? '<div class="qtext">' + esc(q.title) + '</div>' : '')
     );
   }
   return '<div class="qtext">' + esc(q.q) + '</div>';
@@ -1334,6 +1504,16 @@ function renderWhy() {
   const eyebrow = esc(cat) + " · " + fmt.toUpperCase() + (S.phase === "why" && S.duel ? " · DUEL" : "");
   const ans = S.answered || {};
 
+  // Bandeau spécifique au coup bas (SPEC §1.4).
+  const coupBasHeader = ans.coupBas ? (
+    '<div class="coupbas-note">' +
+      '<span class="cb-lbl">COUP BAS</span> passé à <b>' + esc(S.players[ans.target].name) + '</b> · ' +
+      (ans.botOk ? '<span style="color:var(--vert)">réponse juste</span>'
+                 : '<span style="color:var(--rouge)">se trompe</span>') +
+      '<div class="cb-hint">La question retombe en boîte 0 : elle reviendra en priorité.</div>' +
+    '</div>'
+  ) : "";
+
   let choicesBlock = "";
   let verdict = "";
 
@@ -1347,7 +1527,7 @@ function renderWhy() {
   } else if (fmt === "vf") {
     const goodLabel = q.a ? T.vrai : T.faux;
     verdict = '<div class="answered-good">Bonne réponse : ' + esc(goodLabel) + '</div>';
-    if (!ans.ok) {
+    if (!ans.ok && !ans.coupBas) {
       const givenLabel = ans.given ? T.vrai : T.faux;
       verdict += '<div class="answered-bad">Ta réponse : ' + esc(givenLabel) + '</div>';
     }
@@ -1357,6 +1537,18 @@ function renderWhy() {
     if (ans && ans.given && ans.given !== q.a) {
       const givenLabel = SENS_LABELS[ans.given] || ans.given;
       verdict += '<div class="answered-bad">Ta réponse : ' + esc(givenLabel) + '</div>';
+    }
+  } else if (fmt === "ordre") {
+    const correct = q.steps.map(step => '<li>' + esc(step) + '</li>').join("");
+    verdict = '<div class="order-lbl" style="color:var(--vert)">Ordre correct</div>' +
+              '<ol class="order-recap">' + correct + '</ol>';
+    if (!ans.ok && Array.isArray(ans.given)) {
+      const yours = ans.given.map((idx, pos) => {
+        const cls = (idx === pos) ? "match" : "mismatch";
+        return '<li class="' + cls + '">' + esc(q.steps[idx]) + '</li>';
+      }).join("");
+      verdict += '<div class="order-lbl" style="color:var(--rouge)">Ton ordre</div>' +
+                 '<ol class="order-recap">' + yours + '</ol>';
     }
     // Verdict duel : afficher qui a marqué le point ce round.
     if (S.duel) {
@@ -1372,6 +1564,7 @@ function renderWhy() {
   return (
     '<article class="card">' +
       '<div class="eyebrow">' + eyebrow + '</div>' +
+      coupBasHeader +
       renderQuestionRestate(q, fmt) +
       choicesBlock + verdict + why +
       '<div class="btnrow" style="margin-top:12px">' +
@@ -1386,8 +1579,11 @@ function renderBilan() {
   const nbErr = S.errors.length;
   const asked = S.asked.length;
   const over = (S.phase === "over");
+  const endcpc = (S.phase === "endcpc");
   const mname = (T.manches[S.manche] || T.manches.envoi).name;
-  const title = over ? "Émission terminée" : (T.finManche + " · " + mname);
+  const title = over    ? "Émission terminée"
+              : endcpc  ? ("Fin du coup par coup · Coup fatal à venir (J4)")
+              : (T.finManche + " · " + mname);
 
   // Retrouve chaque item d'erreur pour l'afficher.
   const byId = {};
@@ -1523,11 +1719,18 @@ function render() {
 
   if (S.screen === "show") {
     const mname = (T.manches[S.manche] || T.manches.envoi).name;
-    const total = S.duel ? "3" : "8";
+    const total = S.duel ? "3" : String(maxQForManche(S.manche) || "?");
     const idx = S.duel ? ((S.duel.n | 0) + 1) : ((S.qIdx | 0) + 1);
     sub.textContent = mname + (S.duel ? " · Duel " : " · Question ") + idx + "/" + total;
     if (S.phase === "intro") { renderIntroOverlay(); return; }
-    if (S.phase === "q")     { stage.innerHTML = renderQuestion(); return; }
+    if (S.phase === "q") {
+      let html = renderQuestion();
+      if (S.manche === "cpc" && S.coupBas) {
+        html = '<div class="coup-bas-btn"><button class="b-sm" data-act="coupBas">Coup bas · 1 disponible</button></div>' + html;
+      }
+      stage.innerHTML = html;
+      return;
+    }
     if (S.phase === "duel")  { stage.innerHTML = renderQuestion(); return; }
     if (S.phase === "why")   { stage.innerHTML = renderWhy(); return; }
     if (S.phase === "elim")  { renderElimOverlay(); return; }
@@ -1536,7 +1739,10 @@ function render() {
   }
 
   if (S.screen === "bilan") {
-    sub.textContent = S.phase === "over" ? "Émission terminée" : "Bilan";
+    sub.textContent =
+      S.phase === "over"    ? "Émission terminée" :
+      S.phase === "endcpc"  ? "Fin coup par coup" :
+      "Bilan";
     stage.innerHTML = renderBilan();
     return;
   }
@@ -1585,10 +1791,75 @@ const ACT = {
       }
       given = v;
       ok = (given === S.q.a);
+    } else if (fmt === "ordre") {
+      // Ordre est validé via ACT.orderValid, pas via ACT.answer.
+      throw new Error("answer.ordre: doit passer par orderValid");
     } else {
       throw new Error("answer: format non géré " + fmt);
     }
     answer({ ok, given });
+  },
+  order(v) {
+    if (!S || S.phase !== "q" || S.qFmt !== "ordre") return;
+    const idx = parseInt(v, 10);
+    if (!Number.isInteger(idx)) throw new Error("order: v invalide " + v);
+    if (!Array.isArray(S.orderPick)) S.orderPick = [];
+    if (S.orderPick.includes(idx)) return;
+    if (idx < 0 || idx >= S.q.steps.length) throw new Error("order: idx hors bornes");
+    S.orderPick.push(idx);
+    render();
+  },
+  orderUndo() {
+    if (!S || S.phase !== "q" || S.qFmt !== "ordre") return;
+    if (!Array.isArray(S.orderPick) || !S.orderPick.length) return;
+    S.orderPick.pop();
+    render();
+  },
+  orderValid() {
+    if (!S || S.phase !== "q" || S.qFmt !== "ordre") return;
+    if (!Array.isArray(S.orderPick) || S.orderPick.length !== S.q.steps.length) return;
+    const ok = S.orderPick.every((v, i) => v === i);
+    answer({ ok: ok, given: S.orderPick.slice() });
+  },
+  coupBas() {
+    // SPEC §1.4 : « le joueur peut passer une question à un bot ».
+    // La question retombe en boîte 0 (coût pédagogique), pas seulement
+    // stratégique.
+    if (!S || S.phase !== "q" || S.manche !== "cpc" || !S.coupBas) return;
+    let target = -1, low = Infinity;
+    for (let i = 1; i < S.players.length; i++) {
+      const p = S.players[i];
+      if (p.out) continue;
+      if (p.score < low) { low = p.score; target = i; }
+    }
+    if (target < 0) return;
+    const bot = S.players[target];
+    const fmt = S.qFmt;
+    const acc = (bot.acc && typeof bot.acc[fmt] === "number") ? bot.acc[fmt] : 0.5;
+    const prevFeu = bot.feu;
+    const botOk = rng() < acc;
+    if (botOk) {
+      bot.score += POINTS[fmt] | 0;
+    } else {
+      bot.feu = Math.min(2, bot.feu + 1);
+    }
+    // SRS : boîte 0, échue.
+    const srs = loadSRS();
+    const cur = srs[S.q.id] || { box: 0, due: 0, ok: 0, ko: 0, last: 0 };
+    cur.box = 0;
+    cur.due = Date.now();
+    cur.last = Date.now();
+    srs[S.q.id] = cur;
+    saveSRS(srs);
+    // Détection newlyRed sur ce bot uniquement (les autres bots
+    // n'ont pas répondu à cette question).
+    S.newlyRed = (bot.feu === 2 && prevFeu < 2) ? [target] : [];
+    S.coupBas = false;
+    S.answered = { coupBas: true, target: target, botOk: botOk };
+    S.phase = "why";
+    S.after = "nextQ";
+    banner("info", "Coup bas → " + bot.name);
+    render();
   },
   next() {
     if (!S) return;
