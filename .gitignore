@@ -1,0 +1,20 @@
+# dépendances outillage
+node_modules/
+
+# tests visuels (SPEC §8.4)
+captures/
+
+# extractions locales des sources — reproductibles depuis sources/
+text/
+
+# système
+.DS_Store
+__pycache__/
+*.pyc
+
+# écritures atomiques
+*.tmp
+
+# éditeurs
+.vscode/
+.idea/
