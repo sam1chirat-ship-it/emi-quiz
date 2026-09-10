@@ -1,0 +1,27 @@
+{
+  "CATS": {
+    "bdp":    { "name": "Balance des paiements",         "ch": 1 },
+    "pen":    { "name": "Position extérieure nette",      "ch": 1 },
+    "si":     { "name": "Épargne-investissement",         "ch": 1 },
+    "forex":  { "name": "Marché des changes",             "ch": 2 },
+    "cot":    { "name": "Cotation & taux croisés",        "ch": 2 },
+    "tcr":    { "name": "Taux effectifs & TCR",           "ch": 2 },
+    "smi":    { "name": "SMI & régimes de change",        "ch": 2 },
+    "parite": { "name": "Parités de taux d'intérêt",      "ch": 3 },
+    "monet":  { "name": "Modèles monétaires",             "ch": 3 },
+    "depr":   { "name": "Dépréciation & balance",         "ch": 4 },
+    "equil":  { "name": "Change d'équilibre",             "ch": 5 },
+    "mf":     { "name": "Mundell-Fleming",                "ch": 6 }
+  },
+  "BOTS": [
+    { "name": "La Cambiste",    "acc": { "qcm": 0.70, "vf": 0.70, "sens": 0.45, "ordre": 0.35, "calc": 0.65, "qcm3": 0.75 } },
+    { "name": "Le Bachoteur",   "acc": { "qcm": 0.60, "vf": 0.75, "sens": 0.55, "ordre": 0.55, "calc": 0.40, "qcm3": 0.65 } },
+    { "name": "L'Arbitragiste", "acc": { "qcm": 0.50, "vf": 0.55, "sens": 0.60, "ordre": 0.40, "calc": 0.75, "qcm3": 0.60 } }
+  ],
+  "QCM": [],
+  "VF": [],
+  "SENS": [],
+  "ORDRE": [],
+  "OUVERTE": [],
+  "ETOILE": []
+}

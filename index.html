@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0B1230">
+<meta name="format-detection" content="telephone=no">
+<title>Les 12 coups de l'EMI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root {
+  --ink: #0B1230;
+  --ink2: #14204A;
+  --ink3: #1E2E63;
+  --gold: #FFC93C;
+  --vert: #4DE6A8;
+  --orange: #FF9F43;
+  --rouge: #FF4D5A;
+  --bleu: #4FC3F7;
+  --cream: #FFF4E0;
+  --muted: #8E9BC7;
+  --line: rgba(79, 195, 247, .3);
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+  --pile-bas: 0px;
+  --sans: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
+  --serif: 'Lora', Georgia, serif;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--serif);
+  min-height: 100%;
+}
+body {
+  padding-top: max(20px, var(--sat));
+  padding-bottom: 0;
+  padding-left: var(--sal);
+  padding-right: var(--sar);
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  background:
+    radial-gradient(1200px 800px at 50% -10%, #1a2860 0%, transparent 60%),
+    linear-gradient(180deg, var(--ink) 0%, #070B22 100%);
+  min-height: 100vh;
+}
+input, textarea, #logwrap, #logwrap * {
+  -webkit-user-select: auto;
+  user-select: auto;
+  -webkit-touch-callout: default;
+}
+input[type=text], input[type=password] {
+  background: var(--ink3);
+  color: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: var(--serif);
+  font-size: 16px;
+}
+
+/* topbar : z-index 4 */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: max(30px, calc(10px + var(--sat))) 12px 8px;
+  background: linear-gradient(180deg, rgba(11, 18, 48, .92) 0%, rgba(11, 18, 48, .0) 100%);
+  backdrop-filter: blur(4px);
+}
+.topbar .spacer { flex: 1; }
+.topbar button {
+  font-family: var(--sans);
+  letter-spacing: .06em;
+}
+
+/* header : z-index 3 (flux) */
+header {
+  position: relative;
+  z-index: 3;
+  padding: 8px 16px 4px;
+  text-align: center;
+}
+header h1 {
+  font-family: var(--sans);
+  font-size: 34px;
+  letter-spacing: .08em;
+  margin: 0;
+  color: var(--gold);
+  text-shadow: 0 2px 0 #6b4a00, 0 4px 20px rgba(255, 201, 60, .3);
+}
+header .sub {
+  font-family: var(--sans);
+  color: var(--muted);
+  letter-spacing: .12em;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* pupitres : 4 colonnes en flex */
+#pupitres {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 10px 12px 6px;
+}
+.pod {
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 6px 6px;
+  text-align: center;
+  min-height: 76px;
+  position: relative;
+  transition: transform .15s ease, border-color .15s ease, opacity .3s ease;
+}
+.pod.active {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(255, 201, 60, .35);
+}
+.pod.out { opacity: .35; filter: grayscale(1); }
+.pod-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: .05em;
+  color: var(--cream);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.feux {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 4px 0 2px;
+}
+.feu {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1c2447;
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+.feu.on-0 { background: var(--vert); box-shadow: 0 0 6px var(--vert); }
+.feu.on-1 { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
+.feu.on-2 { background: var(--rouge); box-shadow: 0 0 6px var(--rouge); }
+.pod-score {
+  font-family: var(--sans);
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: .04em;
+}
+
+/* banner : position relative dans le flux (ARCHITECTURE §2.4 #B1) */
+#banner {
+  position: relative;
+  z-index: 3;
+  margin: 6px 12px 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  text-align: center;
+  min-height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .18s ease, padding .18s ease, margin .18s ease;
+  opacity: 0;
+}
+#banner.show {
+  max-height: 60px;
+  opacity: 1;
+  padding: 8px 12px;
+  margin: 6px 12px 6px;
+}
+#banner.good { background: rgba(77, 230, 168, .16); color: var(--vert); border: 1px solid rgba(77, 230, 168, .4); }
+#banner.bad { background: rgba(255, 77, 90, .18); color: var(--rouge); border: 1px solid rgba(255, 77, 90, .4); }
+#banner.warn { background: rgba(255, 159, 67, .18); color: var(--orange); border: 1px solid rgba(255, 159, 67, .4); }
+#banner.info { background: rgba(79, 195, 247, .14); color: var(--bleu); border: 1px solid rgba(79, 195, 247, .4); }
+
+/* stage : le flux principal, padding-bottom via --pile-bas */
+main#stage {
+  position: relative;
+  z-index: 3;
+  padding: 12px 12px calc(var(--pile-bas) + 24px);
+  min-height: 40vh;
+}
+
+/* setup */
+.setup h2 {
+  font-family: var(--sans);
+  font-size: 22px;
+  letter-spacing: .08em;
+  color: var(--cream);
+  margin: 8px 0 6px;
+}
+.setup .hint {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.cat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--sans);
+  letter-spacing: .04em;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+}
+.cat-chip.on {
+  color: var(--ink);
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.cat-chip .jauge {
+  display: inline-block;
+  width: 28px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, .1);
+  overflow: hidden;
+  vertical-align: middle;
+}
+.cat-chip .jauge span {
+  display: block;
+  height: 100%;
+  background: var(--vert);
+  transition: width .3s ease;
+}
+.cat-chip.on .jauge { background: rgba(0, 0, 0, .12); }
+.cat-chip.on .jauge span { background: var(--ink); }
+
+/* carte question */
+.card {
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35), 0 0 0 1px rgba(255, 255, 255, .02) inset;
+  margin-bottom: 12px;
+}
+.eyebrow {
+  font-family: var(--sans);
+  letter-spacing: .1em;
+  font-size: 12px;
+  color: var(--bleu);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.qtext {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--cream);
+  margin: 0 0 12px;
+}
+.why {
+  background: rgba(79, 195, 247, .08);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--cream);
+  font-size: 15px;
+  line-height: 1.45;
+  margin-top: 10px;
+}
+.why .lbl {
+  font-family: var(--sans);
+  color: var(--bleu);
+  letter-spacing: .06em;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.answered-good, .answered-bad {
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 6px 0;
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  font-size: 14px;
+}
+.answered-good { background: rgba(77, 230, 168, .14); color: var(--vert); border: 1px solid rgba(77, 230, 168, .35); }
+.answered-bad  { background: rgba(255, 77, 90, .16); color: var(--rouge); border: 1px solid rgba(255, 77, 90, .35); }
+
+/* boutons : effet Duolingo (border-bottom 5px, :active translate) */
+button {
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  font-size: 15px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  border-bottom-width: 5px;
+  background: var(--ink3);
+  color: var(--cream);
+  cursor: pointer;
+  transition: transform .06s ease, background .12s ease;
+}
+button:active { transform: translateY(3px); border-bottom-width: 2px; margin-bottom: 3px; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button.b-gold  { background: var(--gold); color: #1a1200; border-color: #b58a1e; border-bottom-color: #6b4a00; }
+button.b-vert  { background: var(--vert); color: #072016; border-color: #2fa676; border-bottom-color: #0f5a3c; }
+button.b-rouge { background: var(--rouge); color: #200608; border-color: #a83b45; border-bottom-color: #52161c; }
+button.b-ghost { background: transparent; border-color: var(--line); }
+button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
+
+/* rangée de boutons : le premier prend toute la largeur (ARCHITECTURE §10 #B4) */
+.btnrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.btnrow > button {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.btnrow > button:first-child {
+  flex: 1 1 100%;
+}
+
+/* liste de choix qcm : boutons pleine largeur, alignés à gauche */
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+.choices > button {
+  text-align: left;
+  font-family: var(--serif);
+  font-size: 15px;
+  letter-spacing: 0;
+  padding: 12px 12px;
+  white-space: normal;
+  line-height: 1.35;
+}
+.choices > button.correct {
+  background: rgba(77, 230, 168, .18);
+  border-color: rgba(77, 230, 168, .5);
+  color: var(--vert);
+}
+.choices > button.wrong {
+  background: rgba(255, 77, 90, .18);
+  border-color: rgba(255, 77, 90, .5);
+  color: var(--rouge);
+}
+.choices > button:disabled { opacity: .85; }
+
+/* écran bilan (fin J1) */
+.bilan h2 {
+  font-family: var(--sans);
+  font-size: 26px;
+  letter-spacing: .08em;
+  color: var(--gold);
+  margin: 8px 0 6px;
+}
+.bilan .score-big {
+  font-family: var(--sans);
+  font-size: 48px;
+  letter-spacing: .04em;
+  color: var(--cream);
+  text-align: center;
+  margin: 10px 0 4px;
+}
+
+/* overlays : z-index 50 · modal 60 · etoile 85 · boot 95 */
+#overlay, #modal, #etoile, #boot {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px calc(20px + var(--sar)) calc(20px + var(--sab)) calc(20px + var(--sal));
+  background: rgba(11, 18, 48, .82);
+  backdrop-filter: blur(6px);
+}
+#overlay.show, #modal.show, #etoile.show, #boot.show { display: flex; }
+#overlay { z-index: 50; }
+#modal { z-index: 60; }
+#etoile { z-index: 85; }
+#boot { z-index: 95; background: var(--ink); }
+
+#overlay .sheet, #modal .sheet {
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 16px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+}
+#overlay .sheet h2 {
+  font-family: var(--sans);
+  font-size: 24px;
+  letter-spacing: .08em;
+  color: var(--gold);
+  margin: 0 0 6px;
+}
+#overlay .sheet .rules {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+#boot .sheet {
+  text-align: center;
+  padding: 24px;
+}
+#boot .sheet h1 {
+  font-family: var(--sans);
+  font-size: 32px;
+  letter-spacing: .08em;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+#boot .sheet .hint { color: var(--muted); font-size: 14px; margin: 8px 0 16px; }
+
+/* prefers-reduced-motion : coupe toutes les animations (ARCHITECTURE §2.4) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar" role="toolbar">
+  <button class="b-sm b-ghost" data-act="toggleSfx" aria-label="Son">SON</button>
+  <button class="b-sm b-ghost" data-act="exportGame" aria-label="Exporter">EXP</button>
+  <button class="b-sm b-ghost" data-act="importGame" aria-label="Importer">IMP</button>
+  <span class="spacer"></span>
+  <button class="b-sm b-ghost" data-act="palmares">PALMARES</button>
+</div>
+
+<header>
+  <h1>Les 12 coups de l'EMI</h1>
+  <div class="sub" id="subtitle">Setup</div>
+</header>
+
+<div id="pupitres" aria-live="polite"></div>
+<div id="banner" role="status" aria-live="polite"></div>
+<main id="stage"></main>
+
+<div id="overlay" role="dialog" aria-modal="true"></div>
+<div id="modal" role="dialog" aria-modal="true"></div>
+<div id="etoile" role="dialog" aria-modal="true"></div>
+<div id="boot" role="dialog" aria-modal="true"></div>
+
+<script>
+"use strict";
+const DATA = {"CATS": {"bdp": {"name": "Balance des paiements", "ch": 1}, "pen": {"name": "Position extérieure nette", "ch": 1}, "si": {"name": "Épargne-investissement", "ch": 1}, "forex": {"name": "Marché des changes", "ch": 2}, "cot": {"name": "Cotation & taux croisés", "ch": 2}, "tcr": {"name": "Taux effectifs & TCR", "ch": 2}, "smi": {"name": "SMI & régimes de change", "ch": 2}, "parite": {"name": "Parités de taux d'intérêt", "ch": 3}, "monet": {"name": "Modèles monétaires", "ch": 3}, "depr": {"name": "Dépréciation & balance", "ch": 4}, "equil": {"name": "Change d'équilibre", "ch": 5}, "mf": {"name": "Mundell-Fleming", "ch": 6}}, "BOTS": [{"name": "La Cambiste", "acc": {"qcm": 0.7, "vf": 0.7, "sens": 0.45, "ordre": 0.35, "calc": 0.65, "qcm3": 0.75}}, {"name": "Le Bachoteur", "acc": {"qcm": 0.6, "vf": 0.75, "sens": 0.55, "ordre": 0.55, "calc": 0.4, "qcm3": 0.65}}, {"name": "L'Arbitragiste", "acc": {"qcm": 0.5, "vf": 0.55, "sens": 0.6, "ordre": 0.4, "calc": 0.75, "qcm3": 0.6}}], "QCM": [], "VF": [], "SENS": [], "ORDRE": [], "OUVERTE": [], "ETOILE": []};
+
+/* ============================================================
+ *  Les 12 coups de l'EMI — moteur v1 (J1 : coup d'envoi qcm/vf)
+ *  Conventions SPEC : PRNG seedable, S sérialisable, délégation
+ *  par data-act, aucun onclick=, aucun console.error.
+ * ============================================================ */
+
+// Chaînes UI. Objet plat, pas d'i18n multi-langue (SPEC §0).
+const T = {
+  title: "Les 12 coups de l'EMI",
+  setup: {
+    h: "Choisis tes catégories",
+    hint: "Un clic pour cocher / décocher. Il en faut au moins une.",
+    start: "Lancer l'émission",
+  },
+  manches: {
+    envoi:   { name: "Coup d'envoi",     rules: "4 candidats · 8 questions max · QCM & Vrai/Faux · 100 pts." },
+    cpc:     { name: "Coup par coup",    rules: "À venir (J3)." },
+    fatal:   { name: "Coup fatal",       rules: "À venir (J4)." },
+    maitre:  { name: "Coup de maître",   rules: "À venir (J5)." },
+    etoile:  { name: "Étoile mystérieuse", rules: "À venir (J5)." },
+  },
+  vrai: "Vrai",
+  faux: "Faux",
+  next: "Suivant",
+  ok: "C'est parti",
+  correct: "Bonne réponse",
+  wrong: "Mauvaise réponse",
+  feuOrange: "Feu orange",
+  feuRouge: "Feu rouge",
+  finManche: "Fin de la manche",
+  rejouer: "Rejouer",
+  bootTitle: "Les 12 coups de l'EMI",
+  bootHint: "Révisions L3 Paris 1 · Économie Monétaire Internationale",
+  bootStart: "Commencer",
+};
+
+// Points par format (SPEC §1.4)
+const POINTS = { qcm: 100, vf: 100, sens: 150, ordre: 200 };
+
+// SRS (SPEC §5.1) — intervalles par boîte, en jours
+const INTERVAL_DAYS = [0, 1, 2, 4, 7];
+const DAY_MS = 24 * 60 * 60 * 1000;
+const INTERVAL_MS = INTERVAL_DAYS.map(d => d * DAY_MS);
+
+// Clefs localStorage (SPEC §5.4)
+const KEY_SRS = "emi.srs.v1";
+const KEY_SETTINGS = "emi.settings.v1";
+const KEY_REGNE = "emi.regne.v1";
+
+// ---------- PRNG (mulberry32, seedable) ----------
+// Alimente TOUS les tirages du jeu ; Math.random est INTERDIT (SPEC §0).
+function mulberry32(seed) {
+  let s = seed >>> 0;
+  return function () {
+    s = (s + 0x6D2B79F5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+let SEED = 0;
+let rng = null;
+
+function initPRNG() {
+  const url = new URL(window.location.href);
+  const q = url.searchParams.get("seed");
+  if (q !== null && /^-?\d+$/.test(q)) {
+    SEED = parseInt(q, 10) >>> 0;
+  } else {
+    // Seed initial : trois sources d'entropie, XORées.
+    const t1 = Date.now() >>> 0;
+    const t2 = (performance.now() * 1000) >>> 0;
+    const buf = new Uint32Array(1);
+    crypto.getRandomValues(buf);
+    SEED = (t1 ^ t2 ^ buf[0]) >>> 0;
+  }
+  rng = mulberry32(SEED);
+  console.log("[emi] seed=" + SEED);
+}
+
+function rngInt(n) {
+  // n > 0. Retourne 0..n-1.
+  return Math.floor(rng() * n);
+}
+
+function rngPick(arr) {
+  return arr[rngInt(arr.length)];
+}
+
+function rngShuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = rngInt(i + 1);
+    const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+// ---------- helpers ----------
+function esc(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function norm(s) {
+  return String(s)
+    .toLowerCase()
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+// ---------- localStorage ----------
+function loadJSON(key, def) {
+  try {
+    const s = localStorage.getItem(key);
+    if (!s) return def;
+    return JSON.parse(s);
+  } catch (e) {
+    return def;
+  }
+}
+
+function saveJSON(key, obj) {
+  try { localStorage.setItem(key, JSON.stringify(obj)); }
+  catch (e) { /* quota, mode privé — silencieux, l'export/import reste dispo */ }
+}
+
+function loadSRS()      { return loadJSON(KEY_SRS, {}); }
+function saveSRS(o)     { saveJSON(KEY_SRS, o); }
+function loadRegne()    { return loadJSON(KEY_REGNE, { maitre: false, jours: 0, cagnotte: 0, etoile: null, palmares: [] }); }
+function saveRegne(o)   { saveJSON(KEY_REGNE, o); }
+
+function loadSettings() {
+  const catIds = Object.keys(DATA.CATS);
+  const s = loadJSON(KEY_SETTINGS, null);
+  if (!s || !Array.isArray(s.cats) || !s.cats.length) {
+    return { cats: catIds.slice(), sfx: true, express: false };
+  }
+  // Nettoyage : ne garde que les cats valides.
+  s.cats = s.cats.filter(c => catIds.includes(c));
+  if (!s.cats.length) s.cats = catIds.slice();
+  return s;
+}
+function saveSettings(o) { saveJSON(KEY_SETTINGS, o); }
+
+// ---------- SRS ----------
+function srsUpdate(id, ok) {
+  const srs = loadSRS();
+  const now = Date.now();
+  const cur = srs[id] || { box: 0, due: now, ok: 0, ko: 0, last: 0 };
+  if (ok) {
+    cur.box = Math.min(4, cur.box + 1);
+    cur.ok = (cur.ok | 0) + 1;
+    cur.due = now + INTERVAL_MS[cur.box];
+  } else {
+    cur.box = 0;
+    cur.ko = (cur.ko | 0) + 1;
+    cur.due = now;
+  }
+  cur.last = now;
+  srs[id] = cur;
+  saveSRS(srs);
+}
+
+// SPEC §5.2 : priorité échus (par box ↑) → jamais vus → autres (par due ↑).
+// Pas de pondération par faiblesse de catégorie en J1 (NOTES §5).
+function pickDue(fmt, cats) {
+  const bank = (fmt === "qcm") ? DATA.QCM : (fmt === "vf") ? DATA.VF : null;
+  if (!bank) throw new Error("pickDue: format inconnu " + fmt);
+  const now = Date.now();
+  const srs = loadSRS();
+  const asked = new Set(S ? S.asked : []);
+  const inCats = bank.filter(it => cats.includes(it.cat));
+
+  let cands = inCats.filter(it => !asked.has(it.id));
+  if (!cands.length) {
+    // Banque épuisée pour la session : on ignore le filtre « non posés ».
+    if (S && !S.warned[fmt]) {
+      console.log("[emi] banque " + fmt + " épuisée pour cats=" + cats.join(","));
+      S.warned[fmt] = true;
+    }
+    cands = inCats;
+    if (!cands.length) return null;
+  }
+
+  const due = [];
+  const fresh = [];
+  const later = [];
+  for (const it of cands) {
+    const st = srs[it.id];
+    if (!st) fresh.push(it);
+    else if (st.due <= now) due.push(it);
+    else later.push(it);
+  }
+  due.sort((a, b) => srs[a.id].box - srs[b.id].box);
+  later.sort((a, b) => srs[a.id].due - srs[b.id].due);
+
+  const pool = due.length ? due : (fresh.length ? fresh : later);
+  return rngPick(pool);
+}
+
+// ---------- state ----------
+let S = null;
+
+// Table de continuations (chaînes → fonctions). SPEC §6.1 : S.after
+// est une chaîne, on la résout ici. Aucune fonction dans S.
+const CONT = {
+  nextQ: () => nextQ(),
+  endManche: () => endManche(),
+};
+
+function newShow(settings) {
+  const cats = (settings.cats && settings.cats.length) ? settings.cats.slice() : Object.keys(DATA.CATS);
+  const botDef = DATA.BOTS;
+  S = {
+    screen: "show",
+    manche: "envoi",
+    phase: "intro",
+    players: [
+      { name: "Vous",        bot: false, score: 0, feu: 0, combo: 1, out: false, acc: null },
+      { name: botDef[0].name, bot: true, score: 0, feu: 0, combo: 1, out: false, acc: botDef[0].acc },
+      { name: botDef[1].name, bot: true, score: 0, feu: 0, combo: 1, out: false, acc: botDef[1].acc },
+      { name: botDef[2].name, bot: true, score: 0, feu: 0, combo: 1, out: false, acc: botDef[2].acc },
+    ],
+    cur: 0,
+    q: null,
+    qFmt: "",
+    qIdx: 0,
+    asked: [],
+    answered: null,
+    duel: null,
+    after: null,
+    clocks: null,
+    coupBas: true,
+    maitre: null,
+    cagnotte: 0,
+    errors: [],
+    log: [],
+    warned: {},
+    timer: 0,
+    timerMax: 0,
+    seed: SEED,
+    cats: cats,
+    sfx: settings.sfx !== false,
+    express: !!settings.express,
+    manchesLoggees: [],
+  };
+}
+
+// ---------- bandeau ----------
+let bannerTimer = null;
+function banner(kind, text) {
+  const el = document.getElementById("banner");
+  if (!el) return;
+  el.className = "";
+  el.textContent = text;
+  // Placement : entre #pupitres et #stage (déjà le cas dans le DOM).
+  el.classList.add(kind, "show");
+  if (bannerTimer) clearTimeout(bannerTimer);
+  bannerTimer = setTimeout(() => {
+    el.classList.remove("show");
+  }, 1400);
+}
+
+// ---------- flux question ----------
+function nextQ() {
+  // Alterne qcm / vf dans le coup d'envoi. Utile en J1 pour couvrir
+  // les deux formats à chaque partie.
+  const fmt = (S.qIdx % 2 === 0) ? "qcm" : "vf";
+  const it = pickDue(fmt, S.cats);
+  if (!it) {
+    // Aucune banque disponible dans les cats cochées : fin de manche.
+    endManche();
+    return;
+  }
+  S.q = it;
+  S.qFmt = fmt;
+  S.asked.push(it.id);
+  S.phase = "q";
+  S.answered = null;
+  render();
+}
+
+function botAnswerAll(fmt) {
+  for (let i = 1; i < S.players.length; i++) {
+    const b = S.players[i];
+    if (b.out) continue;
+    const acc = (b.acc && typeof b.acc[fmt] === "number") ? b.acc[fmt] : 0.5;
+    const botOk = rng() < acc;
+    if (botOk) {
+      b.score += POINTS[fmt] | 0;
+    } else {
+      b.feu = Math.min(2, b.feu + 1);
+    }
+  }
+}
+
+// answer({ok, given}) : goulot unique (SPEC §6.4).
+function answer(payload) {
+  const p = S.players[0];
+  const fmt = S.qFmt;
+  const ok = !!payload.ok;
+
+  if (ok) {
+    const mul = (p.combo >= 3) ? 1.5 : 1;
+    const pts = Math.floor(POINTS[fmt] * mul);
+    p.score += pts;
+    p.combo = (p.combo | 0) + 1;
+    banner("good", T.correct + " +" + pts);
+  } else {
+    p.combo = 1;
+    p.feu = Math.min(2, p.feu + 1);
+    S.errors.push({ id: S.q.id, fmt, given: payload.given, ok: false });
+    if (p.feu === 2)      banner("bad", T.feuRouge);
+    else if (p.feu === 1) banner("warn", T.feuOrange);
+    else                  banner("bad", T.wrong);
+  }
+  srsUpdate(S.q.id, ok);
+  botAnswerAll(fmt);
+
+  S.answered = { given: payload.given, ok };
+  S.phase = "why";
+  S.after = "nextQ";
+  render();
+}
+
+function endQ() {
+  // Coup d'envoi : max 8 questions.
+  S.qIdx = (S.qIdx | 0) + 1;
+  if (S.manche === "envoi" && S.qIdx >= 8) {
+    (CONT.endManche)();
+    return;
+  }
+  (CONT[S.after || "nextQ"])();
+}
+
+function endManche() {
+  // J1 : bilan simplifié « Fin de la manche ». Bilan complet en J2.
+  S.screen = "bilan";
+  S.phase = "";
+  render();
+}
+
+// ---------- rendu ----------
+function renderPupitres() {
+  const el = document.getElementById("pupitres");
+  if (!el) return;
+  if (!S || S.screen === "setup") { el.innerHTML = ""; return; }
+  const rows = S.players.map((p, i) => {
+    const active = (i === 0 && S.screen === "show") ? " active" : "";
+    const out = p.out ? " out" : "";
+    const feux = [0, 1, 2].map(j => {
+      const on = (j <= p.feu) ? (" on-" + p.feu) : "";
+      return '<span class="feu' + on + '"></span>';
+    }).join("");
+    return (
+      '<div class="pod' + active + out + '">' +
+        '<div class="pod-name">' + esc(p.name) + '</div>' +
+        '<div class="feux">' + feux + '</div>' +
+        '<div class="pod-score">' + (p.score | 0) + '</div>' +
+      '</div>'
+    );
+  });
+  el.innerHTML = rows.join("");
+}
+
+function renderSetup() {
+  const stage = document.getElementById("stage");
+  const overlay = document.getElementById("overlay");
+  overlay.classList.remove("show"); overlay.innerHTML = "";
+  document.getElementById("subtitle").textContent = "Setup";
+
+  const settings = loadSettings();
+  const srs = loadSRS();
+
+  const chips = Object.keys(DATA.CATS).map(cid => {
+    const cat = DATA.CATS[cid];
+    const on = settings.cats.includes(cid) ? " on" : "";
+    // Jauge = part des items de la cat en boîte ≥ 2 (§5.3).
+    const bank = [].concat(DATA.QCM || [], DATA.VF || [], DATA.SENS || [], DATA.ORDRE || [], DATA.OUVERTE || []);
+    const inCat = bank.filter(it => it.cat === cid);
+    const knownIds = Object.keys(srs);
+    const good = inCat.filter(it => knownIds.includes(it.id) && srs[it.id].box >= 2).length;
+    const pct = inCat.length ? Math.round(100 * good / inCat.length) : 0;
+    return (
+      '<span class="cat-chip' + on + '" data-act="toggleCat" data-v="' + esc(cid) + '">' +
+        esc(cat.name) +
+        ' <span class="jauge"><span style="width:' + pct + '%"></span></span>' +
+      '</span>'
+    );
+  }).join("");
+
+  stage.innerHTML =
+    '<section class="setup">' +
+      '<h2>' + esc(T.setup.h) + '</h2>' +
+      '<div class="hint">' + esc(T.setup.hint) + '</div>' +
+      '<div class="cats">' + chips + '</div>' +
+      '<div class="btnrow">' +
+        '<button class="b-gold" data-act="startShow">' + esc(T.setup.start) + '</button>' +
+      '</div>' +
+    '</section>';
+}
+
+function renderIntroOverlay() {
+  const overlay = document.getElementById("overlay");
+  const m = T.manches[S.manche] || T.manches.envoi;
+  overlay.innerHTML =
+    '<div class="sheet">' +
+      '<h2>' + esc(m.name) + '</h2>' +
+      '<div class="rules">' + esc(m.rules) + '</div>' +
+      '<div class="btnrow">' +
+        '<button class="b-gold" data-act="introOK">' + esc(T.ok) + '</button>' +
+      '</div>' +
+    '</div>';
+  overlay.classList.add("show");
+  document.getElementById("stage").innerHTML = "";
+}
+
+function renderQuestion() {
+  const q = S.q;
+  const fmt = S.qFmt;
+  const cat = (DATA.CATS[q.cat] && DATA.CATS[q.cat].name) || q.cat;
+  const eyebrow = esc(cat) + " · " + fmt.toUpperCase();
+
+  if (fmt === "qcm") {
+    const choices = q.choices.map((c, i) =>
+      '<button data-act="answer" data-v="' + i + '">' + esc(c) + '</button>'
+    ).join("");
+    return (
+      '<article class="card">' +
+        '<div class="eyebrow">' + eyebrow + '</div>' +
+        '<div class="qtext">' + esc(q.q) + '</div>' +
+        '<div class="choices">' + choices + '</div>' +
+      '</article>'
+    );
+  }
+  if (fmt === "vf") {
+    return (
+      '<article class="card">' +
+        '<div class="eyebrow">' + eyebrow + '</div>' +
+        '<div class="qtext">' + esc(q.q) + '</div>' +
+        '<div class="btnrow" style="margin-top:12px">' +
+          '<button class="b-vert"  data-act="answer" data-v="true">'  + esc(T.vrai) + '</button>' +
+          '<button class="b-rouge" data-act="answer" data-v="false">' + esc(T.faux) + '</button>' +
+        '</div>' +
+      '</article>'
+    );
+  }
+  return '<article class="card"><div class="qtext">Format inconnu : ' + esc(fmt) + '</div></article>';
+}
+
+function renderWhy() {
+  const q = S.q;
+  const fmt = S.qFmt;
+  const cat = (DATA.CATS[q.cat] && DATA.CATS[q.cat].name) || q.cat;
+  const eyebrow = esc(cat) + " · " + fmt.toUpperCase();
+  const ans = S.answered;
+
+  let choicesBlock = "";
+  let verdict = "";
+
+  if (fmt === "qcm") {
+    choicesBlock = '<div class="choices">' + q.choices.map((c, i) => {
+      let cls = "";
+      if (i === q.a) cls = " correct";
+      else if (i === ans.given && !ans.ok) cls = " wrong";
+      return '<button class="' + cls.trim() + '" disabled data-v="' + i + '">' + esc(c) + '</button>';
+    }).join("") + '</div>';
+  } else if (fmt === "vf") {
+    const goodLabel = q.a ? T.vrai : T.faux;
+    verdict = '<div class="answered-good">Bonne réponse : ' + esc(goodLabel) + '</div>';
+    if (!ans.ok) {
+      const givenLabel = ans.given ? T.vrai : T.faux;
+      verdict += '<div class="answered-bad">Ta réponse : ' + esc(givenLabel) + '</div>';
+    }
+  }
+
+  const why = q.why ? '<div class="why"><div class="lbl">POURQUOI</div>' + esc(q.why) + '</div>' : '';
+
+  return (
+    '<article class="card">' +
+      '<div class="eyebrow">' + eyebrow + '</div>' +
+      '<div class="qtext">' + esc(q.q) + '</div>' +
+      choicesBlock + verdict + why +
+      '<div class="btnrow" style="margin-top:12px">' +
+        '<button class="b-gold" data-act="next">' + esc(T.next) + '</button>' +
+      '</div>' +
+    '</article>'
+  );
+}
+
+function renderBilan() {
+  const p = S.players[0];
+  const nbErr = S.errors.length;
+  const asked = S.asked.length;
+  return (
+    '<section class="bilan">' +
+      '<h2>' + esc(T.finManche) + " · " + esc((T.manches[S.manche] || T.manches.envoi).name) + '</h2>' +
+      '<div class="score-big">' + (p.score | 0) + '</div>' +
+      '<div class="hint" style="text-align:center;color:var(--muted)">' +
+        asked + ' questions · ' + (asked - nbErr) + ' bonnes · ' + nbErr + ' erreurs' +
+      '</div>' +
+      '<div class="btnrow">' +
+        '<button class="b-gold" data-act="restart">' + esc(T.rejouer) + '</button>' +
+      '</div>' +
+    '</section>'
+  );
+}
+
+function render() {
+  const overlay = document.getElementById("overlay");
+  const modal = document.getElementById("modal");
+  const etoile = document.getElementById("etoile");
+  const stage = document.getElementById("stage");
+  const sub = document.getElementById("subtitle");
+
+  overlay.classList.remove("show");
+  modal.classList.remove("show");
+  etoile.classList.remove("show");
+
+  if (!S || S.screen === "setup") {
+    renderPupitres();
+    renderSetup();
+    return;
+  }
+
+  renderPupitres();
+
+  if (S.screen === "show") {
+    const mname = (T.manches[S.manche] || T.manches.envoi).name;
+    sub.textContent = mname + " · Question " + ((S.qIdx | 0) + 1) + "/8";
+    if (S.phase === "intro") {
+      renderIntroOverlay();
+      return;
+    }
+    if (S.phase === "q")   { stage.innerHTML = renderQuestion(); return; }
+    if (S.phase === "why") { stage.innerHTML = renderWhy(); return; }
+    stage.innerHTML = "";
+    return;
+  }
+
+  if (S.screen === "bilan") {
+    sub.textContent = "Bilan";
+    stage.innerHTML = renderBilan();
+    return;
+  }
+
+  stage.innerHTML = "";
+}
+
+// ---------- table d'actions (délégation) ----------
+const ACT = {
+  toggleCat(v) {
+    const s = loadSettings();
+    if (s.cats.includes(v)) s.cats = s.cats.filter(c => c !== v);
+    else s.cats = s.cats.concat([v]);
+    if (!s.cats.length) s.cats = [v]; // au moins une catégorie
+    saveSettings(s);
+    render();
+  },
+  startShow() {
+    const s = loadSettings();
+    if (!s.cats.length) return;
+    newShow(s);
+    render();
+  },
+  introOK() {
+    if (!S) return;
+    S.phase = "q";
+    nextQ();
+  },
+  answer(v) {
+    if (!S || S.phase !== "q") return;
+    const fmt = S.qFmt;
+    let given, ok;
+    if (fmt === "qcm") {
+      given = parseInt(v, 10);
+      if (!(given >= 0 && given < 4)) throw new Error("answer.qcm: v invalide " + v);
+      ok = (given === S.q.a);
+    } else if (fmt === "vf") {
+      if (v !== "true" && v !== "false") throw new Error("answer.vf: v invalide " + v);
+      given = (v === "true");
+      ok = (given === S.q.a);
+    } else {
+      throw new Error("answer: format non géré " + fmt);
+    }
+    answer({ ok, given });
+  },
+  next() {
+    if (!S || S.phase !== "why") return;
+    endQ();
+  },
+  restart() {
+    // render() traite S=null exactement comme screen:"setup".
+    S = null;
+    render();
+  },
+  toggleSfx() {
+    const s = loadSettings();
+    s.sfx = !s.sfx;
+    saveSettings(s);
+    banner("info", "Son : " + (s.sfx ? "on" : "off"));
+  },
+  exportGame() {
+    if (!S) { banner("info", "Rien à exporter."); return; }
+    const payload = { version: 1, ts: Date.now(), S: S, SRS: loadSRS(), REGNE: loadRegne() };
+    const s = JSON.stringify(payload);
+    const blob = new Blob([s], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "emi-" + new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19) + ".json";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 200);
+  },
+  importGame() {
+    const inp = document.createElement("input");
+    inp.type = "file"; inp.accept = "application/json";
+    inp.addEventListener("change", ev => {
+      const f = inp.files && inp.files[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        let j;
+        try { j = JSON.parse(reader.result); } catch (e) { banner("bad", "Import: JSON invalide."); return; }
+        if (!j || j.version !== 1) { banner("bad", "Import: version inattendue."); return; }
+        if (j.SRS) saveSRS(j.SRS);
+        if (j.REGNE) saveRegne(j.REGNE);
+        if (j.S && j.S.players) { S = j.S; render(); banner("info", "Partie restaurée."); }
+        else { banner("info", "SRS & règne restaurés."); render(); }
+      };
+      reader.readAsText(f);
+    });
+    inp.click();
+  },
+  palmares() {
+    const r = loadRegne();
+    const items = (r.palmares || []).map((e, i) =>
+      '<div style="margin:6px 0">' + (i + 1) + '. ' + esc((e.jours | 0) + " jours · " + (e.cagnotte | 0) + " pts") + '</div>'
+    ).join("") || '<div style="color:var(--muted)">Aucun règne archivé.</div>';
+    const modal = document.getElementById("modal");
+    modal.innerHTML =
+      '<div class="sheet">' +
+        '<h2 style="font-family:var(--sans);letter-spacing:.08em;color:var(--gold);margin:0 0 6px">PALMARÈS</h2>' +
+        items +
+        '<div class="btnrow"><button class="b-ghost" data-act="closeModal">Fermer</button></div>' +
+      '</div>';
+    modal.classList.add("show");
+  },
+  closeModal() {
+    document.getElementById("modal").classList.remove("show");
+  },
+};
+
+// Délégation unique : `pointerup` sur document, filtrée par
+// `[data-act]`. Aucun `onclick=` inline. SPEC §7.2 mentionne #stage ;
+// on étend au document pour couvrir topbar/overlay/modal — la contrainte
+// « une seule voie » est respectée (un handler, une table ACT).
+function onPointerUp(ev) {
+  const el = ev.target && ev.target.closest ? ev.target.closest("[data-act]") : null;
+  if (!el) return;
+  const act = el.dataset.act;
+  if (!act) return;
+  const v = el.dataset.v || "";
+  const fn = ACT[act];
+  if (!fn) throw new Error("Action inconnue : " + act);
+  ev.preventDefault();
+  fn(v, el, ev);
+}
+
+// ---------- ResizeObserver pour --pile-bas (ARCHITECTURE §2.4 #B2) ----------
+// En J1 aucun élément fixe en bas ; le contrat existe pour être branché
+// dès qu'on ajoute un #pilebas.
+function initBottomPileObserver() {
+  const el = document.getElementById("pilebas");
+  if (!el || typeof ResizeObserver === "undefined") return;
+  const root = document.documentElement;
+  const ro = new ResizeObserver(entries => {
+    for (const e of entries) {
+      const h = Math.ceil(e.contentRect.height);
+      root.style.setProperty("--pile-bas", h + "px");
+    }
+  });
+  ro.observe(el);
+}
+
+// ---------- boot ----------
+(function boot() {
+  initPRNG();
+  document.addEventListener("pointerup", onPointerUp, { passive: false });
+  // Boot IIFE : squelette rendu, puis setup.
+  const bootEl = document.getElementById("boot");
+  bootEl.innerHTML =
+    '<div class="sheet">' +
+      '<h1>' + esc(T.bootTitle) + '</h1>' +
+      '<div class="hint">' + esc(T.bootHint) + '</div>' +
+      '<div class="btnrow">' +
+        '<button class="b-gold" data-act="bootStart">' + esc(T.bootStart) + '</button>' +
+      '</div>' +
+    '</div>';
+  bootEl.classList.add("show");
+  ACT.bootStart = function () {
+    bootEl.classList.remove("show");
+    render();
+  };
+  initBottomPileObserver();
+  // Rendu initial silencieux du fond (setup sous le boot).
+  render();
+})();
+</script>
+</body>
+</html>

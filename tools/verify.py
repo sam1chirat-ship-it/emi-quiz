@@ -76,17 +76,15 @@ def _extract_script(html: str) -> tuple[list[str], str]:
 
 
 def _extract_data_const(script: str) -> str | None:
-    """Retourne la chaîne JSON entre `const DATA=` et le `;` qui termine.
+    """Retourne la chaîne JSON entre `const DATA<ws>=<ws>` et le `};`.
 
-    Contrat : DATA est un objet littéral JSON strict inlined, terminé par
-    `};` suivi d'un saut de ligne ou d'un espace. build.py garantit ce
-    format.
+    Contrat : DATA est un objet littéral JSON strict inliné, terminé par
+    `};`. build.py insère `const DATA = {…};`.
     """
-    marker = "const DATA="
-    i = script.find(marker)
-    if i < 0:
+    m = re.search(r"\bconst\s+DATA\s*=\s*", script)
+    if not m:
         return None
-    start = i + len(marker)
+    start = m.end()
     # `};` — le premier tel motif après start.
     j = script.find("};", start)
     if j < 0:
