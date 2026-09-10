@@ -407,7 +407,186 @@
       "why": "Prix rigides, statique comparative. Le passage à Dornbusch (prix flexibles à long terme + rigidité à court terme) apporte la dynamique."
     }
   ],
-  "SENS": [],
+  "SENS": [
+    {
+      "id": "parite-005", "cat": "parite", "ch": 3, "diff": 2,
+      "ctx": "PNCTI, i* et eᵃ inchangés, e = log du taux au certain",
+      "shock": "Hausse surprise du taux d'intérêt domestique i",
+      "var": "Taux de change au certain e",
+      "a": "up",
+      "trap": "sens-parite",
+      "why": "e = eᵃ + (i − i*) : i ↑ ⇒ e ↑ (appréciation immédiate)."
+    },
+    {
+      "id": "parite-006", "cat": "parite", "ch": 3, "diff": 2,
+      "ctx": "PNCTI, i et i* inchangés",
+      "shock": "Hausse de l'anticipation eᵃ (dépréciation anticipée)",
+      "var": "Taux de change au certain e aujourd'hui",
+      "a": "up",
+      "trap": "sens-parite",
+      "why": "e = eᵃ + (i − i*) : à i − i* donné, eᵃ ↑ ⇒ e ↑ dès aujourd'hui."
+    },
+    {
+      "id": "mf-005", "cat": "mf", "ch": 6, "diff": 2,
+      "ctx": "Mundell-Fleming, change flexible, mobilité parfaite des capitaux",
+      "shock": "Hausse des dépenses publiques G",
+      "var": "Production Y à l'équilibre",
+      "a": "same",
+      "trap": "mf-regime",
+      "why": "G ↑ ⇒ i ↑ ⇒ entrées de capitaux ⇒ appréciation ⇒ X − M ↓ : éviction totale, Y inchangé."
+    },
+    {
+      "id": "mf-006", "cat": "mf", "ch": 6, "diff": 2,
+      "ctx": "Mundell-Fleming, change flexible, mobilité parfaite",
+      "shock": "Hausse permanente de l'offre de monnaie",
+      "var": "Production Y",
+      "a": "up",
+      "trap": "mf-regime",
+      "why": "Ms ↑ ⇒ LM se déplace à droite ⇒ i ↓ ⇒ sortie de capitaux ⇒ dépréciation ⇒ X − M ↑ ⇒ Y ↑."
+    },
+    {
+      "id": "mf-007", "cat": "mf", "ch": 6, "diff": 3,
+      "ctx": "Mundell-Fleming, changes fixes, mobilité parfaite",
+      "shock": "Hausse des dépenses publiques G",
+      "var": "Production Y",
+      "a": "up",
+      "trap": "mf-regime",
+      "why": "En fixe + mobilité parfaite, i doit rester = i*. La BC accommode l'entrée de capitaux ⇒ Ms ↑ ⇒ Y ↑. La politique budgétaire est efficace."
+    },
+    {
+      "id": "mf-008", "cat": "mf", "ch": 6, "diff": 2,
+      "ctx": "Marché des changes, régime fixe, mobilité parfaite, la BC intervient de façon stérilisée",
+      "shock": "Vente stérilisée de devises par la banque centrale",
+      "var": "Offre de monnaie nationale Ms",
+      "a": "same",
+      "trap": "sterilise",
+      "why": "La stérilisation compense l'intervention par une opération d'open market inverse : Ms ne bouge pas."
+    },
+    {
+      "id": "depr-004", "cat": "depr", "ch": 4, "diff": 2,
+      "ctx": "Condition Marshall-Lerner vérifiée, moyen/long terme",
+      "shock": "Dépréciation du taux de change nominal",
+      "var": "Solde commercial X − M",
+      "a": "up",
+      "trap": "ml-symetrie",
+      "why": "εX + εM > 1 : les effets volumes l'emportent, le solde s'améliore à moyen terme."
+    },
+    {
+      "id": "depr-005", "cat": "depr", "ch": 4, "diff": 2,
+      "ctx": "Court terme, contrats de commerce en cours",
+      "shock": "Dépréciation du taux de change nominal",
+      "var": "Solde commercial X − M",
+      "a": "down",
+      "trap": "ml-symetrie",
+      "why": "Volumes rigides à court terme, l'effet valeur domine : le solde se dégrade avant de se redresser (courbe en J)."
+    },
+    {
+      "id": "equil-004", "cat": "equil", "ch": 5, "diff": 3,
+      "ctx": "Balassa-Samuelson, pays émergent qui rattrape technologiquement",
+      "shock": "Gain de productivité dans le secteur échangeable",
+      "var": "Taux de change réel (au certain)",
+      "a": "up",
+      "trap": "bs-etapes",
+      "why": "Productivité ↑ ⇒ salaires ↑ ⇒ contagion à l'abrité ⇒ prix des non-échangeables ↑ ⇒ appréciation réelle."
+    },
+    {
+      "id": "equil-005", "cat": "equil", "ch": 5, "diff": 2,
+      "ctx": "PPA relative, long terme, taux au certain",
+      "shock": "Différentiel d'inflation π > π* (inflation domestique supérieure à l'étrangère)",
+      "var": "Taux de change nominal au certain",
+      "a": "down",
+      "trap": "certain-incertain",
+      "why": "PPA relative : Δe ≈ π* − π. π > π* ⇒ e ↓ (dépréciation nominale)."
+    },
+    {
+      "id": "monet-004", "cat": "monet", "ch": 3, "diff": 2,
+      "ctx": "Modèle monétaire prix flexibles (Frenkel), long terme",
+      "shock": "Hausse permanente de l'offre de monnaie nationale",
+      "var": "Taux de change au certain",
+      "a": "down",
+      "trap": "fixe-flexible",
+      "why": "Prix flexibles + PPA : Ms ↑ x% ⇒ P ↑ x% ⇒ e ↓ x% (dépréciation nominale)."
+    },
+    {
+      "id": "monet-005", "cat": "monet", "ch": 3, "diff": 3,
+      "ctx": "Dornbusch, court terme (prix rigides, PNCTI, mobilité parfaite)",
+      "shock": "Hausse permanente de l'offre de monnaie nationale",
+      "var": "Taux de change au certain à court terme",
+      "a": "down",
+      "trap": "statique-dyn",
+      "why": "Surajustement : e sous-tire au-delà de sa valeur de long terme, puis revient — mais à court terme, e ↓ plus qu'à long terme."
+    },
+    {
+      "id": "bdp-005", "cat": "bdp", "ch": 1, "diff": 2,
+      "ctx": "Convention du cours : CF > 0 = sortie nette de capitaux",
+      "shock": "Le pays enregistre d'importantes entrées nettes de capitaux",
+      "var": "Solde du compte financier CF",
+      "a": "down",
+      "trap": "signe-bdp",
+      "why": "Entrées nettes ⇒ signe négatif de CF (convention du cours). Ne pas confondre avec l'usage international inverse."
+    },
+    {
+      "id": "bdp-006", "cat": "bdp", "ch": 1, "diff": 2,
+      "ctx": "Identité TC + CC − CF + EO = 0",
+      "shock": "Creusement du déficit courant (CC < 0)",
+      "var": "Compte financier CF (hors EO)",
+      "a": "down",
+      "trap": "signe-bdp",
+      "why": "TC + CC − CF ≈ 0 ⇒ CF ≈ TC + CC. Si CC ↓, alors CF ↓ (négatif) : le pays reçoit des capitaux pour financer le déficit."
+    },
+    {
+      "id": "pen-004", "cat": "pen", "ch": 1, "diff": 2,
+      "ctx": "Hors effets de valorisation",
+      "shock": "Excédent courant persistant sur plusieurs années",
+      "var": "Position extérieure nette (PEN)",
+      "a": "up",
+      "trap": "stock-flux",
+      "why": "ΔPEN = CC hors valorisation : un flux d'excédent alimente le stock d'actifs nets."
+    },
+    {
+      "id": "si-004", "cat": "si", "ch": 1, "diff": 2,
+      "ctx": "Économie ouverte, (S − I) + (T − G) = X − M",
+      "shock": "Hausse de l'épargne privée S à I, T, G donnés",
+      "var": "Solde courant X − M",
+      "a": "up",
+      "why": "L'excès d'épargne se déverse à l'étranger : X − M ↑ (excédent courant)."
+    },
+    {
+      "id": "forex-005", "cat": "forex", "ch": 2, "diff": 2,
+      "ctx": "Marché au comptant, cotation au certain 1 € = X $",
+      "shock": "Hausse durable de la demande d'euros",
+      "var": "Taux 1 € = X $",
+      "a": "up",
+      "trap": "certain-incertain",
+      "why": "Demande d'euros ↑ ⇒ prix de l'euro ↑ ⇒ X ↑ : appréciation de l'euro (au certain)."
+    },
+    {
+      "id": "cot-004", "cat": "cot", "ch": 2, "diff": 2,
+      "ctx": "Réciprocité : S_incertain = 1 / S_certain",
+      "shock": "Appréciation de la monnaie nationale (au certain S_C ↑)",
+      "var": "Taux à l'incertain S_I",
+      "a": "down",
+      "trap": "certain-incertain",
+      "why": "S_I = 1/S_C : quand S_C monte, S_I baisse. Piège de lecture inverse."
+    },
+    {
+      "id": "tcr-004", "cat": "tcr", "ch": 2, "diff": 2,
+      "ctx": "TCER = TCEN × P/P* (défini au certain)",
+      "shock": "Hausse de l'inflation domestique π > π*, à TCEN inchangé",
+      "var": "Taux de change réel",
+      "a": "up",
+      "why": "TCER ↑ ⇒ appréciation réelle : perte de compétitivité-prix, gain de pouvoir d'achat."
+    },
+    {
+      "id": "smi-004", "cat": "smi", "ch": 2, "diff": 3,
+      "ctx": "Régime de changes fixes, mobilité parfaite, la BC défend la parité",
+      "shock": "Sortie durable de capitaux (défiance)",
+      "var": "Réserves de change officielles",
+      "a": "down",
+      "trap": "mf-regime",
+      "why": "Pour maintenir la parité, la BC vend des devises contre sa monnaie : les réserves diminuent."
+    }
+  ],
   "ORDRE": [],
   "OUVERTE": [],
   "ETOILE": []

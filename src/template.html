@@ -377,6 +377,144 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
 }
 .choices > button:disabled { opacity: .85; }
 
+/* format sens : ctx + shock + var, 4 boutons ↑ ↓ = ? */
+.sens-ctx {
+  font-family: var(--serif);
+  color: var(--muted);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.35;
+  margin: 4px 0 8px;
+}
+.sens-shock, .sens-var {
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.35;
+  margin: 4px 0;
+  color: var(--cream);
+}
+.sens-lbl {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  font-size: 11px;
+  color: var(--bleu);
+  margin-right: 6px;
+  text-transform: uppercase;
+}
+.sens-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+.sens-btn {
+  font-family: var(--sans);
+  font-size: 22px;
+  letter-spacing: 0;
+  padding: 14px 6px;
+  min-height: 52px;
+}
+
+/* verdict d'une manche de duel */
+.duel-round {
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  font-size: 13px;
+  color: var(--bleu);
+  background: rgba(79, 195, 247, .12);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* liste d'erreurs (bilan §1.9) */
+.errlist { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.errlist .err {
+  background: rgba(255, 77, 90, .08);
+  border: 1px solid rgba(255, 77, 90, .28);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+.errlist .err .cat {
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  font-size: 11px;
+  color: var(--rouge);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.errlist .err .qtxt { font-size: 14px; line-height: 1.35; }
+.errlist .err .ta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.errlist .err .ta b { color: var(--vert); }
+.errlist .err .ta i { color: var(--rouge); font-style: normal; }
+.jauges { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.jauges .row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+.jauges .row .name {
+  flex: 1 1 0;
+  font-family: var(--sans);
+  letter-spacing: .04em;
+  color: var(--cream);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jauges .row .bar {
+  flex: 1 1 0;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .08);
+  overflow: hidden;
+  max-width: 140px;
+}
+.jauges .row .bar span {
+  display: block;
+  height: 100%;
+  background: var(--vert);
+}
+.jauges .row .pct {
+  font-family: var(--sans);
+  letter-spacing: .04em;
+  color: var(--muted);
+  width: 34px;
+  text-align: right;
+  font-size: 12px;
+}
+
+/* overlay d'annonce (élimination, duel) */
+#overlay .sheet .duel-title {
+  font-family: var(--sans);
+  color: var(--rouge);
+  letter-spacing: .08em;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+#overlay .sheet .vs {
+  font-family: var(--sans);
+  font-size: 24px;
+  color: var(--cream);
+  margin: 4px 0;
+  letter-spacing: .06em;
+}
+#overlay .sheet .verdict-elim {
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  color: var(--rouge);
+  font-size: 20px;
+  margin: 6px 0 4px;
+}
+
 /* écran bilan (fin J1) */
 .bilan h2 {
   font-family: var(--sans);
@@ -658,7 +796,11 @@ function srsUpdate(id, ok) {
 // SPEC §5.2 : priorité échus (par box ↑) → jamais vus → autres (par due ↑).
 // Pas de pondération par faiblesse de catégorie en J1 (NOTES §5).
 function pickDue(fmt, cats) {
-  const bank = (fmt === "qcm") ? DATA.QCM : (fmt === "vf") ? DATA.VF : null;
+  const bank =
+    (fmt === "qcm")  ? DATA.QCM :
+    (fmt === "vf")   ? DATA.VF :
+    (fmt === "sens") ? DATA.SENS :
+    null;
   if (!bank) throw new Error("pickDue: format inconnu " + fmt);
   const now = Date.now();
   const srs = loadSRS();
@@ -737,6 +879,8 @@ function newShow(settings) {
     sfx: settings.sfx !== false,
     express: !!settings.express,
     manchesLoggees: [],
+    newlyRed: null,
+    elimInfo: null,
   };
 }
 
@@ -774,25 +918,38 @@ function nextQ() {
   render();
 }
 
+// Renvoie la liste des indices de bots qui passent NOUVELLEMENT au rouge
+// (feu 1 → 2) sur cette question, dans l'ordre où ils sont joués.
 function botAnswerAll(fmt) {
+  const newlyRed = [];
   for (let i = 1; i < S.players.length; i++) {
     const b = S.players[i];
     if (b.out) continue;
     const acc = (b.acc && typeof b.acc[fmt] === "number") ? b.acc[fmt] : 0.5;
     const botOk = rng() < acc;
+    const prev = b.feu;
     if (botOk) {
       b.score += POINTS[fmt] | 0;
     } else {
       b.feu = Math.min(2, b.feu + 1);
     }
+    if (b.feu === 2 && prev < 2) newlyRed.push(i);
   }
+  return newlyRed;
 }
 
 // answer({ok, given}) : goulot unique (SPEC §6.4).
+// Route selon la phase courante : duel → answerDuel, sinon flux normal.
 function answer(payload) {
+  if (S && S.duel) { answerDuel(payload); return; }
+  resolveNormal(payload);
+}
+
+function resolveNormal(payload) {
   const p = S.players[0];
   const fmt = S.qFmt;
   const ok = !!payload.ok;
+  const prevFeuJ = p.feu;
 
   if (ok) {
     const mul = (p.combo >= 3) ? 1.5 : 1;
@@ -809,7 +966,12 @@ function answer(payload) {
     else                  banner("bad", T.wrong);
   }
   srsUpdate(S.q.id, ok);
-  botAnswerAll(fmt);
+  const newlyRedBots = botAnswerAll(fmt);
+
+  const newlyRed = [];
+  if (p.feu === 2 && prevFeuJ < 2) newlyRed.push(0);
+  for (const b of newlyRedBots) newlyRed.push(b);
+  S.newlyRed = newlyRed;
 
   S.answered = { given: payload.given, ok };
   S.phase = "why";
@@ -817,18 +979,210 @@ function answer(payload) {
   render();
 }
 
+function pickDuelOpponent(red) {
+  // Adversaire = candidat au score le plus bas parmi les vivants, hors red.
+  let best = -1, bestScore = Infinity;
+  for (let i = 0; i < S.players.length; i++) {
+    if (i === red) continue;
+    const p = S.players[i];
+    if (p.out) continue;
+    if (p.score < bestScore) { best = i; bestScore = p.score; }
+  }
+  return best;
+}
+
 function endQ() {
-  // Coup d'envoi : max 8 questions.
+  // La question qui vient d'être répondue compte : on incrémente qIdx.
   S.qIdx = (S.qIdx | 0) + 1;
+
+  // Duel déclenché par feu rouge ?
+  if (S.newlyRed && S.newlyRed.length > 0) {
+    const red = S.newlyRed[0]; // priorité à l'ordre de résolution
+    S.newlyRed = null;
+    const opp = pickDuelOpponent(red);
+    if (opp >= 0) {
+      const afterCont = (S.manche === "envoi" && S.qIdx >= 8) ? "endManche" : "nextQ";
+      enterDuel(red, opp, afterCont);
+      return;
+    }
+  }
+
+  // Flux normal.
   if (S.manche === "envoi" && S.qIdx >= 8) {
-    (CONT.endManche)();
+    checkEndOfManche();
     return;
   }
-  (CONT[S.after || "nextQ"])();
+  nextQ();
+}
+
+// ---------- duel ----------
+function enterDuel(a, b, afterCont) {
+  S.duel = { a: a, b: b, wins: [0, 0], n: 0 };
+  S.after = afterCont;
+  const pA = S.players[a], pB = S.players[b];
+
+  // Bot vs bot : résolution synchrone, on ne montre pas les 3 questions.
+  if (pA.bot && pB.bot) {
+    const res = playBotDuel(a, b);
+    S.duel.wins = res.wins;
+    S.duel.n = res.n;
+    finishDuel(res.winner, res.loser);
+    return;
+  }
+
+  // Joueur dans le duel : première question sens.
+  const it = pickDue("sens", S.cats);
+  if (!it) {
+    // Aucune sens dispo — le score le plus bas est éliminé par défaut.
+    const loser = (pA.score <= pB.score) ? a : b;
+    const winner = (loser === a) ? b : a;
+    finishDuel(winner, loser);
+    return;
+  }
+  S.q = it;
+  S.qFmt = "sens";
+  S.asked.push(it.id);
+  S.phase = "duel";
+  S.answered = null;
+  banner("info", "DUEL · " + pA.name + " vs " + pB.name);
+  render();
+}
+
+function playBotDuel(a, b) {
+  const pA = S.players[a], pB = S.players[b];
+  const wins = [0, 0];
+  let n = 0;
+  while (true) {
+    n++;
+    const okA = rng() < (pA.acc && pA.acc.sens != null ? pA.acc.sens : 0.5);
+    const okB = rng() < (pB.acc && pB.acc.sens != null ? pB.acc.sens : 0.5);
+    if (okA && !okB) wins[0]++;
+    else if (!okA && okB) wins[1]++;
+    if (wins[0] >= 2) return { winner: a, loser: b, wins: wins, n: n };
+    if (wins[1] >= 2) return { winner: b, loser: a, wins: wins, n: n };
+    if (n >= 3 && wins[0] !== wins[1]) {
+      const winner = wins[0] > wins[1] ? a : b;
+      const loser  = winner === a ? b : a;
+      return { winner: winner, loser: loser, wins: wins, n: n };
+    }
+    if (n > 30) {
+      // Filet ultime en cas de bots à égalité stricte prolongée.
+      return { winner: a, loser: b, wins: wins, n: n };
+    }
+  }
+}
+
+function answerDuel(payload) {
+  const d = S.duel;
+  const pA = S.players[d.a], pB = S.players[d.b];
+  let okA, okB;
+  if (!pA.bot) {
+    okA = payload.ok;
+    okB = rng() < (pB.acc && pB.acc.sens != null ? pB.acc.sens : 0.5);
+  } else {
+    okA = rng() < (pA.acc && pA.acc.sens != null ? pA.acc.sens : 0.5);
+    okB = payload.ok;
+  }
+  if (okA && !okB) d.wins[0]++;
+  else if (!okA && okB) d.wins[1]++;
+  d.n++;
+  // SRS : uniquement pour la réponse du joueur.
+  srsUpdate(S.q.id, payload.ok);
+  if (!payload.ok) S.errors.push({ id: S.q.id, fmt: "sens", given: payload.given, ok: false });
+  S.answered = { okA: okA, okB: okB, given: payload.given, ok: payload.ok };
+  S.phase = "why";
+  render();
+}
+
+function endDuelQ() {
+  const d = S.duel;
+  const done =
+    (d.wins[0] >= 2 || d.wins[1] >= 2) ||
+    (d.n >= 3 && d.wins[0] !== d.wins[1]);
+  if (done) {
+    const winner = d.wins[0] > d.wins[1] ? d.a : d.b;
+    const loser  = (winner === d.a) ? d.b : d.a;
+    finishDuel(winner, loser);
+    return;
+  }
+  // Prochaine question sens.
+  const it = pickDue("sens", S.cats);
+  if (!it) {
+    const loser = (S.players[d.a].score <= S.players[d.b].score) ? d.a : d.b;
+    const winner = (loser === d.a) ? d.b : d.a;
+    finishDuel(winner, loser);
+    return;
+  }
+  S.q = it;
+  S.qFmt = "sens";
+  S.asked.push(it.id);
+  S.phase = "duel";
+  S.answered = null;
+  render();
+}
+
+function finishDuel(winnerIdx, loserIdx) {
+  S.players[loserIdx].out = true;
+  // Feux des survivants remis à zéro (§1.3).
+  for (const p of S.players) { if (!p.out) p.feu = 0; }
+  const afterCont = S.after || "nextQ";
+  const winsCopy = S.duel ? S.duel.wins.slice() : [0, 0];
+  S.duel = null;
+  S.after = null;
+  S.elimInfo = {
+    kind: "duel",
+    winnerName: S.players[winnerIdx].name,
+    loserName: S.players[loserIdx].name,
+    wins: winsCopy,
+    cont: afterCont,
+  };
+  S.phase = "elim";
+  render();
+}
+
+function checkEndOfManche() {
+  // §1.3 al. 2 : fin de manche sans rouge → dernier au score en danger.
+  let last = -1, lastScore = Infinity;
+  for (let i = 0; i < S.players.length; i++) {
+    const p = S.players[i];
+    if (p.out) continue;
+    if (p.score < lastScore) { lastScore = p.score; last = i; }
+  }
+  if (last < 0) { endManche(); return; }
+
+  // Joueur dernier → duel vs avant-dernier.
+  if (last === 0) {
+    let second = -1, secondScore = Infinity;
+    for (let i = 1; i < S.players.length; i++) {
+      const p = S.players[i];
+      if (p.out) continue;
+      if (p.score < secondScore) { secondScore = p.score; second = i; }
+    }
+    if (second < 0) { endManche(); return; }
+    enterDuel(0, second, "endManche");
+    return;
+  }
+  // Bot dernier → out direct.
+  S.players[last].out = true;
+  S.elimInfo = {
+    kind: "danger",
+    winnerName: null,
+    loserName: S.players[last].name,
+    wins: null,
+    cont: "endManche",
+  };
+  S.phase = "elim";
+  render();
+}
+
+function emissionOver() {
+  S.screen = "bilan";
+  S.phase = "over";
+  render();
 }
 
 function endManche() {
-  // J1 : bilan simplifié « Fin de la manche ». Bilan complet en J2.
+  // Bilan de manche : le joueur est vivant (sinon on serait passé par emissionOver).
   S.screen = "bilan";
   S.phase = "";
   render();
@@ -939,15 +1293,46 @@ function renderQuestion() {
       '</article>'
     );
   }
+  if (fmt === "sens") {
+    return (
+      '<article class="card">' +
+        '<div class="eyebrow">' + eyebrow + '</div>' +
+        '<div class="sens-ctx">' + esc(q.ctx) + '</div>' +
+        '<div class="sens-shock"><span class="sens-lbl">Choc</span> ' + esc(q.shock) + '</div>' +
+        '<div class="sens-var"><span class="sens-lbl">Effet sur</span> ' + esc(q.var) + ' ?</div>' +
+        '<div class="sens-buttons">' +
+          '<button data-act="answer" data-v="up"    class="sens-btn" aria-label="hausse">↑</button>' +
+          '<button data-act="answer" data-v="down"  class="sens-btn" aria-label="baisse">↓</button>' +
+          '<button data-act="answer" data-v="same"  class="sens-btn" aria-label="inchangé">=</button>' +
+          '<button data-act="answer" data-v="ambig" class="sens-btn" aria-label="ambigu">?</button>' +
+        '</div>' +
+      '</article>'
+    );
+  }
   return '<article class="card"><div class="qtext">Format inconnu : ' + esc(fmt) + '</div></article>';
 }
+
+// Rappelle l'énoncé de la question, adapté au format.
+function renderQuestionRestate(q, fmt) {
+  if (fmt === "sens") {
+    return (
+      '<div class="sens-ctx">' + esc(q.ctx || "") + '</div>' +
+      '<div class="sens-shock"><span class="sens-lbl">Choc</span> ' + esc(q.shock) + '</div>' +
+      '<div class="sens-var"><span class="sens-lbl">Effet sur</span> ' + esc(q.var) + ' ?</div>'
+    );
+  }
+  return '<div class="qtext">' + esc(q.q) + '</div>';
+}
+
+// Étiquettes des réponses sens.
+const SENS_LABELS = { up: "↑ hausse", down: "↓ baisse", same: "= inchangé", ambig: "? ambigu" };
 
 function renderWhy() {
   const q = S.q;
   const fmt = S.qFmt;
   const cat = (DATA.CATS[q.cat] && DATA.CATS[q.cat].name) || q.cat;
-  const eyebrow = esc(cat) + " · " + fmt.toUpperCase();
-  const ans = S.answered;
+  const eyebrow = esc(cat) + " · " + fmt.toUpperCase() + (S.phase === "why" && S.duel ? " · DUEL" : "");
+  const ans = S.answered || {};
 
   let choicesBlock = "";
   let verdict = "";
@@ -966,6 +1351,20 @@ function renderWhy() {
       const givenLabel = ans.given ? T.vrai : T.faux;
       verdict += '<div class="answered-bad">Ta réponse : ' + esc(givenLabel) + '</div>';
     }
+  } else if (fmt === "sens") {
+    const goodLabel = SENS_LABELS[q.a] || q.a;
+    verdict = '<div class="answered-good">Bonne réponse : ' + esc(goodLabel) + '</div>';
+    if (ans && ans.given && ans.given !== q.a) {
+      const givenLabel = SENS_LABELS[ans.given] || ans.given;
+      verdict += '<div class="answered-bad">Ta réponse : ' + esc(givenLabel) + '</div>';
+    }
+    // Verdict duel : afficher qui a marqué le point ce round.
+    if (S.duel) {
+      const a = S.players[S.duel.a], b = S.players[S.duel.b];
+      const round = 'Manche ' + S.duel.n + '/3 · ' + esc(a.name) + ' ' + S.duel.wins[0] +
+                    ' — ' + S.duel.wins[1] + ' ' + esc(b.name);
+      verdict = '<div class="duel-round">' + round + '</div>' + verdict;
+    }
   }
 
   const why = q.why ? '<div class="why"><div class="lbl">POURQUOI</div>' + esc(q.why) + '</div>' : '';
@@ -973,7 +1372,7 @@ function renderWhy() {
   return (
     '<article class="card">' +
       '<div class="eyebrow">' + eyebrow + '</div>' +
-      '<div class="qtext">' + esc(q.q) + '</div>' +
+      renderQuestionRestate(q, fmt) +
       choicesBlock + verdict + why +
       '<div class="btnrow" style="margin-top:12px">' +
         '<button class="b-gold" data-act="next">' + esc(T.next) + '</button>' +
@@ -986,18 +1385,121 @@ function renderBilan() {
   const p = S.players[0];
   const nbErr = S.errors.length;
   const asked = S.asked.length;
+  const over = (S.phase === "over");
+  const mname = (T.manches[S.manche] || T.manches.envoi).name;
+  const title = over ? "Émission terminée" : (T.finManche + " · " + mname);
+
+  // Retrouve chaque item d'erreur pour l'afficher.
+  const byId = {};
+  for (const list of [DATA.QCM, DATA.VF, DATA.SENS]) {
+    for (const it of (list || [])) byId[it.id] = it;
+  }
+  const errItems = S.errors.map(e => {
+    const it = byId[e.id];
+    if (!it) return "";
+    const cat = (DATA.CATS[it.cat] && DATA.CATS[it.cat].name) || it.cat;
+    let qtxt = "";
+    let ta = "";
+    if (e.fmt === "qcm") {
+      qtxt = it.q;
+      ta = "<b>OK :</b> " + esc(it.choices[it.a]) +
+           " · <i>Toi :</i> " + esc(it.choices[e.given] || "—");
+    } else if (e.fmt === "vf") {
+      qtxt = it.q;
+      const okL = it.a ? T.vrai : T.faux;
+      const taL = e.given ? T.vrai : T.faux;
+      ta = "<b>OK :</b> " + esc(okL) + " · <i>Toi :</i> " + esc(taL);
+    } else if (e.fmt === "sens") {
+      qtxt = (it.ctx ? it.ctx + " · " : "") + it.shock + " → " + it.var;
+      const okL = SENS_LABELS[it.a] || it.a;
+      const taL = SENS_LABELS[e.given] || e.given || "—";
+      ta = "<b>OK :</b> " + esc(okL) + " · <i>Toi :</i> " + esc(taL);
+    }
+    const why = it.why ? '<div class="hint" style="color:var(--muted);font-size:12px;margin-top:4px">' + esc(it.why) + '</div>' : "";
+    return (
+      '<div class="err">' +
+        '<div class="cat">' + esc(cat) + ' · ' + esc(e.fmt) + '</div>' +
+        '<div class="qtxt">' + esc(qtxt) + '</div>' +
+        '<div class="ta">' + ta + '</div>' +
+        why +
+      '</div>'
+    );
+  }).join("");
+
+  // Jauges par catégorie (§5.3) — recalculées à jour ici puisque la SRS
+  // a été mise à jour tout au long de l'émission.
+  const srs = loadSRS();
+  const jauges = Object.keys(DATA.CATS).map(cid => {
+    const cat = DATA.CATS[cid];
+    const bank = [].concat(DATA.QCM || [], DATA.VF || [], DATA.SENS || [], DATA.ORDRE || [], DATA.OUVERTE || []);
+    const inCat = bank.filter(it => it.cat === cid);
+    if (!inCat.length) return "";
+    const good = inCat.filter(it => srs[it.id] && srs[it.id].box >= 2).length;
+    const pct = Math.round(100 * good / inCat.length);
+    return (
+      '<div class="row">' +
+        '<span class="name">' + esc(cat.name) + '</span>' +
+        '<span class="bar"><span style="width:' + pct + '%"></span></span>' +
+        '<span class="pct">' + pct + '%</span>' +
+      '</div>'
+    );
+  }).join("");
+
+  // Liste « à revoir » : items posés cette émission encore en boîte 0-1.
+  const toRevisit = S.asked.filter(id => {
+    const st = srs[id];
+    return !st || st.box <= 1;
+  });
+  const revisitBlock = toRevisit.length ? (
+    '<h3 style="font-family:var(--sans);letter-spacing:.06em;font-size:14px;color:var(--bleu);margin:14px 0 6px">À revoir · ' + toRevisit.length + '</h3>' +
+    '<div class="hint" style="color:var(--muted);font-size:12px">Ces questions vont revenir en priorité à la prochaine émission (SRS boîte 0-1).</div>'
+  ) : "";
+
   return (
     '<section class="bilan">' +
-      '<h2>' + esc(T.finManche) + " · " + esc((T.manches[S.manche] || T.manches.envoi).name) + '</h2>' +
+      '<h2>' + esc(title) + '</h2>' +
       '<div class="score-big">' + (p.score | 0) + '</div>' +
       '<div class="hint" style="text-align:center;color:var(--muted)">' +
         asked + ' questions · ' + (asked - nbErr) + ' bonnes · ' + nbErr + ' erreurs' +
       '</div>' +
+      (errItems ? '<h3 style="font-family:var(--sans);letter-spacing:.06em;font-size:14px;color:var(--rouge);margin:16px 0 4px">Erreurs</h3><div class="errlist">' + errItems + '</div>' : "") +
+      revisitBlock +
+      '<h3 style="font-family:var(--sans);letter-spacing:.06em;font-size:14px;color:var(--vert);margin:16px 0 6px">Jauges par catégorie</h3>' +
+      '<div class="jauges">' + jauges + '</div>' +
       '<div class="btnrow">' +
-        '<button class="b-gold" data-act="restart">' + esc(T.rejouer) + '</button>' +
+        '<button class="b-gold"  data-act="restart">' + esc(T.rejouer) + '</button>' +
+        '<button class="b-ghost" data-act="exportGame">Exporter</button>' +
       '</div>' +
     '</section>'
   );
+}
+
+function renderElimOverlay() {
+  const info = S.elimInfo || {};
+  const overlay = document.getElementById("overlay");
+  let content;
+  if (info.kind === "duel") {
+    const scoreLine = info.wins ?
+      '<div class="hint" style="color:var(--muted);font-size:13px">' + (info.wins[0] | 0) + ' — ' + (info.wins[1] | 0) + '</div>' : '';
+    content =
+      '<div class="duel-title">DUEL</div>' +
+      '<div class="vs">' + esc(info.winnerName) + ' vs ' + esc(info.loserName) + '</div>' +
+      scoreLine +
+      '<div class="verdict-elim">' + esc(info.loserName) + ' est éliminé(e)</div>';
+  } else {
+    content =
+      '<div class="duel-title">FIN DE MANCHE</div>' +
+      '<div class="verdict-elim">' + esc(info.loserName) + ' est éliminé(e)</div>' +
+      '<div class="hint" style="color:var(--muted);font-size:13px">Dernier au score cette manche.</div>';
+  }
+  overlay.innerHTML =
+    '<div class="sheet">' + content +
+      '<div class="btnrow" style="margin-top:12px">' +
+        '<button class="b-gold" data-act="next">' + esc(T.next) + '</button>' +
+      '</div>' +
+    '</div>';
+  overlay.classList.add("show");
+  document.getElementById("stage").innerHTML = "";
 }
 
 function render() {
@@ -1021,19 +1523,20 @@ function render() {
 
   if (S.screen === "show") {
     const mname = (T.manches[S.manche] || T.manches.envoi).name;
-    sub.textContent = mname + " · Question " + ((S.qIdx | 0) + 1) + "/8";
-    if (S.phase === "intro") {
-      renderIntroOverlay();
-      return;
-    }
-    if (S.phase === "q")   { stage.innerHTML = renderQuestion(); return; }
-    if (S.phase === "why") { stage.innerHTML = renderWhy(); return; }
+    const total = S.duel ? "3" : "8";
+    const idx = S.duel ? ((S.duel.n | 0) + 1) : ((S.qIdx | 0) + 1);
+    sub.textContent = mname + (S.duel ? " · Duel " : " · Question ") + idx + "/" + total;
+    if (S.phase === "intro") { renderIntroOverlay(); return; }
+    if (S.phase === "q")     { stage.innerHTML = renderQuestion(); return; }
+    if (S.phase === "duel")  { stage.innerHTML = renderQuestion(); return; }
+    if (S.phase === "why")   { stage.innerHTML = renderWhy(); return; }
+    if (S.phase === "elim")  { renderElimOverlay(); return; }
     stage.innerHTML = "";
     return;
   }
 
   if (S.screen === "bilan") {
-    sub.textContent = "Bilan";
+    sub.textContent = S.phase === "over" ? "Émission terminée" : "Bilan";
     stage.innerHTML = renderBilan();
     return;
   }
@@ -1063,7 +1566,9 @@ const ACT = {
     nextQ();
   },
   answer(v) {
-    if (!S || S.phase !== "q") return;
+    if (!S) return;
+    // Accepté en phase "q" (envoi/cpc) et "duel" (question sens du duel).
+    if (S.phase !== "q" && S.phase !== "duel") return;
     const fmt = S.qFmt;
     let given, ok;
     if (fmt === "qcm") {
@@ -1074,14 +1579,36 @@ const ACT = {
       if (v !== "true" && v !== "false") throw new Error("answer.vf: v invalide " + v);
       given = (v === "true");
       ok = (given === S.q.a);
+    } else if (fmt === "sens") {
+      if (v !== "up" && v !== "down" && v !== "same" && v !== "ambig") {
+        throw new Error("answer.sens: v invalide " + v);
+      }
+      given = v;
+      ok = (given === S.q.a);
     } else {
       throw new Error("answer: format non géré " + fmt);
     }
     answer({ ok, given });
   },
   next() {
-    if (!S || S.phase !== "why") return;
-    endQ();
+    if (!S) return;
+    if (S.phase === "elim") {
+      // Reprise post-élimination.
+      const info = S.elimInfo || { cont: "endManche" };
+      S.elimInfo = null;
+      if (S.players[0].out) { emissionOver(); return; }
+      const cont = info.cont || "endManche";
+      if (cont === "endManche") { endManche(); return; }
+      // cont === "nextQ" : la question suivante, en tenant compte de la limite.
+      if (S.manche === "envoi" && S.qIdx >= 8) { checkEndOfManche(); return; }
+      nextQ();
+      return;
+    }
+    if (S.phase === "why") {
+      if (S.duel) { endDuelQ(); return; }
+      endQ();
+      return;
+    }
   },
   restart() {
     // render() traite S=null exactement comme screen:"setup".
