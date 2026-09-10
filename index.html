@@ -415,6 +415,71 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   min-height: 52px;
 }
 
+/* coup fatal : 2 horloges (SPEC §1.5) */
+.clocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0 12px;
+}
+.clock {
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.clock.active {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(255, 201, 60, .28);
+  animation: fatalPulse 1.1s ease-in-out infinite;
+}
+@keyframes fatalPulse {
+  0%,100% { box-shadow: 0 0 0 2px rgba(255, 201, 60, .28); }
+  50%     { box-shadow: 0 0 0 4px rgba(255, 201, 60, .48); }
+}
+.clock-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: var(--cream);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.clock-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .08);
+  overflow: hidden;
+  margin: 4px 0;
+}
+.clock-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--vert), var(--gold));
+  transition: width .12s linear;
+}
+.clock-val {
+  font-family: var(--sans);
+  letter-spacing: .04em;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+}
+.fatal-msg {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(79, 195, 247, .12);
+  border: 1px solid var(--line);
+  color: var(--bleu);
+  font-family: var(--sans);
+  letter-spacing: .04em;
+  font-size: 13px;
+  text-align: center;
+}
+
 /* format ordre : pile + choix + verdict */
 .order-lbl {
   font-family: var(--sans);
@@ -717,7 +782,7 @@ const T = {
   manches: {
     envoi:   { name: "Coup d'envoi",     rules: "4 candidats · 8 questions max · QCM & Vrai/Faux · 100 pts." },
     cpc:     { name: "Coup par coup",    rules: "3 candidats · 6 questions max · Sens & Ordre · 150 / 200 pts · 1 coup bas possible." },
-    fatal:   { name: "Coup fatal",       rules: "À venir (J4)." },
+    fatal:   { name: "Coup fatal",       rules: "2 candidats · 2 horloges de 90 s · calc & qcm à 3 choix · pas de points, on joue le titre." },
     maitre:  { name: "Coup de maître",   rules: "À venir (J5)." },
     etoile:  { name: "Étoile mystérieuse", rules: "À venir (J5)." },
   },
@@ -737,7 +802,8 @@ const T = {
 };
 
 // Points par format (SPEC §1.4)
-const POINTS = { qcm: 100, vf: 100, sens: 150, ordre: 200 };
+const POINTS = { qcm: 100, vf: 100, sens: 150, ordre: 200, qcm3: 0, calc: 0 };
+// Le coup fatal ne rapporte pas de points (§1.4) : on joue le titre.
 
 // SRS (SPEC §5.1) — intervalles par boîte, en jours
 const INTERVAL_DAYS = [0, 1, 2, 4, 7];
@@ -913,6 +979,134 @@ function pickDue(fmt, cats) {
   return rngPick(pool);
 }
 
+// ---------- générateurs calc (SPEC §4) ----------
+// Chaque GEN[name](rng) retourne { q, choices, a, why, cat, ch, diff }.
+// Contraintes : faisable de tête, distracteurs = confusions du prof.
+const GEN = {
+  // 1. Taux croisé au certain à partir de deux taux à l'incertain.
+  //    1 USD = A JPY  et  1 USD = B EUR  →  1 EUR = A/B JPY
+  cross(rng) {
+    const A = 100 + rngInt(4) * 10;     // 100, 110, 120, 130
+    const Bs = [0.8, 0.9, 1.0, 1.25];
+    const B = Bs[rngInt(Bs.length)];
+    const good = Math.round(A / B);
+    const bad1 = Math.round(A * B);      // mauvais sens (mul au lieu de div)
+    const bad2 = Math.round(B / A * 10000) / 10000;  // inverse
+    const bad3 = Math.round(A / B / 2);  // moitié
+    return {
+      cat: "cot", ch: 2, diff: 2,
+      q: `1 USD = ${A} JPY et 1 USD = ${B} EUR (à l'incertain, point de vue américain). Combien vaut 1 EUR en JPY ?`,
+      choices: [
+        good + " JPY",
+        bad1 + " JPY",
+        bad2 + " JPY",
+        bad3 + " JPY"
+      ],
+      a: 0,
+      why: `1 EUR = A/B = ${A}/${B} = ${good} JPY. Attention : A×B (${bad1}) confond le sens du taux ; 1/(A×B) (${bad2}) inverse tout.`
+    };
+  },
+
+  // 2. Variation du TCR (log-linéarisée) : Δq = Δe + (π − π*).
+  varTCR(rng) {
+    const dE  = [-5, -3, 2, 4, 5][rngInt(5)];
+    const pi  = [1, 2, 3, 4][rngInt(4)];
+    const piS = [0, 1, 2][rngInt(3)];
+    const good = dE + (pi - piS);
+    const bad1 = dE;                    // oubli de l'inflation
+    const bad2 = dE + (piS - pi);       // signe inversé
+    const bad3 = pi - piS;              // oubli de Δe
+    return {
+      cat: "tcr", ch: 2, diff: 2,
+      q: `Δe = ${dE} %, π = ${pi} %, π* = ${piS} %. Variation du TCR (au certain) ?`,
+      choices: [good + " %", bad1 + " %", bad2 + " %", bad3 + " %"],
+      a: 0,
+      why: `Δq ≈ Δe + (π − π*) = ${dE} + (${pi} − ${piS}) = ${good} %. Distracteurs : oubli d'un terme, signe inversé.`
+    };
+  },
+
+  // 3. Variation du TCEN pondérée : Σ ω_i Δe_i.
+  neer(rng) {
+    const w1s = [0.5, 0.6, 0.7, 0.8];
+    const w1 = w1s[rngInt(w1s.length)];
+    const w2 = Math.round((1 - w1) * 10) / 10;
+    const dE1 = [-4, -2, 2, 4, 5][rngInt(5)];
+    const dE2 = [-3, -1, 1, 3][rngInt(4)];
+    const good = Math.round((w1 * dE1 + w2 * dE2) * 10) / 10;
+    const bad1 = Math.round((dE1 + dE2) / 2 * 10) / 10; // moyenne non pondérée
+    const bad2 = dE1 + dE2;                             // somme brute
+    const bad3 = Math.round(w1 * dE1 * 10) / 10;        // 1 partenaire seul
+    return {
+      cat: "tcr", ch: 2, diff: 2,
+      q: `Deux partenaires : ω₁ = ${w1}, Δe₁ = ${dE1} % ; ω₂ = ${w2}, Δe₂ = ${dE2} %. Variation du TCEN ?`,
+      choices: [good + " %", bad1 + " %", bad2 + " %", bad3 + " %"],
+      a: 0,
+      why: `Δe_TCEN = ω₁ Δe₁ + ω₂ Δe₂ = ${w1}×${dE1} + ${w2}×${dE2} = ${good} %.`
+    };
+  },
+
+  // 4. Solde d'un compte à partir de crédits/débits (biens + services).
+  bdp(rng) {
+    const xB = 100 + rngInt(20) * 5;    // exports biens
+    const mB = 100 + rngInt(20) * 5;
+    const xS = 20 + rngInt(10) * 5;     // exports services
+    const mS = 20 + rngInt(10) * 5;
+    const good = (xB - mB) + (xS - mS); // solde CC (biens+services)
+    const bad1 = (xB - mB);             // oubli des services
+    const bad2 = (mB - xB) + (mS - xS); // signe inversé
+    const bad3 = (xB + xS) - (mB - mS); // erreur d'inversion crédit/débit
+    return {
+      cat: "bdp", ch: 1, diff: 2,
+      q: `Balance des paiements (Md€) : exports biens ${xB}, imports biens ${mB}, exports services ${xS}, imports services ${mS}. Solde biens + services ?`,
+      choices: [good + " Md€", bad1 + " Md€", bad2 + " Md€", bad3 + " Md€"],
+      a: 0,
+      why: `Solde = (X_B − M_B) + (X_S − M_S) = (${xB} − ${mB}) + (${xS} − ${mS}) = ${good} Md€.`
+    };
+  },
+
+  // 5. Capacité (besoin) de financement = TC + CC, et sens du CF.
+  capfin(rng) {
+    const TC = -rngInt(10) - 1;              // TC négatif petit
+    const CC = [-20, -10, 10, 20][rngInt(4)];
+    const good = TC + CC;
+    // Signe du CF (convention du cours) : CapFin > 0 → CF > 0 (sortie K).
+    const cfSign = good >= 0 ? "positif (sortie nette de capitaux)"
+                              : "négatif (entrée nette de capitaux)";
+    const goodTxt = good + " Md€ · CF " + cfSign;
+    const bad1 = TC - CC;                     // erreur signe CC
+    const bad2 = CC;                          // TC omis
+    const bad3 = (good) + " Md€ · CF " + (good >= 0 ? "négatif (entrée)" : "positif (sortie)");
+    return {
+      cat: "bdp", ch: 1, diff: 3,
+      q: `TC = ${TC} Md€, CC = ${CC} Md€. Capacité (+) ou besoin (−) de financement et sens du compte financier ?`,
+      choices: [goodTxt, bad1 + " Md€", bad2 + " Md€ · TC omis", bad3],
+      a: 0,
+      why: `CapFin = TC + CC = ${TC} + ${CC} = ${good} Md€. Convention du cours : CapFin > 0 ⇒ CF > 0 = sortie nette de capitaux.`
+    };
+  },
+
+  // 6. Parité PNCTI : e = eᵃ + (i − i*) sur horizon annualisé/trimestriel.
+  uip(rng) {
+    // Taux annuels, horizon trimestriel (÷ 4).
+    const i  = 4 * (rngInt(5) + 2);   // 8, 12, 16, 20, 24 %
+    const iS = 4 * (rngInt(4) + 1);   // 4, 8, 12, 16 %
+    const eA = 100;                    // eᵃ = 100 (base 100)
+    // PNCTI : e = eᵃ + (i − i*) sur l'horizon → sur 3 mois : (i − i*)/4
+    const diff = (i - iS) / 4;
+    const good = eA + diff;
+    const bad1 = eA + (i - iS);        // oubli de l'horizon
+    const bad2 = eA - diff;             // signe inversé
+    const bad3 = eA + (iS - i) / 4;     // i et i* inversés
+    return {
+      cat: "parite", ch: 3, diff: 3,
+      q: `PNCTI : eᵃ = 100, i = ${i} % annuel, i* = ${iS} % annuel. Horizon 3 mois. Taux e aujourd'hui ?`,
+      choices: [good.toFixed(2), bad1.toFixed(2), bad2.toFixed(2), bad3.toFixed(2)],
+      a: 0,
+      why: `e = eᵃ + (i − i*)/horizon = 100 + (${i} − ${iS})/4 = ${good.toFixed(2)}. Piège : oublier l'annualisation (${bad1.toFixed(2)}).`
+    };
+  }
+};
+
 // ---------- state ----------
 let S = null;
 
@@ -962,7 +1156,18 @@ function newShow(settings) {
     elimInfo: null,
     orderPick: null,
     orderPerm: null,
+    fatal: null,       // { a, b, cur } — indices S.players. cur ∈ {0,1}.
+    fatalMsg: null,    // "réflexion..." / verdict rapide affiché en fatal.
   };
+}
+
+// TIMERS module-level (non-sérialisables, hors S).
+const TIMERS = { clock: null, botThink: null, verdictHide: null };
+
+function clearTimers() {
+  if (TIMERS.clock)        { clearInterval(TIMERS.clock);      TIMERS.clock = null; }
+  if (TIMERS.botThink)     { clearTimeout(TIMERS.botThink);    TIMERS.botThink = null; }
+  if (TIMERS.verdictHide)  { clearTimeout(TIMERS.verdictHide); TIMERS.verdictHide = null; }
 }
 
 // ---------- bandeau ----------
@@ -1280,6 +1485,7 @@ function checkEndOfManche() {
 }
 
 function emissionOver() {
+  clearTimers();
   S.screen = "bilan";
   S.phase = "over";
   render();
@@ -1288,10 +1494,18 @@ function emissionOver() {
 function endManche() {
   // Transition manche → manche suivante (SPEC §1.4).
   // Joueur out ? emissionOver a déjà été appelé.
+  const alive = S.players.filter(p => !p.out).map((p, i) => S.players.indexOf(p));
   const aliveBots = S.players.slice(1).filter(p => !p.out).length;
 
   if (S.manche === "envoi") {
     if (aliveBots < 1) { emissionOver(); return; }
+    // Si seulement 2 joueurs vivants au sortir du coup d'envoi, on saute
+    // le coup par coup et on va direct au coup fatal (SPEC §1.5 : 2
+    // candidats). Sinon transition cpc.
+    if (S.players.filter(p => !p.out).length <= 2) {
+      startFatal();
+      return;
+    }
     S.manche = "cpc";
     S.qIdx = 0;
     S.newlyRed = null;
@@ -1305,16 +1519,194 @@ function endManche() {
   }
 
   if (S.manche === "cpc") {
-    // Fin cpc → fatal (J4). En attendant J4 : bilan de fin de cpc.
+    // Fin cpc → fatal.
+    if (aliveBots < 1) { emissionOver(); return; }
+    startFatal();
+    return;
+  }
+
+  if (S.manche === "fatal") {
+    // Cas rare : les deux clocks ont expiré simultanément (impossible en
+    // pratique), ou banque épuisée. Fallback → bilan.
     S.screen = "bilan";
-    S.phase = "endcpc";
+    S.phase = "endfatal";
     render();
     return;
   }
 
-  // Fatal/maitre/etoile pas encore implémentés (J4/J5).
+  // Manches maitre/etoile pas encore implémentées (J5).
   S.screen = "bilan";
   S.phase = "";
+  render();
+}
+
+// ---------- coup fatal (SPEC §1.5) ----------
+function startFatal() {
+  // 2 candidats : le joueur si vivant + le bot au plus haut score parmi
+  // les vivants (au sens du cours, on affronte le meilleur bot restant).
+  clearTimers();
+  const joueurAlive = !S.players[0].out;
+  const bots = S.players.slice(1).map((p, i) => ({ p, idx: i + 1 })).filter(x => !x.p.out);
+  bots.sort((x, y) => y.p.score - x.p.score);
+  if (!joueurAlive) {
+    // Deux meilleurs bots s'affrontent.
+    if (bots.length < 2) { emissionOver(); return; }
+    S.fatal = { a: bots[0].idx, b: bots[1].idx, cur: 0 };
+  } else {
+    if (!bots.length) { emissionOver(); return; }
+    S.fatal = { a: 0, b: bots[0].idx, cur: 0 };
+  }
+  S.manche = "fatal";
+  S.qIdx = 0;
+  S.clocks = [90000, 90000];
+  S.newlyRed = null;
+  S.elimInfo = null;
+  S.phase = "intro";
+  S.fatalMsg = null;
+  render();
+}
+
+function fatalPlayerIdx(cur) {
+  return cur === 0 ? S.fatal.a : S.fatal.b;
+}
+
+function nextFatalQ() {
+  clearTimers();
+  S.qIdx = (S.qIdx | 0) + 1;
+  // Alterne calc / qcm3.
+  const fmt = (S.qIdx % 2 === 1) ? "calc" : "qcm3";
+  let item;
+  if (fmt === "calc") {
+    const names = Object.keys(GEN);
+    const name = rngPick(names);
+    const gen = GEN[name](rng);
+    item = Object.assign({}, gen, {
+      id: "calc-" + name + "-" + S.qIdx + "-" + SEED.toString(16),
+      _generated: true,
+      _gen: name,
+    });
+  } else {
+    // qcm à 3 choix : tirer un qcm ordinaire, retirer un distracteur.
+    const q = pickDue("qcm", S.cats);
+    if (!q) { finishFatal(1 - S.fatal.cur); return; }
+    item = shrinkQCM(q);
+    S.asked.push(q.id);
+  }
+  S.q = item;
+  S.qFmt = fmt;
+  S.phase = "q";
+  S.answered = null;
+  S.fatalMsg = null;
+  // Démarre le chrono du candidat actuel.
+  startClock();
+  // Si c'est un bot, planifier la réponse après réflexion.
+  const p = S.players[fatalPlayerIdx(S.fatal.cur)];
+  if (p.bot) scheduleBotAnswerFatal();
+  render();
+}
+
+function shrinkQCM(q) {
+  // Copie profonde, retire un distracteur au hasard (jamais la bonne).
+  // Faute de marqueur trapIdx, on retire aléatoirement un mauvais choix.
+  // Le distracteur du trap peut donc être supprimé (limite documentée
+  // dans NOTES.md, à corriger avec un champ optionnel trapIdx en J5+).
+  const goodIdx = q.a;
+  const badIdxs = [0, 1, 2, 3].filter(i => i !== goodIdx);
+  const dropIdx = rngPick(badIdxs);
+  const keep = [0, 1, 2, 3].filter(i => i !== dropIdx);
+  const choices = keep.map(i => q.choices[i]);
+  const newGood = keep.indexOf(goodIdx);
+  return {
+    id: q.id,
+    cat: q.cat,
+    ch: q.ch,
+    diff: q.diff,
+    q: q.q,
+    choices: choices,
+    a: newGood,
+    trap: q.trap || null,
+    why: q.why || "",
+    _shrunk: true,
+    _originalId: q.id,
+  };
+}
+
+function startClock() {
+  clearInterval(TIMERS.clock);
+  const step = 100;
+  const startedAt = Date.now();
+  const cur = S.fatal.cur;
+  const startMs = S.clocks[cur];
+  TIMERS.clock = setInterval(() => {
+    if (!S || S.manche !== "fatal" || S.phase !== "q") return;
+    const elapsed = Date.now() - startedAt;
+    S.clocks[cur] = Math.max(0, startMs - elapsed);
+    if (S.clocks[cur] <= 0) {
+      clearInterval(TIMERS.clock); TIMERS.clock = null;
+      finishFatal(1 - cur);
+      return;
+    }
+    updateClocksUI();
+  }, step);
+}
+
+function scheduleBotAnswerFatal() {
+  clearTimeout(TIMERS.botThink);
+  const think = 4000 + Math.floor(rng() * 8001); // 4 à 12 s
+  S.fatalMsg = "Réflexion…";
+  TIMERS.botThink = setTimeout(() => {
+    if (!S || S.manche !== "fatal" || S.phase !== "q") return;
+    const p = S.players[fatalPlayerIdx(S.fatal.cur)];
+    const acc = (p.acc && typeof p.acc[S.qFmt] === "number") ? p.acc[S.qFmt] : 0.5;
+    const botOk = rng() < acc;
+    fatalRespond(botOk, null);
+  }, think);
+}
+
+function fatalRespond(ok, given) {
+  clearInterval(TIMERS.clock); TIMERS.clock = null;
+  clearTimeout(TIMERS.botThink); TIMERS.botThink = null;
+  // Enregistre pour bilan.
+  if (!ok && S.players[fatalPlayerIdx(S.fatal.cur)] && !S.players[fatalPlayerIdx(S.fatal.cur)].bot) {
+    S.errors.push({ id: S.q.id, fmt: S.qFmt, given: given, ok: false });
+  }
+  // SRS uniquement pour le joueur, pas pour les calc générés.
+  const curP = S.players[fatalPlayerIdx(S.fatal.cur)];
+  if (!curP.bot && !S.q._generated) {
+    srsUpdate(S.q._originalId || S.q.id, ok);
+  }
+  const goodTxt = (S.qFmt === "calc")
+    ? String(S.q.choices ? S.q.choices[S.q.a] : "?")
+    : (S.q.choices ? String(S.q.choices[S.q.a]) : "?");
+  S.fatalMsg = ok ? ("Bonne réponse : " + goodTxt)
+                  : ("Mauvaise. Réponse : " + goodTxt);
+  banner(ok ? "good" : "bad", curP.name + " " + (ok ? "trouve" : "rate"));
+
+  if (ok) {
+    // Change de main.
+    S.fatal.cur = 1 - S.fatal.cur;
+  }
+  // Rerender pour figer l'horloge et afficher le verdict brièvement.
+  render();
+  // Enchaîne la question suivante après un très court délai (rythme fatal).
+  clearTimeout(TIMERS.verdictHide);
+  TIMERS.verdictHide = setTimeout(() => {
+    if (!S || S.manche !== "fatal") return;
+    nextFatalQ();
+  }, 1200);
+}
+
+function finishFatal(winnerCur) {
+  clearTimers();
+  const winnerIdx = fatalPlayerIdx(winnerCur);
+  const loserIdx = fatalPlayerIdx(1 - winnerCur);
+  S.players[loserIdx].out = true;
+  S.elimInfo = null;
+  S.duel = null;
+  S.screen = "bilan";
+  S.phase = (winnerIdx === 0) ? "maitre" : "over";
+  S.fatalMsg = null;
+  // Le règne (§1.8) sera géré J5 ; on prépare cagnotte à 0 pour l'instant.
   render();
 }
 
@@ -1578,11 +1970,15 @@ function renderBilan() {
   const p = S.players[0];
   const nbErr = S.errors.length;
   const asked = S.asked.length;
-  const over = (S.phase === "over");
-  const endcpc = (S.phase === "endcpc");
+  const over    = (S.phase === "over");
+  const endcpc  = (S.phase === "endcpc");
+  const maitre  = (S.phase === "maitre");
+  const endfatal = (S.phase === "endfatal");
   const mname = (T.manches[S.manche] || T.manches.envoi).name;
-  const title = over    ? "Émission terminée"
-              : endcpc  ? ("Fin du coup par coup · Coup fatal à venir (J4)")
+  const title = maitre  ? "Maître de midi ! · Coup de maître à venir (J5)"
+              : over    ? "Émission terminée"
+              : endcpc  ? "Fin du coup par coup · Coup fatal à venir"
+              : endfatal ? "Fin du coup fatal"
               : (T.finManche + " · " + mname);
 
   // Retrouve chaque item d'erreur pour l'afficher.
@@ -1670,6 +2066,81 @@ function renderBilan() {
   );
 }
 
+function renderFatalClocks() {
+  if (!S || S.manche !== "fatal" || !S.fatal) return "";
+  const cur = S.fatal.cur;
+  const a = S.players[S.fatal.a];
+  const b = S.players[S.fatal.b];
+  const pctA = Math.max(0, Math.min(100, (S.clocks[0] / 90000) * 100));
+  const pctB = Math.max(0, Math.min(100, (S.clocks[1] / 90000) * 100));
+  const secA = (S.clocks[0] / 1000).toFixed(1);
+  const secB = (S.clocks[1] / 1000).toFixed(1);
+  return (
+    '<div class="clocks">' +
+      '<div class="clock' + (cur === 0 ? " active" : "") + '">' +
+        '<div class="clock-name">' + esc(a.name) + '</div>' +
+        '<div class="clock-bar"><span id="clock-bar-a" style="width:' + pctA.toFixed(1) + '%"></span></div>' +
+        '<div class="clock-val" id="clock-val-a">' + secA + ' s</div>' +
+      '</div>' +
+      '<div class="clock' + (cur === 1 ? " active" : "") + '">' +
+        '<div class="clock-name">' + esc(b.name) + '</div>' +
+        '<div class="clock-bar"><span id="clock-bar-b" style="width:' + pctB.toFixed(1) + '%"></span></div>' +
+        '<div class="clock-val" id="clock-val-b">' + secB + ' s</div>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+function updateClocksUI() {
+  // Mise à jour minimaliste des barres et compteurs pendant le tick, sans
+  // full render (évite la reconstruction complète 10×/s).
+  if (!S || S.manche !== "fatal") return;
+  const bA = document.getElementById("clock-bar-a");
+  const bB = document.getElementById("clock-bar-b");
+  const vA = document.getElementById("clock-val-a");
+  const vB = document.getElementById("clock-val-b");
+  if (bA) bA.style.width = ((S.clocks[0] / 90000) * 100).toFixed(1) + "%";
+  if (bB) bB.style.width = ((S.clocks[1] / 90000) * 100).toFixed(1) + "%";
+  if (vA) vA.textContent = (S.clocks[0] / 1000).toFixed(1) + " s";
+  if (vB) vB.textContent = (S.clocks[1] / 1000).toFixed(1) + " s";
+}
+
+function renderFatalQuestion() {
+  const q = S.q;
+  const fmt = S.qFmt;
+  const cat = (DATA.CATS[q.cat] && DATA.CATS[q.cat].name) || q.cat;
+  const eyebrow = esc(cat) + " · " + fmt.toUpperCase() + " · COUP FATAL";
+  const cur = S.fatal.cur;
+  const isPlayerTurn = (fatalPlayerIdx(cur) === 0);
+  const msg = S.fatalMsg ? '<div class="fatal-msg">' + esc(S.fatalMsg) + '</div>' : '';
+
+  // Si c'est un bot qui réfléchit, on n'expose pas de boutons.
+  if (!isPlayerTurn) {
+    return (
+      '<article class="card">' +
+        '<div class="eyebrow">' + eyebrow + '</div>' +
+        '<div class="qtext">' + esc(q.q) + '</div>' +
+        msg +
+        '<div class="hint" style="color:var(--muted);font-size:12px;margin-top:8px">' +
+          esc(S.players[fatalPlayerIdx(cur)].name) + ' a la main.' +
+        '</div>' +
+      '</article>'
+    );
+  }
+
+  const choices = (q.choices || []).map((c, i) =>
+    '<button data-act="answer" data-v="' + i + '">' + esc(c) + '</button>'
+  ).join("");
+  return (
+    '<article class="card">' +
+      '<div class="eyebrow">' + eyebrow + '</div>' +
+      '<div class="qtext">' + esc(q.q) + '</div>' +
+      '<div class="choices">' + choices + '</div>' +
+      msg +
+    '</article>'
+  );
+}
+
 function renderElimOverlay() {
   const info = S.elimInfo || {};
   const overlay = document.getElementById("overlay");
@@ -1719,10 +2190,15 @@ function render() {
 
   if (S.screen === "show") {
     const mname = (T.manches[S.manche] || T.manches.envoi).name;
-    const total = S.duel ? "3" : String(maxQForManche(S.manche) || "?");
+    const total = S.duel ? "3" : (S.manche === "fatal" ? "∞" : String(maxQForManche(S.manche) || "?"));
     const idx = S.duel ? ((S.duel.n | 0) + 1) : ((S.qIdx | 0) + 1);
-    sub.textContent = mname + (S.duel ? " · Duel " : " · Question ") + idx + "/" + total;
+    sub.textContent = mname + (S.duel ? " · Duel " : (S.manche === "fatal" ? " · " : " · Question ")) +
+      (S.manche === "fatal" ? "Q" + idx : idx + "/" + total);
     if (S.phase === "intro") { renderIntroOverlay(); return; }
+    if (S.manche === "fatal" && S.phase === "q") {
+      stage.innerHTML = renderFatalClocks() + renderFatalQuestion();
+      return;
+    }
     if (S.phase === "q") {
       let html = renderQuestion();
       if (S.manche === "cpc" && S.coupBas) {
@@ -1740,8 +2216,10 @@ function render() {
 
   if (S.screen === "bilan") {
     sub.textContent =
+      S.phase === "maitre"  ? "Maître de midi" :
       S.phase === "over"    ? "Émission terminée" :
       S.phase === "endcpc"  ? "Fin coup par coup" :
+      S.phase === "endfatal" ? "Fin coup fatal" :
       "Bilan";
     stage.innerHTML = renderBilan();
     return;
@@ -1768,11 +2246,29 @@ const ACT = {
   },
   introOK() {
     if (!S) return;
+    if (S.manche === "fatal") {
+      S.phase = "q";
+      S.qIdx = 0;   // sera incrémenté à 1 dans nextFatalQ
+      nextFatalQ();
+      return;
+    }
     S.phase = "q";
     nextQ();
   },
   answer(v) {
     if (!S) return;
+    // Fatal : route dédiée (chrono, pas de why).
+    if (S.manche === "fatal" && S.phase === "q") {
+      // Le joueur ne peut cliquer que quand c'est son tour.
+      if (fatalPlayerIdx(S.fatal.cur) !== 0) return;
+      const fmt = S.qFmt;
+      const nChoices = (S.q.choices || []).length;
+      const idx = parseInt(v, 10);
+      if (!(idx >= 0 && idx < nChoices)) throw new Error("answer.fatal: v invalide " + v);
+      const ok = (idx === S.q.a);
+      fatalRespond(ok, idx);
+      return;
+    }
     // Accepté en phase "q" (envoi/cpc) et "duel" (question sens du duel).
     if (S.phase !== "q" && S.phase !== "duel") return;
     const fmt = S.qFmt;
@@ -1883,6 +2379,7 @@ const ACT = {
   },
   restart() {
     // render() traite S=null exactement comme screen:"setup".
+    clearTimers();
     S = null;
     render();
   },
