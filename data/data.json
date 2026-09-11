@@ -765,6 +765,285 @@
       "trap": "sens-parite",
       "why": "PCTI : arbitrage couvert via forward, tient toujours. PNCTI : condition d'anticipation, testable et souvent réfutée.",
       "id": "parite-009"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "q": "Dans la BdP française, une acquisition par un groupe américain d'une usine française apparaît :",
+      "choices": [
+        "en IDE au compte financier, côté engagement (CF négatif dans la convention du cours)",
+        "au compte courant, côté crédit",
+        "aux erreurs et omissions",
+        "n'est jamais enregistrée"
+      ],
+      "a": 0,
+      "trap": "signe-bdp",
+      "why": "IDE entrant = engagement pour le pays receveur → CF < 0 (entrée nette de capitaux, convention du cours).",
+      "id": "bdp-016"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "q": "Un pays a une PEN de +200 Md€ et un excédent courant annuel de 20 Md€. Sans effets de valorisation, quelle sera la PEN dans 5 ans ?",
+      "choices": [
+        "+300 Md€",
+        "+100 Md€",
+        "+400 Md€",
+        "+220 Md€"
+      ],
+      "a": 0,
+      "trap": "stock-flux",
+      "why": "ΔPEN = CC (hors valorisation) → +20 × 5 = +100 ajouté au stock initial de 200 = +300 Md€.",
+      "id": "pen-015"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "q": "Un pays affiche X − M = −40, S − I = −60. Selon l'identité, T − G vaut :",
+      "choices": [
+        "+20",
+        "−20",
+        "−100",
+        "0"
+      ],
+      "a": 0,
+      "why": "(S − I) + (T − G) = X − M ⇒ T − G = (X − M) − (S − I) = −40 − (−60) = +20.",
+      "id": "si-014"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "q": "Un swap €/$ à 3 mois consiste, du point de vue de la banque française :",
+      "choices": [
+        "à acheter des $ au comptant et à les revendre à terme",
+        "à vendre des $ à terme uniquement",
+        "à acheter deux options d'achat",
+        "à payer une prime de risque à la BCE"
+      ],
+      "a": 0,
+      "why": "Swap = deux jambes opposées simultanées — pas d'exposition nette, juste un déplacement de trésorerie.",
+      "id": "forex-016"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "q": "Le sens de la cotation au certain pour le dollar face à l'euro (point de vue européen) donne :",
+      "choices": [
+        "1 € = X $ (X est le prix de l'euro en dollars)",
+        "1 $ = X € (X est le prix du dollar en euros)",
+        "peu importe, c'est symétrique",
+        "il n'y a pas de convention"
+      ],
+      "a": 0,
+      "trap": "certain-incertain",
+      "why": "Convention européenne : au certain = 1 unité de monnaie nationale vaut X devises.",
+      "id": "cot-016"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 3,
+      "q": "Si TCEN diminue de 2 % et P/P* augmente de 3 %, la variation approximative du TCER est :",
+      "choices": [
+        "+1 %",
+        "−5 %",
+        "+5 %",
+        "−1 %"
+      ],
+      "a": 0,
+      "why": "En log : Δq ≈ Δe + (π − π*) = −2 + 3 = +1 % (appréciation réelle malgré la baisse nominale).",
+      "id": "tcr-016"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "q": "Un pays choisit le coin « fixe + politique monétaire autonome » du triangle de Mundell. Que doit-il sacrifier ?",
+      "choices": [
+        "la mobilité parfaite des capitaux",
+        "sa monnaie",
+        "sa banque centrale",
+        "son commerce extérieur"
+      ],
+      "a": 0,
+      "why": "Fixe + monétaire autonome impose des contrôles de capitaux (cas Chine, années 2000).",
+      "id": "smi-016"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "q": "Sous PNCTI, les investisseurs anticipent une dépréciation de 2 % de la monnaie sur un an. Pour quel différentiel de taux i − i* la PNCTI tient-elle ?",
+      "choices": [
+        "+2 %",
+        "−2 %",
+        "0 %",
+        "+4 %"
+      ],
+      "a": 0,
+      "trap": "sens-parite",
+      "why": "PNCTI : i − i* = eᵃ − e (dépréciation attendue). Dépréciation de 2 % ⇒ i − i* = +2 %.",
+      "id": "parite-018"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "q": "Le « forward premium puzzle » est la constatation empirique que :",
+      "choices": [
+        "les monnaies à taux élevé s'apprécient en moyenne, contredisant la PNCTI",
+        "les taux à terme prédisent parfaitement le spot futur",
+        "les taux d'intérêt s'égalisent au niveau mondial",
+        "les banques centrales fixent le taux à terme"
+      ],
+      "a": 0,
+      "why": "Contradiction empirique de la PNCTI : ex ante on prédit dépréciation, ex post on voit souvent appréciation.",
+      "id": "parite-019"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "q": "Dans Dornbusch, une hausse permanente de Ms de 5 %. À court terme, la dépréciation nominale est :",
+      "choices": [
+        "supérieure à 5 %",
+        "exactement 5 %",
+        "inférieure à 5 %",
+        "nulle"
+      ],
+      "a": 0,
+      "trap": "statique-dyn",
+      "why": "Surajustement : e sous-tire au-delà de la valeur de long terme (5 %) puis se corrige progressivement.",
+      "id": "monet-019"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "q": "Dans le modèle monétaire à prix flexibles, une hausse de la demande de monnaie L(Y, i) (à Ms donné) :",
+      "choices": [
+        "apprécie la monnaie",
+        "déprécie la monnaie",
+        "n'a aucun effet sur le change",
+        "provoque une hyperinflation"
+      ],
+      "a": 0,
+      "why": "Demande de monnaie ↑ ⇒ P doit baisser pour équilibrer ⇒ par PPA, e ↑ (appréciation).",
+      "id": "monet-020"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 3,
+      "q": "Un pays a εX = 0,3 et εM = 0,4. Une dépréciation nominale de 10 % va :",
+      "choices": [
+        "dégrader le solde commercial (ML non vérifiée)",
+        "améliorer le solde commercial",
+        "ne rien changer",
+        "provoquer une réévaluation"
+      ],
+      "a": 0,
+      "trap": "ml-symetrie",
+      "why": "εX + εM = 0,7 < 1 : Marshall-Lerner non vérifiée, l'effet valeur domine, le solde se dégrade.",
+      "id": "depr-019"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 2,
+      "q": "Le modèle de portefeuille (chap. 4) ajoute au modèle monétaire :",
+      "choices": [
+        "une prime de risque dépendant de la PEN",
+        "des anticipations irrationnelles",
+        "un régime de change unique",
+        "l'hypothèse de non-arbitrage"
+      ],
+      "a": 0,
+      "why": "Innovation clef : introduire ρ (prime) et lier ρ à la PEN — un pays très endetté doit payer plus.",
+      "id": "depr-020"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 3,
+      "q": "La formule complète de Balassa-Samuelson prédit qu'un pays dont la productivité relative T/N (échangeable / abrité) augmente verra son TCR :",
+      "choices": [
+        "s'apprécier",
+        "se déprécier",
+        "rester stable",
+        "diverger"
+      ],
+      "a": 0,
+      "trap": "bs-etapes",
+      "why": "Gain de productivité T > N ⇒ contagion salariale ⇒ P_N ↑ ⇒ prix relatifs domestiques ↑ ⇒ q ↑.",
+      "id": "equil-017"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "q": "L'indice « Big Mac » de The Economist est une approximation empirique de :",
+      "choices": [
+        "la PPA absolue à partir d'un panier simplifié",
+        "la PNCTI",
+        "l'effet Balassa-Samuelson",
+        "le TCER"
+      ],
+      "a": 0,
+      "why": "Le Big Mac joue le rôle d'un panier standardisé de biens ; la PPA absolue prédit que son prix converti doit être identique partout.",
+      "id": "equil-018"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "q": "En Mundell-Fleming, changes flexibles, mobilité parfaite. La banque centrale baisse Ms. L'effet sur Y est :",
+      "choices": [
+        "négatif (Y baisse)",
+        "positif (Y augmente)",
+        "nul (Y inchangé)",
+        "ambigu"
+      ],
+      "a": 0,
+      "trap": "mf-regime",
+      "why": "Ms ↓ ⇒ i ↑ ⇒ entrées de capitaux ⇒ appréciation ⇒ X − M ↓ ⇒ Y ↓ (chemin miroir de la hausse Ms).",
+      "id": "mf-020"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "q": "Sous MF changes fixes + mobilité parfaite, si la BC baisse son taux directeur, l'effet immédiat est :",
+      "choices": [
+        "une sortie de capitaux et une vente de devises par la BC pour tenir la parité",
+        "une entrée de capitaux et une appréciation",
+        "un gel du taux",
+        "une hausse mécanique de Ms"
+      ],
+      "a": 0,
+      "trap": "mf-regime",
+      "why": "i < i* ⇒ sortie de K ⇒ BC vend devises ⇒ Ms ↓ retour au point de départ. Politique monétaire inefficace.",
+      "id": "mf-021"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 2,
+      "q": "Le « péché originel » (Eichengreen) désigne :",
+      "choices": [
+        "l'incapacité d'un pays émergent à s'endetter en sa propre monnaie",
+        "la sortie de Bretton Woods",
+        "la faillite d'un pays européen",
+        "l'inflation américaine des années 70"
+      ],
+      "a": 0,
+      "why": "Concept clef : les pays émergents empruntent en dollars/euros ; une dépréciation aggrave mécaniquement leur dette.",
+      "id": "smi-017"
     }
   ],
   "VF": [
@@ -1276,6 +1555,62 @@
       "trap": "mf-regime",
       "why": "Sans mobilité, la BC contrôle Ms sans être contrainte par les flux ; la politique monétaire retrouve son effet expansionniste sur Y.",
       "id": "mf-012"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "q": "La convention du cours voit un excédent courant comme équivalent à un CF positif (sortie nette de capitaux).",
+      "a": true,
+      "trap": "signe-bdp",
+      "why": "TC + CC − CF ≈ 0 → si CC > 0, CF > 0 : sortie nette (le pays place son épargne à l'étranger).",
+      "id": "bdp-017"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 2,
+      "q": "Un excédent courant permanent conduit toujours à une PEN qui augmente, effets de valorisation inclus.",
+      "a": false,
+      "trap": "stock-flux",
+      "why": "Hors valorisation, oui. Mais les effets de valorisation peuvent inverser localement le mouvement (voir États-Unis à long terme).",
+      "id": "pen-016"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 1,
+      "q": "L'usage international dominant cote le dollar à l'incertain contre la plupart des devises.",
+      "a": true,
+      "why": "1 USD = X yens, 1 USD = X JPY, etc. Exceptions notables : EUR/USD, GBP/USD, AUD/USD, NZD/USD (au certain).",
+      "id": "cot-017"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "q": "Sous Bretton Woods, les taux étaient fixes avec une bande de fluctuation autorisée de ±1 % autour de la parité.",
+      "a": true,
+      "why": "Bande officielle ±1 % ; élargie à ±2,25 % en 1971 avant l'abandon complet en 1973.",
+      "id": "smi-018"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "q": "La condition d'égalité des rendements ex ante en économie ouverte est appelée « parité d'intérêt non couverte » (PNCTI).",
+      "a": true,
+      "why": "PNCTI = uncovered interest parity (UIP) : les rendements attendus sont égaux ex ante, indépendamment du risque.",
+      "id": "parite-020"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "q": "Dans un modèle Mundell-Fleming avec régime intermédiaire (crawling peg, bandes larges), les résultats extrêmes s'atténuent mais restent qualitativement similaires.",
+      "a": true,
+      "why": "Régime intermédiaire = mélange de fixe et flexible : les politiques ont un effet non nul mais amoindri.",
+      "id": "mf-022"
     }
   ],
   "SENS": [
@@ -1830,6 +2165,76 @@
       "trap": "certain-incertain",
       "why": "Si le produit reste constant et l'un des facteurs monte, l'autre baisse (arithmétique).",
       "id": "cot-012"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "PNCTI, i et i* inchangés",
+      "shock": "Le pays subit un choc négatif de crédibilité (défiance)",
+      "var": "Anticipation eᵃ (dépréciation anticipée à l'horizon)",
+      "a": "down",
+      "trap": "sens-parite",
+      "why": "Défiance → les agents anticipent une dépréciation future de la monnaie → eᵃ ↓ (au certain, la valeur future baisse).",
+      "id": "parite-021"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle monétaire à prix flexibles, PPA, choc à l'étranger",
+      "shock": "Choc positif de productivité chez le partenaire (Y* ↑)",
+      "var": "Taux de change au certain de la monnaie domestique",
+      "a": "down",
+      "trap": "fixe-flexible",
+      "why": "Y* ↑ ⇒ demande de monnaie étrangère ↑ ⇒ P* ↓ (à Ms* donné) ⇒ par PPA, e = P/P* : e ↓ (monnaie domestique se déprécie relativement).",
+      "id": "monet-021"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 3,
+      "ctx": "Dépréciation nominale de 10 %, ML vérifiée, court terme",
+      "shock": "Contrats commerciaux existants (volumes rigides)",
+      "var": "Solde commercial X − M à horizon 3 mois",
+      "a": "down",
+      "trap": "ml-symetrie",
+      "why": "À CT, effet valeur domine (imports 10 % plus chers), volumes ne bougent pas → solde se dégrade avant de remonter.",
+      "id": "depr-021"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 3,
+      "ctx": "PPA relative, deux pays A et B, tous deux en changes flexibles",
+      "shock": "Le pays A adopte un policy mix plus expansionniste (π_A ↑ durablement)",
+      "var": "Taux de change nominal e (A/B, au certain de A)",
+      "a": "down",
+      "why": "PPA relative : Δe ≈ π_B − π_A. π_A ↑ ⇒ Δe < 0, la monnaie A se déprécie.",
+      "id": "equil-019"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, changes fixes, mobilité parfaite",
+      "shock": "Baisse permanente des impôts (T ↓)",
+      "var": "Production Y",
+      "a": "up",
+      "trap": "mf-regime",
+      "why": "T ↓ ⇒ IS à droite ⇒ i tend à ↑ ⇒ entrées de K ⇒ BC achète devises ⇒ Ms ↑ ⇒ Y ↑ (budgétaire efficace en fixe).",
+      "id": "mf-023"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Zone euro, TCER agrégé, période 2000-2010",
+      "shock": "Divergence d'inflation : Allemagne à 1,5 % vs Espagne à 3,5 % par an durablement",
+      "var": "TCER espagnol par rapport à l'Allemagne (au certain)",
+      "a": "up",
+      "why": "Δq ≈ Δe + (π_ES − π_DE). e fixé (zone euro) → Δq = 2 %/an : appréciation réelle espagnole cumulative de ~20 % en 10 ans.",
+      "id": "tcr-017"
     }
   ],
   "ORDRE": [

@@ -415,6 +415,21 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   min-height: 52px;
 }
 
+/* toggle express + hint dans le setup */
+.setup-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 14px;
+  flex-wrap: wrap;
+}
+.setup-toggle-hint {
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 12px;
+  font-style: italic;
+}
+
 /* bandeau règne au setup */
 .regne-banner {
   background: linear-gradient(90deg, rgba(255,201,60,.18), rgba(255,201,60,.06));
@@ -946,6 +961,10 @@ const POINTS = { qcm: 100, vf: 100, sens: 150, ordre: 200, qcm3: 0, calc: 0 };
 const PALIERS = [1, 10, 100, 1000, 10000];
 const MAITRE_TIME_MS = 45000;  // chrono indicatif, non bloquant
 
+// Express mode (SPEC §1.10, v1.1) : émission raccourcie.
+// Normal : 8 / 6 / 90 s / 5.  Express : 4 / 3 / 60 s / 3.
+function isExpress() { return !!(S && S.express); }
+
 // SRS (SPEC §5.1) — intervalles par boîte, en jours
 const INTERVAL_DAYS = [0, 1, 2, 4, 7];
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -1355,9 +1374,15 @@ function fmtForNext() {
 }
 
 function maxQForManche(m) {
-  if (m === "envoi") return 8;
-  if (m === "cpc")   return 6;
+  const ex = isExpress();
+  if (m === "envoi")  return ex ? 4 : 8;
+  if (m === "cpc")    return ex ? 3 : 6;
+  if (m === "maitre") return ex ? 3 : 5;
   return 0;
+}
+
+function fatalClockMs() {
+  return isExpress() ? 60000 : 90000;
 }
 
 function nextQ() {
@@ -1821,7 +1846,8 @@ function startFatal() {
   }
   S.manche = "fatal";
   S.qIdx = 0;
-  S.clocks = [90000, 90000];
+  const clk = fatalClockMs();
+  S.clocks = [clk, clk];
   S.newlyRed = null;
   S.elimInfo = null;
   S.phase = "intro";
@@ -2029,12 +2055,12 @@ function grade(kind) {
   if (kind === "su") {
     m.su += 1;
     m.palier = PALIERS[Math.min(m.su, PALIERS.length - 1)];
-    if (m.su >= 5) { finishMaitre("complete"); return; }
+    if (m.su >= maxQForManche("maitre")) { finishMaitre("complete"); return; }
     nextMaitreQ();
     return;
   }
   if (kind === "moitie") {
-    if (m.n >= 5) { finishMaitre("run"); return; }
+    if (m.n >= maxQForManche("maitre")) { finishMaitre("run"); return; }
     nextMaitreQ();
     return;
   }
@@ -2046,8 +2072,8 @@ function finishMaitre(reason) {
   clearTimers();
   const m = S.maitre;
   S.cagnotte = PALIERS[Math.min(m.su, PALIERS.length - 1)];
-  if (m.su >= 5) {
-    // 5 Su → accès à l'étoile mystérieuse (SPEC §1.6).
+  if (m.su >= maxQForManche("maitre")) {
+    // Tous les Su décrochés → accès à l'étoile mystérieuse (§1.6).
     startEtoile();
     return;
   }
@@ -2115,12 +2141,23 @@ function renderSetup() {
     '</div>'
   ) : "";
 
+  const expressChip =
+    '<div class="setup-toggle">' +
+      '<span class="cat-chip' + (settings.express ? ' on' : '') + '" data-act="toggleExpress">' +
+        (settings.express ? '⚡ Express' : 'Express') +
+      '</span>' +
+      '<span class="setup-toggle-hint">' +
+        (settings.express ? '4 / 3 / 60 s / 3 — ~5 min' : '8 / 6 / 90 s / 5 — ~12 min') +
+      '</span>' +
+    '</div>';
+
   stage.innerHTML =
     '<section class="setup">' +
       regneBanner +
       '<h2>' + esc(T.setup.h) + '</h2>' +
       '<div class="hint">' + esc(T.setup.hint) + '</div>' +
       '<div class="cats">' + chips + '</div>' +
+      expressChip +
       '<div class="btnrow">' +
         '<button class="b-gold" data-act="startShow">' + esc(T.setup.start) + '</button>' +
       '</div>' +
@@ -2444,8 +2481,8 @@ function renderFatalClocks() {
   const cur = S.fatal.cur;
   const a = S.players[S.fatal.a];
   const b = S.players[S.fatal.b];
-  const pctA = Math.max(0, Math.min(100, (S.clocks[0] / 90000) * 100));
-  const pctB = Math.max(0, Math.min(100, (S.clocks[1] / 90000) * 100));
+  const pctA = Math.max(0, Math.min(100, (S.clocks[0] / fatalClockMs()) * 100));
+  const pctB = Math.max(0, Math.min(100, (S.clocks[1] / fatalClockMs()) * 100));
   const secA = (S.clocks[0] / 1000).toFixed(1);
   const secB = (S.clocks[1] / 1000).toFixed(1);
   return (
@@ -2472,8 +2509,8 @@ function updateClocksUI() {
   const bB = document.getElementById("clock-bar-b");
   const vA = document.getElementById("clock-val-a");
   const vB = document.getElementById("clock-val-b");
-  if (bA) bA.style.width = ((S.clocks[0] / 90000) * 100).toFixed(1) + "%";
-  if (bB) bB.style.width = ((S.clocks[1] / 90000) * 100).toFixed(1) + "%";
+  if (bA) bA.style.width = ((S.clocks[0] / fatalClockMs()) * 100).toFixed(1) + "%";
+  if (bB) bB.style.width = ((S.clocks[1] / fatalClockMs()) * 100).toFixed(1) + "%";
   if (vA) vA.textContent = (S.clocks[0] / 1000).toFixed(1) + " s";
   if (vB) vB.textContent = (S.clocks[1] / 1000).toFixed(1) + " s";
 }
@@ -2693,6 +2730,12 @@ const ACT = {
     if (s.cats.includes(v)) s.cats = s.cats.filter(c => c !== v);
     else s.cats = s.cats.concat([v]);
     if (!s.cats.length) s.cats = [v]; // au moins une catégorie
+    saveSettings(s);
+    render();
+  },
+  toggleExpress() {
+    const s = loadSettings();
+    s.express = !s.express;
     saveSettings(s);
     render();
   },
