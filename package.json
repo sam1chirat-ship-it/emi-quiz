@@ -1,0 +1,17 @@
+{
+  "name": "emi-quiz",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Les 12 coups de l'EMI — playtest harness (Playwright, mode local).",
+  "scripts": {
+    "playtest": "node tools/playtest.mjs",
+    "playtest:scenario": "node tools/playtest.mjs scenario",
+    "playtest:srs": "node tools/playtest.mjs srs",
+    "playtest:layout": "node tools/playtest.mjs layout",
+    "playtest:all": "node tools/playtest.mjs all",
+    "playtest:update": "node tools/playtest.mjs all --update-baseline"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}

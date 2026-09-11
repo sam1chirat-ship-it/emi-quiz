@@ -44,6 +44,36 @@ python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
 Ajouter `?seed=42` pour figer le PRNG (déterministe, utile pour reproduire un bug).
+`?bots=weak` (acc 0.1) ou `?bots=strong` (acc 0.9) surcharge les bots pour tests / réglage.
+
+## Playtest (Playwright)
+
+Une seule fois pour installer les navigateurs headless :
+
+```
+npm install
+npx playwright install chromium
+```
+
+Puis les 3 modes de test (SPEC §8.4) :
+
+```
+npm run playtest:scenario     # parcours joueur juste + joueur faux
+npm run playtest:srs          # boîte 0 après mauvaise réponse
+npm run playtest:layout       # safe-area et bouton Suivant iPhone SE
+npm run playtest:all          # les trois
+npm run playtest:update       # fige captures/baseline.json (git-ignoré)
+```
+
+## Déploiement GitHub Pages
+
+`index.html` est déjà à la racine, committé sur `main`. Sur GitHub :
+
+1. Push le repo : `git remote add origin git@github.com:<user>/emi-quiz.git && git push -u origin main`
+2. Réglages → Pages → Source `Deploy from a branch`, branche `main`, dossier `/ (root)`, Save.
+3. L'URL de production `https://<user>.github.io/emi-quiz/` apparaît en quelques minutes.
+
+Aucun build côté GitHub : ils servent le `index.html` tel qu'il est.
 
 ## Cibles
 

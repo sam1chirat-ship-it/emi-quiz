@@ -1266,6 +1266,15 @@ const CONT = {
   endManche: () => endManche(),
 };
 
+function botAccOverride(base) {
+  // ?bots=weak|strong surcharge tous les acc à 0.1 / 0.9 (SPEC Annexe A).
+  // Utile pour le playtest et pour le réglage.
+  const q = new URL(window.location.href).searchParams.get("bots");
+  if (q === "weak")   return { qcm: 0.10, vf: 0.10, sens: 0.10, ordre: 0.10, calc: 0.10, qcm3: 0.10, ouverte: 0.10 };
+  if (q === "strong") return { qcm: 0.90, vf: 0.90, sens: 0.90, ordre: 0.90, calc: 0.90, qcm3: 0.90, ouverte: 0.90 };
+  return base;
+}
+
 function newShow(settings) {
   const cats = (settings.cats && settings.cats.length) ? settings.cats.slice() : Object.keys(DATA.CATS);
   const botDef = DATA.BOTS;
@@ -1274,10 +1283,10 @@ function newShow(settings) {
     manche: "envoi",
     phase: "intro",
     players: [
-      { name: "Vous",        bot: false, score: 0, feu: 0, combo: 1, out: false, acc: null },
-      { name: botDef[0].name, bot: true, score: 0, feu: 0, combo: 1, out: false, acc: botDef[0].acc },
-      { name: botDef[1].name, bot: true, score: 0, feu: 0, combo: 1, out: false, acc: botDef[1].acc },
-      { name: botDef[2].name, bot: true, score: 0, feu: 0, combo: 1, out: false, acc: botDef[2].acc },
+      { name: "Vous",         bot: false, score: 0, feu: 0, combo: 1, out: false, acc: null },
+      { name: botDef[0].name, bot: true,  score: 0, feu: 0, combo: 1, out: false, acc: botAccOverride(botDef[0].acc) },
+      { name: botDef[1].name, bot: true,  score: 0, feu: 0, combo: 1, out: false, acc: botAccOverride(botDef[1].acc) },
+      { name: botDef[2].name, bot: true,  score: 0, feu: 0, combo: 1, out: false, acc: botAccOverride(botDef[2].acc) },
     ],
     cur: 0,
     q: null,
