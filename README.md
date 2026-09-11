@@ -3,6 +3,9 @@
 Jeu mobile de révision d'Économie Monétaire Internationale (L3 Paris 1).
 Un seul fichier livré : `index.html`, **généré** par `tools/build.py`.
 
+- **En ligne** : https://sam1chirat-ship-it.github.io/emi-quiz/
+- **Repo** : https://github.com/sam1chirat-ship-it/emi-quiz
+
 ## Structure
 
 ```
