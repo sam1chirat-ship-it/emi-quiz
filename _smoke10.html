@@ -1,0 +1,47 @@
+<!doctype html><meta charset=utf-8>
+<title>emi-smoke10</title>
+<style>body{font-family:monospace;padding:20px;white-space:pre-wrap;font-size:11px}</style>
+<div id="out">chargement…</div>
+<iframe id="f" src="http://127.0.0.1:8734/index.html?seed=1" width="420" height="820" style="border:1px solid #444"></iframe>
+<script>
+const out = document.getElementById('out');
+const errs = [];
+const wait = ms => new Promise(r => setTimeout(r, ms));
+function tap(el){ if(!el) throw new Error("tap: absent"); el.dispatchEvent(new PointerEvent('pointerup',{bubbles:true,cancelable:true})); }
+window.addEventListener('error', e => errs.push('parent.error: ' + e.message));
+const f = document.getElementById('f');
+f.addEventListener('load', async () => {
+  const cw = f.contentWindow, cd = f.contentDocument;
+  cw.addEventListener('error', e => errs.push('iframe.error: ' + e.message));
+  await wait(300);
+  try {
+    tap(cd.querySelector('#boot [data-act="bootStart"]'));
+    await wait(180);
+    // ouvre le mémo
+    tap(cd.querySelector('.topbar [data-act="cheatsheet"]'));
+    await wait(200);
+    const modal = cd.getElementById("modal");
+    const items = cd.querySelectorAll('#modal .cs-item').length;
+    const sections = cd.querySelectorAll('#modal .cs-sec').length;
+    const searchInput = cd.getElementById('cs-search');
+    // Cherche « PNCTI » dans la barre
+    if (searchInput) {
+      searchInput.value = "pncti";
+      searchInput.dispatchEvent(new Event("input", {bubbles: true}));
+      await wait(150);
+    }
+    const filteredItems = cd.querySelectorAll('#modal .cs-item').length;
+    const filteredCount = cd.querySelector('#modal .cs-sec h3 .cs-count')?.textContent;
+    // Ferme
+    tap(cd.querySelector('[data-act="cheatClose"]'));
+    await wait(100);
+    const modalShownAfterClose = modal.classList.contains("show");
+    out.textContent =
+      "Errors JS : " + errs.length + "\n" +
+      (errs.length ? errs.join("\n") + "\n\n" : "\n") +
+      "Ouverture modal : sections=" + sections + " items=" + items + "\n" +
+      "Après recherche « pncti » : items=" + filteredItems + " count=" + filteredCount + "\n" +
+      "Fermeture : modal.show=" + modalShownAfterClose;
+  } catch (e) { errs.push("smoke.exception: " + e.message); }
+});
+</script>

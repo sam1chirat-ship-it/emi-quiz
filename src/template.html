@@ -415,6 +415,91 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   min-height: 52px;
 }
 
+/* mémo (cheatsheet) — modal plein écran */
+#modal .cheatsheet-sheet {
+  max-width: 480px;
+  width: 100%;
+  padding: 14px 14px 8px;
+  max-height: calc(100vh - 40px - var(--sat) - var(--sab));
+  display: flex;
+  flex-direction: column;
+}
+.cs-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.cs-head h2 {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  color: var(--gold);
+  margin: 0;
+  font-size: 22px;
+}
+#cs-search {
+  width: 100%;
+  background: var(--ink3);
+  color: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: var(--serif);
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.cs-body {
+  overflow-y: auto;
+  flex: 1 1 auto;
+  padding: 4px 2px 8px;
+}
+.cs-empty {
+  color: var(--muted);
+  padding: 12px;
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+}
+.cs-sec { margin: 8px 0 14px; }
+.cs-sec h3 {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  color: var(--bleu);
+  font-size: 13px;
+  margin: 4px 0 6px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 4px;
+}
+.cs-sec h3 .cs-count {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-weight: normal;
+  margin-left: 6px;
+  font-size: 12px;
+}
+.cs-item {
+  margin: 6px 0 8px;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(79, 195, 247, .18);
+}
+.cs-item:last-child { border-bottom: none; }
+.cs-item dt {
+  font-family: var(--sans);
+  letter-spacing: .04em;
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.cs-item dd {
+  font-family: var(--serif);
+  color: var(--cream);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
 /* toggle express + hint dans le setup */
 .setup-toggle {
   display: flex;
@@ -896,6 +981,7 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   <button class="b-sm b-ghost" data-act="exportGame" aria-label="Exporter">EXP</button>
   <button class="b-sm b-ghost" data-act="importGame" aria-label="Importer">IMP</button>
   <span class="spacer"></span>
+  <button class="b-sm b-ghost" data-act="cheatsheet">MEMO</button>
   <button class="b-sm b-ghost" data-act="palmares">PALMARES</button>
 </div>
 
@@ -2666,6 +2752,57 @@ function renderEtoile() {
   el.classList.add("show");
 }
 
+function renderCheatsheet(filter) {
+  const modal = document.getElementById("modal");
+  const cs = DATA.CHEATSHEET || { sigles: [], notations: [], conventions: [] };
+  const nfilter = norm(filter || "");
+  const match = (e) => !nfilter || norm(e.t).includes(nfilter) || norm(e.d).includes(nfilter);
+  const sections = [
+    { key: "sigles",      label: "Sigles & abréviations" },
+    { key: "notations",   label: "Notations mathématiques" },
+    { key: "conventions", label: "Conventions du cours" },
+  ];
+  const blocks = sections.map(sec => {
+    const entries = (cs[sec.key] || []).filter(match);
+    if (!entries.length) return "";
+    const items = entries.map(e =>
+      '<dl class="cs-item">' +
+        '<dt>' + esc(e.t) + '</dt>' +
+        '<dd>' + esc(e.d) + '</dd>' +
+      '</dl>'
+    ).join("");
+    return (
+      '<section class="cs-sec">' +
+        '<h3>' + esc(sec.label) + ' <span class="cs-count">' + entries.length + '</span></h3>' +
+        items +
+      '</section>'
+    );
+  }).join("");
+  const total = sections.reduce((n, s) => n + (cs[s.key] || []).filter(match).length, 0);
+
+  modal.innerHTML =
+    '<div class="sheet cheatsheet-sheet">' +
+      '<div class="cs-head">' +
+        '<h2>Mémo</h2>' +
+        '<button class="b-ghost b-sm" data-act="cheatClose">Fermer</button>' +
+      '</div>' +
+      '<input type="text" id="cs-search" placeholder="Rechercher un sigle, une notation, une convention…" ' +
+        'autocapitalize="off" autocorrect="off" spellcheck="false" value="' + esc(filter || "") + '">' +
+      (total ? '' : '<div class="cs-empty">Aucun résultat pour « ' + esc(filter) + ' »</div>') +
+      '<div class="cs-body">' + blocks + '</div>' +
+    '</div>';
+  modal.classList.add("show");
+  // Listener input, avec préservation du curseur.
+  const inp = document.getElementById("cs-search");
+  if (inp) {
+    inp.focus();
+    inp.setSelectionRange(inp.value.length, inp.value.length);
+    inp.addEventListener("input", ev => {
+      renderCheatsheet(ev.target.value);
+    });
+  }
+}
+
 function renderElimOverlay() {
   const info = S.elimInfo || {};
   const overlay = document.getElementById("overlay");
@@ -2987,6 +3124,16 @@ const ACT = {
       reader.readAsText(f);
     });
     inp.click();
+  },
+  cheatsheet() {
+    renderCheatsheet("");
+  },
+  cheatSearch() {
+    // pas d'usage direct : le champ de recherche a un listener input()
+    // ajouté à la volée dans renderCheatsheet.
+  },
+  cheatClose() {
+    document.getElementById("modal").classList.remove("show");
   },
   palmares() {
     const r = loadRegne();

@@ -3779,5 +3779,197 @@
         "Je conclus que la marche aléatoire n'est pas battue à court terme."
       ]
     }
-  ]
+  ],
+  "CHEATSHEET": {
+    "sigles": [
+      {
+        "t": "BdP",
+        "d": "Balance des paiements. Identité comptable du cours : TC + CC − CF + EO = 0."
+      },
+      {
+        "t": "CC",
+        "d": "Compte courant. Biens + services + revenus primaires (dividendes, intérêts) + revenus secondaires (transferts)."
+      },
+      {
+        "t": "TC",
+        "d": "Compte de capital. Transferts en capital (remises de dettes, brevets), poste souvent petit."
+      },
+      {
+        "t": "CF",
+        "d": "Compte financier. IDE, portefeuille, autres investissements, réserves. Convention du cours : CF > 0 = sortie nette de capitaux."
+      },
+      {
+        "t": "EO",
+        "d": "Erreurs et omissions. Bouclage statistique de la BdP, rarement nul."
+      },
+      {
+        "t": "IDE",
+        "d": "Investissement direct étranger : prise de contrôle ≥ 10 % du capital d'une entreprise étrangère."
+      },
+      {
+        "t": "PEN",
+        "d": "Position extérieure nette : stock d'avoirs sur l'étranger − stock d'engagements. Alimentée par le flux courant et les effets de valorisation."
+      },
+      {
+        "t": "PPA",
+        "d": "Parité de pouvoir d'achat. Absolue : E = P/P*. Relative (log) : Δe ≈ π* − π."
+      },
+      {
+        "t": "PCTI",
+        "d": "Parité couverte de taux d'intérêt : f − e = i* − i (arbitrage sans risque via marché à terme). Vérifiée empiriquement."
+      },
+      {
+        "t": "PNCTI",
+        "d": "Parité non couverte : i = i* − (eᵃ − e), soit e = eᵃ + (i − i*). Suppose la neutralité au risque. Souvent contredite (forward premium puzzle)."
+      },
+      {
+        "t": "TCEN",
+        "d": "Taux de change effectif nominal : moyenne pondérée des taux bilatéraux. Niveau = géométrique, log = arithmétique."
+      },
+      {
+        "t": "TCER",
+        "d": "Taux de change effectif réel = TCEN × P/P*. Indicateur de compétitivité-prix et de pouvoir d'achat."
+      },
+      {
+        "t": "TCR",
+        "d": "Taux de change réel. Δq ≈ Δe + (π − π*)."
+      },
+      {
+        "t": "TCEF / FEER",
+        "d": "Taux de change effectif fondamental. Compatible avec équilibre externe et interne à moyen terme. Utilisé pour juger d'une sous/sur-évaluation."
+      },
+      {
+        "t": "ML",
+        "d": "Condition de Marshall-Lerner : εX + εM > 1. Nécessaire pour qu'une dépréciation améliore le solde commercial."
+      },
+      {
+        "t": "BS",
+        "d": "Effet Balassa-Samuelson. Productivité échangeable ↑ → salaires ↑ → contagion vers l'abrité → prix des non-échangeables ↑ → appréciation réelle."
+      },
+      {
+        "t": "PTM",
+        "d": "Pricing to market. Les exportateurs ajustent leurs marges pour préserver leurs parts de marché : pass-through incomplet du change."
+      },
+      {
+        "t": "MF",
+        "d": "Modèle Mundell-Fleming. Prix fixes, statique. Efficacité des politiques dépend du régime × mobilité des capitaux."
+      },
+      {
+        "t": "IS/LM",
+        "d": "Courbes IS (marché des biens) et LM (marché monétaire). Base du modèle Mundell-Fleming."
+      },
+      {
+        "t": "BC",
+        "d": "Banque centrale."
+      },
+      {
+        "t": "FH",
+        "d": "Paradoxe de Feldstein-Horioka (1980) : S et I nationaux restent fortement corrélés, contredisant la mobilité parfaite."
+      },
+      {
+        "t": "OTC",
+        "d": "Over-the-counter. Marché de gré à gré, décentralisé, sans carnet d'ordres central. Le forex est un marché OTC."
+      }
+    ],
+    "notations": [
+      {
+        "t": "e",
+        "d": "Log du taux de change au certain (unités étrangères par unité nationale). Utilisé dans PNCTI, PPA relative, Dornbusch."
+      },
+      {
+        "t": "E",
+        "d": "Taux de change au certain en niveau. Réciproque du taux à l'incertain : S_I = 1/S_C."
+      },
+      {
+        "t": "eᵃ",
+        "d": "Anticipation du taux e à l'horizon considéré. Sous anticipations rationnelles : E[e_futur | info]."
+      },
+      {
+        "t": "f",
+        "d": "Log du taux à terme (forward). PCTI : f − e = i* − i."
+      },
+      {
+        "t": "q",
+        "d": "Log du taux de change réel. Δq ≈ Δe + (π − π*)."
+      },
+      {
+        "t": "i, i*",
+        "d": "Taux d'intérêt domestique (i) et étranger (i*). Différentiel i − i* central pour PNCTI/PCTI."
+      },
+      {
+        "t": "π, π*",
+        "d": "Taux d'inflation domestique (π) et étrangère (π*). Différentiel π − π* utilisé dans le TCR et la PPA relative."
+      },
+      {
+        "t": "Ms",
+        "d": "Offre nominale de monnaie. Central dans les modèles monétaires : e ∝ Ms/Ms* sous PPA + neutralité."
+      },
+      {
+        "t": "ωᵢ",
+        "d": "Poids commercial du partenaire i dans le calcul du TCEN. Σ ωᵢ = 1."
+      },
+      {
+        "t": "ρ",
+        "d": "Prime de risque exigée par les investisseurs. Introduite dans le modèle de portefeuille (chap. 4) : i = i* − (eᵃ − e) + ρ."
+      },
+      {
+        "t": "εX, εM",
+        "d": "Élasticités-prix des exportations et importations. Marshall-Lerner : εX + εM > 1."
+      },
+      {
+        "t": "S, I, T, G, X, M",
+        "d": "Épargne privée, investissement, impôts, dépenses publiques, exportations, importations. (S − I) + (T − G) = X − M."
+      }
+    ],
+    "conventions": [
+      {
+        "t": "Signe du compte financier",
+        "d": "Convention du cours : CF > 0 signifie une sortie nette de capitaux (excédent courant). Hausse des réserves officielles = signe positif dans CF. Attention : convention inverse dans certains manuels internationaux."
+      },
+      {
+        "t": "Identité de la BdP",
+        "d": "TC + CC − CF + EO = 0. Le signe − devant CF vient de la convention ci-dessus. Capacité (+) / besoin (−) de financement = TC + CC."
+      },
+      {
+        "t": "PEN vs solde courant",
+        "d": "PEN = STOCK d'actifs nets. Solde courant = FLUX annuel. Hors effets de valorisation : ΔPEN = CC. Piège récurrent : confondre stock et flux."
+      },
+      {
+        "t": "Sens du taux au certain",
+        "d": "Au certain (convention européenne) : 1 € = X $. Une hausse de X = appréciation de l'euro. Ne pas confondre avec la cotation à l'incertain (1 $ = Y €)."
+      },
+      {
+        "t": "Sens de la PNCTI",
+        "d": "e = eᵃ + (i − i*). À anticipation donnée, une hausse surprise de i entraîne e ↑ : appréciation immédiate. Comparer une différence de logs à un taux, jamais un ratio."
+      },
+      {
+        "t": "Horizon des taux d'intérêt",
+        "d": "Un taux annuel de 4 % sur 3 mois rapporte ≈ 1 %. Toujours diviser par 4 pour un horizon trimestriel (ou par 12 pour un mois). Piège classique en devoir."
+      },
+      {
+        "t": "TCEN : niveau vs log",
+        "d": "En niveau : moyenne géométrique pondérée. En log : moyenne arithmétique pondérée. Ne PAS additionner des taux en niveau."
+      },
+      {
+        "t": "Sens du TCR",
+        "d": "Δq ≈ Δe + (π − π*). Q ↑ = appréciation réelle = perte de compétitivité-prix + gain de pouvoir d'achat. Symétrique pour la dépréciation."
+      },
+      {
+        "t": "Marshall-Lerner et courbe en J",
+        "d": "εX + εM > 1 : condition NÉCESSAIRE pour qu'une dépréciation améliore le solde à moyen/long terme. À court terme (volumes rigides), le solde se dégrade d'abord (creux du J)."
+      },
+      {
+        "t": "MF statique vs Dornbusch dynamique",
+        "d": "Mundell-Fleming = prix fixes + statique. Modèle monétaire (Frenkel) = prix flexibles. Dornbusch = dynamique avec rigidité des prix à court terme et surajustement du change."
+      },
+      {
+        "t": "Balassa-Samuelson : toutes les étapes",
+        "d": "Productivité échangeable ↑ → salaires ↑ → contagion à l'abrité (marché du travail unique) → prix des non-échangeables ↑ → appréciation réelle. Sauter la contagion salariale est la faute canonique."
+      },
+      {
+        "t": "Intervention stérilisée",
+        "d": "Achat/vente de devises compensé par une opération d'open market inverse. Ms inchangée → LM inchangée → aucun effet monétaire durable. Seule la composition du bilan BC change."
+      }
+    ]
+  }
 }
