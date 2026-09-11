@@ -2075,6 +2075,799 @@
       "id": "monet-015"
     }
   ],
-  "OUVERTE": [],
-  "ETOILE": []
+  "OUVERTE": [
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "q": "Rappeler l'identité comptable de la balance des paiements et préciser le sens conventionnel du compte financier.",
+      "model": "TC + CC − CF + EO = 0. Convention du cours : CF > 0 = sortie nette de capitaux (excédent courant, capacité de financement).",
+      "points": [
+        "identité complète",
+        "présence du signe − devant CF",
+        "convention du signe (sortie/entrée)",
+        "notion de capacité / besoin de financement"
+      ],
+      "notations": [
+        "TC transferts",
+        "CC compte courant",
+        "CF compte financier",
+        "EO erreurs et omissions"
+      ],
+      "why": "Identité au cœur du chapitre 1 : le signe − vient de la convention (CF > 0 = sortie).",
+      "id": "bdp-014"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 3,
+      "q": "Un pays enregistre CC = −40 Md€, TC = 0, EO = 0. Calculer CF et interpréter en termes de flux de capitaux.",
+      "model": "TC + CC − CF + EO = 0 ⇒ 0 − 40 − CF + 0 = 0 ⇒ CF = −40 Md€. CF < 0 = entrée nette de capitaux : le pays est financé par le reste du monde.",
+      "points": [
+        "application de l'identité",
+        "calcul CF = −40",
+        "convention du signe",
+        "interprétation flux entrant"
+      ],
+      "notations": [
+        "CF (Md€)",
+        "signe négatif = entrée"
+      ],
+      "why": "Le déficit courant appelle mécaniquement un financement extérieur — c'est l'autre facette de la comptabilité.",
+      "id": "bdp-015"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 2,
+      "q": "Distinguer position extérieure nette et solde courant. Écrire l'équation d'accumulation hors valorisation.",
+      "model": "PEN = stock d'actifs nets (avoirs − engagements). Solde courant = flux annuel. Hors effets de valorisation : ΔPEN = CC.",
+      "points": [
+        "PEN est un stock",
+        "CC est un flux",
+        "équation d'accumulation ΔPEN = CC",
+        "mention hors valorisation"
+      ],
+      "notations": [
+        "PEN(t)",
+        "CC de t à t+1"
+      ],
+      "why": "Piège classique : confondre le stock (PEN) et le flux (CC).",
+      "id": "pen-013"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "q": "Expliquer comment une appréciation de la monnaie nationale peut faire baisser la PEN sans qu'aucun flux courant ne soit intervenu.",
+      "model": "Les avoirs libellés en devises étrangères valent moins une fois convertis en monnaie nationale appréciée. C'est un effet de valorisation : le stock PEN change sans flux de capitaux ni de biens.",
+      "points": [
+        "effet de valorisation",
+        "actifs en devises perdent de la valeur",
+        "aucun flux courant/financier",
+        "stock modifié"
+      ],
+      "notations": [
+        "valorisation",
+        "PEN en monnaie nationale"
+      ],
+      "why": "Illustre la nature de stock de la PEN et l'importance des effets de valorisation.",
+      "id": "pen-014"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "q": "Établir l'identité (S − I) + (T − G) = X − M en économie ouverte et commenter son sens.",
+      "model": "Y = C + I + G + X − M et Y = C + T + S ⇒ S + T = I + G + X − M ⇒ (S − I) + (T − G) = X − M. L'excédent courant correspond à un excès d'épargne domestique.",
+      "points": [
+        "PIB par la dépense",
+        "PIB par le revenu",
+        "manipulation aboutissant à l'identité",
+        "interprétation économique"
+      ],
+      "notations": [
+        "S épargne privée",
+        "I investissement",
+        "T impôts",
+        "G dépenses publiques"
+      ],
+      "why": "Fondement du cours : le solde courant est structurellement lié à l'équilibre épargne-investissement.",
+      "id": "si-012"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 3,
+      "q": "Énoncer et expliquer le paradoxe de Feldstein-Horioka (1980).",
+      "model": "L'épargne et l'investissement nationaux restent fortement corrélés à l'échelle des pays, contredisant l'hypothèse d'une mobilité parfaite des capitaux. Interprétation : biais de proximité, contrainte prudentielle, préférence nationale.",
+      "points": [
+        "année 1980",
+        "corrélation S/I nationale",
+        "contradiction avec mobilité parfaite",
+        "interprétations possibles"
+      ],
+      "notations": [
+        "S",
+        "I",
+        "coefficient de corrélation"
+      ],
+      "why": "Un des trois grands paradoxes du chapitre 1 (avec Lucas et zone euro).",
+      "id": "si-013"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "q": "Décrire les instruments principaux du marché des changes (spot, terme, swap, option) et leur usage.",
+      "model": "Spot : livraison immédiate. Terme : prix fixé aujourd'hui, livraison future. Swap : achat spot + vente à terme, gestion trésorerie sans exposition nette. Option : droit (pas obligation) d'acheter (call) ou vendre (put) à un prix d'exercice.",
+      "points": [
+        "spot (immédiat)",
+        "terme (forward)",
+        "swap (deux jambes)",
+        "option (droit, pas obligation)"
+      ],
+      "notations": [
+        "S taux comptant",
+        "F taux à terme",
+        "K prix d'exercice"
+      ],
+      "why": "Panorama des instruments de couverture et de spéculation du chapitre 2.",
+      "id": "forex-014"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "q": "Un exportateur français reçoit 100 000 USD dans 3 mois. Comment se couvre-t-il et pourquoi ?",
+      "model": "Il vend les 100 000 USD à terme (forward sell) à 3 mois. Il fixe aujourd'hui le taux de conversion en euros, éliminant le risque de baisse du dollar.",
+      "points": [
+        "vente à terme",
+        "3 mois",
+        "élimination du risque de baisse USD",
+        "prix en EUR certain"
+      ],
+      "notations": [
+        "F(3 mois) EUR/USD"
+      ],
+      "why": "Cas d'école de couverture : à sens opposé pour un exportateur (vend à terme) vs importateur (achète à terme).",
+      "id": "forex-015"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "q": "Distinguer cotation au certain et à l'incertain. Donner un exemple pour l'euro.",
+      "model": "Au certain : 1 unité de monnaie nationale = X devises étrangères (ex. 1 € = 1,10 $). À l'incertain : X unités de monnaie nationale = 1 devise étrangère (ex. 1 $ = 0,91 €). Réciprocité : S_I = 1/S_C.",
+      "points": [
+        "définition au certain",
+        "définition à l'incertain",
+        "exemple chiffré",
+        "réciprocité S_I = 1/S_C"
+      ],
+      "notations": [
+        "S_C au certain",
+        "S_I à l'incertain"
+      ],
+      "why": "La confusion certain/incertain reste le premier piège du chapitre 2.",
+      "id": "cot-014"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 3,
+      "q": "Décrire l'arbitrage triangulaire et donner la formule liant trois taux au certain.",
+      "model": "Si 1 A = X B et 1 B = Y C alors, par arbitrage sans risque, 1 A = X × Y C. Écarts par rapport à cette parité déclencheraient un profit sans risque, éliminé par la loi du prix unique.",
+      "points": [
+        "trois devises A, B, C",
+        "formule multiplicative",
+        "arbitrage sans risque",
+        "convergence du taux croisé"
+      ],
+      "notations": [
+        "S(A/B)",
+        "S(B/C)",
+        "S(A/C) = S(A/B) × S(B/C)"
+      ],
+      "why": "L'arbitrage triangulaire est le mécanisme qui garantit la cohérence des taux entre trois devises.",
+      "id": "cot-015"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "q": "Définir le taux de change effectif nominal (TCEN) et écrire sa formule (en niveau et en log).",
+      "model": "TCEN = moyenne pondérée des taux bilatéraux, poids = parts des partenaires dans le commerce extérieur. En niveau : moyenne géométrique (Π (Sᵢ)^ωᵢ). En log : moyenne arithmétique (e_eff = Σ ωᵢ eᵢ, Σ ωᵢ = 1).",
+      "points": [
+        "moyenne pondérée",
+        "poids = parts commerciales",
+        "niveau = géométrique",
+        "log = arithmétique"
+      ],
+      "notations": [
+        "e_eff en log",
+        "ωᵢ",
+        "Σ ωᵢ = 1"
+      ],
+      "why": "Piège type examen : en niveau on multiplie (géométrique), en log on additionne (arithmétique).",
+      "id": "tcr-013"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "q": "Définir le taux de change réel et écrire la formule de variation log-linéarisée.",
+      "model": "TCER = TCEN × P/P* (au certain). En variation log : Δq ≈ Δe + (π − π*). Interprétation : Δq > 0 = appréciation réelle = perte de compétitivité-prix, gain de pouvoir d'achat.",
+      "points": [
+        "formule niveau",
+        "formule variation log",
+        "interprétation compétitivité",
+        "interprétation pouvoir d'achat"
+      ],
+      "notations": [
+        "q log du TCER",
+        "π inflation domestique",
+        "π* inflation étrangère"
+      ],
+      "why": "Formule centrale du chapitre 2, à connaître par cœur en niveau ET en log.",
+      "id": "tcr-014"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 3,
+      "q": "Une hausse du TCEN de 3 % combinée à une inflation domestique de 4 % et étrangère de 1 %. Calculer la variation approximative du TCR et interpréter.",
+      "model": "Δq ≈ Δe + (π − π*) = 3 + (4 − 1) = +6 %. Appréciation réelle de 6 % : forte perte de compétitivité-prix, gain de pouvoir d'achat pour les résidents.",
+      "points": [
+        "application formule log",
+        "calcul +6 %",
+        "interprétation appréciation réelle",
+        "impact compétitivité"
+      ],
+      "notations": [
+        "Δq",
+        "Δe",
+        "π, π*"
+      ],
+      "why": "Application chiffrée classique : détecter que Δe et (π−π*) se cumulent.",
+      "id": "tcr-015"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "q": "Exposer le dilemme (paradoxe) de Triffin et son verdict historique.",
+      "model": "Pour fournir la liquidité mondiale en dollars, les États-Unis doivent accepter un déficit courant permanent, mais celui-ci mine la crédibilité de la convertibilité or à 35 $. Verdict : 1971, Nixon suspend la convertibilité.",
+      "points": [
+        "double contrainte (liquidité vs crédibilité)",
+        "Bretton Woods",
+        "1971 abandon convertibilité",
+        "signification pour toute monnaie internationale"
+      ],
+      "notations": [
+        "convertibilité or",
+        "35 $ l'once"
+      ],
+      "why": "Un des concepts marquants du chapitre 2 : la fragilité intrinsèque d'un régime de change fixe adossé à une devise clef.",
+      "id": "smi-014"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 2,
+      "q": "Présenter la typologie des régimes de change du fixe au flottant.",
+      "model": "Currency board / ancrage strict / ancrage glissant / ancrage sur panier / flottement géré / flottement pur. Chaque cran augmente la flexibilité et la marge de manœuvre monétaire, au prix d'une volatilité accrue.",
+      "points": [
+        "au moins 4 catégories",
+        "gradation flexibilité",
+        "arbitrage volatilité / autonomie",
+        "exemples de pays si possible"
+      ],
+      "notations": [
+        "régimes fixes vs flottants"
+      ],
+      "why": "Typologie à connaître pour situer chaque pays sur le spectre.",
+      "id": "smi-015"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "q": "Écrire la relation PCTI et expliquer en quoi elle est une relation d'arbitrage sans risque.",
+      "model": "En logs : f − e = i* − i. Le report/déport à terme égale le différentiel d'intérêt. Elle tient sans hypothèse sur les anticipations car l'investisseur se couvre via le marché à terme.",
+      "points": [
+        "formule f − e = i* − i",
+        "notion de couverture",
+        "sans risque",
+        "indépendance des anticipations"
+      ],
+      "notations": [
+        "f log du taux à terme",
+        "e log du taux au comptant",
+        "i, i*"
+      ],
+      "why": "La PCTI est un pilier vérifié empiriquement — contrairement à la PNCTI.",
+      "id": "parite-015"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "q": "Écrire la PNCTI, expliquer son sens et donner l'effet immédiat d'une hausse surprise du taux d'intérêt domestique.",
+      "model": "En logs : i = i* − (eᵃ − e), soit e = eᵃ + (i − i*). Hausse surprise de i (i* et eᵃ inchangés) ⇒ e ↑ : appréciation immédiate. L'anticipation de dépréciation future compense le nouveau différentiel.",
+      "points": [
+        "formule PNCTI",
+        "manipulation e = eᵃ + (i − i*)",
+        "appréciation immédiate",
+        "compensation ex post"
+      ],
+      "notations": [
+        "e log au certain",
+        "eᵃ anticipation"
+      ],
+      "why": "Piège récurrent du prof : le SENS de la variation immédiate de e après un choc sur i.",
+      "id": "parite-016"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "q": "Commenter l'énoncé : « Les taux d'intérêt élevés attirent les capitaux et apprécient durablement la monnaie. »",
+      "model": "Vrai à court terme : hausse surprise de i ⇒ appréciation immédiate (PNCTI). Faux à long terme : l'appréciation surréagit puis se corrige (Dornbusch, PPA). Empiriquement, le forward premium puzzle observe que des i élevés sont même associés à des appréciations moyennes ex post, contredisant la PNCTI naïve.",
+      "points": [
+        "vrai court terme",
+        "surajustement puis correction",
+        "forward premium puzzle",
+        "nuance long terme"
+      ],
+      "notations": [
+        "PNCTI",
+        "surajustement",
+        "Dornbusch"
+      ],
+      "why": "Question de commentaire type : mesurer les limites empiriques de la PNCTI.",
+      "id": "parite-017"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 2,
+      "q": "Présenter le modèle monétaire à prix flexibles (Frenkel).",
+      "model": "Hypothèses : prix flexibles, PPA continue, équation quantitative Ms/P = L(Y, i). Conclusion : e ∝ Ms/Ms* (au certain) à Y, Y* donnés. Une hausse permanente de Ms x % ⇒ P x %, e ↓ x % (dépréciation nominale, neutralité monétaire).",
+      "points": [
+        "hypothèses (prix flex, PPA)",
+        "équation quantitative",
+        "formule e ∝ Ms/Ms*",
+        "neutralité monétaire"
+      ],
+      "notations": [
+        "Ms domestique",
+        "Ms* étranger",
+        "L(Y, i)"
+      ],
+      "why": "Modèle référence court chapitre 3, base pour Dornbusch (prix rigides à court terme).",
+      "id": "monet-016"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "q": "Décrire le mécanisme de surajustement de Dornbusch après une hausse permanente de l'offre de monnaie.",
+      "model": "Prix rigides à court terme, PPA à long terme, PNCTI en continu. Ms ↑ ⇒ i ↓ ⇒ pour respecter la PNCTI avec i ↓, il faut e_future > e_court : la monnaie se déprécie plus qu'à long terme (surtire), puis se redresse au fil de l'ajustement des prix.",
+      "points": [
+        "prix rigides court terme",
+        "PPA long terme",
+        "PNCTI en continu",
+        "surajustement",
+        "convergence progressive"
+      ],
+      "notations": [
+        "e court",
+        "e long",
+        "i, i*"
+      ],
+      "why": "Le surajustement explique la volatilité des taux de change nominaux à court terme.",
+      "id": "monet-017"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "q": "Rappeler le résultat de Meese et Rogoff (1983) et son enseignement pour l'économie du change.",
+      "model": "Aucun modèle structurel de change (monétaire, portefeuille, PPA) ne bat significativement une marche aléatoire à horizon court (12 mois). Enseignement : la « déconnexion » du change vis-à-vis des fondamentaux à court terme, motive les modèles à information incomplète et à hétérogénéité des agents.",
+      "points": [
+        "année 1983",
+        "modèles structurels vs marche aléatoire",
+        "horizon 12 mois",
+        "notion de déconnexion"
+      ],
+      "notations": [
+        "ARMA",
+        "marche aléatoire"
+      ],
+      "why": "Résultat empirique fondateur qui structure l'ensemble de la littérature moderne sur le change.",
+      "id": "monet-018"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 2,
+      "q": "Énoncer la condition Marshall-Lerner et l'illustrer par la courbe en J.",
+      "model": "Condition : εX + εM > 1 (somme des élasticités-prix > 1). Court terme : volumes rigides, effet valeur domine, solde ↓. Moyen/long terme : volumes s'ajustent, si ML tient, solde ↑ : trajet en J.",
+      "points": [
+        "εX + εM > 1",
+        "distinction effet valeur / volume",
+        "trajectoire J",
+        "phase courte et longue"
+      ],
+      "notations": [
+        "εX",
+        "εM"
+      ],
+      "why": "Un des points d'examen les plus attendus du chapitre 4.",
+      "id": "depr-016"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 3,
+      "q": "Définir le pricing to market et expliquer son effet sur le pass-through.",
+      "model": "PTM : les exportateurs ajustent leurs marges plutôt que leurs prix affichés pour préserver leurs parts de marché. Conséquence : le pass-through du change vers les prix à l'importation est incomplet, ce qui atténue l'effet valeur d'une dépréciation et allonge la phase descendante de la courbe en J.",
+      "points": [
+        "définition PTM",
+        "ajustement des marges",
+        "pass-through incomplet",
+        "conséquence sur la courbe en J"
+      ],
+      "notations": [
+        "pass-through",
+        "marge exportateur"
+      ],
+      "why": "Explique pourquoi les prix relatifs bougent moins que les taux nominaux.",
+      "id": "depr-017"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 3,
+      "q": "Le modèle de portefeuille : quel ajout fait-il par rapport à la PNCTI classique ?",
+      "model": "Introduit le RISQUE : les investisseurs exigent une prime pour détenir la dette d'un pays selon sa PEN. Formule augmentée : i = i* − (eᵃ − e) + ρ, où ρ est la prime de risque. Un pays très endetté (PEN très négative) doit offrir un rendement supérieur ⇒ dépréciation immédiate compensatoire.",
+      "points": [
+        "introduction du risque",
+        "prime ρ",
+        "PNCTI augmentée",
+        "lien PEN négative ⇒ ρ ↑"
+      ],
+      "notations": [
+        "ρ prime de risque",
+        "PEN"
+      ],
+      "why": "Extension naturelle de la PNCTI aux pays à PEN dégradée.",
+      "id": "depr-018"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "q": "Écrire la PPA absolue et la PPA relative, préciser leur horizon de validité.",
+      "model": "PPA absolue : E = P/P* (au certain), même pouvoir d'achat partout. PPA relative : Δe ≈ π* − π (log-linéarisée). Horizon : très long terme, la PPA absolue rarement vérifiée à cause des non-échangeables ; PPA relative approximativement vérifiée à horizon décennal.",
+      "points": [
+        "formule PPA absolue",
+        "formule PPA relative",
+        "notion de long terme",
+        "limites empiriques"
+      ],
+      "notations": [
+        "E niveau",
+        "π, π*"
+      ],
+      "why": "Deux versions à ne pas confondre : niveau vs variation, absolue vs relative.",
+      "id": "equil-014"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 3,
+      "q": "Détailler toutes les étapes de l'effet Balassa-Samuelson.",
+      "model": "1) Gains de productivité dans le secteur échangeable. 2) Hausse des salaires dans l'échangeable. 3) Contagion salariale au secteur abrité (marché du travail unique). 4) Hausse des prix des non-échangeables. 5) Hausse du niveau général des prix ⇒ appréciation réelle. Explique pourquoi les pays émergents en rattrapage voient leur TCR s'apprécier.",
+      "points": [
+        "gain productivité échangeable",
+        "hausse salaires échangeable",
+        "contagion vers abrité",
+        "hausse prix non-échangeables",
+        "appréciation réelle"
+      ],
+      "notations": [
+        "secteurs échangeable / abrité"
+      ],
+      "why": "Le prof exige TOUTES les étapes : sauter la contagion salariale est la faute canonique.",
+      "id": "equil-015"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 3,
+      "q": "Définir le TCEF (FEER) et expliquer son usage.",
+      "model": "Fundamental Equilibrium Exchange Rate : taux de change compatible simultanément avec un solde courant soutenable (équilibre externe) et le plein emploi non-inflationniste (équilibre interne) à moyen terme. Sert de référence pour évaluer si une monnaie est sous- ou sur-évaluée.",
+      "points": [
+        "définition FEER",
+        "équilibre externe",
+        "équilibre interne",
+        "moyen terme",
+        "usage : sous/sur-évaluation"
+      ],
+      "notations": [
+        "FEER",
+        "TCEF"
+      ],
+      "why": "Concept normatif utilisé par les organisations internationales pour juger de la valeur d'équilibre d'un change.",
+      "id": "equil-016"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 2,
+      "q": "Énoncer le triangle d'incompatibilité de Mundell.",
+      "model": "On ne peut pas avoir simultanément les trois : parité fixe, mobilité parfaite des capitaux, politique monétaire autonome. Un pays doit renoncer à au moins un des trois sommets.",
+      "points": [
+        "trois sommets nommés",
+        "impossibilité simultanée",
+        "choix d'un sommet à sacrifier",
+        "exemples de pays"
+      ],
+      "notations": [
+        "triangle d'incompatibilité"
+      ],
+      "why": "Théorème d'impossibilité qui fonde toute l'analyse des régimes de change.",
+      "id": "mf-017"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "q": "En Mundell-Fleming, comparer l'efficacité des politiques budgétaire et monétaire en changes fixes et flexibles (mobilité parfaite).",
+      "model": "Fixe + mobilité parfaite : budgétaire EFFICACE (BC accommode l'entrée de capitaux), monétaire INEFFICACE (sortie de capitaux compense Ms). Flexible + mobilité parfaite : budgétaire INEFFICACE (éviction totale par l'appréciation), monétaire EFFICACE (dépréciation soutient X − M).",
+      "points": [
+        "matrice 2×2 régime × politique",
+        "fixe : budgétaire OK, monétaire KO",
+        "flexible : monétaire OK, budgétaire KO",
+        "mécanisme via i et K"
+      ],
+      "notations": [
+        "G, Ms, IS, LM, i, e"
+      ],
+      "why": "Résultat central de MF : le régime de change détermine l'efficacité des politiques.",
+      "id": "mf-018"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "q": "Qu'est-ce qu'une intervention stérilisée et pourquoi n'affecte-t-elle pas la courbe LM ?",
+      "model": "Intervention sur le marché des changes (achat/vente de devises) compensée par une opération d'open market inverse sur la monnaie nationale, laissant Ms inchangé. Comme Ms ne bouge pas, la courbe LM ne se déplace pas — la politique monétaire de fait ne change pas.",
+      "points": [
+        "définition intervention",
+        "opération d'open market compensatoire",
+        "Ms inchangé",
+        "LM inchangée"
+      ],
+      "notations": [
+        "Ms",
+        "open market"
+      ],
+      "why": "Concept clef pour comprendre l'autonomie apparente en régime fixe (via stérilisation partielle).",
+      "id": "mf-019"
+    }
+  ],
+  "ETOILE": [
+    {
+      "id": "et-01",
+      "name": "Paradoxe de Feldstein-Horioka",
+      "aliases": [
+        "feldstein horioka",
+        "feldstein-horioka",
+        "fh",
+        "feldstein",
+        "horioka",
+        "paradoxe fh"
+      ],
+      "clues": [
+        "Je date de 1980.",
+        "Je concerne la mobilité des capitaux.",
+        "Je porte deux noms.",
+        "Je compare épargne et investissement nationaux.",
+        "Je constate qu'ils restent fortement corrélés par pays."
+      ]
+    },
+    {
+      "id": "et-02",
+      "name": "Surajustement de Dornbusch",
+      "aliases": [
+        "dornbusch",
+        "surajustement",
+        "overshooting",
+        "surajustement de dornbusch",
+        "modèle de dornbusch"
+      ],
+      "clues": [
+        "Je suis un modèle du chapitre 3.",
+        "Je combine prix rigides à court terme et PPA à long terme.",
+        "Je fais surréagir le taux de change à un choc monétaire.",
+        "Je prédis un retour vers la valeur de long terme.",
+        "Je porte le nom d'un économiste allemand."
+      ]
+    },
+    {
+      "id": "et-03",
+      "name": "Paradoxe de Triffin",
+      "aliases": [
+        "triffin",
+        "dilemme de triffin",
+        "paradoxe de triffin"
+      ],
+      "clues": [
+        "Je porte le nom d'un économiste belge.",
+        "Je décris un dilemme historique.",
+        "Je concerne une monnaie internationale.",
+        "Je se joue sous Bretton Woods.",
+        "J'oppose fournir la liquidité mondiale à préserver la crédibilité de la monnaie de réserve."
+      ]
+    },
+    {
+      "id": "et-04",
+      "name": "Effet Balassa-Samuelson",
+      "aliases": [
+        "balassa samuelson",
+        "balassa-samuelson",
+        "bs",
+        "effet bs",
+        "balassa"
+      ],
+      "clues": [
+        "Je porte deux noms.",
+        "Je concerne les pays émergents en rattrapage.",
+        "Je passe par les gains de productivité.",
+        "Je repose sur la contagion salariale vers le secteur abrité.",
+        "Je fais s'apprécier le taux de change réel."
+      ]
+    },
+    {
+      "id": "et-05",
+      "name": "Condition de Marshall-Lerner",
+      "aliases": [
+        "marshall lerner",
+        "marshall-lerner",
+        "ml",
+        "condition ml",
+        "condition de marshall lerner"
+      ],
+      "clues": [
+        "Je porte deux noms.",
+        "Je concerne la balance commerciale.",
+        "Je fais intervenir des élasticités-prix.",
+        "Je pose une inégalité : la somme doit dépasser 1.",
+        "Je conditionne l'amélioration du solde après une dépréciation."
+      ]
+    },
+    {
+      "id": "et-06",
+      "name": "Triangle d'incompatibilité de Mundell",
+      "aliases": [
+        "mundell",
+        "triangle d'incompatibilite",
+        "trilemme",
+        "triangle de mundell",
+        "triangle incompatibilite"
+      ],
+      "clues": [
+        "Je suis un théorème d'impossibilité.",
+        "Je concerne les régimes de change.",
+        "Je fais intervenir trois éléments.",
+        "Je force à en sacrifier un.",
+        "Je porte le nom d'un économiste canadien prix Nobel."
+      ]
+    },
+    {
+      "id": "et-07",
+      "name": "Courbe en J",
+      "aliases": [
+        "courbe en j",
+        "courbe j",
+        "j curve",
+        "j-curve"
+      ],
+      "clues": [
+        "Je suis une lettre de l'alphabet.",
+        "Je décris une dynamique temporelle.",
+        "J'apparais après une dépréciation.",
+        "Je descends avant de monter.",
+        "Je suppose Marshall-Lerner pour la remontée."
+      ]
+    },
+    {
+      "id": "et-08",
+      "name": "Paradoxe de Lucas",
+      "aliases": [
+        "lucas",
+        "paradoxe de lucas"
+      ],
+      "clues": [
+        "Je date de 1990.",
+        "Je concerne les flux de capitaux internationaux.",
+        "Je porte un seul nom (Nobel 1995).",
+        "Je constate que le capital ne va pas des pays riches vers les pauvres autant que la théorie le prédit.",
+        "Je m'explique par le risque et le capital humain."
+      ]
+    },
+    {
+      "id": "et-09",
+      "name": "TCEF (Taux de change effectif fondamental)",
+      "aliases": [
+        "tcef",
+        "feer",
+        "fundamental equilibrium exchange rate",
+        "taux de change effectif fondamental"
+      ],
+      "clues": [
+        "Je suis un acronyme.",
+        "Je désigne un taux de change d'équilibre.",
+        "J'ai deux dimensions : externe et interne.",
+        "Je concerne le moyen terme.",
+        "Je sers à juger si une monnaie est sur ou sous-évaluée."
+      ]
+    },
+    {
+      "id": "et-10",
+      "name": "Loi du prix unique",
+      "aliases": [
+        "loi du prix unique",
+        "law of one price",
+        "lop",
+        "prix unique"
+      ],
+      "clues": [
+        "Je concerne un bien parfaitement échangeable.",
+        "Je m'appuie sur l'arbitrage international.",
+        "J'unifie les prix exprimés dans une monnaie commune.",
+        "Je fonde la PPA absolue.",
+        "Je m'exprime par une égalité entre prix domestique et prix étranger converti."
+      ]
+    },
+    {
+      "id": "et-11",
+      "name": "Pricing to market",
+      "aliases": [
+        "pricing to market",
+        "ptm",
+        "pass through incomplete",
+        "pass-through incomplet"
+      ],
+      "clues": [
+        "Je suis une pratique des exportateurs.",
+        "Je concerne le comportement de marge.",
+        "Je réduis le pass-through du change.",
+        "Je vise à préserver les parts de marché.",
+        "Je s'écris en anglais avec deux mots et un adverbe court."
+      ]
+    },
+    {
+      "id": "et-12",
+      "name": "Théorème de Meese-Rogoff",
+      "aliases": [
+        "meese rogoff",
+        "meese-rogoff",
+        "mr",
+        "meese",
+        "rogoff",
+        "deconnexion du change"
+      ],
+      "clues": [
+        "Je date de 1983.",
+        "Je porte deux noms.",
+        "Je concerne la prévision du taux de change.",
+        "Je compare modèles structurels et marche aléatoire.",
+        "Je conclus que la marche aléatoire n'est pas battue à court terme."
+      ]
+    }
+  ]
 }

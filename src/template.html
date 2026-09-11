@@ -415,6 +415,143 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   min-height: 52px;
 }
 
+/* bandeau règne au setup */
+.regne-banner {
+  background: linear-gradient(90deg, rgba(255,201,60,.18), rgba(255,201,60,.06));
+  border: 1px solid rgba(255,201,60,.35);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+.regne-banner .rb-title {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  font-size: 16px;
+  color: var(--gold);
+}
+.regne-banner .rb-sub {
+  font-family: var(--serif);
+  color: var(--cream);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* coup de maître : réponse-modèle, chrono indicatif, notation */
+.maitre-chrono {
+  font-family: var(--sans);
+  letter-spacing: .04em;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.maitre-chrono #maitre-chrono {
+  color: var(--gold);
+  font-weight: 600;
+  margin-left: 6px;
+}
+.ouverte-model {
+  background: rgba(255, 201, 60, .08);
+  border: 1px solid rgba(255, 201, 60, .3);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin: 10px 0 6px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--cream);
+}
+.ouverte-model .lbl {
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  font-size: 11px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.ouverte-lbl {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  font-size: 11px;
+  color: var(--bleu);
+  text-transform: uppercase;
+  margin: 10px 0 4px;
+}
+.ouverte-pts { list-style: disc inside; padding-left: 4px; margin: 0; font-size: 14px; line-height: 1.4; }
+
+/* étoile mystérieuse (SPEC §1.7) */
+#etoile { background: rgba(11, 18, 48, .95); }
+.etoile-sheet {
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 16px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+  text-align: left;
+}
+.etoile-sheet h2 {
+  font-family: var(--sans);
+  font-size: 24px;
+  letter-spacing: .08em;
+  color: var(--gold);
+  margin: 0 0 4px;
+  text-align: center;
+}
+.etoile-hint {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.etoile-clues {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+.etoile-clues li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 8px 10px;
+  margin: 4px 0;
+  border-radius: 8px;
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.etoile-clues li .clue-n {
+  font-family: var(--sans);
+  letter-spacing: .04em;
+  color: var(--gold);
+  min-width: 18px;
+  text-align: right;
+}
+.etoile-clues li.masked { opacity: .5; }
+.etoile-clues li.masked .masked-txt { color: var(--muted); font-style: italic; }
+.etoile-clues li.revealed { border-color: rgba(255, 201, 60, .35); }
+.etoile-input { margin: 12px 0 8px; }
+.etoile-input input {
+  width: 100%;
+  background: var(--ink3);
+  color: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: var(--serif);
+  font-size: 16px;
+}
+.etoile-verdict {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  font-size: 20px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 12px 0 8px;
+}
+.etoile-verdict.good { background: rgba(77, 230, 168, .18); color: var(--vert); border: 1px solid rgba(77, 230, 168, .4); }
+.etoile-verdict.bad  { background: rgba(255, 77, 90, .16); color: var(--rouge); border: 1px solid rgba(255, 77, 90, .35); }
+
 /* coup fatal : 2 horloges (SPEC §1.5) */
 .clocks {
   display: grid;
@@ -805,6 +942,10 @@ const T = {
 const POINTS = { qcm: 100, vf: 100, sens: 150, ordre: 200, qcm3: 0, calc: 0 };
 // Le coup fatal ne rapporte pas de points (§1.4) : on joue le titre.
 
+// Paliers du coup de maître (SPEC §1.6). L'index = nombre de « Su ».
+const PALIERS = [1, 10, 100, 1000, 10000];
+const MAITRE_TIME_MS = 45000;  // chrono indicatif, non bloquant
+
 // SRS (SPEC §5.1) — intervalles par boîte, en jours
 const INTERVAL_DAYS = [0, 1, 2, 4, 7];
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -902,7 +1043,14 @@ function saveJSON(key, obj) {
 
 function loadSRS()      { return loadJSON(KEY_SRS, {}); }
 function saveSRS(o)     { saveJSON(KEY_SRS, o); }
-function loadRegne()    { return loadJSON(KEY_REGNE, { maitre: false, jours: 0, cagnotte: 0, etoile: null, palmares: [] }); }
+function loadRegne() {
+  const def = { maitre: false, jours: 0, cagnotte: 0, etoile: null, etoilesTrouvees: [], palmares: [] };
+  const r = loadJSON(KEY_REGNE, def);
+  // Rétro-compat : force les listes.
+  if (!Array.isArray(r.etoilesTrouvees)) r.etoilesTrouvees = [];
+  if (!Array.isArray(r.palmares))        r.palmares = [];
+  return r;
+}
 function saveRegne(o)   { saveJSON(KEY_REGNE, o); }
 
 function loadSettings() {
@@ -941,10 +1089,11 @@ function srsUpdate(id, ok) {
 // Pas de pondération par faiblesse de catégorie en J1 (NOTES §5).
 function pickDue(fmt, cats) {
   const bank =
-    (fmt === "qcm")   ? DATA.QCM :
-    (fmt === "vf")    ? DATA.VF :
-    (fmt === "sens")  ? DATA.SENS :
-    (fmt === "ordre") ? DATA.ORDRE :
+    (fmt === "qcm")     ? DATA.QCM :
+    (fmt === "vf")      ? DATA.VF :
+    (fmt === "sens")    ? DATA.SENS :
+    (fmt === "ordre")   ? DATA.ORDRE :
+    (fmt === "ouverte") ? DATA.OUVERTE :
     null;
   if (!bank) throw new Error("pickDue: format inconnu " + fmt);
   const now = Date.now();
@@ -1158,6 +1307,9 @@ function newShow(settings) {
     orderPerm: null,
     fatal: null,       // { a, b, cur } — indices S.players. cur ∈ {0,1}.
     fatalMsg: null,    // "réflexion..." / verdict rapide affiché en fatal.
+    etoile: null,      // { id, name, aliases, clues, indicesRevealed, guessed, matched }
+    etoileWon: false,  // vrai si l'étoile a été trouvée cette émission
+    regneSaved: false, // évite les updates multiples du règne en fin d'émission
   };
 }
 
@@ -1486,6 +1638,108 @@ function checkEndOfManche() {
 
 function emissionOver() {
   clearTimers();
+  // Joueur out. Passe par endEmission qui gère l'archivage éventuel.
+  endEmission();
+}
+
+// ---------- étoile mystérieuse (SPEC §1.7) ----------
+function startEtoile() {
+  clearTimers();
+  const regne = loadRegne();
+  // Récupère l'étoile en cours (si le règne en portait déjà une non trouvée)
+  // ou tire une nouvelle étoile fraîche (pas dans etoilesTrouvees).
+  let etoileMeta = null;
+  if (regne.etoile && regne.etoile.id) {
+    etoileMeta = (DATA.ETOILE || []).find(e => e.id === regne.etoile.id) || null;
+  }
+  if (!etoileMeta) {
+    const done = new Set(regne.etoilesTrouvees || []);
+    const remaining = (DATA.ETOILE || []).filter(e => !done.has(e.id));
+    if (!remaining.length) {
+      // Toutes les étoiles ont déjà été trouvées : rien à jouer.
+      endEmission();
+      return;
+    }
+    etoileMeta = rngPick(remaining);
+  }
+  // SPEC §1.7 : "Chaque coup de maître réussi révèle un indice de plus."
+  // On stocke le compteur des indices révélés dans regne.etoile.indices.
+  const prev = (regne.etoile && regne.etoile.id === etoileMeta.id) ? (regne.etoile.indices | 0) : 0;
+  const indicesRevealed = Math.min(5, prev + 1);
+  S.etoile = {
+    id: etoileMeta.id,
+    name: etoileMeta.name,
+    aliases: etoileMeta.aliases || [],
+    clues: etoileMeta.clues || [],
+    indicesRevealed: indicesRevealed,
+    proposed: false,
+    guessValue: "",
+    matched: false,
+  };
+  S.manche = "etoile";
+  S.phase = "guess";
+  render();
+}
+
+function submitEtoile(rawGuess) {
+  const et = S.etoile;
+  if (!et || et.proposed) return;
+  const g = norm(rawGuess || "");
+  et.guessValue = rawGuess;
+  et.proposed = true;
+  // Match : nom normalisé OU un alias normalisé.
+  const nName = norm(et.name);
+  const cand = new Set([nName, ...(et.aliases || []).map(a => norm(a))]);
+  et.matched = cand.has(g) && g.length > 0;
+  if (et.matched) S.etoileWon = true;
+  render();
+}
+
+// ---------- fin d'émission : mise à jour du règne (§1.8) ----------
+function endEmission() {
+  clearTimers();
+  if (S.regneSaved) { S.screen = "bilan"; render(); return; }
+  S.regneSaved = true;
+  const regne = loadRegne();
+  const joueurOut = !!S.players[0].out;
+
+  if (!joueurOut) {
+    // Le joueur est resté vivant (ou a gagné le fatal + éventuellement
+    // le coup de maître). Il devient / reste Maître de midi.
+    if (!regne.maitre) { regne.maitre = true; regne.jours = 1; }
+    else regne.jours += 1;
+    regne.cagnotte = (regne.cagnotte | 0) + (S.cagnotte | 0);
+    if (S.etoileWon && S.etoile) {
+      regne.etoilesTrouvees.push(S.etoile.id);
+      regne.etoile = null;                    // prochain tirage à la reprise
+    } else if (S.etoile) {
+      regne.etoile = { id: S.etoile.id, indices: S.etoile.indicesRevealed | 0 };
+    }
+    saveRegne(regne);
+    S.screen = "bilan";
+    S.phase = "victory";
+    render();
+    return;
+  }
+
+  // Joueur éliminé.
+  if (regne.maitre) {
+    regne.palmares.push({
+      jours: regne.jours | 0,
+      cagnotte: regne.cagnotte | 0,
+      etoiles: (regne.etoilesTrouvees || []).slice(),
+    });
+    regne.palmares.sort((a, b) => (b.jours - a.jours) || (b.cagnotte - a.cagnotte));
+    regne.palmares = regne.palmares.slice(0, 5);
+    // Reset règne, étoile en cours conservée (SPEC §1.8).
+    const savedEtoile = regne.etoile;
+    regne.maitre = false;
+    regne.jours = 0;
+    regne.cagnotte = 0;
+    regne.etoilesTrouvees = [];
+    regne.etoile = savedEtoile;
+    saveRegne(regne);
+  }
   S.screen = "bilan";
   S.phase = "over";
   render();
@@ -1703,11 +1957,94 @@ function finishFatal(winnerCur) {
   S.players[loserIdx].out = true;
   S.elimInfo = null;
   S.duel = null;
-  S.screen = "bilan";
-  S.phase = (winnerIdx === 0) ? "maitre" : "over";
   S.fatalMsg = null;
-  // Le règne (§1.8) sera géré J5 ; on prépare cagnotte à 0 pour l'instant.
+  if (winnerIdx === 0) {
+    // Joueur vainqueur du coup fatal → coup de maître (§1.6).
+    startMaitre();
+    return;
+  }
+  // Joueur perdu → émission terminée.
+  endEmission();
+}
+
+// ---------- coup de maître (SPEC §1.6) ----------
+function startMaitre() {
+  clearTimers();
+  S.manche = "maitre";
+  S.qIdx = 0;
+  S.maitre = { n: 0, su: 0, palier: PALIERS[0], revealed: false, timeLeft: MAITRE_TIME_MS };
+  S.phase = "intro";
   render();
+}
+
+function nextMaitreQ() {
+  clearTimers();
+  const item = pickDue("ouverte", S.cats);
+  if (!item) {
+    // Banque épuisée : on figera la cagnotte au palier atteint.
+    finishMaitre("banque");
+    return;
+  }
+  S.q = item;
+  S.qFmt = "ouverte";
+  S.asked.push(item.id);
+  S.maitre.n += 1;
+  S.maitre.revealed = false;
+  S.maitre.timeLeft = MAITRE_TIME_MS;
+  S.phase = "q";
+  render();
+  startMaitreChrono();
+}
+
+function startMaitreChrono() {
+  clearInterval(TIMERS.clock);
+  const step = 100;
+  const startedAt = Date.now();
+  const startMs = S.maitre.timeLeft;
+  TIMERS.clock = setInterval(() => {
+    if (!S || S.manche !== "maitre" || S.phase !== "q" || S.maitre.revealed) return;
+    S.maitre.timeLeft = Math.max(0, startMs - (Date.now() - startedAt));
+    const el = document.getElementById("maitre-chrono");
+    if (el) el.textContent = (S.maitre.timeLeft / 1000).toFixed(1) + " s";
+    if (S.maitre.timeLeft <= 0) {
+      clearInterval(TIMERS.clock); TIMERS.clock = null;
+      if (el) el.textContent = "temps écoulé";
+    }
+  }, step);
+}
+
+function grade(kind) {
+  // kind ∈ "su", "moitie", "pasSu".
+  clearInterval(TIMERS.clock); TIMERS.clock = null;
+  const m = S.maitre;
+  if (kind === "su") {
+    m.su += 1;
+    m.palier = PALIERS[Math.min(m.su, PALIERS.length - 1)];
+    if (m.su >= 5) { finishMaitre("complete"); return; }
+    nextMaitreQ();
+    return;
+  }
+  if (kind === "moitie") {
+    if (m.n >= 5) { finishMaitre("run"); return; }
+    nextMaitreQ();
+    return;
+  }
+  // Pas su : cagnotte figée au palier atteint (SPEC §1.6).
+  finishMaitre("pasSu");
+}
+
+function finishMaitre(reason) {
+  clearTimers();
+  const m = S.maitre;
+  S.cagnotte = PALIERS[Math.min(m.su, PALIERS.length - 1)];
+  if (m.su >= 5) {
+    // 5 Su → accès à l'étoile mystérieuse (SPEC §1.6).
+    startEtoile();
+    return;
+  }
+  // Sinon : fin d'émission (le joueur reste Maître mais n'a pas
+  // décroché de nouvelle étoile).
+  endEmission();
 }
 
 // ---------- rendu ----------
@@ -1759,8 +2096,19 @@ function renderSetup() {
     );
   }).join("");
 
+  const regne = loadRegne();
+  const regneBanner = regne.maitre ? (
+    '<div class="regne-banner">' +
+      '<div class="rb-title">Jour ' + (regne.jours | 0) + ' du règne</div>' +
+      '<div class="rb-sub">Cagnotte : ' + (regne.cagnotte | 0) + ' pts · Étoiles : ' + (regne.etoilesTrouvees || []).length +
+        (regne.etoile ? ' · Étoile en cours (' + (regne.etoile.indices | 0) + '/5 indices)' : '') +
+      '</div>' +
+    '</div>'
+  ) : "";
+
   stage.innerHTML =
     '<section class="setup">' +
+      regneBanner +
       '<h2>' + esc(T.setup.h) + '</h2>' +
       '<div class="hint">' + esc(T.setup.hint) + '</div>' +
       '<div class="cats">' + chips + '</div>' +
@@ -1971,15 +2319,30 @@ function renderBilan() {
   const nbErr = S.errors.length;
   const asked = S.asked.length;
   const over    = (S.phase === "over");
+  const victory = (S.phase === "victory");
   const endcpc  = (S.phase === "endcpc");
-  const maitre  = (S.phase === "maitre");
   const endfatal = (S.phase === "endfatal");
   const mname = (T.manches[S.manche] || T.manches.envoi).name;
-  const title = maitre  ? "Maître de midi ! · Coup de maître à venir (J5)"
-              : over    ? "Émission terminée"
-              : endcpc  ? "Fin du coup par coup · Coup fatal à venir"
-              : endfatal ? "Fin du coup fatal"
-              : (T.finManche + " · " + mname);
+  const regne = loadRegne();
+  const title = victory
+    ? ("Maître de midi · Jour " + (regne.jours | 0) + " du règne")
+    : over    ? "Émission terminée"
+    : endcpc  ? "Fin du coup par coup · Coup fatal à venir"
+    : endfatal ? "Fin du coup fatal"
+    : (T.finManche + " · " + mname);
+  const regneLine = (victory || (over && regne.palmares && regne.palmares.length))
+    ? ('<div class="hint" style="text-align:center;color:var(--muted);margin-top:4px">' +
+         (victory
+            ? ('Cagnotte du règne : ' + (regne.cagnotte | 0) + ' pts · étoiles décrochées : ' + (regne.etoilesTrouvees || []).length)
+            : ('Règne archivé au palmarès')) +
+       '</div>')
+    : "";
+  const etoileLine = S.etoile
+    ? ('<div class="hint" style="text-align:center;color:var(--muted);margin-top:4px">' +
+         (S.etoileWon ? '⭐ Étoile trouvée : ' + esc(S.etoile.name)
+                      : ('Étoile en cours : ' + (S.etoile.indicesRevealed | 0) + '/5 indices révélés')) +
+       '</div>')
+    : "";
 
   // Retrouve chaque item d'erreur pour l'afficher.
   const byId = {};
@@ -2054,6 +2417,7 @@ function renderBilan() {
       '<div class="hint" style="text-align:center;color:var(--muted)">' +
         asked + ' questions · ' + (asked - nbErr) + ' bonnes · ' + nbErr + ' erreurs' +
       '</div>' +
+      regneLine + etoileLine +
       (errItems ? '<h3 style="font-family:var(--sans);letter-spacing:.06em;font-size:14px;color:var(--rouge);margin:16px 0 4px">Erreurs</h3><div class="errlist">' + errItems + '</div>' : "") +
       revisitBlock +
       '<h3 style="font-family:var(--sans);letter-spacing:.06em;font-size:14px;color:var(--vert);margin:16px 0 6px">Jauges par catégorie</h3>' +
@@ -2141,6 +2505,82 @@ function renderFatalQuestion() {
   );
 }
 
+function renderMaitre() {
+  if (!S.q) return "";
+  const q = S.q;
+  const cat = (DATA.CATS[q.cat] && DATA.CATS[q.cat].name) || q.cat;
+  const eyebrow = esc(cat) + " · OUVERTE · COUP DE MAÎTRE";
+  const m = S.maitre;
+  const nHead = "Question " + m.n + "/5 · palier " + (m.palier | 0) + " → prochain " + PALIERS[Math.min(m.su + 1, PALIERS.length - 1)];
+  const chrono = '<span id="maitre-chrono">' + ((m.timeLeft / 1000).toFixed(1)) + ' s</span>';
+
+  let body;
+  if (!m.revealed) {
+    body =
+      '<div class="qtext">' + esc(q.q) + '</div>' +
+      '<div class="maitre-chrono">Chrono indicatif : ' + chrono + '</div>' +
+      '<div class="btnrow" style="margin-top:12px">' +
+        '<button class="b-gold" data-act="reveal">Voir la réponse</button>' +
+      '</div>';
+  } else {
+    const pointsHtml = (q.points || []).map(p => '<li>' + esc(p) + '</li>').join("");
+    const notaHtml = (q.notations || []).map(p => '<li>' + esc(p) + '</li>').join("");
+    body =
+      '<div class="qtext">' + esc(q.q) + '</div>' +
+      '<div class="ouverte-model"><div class="lbl">RÉPONSE-MODÈLE</div>' + esc(q.model) + '</div>' +
+      (pointsHtml ? '<div class="ouverte-lbl">Éléments attendus</div><ul class="ouverte-pts">' + pointsHtml + '</ul>' : '') +
+      (notaHtml   ? '<div class="ouverte-lbl">Notations à préciser</div><ul class="ouverte-pts">' + notaHtml + '</ul>' : '') +
+      '<div class="btnrow" style="margin-top:12px">' +
+        '<button class="b-vert"  data-act="grade" data-v="su">Su</button>' +
+        '<button class="b-ghost" data-act="grade" data-v="moitie">À moitié</button>' +
+        '<button class="b-rouge" data-act="grade" data-v="pasSu">Pas su</button>' +
+      '</div>';
+  }
+  return (
+    '<article class="card">' +
+      '<div class="eyebrow">' + eyebrow + '</div>' +
+      '<div class="hint" style="color:var(--muted);font-size:12px;margin-bottom:6px">' + esc(nHead) + '</div>' +
+      body +
+    '</article>'
+  );
+}
+
+function renderEtoile() {
+  const el = document.getElementById("etoile");
+  const et = S.etoile;
+  if (!et) { el.classList.remove("show"); el.innerHTML = ""; return; }
+  const slots = [0, 1, 2, 3, 4].map(i => {
+    const shown = i < et.indicesRevealed;
+    return shown
+      ? '<li class="revealed"><span class="clue-n">' + (i + 1) + '</span> ' + esc(et.clues[i] || "") + '</li>'
+      : '<li class="masked"><span class="clue-n">' + (i + 1) + '</span> <span class="masked-txt">indice à venir</span></li>';
+  }).join("");
+
+  let bottom;
+  if (!et.proposed) {
+    bottom =
+      '<div class="etoile-input">' +
+        '<input type="text" id="etoileGuess" placeholder="Ta proposition" autocapitalize="off" autocorrect="off" spellcheck="false">' +
+      '</div>' +
+      '<div class="btnrow"><button class="b-gold" data-act="etoilePropose">Proposer</button></div>';
+  } else {
+    const verdict = et.matched
+      ? '<div class="etoile-verdict good">Trouvée ! ⭐</div>'
+      : '<div class="etoile-verdict bad">Ratée. C\'était : <b>' + esc(et.name) + '</b></div>';
+    bottom = verdict +
+      '<div class="btnrow"><button class="b-gold" data-act="etoileNext">Continuer</button></div>';
+  }
+
+  el.innerHTML =
+    '<div class="etoile-sheet">' +
+      '<h2>Étoile mystérieuse</h2>' +
+      '<div class="etoile-hint">Un concept du cours à deviner. Une seule proposition.</div>' +
+      '<ol class="etoile-clues">' + slots + '</ol>' +
+      bottom +
+    '</div>';
+  el.classList.add("show");
+}
+
 function renderElimOverlay() {
   const info = S.elimInfo || {};
   const overlay = document.getElementById("overlay");
@@ -2199,6 +2639,15 @@ function render() {
       stage.innerHTML = renderFatalClocks() + renderFatalQuestion();
       return;
     }
+    if (S.manche === "maitre" && S.phase === "q") {
+      stage.innerHTML = renderMaitre();
+      return;
+    }
+    if (S.manche === "etoile" && S.phase === "guess") {
+      stage.innerHTML = "";
+      renderEtoile();
+      return;
+    }
     if (S.phase === "q") {
       let html = renderQuestion();
       if (S.manche === "cpc" && S.coupBas) {
@@ -2216,7 +2665,7 @@ function render() {
 
   if (S.screen === "bilan") {
     sub.textContent =
-      S.phase === "maitre"  ? "Maître de midi" :
+      S.phase === "victory" ? "Maître de midi" :
       S.phase === "over"    ? "Émission terminée" :
       S.phase === "endcpc"  ? "Fin coup par coup" :
       S.phase === "endfatal" ? "Fin coup fatal" :
@@ -2248,12 +2697,38 @@ const ACT = {
     if (!S) return;
     if (S.manche === "fatal") {
       S.phase = "q";
-      S.qIdx = 0;   // sera incrémenté à 1 dans nextFatalQ
+      S.qIdx = 0;
       nextFatalQ();
+      return;
+    }
+    if (S.manche === "maitre") {
+      nextMaitreQ();
       return;
     }
     S.phase = "q";
     nextQ();
+  },
+  reveal() {
+    if (!S || S.manche !== "maitre" || S.phase !== "q") return;
+    if (S.maitre.revealed) return;
+    S.maitre.revealed = true;
+    clearInterval(TIMERS.clock); TIMERS.clock = null;
+    render();
+  },
+  grade(v) {
+    if (!S || S.manche !== "maitre" || S.phase !== "q") return;
+    if (!S.maitre.revealed) return;
+    if (v !== "su" && v !== "moitie" && v !== "pasSu") return;
+    grade(v);
+  },
+  etoilePropose() {
+    if (!S || S.manche !== "etoile" || S.phase !== "guess") return;
+    const inp = document.getElementById("etoileGuess");
+    submitEtoile(inp ? inp.value : "");
+  },
+  etoileNext() {
+    if (!S || S.manche !== "etoile") return;
+    endEmission();
   },
   answer(v) {
     if (!S) return;
@@ -2424,14 +2899,23 @@ const ACT = {
   },
   palmares() {
     const r = loadRegne();
-    const items = (r.palmares || []).map((e, i) =>
-      '<div style="margin:6px 0">' + (i + 1) + '. ' + esc((e.jours | 0) + " jours · " + (e.cagnotte | 0) + " pts") + '</div>'
-    ).join("") || '<div style="color:var(--muted)">Aucun règne archivé.</div>';
+    const items = (r.palmares || []).map((e, i) => {
+      const et = (e.etoiles || []).length;
+      return '<div style="margin:6px 0;padding:6px 0;border-bottom:1px solid var(--line)">' +
+             '<b>' + (i + 1) + '.</b> ' + (e.jours | 0) + ' jours · ' + (e.cagnotte | 0) + ' pts' +
+             (et ? ' · ⭐ ' + et : '') +
+             '</div>';
+    }).join("") || '<div style="color:var(--muted)">Aucun règne archivé.</div>';
+    const current = r.maitre ? (
+      '<div style="margin-bottom:10px;padding:8px;border:1px solid rgba(255,201,60,.4);border-radius:8px;background:rgba(255,201,60,.08)">' +
+        '<b>Règne actuel :</b> ' + (r.jours | 0) + ' jours · ' + (r.cagnotte | 0) + ' pts · ⭐ ' + (r.etoilesTrouvees || []).length +
+      '</div>'
+    ) : "";
     const modal = document.getElementById("modal");
     modal.innerHTML =
       '<div class="sheet">' +
         '<h2 style="font-family:var(--sans);letter-spacing:.08em;color:var(--gold);margin:0 0 6px">PALMARÈS</h2>' +
-        items +
+        current + items +
         '<div class="btnrow"><button class="b-ghost" data-act="closeModal">Fermer</button></div>' +
       '</div>';
     modal.classList.add("show");

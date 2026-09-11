@@ -186,14 +186,21 @@ def audit_data(data: dict) -> tuple[list[str], list[str]]:
         if text.count("?") > 1:
             blocking.append(f"multi_question id={iid} count={text.count('?')}")
 
-        # 5. answer_too_long : réponse > 75 caractères. Ne s'applique qu'à
-        #    `vf` (jamais > 4 chars en pratique) et `ouverte` (réponse-modèle).
-        #    Les `choices` de qcm sont éditoriaux, une longueur > 75 peut
-        #    être justifiée pédagogiquement — signalement seulement.
-        if fmt in ("vf", "ouverte"):
+        # 5. answer_too_long : réponse > 75 caractères. S'applique à `vf`
+        #    (jamais > 4 chars en pratique). Les `ouverte` ont des
+        #    réponses-modèles longues par nature (essais d'examen) —
+        #    seuil relevé à 500 en bloquant + warning au-delà de 350.
+        #    Les `choices` de qcm sont éditoriaux : warning si > 120.
+        if fmt == "vf":
             for ans in collect_answers(it):
                 if len(ans) > ANSWER_TOO_LONG_CHARS:
                     blocking.append(f"answer_too_long id={iid} len={len(ans)}")
+        elif fmt == "ouverte":
+            model_len = len(it.get("model") or "")
+            if model_len > 500:
+                blocking.append(f"answer_too_long id={iid} model_len={model_len}")
+            elif model_len > 350:
+                warnings.append(f"ouverte_model_long id={iid} len={model_len}")
         elif fmt == "qcm":
             longest = max(len(c) for c in it["choices"])
             if longest > 120:

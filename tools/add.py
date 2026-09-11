@@ -78,7 +78,7 @@ def _assign_ids(lot: dict, used: dict[str, set[int]]) -> list[str]:
 
 def _merge(data: dict, lot: dict) -> dict:
     merged = json.loads(json.dumps(data, ensure_ascii=False))  # deep copy
-    for key in ("QCM", "VF", "SENS", "ORDRE", "OUVERTE"):
+    for key in ("QCM", "VF", "SENS", "ORDRE", "OUVERTE", "ETOILE"):
         if key not in merged:
             merged[key] = []
         for it in lot.get(key) or []:
@@ -134,7 +134,7 @@ def main() -> int:
     for b in blocking:
         print(f"BLOCK {b}", file=sys.stderr)
 
-    total_new = sum(len(lot.get(k) or []) for k in ("QCM", "VF", "SENS", "ORDRE", "OUVERTE"))
+    total_new = sum(len(lot.get(k) or []) for k in ("QCM", "VF", "SENS", "ORDRE", "OUVERTE", "ETOILE"))
     print(f"add: {total_new} items proposés · {len(blocking)} bloquants · {len(warnings)} signalements",
           file=sys.stderr)
 
