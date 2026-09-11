@@ -1044,6 +1044,431 @@
       "a": 0,
       "why": "Concept clef : les pays émergents empruntent en dollars/euros ; une dépréciation aggrave mécaniquement leur dette.",
       "id": "smi-017"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "q": "Le solde de la balance des services couvre notamment :",
+      "choices": [
+        "tourisme, transports, assurances, redevances de propriété intellectuelle",
+        "IDE et investissements de portefeuille",
+        "biens manufacturés",
+        "réserves officielles de change"
+      ],
+      "a": 0,
+      "why": "Services = tourisme, transport, assurance, licences/redevances, télécom, informatique — poste distinct des biens et du financier.",
+      "id": "bdp-018"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 3,
+      "q": "Dans la lecture de la BdP française récente, le solde des revenus primaires est structurellement :",
+      "choices": [
+        "excédentaire grâce aux revenus d'investissement à l'étranger",
+        "déficitaire malgré la PEN positive",
+        "toujours nul",
+        "égal au solde commercial"
+      ],
+      "a": 0,
+      "why": "La France perçoit plus de revenus sur ses actifs étrangers qu'elle n'en verse — poste stabilisateur du CC.",
+      "id": "bdp-019"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 2,
+      "q": "La PEN se décompose usuellement en :",
+      "choices": [
+        "IDE, investissements de portefeuille, autres investissements, réserves",
+        "biens, services, transferts",
+        "actifs risqués et actifs sûrs",
+        "avoirs sur les particuliers et sur les entreprises"
+      ],
+      "a": 0,
+      "why": "Décomposition standard cohérente avec la BdP : IDE / portefeuille (actions, obligations) / autres (prêts, dépôts) / réserves BC.",
+      "id": "pen-017"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "q": "Un pays a une PEN largement négative mais un solde des revenus primaires positif. Comment est-ce possible ?",
+      "choices": [
+        "actifs à l'étranger à haut rendement, engagements à taux bas (privilège exorbitant)",
+        "erreur statistique",
+        "réserves de change surévaluées",
+        "ce n'est pas possible"
+      ],
+      "a": 0,
+      "why": "Cas typique des États-Unis : IDE à haut rendement à l'étranger, Treasuries à taux bas détenus par le reste du monde — « exorbitant privilege ».",
+      "id": "pen-018"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "q": "L'expression « déficits jumeaux » désigne :",
+      "choices": [
+        "déficit budgétaire (T − G < 0) et déficit courant (X − M < 0) simultanés",
+        "déficit commercial de biens et de services",
+        "déficit courant et déficit du compte financier",
+        "déficit épargne et déficit investissement"
+      ],
+      "a": 0,
+      "why": "États-Unis années 80 sous Reagan : les deux déficits se sont creusés ensemble, illustrant (S − I) + (T − G) = X − M.",
+      "id": "si-015"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 3,
+      "q": "Selon le paradoxe de Feldstein-Horioka, le coefficient de régression de I/Y sur S/Y à l'échelle des pays est empiriquement :",
+      "choices": [
+        "proche de 1 (forte corrélation)",
+        "proche de 0 (indépendance)",
+        "négatif",
+        "supérieur à 2"
+      ],
+      "a": 0,
+      "why": "Coefficient d'environ 0,9 dans l'étude originale de 1980 pour l'OCDE : loin du 0 qu'impliquerait la mobilité parfaite.",
+      "id": "si-016"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "q": "Le paradoxe de Lucas s'observe empiriquement par :",
+      "choices": [
+        "flux de capitaux Nord → Sud plus faibles que prédit",
+        "flux Sud → Nord massifs",
+        "convergence rapide des PIB",
+        "élasticité nulle du capital"
+      ],
+      "a": 0,
+      "why": "Théorie : capital doit aller là où sa productivité marginale est élevée (Sud). Empirique : flux vers le Nord dominants (Sud finance le Nord).",
+      "id": "si-017"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 3,
+      "q": "Le rôle d'une chambre de compensation (clearing house) sur un marché à terme est :",
+      "choices": [
+        "se substituer à la contrepartie et neutraliser le risque de contrepartie",
+        "fixer le taux de change à terme",
+        "réguler l'inflation",
+        "collecter la TVA"
+      ],
+      "a": 0,
+      "why": "La chambre s'interpose : chaque partie fait face à la chambre, pas à l'autre. Elle demande un appel de marge quotidien.",
+      "id": "forex-017"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "q": "Une option de vente (put) EUR/USD à strike 1,08 protège l'exportateur français :",
+      "choices": [
+        "contre une baisse du dollar (dépréciation USD sous 1/1,08 ≈ 0,93 €/$)",
+        "contre une hausse du dollar",
+        "contre une hausse de l'euro",
+        "contre l'inflation américaine"
+      ],
+      "a": 0,
+      "why": "Put à strike 1,08 sur EUR/USD (au certain) donne droit de vendre 1 EUR contre 1,08 $ : plancher sous le prix à terme du dollar.",
+      "id": "forex-018"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 3,
+      "q": "1 GBP = 1,25 USD et 1 EUR = 1,10 USD. Combien vaut 1 GBP en EUR (arbitrage triangulaire) ?",
+      "choices": [
+        "1,136 EUR",
+        "0,88 EUR",
+        "1,375 EUR",
+        "1,10 EUR"
+      ],
+      "a": 0,
+      "why": "1 GBP = 1,25 USD ; 1 USD = 1/1,10 EUR ≈ 0,909 EUR. 1 GBP = 1,25 × 0,909 ≈ 1,136 EUR.",
+      "id": "cot-018"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "q": "Sur le marché des changes, un carnet d'ordre centralisé existe :",
+      "choices": [
+        "non — c'est un marché OTC décentralisé, entre banques et via des plateformes",
+        "oui, à New York et Londres",
+        "oui, tenu par la BCE",
+        "oui, sur Bloomberg uniquement"
+      ],
+      "a": 0,
+      "why": "Le forex est le prototype du marché OTC : liquidité fournie par les grandes banques, pas de carnet central unique.",
+      "id": "cot-019"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 3,
+      "q": "Une variation du TCEN log-linéarisée pondérée : Δe_eff = 0,4 × (+3 %) + 0,3 × (−2 %) + 0,3 × (+1 %) donne :",
+      "choices": [
+        "+0,9 %",
+        "+2 %",
+        "+0,7 %",
+        "−0,9 %"
+      ],
+      "a": 0,
+      "why": "0,4×3 + 0,3×(−2) + 0,3×1 = 1,2 − 0,6 + 0,3 = 0,9 %.",
+      "id": "tcr-018"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 3,
+      "q": "Un TCER en niveau vaut 1,05 (par rapport à une base 1). L'interprétation la plus juste est :",
+      "choices": [
+        "monnaie 5 % plus chère en termes réels que la base",
+        "inflation excédentaire de 5 % par rapport à la base",
+        "PIB supérieur de 5 %",
+        "5 % de déficit courant"
+      ],
+      "a": 0,
+      "why": "TCER > 1 = appréciation réelle vs la base. C'est un niveau relatif de prix, pas un différentiel d'inflation direct.",
+      "id": "tcr-019"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "q": "L'ancrage sur un panier (basket peg) est une variante du régime fixe qui :",
+      "choices": [
+        "stabilise la monnaie contre un ensemble pondéré de devises partenaires",
+        "flotte librement contre l'euro",
+        "utilise l'or comme référence",
+        "ne concerne que les paradis fiscaux"
+      ],
+      "a": 0,
+      "why": "Objectif : lisser la volatilité en cas d'oscillations d'une seule devise dominante. Exemple : Chine et le CFETS basket.",
+      "id": "smi-019"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 2,
+      "q": "Dans les critères de « peur du flottement » (Calvo-Reinhart 2002), les pays émergents :",
+      "choices": [
+        "interviennent souvent sur le change même en régime officiellement flottant",
+        "laissent leur monnaie flotter librement",
+        "adoptent tous l'euro",
+        "se ferment aux capitaux"
+      ],
+      "a": 0,
+      "why": "« Fear of floating » : peur des dépréciations pour raisons de dette en devises → interventions fréquentes malgré un régime flottant sur le papier.",
+      "id": "smi-020"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "q": "Sous PCTI, si f < e (taux à terme inférieur au comptant, au certain), alors :",
+      "choices": [
+        "i > i* (le pays domestique a un taux plus élevé)",
+        "i < i*",
+        "i = i*",
+        "on ne peut rien dire"
+      ],
+      "a": 0,
+      "trap": "sens-parite",
+      "why": "PCTI : f − e = i* − i. f < e ⇒ i* − i < 0 ⇒ i > i*. Prime à terme négative = report à terme = compensation du différentiel.",
+      "id": "parite-022"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "q": "L'hypothèse d'anticipations rationnelles suppose que :",
+      "choices": [
+        "les agents utilisent toute l'information disponible sans biais systématique",
+        "les agents ne se trompent jamais",
+        "les taux d'intérêt sont toujours corrects",
+        "les banques centrales sont infaillibles"
+      ],
+      "a": 0,
+      "why": "Hypothèse fondatrice de la macro moderne : E[erreur | info] = 0. Compatible avec des erreurs, pas avec des biais.",
+      "id": "parite-023"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "q": "L'écart entre le taux à terme f et le spot futur e_{t+1} anticipé s'appelle :",
+      "choices": [
+        "prime de risque (risk premium)",
+        "prime forward",
+        "spread bid-ask",
+        "erreur d'anticipation"
+      ],
+      "a": 0,
+      "why": "f − E[e_{t+1}] = prime de risque : compense les investisseurs neutres au risque, corrige la PNCTI naïve.",
+      "id": "parite-024"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "q": "Dans le modèle Dornbusch, le degré de surajustement dépend :",
+      "choices": [
+        "de l'élasticité de la demande de monnaie et de la vitesse d'ajustement des prix",
+        "de la balance commerciale seule",
+        "de la parité fixe éventuelle",
+        "de l'inflation étrangère"
+      ],
+      "a": 0,
+      "trap": "statique-dyn",
+      "why": "Plus les prix sont rigides à court terme, plus l'overshooting est marqué ; plus la demande de monnaie est sensible à i, plus le retour se fait vite.",
+      "id": "monet-022"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 2,
+      "q": "Le modèle de Frenkel (1976) est appelé « modèle monétaire » car :",
+      "choices": [
+        "le taux de change s'explique par l'offre et la demande relatives de monnaie",
+        "il fixe une politique monétaire",
+        "il concerne uniquement les banques centrales",
+        "il ignore le commerce"
+      ],
+      "a": 0,
+      "why": "Chaînage : e = P/P* (PPA), P dépend de Ms via l'équation quantitative. e devient fonction de Ms/Ms*, Y/Y*, i, i*.",
+      "id": "monet-023"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 2,
+      "q": "Le pass-through nominal en zone euro sur les prix à l'importation vers les prix à la consommation est, en moyenne :",
+      "choices": [
+        "modéré (30-50 %) et retardé",
+        "complet et immédiat",
+        "nul",
+        "supérieur à 100 %"
+      ],
+      "a": 0,
+      "why": "Marges d'ajustement (PTM), diversification des fournisseurs, part des importations dans le panier ⇒ pass-through partiel et graduel.",
+      "id": "depr-022"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 3,
+      "q": "L'AS-AD ouvert avec biens échangeables et non échangeables : une dépréciation nominale fait :",
+      "choices": [
+        "monter le prix des échangeables, laisser stables les non-échangeables à court terme",
+        "monter tous les prix uniformément",
+        "baisser tous les prix",
+        "ne rien changer"
+      ],
+      "a": 0,
+      "why": "Prix des échangeables lié au change : P_T = e × P*_T. Non-échangeables déterminés localement ⇒ TCR ↑ (compétitivité ↓).",
+      "id": "depr-023"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 2,
+      "q": "L'allocation intertemporelle enseigne qu'un pays peut structurellement afficher un déficit courant si :",
+      "choices": [
+        "il investit aujourd'hui pour rembourser demain avec des recettes futures",
+        "il n'a pas de banque centrale",
+        "il est en régime fixe",
+        "sa PEN est nulle"
+      ],
+      "a": 0,
+      "why": "Justification économique du déficit : lissage de la consommation face à un revenu croissant, ou financement de l'investissement productif.",
+      "id": "depr-024"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 3,
+      "q": "Selon Balassa-Samuelson, la corrélation empirique entre productivité relative T/N et TCR est :",
+      "choices": [
+        "positive : plus productif = TCR élevé (monnaie plus forte)",
+        "négative",
+        "nulle",
+        "aléatoire"
+      ],
+      "a": 0,
+      "trap": "bs-etapes",
+      "why": "Régression classique : le TCR d'un pays s'apprécie avec sa productivité relative dans les échangeables (mécanisme BS).",
+      "id": "equil-020"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "q": "Un pays observe TCER = 1,20 (base 1). Sur les 3 déterminants du TCR long terme (productivité, termes de l'échange, dette extérieure), lequel colle le mieux ?",
+      "choices": [
+        "gain de productivité relative dans les échangeables",
+        "détérioration des termes de l'échange",
+        "hausse de la dette extérieure",
+        "baisse de la population active"
+      ],
+      "a": 0,
+      "why": "Balassa-Samuelson prédit l'appréciation réelle par le canal productivité — cohérent avec un rattrapage émergent.",
+      "id": "equil-021"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 3,
+      "q": "Le TCEF (FEER) est estimé par la Commission européenne pour évaluer la sous/sur-évaluation. Un excédent courant excessif suggère que la monnaie est :",
+      "choices": [
+        "sous-évaluée (elle devrait s'apprécier)",
+        "sur-évaluée",
+        "à sa juste valeur",
+        "insensible à l'analyse FEER"
+      ],
+      "a": 0,
+      "why": "Excédent courant excessif = déséquilibre externe corrigible par une appréciation réelle ⇒ monnaie sous-évaluée selon FEER.",
+      "id": "equil-022"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "q": "En Mundell-Fleming, sous changes fixes et mobilité imparfaite des capitaux (κ fini), une hausse de G a un effet sur Y :",
+      "choices": [
+        "positif, mais moindre qu'en changes flexibles + mobilité imparfaite",
+        "négatif",
+        "nul",
+        "identique à celui en mobilité parfaite"
+      ],
+      "a": 0,
+      "trap": "mf-regime",
+      "why": "En fixe + mobilité imparfaite, le mécanisme d'ajustement passe par une accommodation partielle des flux de capitaux : effet expansionniste mais amoindri.",
+      "id": "mf-024"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "q": "Une intervention de la BC stérilisée à 100 % dans un régime fixe avec mobilité parfaite :",
+      "choices": [
+        "n'a aucun effet durable, seule la composition des actifs du bilan BC change",
+        "déprécie durablement la monnaie",
+        "provoque une hyperinflation",
+        "annule la parité"
+      ],
+      "a": 0,
+      "trap": "sterilise",
+      "why": "Sans effet sur Ms (open market compensatoire) → LM inchangée → ni Y ni i changent durablement. Seul le bilan BC (or, devises, obligations) est modifié.",
+      "id": "mf-025"
     }
   ],
   "VF": [
@@ -2235,6 +2660,86 @@
       "a": "up",
       "why": "Δq ≈ Δe + (π_ES − π_DE). e fixé (zone euro) → Δq = 2 %/an : appréciation réelle espagnole cumulative de ~20 % en 10 ans.",
       "id": "tcr-017"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "PCTI en logs, mobilité parfaite, arbitrage sans risque",
+      "shock": "Hausse simultanée de i et i* du même montant (+100 pb chacun)",
+      "var": "Taux à terme f (au certain)",
+      "a": "same",
+      "trap": "sens-parite",
+      "why": "PCTI : f − e = i* − i. Les deux montent d'autant ⇒ différentiel inchangé ⇒ f inchangé (à e donné).",
+      "id": "parite-025"
+    },
+    {
+      "cat": "mf",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, régime intermédiaire (crawling peg) mobilité imparfaite",
+      "shock": "Hausse permanente de G",
+      "var": "Taux d'intérêt domestique i à l'équilibre",
+      "a": "up",
+      "trap": "mf-regime",
+      "why": "G ↑ ⇒ IS à droite ⇒ i monte (le mécanisme d'ajustement des K est incomplet, donc i n'est pas fixé par i*).",
+      "id": "mf-026"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle monétaire prix flexibles (Frenkel), long terme",
+      "shock": "Hausse durable du différentiel d'intérêt i − i*",
+      "var": "Taux de change au certain e",
+      "a": "down",
+      "why": "Chez Frenkel : i ↑ ⇒ demande de monnaie L(Y, i) baisse ⇒ P ↑ ⇒ par PPA, e ↓. Différent de Dornbusch qui prédit l'inverse à court terme.",
+      "id": "monet-024"
+    },
+    {
+      "cat": "depr",
+      "ch": 4,
+      "diff": 3,
+      "ctx": "Économie ouverte, biens échangeables et non-échangeables, court terme",
+      "shock": "Libéralisation du secteur des services (secteur abrité)",
+      "var": "Taux de change réel TCR",
+      "a": "down",
+      "why": "Libéralisation ⇒ P_N ↓ (concurrence accrue) ⇒ à P_T donné, TCR = e × P*/P baisse (dépréciation réelle) ⇒ gain de compétitivité.",
+      "id": "depr-025"
+    },
+    {
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "ctx": "PPA relative, deux pays, longue période",
+      "shock": "Politique désinflationniste efficace dans le pays A (π_A baisse durablement sous π_B)",
+      "var": "Taux de change nominal du pays A (au certain)",
+      "a": "up",
+      "why": "Δe ≈ π_B − π_A. π_A < π_B ⇒ Δe > 0 : appréciation nominale du pays désinflationnaire (cas Allemagne années 80).",
+      "id": "equil-023"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "TCER en niveau, base 100 en année t₀",
+      "shock": "Appréciation nominale continue de la monnaie sur 5 ans (Δe = +5 %/an cumulatifs, π ≈ π*)",
+      "var": "TCER par rapport à la base",
+      "a": "up",
+      "why": "Δq ≈ Δe + (π − π*) ≈ +5 %/an ⇒ TCER cumulé × 1,05⁵ ≈ 1,28 : appréciation réelle de ~28 % en 5 ans.",
+      "id": "tcr-020"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "BdP française, convention du cours",
+      "shock": "Les résidents français rapatrient massivement leurs avoirs à l'étranger",
+      "var": "Solde du compte financier CF",
+      "a": "down",
+      "trap": "signe-bdp",
+      "why": "Rapatriement = désinvestissement à l'étranger = entrée nette de capitaux ⇒ CF < 0 (convention du cours).",
+      "id": "bdp-020"
     }
   ],
   "ORDRE": [

@@ -1272,6 +1272,45 @@ const GEN = {
       a: 0,
       why: `e = eᵃ + (i − i*)/horizon = 100 + (${i} − ${iS})/4 = ${good.toFixed(2)}. Piège : oublier l'annualisation (${bad1.toFixed(2)}).`
     };
+  },
+
+  // 7. PPA relative : Δe ≈ π* − π (au certain, log-linéarisée).
+  ppa(rng) {
+    const pi  = [1, 2, 3, 4, 5][rngInt(5)];
+    const piS = [0, 1, 2, 3][rngInt(4)];
+    const good = piS - pi;
+    const bad1 = pi - piS;             // signe inversé (piège classique)
+    const bad2 = pi + piS;             // somme au lieu de différence
+    const bad3 = 0;                    // ignore PPA relative
+    return {
+      cat: "equil", ch: 5, diff: 2,
+      q: `PPA relative sur un an : π = ${pi} %, π* = ${piS} %. Variation attendue du taux de change au certain (Δe) ?`,
+      choices: [`${good} %`, `${bad1} %`, `${bad2} %`, `${bad3} %`],
+      a: 0,
+      why: `PPA relative : Δe ≈ π* − π = ${piS} − ${pi} = ${good} %. Δe < 0 = dépréciation nominale (l'inflation domestique dépasse l'étrangère).`
+    };
+  },
+
+  // 8. Effet de valorisation sur la PEN (SPEC §1, chap. 1).
+  //    ΔPEN = CC + effet valo. Ici on isole l'effet valo pur.
+  pen_valo(rng) {
+    const avoirs = 200 + rngInt(6) * 50;       // 200 à 450 Md€
+    const engagts = 100 + rngInt(6) * 50;      // 100 à 350 Md€
+    const dPct = [-10, -5, 5, 10][rngInt(4)];  // variation % des avoirs en devises
+    // Effet de valorisation sur les avoirs (engagements en monnaie nationale ici).
+    const good = Math.round(avoirs * dPct / 100);
+    const bad1 = Math.round(engagts * dPct / 100);         // confond avoirs / engagements
+    const bad2 = Math.round((avoirs + engagts) * dPct / 100); // total et non net
+    const bad3 = -good;                                     // signe inversé
+    const sens = dPct > 0 ? "hausse" : "baisse";
+    return {
+      cat: "pen", ch: 1, diff: 3,
+      q: `PEN : avoirs en devises ${avoirs} Md€, engagements en monnaie nationale ${engagts} Md€. Les actifs étrangers subissent une ${sens} de ${Math.abs(dPct)} % (effet de valorisation). Impact sur la PEN ?`,
+      choices: [`${good} Md€`, `${bad1} Md€`, `${bad2} Md€`, `${bad3} Md€`],
+      a: 0,
+      trap: "stock-flux",
+      why: `Seuls les avoirs libellés en devises sont revalorisés : ΔPEN_valo = ${avoirs} × ${dPct}/100 = ${good} Md€. Les engagements en monnaie nationale ne bougent pas.`
+    };
   }
 };
 
