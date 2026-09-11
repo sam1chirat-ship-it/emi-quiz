@@ -99,3 +99,32 @@ Aucune à ce jour entre SPEC.md et les sources.
 
 Aucun — le cours d'EMI est théorique, pas de références datées à
 « actuellement » ou de records mondiaux dans le programme.
+
+## Idées à programmer (J7+)
+
+### Cheat sheet (J10 pressenti)
+
+Page « glossaire » accessible depuis la topbar (à côté de PALMARÈS ?)
+pour dépanner le jargon EMI. Contenu à assembler à partir des
+`notations` déjà présentes dans les items `ouverte` (déjà 30 items
+qui portent leurs propres notations, source gratuite).
+
+- Sigles : PPA, PNCTI, PCTI, TCR, TCEN, TCER, TCEF, FEER, PEN, CC,
+  CF, TC, EO, IDE, IS, LM, BC, PTM, ML, BS…
+- Notations : `e` (log au certain), `E` (niveau), `eᵃ` (anticipation),
+  `S_C` / `S_I` (certain / incertain), `i`, `i*`, `π`, `π*`, `Ms`,
+  `f` (taux à terme), `q` (log TCER), `ω_i` (poids), `ρ` (prime de
+  risque), `ε_X`, `ε_M`.
+- Conventions du cours (à surligner) : CF > 0 = sortie ; e au certain ;
+  ΔPEN = CC hors valorisation ; ML : ε_X + ε_M > 1 ; PNCTI :
+  e = eᵃ + (i − i*).
+
+UX possible : modal plein écran (comme #etoile) déclenché par
+`data-act="cheatsheet"`, structure en 3 blocs (sigles / notations /
+conventions), champ recherche en haut (filtrage par `norm()` sur la
+liste).
+
+Source de données : nouveau champ `CHEATSHEET` dans `data.json`
+(ajouté au verify), ou construction automatique par un
+`tools/build_cheatsheet.py` qui parcourt les `notations` de OUVERTE
++ dictionnaire fixe pour les sigles.
