@@ -271,12 +271,12 @@
       "diff": 3,
       "q": "Le paradoxe (ou dilemme) de Triffin décrit :",
       "choices": [
-        "une contradiction entre fournir la liquidité mondiale et préserver la crédibilité de la monnaie de réserve",
-        "l'échec du régime des changes flottants dans les années 1970",
         "l'impossibilité d'un étalon-or moderne",
-        "une perte de confiance dans le dollar due uniquement à l'inflation américaine"
+        "l'échec du régime des changes flottants dans les années 1970",
+        "une contradiction entre fournir la liquidité mondiale et préserver la crédibilité de la monnaie de réserve",
+        "une perte de confiance dans le dollar résultant uniquement de l'inflation américaine des années 1960-1970"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Pour fournir des dollars au monde, les États-Unis doivent creuser leur déficit, ce qui à terme mine la convertibilité du dollar en or (Bretton Woods).",
       "mat": "emi"
     },
@@ -287,12 +287,12 @@
       "diff": 2,
       "q": "Le régime de Bretton Woods (1944-1971) reposait sur :",
       "choices": [
+        "un système officiel de changes flottants entre les monnaies membres, encadré et supervisé par le FMI",
         "des parités fixes des monnaies vis-à-vis du dollar, lui-même convertible en or",
-        "un système de changes flottants encadrés par le FMI",
         "l'étalon-or classique entre toutes les monnaies",
         "une monnaie unique mondiale gérée par le FMI"
       ],
-      "a": 0,
+      "a": 1,
       "why": "Bretton Woods : parités fixes ±1 % contre dollar, et convertibilité or à 35 $ l'once uniquement pour les banques centrales.",
       "mat": "emi"
     },
@@ -303,12 +303,12 @@
       "diff": 2,
       "q": "Sous la PNCTI (e = log du taux au certain, eᵃ son anticipation), la relation reliant i, i*, e, eᵃ est :",
       "choices": [
-        "i = i* − (eᵃ − e), soit e = eᵃ + (i − i*)",
-        "i = i* + (eᵃ − e)",
         "i − i* = Eᵃ / E",
-        "i = i* + f (taux à terme)"
+        "i = i* + (eᵃ − e)",
+        "i = i* − (eᵃ − e), soit e = eᵃ + (i − i*)",
+        "i = i* + f, où f est le taux à terme observé au comptant sur le marché forex"
       ],
-      "a": 0,
+      "a": 2,
       "trap": "sens-parite",
       "why": "PNCTI : le différentiel de taux compense l'anticipation de dépréciation. Ne pas confondre avec la PCTI qui utilise le taux à terme f.",
       "mat": "emi"
@@ -535,12 +535,12 @@
       "diff": 2,
       "q": "Les accords de la Jamaïque (1976) ont officialisé :",
       "choices": [
-        "les changes flottants gérés",
+        "la parité fixe entre euro et dollar avec bandes de fluctuation",
         "le retour à l'étalon-or",
         "la fin du FMI",
-        "la parité fixe euro-dollar"
+        "les changes flottants gérés"
       ],
-      "a": 0,
+      "a": 3,
       "why": "Ratification de l'abandon de la convertibilité or de 1971 et légalisation formelle des changes flottants.",
       "mat": "emi"
     },
@@ -729,12 +729,12 @@
       "diff": 3,
       "q": "Le régime de l'étalon de change-or (Gold Exchange Standard, 1922-1939) se distingue de l'étalon-or classique par :",
       "choices": [
-        "l'ajout de devises fortes convertibles comme réserves",
+        "l'adoption officielle des changes flottants entre les pays européens signataires",
         "l'abandon complet de l'or",
-        "l'adoption des changes flottants",
+        "l'ajout de devises fortes convertibles comme réserves",
         "la centralisation par le FMI"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Gold Exchange Standard : réserves en or ET en devises convertibles (livre sterling puis dollar) ; élargit la base monétaire mondiale.",
       "id": "smi-009",
       "mat": "emi"
@@ -811,12 +811,12 @@
       "diff": 2,
       "q": "La différence essentielle entre PCTI et PNCTI est :",
       "choices": [
-        "la couverture (PCTI utilise le taux à terme, PNCTI l'anticipation)",
-        "la maturité (PCTI = court terme, PNCTI = long terme)",
+        "l'existence d'un contrôle des capitaux",
+        "la maturité de l'opération (PCTI = court terme uniquement, PNCTI = horizon plus long, moyen à long terme)",
         "la monnaie de référence",
-        "l'existence d'un contrôle des capitaux"
+        "la couverture (PCTI utilise le taux à terme, PNCTI l'anticipation)"
       ],
-      "a": 0,
+      "a": 3,
       "trap": "sens-parite",
       "why": "PCTI : arbitrage couvert via forward, tient toujours. PNCTI : condition d'anticipation, testable et souvent réfutée.",
       "id": "parite-009",
@@ -927,12 +927,12 @@
       "diff": 3,
       "q": "Un pays choisit le coin « fixe + politique monétaire autonome » du triangle de Mundell. Que doit-il sacrifier ?",
       "choices": [
-        "la mobilité parfaite des capitaux",
         "sa monnaie",
+        "la mobilité parfaite des capitaux",
         "sa banque centrale",
-        "son commerce extérieur"
+        "sa politique commerciale, notamment les tarifs douaniers et les quotas d'importation"
       ],
-      "a": 0,
+      "a": 1,
       "why": "Fixe + monétaire autonome impose des contrôles de capitaux (cas Chine, années 2000).",
       "id": "smi-016",
       "mat": "emi"
@@ -960,12 +960,12 @@
       "diff": 2,
       "q": "Le « forward premium puzzle » est la constatation empirique que :",
       "choices": [
-        "les monnaies à taux élevé s'apprécient en moyenne, contredisant la PNCTI",
-        "les taux à terme prédisent parfaitement le spot futur",
         "les taux d'intérêt s'égalisent au niveau mondial",
+        "les taux à terme observés prédisent parfaitement le spot futur qui sera réellement observé",
+        "les monnaies à taux élevé s'apprécient en moyenne, contredisant la PNCTI",
         "les banques centrales fixent le taux à terme"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Contradiction empirique de la PNCTI : ex ante on prédit dépréciation, ex post on voit souvent appréciation.",
       "id": "parite-019",
       "mat": "emi"
@@ -1109,12 +1109,12 @@
       "diff": 2,
       "q": "Le « péché originel » (Eichengreen) désigne :",
       "choices": [
-        "l'incapacité d'un pays émergent à s'endetter en sa propre monnaie",
-        "la sortie de Bretton Woods",
         "la faillite d'un pays européen",
-        "l'inflation américaine des années 70"
+        "la sortie de Bretton Woods",
+        "l'incapacité d'un pays émergent à s'endetter en sa propre monnaie",
+        "l'inflation américaine des années 70 due au déficit budgétaire de la guerre du Vietnam"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Concept clef : les pays émergents empruntent en dollars/euros ; une dépréciation aggrave mécaniquement leur dette.",
       "id": "smi-017",
       "mat": "emi"
@@ -1333,12 +1333,12 @@
       "diff": 3,
       "q": "L'ancrage sur un panier (basket peg) est une variante du régime fixe qui :",
       "choices": [
-        "stabilise la monnaie contre un ensemble pondéré de devises partenaires",
         "flotte librement contre l'euro",
+        "stabilise la monnaie contre un ensemble pondéré de devises partenaires",
         "utilise l'or comme référence",
-        "ne concerne que les paradis fiscaux"
+        "ne concerne historiquement que les paradis fiscaux et les micro-États sans banque centrale propre"
       ],
-      "a": 0,
+      "a": 1,
       "why": "Objectif : lisser la volatilité en cas d'oscillations d'une seule devise dominante. Exemple : Chine et le CFETS basket.",
       "id": "smi-019",
       "mat": "emi"
@@ -1349,12 +1349,12 @@
       "diff": 2,
       "q": "Dans les critères de « peur du flottement » (Calvo-Reinhart 2002), les pays émergents :",
       "choices": [
-        "interviennent souvent sur le change même en régime officiellement flottant",
-        "laissent leur monnaie flotter librement",
+        "se ferment aux capitaux",
+        "laissent leur monnaie flotter librement sans jamais intervenir sur le marché des changes forex",
         "adoptent tous l'euro",
-        "se ferment aux capitaux"
+        "interviennent souvent sur le change même en régime officiellement flottant"
       ],
-      "a": 0,
+      "a": 3,
       "why": "« Fear of floating » : peur des dépréciations pour raisons de dette en devises → interventions fréquentes malgré un régime flottant sur le papier.",
       "id": "smi-020",
       "mat": "emi"
@@ -1365,12 +1365,12 @@
       "diff": 3,
       "q": "Sous PCTI, si f < e (taux à terme inférieur au comptant, au certain), alors :",
       "choices": [
-        "i > i* (le pays domestique a un taux plus élevé)",
         "i < i*",
+        "i > i* (le pays domestique a un taux plus élevé)",
         "i = i*",
-        "on ne peut rien dire"
+        "on ne peut rien dire sans connaître le niveau exact du taux d'anticipation eᵃ des agents"
       ],
-      "a": 0,
+      "a": 1,
       "trap": "sens-parite",
       "why": "PCTI : f − e = i* − i. f < e ⇒ i* − i < 0 ⇒ i > i*. Prime à terme négative = report à terme = compensation du différentiel.",
       "id": "parite-022",
@@ -1382,12 +1382,12 @@
       "diff": 2,
       "q": "L'hypothèse d'anticipations rationnelles suppose que :",
       "choices": [
-        "les agents utilisent toute l'information disponible sans biais systématique",
-        "les agents ne se trompent jamais",
+        "les banques centrales sont infaillibles",
+        "les agents ne se trompent jamais dans leurs anticipations individuelles concernant l'avenir des variables économiques",
         "les taux d'intérêt sont toujours corrects",
-        "les banques centrales sont infaillibles"
+        "les agents utilisent toute l'information disponible sans biais systématique"
       ],
-      "a": 0,
+      "a": 3,
       "why": "Hypothèse fondatrice de la macro moderne : E[erreur | info] = 0. Compatible avec des erreurs, pas avec des biais.",
       "id": "parite-023",
       "mat": "emi"
@@ -1398,12 +1398,12 @@
       "diff": 3,
       "q": "L'écart entre le taux à terme f et le spot futur e_{t+1} anticipé s'appelle :",
       "choices": [
-        "prime de risque (risk premium)",
-        "prime forward",
         "spread bid-ask",
+        "prime forward, définie comme la différence observable entre taux à terme et taux spot courant",
+        "prime de risque (risk premium)",
         "erreur d'anticipation"
       ],
-      "a": 0,
+      "a": 2,
       "why": "f − E[e_{t+1}] = prime de risque : compense les investisseurs neutres au risque, corrige la PNCTI naïve.",
       "id": "parite-024",
       "mat": "emi"
@@ -3470,6 +3470,78 @@
       "trap": "mf-regime",
       "why": "En change flexible + mobilité parfaite, la politique monétaire est totalement efficace car l'ajustement se fait par le taux de change (canal externe), sans blocage sur le taux d'intérêt qui reste ancré à i*.",
       "id": "mf-027"
+    },
+    {
+      "cat": "equil",
+      "mat": "emi",
+      "ch": 5,
+      "diff": 2,
+      "ctx": "Convergence vers la parité de pouvoir d'achat (PPA) après un choc d'inflation",
+      "title": "Ordonner les étapes de l'ajustement PPA relative",
+      "steps": [
+        "Le pays subit une inflation π supérieure à celle du reste du monde π*",
+        "Les prix domestiques P montent plus vite que les prix étrangers P*",
+        "La compétitivité-prix se dégrade : biens domestiques deviennent chers",
+        "Le taux de change nominal se déprécie (E augmente si e = incertain) pour rétablir la PPA relative",
+        "Long terme : Δe ≈ π − π* (variation nominale absorbe le différentiel d'inflation)"
+      ],
+      "trap": "niveau-log",
+      "why": "PPA relative : Δe ≈ π − π*. C'est un ajustement de long terme (Rogoff parle de plusieurs années). La PPA absolue (E = P/P*) est rarement vérifiée à cause des biens non-échangeables, des coûts de transport et de l'effet Balassa-Samuelson.",
+      "id": "equil-024"
+    },
+    {
+      "cat": "parite",
+      "mat": "emi",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Dérivation de la PNCTI depuis l'absence d'arbitrage entre deux placements internationaux",
+      "title": "Ordonner les étapes de la dérivation de la PNCTI",
+      "steps": [
+        "Placement domestique 1 € pendant un an : rend 1 + i (en euros)",
+        "Placement étranger équivalent : convertir 1 € en E dollars (E = certain), placer, obtenir E(1+i*) dollars",
+        "Reconvertir au taux anticipé Eᵃ : rend E(1+i*)/Eᵃ (en euros)",
+        "Absence d'arbitrage (agent neutre au risque) : 1 + i = E(1+i*)/Eᵃ",
+        "Log-linéarisation : i ≈ i* − (eᵃ − e), soit e = eᵃ + (i − i*)"
+      ],
+      "trap": "sens-parite",
+      "why": "PNCTI dérivée de l'égalité des rendements espérés. Attention au signe : i↑ à eᵃ donné ⇒ e↑ (appréciation immédiate, la monnaie doit ensuite se déprécier vers eᵃ).",
+      "id": "parite-026"
+    },
+    {
+      "cat": "pen",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 3,
+      "ctx": "Comment un pays créancier peut voir sa PEN se détériorer sans déficit courant",
+      "title": "Ordonner les mécanismes qui font varier la PEN indépendamment du solde courant",
+      "steps": [
+        "Cas de départ : PEN = A − L, actif A libellé en devise étrangère (dollars)",
+        "Solde courant BC_t = 0 sur la période (pas de flux net)",
+        "Appréciation surprise de la monnaie nationale (E monte, plus de $ pour un €)",
+        "Effet de valorisation : la valeur en euros de l'actif $ diminue (E_{t-1}/E_t < 1)",
+        "PEN diminue malgré BC nul : c'est l'effet de valorisation à taux de change"
+      ],
+      "trap": "stock-flux",
+      "why": "La PEN est un stock qui varie via (1) le solde courant, (2) les intérêts, (3) les effets de valorisation (change et prix d'actifs). Un pays peut voir sa PEN se dégrader sans déficit courant, uniquement par appréciation nominale. Cf. Lane-Milesi-Ferretti pour la mesure empirique.",
+      "id": "pen-022"
+    },
+    {
+      "cat": "tcr",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Construction pas à pas d'un taux de change effectif réel (TCER)",
+      "title": "Ordonner les étapes de construction du TCER",
+      "steps": [
+        "Choisir les J partenaires commerciaux pertinents (poids ωᵢ, Σωᵢ = 1)",
+        "Calculer les J taux de change bilatéraux nominaux Eᵢ (au certain pour i)",
+        "Agréger : TCEN = moyenne géométrique pondérée (niveau) ou arithmétique pondérée (log)",
+        "Corriger par les prix relatifs : TCER = TCEN × P/P* (P domestique au numérateur)",
+        "Interpréter : ↑TCER = appréciation réelle (biens domestiques deviennent chers)"
+      ],
+      "trap": "niveau-log",
+      "why": "Ne pas oublier le ratio P/P* (dans le bon sens : P au numérateur) et la pondération par les parts commerciales. En variation : Δq ≈ Δe + (π − π*). Le TCER mesure la compétitivité-prix multilatérale.",
+      "id": "tcr-024"
     }
   ],
   "OUVERTE": [
@@ -4174,6 +4246,50 @@
       ],
       "id": "si-020",
       "why": "Paradoxe fondateur de l'école Feldstein-Horioka : la mobilité de facto est inférieure à celle de jure."
+    },
+    {
+      "cat": "forex",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 2,
+      "q": "Distinguer une opération de change au comptant (spot) d'une opération à terme (forward) et expliquer l'intérêt de la couverture à terme pour un exportateur.",
+      "model": "Spot : livraison sous 2 jours ouvrés au taux du jour. Forward : contrat aujourd'hui pour une livraison future (1 mois, 3 mois...) à un cours convenu à l'avance (cours à terme f). Intérêt pour un exportateur facturant en devise étrangère : la vente à terme des devises futures fige la contre-valeur en monnaie nationale, éliminant le risque de change. Coût = renoncer à un éventuel gain si la devise s'apprécie.",
+      "points": [
+        "distinction spot vs forward (délai + cours convenu)",
+        "risque exposition exportateur = dépréciation de la devise reçue",
+        "couverture par vente à terme des devises futures",
+        "élimination du risque = certitude sur contre-valeur",
+        "coût = renoncer au gain potentiel"
+      ],
+      "notations": [
+        "S ou spot",
+        "f cours à terme (forward)",
+        "3M, 1M horizons standards"
+      ],
+      "why": "Distinction spot / forward et logique de la couverture — au cœur du chapitre 2 sur le marché des changes.",
+      "id": "forex-021"
+    },
+    {
+      "cat": "smi",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 2,
+      "q": "Expliquer le paradoxe (ou dilemme) de Triffin (1960). Pourquoi a-t-il conduit à la fin de Bretton Woods en 1971 ?",
+      "model": "Triffin (1960) : contradiction structurelle de Bretton Woods. Pour fournir la liquidité mondiale, les USA doivent avoir un déficit chronique (dollars exportés). Mais ce déficit érode la crédibilité de la convertibilité $ → or (35 $/once) : plus de dollars étrangers vs stock d'or fixe. Issue : Nixon suspend la convertibilité en août 1971.",
+      "points": [
+        "contradiction liquidité vs crédibilité",
+        "déficit US = fournir liquidité",
+        "déficit US = éroder la couverture-or",
+        "convertibilité or à 35 $/once devient intenable",
+        "issue : suspension en 1971 (Nixon)"
+      ],
+      "notations": [
+        "$ dollar",
+        "or (oz = once)",
+        "1944 Bretton Woods, 1971 fin"
+      ],
+      "why": "Triffin explique STRUCTURELLEMENT la fin de Bretton Woods — pas juste un accident d'inflation. Fondamental pour comprendre le SMI actuel.",
+      "id": "smi-023"
     }
   ],
   "ETOILE": [
