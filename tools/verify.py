@@ -61,6 +61,9 @@ TRAPS = {
 
 SENS_ANSWERS = {"up", "down", "same", "ambig"}
 
+# Matières autorisées (SPEC §2, §3, §8.2 règle 5)
+ALLOWED_MATS = {"emi", "croissance"}
+
 # Volumes minimaux par catégorie (SPEC §3, ligne 196)
 MIN_PER_CAT = {"qcm": 6, "vf": 4, "sens": 4, "ordre": 1, "ouverte": 2}
 
@@ -145,7 +148,7 @@ def _validate_schema(data: dict) -> list[str]:
     if unknown:
         errors.append(f"CATS: identifiants inconnus {sorted(unknown)}")
 
-    # Chaque entrée de CATS porte un `mat` (chaîne non vide).
+    # Chaque entrée de CATS porte un `mat` ∈ ALLOWED_MATS.
     cat_mats: set[str] = set()
     for cid, entry in cats.items():
         if not isinstance(entry, dict):
@@ -154,6 +157,8 @@ def _validate_schema(data: dict) -> list[str]:
         mat = entry.get("mat")
         if not isinstance(mat, str) or not mat.strip():
             errors.append(f"CATS[{cid}]: mat manquant ou non-chaîne")
+        elif mat not in ALLOWED_MATS:
+            errors.append(f"CATS[{cid}]: mat « {mat} » ∉ {sorted(ALLOWED_MATS)}")
         else:
             cat_mats.add(mat)
 
@@ -172,6 +177,8 @@ def _validate_schema(data: dict) -> list[str]:
         mat = item.get("mat")
         if not isinstance(mat, str) or not mat.strip():
             errors.append(f"{where} ({iid}): mat manquant ou non-chaîne")
+        elif mat not in ALLOWED_MATS:
+            errors.append(f"{where} ({iid}): mat « {mat} » ∉ {sorted(ALLOWED_MATS)}")
         else:
             item_mats.add(mat)
         if item.get("cat") not in cat_ids:
@@ -239,6 +246,8 @@ def _validate_schema(data: dict) -> list[str]:
         mat = it.get("mat")
         if not isinstance(mat, str) or not mat.strip():
             errors.append(f"ETOILE[{i}] ({iid}): mat manquant ou non-chaîne")
+        elif mat not in ALLOWED_MATS:
+            errors.append(f"ETOILE[{i}] ({iid}): mat « {mat} » ∉ {sorted(ALLOWED_MATS)}")
         else:
             item_mats.add(mat)
         if not isinstance(it.get("name"), str) or not it["name"].strip():
