@@ -105,6 +105,8 @@ Même déroulé, 4 / 3 / 60 s / 3 questions. Pas dans la v1.
 
 ## 2. Catégories
 
+Chaque entrée de `CATS` porte un champ `mat` (chaîne, `"emi"` pour l'instant). Le setup filtre par **matière** avant de filtrer par **catégorie** (en v1 : une seule matière, donc l'étape est transparente ; la structure est en place pour un futur multi-matière).
+
 | id | Catégorie | ch | Contenu |
 |---|---|---|---|
 | `bdp` | Balance des paiements | 1 | Comptes, signes, identité TC + CC − CF + EO = 0, capacité/besoin de financement, lecture d'un tableau |
@@ -124,7 +126,7 @@ Même déroulé, 4 / 3 / 60 s / 3 questions. Pas dans la v1.
 
 ## 3. Formats et schémas (`data/data.json`)
 
-Champs communs à tout item : `id` (stable, ex. `bdp-012` — **jamais un hash du texte**, pour que la SRS survive aux corrections de formulation), `cat`, `ch`, `diff` (1-3), `why` (explication courte, obligatoire), `trap` (optionnel : quelle confusion classique la question teste, cf. §10).
+Champs communs à tout item : `id` (stable, ex. `bdp-012` — **jamais un hash du texte**, pour que la SRS survive aux corrections de formulation), `mat` (chaîne — matière ; `"emi"` pour l'instant, mais présent sur chaque item dès la v1 pour que la structure soit prête à un futur multi-matière), `cat`, `ch`, `diff` (1-3), `why` (explication courte, obligatoire), `trap` (optionnel : quelle confusion classique la question teste, cf. §10).
 
 ### `qcm`
 ```json
@@ -352,7 +354,7 @@ emi-quiz/
 2. `node --check` sur le script extrait.
 3. `const DATA=` re-parsé en JSON strict et **égal** à `data.json` (round-trip).
 4. Tous les ids du squelette DOM (§7.1) présents.
-5. Schéma : chaque item a `id` unique, `cat` ∈ CATS, `ch`, `diff`, `why` ; `qcm` a 4 `choices` et `0 ≤ a < 4` ; `vf.a` booléen ; `sens.a` ∈ {up,down,same,ambig} ; `ordre.steps` 3-6 ; `ouverte` a `model` et `points` ; `etoile` a 5 `clues` ; `trap` ∈ liste §10.
+5. Schéma : chaque item a `id` unique, `mat` (chaîne non vide, `"emi"` en v1), `cat` ∈ CATS, `ch`, `diff`, `why` ; `qcm` a 4 `choices` et `0 ≤ a < 4` ; `vf.a` booléen ; `sens.a` ∈ {up,down,same,ambig} ; `ordre.steps` 3-6 ; `ouverte` a `model` et `points` ; `etoile` a 5 `clues` et un `mat` ; `trap` ∈ liste §10. Chaque entrée de `CATS` porte également un `mat` (chaîne non vide) ; toutes les matières présentes dans les items sont référencées dans au moins une catégorie.
 6. Volumes minimaux par catégorie (§3) — **warning** en v1, bloquant à partir de la cible.
 7. Taille : `index.html` ≥ 95 % de la taille du précédent build (protection troncature, remplace le plancher fixe).
 

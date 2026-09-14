@@ -500,6 +500,23 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   line-height: 1.4;
 }
 
+/* sélecteur matière (v1 : caché, SPEC §2) */
+.mats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 10px;
+}
+.mats-lbl {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+
 /* toggle express + hint dans le setup */
 .setup-toggle {
   display: flex;
@@ -1158,15 +1175,38 @@ function loadRegne() {
 }
 function saveRegne(o)   { saveJSON(KEY_REGNE, o); }
 
-function loadSettings() {
-  const catIds = Object.keys(DATA.CATS);
-  const s = loadJSON(KEY_SETTINGS, null);
-  if (!s || !Array.isArray(s.cats) || !s.cats.length) {
-    return { cats: catIds.slice(), sfx: true, express: false };
+// Liste unique des matières présentes dans DATA.CATS (§2 SPEC).
+function getMats() {
+  const set = new Set();
+  const cats = DATA.CATS || {};
+  for (const cid in cats) {
+    const m = cats[cid] && cats[cid].mat;
+    if (typeof m === "string" && m.trim()) set.add(m);
   }
-  // Nettoyage : ne garde que les cats valides.
-  s.cats = s.cats.filter(c => catIds.includes(c));
-  if (!s.cats.length) s.cats = catIds.slice();
+  return Array.from(set);
+}
+
+// Ids des catégories de la matière donnée.
+function catIdsFor(mat) {
+  const cats = DATA.CATS || {};
+  return Object.keys(cats).filter(cid => cats[cid] && cats[cid].mat === mat);
+}
+
+function loadSettings() {
+  const mats = getMats();
+  const defaultMat = mats[0] || "emi";
+  const s = loadJSON(KEY_SETTINGS, null);
+  if (!s) {
+    const cids = catIdsFor(defaultMat);
+    return { mat: defaultMat, cats: cids.slice(), sfx: true, express: false };
+  }
+  // Rétro-compat : injecte mat si absent.
+  if (!s.mat || !mats.includes(s.mat)) s.mat = defaultMat;
+  const cids = catIdsFor(s.mat);
+  if (!Array.isArray(s.cats)) s.cats = cids.slice();
+  // Nettoyage : ne garde que les cats valides ET dans la matière courante.
+  s.cats = s.cats.filter(c => cids.includes(c));
+  if (!s.cats.length) s.cats = cids.slice();
   return s;
 }
 function saveSettings(o) { saveJSON(KEY_SETTINGS, o); }
@@ -1204,7 +1244,13 @@ function pickDue(fmt, cats) {
   const now = Date.now();
   const srs = loadSRS();
   const asked = new Set(S ? S.asked : []);
-  const inCats = bank.filter(it => cats.includes(it.cat));
+  const mat = S && S.mat;
+  // Filtre matière (défense en profondeur : les cats sélectionnées sont
+  // déjà restreintes à la matière, mais on refiltre explicitement au cas
+  // où un item aurait migré de matière sans que la sélection ait suivi).
+  const inCats = bank.filter(it =>
+    cats.includes(it.cat) && (!mat || it.mat === mat)
+  );
 
   let cands = inCats.filter(it => !asked.has(it.id));
   if (!cands.length) {
@@ -1420,7 +1466,13 @@ function botAccOverride(base) {
 }
 
 function newShow(settings) {
-  const cats = (settings.cats && settings.cats.length) ? settings.cats.slice() : Object.keys(DATA.CATS);
+  const mats = getMats();
+  const mat = (settings.mat && mats.includes(settings.mat)) ? settings.mat : (mats[0] || "emi");
+  const catsInMat = catIdsFor(mat);
+  const cats = (settings.cats && settings.cats.length)
+    ? settings.cats.filter(c => catsInMat.includes(c))
+    : catsInMat.slice();
+  if (!cats.length) cats.push.apply(cats, catsInMat);
   const botDef = DATA.BOTS;
   S = {
     screen: "show",
@@ -1450,6 +1502,7 @@ function newShow(settings) {
     timer: 0,
     timerMax: 0,
     seed: SEED,
+    mat: mat,
     cats: cats,
     sfx: settings.sfx !== false,
     express: !!settings.express,
@@ -1813,7 +1866,10 @@ function startEtoile() {
   }
   if (!etoileMeta) {
     const done = new Set(regne.etoilesTrouvees || []);
-    const remaining = (DATA.ETOILE || []).filter(e => !done.has(e.id));
+    const mat = S && S.mat;
+    const remaining = (DATA.ETOILE || []).filter(e =>
+      !done.has(e.id) && (!mat || e.mat === mat)
+    );
     if (!remaining.length) {
       // Toutes les étoiles ont déjà été trouvées : rien à jouer.
       endEmission();
@@ -2239,7 +2295,21 @@ function renderSetup() {
   const settings = loadSettings();
   const srs = loadSRS();
 
-  const chips = Object.keys(DATA.CATS).map(cid => {
+  const mats = getMats();
+  const catsInMat = catIdsFor(settings.mat);
+  // Sélecteur matière : visible seulement si plusieurs matières
+  // existent dans DATA.CATS (SPEC §2 : étape transparente en v1).
+  const matSelector = (mats.length > 1) ? (
+    '<div class="mats">' +
+      '<div class="mats-lbl">Matière</div>' +
+      mats.map(m =>
+        '<span class="cat-chip' + (m === settings.mat ? ' on' : '') +
+          '" data-act="pickMat" data-v="' + esc(m) + '">' + esc(m.toUpperCase()) + '</span>'
+      ).join("") +
+    '</div>'
+  ) : "";
+
+  const chips = catsInMat.map(cid => {
     const cat = DATA.CATS[cid];
     const on = settings.cats.includes(cid) ? " on" : "";
     // Jauge = part des items de la cat en boîte ≥ 2 (§5.3).
@@ -2281,6 +2351,7 @@ function renderSetup() {
       regneBanner +
       '<h2>' + esc(T.setup.h) + '</h2>' +
       '<div class="hint">' + esc(T.setup.hint) + '</div>' +
+      matSelector +
       '<div class="cats">' + chips + '</div>' +
       expressChip +
       '<div class="btnrow">' +
@@ -2555,7 +2626,9 @@ function renderBilan() {
   // Jauges par catégorie (§5.3) — recalculées à jour ici puisque la SRS
   // a été mise à jour tout au long de l'émission.
   const srs = loadSRS();
-  const jauges = Object.keys(DATA.CATS).map(cid => {
+  const jaugeMat = S && S.mat;
+  const jaugeCats = jaugeMat ? catIdsFor(jaugeMat) : Object.keys(DATA.CATS);
+  const jauges = jaugeCats.map(cid => {
     const cat = DATA.CATS[cid];
     const bank = [].concat(DATA.QCM || [], DATA.VF || [], DATA.SENS || [], DATA.ORDRE || [], DATA.OUVERTE || []);
     const inCat = bank.filter(it => it.cat === cid);
@@ -2912,6 +2985,17 @@ const ACT = {
   toggleExpress() {
     const s = loadSettings();
     s.express = !s.express;
+    saveSettings(s);
+    render();
+  },
+  pickMat(v) {
+    // Sélecteur matière (§2). Change la matière courante et resélectionne
+    // toutes ses catégories par défaut (l'utilisateur peut décocher ensuite).
+    if (!v || !getMats().includes(v)) return;
+    const s = loadSettings();
+    if (s.mat === v) return;
+    s.mat = v;
+    s.cats = catIdsFor(v);
     saveSettings(s);
     render();
   },

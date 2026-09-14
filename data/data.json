@@ -2,51 +2,63 @@
   "CATS": {
     "bdp": {
       "name": "Balance des paiements",
-      "ch": 1
+      "ch": 1,
+      "mat": "emi"
     },
     "pen": {
       "name": "Position extérieure nette",
-      "ch": 1
+      "ch": 1,
+      "mat": "emi"
     },
     "si": {
       "name": "Épargne-investissement",
-      "ch": 1
+      "ch": 1,
+      "mat": "emi"
     },
     "forex": {
       "name": "Marché des changes",
-      "ch": 2
+      "ch": 2,
+      "mat": "emi"
     },
     "cot": {
       "name": "Cotation & taux croisés",
-      "ch": 2
+      "ch": 2,
+      "mat": "emi"
     },
     "tcr": {
       "name": "Taux effectifs & TCR",
-      "ch": 2
+      "ch": 2,
+      "mat": "emi"
     },
     "smi": {
       "name": "SMI & régimes de change",
-      "ch": 2
+      "ch": 2,
+      "mat": "emi"
     },
     "parite": {
       "name": "Parités de taux d'intérêt",
-      "ch": 3
+      "ch": 3,
+      "mat": "emi"
     },
     "monet": {
       "name": "Modèles monétaires",
-      "ch": 3
+      "ch": 3,
+      "mat": "emi"
     },
     "depr": {
       "name": "Dépréciation & balance",
-      "ch": 4
+      "ch": 4,
+      "mat": "emi"
     },
     "equil": {
       "name": "Change d'équilibre",
-      "ch": 5
+      "ch": 5,
+      "mat": "emi"
     },
     "mf": {
       "name": "Mundell-Fleming",
-      "ch": 6
+      "ch": 6,
+      "mat": "emi"
     }
   },
   "BOTS": [
@@ -99,7 +111,8 @@
       ],
       "a": 0,
       "trap": "signe-bdp",
-      "why": "Convention du cours : CF > 0 = sortie nette de capitaux, ce qui correspond à un excédent courant (capacité de financement)."
+      "why": "Convention du cours : CF > 0 = sortie nette de capitaux, ce qui correspond à un excédent courant (capacité de financement).",
+      "mat": "emi"
     },
     {
       "id": "bdp-002",
@@ -115,7 +128,8 @@
       ],
       "a": 0,
       "trap": "signe-bdp",
-      "why": "TC + CC − CF + EO = 0 (le signe − devant CF vient de la convention : CF > 0 = sortie de capitaux)."
+      "why": "TC + CC − CF + EO = 0 (le signe − devant CF vient de la convention : CF > 0 = sortie de capitaux).",
+      "mat": "emi"
     },
     {
       "id": "pen-001",
@@ -131,7 +145,8 @@
       ],
       "a": 0,
       "trap": "stock-flux",
-      "why": "PEN = stock (encours d'actifs moins passifs à un instant t) ; le solde courant est le flux qui l'alimente."
+      "why": "PEN = stock (encours d'actifs moins passifs à un instant t) ; le solde courant est le flux qui l'alimente.",
+      "mat": "emi"
     },
     {
       "id": "pen-002",
@@ -147,7 +162,8 @@
       ],
       "a": 0,
       "trap": "bc-bcour",
-      "why": "Sans effets de valorisation, ΔPEN = CC : le solde courant (biens + services + revenus + transferts), pas la seule balance commerciale."
+      "why": "Sans effets de valorisation, ΔPEN = CC : le solde courant (biens + services + revenus + transferts), pas la seule balance commerciale.",
+      "mat": "emi"
     },
     {
       "id": "si-001",
@@ -162,7 +178,8 @@
         "X − M = C + G"
       ],
       "a": 0,
-      "why": "Épargne privée nette + épargne publique = solde courant. Un excédent courant traduit un excès d'épargne domestique."
+      "why": "Épargne privée nette + épargne publique = solde courant. Un excédent courant traduit un excès d'épargne domestique.",
+      "mat": "emi"
     },
     {
       "id": "forex-001",
@@ -177,7 +194,8 @@
         "le renminbi"
       ],
       "a": 0,
-      "why": "Le dollar intervient dans environ 88 % des transactions ; les paires exotiques passent par le dollar avant conversion."
+      "why": "Le dollar intervient dans environ 88 % des transactions ; les paires exotiques passent par le dollar avant conversion.",
+      "mat": "emi"
     },
     {
       "id": "forex-002",
@@ -192,7 +210,8 @@
         "conclut un swap euro-yen"
       ],
       "a": 0,
-      "why": "L'exportateur qui recevra des dollars veut fixer aujourd'hui le prix auquel il les vendra ; il les vend à terme."
+      "why": "L'exportateur qui recevra des dollars veut fixer aujourd'hui le prix auquel il les vendra ; il les vend à terme.",
+      "mat": "emi"
     },
     {
       "id": "cot-001",
@@ -208,7 +227,8 @@
       ],
       "a": 0,
       "trap": "certain-incertain",
-      "why": "Au certain, une hausse du taux = plus de devises par unité de monnaie nationale, donc appréciation de la monnaie nationale."
+      "why": "Au certain, une hausse du taux = plus de devises par unité de monnaie nationale, donc appréciation de la monnaie nationale.",
+      "mat": "emi"
     },
     {
       "id": "cot-002",
@@ -224,7 +244,8 @@
       ],
       "a": 0,
       "trap": "certain-incertain",
-      "why": "1 EUR = (100 / 0,80) JPY = 125 JPY. Piège : ne pas confondre 100 × 0,80 = 80 (mauvais sens) ou 1/(100×0,80)."
+      "why": "1 EUR = (100 / 0,80) JPY = 125 JPY. Piège : ne pas confondre 100 × 0,80 = 80 (mauvais sens) ou 1/(100×0,80).",
+      "mat": "emi"
     },
     {
       "id": "tcr-001",
@@ -240,7 +261,8 @@
       ],
       "a": 0,
       "trap": "certain-incertain",
-      "why": "Q ↑ = les biens nationaux deviennent relativement plus chers à l'étranger : compétitivité-prix ↓, pouvoir d'achat national ↑."
+      "why": "Q ↑ = les biens nationaux deviennent relativement plus chers à l'étranger : compétitivité-prix ↓, pouvoir d'achat national ↑.",
+      "mat": "emi"
     },
     {
       "id": "smi-001",
@@ -255,7 +277,8 @@
         "une perte de confiance dans le dollar due uniquement à l'inflation américaine"
       ],
       "a": 0,
-      "why": "Pour fournir des dollars au monde, les États-Unis doivent creuser leur déficit, ce qui à terme mine la convertibilité du dollar en or (Bretton Woods)."
+      "why": "Pour fournir des dollars au monde, les États-Unis doivent creuser leur déficit, ce qui à terme mine la convertibilité du dollar en or (Bretton Woods).",
+      "mat": "emi"
     },
     {
       "id": "smi-002",
@@ -270,7 +293,8 @@
         "une monnaie unique mondiale gérée par le FMI"
       ],
       "a": 0,
-      "why": "Bretton Woods : parités fixes ±1 % contre dollar, et convertibilité or à 35 $ l'once uniquement pour les banques centrales."
+      "why": "Bretton Woods : parités fixes ±1 % contre dollar, et convertibilité or à 35 $ l'once uniquement pour les banques centrales.",
+      "mat": "emi"
     },
     {
       "id": "parite-001",
@@ -286,7 +310,8 @@
       ],
       "a": 0,
       "trap": "sens-parite",
-      "why": "PNCTI : le différentiel de taux compense l'anticipation de dépréciation. Ne pas confondre avec la PCTI qui utilise le taux à terme f."
+      "why": "PNCTI : le différentiel de taux compense l'anticipation de dépréciation. Ne pas confondre avec la PCTI qui utilise le taux à terme f.",
+      "mat": "emi"
     },
     {
       "id": "parite-002",
@@ -302,7 +327,8 @@
       ],
       "a": 0,
       "trap": "horizon",
-      "why": "4 % annuel sur 1/4 d'année ≈ 1 %. Piège classique du cours : ne pas laisser un taux annuel tel quel dans un calcul trimestriel."
+      "why": "4 % annuel sur 1/4 d'année ≈ 1 %. Piège classique du cours : ne pas laisser un taux annuel tel quel dans un calcul trimestriel.",
+      "mat": "emi"
     },
     {
       "id": "monet-001",
@@ -318,7 +344,8 @@
       ],
       "a": 0,
       "trap": "fixe-flexible",
-      "why": "Prix flexibles : la neutralité monétaire s'applique ; l'offre de monnaie ↑ x % fait grimper P de x % et déprécie e de x % (PPA)."
+      "why": "Prix flexibles : la neutralité monétaire s'applique ; l'offre de monnaie ↑ x % fait grimper P de x % et déprécie e de x % (PPA).",
+      "mat": "emi"
     },
     {
       "id": "depr-001",
@@ -334,7 +361,8 @@
       ],
       "a": 0,
       "trap": "ml-symetrie",
-      "why": "Somme des élasticités-prix > 1 : les effets volumes doivent l'emporter sur l'effet valeur pour que la dépréciation soit favorable."
+      "why": "Somme des élasticités-prix > 1 : les effets volumes doivent l'emporter sur l'effet valeur pour que la dépréciation soit favorable.",
+      "mat": "emi"
     },
     {
       "id": "depr-002",
@@ -350,7 +378,8 @@
       ],
       "a": 0,
       "trap": "ml-symetrie",
-      "why": "À court terme les volumes sont rigides (contrats), l'effet valeur domine → solde ↓. À moyen terme Marshall-Lerner joue → solde ↑."
+      "why": "À court terme les volumes sont rigides (contrats), l'effet valeur domine → solde ↓. À moyen terme Marshall-Lerner joue → solde ↑.",
+      "mat": "emi"
     },
     {
       "id": "equil-001",
@@ -366,7 +395,8 @@
       ],
       "a": 0,
       "trap": "bs-etapes",
-      "why": "Le prof exige toutes les étapes : la contagion salariale du secteur échangeable au secteur abrité est celle qu'on oublie."
+      "why": "Le prof exige toutes les étapes : la contagion salariale du secteur échangeable au secteur abrité est celle qu'on oublie.",
+      "mat": "emi"
     },
     {
       "id": "mf-001",
@@ -381,7 +411,8 @@
         "épargne, investissement, budget équilibré"
       ],
       "a": 0,
-      "why": "Fixe + mobilité parfaite ⇒ la politique monétaire est asservie à la parité. On ne peut choisir que deux sommets du triangle."
+      "why": "Fixe + mobilité parfaite ⇒ la politique monétaire est asservie à la parité. On ne peut choisir que deux sommets du triangle.",
+      "mat": "emi"
     },
     {
       "id": "mf-002",
@@ -397,7 +428,8 @@
       ],
       "a": 0,
       "trap": "mf-regime",
-      "why": "G ↑ ⇒ i ↑ ⇒ entrées de capitaux ⇒ appréciation ⇒ X−M ↓ jusqu'à annuler l'effet initial : la politique budgétaire est inefficace ici."
+      "why": "G ↑ ⇒ i ↑ ⇒ entrées de capitaux ⇒ appréciation ⇒ X−M ↓ jusqu'à annuler l'effet initial : la politique budgétaire est inefficace ici.",
+      "mat": "emi"
     },
     {
       "id": "pen-005",
@@ -413,7 +445,8 @@
       ],
       "a": 0,
       "trap": "stock-flux",
-      "why": "La PEN est un stock : la revalorisation des actifs et passifs libellés en devises change le stock sans qu'aucun flux courant supplémentaire n'ait eu lieu."
+      "why": "La PEN est un stock : la revalorisation des actifs et passifs libellés en devises change le stock sans qu'aucun flux courant supplémentaire n'ait eu lieu.",
+      "mat": "emi"
     },
     {
       "id": "si-005",
@@ -428,7 +461,8 @@
         "une baisse mécanique de l'épargne privée"
       ],
       "a": 0,
-      "why": "(S − I) + (T − G) = X − M. Toutes choses égales par ailleurs, (T − G) ↑ ⇒ X − M ↑."
+      "why": "(S − I) + (T − G) = X − M. Toutes choses égales par ailleurs, (T − G) ↑ ⇒ X − M ↑.",
+      "mat": "emi"
     },
     {
       "id": "si-006",
@@ -443,7 +477,8 @@
         "réduit les déséquilibres courants entre le nord et le sud"
       ],
       "a": 0,
-      "why": "Constat du cours : les capitaux ont financé des bulles immobilières (Espagne, Irlande) et non le rattrapage productif."
+      "why": "Constat du cours : les capitaux ont financé des bulles immobilières (Espagne, Irlande) et non le rattrapage productif.",
+      "mat": "emi"
     },
     {
       "id": "cot-005",
@@ -458,7 +493,8 @@
         "0,83 JPY"
       ],
       "a": 0,
-      "why": "1 $ = 150 / 1,25 = 120 JPY. Passer par la monnaie commune (€) et diviser dans le bon sens."
+      "why": "1 $ = 150 / 1,25 = 120 JPY. Passer par la monnaie commune (€) et diviser dans le bon sens.",
+      "mat": "emi"
     },
     {
       "id": "tcr-005",
@@ -473,7 +509,8 @@
         "+1 %"
       ],
       "a": 0,
-      "why": "0,7 × 2 + 0,3 × (−3) = 1,4 − 0,9 = 0,5 %."
+      "why": "0,7 × 2 + 0,3 × (−3) = 1,4 − 0,9 = 0,5 %.",
+      "mat": "emi"
     },
     {
       "id": "tcr-006",
@@ -488,7 +525,8 @@
         "−1 %"
       ],
       "a": 0,
-      "why": "Δq ≈ Δe + (π − π*) = 5 + (3 − 1) = 7 %."
+      "why": "Δq ≈ Δe + (π − π*) = 5 + (3 − 1) = 7 %.",
+      "mat": "emi"
     },
     {
       "id": "smi-005",
@@ -503,7 +541,8 @@
         "la parité fixe euro-dollar"
       ],
       "a": 0,
-      "why": "Ratification de l'abandon de la convertibilité or de 1971 et légalisation formelle des changes flottants."
+      "why": "Ratification de l'abandon de la convertibilité or de 1971 et légalisation formelle des changes flottants.",
+      "mat": "emi"
     },
     {
       "id": "monet-006",
@@ -518,7 +557,8 @@
         "provoque une hyperinflation immédiate"
       ],
       "a": 0,
-      "why": "Y ↑ ⇒ demande de monnaie L(Y) ↑ ⇒ à Ms donné, P ↓ ⇒ par PPA, e ↑."
+      "why": "Y ↑ ⇒ demande de monnaie L(Y) ↑ ⇒ à Ms donné, P ↓ ⇒ par PPA, e ↑.",
+      "mat": "emi"
     },
     {
       "id": "monet-007",
@@ -533,7 +573,8 @@
         "les modèles ARMA dominent tous les autres"
       ],
       "a": 0,
-      "why": "Constat empirique fondateur de la « déconnexion du change »."
+      "why": "Constat empirique fondateur de la « déconnexion du change ».",
+      "mat": "emi"
     },
     {
       "id": "depr-006",
@@ -548,7 +589,8 @@
         "l'inertie des banques centrales"
       ],
       "a": 0,
-      "why": "Pour préserver leurs parts de marché, les exportateurs absorbent une partie de la variation du change dans leur marge."
+      "why": "Pour préserver leurs parts de marché, les exportateurs absorbent une partie de la variation du change dans leur marge.",
+      "mat": "emi"
     },
     {
       "id": "equil-006",
@@ -563,7 +605,8 @@
         "un taux fixé chaque année par le FMI"
       ],
       "a": 0,
-      "why": "TCEF : équilibre externe (solde courant soutenable) et interne (plein emploi non-inflationniste)."
+      "why": "TCEF : équilibre externe (solde courant soutenable) et interne (plein emploi non-inflationniste).",
+      "mat": "emi"
     },
     {
       "id": "equil-007",
@@ -579,7 +622,8 @@
       ],
       "a": 0,
       "trap": "bs-etapes",
-      "why": "Productivité échangeable ↑ ⇒ salaires ↑ ⇒ contagion à l'abrité ⇒ prix non-échangeables ↑ ⇒ appréciation réelle."
+      "why": "Productivité échangeable ↑ ⇒ salaires ↑ ⇒ contagion à l'abrité ⇒ prix non-échangeables ↑ ⇒ appréciation réelle.",
+      "mat": "emi"
     },
     {
       "id": "mf-009",
@@ -595,7 +639,8 @@
       ],
       "a": 0,
       "trap": "mf-regime",
-      "why": "Ms ↑ ⇒ i baisse ⇒ sortie de capitaux ⇒ BC vend des devises pour tenir la parité ⇒ Ms revient au point de départ."
+      "why": "Ms ↑ ⇒ i baisse ⇒ sortie de capitaux ⇒ BC vend des devises pour tenir la parité ⇒ Ms revient au point de départ.",
+      "mat": "emi"
     },
     {
       "id": "forex-006",
@@ -610,7 +655,8 @@
         "attendre et payer au comptant"
       ],
       "a": 0,
-      "why": "L'importateur veut fixer aujourd'hui le prix d'achat des dollars futurs : achat à terme."
+      "why": "L'importateur veut fixer aujourd'hui le prix d'achat des dollars futurs : achat à terme.",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -625,7 +671,8 @@
       ],
       "a": 0,
       "why": "TC couvre les transferts unilatéraux : remises de fonds, dons, aide au développement.",
-      "id": "bdp-009"
+      "id": "bdp-009",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -641,7 +688,8 @@
       "a": 0,
       "trap": "stock-flux",
       "why": "ΔPEN = CC hors valorisation = −40 Md€/an. Pour aller de −800 à −1 000 : 200 / 40 = 5 ans.",
-      "id": "pen-009"
+      "id": "pen-009",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -656,7 +704,8 @@
       ],
       "a": 0,
       "why": "Swap = spot + terme inverse : l'exposition nette est nulle, seule la trésorerie change.",
-      "id": "forex-009"
+      "id": "forex-009",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -671,7 +720,8 @@
       ],
       "a": 0,
       "why": "Le dollar est le plus souvent coté à l'incertain (1 USD = X yens), sauf paires majeures comme EUR/USD et GBP/USD.",
-      "id": "cot-009"
+      "id": "cot-009",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -686,7 +736,8 @@
       ],
       "a": 0,
       "why": "Gold Exchange Standard : réserves en or ET en devises convertibles (livre sterling puis dollar) ; élargit la base monétaire mondiale.",
-      "id": "smi-009"
+      "id": "smi-009",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -702,7 +753,8 @@
       "a": 0,
       "trap": "statique-dyn",
       "why": "Le retour à la PPA est piloté par la rigidité des prix : plus les prix sont rapides à ajuster, plus le surajustement se résorbe vite.",
-      "id": "monet-010"
+      "id": "monet-010",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -717,7 +769,8 @@
       ],
       "a": 0,
       "why": "P ↑ à P* et e constants ⇒ q = e × P/P* augmente : appréciation réelle.",
-      "id": "depr-010"
+      "id": "depr-010",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -732,7 +785,8 @@
       ],
       "a": 0,
       "why": "TCER : moyenne géométrique pondérée par les parts commerciales des taux de change réels bilatéraux.",
-      "id": "equil-009"
+      "id": "equil-009",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -748,7 +802,8 @@
       "a": 0,
       "trap": "mf-regime",
       "why": "Mobilité imparfaite = l'ajustement du change est partiel, l'effet expansionniste subsiste (mais amoindri).",
-      "id": "mf-011"
+      "id": "mf-011",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -764,7 +819,8 @@
       "a": 0,
       "trap": "sens-parite",
       "why": "PCTI : arbitrage couvert via forward, tient toujours. PNCTI : condition d'anticipation, testable et souvent réfutée.",
-      "id": "parite-009"
+      "id": "parite-009",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -780,7 +836,8 @@
       "a": 0,
       "trap": "signe-bdp",
       "why": "IDE entrant = engagement pour le pays receveur → CF < 0 (entrée nette de capitaux, convention du cours).",
-      "id": "bdp-016"
+      "id": "bdp-016",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -796,7 +853,8 @@
       "a": 0,
       "trap": "stock-flux",
       "why": "ΔPEN = CC (hors valorisation) → +20 × 5 = +100 ajouté au stock initial de 200 = +300 Md€.",
-      "id": "pen-015"
+      "id": "pen-015",
+      "mat": "emi"
     },
     {
       "cat": "si",
@@ -811,7 +869,8 @@
       ],
       "a": 0,
       "why": "(S − I) + (T − G) = X − M ⇒ T − G = (X − M) − (S − I) = −40 − (−60) = +20.",
-      "id": "si-014"
+      "id": "si-014",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -826,7 +885,8 @@
       ],
       "a": 0,
       "why": "Swap = deux jambes opposées simultanées — pas d'exposition nette, juste un déplacement de trésorerie.",
-      "id": "forex-016"
+      "id": "forex-016",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -842,7 +902,8 @@
       "a": 0,
       "trap": "certain-incertain",
       "why": "Convention européenne : au certain = 1 unité de monnaie nationale vaut X devises.",
-      "id": "cot-016"
+      "id": "cot-016",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -857,7 +918,8 @@
       ],
       "a": 0,
       "why": "En log : Δq ≈ Δe + (π − π*) = −2 + 3 = +1 % (appréciation réelle malgré la baisse nominale).",
-      "id": "tcr-016"
+      "id": "tcr-016",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -872,7 +934,8 @@
       ],
       "a": 0,
       "why": "Fixe + monétaire autonome impose des contrôles de capitaux (cas Chine, années 2000).",
-      "id": "smi-016"
+      "id": "smi-016",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -888,7 +951,8 @@
       "a": 0,
       "trap": "sens-parite",
       "why": "PNCTI : i − i* = eᵃ − e (dépréciation attendue). Dépréciation de 2 % ⇒ i − i* = +2 %.",
-      "id": "parite-018"
+      "id": "parite-018",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -903,7 +967,8 @@
       ],
       "a": 0,
       "why": "Contradiction empirique de la PNCTI : ex ante on prédit dépréciation, ex post on voit souvent appréciation.",
-      "id": "parite-019"
+      "id": "parite-019",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -919,7 +984,8 @@
       "a": 0,
       "trap": "statique-dyn",
       "why": "Surajustement : e sous-tire au-delà de la valeur de long terme (5 %) puis se corrige progressivement.",
-      "id": "monet-019"
+      "id": "monet-019",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -934,7 +1000,8 @@
       ],
       "a": 0,
       "why": "Demande de monnaie ↑ ⇒ P doit baisser pour équilibrer ⇒ par PPA, e ↑ (appréciation).",
-      "id": "monet-020"
+      "id": "monet-020",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -950,7 +1017,8 @@
       "a": 0,
       "trap": "ml-symetrie",
       "why": "εX + εM = 0,7 < 1 : Marshall-Lerner non vérifiée, l'effet valeur domine, le solde se dégrade.",
-      "id": "depr-019"
+      "id": "depr-019",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -965,7 +1033,8 @@
       ],
       "a": 0,
       "why": "Innovation clef : introduire ρ (prime) et lier ρ à la PEN — un pays très endetté doit payer plus.",
-      "id": "depr-020"
+      "id": "depr-020",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -981,7 +1050,8 @@
       "a": 0,
       "trap": "bs-etapes",
       "why": "Gain de productivité T > N ⇒ contagion salariale ⇒ P_N ↑ ⇒ prix relatifs domestiques ↑ ⇒ q ↑.",
-      "id": "equil-017"
+      "id": "equil-017",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -996,7 +1066,8 @@
       ],
       "a": 0,
       "why": "Le Big Mac joue le rôle d'un panier standardisé de biens ; la PPA absolue prédit que son prix converti doit être identique partout.",
-      "id": "equil-018"
+      "id": "equil-018",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -1012,7 +1083,8 @@
       "a": 0,
       "trap": "mf-regime",
       "why": "Ms ↓ ⇒ i ↑ ⇒ entrées de capitaux ⇒ appréciation ⇒ X − M ↓ ⇒ Y ↓ (chemin miroir de la hausse Ms).",
-      "id": "mf-020"
+      "id": "mf-020",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -1028,7 +1100,8 @@
       "a": 0,
       "trap": "mf-regime",
       "why": "i < i* ⇒ sortie de K ⇒ BC vend devises ⇒ Ms ↓ retour au point de départ. Politique monétaire inefficace.",
-      "id": "mf-021"
+      "id": "mf-021",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -1043,7 +1116,8 @@
       ],
       "a": 0,
       "why": "Concept clef : les pays émergents empruntent en dollars/euros ; une dépréciation aggrave mécaniquement leur dette.",
-      "id": "smi-017"
+      "id": "smi-017",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -1058,7 +1132,8 @@
       ],
       "a": 0,
       "why": "Services = tourisme, transport, assurance, licences/redevances, télécom, informatique — poste distinct des biens et du financier.",
-      "id": "bdp-018"
+      "id": "bdp-018",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -1073,7 +1148,8 @@
       ],
       "a": 0,
       "why": "La France perçoit plus de revenus sur ses actifs étrangers qu'elle n'en verse — poste stabilisateur du CC.",
-      "id": "bdp-019"
+      "id": "bdp-019",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -1088,7 +1164,8 @@
       ],
       "a": 0,
       "why": "Décomposition standard cohérente avec la BdP : IDE / portefeuille (actions, obligations) / autres (prêts, dépôts) / réserves BC.",
-      "id": "pen-017"
+      "id": "pen-017",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -1103,7 +1180,8 @@
       ],
       "a": 0,
       "why": "Cas typique des États-Unis : IDE à haut rendement à l'étranger, Treasuries à taux bas détenus par le reste du monde — « exorbitant privilege ».",
-      "id": "pen-018"
+      "id": "pen-018",
+      "mat": "emi"
     },
     {
       "cat": "si",
@@ -1118,7 +1196,8 @@
       ],
       "a": 0,
       "why": "États-Unis années 80 sous Reagan : les deux déficits se sont creusés ensemble, illustrant (S − I) + (T − G) = X − M.",
-      "id": "si-015"
+      "id": "si-015",
+      "mat": "emi"
     },
     {
       "cat": "si",
@@ -1133,7 +1212,8 @@
       ],
       "a": 0,
       "why": "Coefficient d'environ 0,9 dans l'étude originale de 1980 pour l'OCDE : loin du 0 qu'impliquerait la mobilité parfaite.",
-      "id": "si-016"
+      "id": "si-016",
+      "mat": "emi"
     },
     {
       "cat": "si",
@@ -1148,7 +1228,8 @@
       ],
       "a": 0,
       "why": "Théorie : capital doit aller là où sa productivité marginale est élevée (Sud). Empirique : flux vers le Nord dominants (Sud finance le Nord).",
-      "id": "si-017"
+      "id": "si-017",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -1163,7 +1244,8 @@
       ],
       "a": 0,
       "why": "La chambre s'interpose : chaque partie fait face à la chambre, pas à l'autre. Elle demande un appel de marge quotidien.",
-      "id": "forex-017"
+      "id": "forex-017",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -1178,7 +1260,8 @@
       ],
       "a": 0,
       "why": "Put à strike 1,08 sur EUR/USD (au certain) donne droit de vendre 1 EUR contre 1,08 $ : plancher sous le prix à terme du dollar.",
-      "id": "forex-018"
+      "id": "forex-018",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -1193,7 +1276,8 @@
       ],
       "a": 0,
       "why": "1 GBP = 1,25 USD ; 1 USD = 1/1,10 EUR ≈ 0,909 EUR. 1 GBP = 1,25 × 0,909 ≈ 1,136 EUR.",
-      "id": "cot-018"
+      "id": "cot-018",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -1208,7 +1292,8 @@
       ],
       "a": 0,
       "why": "Le forex est le prototype du marché OTC : liquidité fournie par les grandes banques, pas de carnet central unique.",
-      "id": "cot-019"
+      "id": "cot-019",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -1223,7 +1308,8 @@
       ],
       "a": 0,
       "why": "0,4×3 + 0,3×(−2) + 0,3×1 = 1,2 − 0,6 + 0,3 = 0,9 %.",
-      "id": "tcr-018"
+      "id": "tcr-018",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -1238,7 +1324,8 @@
       ],
       "a": 0,
       "why": "TCER > 1 = appréciation réelle vs la base. C'est un niveau relatif de prix, pas un différentiel d'inflation direct.",
-      "id": "tcr-019"
+      "id": "tcr-019",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -1253,7 +1340,8 @@
       ],
       "a": 0,
       "why": "Objectif : lisser la volatilité en cas d'oscillations d'une seule devise dominante. Exemple : Chine et le CFETS basket.",
-      "id": "smi-019"
+      "id": "smi-019",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -1268,7 +1356,8 @@
       ],
       "a": 0,
       "why": "« Fear of floating » : peur des dépréciations pour raisons de dette en devises → interventions fréquentes malgré un régime flottant sur le papier.",
-      "id": "smi-020"
+      "id": "smi-020",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -1284,7 +1373,8 @@
       "a": 0,
       "trap": "sens-parite",
       "why": "PCTI : f − e = i* − i. f < e ⇒ i* − i < 0 ⇒ i > i*. Prime à terme négative = report à terme = compensation du différentiel.",
-      "id": "parite-022"
+      "id": "parite-022",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -1299,7 +1389,8 @@
       ],
       "a": 0,
       "why": "Hypothèse fondatrice de la macro moderne : E[erreur | info] = 0. Compatible avec des erreurs, pas avec des biais.",
-      "id": "parite-023"
+      "id": "parite-023",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -1314,7 +1405,8 @@
       ],
       "a": 0,
       "why": "f − E[e_{t+1}] = prime de risque : compense les investisseurs neutres au risque, corrige la PNCTI naïve.",
-      "id": "parite-024"
+      "id": "parite-024",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -1330,7 +1422,8 @@
       "a": 0,
       "trap": "statique-dyn",
       "why": "Plus les prix sont rigides à court terme, plus l'overshooting est marqué ; plus la demande de monnaie est sensible à i, plus le retour se fait vite.",
-      "id": "monet-022"
+      "id": "monet-022",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -1345,7 +1438,8 @@
       ],
       "a": 0,
       "why": "Chaînage : e = P/P* (PPA), P dépend de Ms via l'équation quantitative. e devient fonction de Ms/Ms*, Y/Y*, i, i*.",
-      "id": "monet-023"
+      "id": "monet-023",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -1360,7 +1454,8 @@
       ],
       "a": 0,
       "why": "Marges d'ajustement (PTM), diversification des fournisseurs, part des importations dans le panier ⇒ pass-through partiel et graduel.",
-      "id": "depr-022"
+      "id": "depr-022",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -1375,7 +1470,8 @@
       ],
       "a": 0,
       "why": "Prix des échangeables lié au change : P_T = e × P*_T. Non-échangeables déterminés localement ⇒ TCR ↑ (compétitivité ↓).",
-      "id": "depr-023"
+      "id": "depr-023",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -1390,7 +1486,8 @@
       ],
       "a": 0,
       "why": "Justification économique du déficit : lissage de la consommation face à un revenu croissant, ou financement de l'investissement productif.",
-      "id": "depr-024"
+      "id": "depr-024",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -1406,7 +1503,8 @@
       "a": 0,
       "trap": "bs-etapes",
       "why": "Régression classique : le TCR d'un pays s'apprécie avec sa productivité relative dans les échangeables (mécanisme BS).",
-      "id": "equil-020"
+      "id": "equil-020",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -1421,7 +1519,8 @@
       ],
       "a": 0,
       "why": "Balassa-Samuelson prédit l'appréciation réelle par le canal productivité — cohérent avec un rattrapage émergent.",
-      "id": "equil-021"
+      "id": "equil-021",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -1436,7 +1535,8 @@
       ],
       "a": 0,
       "why": "Excédent courant excessif = déséquilibre externe corrigible par une appréciation réelle ⇒ monnaie sous-évaluée selon FEER.",
-      "id": "equil-022"
+      "id": "equil-022",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -1452,7 +1552,8 @@
       "a": 0,
       "trap": "mf-regime",
       "why": "En fixe + mobilité imparfaite, le mécanisme d'ajustement passe par une accommodation partielle des flux de capitaux : effet expansionniste mais amoindri.",
-      "id": "mf-024"
+      "id": "mf-024",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -1468,7 +1569,8 @@
       "a": 0,
       "trap": "sterilise",
       "why": "Sans effet sur Ms (open market compensatoire) → LM inchangée → ni Y ni i changent durablement. Seul le bilan BC (or, devises, obligations) est modifié.",
-      "id": "mf-025"
+      "id": "mf-025",
+      "mat": "emi"
     }
   ],
   "VF": [
@@ -1480,7 +1582,8 @@
       "q": "Une hausse des réserves officielles de change apparaît avec un signe positif dans le compte financier.",
       "a": true,
       "trap": "signe-bdp",
-      "why": "Hausse des réserves ⇔ sortie nette de capitaux au sens de la balance ⇔ solde CF positif (convention du cours)."
+      "why": "Hausse des réserves ⇔ sortie nette de capitaux au sens de la balance ⇔ solde CF positif (convention du cours).",
+      "mat": "emi"
     },
     {
       "id": "bdp-004",
@@ -1490,7 +1593,8 @@
       "q": "La capacité (ou besoin) de financement d'un pays est égale à TC + CC.",
       "a": true,
       "trap": "bc-bcour",
-      "why": "Positif = capacité (excès d'épargne, sortie de capitaux) ; négatif = besoin (déficit courant financé par entrée de capitaux)."
+      "why": "Positif = capacité (excès d'épargne, sortie de capitaux) ; négatif = besoin (déficit courant financé par entrée de capitaux).",
+      "mat": "emi"
     },
     {
       "id": "pen-003",
@@ -1500,7 +1604,8 @@
       "q": "Les effets de valorisation peuvent modifier la PEN d'une période à l'autre sans qu'aucun flux financier ne soit intervenu.",
       "a": true,
       "trap": "stock-flux",
-      "why": "La PEN est un stock d'actifs et de passifs libellés en devises et cotés : leur revalorisation change la PEN, indépendamment des flux."
+      "why": "La PEN est un stock d'actifs et de passifs libellés en devises et cotés : leur revalorisation change la PEN, indépendamment des flux.",
+      "mat": "emi"
     },
     {
       "id": "si-002",
@@ -1509,7 +1614,8 @@
       "diff": 2,
       "q": "Le paradoxe de Feldstein-Horioka (1980) constate que l'épargne et l'investissement restent fortement corrélés à l'échelle nationale, ce qui contredit une mobilité parfaite des capitaux.",
       "a": true,
-      "why": "Épargne et investissement nationaux devraient se découpler en mobilité parfaite ; Feldstein-Horioka montre qu'ils restent liés."
+      "why": "Épargne et investissement nationaux devraient se découpler en mobilité parfaite ; Feldstein-Horioka montre qu'ils restent liés.",
+      "mat": "emi"
     },
     {
       "id": "si-003",
@@ -1518,7 +1624,8 @@
       "diff": 2,
       "q": "Le paradoxe de Lucas (1990) est que le capital circule massivement des pays pauvres vers les pays riches.",
       "a": false,
-      "why": "Lucas constate le contraire : le capital NE va PAS des pays riches vers les pauvres autant que la théorie le prédit (risque, capital humain)."
+      "why": "Lucas constate le contraire : le capital NE va PAS des pays riches vers les pauvres autant que la théorie le prédit (risque, capital humain).",
+      "mat": "emi"
     },
     {
       "id": "forex-003",
@@ -1527,7 +1634,8 @@
       "diff": 1,
       "q": "Le marché des changes est un marché organisé, avec un carnet d'ordres central et des prix publics.",
       "a": false,
-      "why": "C'est un marché OTC (de gré à gré), interbancaire, décentralisé : pas de carnet d'ordres public unique."
+      "why": "C'est un marché OTC (de gré à gré), interbancaire, décentralisé : pas de carnet d'ordres public unique.",
+      "mat": "emi"
     },
     {
       "id": "forex-004",
@@ -1536,7 +1644,8 @@
       "diff": 2,
       "q": "Un swap de change combine un achat au comptant et une vente à terme (ou l'inverse), sur la même paire de devises, à la même contrepartie.",
       "a": true,
-      "why": "Un swap = deux jambes simultanées de sens opposé : c'est un instrument de trésorerie sans exposition nette au risque de change."
+      "why": "Un swap = deux jambes simultanées de sens opposé : c'est un instrument de trésorerie sans exposition nette au risque de change.",
+      "mat": "emi"
     },
     {
       "id": "cot-003",
@@ -1546,7 +1655,8 @@
       "q": "Le taux au certain et le taux à l'incertain sont réciproques : S_incertain = 1 / S_certain.",
       "a": true,
       "trap": "certain-incertain",
-      "why": "1 € = 1,10 $ (certain, point de vue européen) ⇔ 1 $ ≈ 0,91 € (incertain, même point de vue) : ce sont deux façons d'écrire le même prix."
+      "why": "1 € = 1,10 $ (certain, point de vue européen) ⇔ 1 $ ≈ 0,91 € (incertain, même point de vue) : ce sont deux façons d'écrire le même prix.",
+      "mat": "emi"
     },
     {
       "id": "tcr-002",
@@ -1556,7 +1666,8 @@
       "q": "Le taux de change effectif nominal en niveau se calcule comme une moyenne géométrique pondérée par les parts commerciales des partenaires.",
       "a": true,
       "trap": "niveau-log",
-      "why": "En niveau : moyenne géométrique. En log : moyenne arithmétique pondérée. Piège : additionner directement des taux en niveau."
+      "why": "En niveau : moyenne géométrique. En log : moyenne arithmétique pondérée. Piège : additionner directement des taux en niveau.",
+      "mat": "emi"
     },
     {
       "id": "tcr-003",
@@ -1565,7 +1676,8 @@
       "diff": 2,
       "q": "Une hausse de TCER = TCEN × P/P* traduit à la fois une perte de compétitivité-prix et un gain de pouvoir d'achat pour les résidents.",
       "a": true,
-      "why": "Nos biens deviennent relativement plus chers pour l'étranger (compétitivité ↓), et nos revenus achètent plus de biens étrangers (pouvoir d'achat ↑)."
+      "why": "Nos biens deviennent relativement plus chers pour l'étranger (compétitivité ↓), et nos revenus achètent plus de biens étrangers (pouvoir d'achat ↑).",
+      "mat": "emi"
     },
     {
       "id": "smi-003",
@@ -1575,7 +1687,8 @@
       "q": "En régime de changes fixes avec mobilité parfaite des capitaux, la banque centrale peut mener une politique monétaire autonome.",
       "a": false,
       "trap": "mf-regime",
-      "why": "Triangle d'incompatibilité : fixe + mobilité parfaite ⇒ la politique monétaire est asservie à la défense de la parité."
+      "why": "Triangle d'incompatibilité : fixe + mobilité parfaite ⇒ la politique monétaire est asservie à la défense de la parité.",
+      "mat": "emi"
     },
     {
       "id": "parite-003",
@@ -1585,7 +1698,8 @@
       "q": "Sous PNCTI, à anticipation eᵃ donnée, une hausse surprise du taux d'intérêt domestique i entraîne une appréciation immédiate du taux au certain e.",
       "a": true,
       "trap": "sens-parite",
-      "why": "e = eᵃ + (i − i*) : i ↑ ⇒ e ↑ (appréciation immédiate) pour rétablir une anticipation de dépréciation qui compense le nouveau différentiel."
+      "why": "e = eᵃ + (i − i*) : i ↑ ⇒ e ↑ (appréciation immédiate) pour rétablir une anticipation de dépréciation qui compense le nouveau différentiel.",
+      "mat": "emi"
     },
     {
       "id": "parite-004",
@@ -1594,7 +1708,8 @@
       "diff": 2,
       "q": "La PCTI (parité couverte) relie le taux au comptant, le taux à terme et le différentiel d'intérêt sans hypothèse sur les anticipations.",
       "a": true,
-      "why": "PCTI est une relation d'arbitrage sans risque via le marché à terme : elle tient exactement, sans anticipations. La PNCTI, elle, en dépend."
+      "why": "PCTI est une relation d'arbitrage sans risque via le marché à terme : elle tient exactement, sans anticipations. La PNCTI, elle, en dépend.",
+      "mat": "emi"
     },
     {
       "id": "monet-002",
@@ -1604,7 +1719,8 @@
       "q": "Le modèle de Dornbusch prévoit un surajustement (overshooting) du taux de change nominal à court terme, au-delà de sa variation de long terme.",
       "a": true,
       "trap": "statique-dyn",
-      "why": "Prix rigides à court terme + parfaite mobilité des capitaux ⇒ le taux surréagit puis revient lentement vers le nouvel équilibre de long terme."
+      "why": "Prix rigides à court terme + parfaite mobilité des capitaux ⇒ le taux surréagit puis revient lentement vers le nouvel équilibre de long terme.",
+      "mat": "emi"
     },
     {
       "id": "monet-003",
@@ -1613,7 +1729,8 @@
       "diff": 2,
       "q": "L'étude de Meese et Rogoff (1983) conclut que les modèles structurels de change battent nettement la marche aléatoire à horizon court.",
       "a": false,
-      "why": "C'est le résultat inverse : à court terme, aucun modèle structurel ne bat la marche aléatoire — d'où la « déconnexion du change »."
+      "why": "C'est le résultat inverse : à court terme, aucun modèle structurel ne bat la marche aléatoire — d'où la « déconnexion du change ».",
+      "mat": "emi"
     },
     {
       "id": "depr-003",
@@ -1622,7 +1739,8 @@
       "diff": 2,
       "q": "Le pricing to market (PTM) amortit la répercussion d'une variation du taux de change sur les prix affichés à l'importation.",
       "a": true,
-      "why": "Les exportateurs ajustent leurs marges pour préserver leurs parts de marché : le pass-through du change vers les prix est incomplet."
+      "why": "Les exportateurs ajustent leurs marges pour préserver leurs parts de marché : le pass-through du change vers les prix est incomplet.",
+      "mat": "emi"
     },
     {
       "id": "equil-002",
@@ -1631,7 +1749,8 @@
       "diff": 2,
       "q": "La PPA absolue postule qu'une même monnaie confère le même pouvoir d'achat dans tous les pays.",
       "a": true,
-      "why": "PPA absolue = loi du prix unique généralisée : E × P* = P, donc E = P / P*. Peu vérifiée à cause des biens non échangeables."
+      "why": "PPA absolue = loi du prix unique généralisée : E × P* = P, donc E = P / P*. Peu vérifiée à cause des biens non échangeables.",
+      "mat": "emi"
     },
     {
       "id": "equil-003",
@@ -1641,7 +1760,8 @@
       "q": "Dans Balassa-Samuelson, la contagion salariale du secteur échangeable vers le secteur abrité est le maillon central de l'appréciation réelle.",
       "a": true,
       "trap": "bs-etapes",
-      "why": "Sans cette contagion (marché du travail unifié), la productivité du secteur échangeable n'entraînerait pas de hausse des prix des non-échangeables."
+      "why": "Sans cette contagion (marché du travail unifié), la productivité du secteur échangeable n'entraînerait pas de hausse des prix des non-échangeables.",
+      "mat": "emi"
     },
     {
       "id": "mf-003",
@@ -1651,7 +1771,8 @@
       "q": "Une intervention stérilisée sur le marché des changes modifie l'offre de monnaie nationale et déplace la courbe LM.",
       "a": false,
       "trap": "sterilise",
-      "why": "La stérilisation neutralise l'effet monétaire (open market compensatoire) : offre de monnaie inchangée, LM ne bouge pas."
+      "why": "La stérilisation neutralise l'effet monétaire (open market compensatoire) : offre de monnaie inchangée, LM ne bouge pas.",
+      "mat": "emi"
     },
     {
       "id": "mf-004",
@@ -1661,7 +1782,8 @@
       "q": "Le modèle de Mundell-Fleming est un modèle à prix fixes et à horizon statique.",
       "a": true,
       "trap": "statique-dyn",
-      "why": "Prix rigides, statique comparative. Le passage à Dornbusch (prix flexibles à long terme + rigidité à court terme) apporte la dynamique."
+      "why": "Prix rigides, statique comparative. Le passage à Dornbusch (prix flexibles à long terme + rigidité à court terme) apporte la dynamique.",
+      "mat": "emi"
     },
     {
       "id": "bdp-007",
@@ -1670,7 +1792,8 @@
       "diff": 2,
       "q": "Le poste « erreurs et omissions » (EO) de la balance des paiements peut être positif ou négatif selon la période et n'est jamais nul en pratique.",
       "a": true,
-      "why": "EO capte les écarts statistiques entre CC et CF ; il n'est presque jamais nul."
+      "why": "EO capte les écarts statistiques entre CC et CF ; il n'est presque jamais nul.",
+      "mat": "emi"
     },
     {
       "id": "pen-006",
@@ -1680,7 +1803,8 @@
       "q": "Un pays dont la PEN est positive est appelé pays débiteur net vis-à-vis du reste du monde.",
       "a": false,
       "trap": "stock-flux",
-      "why": "PEN positive = pays créancier net. Débiteur net = PEN négative."
+      "why": "PEN positive = pays créancier net. Débiteur net = PEN négative.",
+      "mat": "emi"
     },
     {
       "id": "pen-007",
@@ -1690,7 +1814,8 @@
       "q": "Hors effets de valorisation, l'accumulation d'excédents courants sur plusieurs années fait mécaniquement croître la PEN.",
       "a": true,
       "trap": "stock-flux",
-      "why": "ΔPEN = CC hors valorisation : le flux d'excédent alimente le stock d'actifs nets."
+      "why": "ΔPEN = CC hors valorisation : le flux d'excédent alimente le stock d'actifs nets.",
+      "mat": "emi"
     },
     {
       "id": "si-007",
@@ -1699,7 +1824,8 @@
       "diff": 1,
       "q": "En économie fermée, l'égalité S = I est une contrainte comptable et non un mécanisme d'équilibre.",
       "a": true,
-      "why": "L'identité comptable Y = C + I + G impose S = I une fois retirée la consommation et l'État."
+      "why": "L'identité comptable Y = C + I + G impose S = I une fois retirée la consommation et l'État.",
+      "mat": "emi"
     },
     {
       "id": "forex-007",
@@ -1708,7 +1834,8 @@
       "diff": 1,
       "q": "Selon les enquêtes BRI, le dollar intervient dans plus de 85 % des transactions du marché des changes.",
       "a": true,
-      "why": "Rôle de monnaie véhiculaire : la plupart des paires exotiques passent par le dollar (≈ 88 % dans le cours)."
+      "why": "Rôle de monnaie véhiculaire : la plupart des paires exotiques passent par le dollar (≈ 88 % dans le cours).",
+      "mat": "emi"
     },
     {
       "id": "cot-006",
@@ -1718,7 +1845,8 @@
       "q": "Si 1 € = 1,25 $ au certain (point de vue européen), alors 1 $ = 0,80 € à l'incertain (même point de vue).",
       "a": true,
       "trap": "certain-incertain",
-      "why": "Réciprocité S_I = 1/S_C : 1 / 1,25 = 0,80."
+      "why": "Réciprocité S_I = 1/S_C : 1 / 1,25 = 0,80.",
+      "mat": "emi"
     },
     {
       "id": "cot-007",
@@ -1727,7 +1855,8 @@
       "diff": 2,
       "q": "L'arbitrage triangulaire fait converger le taux croisé calculé et le taux directement coté, sinon un profit sans risque existe.",
       "a": true,
-      "why": "Loi du prix unique : la convergence est instantanée sur un marché liquide comme le forex."
+      "why": "Loi du prix unique : la convergence est instantanée sur un marché liquide comme le forex.",
+      "mat": "emi"
     },
     {
       "id": "tcr-007",
@@ -1736,7 +1865,8 @@
       "diff": 2,
       "q": "Le taux de change effectif réel est un indicateur de compétitivité-prix : une hausse traduit une perte de compétitivité.",
       "a": true,
-      "why": "Q ↑ ⇒ les prix nationaux augmentent relativement aux prix étrangers convertis dans la monnaie nationale."
+      "why": "Q ↑ ⇒ les prix nationaux augmentent relativement aux prix étrangers convertis dans la monnaie nationale.",
+      "mat": "emi"
     },
     {
       "id": "smi-006",
@@ -1745,7 +1875,8 @@
       "diff": 2,
       "q": "Le régime de l'étalon-or classique (avant 1914) supposait libre convertibilité or, mobilité des capitaux et parités fixes.",
       "a": true,
-      "why": "Trois piliers : convertibilité or, absence de contrôle des capitaux, parités fixes ancrées au prix légal de l'or."
+      "why": "Trois piliers : convertibilité or, absence de contrôle des capitaux, parités fixes ancrées au prix légal de l'or.",
+      "mat": "emi"
     },
     {
       "id": "smi-007",
@@ -1754,7 +1885,8 @@
       "diff": 2,
       "q": "Depuis 1976, tous les grands pays ont adopté des changes purement flottants sans intervention des banques centrales.",
       "a": false,
-      "why": "La plupart des banques centrales pratiquent un flottement géré. Certaines économies conservent des ancrages fixes ou glissants."
+      "why": "La plupart des banques centrales pratiquent un flottement géré. Certaines économies conservent des ancrages fixes ou glissants.",
+      "mat": "emi"
     },
     {
       "id": "parite-007",
@@ -1764,7 +1896,8 @@
       "q": "La PCTI (parité couverte) suppose une aversion pour le risque de change des investisseurs pour tenir.",
       "a": false,
       "trap": "sens-parite",
-      "why": "PCTI = arbitrage sans risque via le marché à terme, indépendante des préférences. C'est la PNCTI qui suppose la neutralité au risque."
+      "why": "PCTI = arbitrage sans risque via le marché à terme, indépendante des préférences. C'est la PNCTI qui suppose la neutralité au risque.",
+      "mat": "emi"
     },
     {
       "id": "monet-008",
@@ -1774,7 +1907,8 @@
       "q": "Le modèle monétaire à prix flexibles (Frenkel) suppose la PPA vérifiée à chaque instant.",
       "a": true,
       "trap": "fixe-flexible",
-      "why": "Hypothèse centrale : PPA continue. Ms/Ms* = e via l'équation quantitative. Dornbusch rompt cette hypothèse à court terme."
+      "why": "Hypothèse centrale : PPA continue. Ms/Ms* = e via l'équation quantitative. Dornbusch rompt cette hypothèse à court terme.",
+      "mat": "emi"
     },
     {
       "id": "depr-007",
@@ -1784,7 +1918,8 @@
       "q": "La courbe en J indique qu'une dépréciation dégrade toujours définitivement le solde commercial.",
       "a": false,
       "trap": "ml-symetrie",
-      "why": "Court terme : dégradation. Moyen/long terme : si Marshall-Lerner tient, le solde s'améliore."
+      "why": "Court terme : dégradation. Moyen/long terme : si Marshall-Lerner tient, le solde s'améliore.",
+      "mat": "emi"
     },
     {
       "id": "depr-008",
@@ -1793,7 +1928,8 @@
       "diff": 3,
       "q": "Le pricing to market atténue le pass-through et allonge la phase descendante de la courbe en J.",
       "a": true,
-      "why": "Les marges absorbent le change ⇒ ajustement des prix (et donc des volumes) plus lent ⇒ creux du J prolongé."
+      "why": "Les marges absorbent le change ⇒ ajustement des prix (et donc des volumes) plus lent ⇒ creux du J prolongé.",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -1802,7 +1938,8 @@
       "q": "Le compte courant (CC) inclut la balance commerciale des biens, la balance des services et les revenus primaires et secondaires.",
       "a": true,
       "why": "Structure du CC dans la comptabilité BdP : biens + services + revenus + transferts courants.",
-      "id": "bdp-010"
+      "id": "bdp-010",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -1812,7 +1949,8 @@
       "a": false,
       "trap": "bc-bcour",
       "why": "TC = transferts en capital (remises de dettes, brevets). CF = flux de financement (IDE, portefeuille, réserves). Différents postes.",
-      "id": "bdp-011"
+      "id": "bdp-011",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -1822,7 +1960,8 @@
       "a": true,
       "trap": "stock-flux",
       "why": "Actifs à l'étranger libellés en devises valent moins en monnaie nationale forte.",
-      "id": "pen-010"
+      "id": "pen-010",
+      "mat": "emi"
     },
     {
       "cat": "si",
@@ -1831,7 +1970,8 @@
       "q": "Les déficits jumeaux (twin deficits) traduisent la propagation d'un déficit budgétaire vers un déficit courant, toutes choses égales par ailleurs.",
       "a": true,
       "why": "(S − I) + (T − G) = X − M : à S, I inchangés, (T − G) ↓ ⇒ X − M ↓.",
-      "id": "si-009"
+      "id": "si-009",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -1840,7 +1980,8 @@
       "q": "Une option d'achat (call) donne l'obligation d'acheter la devise au prix d'exercice.",
       "a": false,
       "why": "Une option donne le DROIT (pas l'obligation) d'acheter (call) ou de vendre (put).",
-      "id": "forex-010"
+      "id": "forex-010",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -1849,7 +1990,8 @@
       "q": "Le marché des changes fonctionne 24 h/24 grâce à la succession des places (Sydney → Tokyo → Londres → New York).",
       "a": true,
       "why": "Marché mondial décentralisé, actif en continu du lundi matin au vendredi soir.",
-      "id": "forex-011"
+      "id": "forex-011",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -1858,7 +2000,8 @@
       "q": "L'euro est traditionnellement coté au certain (1 € = X $), en cohérence avec l'usage européen.",
       "a": true,
       "why": "Convention historique : les paires impliquant l'euro sont cotées avec l'euro comme monnaie de base.",
-      "id": "cot-010"
+      "id": "cot-010",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -1867,7 +2010,8 @@
       "q": "Une baisse du taux de change effectif réel (TCER) traduit un gain de compétitivité-prix.",
       "a": true,
       "why": "TCER ↓ ⇒ prix relatifs domestiques baissent ⇒ compétitivité ↑ (image miroir de la hausse).",
-      "id": "tcr-009"
+      "id": "tcr-009",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -1877,7 +2021,8 @@
       "a": true,
       "trap": "niveau-log",
       "why": "En logs, produit géométrique ⇒ somme arithmétique. En niveaux : moyenne géométrique.",
-      "id": "tcr-010"
+      "id": "tcr-010",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -1886,7 +2031,8 @@
       "q": "Sous Bretton Woods, seules les banques centrales pouvaient convertir des dollars en or auprès de la Fed.",
       "a": true,
       "why": "Convertibilité or restreinte : les particuliers en étaient exclus, seules les BC officielles y avaient accès.",
-      "id": "smi-010"
+      "id": "smi-010",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -1895,7 +2041,8 @@
       "q": "Le dilemme de Triffin ne s'applique qu'à un régime d'étalon-or et ne concerne pas les monnaies fiat modernes.",
       "a": false,
       "why": "Il est un enseignement plus général : toute monnaie internationale doit être fournie en excès par son émetteur, ce qui pose des tensions sur sa crédibilité.",
-      "id": "smi-011"
+      "id": "smi-011",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -1904,7 +2051,8 @@
       "q": "L'hypothèse d'anticipations rationnelles est nécessaire pour que la PNCTI tienne empiriquement.",
       "a": false,
       "why": "Même avec anticipations rationnelles, la PNCTI est régulièrement rejetée empiriquement (forward premium puzzle).",
-      "id": "parite-010"
+      "id": "parite-010",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -1913,7 +2061,8 @@
       "q": "Le « forward premium puzzle » observe que des taux d'intérêt élevés sont associés en moyenne à des appréciations, pas à des dépréciations.",
       "a": true,
       "why": "Contredit la PNCTI : ex ante on prédit une dépréciation, ex post on observe souvent l'inverse.",
-      "id": "parite-011"
+      "id": "parite-011",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -1923,7 +2072,8 @@
       "a": true,
       "trap": "statique-dyn",
       "why": "Le surajustement est un phénomène de court terme ; à long terme la PPA est rétablie.",
-      "id": "monet-011"
+      "id": "monet-011",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -1932,7 +2082,8 @@
       "q": "La « guerre des monnaies » désigne les tentatives concurrentes de dépréciation compétitive pour améliorer la balance commerciale.",
       "a": true,
       "why": "Chaque pays cherche à faire baisser sa monnaie pour gagner en compétitivité ; comportement non coopératif à somme nulle.",
-      "id": "monet-012"
+      "id": "monet-012",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -1942,7 +2093,8 @@
       "a": false,
       "trap": "ml-symetrie",
       "why": "L'effet valeur est défavorable à court terme (imports plus chers), ce qui creuse temporairement le déficit.",
-      "id": "depr-011"
+      "id": "depr-011",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -1951,7 +2103,8 @@
       "q": "Une dépréciation améliore mécaniquement le solde courant si le pays n'exporte pratiquement pas.",
       "a": false,
       "why": "Sans exportations, l'effet volume est nul et l'effet valeur (imports plus chers) dégrade uniquement le solde.",
-      "id": "depr-012"
+      "id": "depr-012",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -1960,7 +2113,8 @@
       "q": "Le TCEF (FEER) est atteignable à court terme par une intervention concertée des banques centrales.",
       "a": false,
       "why": "TCEF est un concept de moyen terme et de convergence ; il ne se pilote pas au comptant.",
-      "id": "equil-010"
+      "id": "equil-010",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -1969,7 +2123,8 @@
       "q": "La loi du prix unique est mieux vérifiée pour les biens standardisés (matières premières) que pour les services locaux.",
       "a": true,
       "why": "Écarts persistants sur les biens non échangeables (services, immobilier) ; convergence forte sur les biens homogènes internationaux.",
-      "id": "equil-011"
+      "id": "equil-011",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -1979,7 +2134,8 @@
       "a": true,
       "trap": "mf-regime",
       "why": "Sans mobilité, la BC contrôle Ms sans être contrainte par les flux ; la politique monétaire retrouve son effet expansionniste sur Y.",
-      "id": "mf-012"
+      "id": "mf-012",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -1989,7 +2145,8 @@
       "a": true,
       "trap": "signe-bdp",
       "why": "TC + CC − CF ≈ 0 → si CC > 0, CF > 0 : sortie nette (le pays place son épargne à l'étranger).",
-      "id": "bdp-017"
+      "id": "bdp-017",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -1999,7 +2156,8 @@
       "a": false,
       "trap": "stock-flux",
       "why": "Hors valorisation, oui. Mais les effets de valorisation peuvent inverser localement le mouvement (voir États-Unis à long terme).",
-      "id": "pen-016"
+      "id": "pen-016",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -2008,7 +2166,8 @@
       "q": "L'usage international dominant cote le dollar à l'incertain contre la plupart des devises.",
       "a": true,
       "why": "1 USD = X yens, 1 USD = X JPY, etc. Exceptions notables : EUR/USD, GBP/USD, AUD/USD, NZD/USD (au certain).",
-      "id": "cot-017"
+      "id": "cot-017",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -2017,7 +2176,8 @@
       "q": "Sous Bretton Woods, les taux étaient fixes avec une bande de fluctuation autorisée de ±1 % autour de la parité.",
       "a": true,
       "why": "Bande officielle ±1 % ; élargie à ±2,25 % en 1971 avant l'abandon complet en 1973.",
-      "id": "smi-018"
+      "id": "smi-018",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -2026,7 +2186,8 @@
       "q": "La condition d'égalité des rendements ex ante en économie ouverte est appelée « parité d'intérêt non couverte » (PNCTI).",
       "a": true,
       "why": "PNCTI = uncovered interest parity (UIP) : les rendements attendus sont égaux ex ante, indépendamment du risque.",
-      "id": "parite-020"
+      "id": "parite-020",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -2035,7 +2196,8 @@
       "q": "Dans un modèle Mundell-Fleming avec régime intermédiaire (crawling peg, bandes larges), les résultats extrêmes s'atténuent mais restent qualitativement similaires.",
       "a": true,
       "why": "Régime intermédiaire = mélange de fixe et flexible : les politiques ont un effet non nul mais amoindri.",
-      "id": "mf-022"
+      "id": "mf-022",
+      "mat": "emi"
     }
   ],
   "SENS": [
@@ -2049,7 +2211,8 @@
       "var": "Taux de change au certain e",
       "a": "up",
       "trap": "sens-parite",
-      "why": "e = eᵃ + (i − i*) : i ↑ ⇒ e ↑ (appréciation immédiate)."
+      "why": "e = eᵃ + (i − i*) : i ↑ ⇒ e ↑ (appréciation immédiate).",
+      "mat": "emi"
     },
     {
       "id": "parite-006",
@@ -2061,7 +2224,8 @@
       "var": "Taux de change au certain e aujourd'hui",
       "a": "up",
       "trap": "sens-parite",
-      "why": "e = eᵃ + (i − i*) : à i − i* donné, eᵃ ↑ ⇒ e ↑ dès aujourd'hui."
+      "why": "e = eᵃ + (i − i*) : à i − i* donné, eᵃ ↑ ⇒ e ↑ dès aujourd'hui.",
+      "mat": "emi"
     },
     {
       "id": "mf-005",
@@ -2073,7 +2237,8 @@
       "var": "Production Y à l'équilibre",
       "a": "same",
       "trap": "mf-regime",
-      "why": "G ↑ ⇒ i ↑ ⇒ entrées de capitaux ⇒ appréciation ⇒ X − M ↓ : éviction totale, Y inchangé."
+      "why": "G ↑ ⇒ i ↑ ⇒ entrées de capitaux ⇒ appréciation ⇒ X − M ↓ : éviction totale, Y inchangé.",
+      "mat": "emi"
     },
     {
       "id": "mf-006",
@@ -2085,7 +2250,8 @@
       "var": "Production Y",
       "a": "up",
       "trap": "mf-regime",
-      "why": "Ms ↑ ⇒ LM se déplace à droite ⇒ i ↓ ⇒ sortie de capitaux ⇒ dépréciation ⇒ X − M ↑ ⇒ Y ↑."
+      "why": "Ms ↑ ⇒ LM se déplace à droite ⇒ i ↓ ⇒ sortie de capitaux ⇒ dépréciation ⇒ X − M ↑ ⇒ Y ↑.",
+      "mat": "emi"
     },
     {
       "id": "mf-007",
@@ -2097,7 +2263,8 @@
       "var": "Production Y",
       "a": "up",
       "trap": "mf-regime",
-      "why": "En fixe + mobilité parfaite, i doit rester = i*. La BC accommode l'entrée de capitaux ⇒ Ms ↑ ⇒ Y ↑. La politique budgétaire est efficace."
+      "why": "En fixe + mobilité parfaite, i doit rester = i*. La BC accommode l'entrée de capitaux ⇒ Ms ↑ ⇒ Y ↑. La politique budgétaire est efficace.",
+      "mat": "emi"
     },
     {
       "id": "mf-008",
@@ -2109,7 +2276,8 @@
       "var": "Offre de monnaie nationale Ms",
       "a": "same",
       "trap": "sterilise",
-      "why": "La stérilisation compense l'intervention par une opération d'open market inverse : Ms ne bouge pas."
+      "why": "La stérilisation compense l'intervention par une opération d'open market inverse : Ms ne bouge pas.",
+      "mat": "emi"
     },
     {
       "id": "depr-004",
@@ -2121,7 +2289,8 @@
       "var": "Solde commercial X − M",
       "a": "up",
       "trap": "ml-symetrie",
-      "why": "εX + εM > 1 : les effets volumes l'emportent, le solde s'améliore à moyen terme."
+      "why": "εX + εM > 1 : les effets volumes l'emportent, le solde s'améliore à moyen terme.",
+      "mat": "emi"
     },
     {
       "id": "depr-005",
@@ -2133,7 +2302,8 @@
       "var": "Solde commercial X − M",
       "a": "down",
       "trap": "ml-symetrie",
-      "why": "Volumes rigides à court terme, l'effet valeur domine : le solde se dégrade avant de se redresser (courbe en J)."
+      "why": "Volumes rigides à court terme, l'effet valeur domine : le solde se dégrade avant de se redresser (courbe en J).",
+      "mat": "emi"
     },
     {
       "id": "equil-004",
@@ -2145,7 +2315,8 @@
       "var": "Taux de change réel (au certain)",
       "a": "up",
       "trap": "bs-etapes",
-      "why": "Productivité ↑ ⇒ salaires ↑ ⇒ contagion à l'abrité ⇒ prix des non-échangeables ↑ ⇒ appréciation réelle."
+      "why": "Productivité ↑ ⇒ salaires ↑ ⇒ contagion à l'abrité ⇒ prix des non-échangeables ↑ ⇒ appréciation réelle.",
+      "mat": "emi"
     },
     {
       "id": "equil-005",
@@ -2157,7 +2328,8 @@
       "var": "Taux de change nominal au certain",
       "a": "down",
       "trap": "certain-incertain",
-      "why": "PPA relative : Δe ≈ π* − π. π > π* ⇒ e ↓ (dépréciation nominale)."
+      "why": "PPA relative : Δe ≈ π* − π. π > π* ⇒ e ↓ (dépréciation nominale).",
+      "mat": "emi"
     },
     {
       "id": "monet-004",
@@ -2169,7 +2341,8 @@
       "var": "Taux de change au certain",
       "a": "down",
       "trap": "fixe-flexible",
-      "why": "Prix flexibles + PPA : Ms ↑ x% ⇒ P ↑ x% ⇒ e ↓ x% (dépréciation nominale)."
+      "why": "Prix flexibles + PPA : Ms ↑ x% ⇒ P ↑ x% ⇒ e ↓ x% (dépréciation nominale).",
+      "mat": "emi"
     },
     {
       "id": "monet-005",
@@ -2181,7 +2354,8 @@
       "var": "Taux de change au certain à court terme",
       "a": "down",
       "trap": "statique-dyn",
-      "why": "Surajustement : e sous-tire au-delà de sa valeur de long terme, puis revient — mais à court terme, e ↓ plus qu'à long terme."
+      "why": "Surajustement : e sous-tire au-delà de sa valeur de long terme, puis revient — mais à court terme, e ↓ plus qu'à long terme.",
+      "mat": "emi"
     },
     {
       "id": "bdp-005",
@@ -2193,7 +2367,8 @@
       "var": "Solde du compte financier CF",
       "a": "down",
       "trap": "signe-bdp",
-      "why": "Entrées nettes ⇒ signe négatif de CF (convention du cours). Ne pas confondre avec l'usage international inverse."
+      "why": "Entrées nettes ⇒ signe négatif de CF (convention du cours). Ne pas confondre avec l'usage international inverse.",
+      "mat": "emi"
     },
     {
       "id": "bdp-006",
@@ -2205,7 +2380,8 @@
       "var": "Compte financier CF (hors EO)",
       "a": "down",
       "trap": "signe-bdp",
-      "why": "TC + CC − CF ≈ 0 ⇒ CF ≈ TC + CC. Si CC ↓, alors CF ↓ (négatif) : le pays reçoit des capitaux pour financer le déficit."
+      "why": "TC + CC − CF ≈ 0 ⇒ CF ≈ TC + CC. Si CC ↓, alors CF ↓ (négatif) : le pays reçoit des capitaux pour financer le déficit.",
+      "mat": "emi"
     },
     {
       "id": "pen-004",
@@ -2217,7 +2393,8 @@
       "var": "Position extérieure nette (PEN)",
       "a": "up",
       "trap": "stock-flux",
-      "why": "ΔPEN = CC hors valorisation : un flux d'excédent alimente le stock d'actifs nets."
+      "why": "ΔPEN = CC hors valorisation : un flux d'excédent alimente le stock d'actifs nets.",
+      "mat": "emi"
     },
     {
       "id": "si-004",
@@ -2228,7 +2405,8 @@
       "shock": "Hausse de l'épargne privée S à I, T, G donnés",
       "var": "Solde courant X − M",
       "a": "up",
-      "why": "L'excès d'épargne se déverse à l'étranger : X − M ↑ (excédent courant)."
+      "why": "L'excès d'épargne se déverse à l'étranger : X − M ↑ (excédent courant).",
+      "mat": "emi"
     },
     {
       "id": "forex-005",
@@ -2240,7 +2418,8 @@
       "var": "Taux 1 € = X $",
       "a": "up",
       "trap": "certain-incertain",
-      "why": "Demande d'euros ↑ ⇒ prix de l'euro ↑ ⇒ X ↑ : appréciation de l'euro (au certain)."
+      "why": "Demande d'euros ↑ ⇒ prix de l'euro ↑ ⇒ X ↑ : appréciation de l'euro (au certain).",
+      "mat": "emi"
     },
     {
       "id": "cot-004",
@@ -2252,7 +2431,8 @@
       "var": "Taux à l'incertain S_I",
       "a": "down",
       "trap": "certain-incertain",
-      "why": "S_I = 1/S_C : quand S_C monte, S_I baisse. Piège de lecture inverse."
+      "why": "S_I = 1/S_C : quand S_C monte, S_I baisse. Piège de lecture inverse.",
+      "mat": "emi"
     },
     {
       "id": "tcr-004",
@@ -2263,7 +2443,8 @@
       "shock": "Hausse de l'inflation domestique π > π*, à TCEN inchangé",
       "var": "Taux de change réel",
       "a": "up",
-      "why": "TCER ↑ ⇒ appréciation réelle : perte de compétitivité-prix, gain de pouvoir d'achat."
+      "why": "TCER ↑ ⇒ appréciation réelle : perte de compétitivité-prix, gain de pouvoir d'achat.",
+      "mat": "emi"
     },
     {
       "id": "smi-004",
@@ -2275,7 +2456,8 @@
       "var": "Réserves de change officielles",
       "a": "down",
       "trap": "mf-regime",
-      "why": "Pour maintenir la parité, la BC vend des devises contre sa monnaie : les réserves diminuent."
+      "why": "Pour maintenir la parité, la BC vend des devises contre sa monnaie : les réserves diminuent.",
+      "mat": "emi"
     },
     {
       "id": "parite-008",
@@ -2287,7 +2469,8 @@
       "var": "Taux de change au certain e aujourd'hui",
       "a": "down",
       "trap": "sens-parite",
-      "why": "e = eᵃ + (i − i*) : i* ↑ ⇒ e ↓ (dépréciation immédiate)."
+      "why": "e = eᵃ + (i − i*) : i* ↑ ⇒ e ↓ (dépréciation immédiate).",
+      "mat": "emi"
     },
     {
       "id": "monet-009",
@@ -2299,7 +2482,8 @@
       "var": "Taux de change au certain e",
       "a": "up",
       "trap": "fixe-flexible",
-      "why": "Y ↑ ⇒ demande de monnaie ↑ ⇒ P ↓ (à Ms donné) ⇒ par PPA, e ↑."
+      "why": "Y ↑ ⇒ demande de monnaie ↑ ⇒ P ↓ (à Ms donné) ⇒ par PPA, e ↑.",
+      "mat": "emi"
     },
     {
       "id": "depr-009",
@@ -2311,7 +2495,8 @@
       "var": "Solde commercial X − M",
       "a": "down",
       "trap": "ml-symetrie",
-      "why": "Sans condition ML, l'effet valeur domine l'effet volume : le solde se dégrade même à moyen terme."
+      "why": "Sans condition ML, l'effet valeur domine l'effet volume : le solde se dégrade même à moyen terme.",
+      "mat": "emi"
     },
     {
       "id": "tcr-008",
@@ -2322,7 +2507,8 @@
       "shock": "Réorientation du commerce : le poids ωus du partenaire américain double",
       "var": "Sensibilité du TCEN aux variations du dollar",
       "a": "up",
-      "why": "Poids ωus plus élevé ⇒ le TCEN devient mécaniquement plus réactif aux mouvements du taux €/$."
+      "why": "Poids ωus plus élevé ⇒ le TCEN devient mécaniquement plus réactif aux mouvements du taux €/$.",
+      "mat": "emi"
     },
     {
       "id": "smi-008",
@@ -2333,7 +2519,8 @@
       "shock": "Encours mondial de dollars très supérieur au stock d'or de la Fed",
       "var": "Crédibilité de la convertibilité or à 35 $ l'once",
       "a": "down",
-      "why": "Dilemme de Triffin : plus de dollars ⇒ moins de crédibilité. Résultat historique : abandon de la convertibilité en 1971."
+      "why": "Dilemme de Triffin : plus de dollars ⇒ moins de crédibilité. Résultat historique : abandon de la convertibilité en 1971.",
+      "mat": "emi"
     },
     {
       "id": "bdp-008",
@@ -2345,7 +2532,8 @@
       "var": "Solde du compte financier CF",
       "a": "up",
       "trap": "signe-bdp",
-      "why": "Hausse des réserves = achat d'actifs étrangers par la BC = sortie nette ⇒ CF > 0 (convention)."
+      "why": "Hausse des réserves = achat d'actifs étrangers par la BC = sortie nette ⇒ CF > 0 (convention).",
+      "mat": "emi"
     },
     {
       "id": "pen-008",
@@ -2357,7 +2545,8 @@
       "var": "Valeur en monnaie nationale de la PEN (effet de valorisation)",
       "a": "down",
       "trap": "stock-flux",
-      "why": "Les avoirs en devises valent moins une fois convertis dans la monnaie nationale appréciée : la PEN diminue par pure valorisation."
+      "why": "Les avoirs en devises valent moins une fois convertis dans la monnaie nationale appréciée : la PEN diminue par pure valorisation.",
+      "mat": "emi"
     },
     {
       "id": "si-008",
@@ -2368,7 +2557,8 @@
       "shock": "Creusement du déficit public (T − G ↓)",
       "var": "Solde courant X − M",
       "a": "down",
-      "why": "Toutes choses égales par ailleurs : (T − G) ↓ ⇒ X − M ↓ (déficits jumeaux)."
+      "why": "Toutes choses égales par ailleurs : (T − G) ↓ ⇒ X − M ↓ (déficits jumeaux).",
+      "mat": "emi"
     },
     {
       "id": "forex-008",
@@ -2379,7 +2569,8 @@
       "shock": "Communication publique de cet écart aux salles de marché",
       "var": "Volume des ordres d'arbitrage",
       "a": "up",
-      "why": "Les arbitragistes se saisissent de l'écart et poussent les ordres jusqu'à faire converger les cours (loi du prix unique)."
+      "why": "Les arbitragistes se saisissent de l'écart et poussent les ordres jusqu'à faire converger les cours (loi du prix unique).",
+      "mat": "emi"
     },
     {
       "id": "cot-008",
@@ -2391,7 +2582,8 @@
       "var": "Taux X (dollars par euro)",
       "a": "down",
       "trap": "certain-incertain",
-      "why": "Dollar plus fort ⇒ il faut moins de dollars pour un euro ⇒ X baisse (l'euro se déprécie au certain)."
+      "why": "Dollar plus fort ⇒ il faut moins de dollars pour un euro ⇒ X baisse (l'euro se déprécie au certain).",
+      "mat": "emi"
     },
     {
       "id": "equil-008",
@@ -2403,7 +2595,8 @@
       "var": "Taux de change réel",
       "a": "same",
       "trap": "bs-etapes",
-      "why": "Sans contagion des salaires, les prix des non-échangeables ne montent pas : l'appréciation réelle prévue par BS ne se produit pas."
+      "why": "Sans contagion des salaires, les prix des non-échangeables ne montent pas : l'appréciation réelle prévue par BS ne se produit pas.",
+      "mat": "emi"
     },
     {
       "id": "mf-010",
@@ -2415,7 +2608,8 @@
       "var": "Réserves de change officielles",
       "a": "up",
       "trap": "mf-regime",
-      "why": "G ↑ ⇒ i tend à ↑ ⇒ entrées de capitaux ⇒ la BC achète des devises pour tenir la parité ⇒ réserves ↑."
+      "why": "G ↑ ⇒ i tend à ↑ ⇒ entrées de capitaux ⇒ la BC achète des devises pour tenir la parité ⇒ réserves ↑.",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -2426,7 +2620,8 @@
       "var": "Solde courant CC",
       "a": "up",
       "why": "Excédent commercial ↑ + inchangé sur revenus/transferts ⇒ CC augmente.",
-      "id": "bdp-012"
+      "id": "bdp-012",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -2438,7 +2633,8 @@
       "a": "down",
       "trap": "stock-flux",
       "why": "Chute des X ⇒ CC ↓ (déficits) ⇒ ΔPEN cumulée négative ⇒ PEN baisse.",
-      "id": "pen-011"
+      "id": "pen-011",
+      "mat": "emi"
     },
     {
       "cat": "si",
@@ -2449,7 +2645,8 @@
       "var": "Solde courant X − M",
       "a": "up",
       "why": "(S − I) + (T − G) = X − M : à S, I fixes, la hausse de T − G se retrouve dans X − M.",
-      "id": "si-010"
+      "id": "si-010",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -2460,7 +2657,8 @@
       "var": "Prime d'une option (call ou put)",
       "a": "up",
       "why": "La valeur temps d'une option croît avec la volatilité (formule de Black-Scholes).",
-      "id": "forex-012"
+      "id": "forex-012",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -2471,7 +2669,8 @@
       "var": "Taux croisé S(USD/JPY)",
       "a": "same",
       "why": "Si l'euro s'apprécie identiquement face aux deux, le taux croisé USD/JPY reste inchangé (les effets s'annulent dans la division).",
-      "id": "cot-011"
+      "id": "cot-011",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -2482,7 +2681,8 @@
       "var": "Taux de change réel TCER",
       "a": "down",
       "why": "Δq = Δe + (π − π*) : à Δe = 0, π < π* ⇒ q ↓ (dépréciation réelle, gain de compétitivité).",
-      "id": "tcr-011"
+      "id": "tcr-011",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -2494,7 +2694,8 @@
       "a": "down",
       "trap": "mf-regime",
       "why": "i < i* ⇒ sortie de capitaux ⇒ BC vend des devises pour tenir la parité ⇒ réserves ↓.",
-      "id": "smi-012"
+      "id": "smi-012",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -2506,7 +2707,8 @@
       "a": "down",
       "trap": "sens-parite",
       "why": "PCTI : f − e = i* − i. Si i ↑ à i* et e donnés, alors f − e diminue ⇒ f baisse : la monnaie est en décote à terme.",
-      "id": "parite-012"
+      "id": "parite-012",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -2518,7 +2720,8 @@
       "a": "down",
       "trap": "sens-parite",
       "why": "i = i* + ρ − (eᵃ − e). ρ ↑ ⇒ à i, i*, eᵃ donnés, e ↓ (dépréciation compensatoire immédiate).",
-      "id": "parite-013"
+      "id": "parite-013",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -2530,7 +2733,8 @@
       "a": "up",
       "trap": "fixe-flexible",
       "why": "Ms* ↑ ⇒ P* ↑ ⇒ par PPA, e = P/P* : e ↑ (monnaie domestique s'apprécie relativement).",
-      "id": "monet-013"
+      "id": "monet-013",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -2542,7 +2746,8 @@
       "a": "down",
       "trap": "ml-symetrie",
       "why": "Effet symétrique à la dépréciation : appréciation + ML vérifiée ⇒ solde ↓.",
-      "id": "depr-013"
+      "id": "depr-013",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -2553,7 +2758,8 @@
       "var": "Taux de change nominal au certain",
       "a": "up",
       "why": "PPA relative : Δe = π* − π > 0 ⇒ appréciation nominale de la monnaie domestique.",
-      "id": "equil-012"
+      "id": "equil-012",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -2565,7 +2771,8 @@
       "a": "up",
       "trap": "mf-regime",
       "why": "Ms ↑ ⇒ i ↓ ⇒ sortie K ⇒ dépréciation ⇒ X − M ↑ ⇒ Y ↑.",
-      "id": "mf-013"
+      "id": "mf-013",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -2577,7 +2784,8 @@
       "a": "up",
       "trap": "mf-regime",
       "why": "Sans mobilité parfaite, l'ajustement des capitaux est incomplet : la politique budgétaire garde une efficacité, Y augmente.",
-      "id": "mf-014"
+      "id": "mf-014",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -2589,7 +2797,8 @@
       "a": "down",
       "trap": "certain-incertain",
       "why": "Si le produit reste constant et l'un des facteurs monte, l'autre baisse (arithmétique).",
-      "id": "cot-012"
+      "id": "cot-012",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -2601,7 +2810,8 @@
       "a": "down",
       "trap": "sens-parite",
       "why": "Défiance → les agents anticipent une dépréciation future de la monnaie → eᵃ ↓ (au certain, la valeur future baisse).",
-      "id": "parite-021"
+      "id": "parite-021",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -2613,7 +2823,8 @@
       "a": "down",
       "trap": "fixe-flexible",
       "why": "Y* ↑ ⇒ demande de monnaie étrangère ↑ ⇒ P* ↓ (à Ms* donné) ⇒ par PPA, e = P/P* : e ↓ (monnaie domestique se déprécie relativement).",
-      "id": "monet-021"
+      "id": "monet-021",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -2625,7 +2836,8 @@
       "a": "down",
       "trap": "ml-symetrie",
       "why": "À CT, effet valeur domine (imports 10 % plus chers), volumes ne bougent pas → solde se dégrade avant de remonter.",
-      "id": "depr-021"
+      "id": "depr-021",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -2636,7 +2848,8 @@
       "var": "Taux de change nominal e (A/B, au certain de A)",
       "a": "down",
       "why": "PPA relative : Δe ≈ π_B − π_A. π_A ↑ ⇒ Δe < 0, la monnaie A se déprécie.",
-      "id": "equil-019"
+      "id": "equil-019",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -2648,7 +2861,8 @@
       "a": "up",
       "trap": "mf-regime",
       "why": "T ↓ ⇒ IS à droite ⇒ i tend à ↑ ⇒ entrées de K ⇒ BC achète devises ⇒ Ms ↑ ⇒ Y ↑ (budgétaire efficace en fixe).",
-      "id": "mf-023"
+      "id": "mf-023",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -2659,7 +2873,8 @@
       "var": "TCER espagnol par rapport à l'Allemagne (au certain)",
       "a": "up",
       "why": "Δq ≈ Δe + (π_ES − π_DE). e fixé (zone euro) → Δq = 2 %/an : appréciation réelle espagnole cumulative de ~20 % en 10 ans.",
-      "id": "tcr-017"
+      "id": "tcr-017",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -2671,7 +2886,8 @@
       "a": "same",
       "trap": "sens-parite",
       "why": "PCTI : f − e = i* − i. Les deux montent d'autant ⇒ différentiel inchangé ⇒ f inchangé (à e donné).",
-      "id": "parite-025"
+      "id": "parite-025",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -2683,7 +2899,8 @@
       "a": "up",
       "trap": "mf-regime",
       "why": "G ↑ ⇒ IS à droite ⇒ i monte (le mécanisme d'ajustement des K est incomplet, donc i n'est pas fixé par i*).",
-      "id": "mf-026"
+      "id": "mf-026",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -2694,7 +2911,8 @@
       "var": "Taux de change au certain e",
       "a": "down",
       "why": "Chez Frenkel : i ↑ ⇒ demande de monnaie L(Y, i) baisse ⇒ P ↑ ⇒ par PPA, e ↓. Différent de Dornbusch qui prédit l'inverse à court terme.",
-      "id": "monet-024"
+      "id": "monet-024",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -2705,7 +2923,8 @@
       "var": "Taux de change réel TCR",
       "a": "down",
       "why": "Libéralisation ⇒ P_N ↓ (concurrence accrue) ⇒ à P_T donné, TCR = e × P*/P baisse (dépréciation réelle) ⇒ gain de compétitivité.",
-      "id": "depr-025"
+      "id": "depr-025",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -2716,7 +2935,8 @@
       "var": "Taux de change nominal du pays A (au certain)",
       "a": "up",
       "why": "Δe ≈ π_B − π_A. π_A < π_B ⇒ Δe > 0 : appréciation nominale du pays désinflationnaire (cas Allemagne années 80).",
-      "id": "equil-023"
+      "id": "equil-023",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -2727,7 +2947,8 @@
       "var": "TCER par rapport à la base",
       "a": "up",
       "why": "Δq ≈ Δe + (π − π*) ≈ +5 %/an ⇒ TCER cumulé × 1,05⁵ ≈ 1,28 : appréciation réelle de ~28 % en 5 ans.",
-      "id": "tcr-020"
+      "id": "tcr-020",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -2739,7 +2960,8 @@
       "a": "down",
       "trap": "signe-bdp",
       "why": "Rapatriement = désinvestissement à l'étranger = entrée nette de capitaux ⇒ CF < 0 (convention du cours).",
-      "id": "bdp-020"
+      "id": "bdp-020",
+      "mat": "emi"
     }
   ],
   "ORDRE": [
@@ -2758,7 +2980,8 @@
       ],
       "trap": "bs-etapes",
       "why": "Le prof exige toutes les étapes : la contagion salariale du secteur échangeable vers l'abrité est celle qu'on oublie.",
-      "id": "equil-013"
+      "id": "equil-013",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -2775,7 +2998,8 @@
       ],
       "trap": "ml-symetrie",
       "why": "Court terme : creux du J. Moyen/long terme : remontée quand ML tient.",
-      "id": "depr-014"
+      "id": "depr-014",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -2792,7 +3016,8 @@
       ],
       "trap": "statique-dyn",
       "why": "Le surajustement est le pas de côté à court terme pour compenser la rigidité des prix ; la dynamique corrige à long terme.",
-      "id": "monet-014"
+      "id": "monet-014",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -2809,7 +3034,8 @@
       ],
       "trap": "mf-regime",
       "why": "En fixe + mobilité parfaite, la politique budgétaire est efficace : la BC accommode l'entrée de capitaux.",
-      "id": "mf-015"
+      "id": "mf-015",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -2826,7 +3052,8 @@
       ],
       "trap": "signe-bdp",
       "why": "Convention du cours : CF < 0 = entrée nette. Le déficit courant appelle mécaniquement des capitaux extérieurs.",
-      "id": "bdp-013"
+      "id": "bdp-013",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -2842,7 +3069,8 @@
         "Conversion au taux fixé aujourd'hui, résultat certain"
       ],
       "why": "Couverture parfaite : le prix en euros est connu dès la signature.",
-      "id": "forex-013"
+      "id": "forex-013",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -2857,7 +3085,8 @@
         "Accords de la Jamaïque : changes flottants (1976)"
       ],
       "why": "Chronologie à connaître par cœur pour le partiel.",
-      "id": "smi-013"
+      "id": "smi-013",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -2872,7 +3101,8 @@
         "1 $ = (1/1,25) × 150 = 120 JPY"
       ],
       "why": "L'arbitrage triangulaire élimine la monnaie de passage par une simple division.",
-      "id": "cot-013"
+      "id": "cot-013",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -2888,7 +3118,8 @@
       ],
       "trap": "sens-parite",
       "why": "Baisse surprise du taux ⇒ dépréciation immédiate pour rétablir l'arbitrage.",
-      "id": "parite-014"
+      "id": "parite-014",
+      "mat": "emi"
     },
     {
       "cat": "si",
@@ -2903,7 +3134,8 @@
         "Financé par entrée nette de capitaux étrangers"
       ],
       "why": "Le déficit courant est toujours financé par une entrée équivalente de capitaux — c'est l'autre facette de l'identité.",
-      "id": "si-011"
+      "id": "si-011",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -2919,7 +3151,8 @@
       ],
       "trap": "stock-flux",
       "why": "La PEN est un stock : flux courants et valorisation la modifient simultanément.",
-      "id": "pen-012"
+      "id": "pen-012",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -2935,7 +3168,8 @@
       ],
       "trap": "niveau-log",
       "why": "En niveau : multiplication et moyenne géométrique. En log : addition et moyenne arithmétique.",
-      "id": "tcr-012"
+      "id": "tcr-012",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -2950,7 +3184,8 @@
         "En pratique, chaque pays choisit son coin du triangle"
       ],
       "why": "Le triangle est un théorème d'impossibilité, à énoncer complètement.",
-      "id": "mf-016"
+      "id": "mf-016",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -2966,7 +3201,8 @@
       ],
       "trap": "ml-symetrie",
       "why": "La démonstration part de la décomposition prix × quantités : ML se déduit de la comparaison des deux effets.",
-      "id": "depr-015"
+      "id": "depr-015",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -2982,7 +3218,8 @@
       ],
       "trap": "fixe-flexible",
       "why": "Le lien direct Ms → e passe par P (neutralité monétaire) et la PPA continue.",
-      "id": "monet-015"
+      "id": "monet-015",
+      "mat": "emi"
     }
   ],
   "OUVERTE": [
@@ -3005,7 +3242,8 @@
         "EO erreurs et omissions"
       ],
       "why": "Identité au cœur du chapitre 1 : le signe − vient de la convention (CF > 0 = sortie).",
-      "id": "bdp-014"
+      "id": "bdp-014",
+      "mat": "emi"
     },
     {
       "cat": "bdp",
@@ -3024,7 +3262,8 @@
         "signe négatif = entrée"
       ],
       "why": "Le déficit courant appelle mécaniquement un financement extérieur — c'est l'autre facette de la comptabilité.",
-      "id": "bdp-015"
+      "id": "bdp-015",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -3043,7 +3282,8 @@
         "CC de t à t+1"
       ],
       "why": "Piège classique : confondre le stock (PEN) et le flux (CC).",
-      "id": "pen-013"
+      "id": "pen-013",
+      "mat": "emi"
     },
     {
       "cat": "pen",
@@ -3062,7 +3302,8 @@
         "PEN en monnaie nationale"
       ],
       "why": "Illustre la nature de stock de la PEN et l'importance des effets de valorisation.",
-      "id": "pen-014"
+      "id": "pen-014",
+      "mat": "emi"
     },
     {
       "cat": "si",
@@ -3083,7 +3324,8 @@
         "G dépenses publiques"
       ],
       "why": "Fondement du cours : le solde courant est structurellement lié à l'équilibre épargne-investissement.",
-      "id": "si-012"
+      "id": "si-012",
+      "mat": "emi"
     },
     {
       "cat": "si",
@@ -3103,7 +3345,8 @@
         "coefficient de corrélation"
       ],
       "why": "Un des trois grands paradoxes du chapitre 1 (avec Lucas et zone euro).",
-      "id": "si-013"
+      "id": "si-013",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -3123,7 +3366,8 @@
         "K prix d'exercice"
       ],
       "why": "Panorama des instruments de couverture et de spéculation du chapitre 2.",
-      "id": "forex-014"
+      "id": "forex-014",
+      "mat": "emi"
     },
     {
       "cat": "forex",
@@ -3141,7 +3385,8 @@
         "F(3 mois) EUR/USD"
       ],
       "why": "Cas d'école de couverture : à sens opposé pour un exportateur (vend à terme) vs importateur (achète à terme).",
-      "id": "forex-015"
+      "id": "forex-015",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -3160,7 +3405,8 @@
         "S_I à l'incertain"
       ],
       "why": "La confusion certain/incertain reste le premier piège du chapitre 2.",
-      "id": "cot-014"
+      "id": "cot-014",
+      "mat": "emi"
     },
     {
       "cat": "cot",
@@ -3180,7 +3426,8 @@
         "S(A/C) = S(A/B) × S(B/C)"
       ],
       "why": "L'arbitrage triangulaire est le mécanisme qui garantit la cohérence des taux entre trois devises.",
-      "id": "cot-015"
+      "id": "cot-015",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -3200,7 +3447,8 @@
         "Σ ωᵢ = 1"
       ],
       "why": "Piège type examen : en niveau on multiplie (géométrique), en log on additionne (arithmétique).",
-      "id": "tcr-013"
+      "id": "tcr-013",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -3220,7 +3468,8 @@
         "π* inflation étrangère"
       ],
       "why": "Formule centrale du chapitre 2, à connaître par cœur en niveau ET en log.",
-      "id": "tcr-014"
+      "id": "tcr-014",
+      "mat": "emi"
     },
     {
       "cat": "tcr",
@@ -3240,7 +3489,8 @@
         "π, π*"
       ],
       "why": "Application chiffrée classique : détecter que Δe et (π−π*) se cumulent.",
-      "id": "tcr-015"
+      "id": "tcr-015",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -3259,7 +3509,8 @@
         "35 $ l'once"
       ],
       "why": "Un des concepts marquants du chapitre 2 : la fragilité intrinsèque d'un régime de change fixe adossé à une devise clef.",
-      "id": "smi-014"
+      "id": "smi-014",
+      "mat": "emi"
     },
     {
       "cat": "smi",
@@ -3277,7 +3528,8 @@
         "régimes fixes vs flottants"
       ],
       "why": "Typologie à connaître pour situer chaque pays sur le spectre.",
-      "id": "smi-015"
+      "id": "smi-015",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -3297,7 +3549,8 @@
         "i, i*"
       ],
       "why": "La PCTI est un pilier vérifié empiriquement — contrairement à la PNCTI.",
-      "id": "parite-015"
+      "id": "parite-015",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -3316,7 +3569,8 @@
         "eᵃ anticipation"
       ],
       "why": "Piège récurrent du prof : le SENS de la variation immédiate de e après un choc sur i.",
-      "id": "parite-016"
+      "id": "parite-016",
+      "mat": "emi"
     },
     {
       "cat": "parite",
@@ -3336,7 +3590,8 @@
         "Dornbusch"
       ],
       "why": "Question de commentaire type : mesurer les limites empiriques de la PNCTI.",
-      "id": "parite-017"
+      "id": "parite-017",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -3356,7 +3611,8 @@
         "L(Y, i)"
       ],
       "why": "Modèle référence court chapitre 3, base pour Dornbusch (prix rigides à court terme).",
-      "id": "monet-016"
+      "id": "monet-016",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -3377,7 +3633,8 @@
         "i, i*"
       ],
       "why": "Le surajustement explique la volatilité des taux de change nominaux à court terme.",
-      "id": "monet-017"
+      "id": "monet-017",
+      "mat": "emi"
     },
     {
       "cat": "monet",
@@ -3396,7 +3653,8 @@
         "marche aléatoire"
       ],
       "why": "Résultat empirique fondateur qui structure l'ensemble de la littérature moderne sur le change.",
-      "id": "monet-018"
+      "id": "monet-018",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -3415,7 +3673,8 @@
         "εM"
       ],
       "why": "Un des points d'examen les plus attendus du chapitre 4.",
-      "id": "depr-016"
+      "id": "depr-016",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -3434,7 +3693,8 @@
         "marge exportateur"
       ],
       "why": "Explique pourquoi les prix relatifs bougent moins que les taux nominaux.",
-      "id": "depr-017"
+      "id": "depr-017",
+      "mat": "emi"
     },
     {
       "cat": "depr",
@@ -3453,7 +3713,8 @@
         "PEN"
       ],
       "why": "Extension naturelle de la PNCTI aux pays à PEN dégradée.",
-      "id": "depr-018"
+      "id": "depr-018",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -3472,7 +3733,8 @@
         "π, π*"
       ],
       "why": "Deux versions à ne pas confondre : niveau vs variation, absolue vs relative.",
-      "id": "equil-014"
+      "id": "equil-014",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -3491,7 +3753,8 @@
         "secteurs échangeable / abrité"
       ],
       "why": "Le prof exige TOUTES les étapes : sauter la contagion salariale est la faute canonique.",
-      "id": "equil-015"
+      "id": "equil-015",
+      "mat": "emi"
     },
     {
       "cat": "equil",
@@ -3511,7 +3774,8 @@
         "TCEF"
       ],
       "why": "Concept normatif utilisé par les organisations internationales pour juger de la valeur d'équilibre d'un change.",
-      "id": "equil-016"
+      "id": "equil-016",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -3529,7 +3793,8 @@
         "triangle d'incompatibilité"
       ],
       "why": "Théorème d'impossibilité qui fonde toute l'analyse des régimes de change.",
-      "id": "mf-017"
+      "id": "mf-017",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -3547,7 +3812,8 @@
         "G, Ms, IS, LM, i, e"
       ],
       "why": "Résultat central de MF : le régime de change détermine l'efficacité des politiques.",
-      "id": "mf-018"
+      "id": "mf-018",
+      "mat": "emi"
     },
     {
       "cat": "mf",
@@ -3566,7 +3832,8 @@
         "open market"
       ],
       "why": "Concept clef pour comprendre l'autonomie apparente en régime fixe (via stérilisation partielle).",
-      "id": "mf-019"
+      "id": "mf-019",
+      "mat": "emi"
     }
   ],
   "ETOILE": [
@@ -3587,7 +3854,8 @@
         "Je porte deux noms.",
         "Je compare épargne et investissement nationaux.",
         "Je constate qu'ils restent fortement corrélés par pays."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-02",
@@ -3605,7 +3873,8 @@
         "Je fais surréagir le taux de change à un choc monétaire.",
         "Je prédis un retour vers la valeur de long terme.",
         "Je porte le nom d'un économiste allemand."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-03",
@@ -3621,7 +3890,8 @@
         "Je concerne une monnaie internationale.",
         "Je se joue sous Bretton Woods.",
         "J'oppose fournir la liquidité mondiale à préserver la crédibilité de la monnaie de réserve."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-04",
@@ -3639,7 +3909,8 @@
         "Je passe par les gains de productivité.",
         "Je repose sur la contagion salariale vers le secteur abrité.",
         "Je fais s'apprécier le taux de change réel."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-05",
@@ -3657,7 +3928,8 @@
         "Je fais intervenir des élasticités-prix.",
         "Je pose une inégalité : la somme doit dépasser 1.",
         "Je conditionne l'amélioration du solde après une dépréciation."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-06",
@@ -3675,7 +3947,8 @@
         "Je fais intervenir trois éléments.",
         "Je force à en sacrifier un.",
         "Je porte le nom d'un économiste canadien prix Nobel."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-07",
@@ -3692,7 +3965,8 @@
         "J'apparais après une dépréciation.",
         "Je descends avant de monter.",
         "Je suppose Marshall-Lerner pour la remontée."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-08",
@@ -3707,7 +3981,8 @@
         "Je porte un seul nom (Nobel 1995).",
         "Je constate que le capital ne va pas des pays riches vers les pauvres autant que la théorie le prédit.",
         "Je m'explique par le risque et le capital humain."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-09",
@@ -3724,7 +3999,8 @@
         "J'ai deux dimensions : externe et interne.",
         "Je concerne le moyen terme.",
         "Je sers à juger si une monnaie est sur ou sous-évaluée."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-10",
@@ -3741,7 +4017,8 @@
         "J'unifie les prix exprimés dans une monnaie commune.",
         "Je fonde la PPA absolue.",
         "Je m'exprime par une égalité entre prix domestique et prix étranger converti."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-11",
@@ -3758,7 +4035,8 @@
         "Je réduis le pass-through du change.",
         "Je vise à préserver les parts de marché.",
         "Je s'écris en anglais avec deux mots et un adverbe court."
-      ]
+      ],
+      "mat": "emi"
     },
     {
       "id": "et-12",
@@ -3777,7 +4055,8 @@
         "Je concerne la prévision du taux de change.",
         "Je compare modèles structurels et marche aléatoire.",
         "Je conclus que la marche aléatoire n'est pas battue à court terme."
-      ]
+      ],
+      "mat": "emi"
     }
   ],
   "CHEATSHEET": {

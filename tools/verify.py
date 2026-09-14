@@ -145,9 +145,23 @@ def _validate_schema(data: dict) -> list[str]:
     if unknown:
         errors.append(f"CATS: identifiants inconnus {sorted(unknown)}")
 
+    # Chaque entrée de CATS porte un `mat` (chaîne non vide).
+    cat_mats: set[str] = set()
+    for cid, entry in cats.items():
+        if not isinstance(entry, dict):
+            errors.append(f"CATS[{cid}]: entrée non-objet")
+            continue
+        mat = entry.get("mat")
+        if not isinstance(mat, str) or not mat.strip():
+            errors.append(f"CATS[{cid}]: mat manquant ou non-chaîne")
+        else:
+            cat_mats.add(mat)
+
     bots = data.get("BOTS")
     if not isinstance(bots, list) or not bots:
         errors.append("BOTS absent ou vide")
+
+    item_mats: set[str] = set()
 
     def _base(item: dict, fmt: str, i: int) -> None:
         where = f"{fmt}[{i}]"
@@ -155,6 +169,11 @@ def _validate_schema(data: dict) -> list[str]:
         if not isinstance(iid, str) or not iid:
             errors.append(f"{where}: id manquant"); return
         dup_id(iid, where)
+        mat = item.get("mat")
+        if not isinstance(mat, str) or not mat.strip():
+            errors.append(f"{where} ({iid}): mat manquant ou non-chaîne")
+        else:
+            item_mats.add(mat)
         if item.get("cat") not in cat_ids:
             errors.append(f"{where} ({iid}): cat inconnue « {item.get('cat')} »")
         if not isinstance(item.get("ch"), int):
@@ -217,11 +236,25 @@ def _validate_schema(data: dict) -> list[str]:
         if not isinstance(iid, str) or not iid:
             errors.append(f"ETOILE[{i}]: id manquant"); continue
         dup_id(iid, f"ETOILE[{i}]")
+        mat = it.get("mat")
+        if not isinstance(mat, str) or not mat.strip():
+            errors.append(f"ETOILE[{i}] ({iid}): mat manquant ou non-chaîne")
+        else:
+            item_mats.add(mat)
         if not isinstance(it.get("name"), str) or not it["name"].strip():
             errors.append(f"ETOILE[{i}] ({iid}): name manquant")
         clues = it.get("clues")
         if not isinstance(clues, list) or len(clues) != 5:
             errors.append(f"ETOILE[{i}] ({iid}): 5 indices exigés")
+
+    # Toute matière utilisée par un item doit apparaître dans au moins une
+    # catégorie (le setup filtre par matière avant catégorie — §2).
+    missing_mats = item_mats - cat_mats
+    if missing_mats:
+        errors.append(
+            f"mat: matière(s) utilisée(s) par des items mais absente(s) de CATS: "
+            f"{sorted(missing_mats)}"
+        )
 
     return errors
 
