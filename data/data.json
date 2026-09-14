@@ -1707,12 +1707,12 @@
       "diff": 2,
       "q": "Selon la comptabilité de la croissance (Solow 1957), la croissance du PIB se décompose en :",
       "choices": [
-        "contribution du capital + contribution du travail + résidu (PTF)",
-        "somme du travail et du capital, uniquement",
         "produit de la démographie et de l'investissement",
+        "somme des contributions du travail et du capital seulement, sans PTF",
+        "contribution du capital + contribution du travail + résidu (PTF)",
         "part du salaire dans le revenu multiplié par la croissance de L"
       ],
-      "a": 0,
+      "a": 2,
       "why": "g_Y = α·g_K + (1−α)·g_L + g_A. Le résidu g_A est la croissance de la productivité totale des facteurs (PTF), aussi appelé résidu de Solow. Introduction 2025-26, §Solow 1957.",
       "id": "residu-001"
     },
@@ -1723,12 +1723,12 @@
       "diff": 3,
       "q": "Dans une application de la comptabilité de la croissance aux pays d'Asie du Sud-Est (Singapour, Hong Kong…), quel est le résultat marquant identifié dans les cours ?",
       "choices": [
-        "la croissance est tirée par l'accumulation des facteurs plutôt que par la PTF",
         "la croissance provient à 90 % du progrès technique endogène",
-        "la contribution du capital est nulle sur la période",
+        "la croissance est tirée par l'accumulation des facteurs plutôt que par la PTF",
+        "la contribution du capital physique est nulle et négligeable dans l'estimation régionale",
         "la démographie explique l'essentiel de la croissance"
       ],
-      "a": 0,
+      "a": 1,
       "why": "Résultat étudié en cours (Partie 1 Solow, section D) : dans plusieurs pays asiatiques la croissance de la PTF n'explique qu'une faible fraction ; la croissance est tirée par l'accumulation. Débat Young / Krugman des années 1990.",
       "id": "residu-002"
     },
@@ -1739,12 +1739,12 @@
       "diff": 2,
       "q": "Le résidu de Solow doit être interprété comme :",
       "choices": [
-        "le progrès technique et tout ce que la comptabilité ne mesure pas",
-        "uniquement le progrès technique au sens strict",
+        "l'effet de l'immigration nette",
+        "uniquement le progrès technique au sens strict, à l'exclusion de tout autre facteur",
         "l'erreur statistique du calcul du PIB",
-        "l'effet de l'immigration nette"
+        "le progrès technique et tout ce que la comptabilité ne mesure pas"
       ],
-      "a": 0,
+      "a": 3,
       "why": "Résidu = « progrès technique OU autre chose » (Solow 1957 lui-même le reconnaît). Inclut effets non mesurés : qualité des facteurs, réallocation sectorielle, changement institutionnel. Partie 1 Solow, section E (limites).",
       "id": "residu-003"
     },
@@ -1755,12 +1755,12 @@
       "diff": 1,
       "q": "Dans le modèle de Solow, l'équation d'accumulation du capital par tête (avec dépréciation δ et démographie n) s'écrit :",
       "choices": [
-        "Δk = s·f(k) − (δ + n)·k",
-        "Δk = f(k) − c",
         "Δk = s·(δ + n)·k",
+        "Δk = f(k) − c(t) sans dépréciation ni démographie prises en compte",
+        "Δk = s·f(k) − (δ + n)·k",
         "Δk = f(k) − s·k"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Δk = i − (δ+n)·k, avec i = s·f(k). Le terme (δ+n)·k représente l'usure du capital et la dilution par la démographie (croissance en volume par tête).",
       "id": "solow-001"
     },
@@ -1771,12 +1771,12 @@
       "diff": 2,
       "q": "À l'état régulier k* du modèle de Solow (sans progrès technique), le capital par tête vérifie :",
       "choices": [
-        "s·f(k*) = (δ + n)·k*",
-        "s·f(k*) > (δ + n)·k*",
+        "s·f(k*) = 0",
+        "s·f(k*) > (δ + n)·k* (situation de surinvestissement soutenu)",
         "s·f(k*) < (δ + n)·k*",
-        "s·f(k*) = 0"
+        "s·f(k*) = (δ + n)·k*"
       ],
-      "a": 0,
+      "a": 3,
       "why": "État régulier : Δk = 0 donc l'investissement s·f(k*) compense exactement l'usure et la dilution (δ+n)·k*. Au-dessus de k*, investissement < dilution donc k baisse ; en dessous, il monte : équilibre stable.",
       "id": "solow-002"
     },
@@ -1803,12 +1803,12 @@
       "diff": 2,
       "q": "Une hausse permanente du taux d'épargne s dans Solow (sans progrès technique) a quel effet sur le taux de croissance de long terme du PIB par tête ?",
       "choices": [
-        "aucun effet à long terme (le taux de croissance reste nul)",
-        "hausse permanente proportionnelle à s",
         "hausse temporaire uniquement (effet de niveau, pas de pente)",
-        "baisse permanente"
+        "hausse permanente proportionnelle à s",
+        "aucun effet à long terme (le taux de croissance reste nul)",
+        "baisse permanente et immédiate strictement proportionnelle au taux d'épargne"
       ],
-      "a": 2,
+      "a": 0,
       "why": "Solow sans PT : à long terme le taux de croissance du PIB par tête est nul. Une hausse de s élève k* et donc y*, mais l'effet est un effet de NIVEAU (transition) ; le taux de croissance retombe à 0 (ou à g_A avec PT exogène).",
       "id": "solow-004"
     },
@@ -1821,7 +1821,7 @@
       "choices": [
         "la stabilité du ratio capital/PIB (K/Y) et du taux de rendement r",
         "la baisse continue du ratio K/Y",
-        "la hausse permanente du taux de rendement du capital",
+        "la hausse permanente et continue du taux de rendement réel du capital sur le long terme",
         "l'instabilité de la répartition capital/travail"
       ],
       "a": 0,
@@ -1838,11 +1838,155 @@
         "environ 1/3 pour le capital, 2/3 pour le travail",
         "environ 1/2 pour chacun",
         "2/3 pour le capital, 1/3 pour le travail",
-        "9/10 pour le travail, 1/10 pour le capital"
+        "environ 9/10 pour le travail, 1/10 pour le capital, dans les économies avancées"
       ],
       "a": 0,
       "why": "Fait 6 de Kaldor : rapport 1/3 - 2/3 du long terme. Cohérent avec Cobb-Douglas Y = K^α·L^(1−α) et α ≈ 1/3.",
       "id": "kaldor-002"
+    },
+    {
+      "cat": "mrw",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Le modèle de Mankiw-Romer-Weil (1992) augmente Solow en :",
+      "choices": [
+        "introduisant explicitement le capital humain dans la fonction de production",
+        "supprimant la dépréciation du capital physique",
+        "remplaçant Cobb-Douglas par une fonction CES entièrement calibrée sur données OCDE",
+        "endogénéisant le progrès technique via la R&D"
+      ],
+      "a": 0,
+      "why": "MRW (1992) ajoutent H (capital humain) : Y = K^α · H^β · (A·L)^(1−α−β). Résultat clé : α tombe à 1/3, 1/3 du revenu rémunère H, et le modèle réconcilie mieux Solow avec les données. Partie_1_Solow.txt lignes 1004-1075.",
+      "id": "mrw-001"
+    },
+    {
+      "cat": "mrw",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Dans MRW (1992), la part du capital physique dans le revenu tombe à environ 1/3 parce que :",
+      "choices": [
+        "il faut tenir compte de la corruption dans les pays émergents",
+        "le capital humain se substitue au travail non qualifié",
+        "les trois facteurs K, H, (A·L) se partagent le revenu à parts approximativement égales",
+        "le progrès technique explique désormais 2/3 de la croissance à lui seul, tous pays confondus"
+      ],
+      "a": 2,
+      "why": "MRW : α ≈ 1/3 pour K, β ≈ 1/3 pour H, (1−α−β) ≈ 1/3 pour A·L. Chaque facteur rémunéré à sa productivité marginale ⇒ partage tiers/tiers/tiers du revenu. Partie_1_Solow.txt ligne 1057.",
+      "id": "mrw-002"
+    },
+    {
+      "cat": "mrw",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 1,
+      "q": "Comment MRW (1992) approximent-ils l'accumulation d'investissement en capital humain dans leur test empirique ?",
+      "choices": [
+        "par le nombre de brevets déposés par pays et par an dans les statistiques OMPI-INSEE",
+        "par le PIB par tête de la génération précédente",
+        "par le taux d'inflation moyen sur la décennie",
+        "par la part de la population en âge de scolarisation secondaire effectivement scolarisée"
+      ],
+      "a": 3,
+      "why": "MRW utilisent un proxy scolaire (taux de scolarisation secondaire) comme approximation « très grossière » (Rubin) des investissements en capital humain. Partie_1_Solow.txt ligne 1065.",
+      "id": "mrw-003"
+    },
+    {
+      "cat": "ak",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans les modèles AK, la fonction de production agrégée est :",
+      "choices": [
+        "linéaire en le stock de capital K : Y = A·K",
+        "concave stricte en K, à rendements décroissants",
+        "identique à celle de Solow, avec Cobb-Douglas standard",
+        "toujours à rendements constants en L uniquement"
+      ],
+      "a": 0,
+      "why": "AK : Y = A·K, linéaire. C'est ce qui rend la croissance ENDOGÈNE : pas de rendement décroissant du capital, donc pas d'état régulier borné. L'investissement peut soutenir la croissance à long terme. Partie_2_C2C3_Paul_Romer.txt lignes 216-251.",
+      "id": "ak-001"
+    },
+    {
+      "cat": "ak",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 3,
+      "q": "Comment Frankel (1962) obtient-il une fonction agrégée de type AK à partir d'une Cobb-Douglas au niveau firme ?",
+      "choices": [
+        "en supposant une externalité de learning by doing où le stock agrégé K améliore la productivité de chaque firme",
+        "en supposant que le progrès technique est exogène et constant",
+        "en supposant que les firmes maximisent la production sans contrainte de coût",
+        "en éliminant le facteur travail de la fonction agrégée"
+      ],
+      "a": 0,
+      "why": "Frankel (1962), repris par Romer (1986) : chaque firme voit Y_i = K_i^α · (K_agr · L_i)^(1−α). L'externalité positive du stock agrégé compense les rendements décroissants privés → agrégation Cobb-Douglas donne Y = A·K. Partie_2_C2C3_Paul_Romer.txt lignes 242-293.",
+      "id": "ak-002"
+    },
+    {
+      "cat": "ak",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 2,
+      "q": "L'enjeu central de la modélisation AK est d'obtenir :",
+      "choices": [
+        "un modèle où la croissance de long terme dépend de choix économiques (épargne)",
+        "un modèle sans progrès technique ni démographie",
+        "une fonction de production concave stricte",
+        "un cadre théorique parfaitement compatible avec l'école autrichienne du cycle des affaires"
+      ],
+      "a": 0,
+      "why": "AK rend la croissance ENDOGÈNE : g_LT dépend du taux d'épargne (contrairement à Solow où g_LT = g_A exogène). C'est ce qui distingue les théories de croissance endogène (Frankel, Romer, Lucas). Partie_2_C2C3_Paul_Romer.txt lignes 251-296.",
+      "id": "ak-003"
+    },
+    {
+      "cat": "romer",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 1,
+      "q": "Selon Paul Romer, l'exemple des « quatre éléments » (supraconducteur, alliages…) illustre :",
+      "choices": [
+        "la théorie des jeux",
+        "l'explosion combinatoire des idées possibles",
+        "la loi classique des rendements décroissants et fixes des facteurs",
+        "le paradoxe de la valeur"
+      ],
+      "a": 1,
+      "why": "Romer utilise l'explosion combinatoire (nombre de combinaisons de quelques éléments) pour montrer que le stock d'idées possibles est immense — la croissance par les idées n'est pas bornée. Partie_2_C2C3_Paul_Romer.txt lignes 23-27.",
+      "id": "romer-001"
+    },
+    {
+      "cat": "romer",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 2,
+      "q": "Pour Romer, une idée (technologie) se distingue d'un facteur de production classique (K ou L) parce qu'elle est :",
+      "choices": [
+        "rare",
+        "non-rivale (peut être utilisée simultanément partout)",
+        "toujours brevetée",
+        "purement immatérielle et sans support physique nécessaire"
+      ],
+      "a": 1,
+      "why": "Non-rivalité : une même idée peut servir simultanément à plusieurs producteurs sans épuisement. Contrairement au capital physique (rival). C'est la propriété clé qui fonde la modélisation de la croissance endogène par les idées. Partie_2_C2C3_Paul_Romer.txt lignes 5-15.",
+      "id": "romer-002"
+    },
+    {
+      "cat": "romer",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 3,
+      "q": "Selon Gordon (2000, cité par Rubin), quel constat empirique fait débat sur la vague technologique récente ?",
+      "choices": [
+        "la 3ᵉ vague TIC a un effet strictement plus fort sur la productivité que la 2ᵉ (électricité)",
+        "la productivité du travail américaine croît régulièrement depuis 1900",
+        "la dernière vague (TIC) n'a pas un effet aussi fort sur la productivité du travail que les précédentes",
+        "l'électricité est la seule innovation qui a eu un vrai impact productif"
+      ],
+      "a": 2,
+      "why": "Gordon (2000) : la productivité américaine croît ~2 %/an longtemps ; ralentit après 1972 ; petite reprise ~2000 ; puis rechute. La 3ᵉ vague (TIC) déçoit par rapport à l'électricité. Partie_2_C2C3_Paul_Romer.txt lignes 72-81.",
+      "id": "romer-003"
     }
   ],
   "VF": [
@@ -2542,6 +2686,36 @@
       "a": false,
       "why": "Faux : c'est l'inverse. Fait n°1 : « taux de croissance moyen positif et relativement constant » à l'échelle du long terme. La stabilité du taux est un fait fondamental à expliquer.",
       "id": "kaldor-004"
+    },
+    {
+      "cat": "mrw",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "L'introduction du capital humain (MRW 1992) rend la croissance de long terme endogène.",
+      "a": false,
+      "why": "Faux. MRW reste un modèle de Solow augmenté : la croissance de LT est toujours g_A (progrès technique exogène). MRW améliore la CONVERGENCE et la variance expliquée entre pays, mais pas la nature de la croissance.",
+      "id": "mrw-004"
+    },
+    {
+      "cat": "ak",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans un modèle AK avec Y = A·K, une hausse permanente du taux d'épargne s accroît le taux de croissance de long terme.",
+      "a": true,
+      "why": "Vrai. En AK, g = s·A − (δ+n). Le taux d'épargne devient un déterminant permanent de la croissance, à la différence de Solow (où s n'a qu'un effet de niveau).",
+      "id": "ak-004"
+    },
+    {
+      "cat": "romer",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 2,
+      "q": "La non-rivalité des idées implique qu'elles peuvent être appropriées gratuitement par tous, sans besoin de brevet.",
+      "a": false,
+      "why": "Faux : non-rivalité ≠ non-excluabilité. Une idée peut être non-rivale (usage simultané) MAIS excluable via brevets, secrets, complexité. Sans excluabilité, pas d'incitation privée à investir dans la recherche — d'où le besoin de propriété intellectuelle.",
+      "id": "romer-004"
     }
   ],
   "SENS": [
@@ -3406,6 +3580,42 @@
       "a": "same",
       "why": "Fait stylisé n°5 : K/Y reste stable dans le long terme, malgré la croissance du PIB par tête. C'est l'un des faits fondamentaux que Solow et ses successeurs cherchent à reproduire théoriquement.",
       "id": "kaldor-005"
+    },
+    {
+      "cat": "mrw",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Modèle de Solow augmenté du capital humain (MRW), économie à l'état régulier",
+      "shock": "Hausse permanente de l'investissement en capital humain (part du PIB consacrée à l'éducation)",
+      "var": "Niveau du revenu par tête à long terme",
+      "a": "up",
+      "why": "↑ investissement en H ⇒ ↑H* ⇒ ↑Y*/L via Y = K^α · H^β · (A·L)^(1−α−β). Effet de niveau. La pente de croissance reste g_A exogène.",
+      "id": "mrw-005"
+    },
+    {
+      "cat": "ak",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle AK avec Y = A·K, économie sur son sentier de croissance équilibré",
+      "shock": "Hausse permanente du taux d'épargne s",
+      "var": "Taux de croissance du PIB par tête à long terme",
+      "a": "up",
+      "why": "En AK, g_y = s·A − (δ+n). ↑s ⇒ ↑g_y de façon permanente. C'est la différence fondamentale avec Solow, où s n'a qu'un effet de niveau.",
+      "id": "ak-005"
+    },
+    {
+      "cat": "romer",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle de Romer (1990) avec R&D et brevets, économie en régime stationnaire",
+      "shock": "Renforcement de la protection des brevets (durée légale augmentée)",
+      "var": "Taux d'investissement en R&D",
+      "a": "up",
+      "why": "Brevets plus protecteurs ⇒ rente d'innovation plus longue ⇒ profit anticipé de la R&D ↑ ⇒ investissement en R&D ↑. Piège : brevets trop longs peuvent aussi freiner la diffusion (arbitrage incitation/diffusion).",
+      "id": "romer-005"
     }
   ],
   "ORDRE": [
