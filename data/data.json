@@ -3362,6 +3362,114 @@
       "why": "Le lien direct Ms → e passe par P (neutralité monétaire) et la PPA continue.",
       "id": "monet-015",
       "mat": "emi"
+    },
+    {
+      "cat": "bdp",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Balance des paiements — établissement d'un solde du compte courant",
+      "title": "Ordonner les étapes du calcul d'un solde du compte courant",
+      "steps": [
+        "Sommer les crédits (exportations de biens, services, revenus reçus, transferts reçus)",
+        "Sommer les débits (importations de biens, services, revenus versés, transferts versés)",
+        "Calculer le solde = Crédits − Débits pour chaque poste",
+        "Additionner les soldes des sous-comptes (biens + services + revenus + transferts)",
+        "Interpréter : solde > 0 = excédent courant ; solde < 0 = déficit courant"
+      ],
+      "trap": "bc-bcour",
+      "why": "Piège classique : oublier les services ou les revenus dans le calcul (balance commerciale ≠ balance courante). Le compte courant inclut biens, services, revenus primaires, revenus secondaires (transferts).",
+      "id": "bdp-023"
+    },
+    {
+      "cat": "si",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 3,
+      "ctx": "Mise en évidence du paradoxe de Feldstein-Horioka (1980)",
+      "title": "Ordonner les étapes du raisonnement de Feldstein-Horioka",
+      "steps": [
+        "Hypothèse théorique : mobilité parfaite des capitaux ⇒ épargne et investissement nationaux décorrélés",
+        "Régresser I/PIB sur S/PIB en coupe transversale de pays",
+        "Coefficient attendu proche de 0 en cas de mobilité parfaite",
+        "Observation empirique (1980) : coefficient proche de 0,9",
+        "Conclusion : paradoxe — épargne et investissement restent fortement corrélés malgré l'ouverture"
+      ],
+      "trap": "endo-exo",
+      "why": "Feldstein-Horioka (1980) : rejet empirique de la mobilité parfaite pour un panel de pays OCDE. Explications possibles : biais méthodologique, contraintes d'endettement, biais national par asymétrie d'information.",
+      "id": "si-019"
+    },
+    {
+      "cat": "forex",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Arbitrage triangulaire sur trois monnaies (€, $, ¥)",
+      "title": "Ordonner les étapes d'un arbitrage triangulaire profitable",
+      "steps": [
+        "Observer les 3 cotations bilatérales spot : E€$, E$¥, E€¥",
+        "Calculer le taux croisé implicite : E€¥ (via $) = E€$ × E$¥",
+        "Comparer avec le taux direct E€¥ coté sur le marché",
+        "Si taux direct ≠ taux implicite : opportunité d'arbitrage",
+        "Acheter la monnaie là où elle est moins chère, revendre là où elle est plus chère (gain sans risque)"
+      ],
+      "trap": "niveau-log",
+      "why": "L'arbitrage triangulaire élimine les écarts entre taux croisé implicite et taux direct. C'est le mécanisme qui garantit la loi du prix unique sur le forex. Attention : formule au certain pour la même monnaie de base.",
+      "id": "forex-020"
+    },
+    {
+      "cat": "cot",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 1,
+      "ctx": "Passage entre cotations certain / incertain / croisée",
+      "title": "Ordonner les étapes pour obtenir un taux croisé à partir de deux cotations à l'incertain",
+      "steps": [
+        "Lire les cotations à l'incertain : 1 USD = 100 JPY et 1 USD = 0,8 EUR",
+        "Fixer la monnaie de référence commune : le dollar",
+        "Passer par le dollar : 1 EUR = (1/0,8) USD",
+        "Multiplier par la cotation JPY : 1 EUR = (1/0,8) × 100 JPY = 125 JPY",
+        "Vérifier l'ordre de grandeur et le sens (certain pour l'euro contre yen)"
+      ],
+      "trap": "certain-incertain",
+      "why": "Attention à ne pas prendre le mauvais sens (inverse = 0,008), le produit brut (80), ou l'incertain à la place du certain (1,25). La règle : identifier la monnaie commune et exprimer les deux cotations dans le même sens.",
+      "id": "cot-020"
+    },
+    {
+      "cat": "smi",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Grandes étapes du système monétaire international",
+      "title": "Ordonner chronologiquement les grandes étapes du SMI",
+      "steps": [
+        "1870-1914 : étalon-or, monnaies convertibles en or à parité fixe",
+        "1922 (Gênes) : étalon change-or (Gold Exchange Standard) après l'inconvertibilité de 1914-1918",
+        "1944 (Bretton Woods) : étalon dollar-or, dollar pivot, création du FMI",
+        "1971 (Nixon) : suspension de la convertibilité du dollar en or",
+        "1976 (Jamaïque) : légalisation officielle des changes flottants"
+      ],
+      "trap": "fixe-flexible",
+      "why": "Le système actuel de changes flottants est post-1971 (Nixon suspend la convertibilité) et institutionnalisé en 1976 (Jamaïque). Le passage étalon-or → Bretton Woods n'est pas direct : il y a la parenthèse Gênes/entre-deux-guerres.",
+      "id": "smi-022"
+    },
+    {
+      "cat": "mf",
+      "mat": "emi",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, change flexible, mobilité parfaite des capitaux — expansion monétaire",
+      "title": "Ordonner les étapes du mécanisme d'une expansion monétaire",
+      "steps": [
+        "La banque centrale augmente l'offre de monnaie ⇒ LM se déplace vers la droite",
+        "Le taux d'intérêt domestique tend à baisser sous i*",
+        "Sortie de capitaux ⇒ dépréciation de la monnaie nationale",
+        "Amélioration de X − M (moins d'imports, plus d'exports) ⇒ IS se déplace vers la droite",
+        "Nouvel équilibre à i = i* et Y plus élevé : politique monétaire pleinement efficace"
+      ],
+      "trap": "mf-regime",
+      "why": "En change flexible + mobilité parfaite, la politique monétaire est totalement efficace car l'ajustement se fait par le taux de change (canal externe), sans blocage sur le taux d'intérêt qui reste ancré à i*.",
+      "id": "mf-027"
     }
   ],
   "OUVERTE": [
@@ -3976,6 +4084,96 @@
       "why": "Concept clef pour comprendre l'autonomie apparente en régime fixe (via stérilisation partielle).",
       "id": "mf-019",
       "mat": "emi"
+    },
+    {
+      "cat": "bdp",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 2,
+      "q": "Énoncer l'identité comptable de la balance des paiements (convention du cours) et définir la capacité de financement d'une économie.",
+      "model": "Identité comptable : TC + CC − CF + EO = 0, où TC = compte de capital, CC = compte courant, CF = compte financier (convention : CF > 0 = sortie nette de capitaux), EO = erreurs et omissions. Capacité (ou besoin) de financement de l'économie = TC + CC. Si TC + CC > 0 : capacité (l'économie prête au reste du monde) ; si TC + CC < 0 : besoin (l'économie emprunte).",
+      "points": [
+        "identité TC + CC − CF + EO = 0",
+        "signe du CF (convention du cours)",
+        "capacité = TC + CC",
+        "sens de la capacité vs besoin",
+        "EO nécessaires pour équilibrer"
+      ],
+      "notations": [
+        "TC compte de capital",
+        "CC compte courant",
+        "CF compte financier",
+        "EO erreurs et omissions"
+      ],
+      "id": "bdp-024",
+      "why": "Identité TC + CC − CF + EO = 0 et convention CF>0 (sortie) : au cœur du chapitre 1."
+    },
+    {
+      "cat": "cot",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 1,
+      "q": "Définir la cotation au certain et à l'incertain. Écrire la relation entre les deux et donner un exemple pour la paire euro-dollar.",
+      "model": "Cotation au certain pour un pays : nombre d'unités de monnaie étrangère pour 1 unité de monnaie nationale (ex. pour la zone euro : 1 EUR = 1,10 USD). Cotation à l'incertain : nombre d'unités de monnaie nationale pour 1 unité de monnaie étrangère (ex. pour la zone euro : 1 USD = 0,91 EUR). Relation : S_incertain = 1/S_certain. En France, l'euro est traditionnellement coté au certain (habitude du prof).",
+      "points": [
+        "certain = étrangère pour 1 nationale",
+        "incertain = nationale pour 1 étrangère",
+        "S_incertain = 1/S_certain",
+        "exemple numérique cohérent",
+        "convention du cours (euro au certain)"
+      ],
+      "notations": [
+        "S ou E (taux nominal)",
+        "certain ou incertain"
+      ],
+      "id": "cot-021",
+      "why": "Convention du prof : euro coté au certain en France. Relation d'inversion S_i = 1/S_c à connaître par cœur."
+    },
+    {
+      "cat": "pen",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 3,
+      "q": "Écrire l'équation d'accumulation de la position extérieure nette (PEN) dans le cas où l'actif est libellé en monnaie étrangère et le passif en monnaie nationale.",
+      "model": "PEN_t = A_{t-1}(1+i_A)·(E_{t-1}/E_t) − L_{t-1}(1+i_L) + BC_t, où A = actif brut (libellé en monnaie étrangère, ici en dollars), L = passif brut (libellé en monnaie nationale), i_A et i_L leurs taux d'intérêt respectifs, E = taux au certain (nombre de dollars par euro), BC = solde courant de la période. Le terme E_{t-1}/E_t traduit l'effet de valorisation : une dépréciation de la monnaie nationale (E baisse) augmente la valeur en euros de l'actif en dollars.",
+      "points": [
+        "PEN = A − L (définition)",
+        "capitalisation par (1+i_A) et (1+i_L)",
+        "effet de valorisation E_{t-1}/E_t sur l'actif $",
+        "addition du solde courant BC_t",
+        "distinction stock (PEN) vs flux (BC)"
+      ],
+      "notations": [
+        "A actif brut",
+        "L passif brut",
+        "i_A, i_L taux d'intérêt",
+        "E taux au certain",
+        "BC solde courant"
+      ],
+      "id": "pen-021",
+      "why": "Effet de valorisation E_{t-1}/E_t : ce qui différencie la PEN d'un simple solde courant cumulé."
+    },
+    {
+      "cat": "si",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 2,
+      "q": "Énoncer le paradoxe de Feldstein-Horioka (1980) et donner deux explications possibles à ce paradoxe.",
+      "model": "Feldstein-Horioka (1980) : en mobilité parfaite, S et I nationaux devraient être décorrélés. Empiriquement (OCDE), la corrélation est forte (~0,9) → la mobilité parfaite est rejetée. Explications : biais méthodologique, contraintes d'endettement, biais national (préférence pour actifs domestiques).",
+      "points": [
+        "hypothèse : mobilité parfaite ⇒ décorrélation attendue",
+        "résultat empirique : forte corrélation observée",
+        "conclusion : rejet de la mobilité parfaite",
+        "au moins deux explications parmi méthodo, contraintes, biais national",
+        "référence : Feldstein-Horioka (1980)"
+      ],
+      "notations": [
+        "S épargne nationale",
+        "I investissement national",
+        "S/Y, I/Y en ratios au PIB"
+      ],
+      "id": "si-020",
+      "why": "Paradoxe fondateur de l'école Feldstein-Horioka : la mobilité de facto est inférieure à celle de jure."
     }
   ],
   "ETOILE": [
