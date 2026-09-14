@@ -248,12 +248,12 @@
       "diff": 1,
       "q": "La monnaie véhiculaire dominante du marché des changes est :",
       "choices": [
-        "le dollar américain",
-        "l'euro",
         "le yen",
-        "le renminbi"
+        "le renminbi chinois depuis 2015 environ",
+        "le dollar américain",
+        "la livre sterling"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Le dollar intervient dans environ 88 % des transactions ; les paires exotiques passent par le dollar avant conversion.",
       "mat": "emi"
     },
@@ -431,12 +431,12 @@
       "diff": 2,
       "q": "La courbe en J décrit :",
       "choices": [
-        "une dégradation initiale puis une amélioration du solde commercial après une dépréciation",
-        "une amélioration immédiate suivie d'une dégradation",
         "l'effet d'une appréciation sur les exportations",
+        "une amélioration immédiate suivie d'une dégradation progressive à long terme du solde commercial",
+        "une dégradation initiale puis une amélioration du solde commercial après une dépréciation",
         "l'effet dynamique d'un durcissement monétaire"
       ],
-      "a": 0,
+      "a": 2,
       "trap": "ml-symetrie",
       "why": "À court terme les volumes sont rigides (contrats), l'effet valeur domine → solde ↓. À moyen terme Marshall-Lerner joue → solde ↑.",
       "mat": "emi"
@@ -465,12 +465,12 @@
       "diff": 2,
       "q": "Le triangle d'incompatibilité de Mundell énonce qu'un pays ne peut avoir simultanément que deux des trois éléments :",
       "choices": [
-        "changes fixes, mobilité parfaite des capitaux, politique monétaire autonome",
-        "ouverture commerciale, ouverture financière, démocratie",
         "inflation basse, chômage bas, croissance forte",
+        "ouverture commerciale complète, ouverture financière parfaite et démocratie politique stable",
+        "changes fixes, mobilité parfaite des capitaux, politique monétaire autonome",
         "épargne, investissement, budget équilibré"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Fixe + mobilité parfaite ⇒ la politique monétaire est asservie à la parité. On ne peut choisir que deux sommets du triangle.",
       "mat": "emi"
     },
@@ -643,12 +643,12 @@
       "diff": 2,
       "q": "Le pass-through incomplet du change vers les prix à l'importation s'explique surtout par :",
       "choices": [
-        "l'ajustement des marges des exportateurs (pricing to market)",
-        "la lenteur des ajustements salariaux",
+        "l'inertie des banques centrales",
+        "la lenteur des ajustements salariaux et des contrats de long terme entre importateurs",
         "la rigidité de la demande finale",
-        "l'inertie des banques centrales"
+        "l'ajustement des marges des exportateurs (pricing to market)"
       ],
-      "a": 0,
+      "a": 3,
       "why": "Pour préserver leurs parts de marché, les exportateurs absorbent une partie de la variation du change dans leur marge.",
       "mat": "emi"
     },
@@ -757,12 +757,12 @@
       "diff": 2,
       "q": "Un swap de change est utilisé principalement pour :",
       "choices": [
-        "gérer la trésorerie court terme en devises sans exposition nette",
         "spéculer sur la volatilité",
+        "gérer la trésorerie court terme en devises sans exposition nette",
         "réaliser un arbitrage triangulaire",
-        "financer un investissement de long terme"
+        "financer un investissement de long terme via un instrument dérivé équivalent"
       ],
-      "a": 0,
+      "a": 1,
       "why": "Swap = spot + terme inverse : l'exposition nette est nulle, seule la trésorerie change.",
       "id": "forex-009",
       "mat": "emi"
@@ -822,12 +822,12 @@
       "diff": 2,
       "q": "Une hausse durable des coûts salariaux unitaires dans un pays, à taux nominal fixe, provoque :",
       "choices": [
-        "une appréciation réelle et une perte de compétitivité",
         "une dépréciation réelle",
+        "une appréciation réelle et une perte de compétitivité",
         "aucun effet sur la balance commerciale",
-        "une amélioration mécanique du solde courant"
+        "une amélioration mécanique et immédiate du solde courant par baisse des importations"
       ],
-      "a": 0,
+      "a": 1,
       "why": "P ↑ à P* et e constants ⇒ q = e × P/P* augmente : appréciation réelle.",
       "id": "depr-010",
       "mat": "emi"
@@ -938,12 +938,12 @@
       "diff": 2,
       "q": "Un swap €/$ à 3 mois consiste, du point de vue de la banque française :",
       "choices": [
-        "à acheter des $ au comptant et à les revendre à terme",
-        "à vendre des $ à terme uniquement",
         "à acheter deux options d'achat",
+        "à vendre les $ à terme uniquement, sans opération miroir au comptant",
+        "à acheter des $ au comptant et à les revendre à terme",
         "à payer une prime de risque à la BCE"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Swap = deux jambes opposées simultanées — pas d'exposition nette, juste un déplacement de trésorerie.",
       "id": "forex-016",
       "mat": "emi"
@@ -1152,12 +1152,12 @@
       "diff": 3,
       "q": "Sous MF changes fixes + mobilité parfaite, si la BC baisse son taux directeur, l'effet immédiat est :",
       "choices": [
-        "une sortie de capitaux et une vente de devises par la BC pour tenir la parité",
         "une entrée de capitaux et une appréciation",
+        "une sortie de capitaux et une vente de devises par la BC pour tenir la parité",
         "un gel du taux",
-        "une hausse mécanique de Ms"
+        "une hausse mécanique de la masse monétaire Ms via l'effet Cambridge sur la demande de monnaie"
       ],
-      "a": 0,
+      "a": 1,
       "trap": "mf-regime",
       "why": "i < i* ⇒ sortie de K ⇒ BC vend devises ⇒ Ms ↓ retour au point de départ. Politique monétaire inefficace.",
       "id": "mf-021",
@@ -1297,12 +1297,12 @@
       "diff": 3,
       "q": "Le rôle d'une chambre de compensation (clearing house) sur un marché à terme est :",
       "choices": [
-        "se substituer à la contrepartie et neutraliser le risque de contrepartie",
-        "fixer le taux de change à terme",
+        "collecter la TVA",
+        "fixer le taux de change à terme officiel entre les principales paires de devises",
         "réguler l'inflation",
-        "collecter la TVA"
+        "se substituer à la contrepartie et neutraliser le risque de contrepartie"
       ],
-      "a": 0,
+      "a": 3,
       "why": "La chambre s'interpose : chaque partie fait face à la chambre, pas à l'autre. Elle demande un appel de marge quotidien.",
       "id": "forex-017",
       "mat": "emi"
@@ -1313,12 +1313,12 @@
       "diff": 2,
       "q": "Une option de vente (put) EUR/USD à strike 1,08 protège l'exportateur français :",
       "choices": [
-        "contre une baisse du dollar (dépréciation USD sous 1/1,08 ≈ 0,93 €/$)",
-        "contre une hausse du dollar",
         "contre une hausse de l'euro",
+        "contre une hausse du dollar au-dessus du strike 1,08 fixé aujourd'hui",
+        "contre une baisse du dollar (dépréciation USD sous 1/1,08 ≈ 0,93 €/$)",
         "contre l'inflation américaine"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Put à strike 1,08 sur EUR/USD (au certain) donne droit de vendre 1 EUR contre 1,08 $ : plancher sous le prix à terme du dollar.",
       "id": "forex-018",
       "mat": "emi"
@@ -1523,12 +1523,12 @@
       "diff": 3,
       "q": "L'AS-AD ouvert avec biens échangeables et non échangeables : une dépréciation nominale fait :",
       "choices": [
-        "monter le prix des échangeables, laisser stables les non-échangeables à court terme",
-        "monter tous les prix uniformément",
         "baisser tous les prix",
+        "monter tous les prix uniformément, échangeables comme non-échangeables, à court terme",
+        "monter le prix des échangeables, laisser stables les non-échangeables à court terme",
         "ne rien changer"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Prix des échangeables lié au change : P_T = e × P*_T. Non-échangeables déterminés localement ⇒ TCR ↑ (compétitivité ↓).",
       "id": "depr-023",
       "mat": "emi"
@@ -1539,12 +1539,12 @@
       "diff": 2,
       "q": "L'allocation intertemporelle enseigne qu'un pays peut structurellement afficher un déficit courant si :",
       "choices": [
-        "il investit aujourd'hui pour rembourser demain avec des recettes futures",
-        "il n'a pas de banque centrale",
+        "sa PEN est nulle",
+        "il n'a pas de banque centrale ni de mécanisme de contrôle monétaire national indépendant",
         "il est en régime fixe",
-        "sa PEN est nulle"
+        "il investit aujourd'hui pour rembourser demain avec des recettes futures"
       ],
-      "a": 0,
+      "a": 3,
       "why": "Justification économique du déficit : lissage de la consommation face à un revenu croissant, ou financement de l'investissement productif.",
       "id": "depr-024",
       "mat": "emi"
@@ -1604,12 +1604,12 @@
       "diff": 3,
       "q": "En Mundell-Fleming, sous changes fixes et mobilité imparfaite des capitaux (κ fini), une hausse de G a un effet sur Y :",
       "choices": [
-        "positif, mais moindre qu'en changes flexibles + mobilité imparfaite",
-        "négatif",
+        "identique à celui en mobilité parfaite",
+        "négatif, car la hausse de G évince entièrement l'investissement privé domestique",
         "nul",
-        "identique à celui en mobilité parfaite"
+        "positif, mais moindre qu'en changes flexibles + mobilité imparfaite"
       ],
-      "a": 0,
+      "a": 3,
       "trap": "mf-regime",
       "why": "En fixe + mobilité imparfaite, le mécanisme d'ajustement passe par une accommodation partielle des flux de capitaux : effet expansionniste mais amoindri.",
       "id": "mf-024",
@@ -1621,12 +1621,12 @@
       "diff": 3,
       "q": "Une intervention de la BC stérilisée à 100 % dans un régime fixe avec mobilité parfaite :",
       "choices": [
-        "n'a aucun effet durable, seule la composition des actifs du bilan BC change",
-        "déprécie durablement la monnaie",
         "provoque une hyperinflation",
+        "déprécie durablement la monnaie, via l'effet portefeuille classique de rééquilibrage",
+        "n'a aucun effet durable, seule la composition des actifs du bilan BC change",
         "annule la parité"
       ],
-      "a": 0,
+      "a": 2,
       "trap": "sterilise",
       "why": "Sans effet sur Ms (open market compensatoire) → LM inchangée → ni Y ni i changent durablement. Seul le bilan BC (or, devises, obligations) est modifié.",
       "id": "mf-025",
