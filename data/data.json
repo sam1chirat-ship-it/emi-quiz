@@ -2057,15 +2057,15 @@
       "mat": "croissance",
       "ch": 4,
       "diff": 2,
-      "q": "Le taux de croissance mondial du revenu par habitant entre l'an 1000 et 1820 (source Maddison, cité par Rubin) est estimé à environ :",
+      "q": "Le taux de croissance planétaire du revenu par habitant entre l'an 1000 et 1820 (source Maddison, cité par Rubin) est estimé à environ :",
       "choices": [
-        "environ 1,5 % par an, comme au XXᵉ siècle en moyenne mondiale",
+        "environ 1,5 % par an, comme au XXᵉ siècle en moyenne planétaire",
         "0,5 % par an",
         "0,05 % par an",
         "0 % (nul)"
       ],
       "a": 2,
-      "why": "Maddison : g_y ≈ 0,05 %/an entre 1000 et 1820, très faible mais non nul. Le revenu moyen mondial atteint 670 $ en 1820 (avec 1200 $ en Europe industrialisée). C'est l'ère malthusienne — quasi-stagnation. Partie_3_Chap1_Pop.txt lignes 20-30.",
+      "why": "Maddison : g_y ≈ 0,05 %/an entre 1000 et 1820, très faible mais non nul. Le revenu moyen planétaire atteint 670 $ en 1820 (avec 1200 $ en Europe industrialisée). C'est l'ère malthusienne — quasi-stagnation. Partie_3_Chap1_Pop.txt lignes 20-30.",
       "id": "malthus-002"
     },
     {
@@ -2147,6 +2147,150 @@
       "a": 1,
       "why": "σ mesure la préférence pour lisser la consommation dans le temps. σ = 0 : linéaire (indifférent au lissage) ; σ élevé : courbe très convexe (préférence forte pour lisser). Cas limite σ → 1 : utilité logarithmique. Partie_2_Chap1_Epargne_endogène.txt lignes 15-22.",
       "id": "olg-003"
+    },
+    {
+      "cat": "harrod",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Le modèle de Harrod-Domar (1939, 1947) est présenté dans le cours comme :",
+      "choices": [
+        "un modèle purement classique fondé sur la loi de Say et l'équilibre général walrasien de Léon",
+        "une version dynamique de la théorie keynésienne mêlant croissance et cycle",
+        "un modèle où le progrès technique est intégralement endogène par la R&D",
+        "un modèle à mobilité parfaite du capital international entre nations"
+      ],
+      "a": 1,
+      "why": "Harrod (1936, 1939) et Domar (1947) : dynamisation de la macro keynésienne. Fondé sur épargne et investissement, la « croissance sur le fil du rasoir » traduit l'instabilité intrinsèque. Introduction_2025-2026.txt lignes 54-60.",
+      "id": "harrod-001"
+    },
+    {
+      "cat": "harrod",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "L'expression « croissance sur le fil du rasoir » chez Harrod-Domar traduit le fait que :",
+      "choices": [
+        "les grandes banques centrales fixent unilatéralement le taux de croissance mondial",
+        "seule une valeur précise de g permet à l'économie de croître sans instabilité (chômage ou surchauffe)",
+        "la croissance est toujours parfaitement stable si le taux d'épargne s est parfaitement optimal du point de vue social",
+        "seule la démographie détermine à long terme le rythme de la croissance"
+      ],
+      "a": 1,
+      "why": "Fil du rasoir : le taux de croissance équilibré g = n exige une coordination précise, sans mécanisme automatique. Tout écart provoque instabilité (surinvestissement/récession). Introduction_2025-2026.txt lignes 58-63 ; Partie_1_Solow.txt lignes 365-380.",
+      "id": "harrod-002"
+    },
+    {
+      "cat": "harrod",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 3,
+      "q": "Quelle est la critique principale que Solow (1956) adresse au modèle Harrod-Domar ?",
+      "choices": [
+        "l'absence totale de progrès technique exogène dans la formulation Harrod-Domar initiale",
+        "l'instabilité repose sur la rigidité stricte des coefficients de production (impossibilité de substituer K et L)",
+        "l'oubli complet des externalités de connaissance et d'apprentissage dans le processus productif national",
+        "l'exclusion arbitraire des choix intertemporels des ménages représentatifs"
+      ],
+      "a": 1,
+      "why": "Solow (1956) : l'instabilité Harrod-Domar disparaît si K et L peuvent se substituer (fonction de production néoclassique à coefficients variables). Le mécanisme de retour à l'état régulier remplace le fil du rasoir. Partie_1_Solow.txt lignes 10-15.",
+      "id": "harrod-003"
+    },
+    {
+      "cat": "convergence",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Selon le modèle de Solow, deux pays identiques en tous points sauf leur revenu initial :",
+      "choices": [
+        "conservent leur écart de revenu indéfiniment",
+        "convergent vers le même sentier régulier de long terme",
+        "divergent car les rendements du capital sont croissants à l'échelle agrégée nationale",
+        "voient leur revenu par tête devenir aléatoire au fil du temps"
+      ],
+      "a": 1,
+      "why": "Convergence absolue : deux pays partageant s, n, δ, g_A et la même fonction de production convergent vers le même k*, donc vers le même sentier régulier. Le pays initialement plus pauvre croît plus vite (rendements décroissants du capital).",
+      "id": "convergence-001"
+    },
+    {
+      "cat": "convergence",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Pourquoi n'observe-t-on pas de convergence absolue au niveau mondial (MRW 1992) ?",
+      "choices": [
+        "parce que la fonction de production diffère qualitativement d'un pays à l'autre",
+        "parce que les taux d'épargne, d'investissement en capital humain et de démographie diffèrent entre pays",
+        "parce que le progrès technique est structurellement décroissant dans les pays pauvres depuis 1990 selon les données",
+        "parce que la production est plus faible dans les pays avec démocratie parlementaire classique"
+      ],
+      "a": 1,
+      "why": "Convergence conditionnelle : chaque pays converge vers SON sentier régulier, qui dépend de s, n, taux d'accumulation H. Les différences structurelles expliquent l'absence de convergence absolue planétairee. Partie_1_Solow.txt lignes 1180-1200.",
+      "id": "convergence-002"
+    },
+    {
+      "cat": "convergence",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Un pays qui régresse (recule sur le sentier de croissance) peut s'expliquer par le modèle de Solow parce que :",
+      "choices": [
+        "son revenu d'état régulier a diminué OU il s'est éloigné de son état régulier",
+        "les rendements du capital sont devenus négatifs de façon exceptionnelle sur une longue période historique",
+        "la fonction de production a été remplacée par une CES exotique",
+        "les agents ont brutalement décidé de cesser toute épargne domestique"
+      ],
+      "a": 0,
+      "why": "Solow explique la régression par (a) baisse structurelle du k* d'équilibre (n↑, s↓, δ↑) OU (b) choc transitoire (guerre, choc pétrolier, réforme). Cadre applicable à Brexit, Ukraine, Trump-tariffs. Partie_1_Solow.txt lignes 1195-1210.",
+      "id": "convergence-003"
+    },
+    {
+      "cat": "institutions",
+      "mat": "croissance",
+      "ch": 5,
+      "diff": 2,
+      "q": "Comment Douglas North (1990) définit-il les « institutions » ?",
+      "choices": [
+        "les seules administrations publiques d'un État",
+        "les règles et contraintes pesant sur les comportements individuels, formelles ou informelles",
+        "un synonyme d'organisations, comme entreprises et associations",
+        "l'ensemble des normes internationales adoptées par consensus au sein des organisations internationales"
+      ],
+      "a": 1,
+      "why": "North (1990) : institutions = règles du jeu (formelles : constitution, lois, règles électorales ; informelles : culture, normes). À distinguer des « organisations » qui sont les joueurs. Partie_3_Chap2_Institutions.txt lignes 1-7.",
+      "id": "institutions-001"
+    },
+    {
+      "cat": "institutions",
+      "mat": "croissance",
+      "ch": 5,
+      "diff": 2,
+      "q": "Selon Acemoglu (2009), les 4 grandes catégories de « causes fondamentales » de la croissance sont :",
+      "choices": [
+        "chance, géographie, institutions, culture",
+        "capital, travail, terre, technologie",
+        "monnaie, dette, épargne, investissement",
+        "population, éducation, santé, urbanisation"
+      ],
+      "a": 0,
+      "why": "Acemoglu distingue les 4 causes fondamentales. La chance renvoie aux équilibres multiples ; les 3 autres (géographie, institutions, culture) sont testables empiriquement. Rubin insiste sur institutions et culture. Partie_3_Chap2_Institutions.txt lignes 25-30.",
+      "id": "institutions-002"
+    },
+    {
+      "cat": "institutions",
+      "mat": "croissance",
+      "ch": 5,
+      "diff": 3,
+      "q": "L'exemple canonique du cours qui invalide l'explication géographique pure de la croissance selon Acemoglu est :",
+      "choices": [
+        "la comparaison instructive France / Belgique après la Seconde Guerre mondiale sur cinq décennies de croissance",
+        "l'écart Chine/Europe au XVᵉ siècle : Chine plus peuplée et technologiquement avancée, mais industrialisation en Europe",
+        "le développement économique remarquable de Singapour depuis 1965 sous Lee Kuan Yew",
+        "le décollage économique fulgurant du Japon après l'ère Meiji au XIXᵉ siècle"
+      ],
+      "a": 1,
+      "why": "Argument Acemoglu-Rubin : au XVᵉ siècle, la Chine dépasse l'Europe (population, horloge, tissage). Si la géographie ou l'échelle expliquaient tout, l'industrialisation devrait démarrer là. Elle démarre en Europe → besoin d'expliquer par institutions/culture. Partie_3_Chap2_Institutions.txt lignes 22-28.",
+      "id": "institutions-003"
     }
   ],
   "VF": [
@@ -2906,6 +3050,36 @@
       "a": false,
       "why": "Faux. Les âgés n'ont plus de choix : ils consomment intégralement leur épargne accumulée jeunes (pas de legs, pas d'autre revenu). Seuls les jeunes prennent une décision intertemporelle. Partie_2_Chap1_Epargne_endogène.txt lignes 40-45.",
       "id": "olg-004"
+    },
+    {
+      "cat": "harrod",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Dans le modèle de Solow, le fil du rasoir de Harrod-Domar disparaît grâce à la substituabilité entre capital et travail.",
+      "a": true,
+      "why": "Vrai. Solow (1956) introduit la Cobb-Douglas (ou toute fonction néoclassique) où K et L sont substituables. La production s'ajuste continûment et l'économie converge vers un état régulier stable — plus d'instabilité.",
+      "id": "harrod-004"
+    },
+    {
+      "cat": "convergence",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "MRW (1992) montrent empiriquement que la convergence conditionnelle est compatible avec les données inter-pays de la période 1960-1985.",
+      "a": true,
+      "why": "Vrai. MRW régressent la croissance de y sur y initial et les déterminants structurels (s, n, école). Le coefficient sur y initial est négatif et significatif : les pays initialement plus pauvres (relativement à leur état régulier) croissent plus vite. Partie_1_Solow.txt lignes 1037-1062.",
+      "id": "convergence-004"
+    },
+    {
+      "cat": "institutions",
+      "mat": "croissance",
+      "ch": 5,
+      "diff": 2,
+      "q": "Selon North (1990), les institutions se réduisent à leurs composantes formelles (constitutions, lois, règles écrites).",
+      "a": false,
+      "why": "Faux : North inclut aussi les institutions informelles (culture, normes sociales, croyances). Distinction reprise par Acemoglu qui parle plutôt de « culture » pour les informelles. Partie_3_Chap2_Institutions.txt lignes 1-10.",
+      "id": "institutions-004"
     }
   ],
   "SENS": [
@@ -3842,6 +4016,42 @@
       "a": "ambig",
       "why": "Deux effets opposés : effet de substitution (r ↑ ⇒ épargne plus rentable ⇒ épargner plus) et effet de revenu (r ↑ ⇒ moins besoin d'épargner pour atteindre un niveau donné de c2). Sens dépend du σ (élasticité de substitution intertemporelle). Ambigu en général.",
       "id": "olg-005"
+    },
+    {
+      "cat": "harrod",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Modèle de Harrod-Domar, économie initialement sur son sentier de croissance équilibrée g = n",
+      "shock": "Augmentation soudaine et permanente du taux d'épargne s (choc positif exogène)",
+      "var": "Stabilité de la croissance (variance des taux de croissance ex-post autour de la trajectoire)",
+      "a": "up",
+      "why": "Chez Harrod-Domar, tout écart à g = n est instable (fil du rasoir). ↑s modifie le taux garanti g = s/v, écart à n, spirale de sur/sous-investissement. La variance monte.",
+      "id": "harrod-005"
+    },
+    {
+      "cat": "convergence",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Modèle de Solow, deux pays A et B avec mêmes paramètres structurels, mais A démarre avec y_A < y_B",
+      "shock": "Rien : on observe simplement la dynamique de convergence sur plusieurs décennies",
+      "var": "Écart de revenu entre A et B au fil du temps",
+      "a": "down",
+      "why": "Convergence absolue conditionnelle à mêmes paramètres : le pays plus pauvre croît plus vite (rendements décroissants), l'écart se réduit. À long terme, les deux convergent vers le même sentier.",
+      "id": "convergence-005"
+    },
+    {
+      "cat": "institutions",
+      "mat": "croissance",
+      "ch": 5,
+      "diff": 3,
+      "ctx": "Deux pays comparables en dotation initiale de facteurs (K, L, H) mais avec institutions inclusives pour l'un, extractives pour l'autre (Acemoglu-Robinson)",
+      "shock": "Aucun choc extérieur, on laisse les deux systèmes fonctionner sur plusieurs décennies",
+      "var": "Écart de PIB par tête entre les deux pays au bout de 50 ans",
+      "a": "up",
+      "why": "Thèse d'Acemoglu-Robinson (Why Nations Fail 2012) : les institutions inclusives (droits de propriété, incitations, contestabilité politique) favorisent l'innovation et l'investissement ; les extractives les freinent. L'écart se creuse dans le temps.",
+      "id": "institutions-005"
     }
   ],
   "ORDRE": [
@@ -5304,6 +5514,24 @@
         "Selon lui la croissance démographique condamnait l'humanité à la misère.",
         "Un piège de subsistance à long terme porte son nom.",
         "Sa thèse est démentie par la révolution industrielle."
+      ]
+    },
+    {
+      "id": "et-16",
+      "name": "Daron Acemoglu",
+      "mat": "croissance",
+      "aliases": [
+        "acemoglu",
+        "daron acemoglu",
+        "d. acemoglu",
+        "d acemoglu"
+      ],
+      "clues": [
+        "Économiste turco-américain né en 1967, actif au MIT.",
+        "Nobel d'économie en 2024, partagé avec deux collègues.",
+        "Il distingue quatre grandes causes fondamentales de la croissance.",
+        "Co-auteur d'un livre à succès intitulé Why Nations Fail (2012).",
+        "Il oppose institutions inclusives et institutions extractives."
       ]
     }
   ],
