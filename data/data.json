@@ -3146,6 +3146,105 @@
       "trap": "mf-regime",
       "why": "Sous MF fixe + mobilité parfaite : toute tentative d'augmenter M déclenche fuite de capitaux, dépréciation → la BC vend des réserves et absorbe la liquidité pour maintenir la parité, annulant l'expansion. Triangle d'incompatibilité de Mundell.",
       "mat": "emi"
+    },
+    {
+      "id": "equil-028",
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "q": "Selon Balassa-Samuelson, un gain de productivité durable du secteur des biens échangeables (T), avec une contagion salariale vers le secteur abrité (N), entraîne une hausse des prix des biens N et une appréciation du taux de change réel.",
+      "a": true,
+      "trap": "bs-etapes",
+      "why": "Séquence BS : productivité T ↑ ⇒ salaires T ↑ ; marché du travail unique ⇒ salaires N ↑ à productivité N inchangée ⇒ prix N ↑ ⇒ TCR ↑ (via numérateur P). Séquence typiquement sautée dans les mauvaises réponses.",
+      "mat": "emi"
+    },
+    {
+      "id": "si-025",
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "q": "Dans l'approche à deux secteurs (échangeables T / non échangeables N), une hausse durable de la productivité du secteur T entraîne mécaniquement une hausse des salaires nominaux dans le secteur N (contagion salariale par marché du travail unique).",
+      "a": true,
+      "trap": "bs-etapes",
+      "why": "L'homogénéité du marché du travail (WT = WN) implique que tout gain de rémunération dans T se propage à N. Sans cette contagion, il n'y a pas d'effet Balassa-Samuelson sur les prix relatifs.",
+      "mat": "emi"
+    },
+    {
+      "id": "pen-023",
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "q": "Dans le modèle de portefeuille (Kouri), la part optimale d'actifs étrangers f = (i* − i + eᵃ − e)/(α·σ²_E) + f₀ dépend de l'aversion au risque α et de la variance du taux de change σ²_E. La PEN accumulée agit comme contrainte : le taux de change s'ajuste pour égaliser ce que les résidents peuvent (PEN) et veulent (f*) détenir.",
+      "a": true,
+      "trap": "stock-flux",
+      "why": "Le stock PEN contraint la demande d'actifs étrangers. Si f désiré > PEN disponible, e déprécie pour décourager les sorties. Piège : traiter PEN comme un flux modulable, alors qu'il faut d'abord accumuler par excédents courants.",
+      "mat": "emi"
+    },
+    {
+      "id": "forex-023",
+      "cat": "forex",
+      "ch": 2,
+      "diff": 1,
+      "q": "Le marché des changes fonctionne 24 h / 24 grâce à la succession des places (Londres, New York, Tokyo, Singapour) et concentre l'essentiel de ses transactions dans un carnet d'ordres centralisé, comme la bourse actions.",
+      "a": false,
+      "trap": null,
+      "why": "Le forex est un marché de gré à gré (OTC), dématérialisé et décentralisé, sans carnet d'ordres centralisé. Les banques traitent bilatéralement via des plateformes (EBS, Reuters). La partie « 24 h / 24 » est vraie ; la partie « carnet centralisé » est fausse.",
+      "mat": "emi"
+    },
+    {
+      "id": "tcr-025",
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "q": "En zone euro, une inflation persistante supérieure en Espagne (π = 3,5 %) qu'en Allemagne (π* = 1,5 %) entraîne une appréciation du TCR espagnol face à l'Allemagne, c'est-à-dire une perte de compétitivité-prix, malgré l'absence de dévaluation nominale possible.",
+      "a": true,
+      "trap": "fixe-flexible",
+      "why": "TCR = e · P*/P. En union monétaire, e est fixe (=1), donc la divergence d'inflation se traduit intégralement en TCR. Sans ajustement nominal possible, la seule voie de rééquilibrage passe par la déflation salariale ou le chômage (Sud de la zone euro post-2010).",
+      "mat": "emi"
+    },
+    {
+      "id": "smi-024",
+      "cat": "smi",
+      "ch": 6,
+      "diff": 2,
+      "q": "Selon la théorie des zones monétaires optimales (Mundell 1961), une forte mobilité géographique du travail entre pays partenaires facilite l'ajustement aux chocs asymétriques et rend l'union monétaire plus viable.",
+      "a": true,
+      "trap": "mf-regime",
+      "why": "Sous chocs asymétriques (récession dans un seul pays de l'union), l'ajustement se fait par migration vers les régions dynamiques ou par baisse de salaires. La mobilité travail est un substitut à la flexibilité du change qu'on a abandonnée.",
+      "mat": "emi"
+    },
+    {
+      "id": "monet-025",
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "q": "Le modèle de portefeuille (Kouri) généralise la PNCTI en ajoutant une prime de risque de change. Quand l'aversion au risque α tend vers 0 (ou quand σ²_E tend vers 0), le modèle de portefeuille dégénère en PNCTI classique.",
+      "a": true,
+      "trap": "certain-incertain",
+      "why": "PNCTI = arbitrage risque-neutre (α=0 ou σ²_E=0). Portefeuille ajoute f = f₀ + (i* − i + eᵃ − e)/(α·σ²_E). Explique pourquoi le différentiel de taux ne conduit pas toujours à l'appréciation prédite (forward premium puzzle).",
+      "mat": "emi"
+    },
+    {
+      "id": "depr-026",
+      "cat": "depr",
+      "ch": 2,
+      "diff": 3,
+      "q": "Le pricing to market (PTM) désigne l'ajustement partiel des marges des exportateurs en réponse aux variations de change : après une appréciation de leur monnaie, ils absorbent une part de la hausse dans leurs marges, ce qui atténue le pass-through vers les prix à l'importation et allonge la phase de dégradation de la courbe en J.",
+      "a": true,
+      "trap": "ml-symetrie",
+      "why": "PTM = discrimination géographique. Exportateur français qui vend en $ ajuste sa marge € pour lisser le prix $ face à l'appréciation €. Le pass-through devient incomplet, la condition de Marshall-Lerner peut être satisfaite plus tard.",
+      "mat": "emi"
+    },
+    {
+      "id": "mf-031",
+      "cat": "mf",
+      "ch": 4,
+      "diff": 2,
+      "q": "Selon la théorie des zones monétaires optimales (Mundell 1961, Frankel 1999), aucun régime de change n'est universellement optimal : le choix dépend de la symétrie des chocs avec les partenaires, de la mobilité du travail et de la flexibilité des salaires nominaux.",
+      "a": true,
+      "trap": "mf-regime",
+      "why": "Le régime idéal (fixe, flexible, union monétaire) dépend des caractéristiques structurelles. Pays exposé à mêmes chocs et travailleurs mobiles → union viable. Pays à chocs idiosyncratiques ou main-d'œuvre immobile → change flexible préférable.",
+      "mat": "emi"
     }
   ],
   "SENS": [
@@ -4143,6 +4242,110 @@
       "a": "up",
       "trap": "sens-parite",
       "why": "Un rendement domestique plus attractif attire les capitaux vers les actifs en monnaie nationale, ce qui augmente leur demande et provoque une appréciation immédiate (surajustement à la Dornbusch).",
+      "mat": "emi"
+    },
+    {
+      "id": "pen-024",
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "ctx": "Modèle de portefeuille (Kouri), i, i*, eᵃ inchangés, α > 0",
+      "shock": "Hausse durable de la volatilité anticipée du taux de change σ²_E (crise de confiance)",
+      "var": "Part optimale f d'actifs étrangers dans le portefeuille résident",
+      "a": "down",
+      "trap": "certain-incertain",
+      "why": "f = f₀ + (i* − i + eᵃ − e)/(α·σ²_E) : σ²_E ↑ ⇒ dénominateur ↑ ⇒ terme spéculatif ↓ vers 0. Sous aversion au risque, la hausse de la variance décourage la détention d'actifs risqués malgré tout écart de rendement.",
+      "mat": "emi"
+    },
+    {
+      "id": "si-026",
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Ouverture financière complète : suppression des barrières aux capitaux (ex. zone euro pré-2010)",
+      "shock": "Passage d'une économie fermée financièrement à une intégration parfaite",
+      "var": "Coefficient de régression β entre I/Y et S/Y (Feldstein-Horioka)",
+      "a": "down",
+      "trap": "endo-exo",
+      "why": "En théorie pure, ouverture parfaite ⇒ β → 0 (S et I déconnectés au niveau national). Empiriquement, Feldstein-Horioka (1980) trouvent β proche de 1 malgré l'ouverture : c'est le paradoxe. Le coefficient BAISSE mais reste supérieur à la prédiction.",
+      "mat": "emi"
+    },
+    {
+      "id": "forex-024",
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Modèle de portefeuille, aversion au risque α > 0",
+      "shock": "Hausse surprise de la volatilité σ²_E anticipée du taux de change",
+      "var": "Demande d'actifs étrangers f par les résidents",
+      "a": "down",
+      "trap": "certain-incertain",
+      "why": "Sous aversion, hausse σ²_E décourage la détention même si (i* − i) reste positif (high-yield trap). Les résidents se replient sur la baseline non-spéculative f₀.",
+      "mat": "emi"
+    },
+    {
+      "id": "cot-023",
+      "cat": "cot",
+      "ch": 2,
+      "diff": 1,
+      "ctx": "L'euro s'apprécie de 5 % face à ses 3 partenaires principaux (Suisse, Japon, USA), poids commerciaux 1/3 chacun",
+      "shock": "Appréciation bilatérale identique face aux trois partenaires",
+      "var": "Taux de change effectif nominal (TCEN) de l'euro",
+      "a": "up",
+      "trap": "niveau-log",
+      "why": "TCEN = moyenne géométrique pondérée des taux bilatéraux, ici Σ (1/3)·(+5%) ≈ +5 %. Piège : penser qu'il faut sommer ou pondérer par une autre grandeur (PIB) ; ici l'appréciation uniforme se propage à l'identique au TCEN.",
+      "mat": "emi"
+    },
+    {
+      "id": "tcr-026",
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Modèle Balassa-Samuelson à deux secteurs, marché du travail unique",
+      "shock": "Choc positif durable sur la productivité du secteur des biens échangeables (T)",
+      "var": "Taux de change réel (TCR) à long terme",
+      "a": "up",
+      "trap": "bs-etapes",
+      "why": "Productivité T ↑ ⇒ salaires T ↑ ⇒ contagion à N ⇒ prix N ↑ (à productivité N inchangée) ⇒ TCR ↑ (appréciation réelle). Explique pourquoi les pays en rattrapage voient leur monnaie s'apprécier en termes réels.",
+      "mat": "emi"
+    },
+    {
+      "id": "parite-027",
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "PNCTI, i et i* inchangés, e spot avant choc (cotation au certain, e ↑ = appréciation de la monnaie nationale)",
+      "shock": "Révision à la baisse de eᵃ (les investisseurs anticipent une monnaie plus faible dans le futur — dépréciation future)",
+      "var": "Taux de change nominal spot e (au certain)",
+      "a": "down",
+      "trap": "sens-parite",
+      "why": "PNCTI au certain : e = eᵃ + (i − i*)/T. eᵃ ↓ (dépréciation future anticipée) et différentiel inchangé ⇒ e spot ↓ (dépréciation immédiate). Le spot s'ajuste par anticipation, même sans mouvement de taux d'intérêt.",
+      "mat": "emi"
+    },
+    {
+      "id": "parite-028",
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "PNCTI, eᵃ inchangé",
+      "shock": "Hausse symétrique de +100 pb du taux directeur domestique i ET du taux étranger i*",
+      "var": "Taux de change spot e",
+      "a": "same",
+      "trap": "sens-parite",
+      "why": "PNCTI : e = eᵃ + (i − i*)/T. Le différentiel i − i* est inchangé, donc e ne bouge pas. Piège : penser que la hausse simultanée des taux affaiblit ou renforce la monnaie ; seul le différentiel compte.",
+      "mat": "emi"
+    },
+    {
+      "id": "mf-032",
+      "cat": "mf",
+      "ch": 4,
+      "diff": 3,
+      "ctx": "Danemark en régime de change fixe contre l'euro, mobilité parfaite des capitaux",
+      "shock": "Quantitative Easing dans la zone euro (baisse durable de i* zone euro)",
+      "var": "Taux directeur i de la banque centrale danoise",
+      "a": "down",
+      "trap": "mf-regime",
+      "why": "Pour maintenir la parité, la banque centrale danoise doit suivre la BCE : sinon i > i* ⇒ entrée massive de capitaux ⇒ pression à l'appréciation ⇒ dépasse la bande. Seule variable d'ajustement autonome = 0 (dilemme du trilemme).",
       "mat": "emi"
     }
   ],
@@ -5766,6 +5969,145 @@
       ],
       "why": "Distinction canonique du chapitre Institutions et croissance.",
       "id": "institutions-007"
+    },
+    {
+      "id": "equil-029",
+      "cat": "equil",
+      "ch": 5,
+      "diff": 3,
+      "q": "Décrivez le mécanisme complet de l'effet Balassa-Samuelson : quels chocs, quels secteurs, quel canal, quel effet final sur le TCR ?",
+      "model": "Choc de productivité positif dans le secteur des biens échangeables (T). Sur un marché du travail unique, les salaires T montent puis par contagion ceux de N (à productivité N inchangée). Les prix N ↑ (coûts unitaires du travail ↑), les prix T restent alignés sur le marché planétaire (LPU). Effet net : P ↑ et TCR s'apprécie durablement.",
+      "points": [
+        "choc productivité T",
+        "contagion salariale T→N via marché unique",
+        "prix N ↑ à productivité N inchangée",
+        "LPU sur T",
+        "appréciation TCR"
+      ],
+      "notations": [
+        "T = biens échangeables",
+        "N = biens non échangeables",
+        "LPU = loi du prix unique",
+        "TCR = taux de change réel"
+      ],
+      "trap": "bs-etapes",
+      "why": "Séquence à 5 étapes que les mauvaises réponses sautent ou inversent (surtout : oublier la contagion salariale, ou traiter les prix N comme exogènes).",
+      "mat": "emi"
+    },
+    {
+      "id": "pen-025",
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "q": "Écrivez l'équation d'accumulation de la PEN entre t−1 et t lorsque les actifs étrangers sont libellés en devises et le passif en monnaie nationale. Précisez le rôle des rendements iA, iL et du taux de change Et.",
+      "model": "PEN_t = A_{t-1}·(1+iA)·(E_{t-1}/E_t) − L_{t-1}·(1+iL) + BC_t. Deux canaux : (1) accumulation par excédent courant BC_t, (2) effet de valorisation E_{t-1}/E_t : une dépréciation de la monnaie nationale (E ↑) revalorise les actifs en devises et améliore la PEN indépendamment du solde courant.",
+      "points": [
+        "identité d'accumulation PEN",
+        "effet de valorisation",
+        "distinction actifs/passifs par devise",
+        "rôle du solde courant"
+      ],
+      "notations": [
+        "A = avoirs bruts en devises",
+        "L = engagements bruts en monnaie nationale",
+        "iA, iL = rendements",
+        "BC = balance courante",
+        "E = taux au certain"
+      ],
+      "trap": "stock-flux",
+      "why": "Explique le « privilège exorbitant » américain : actifs $ diversifiés à haut rendement, passifs $ à faible rendement — même à BC négatif, la PEN peut se stabiliser.",
+      "mat": "emi"
+    },
+    {
+      "id": "cot-024",
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "q": "On observe EUR/USD = 1,10 et GBP/USD = 1,40 (cotations à l'incertain, point de vue américain). Calculez GBP/EUR (au certain, point de vue européen) et expliquez le rôle de l'arbitrage triangulaire.",
+      "model": "1 GBP = 1,40 USD et 1 USD = 1/1,10 EUR ≈ 0,909 EUR, donc 1 GBP ≈ 1,40 × 0,909 ≈ 1,273 EUR. L'arbitrage triangulaire assure la cohérence : si le taux GBP/EUR observé s'écarte, un arbitragiste achète bon marché sur un marché et revend sur l'autre, ce qui fait converger les taux instantanément.",
+      "points": [
+        "conversion via l'ancre commune (USD)",
+        "formule de taux croisé",
+        "rôle de l'arbitrage",
+        "convergence quasi-instantanée"
+      ],
+      "notations": [
+        "EUR/USD, GBP/USD, GBP/EUR = cotations bilatérales",
+        "taux croisé = taux implicite via une devise pivot"
+      ],
+      "trap": "certain-incertain",
+      "why": "Piège : inverser la division ou oublier la conversion certain/incertain (GBP/EUR ≠ 1,40 × 1,10 = 1,54). L'arbitrage triangulaire est ce qui explique la vérification empirique quasi-parfaite en marché normal.",
+      "mat": "emi"
+    },
+    {
+      "id": "smi-025",
+      "cat": "smi",
+      "ch": 6,
+      "diff": 2,
+      "q": "Énumérez les 4 régimes majeurs du système monétaire international à partir de 1944, avec pour chacun l'année de mise en place et le trait distinctif principal (devise pivot ou mécanisme).",
+      "model": "1) Bretton Woods 1944 : parités fixes autour du dollar convertible en or ($35/once). 2) Jamaïque 1976 : flottement généralisé officiellement reconnu (après effondrement BW 1971-73). 3) SME 1979 : bandes de fluctuation étroites autour de l'ECU. 4) Euro 1999-2002 : monnaie unique, BCE indépendante.",
+      "points": [
+        "Bretton Woods 1944",
+        "Jamaïque 1976",
+        "SME 1979",
+        "Euro 1999-2002",
+        "évolution vers flottement puis union"
+      ],
+      "notations": [
+        "BW = Bretton Woods",
+        "SME = Système Monétaire Européen",
+        "ECU = European Currency Unit",
+        "UEM = Union Économique et Monétaire"
+      ],
+      "trap": "horizon",
+      "why": "Chronologie factuelle. Piège fréquent : confondre 1971 (fin convertibilité or) et 1976 (Jamaïque, ratification du flottement).",
+      "mat": "emi"
+    },
+    {
+      "id": "monet-026",
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "q": "Décrivez le mécanisme de surajustement (overshooting) du taux de change de Dornbusch (1976) après une hausse permanente et surprise de la masse monétaire domestique. Pourquoi la dépréciation dépasse-t-elle son nouveau niveau de long terme à court terme ?",
+      "model": "À court terme, prix rigides : M ↑ ⇒ i ↓, différentiel négatif avec l'étranger. Par PNCTI, la monnaie doit se déprécier ET être anticipée en appréciation future ⇒ elle déprécie AU-DELÀ de son niveau LT. À long terme, prix s'ajustent (P ↑), i revient, change s'apprécie vers son niveau LT. La sur-dépréciation initiale est le surajustement.",
+      "points": [
+        "prix rigides CT vs flexibles LT",
+        "baisse i via M↑",
+        "PNCTI ⇒ dépréciation immédiate anticipée en appréciation",
+        "dépassement du niveau LT",
+        "convergence progressive"
+      ],
+      "notations": [
+        "CT / LT = court / long terme",
+        "PNCTI = parité non couverte des taux d'intérêt",
+        "M = masse monétaire"
+      ],
+      "trap": "statique-dyn",
+      "why": "Modèle canonique reliant statique (nouveau LT) et dynamique (trajectoire d'ajustement). Piège : conclure à une dépréciation lisse jusqu'au LT, sans overshooting.",
+      "mat": "emi"
+    },
+    {
+      "id": "monet-027",
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "q": "Le « forward premium puzzle » désigne le fait que les monnaies à taux d'intérêt élevé ne se déprécient pas comme la PNCTI le prédit, ce qui rend le carry trade rentable en moyenne. Comment le modèle de portefeuille (avec aversion au risque) permet-il de rationaliser ce fait sans invalider la PNCTI ?",
+      "model": "Le modèle de portefeuille ajoute une prime de risque : f = f₀ + (i*−i+eᵃ−e)/(α·σ²_E). Quand σ²_E ou l'aversion α est élevée, un écart de rendement (i* > i) peut persister sans arbitrage : les investisseurs exigent une prime pour tenir la monnaie plus risquée. La PNCTI reste le cas limite (α=0 ou σ²_E=0).",
+      "points": [
+        "énoncé empirique du puzzle",
+        "carry trade rentable en moyenne",
+        "introduction d'une prime de risque de change",
+        "rôle de σ²_E et α",
+        "PNCTI comme cas limite"
+      ],
+      "notations": [
+        "σ²_E = variance anticipée du taux",
+        "α = coefficient d'aversion au risque",
+        "f₀ = allocation baseline non spéculative"
+      ],
+      "trap": "certain-incertain",
+      "why": "Rationalisation du puzzle via le risque de change. Alternative : biais de peso, apprentissage. Le portefeuille reste le cadre pédagogique dominant.",
+      "mat": "emi"
     }
   ],
   "ETOILE": [
