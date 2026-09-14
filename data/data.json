@@ -262,15 +262,15 @@
       "cat": "forex",
       "ch": 2,
       "diff": 2,
-      "q": "Un exportateur français doit recevoir 100 000 USD dans 3 mois. Pour se couvrir contre une baisse du dollar, il :",
+      "q": "Un exportateur français doit recevoir 100 000 USD dans 3 mois. Pour se couvrir contre une baisse du dollar, sa couverture standard est :",
       "choices": [
-        "vend ses dollars à terme aujourd'hui",
-        "achète des dollars à terme aujourd'hui",
+        "vend ses dollars à terme (forward sell)",
+        "achète des dollars à terme (forward buy)",
         "achète une option de vente d'euros",
         "conclut un swap euro-yen"
       ],
       "a": 0,
-      "why": "L'exportateur qui recevra des dollars veut fixer aujourd'hui le prix auquel il les vendra ; il les vend à terme.",
+      "why": "L'exportateur qui recevra des dollars veut fixer à la signature le prix auquel il les vendra ; il les vend à terme.",
       "mat": "emi"
     },
     {
@@ -496,7 +496,7 @@
       "cat": "pen",
       "ch": 1,
       "diff": 2,
-      "q": "Deux pays ont le même déficit courant chaque année depuis dix ans, mais l'un voit sa PEN se dégrader deux fois plus vite. L'explication la plus plausible est :",
+      "q": "Deux pays ont le même déficit courant chaque année sur dix ans, mais l'un voit sa PEN se dégrader deux fois plus vite. L'explication la plus plausible est :",
       "choices": [
         "des effets de valorisation défavorables au premier",
         "une comptabilité fautive du second",
@@ -709,13 +709,13 @@
       "diff": 2,
       "q": "Un importateur français doit payer 100 000 USD dans trois mois. La couverture classique consiste à :",
       "choices": [
-        "acheter les dollars à terme aujourd'hui",
-        "vendre les dollars à terme aujourd'hui",
+        "acheter les dollars à terme (forward buy)",
+        "vendre les dollars à terme (forward sell)",
         "acheter une option de vente d'euros",
         "attendre et payer au comptant"
       ],
       "a": 0,
-      "why": "L'importateur veut fixer aujourd'hui le prix d'achat des dollars futurs : achat à terme.",
+      "why": "L'importateur veut fixer à la signature le prix d'achat des dollars futurs : achat à terme.",
       "mat": "emi"
     },
     {
@@ -1542,7 +1542,7 @@
         "sa PEN est nulle",
         "il n'a pas de banque centrale ni de mécanisme de contrôle monétaire national indépendant",
         "il est en régime fixe",
-        "il investit aujourd'hui pour rembourser demain avec des recettes futures"
+        "il investit en début de période pour rembourser avec des recettes futures"
       ],
       "a": 3,
       "why": "Justification économique du déficit : lissage de la consommation face à un revenu croissant, ou financement de l'investissement productif.",
@@ -2299,7 +2299,7 @@
       "cat": "smi",
       "ch": 2,
       "diff": 2,
-      "q": "Depuis 1976, tous les grands pays ont adopté des changes purement flottants sans intervention des banques centrales.",
+      "q": "Après 1976, tous les grands pays ont adopté des changes purement flottants sans intervention des banques centrales.",
       "a": false,
       "why": "La plupart des banques centrales pratiquent un flottement géré. Certaines économies conservent des ancrages fixes ou glissants.",
       "mat": "emi"
@@ -2739,7 +2739,7 @@
       "diff": 2,
       "ctx": "PNCTI, i et i* inchangés",
       "shock": "Hausse de l'anticipation eᵃ (dépréciation anticipée)",
-      "var": "Taux de change au certain e aujourd'hui",
+      "var": "Taux de change au certain e à l'impact",
       "a": "up",
       "trap": "sens-parite",
       "why": "e = eᵃ + (i − i*) : à i − i* donné, eᵃ ↑ ⇒ e ↑ dès aujourd'hui.",
@@ -2984,7 +2984,7 @@
       "diff": 2,
       "ctx": "PNCTI, i et eᵃ inchangés",
       "shock": "Hausse du taux d'intérêt étranger i*",
-      "var": "Taux de change au certain e aujourd'hui",
+      "var": "Taux de change au certain e à l'impact",
       "a": "down",
       "trap": "sens-parite",
       "why": "e = eᵃ + (i − i*) : i* ↑ ⇒ e ↓ (dépréciation immédiate).",
@@ -3033,8 +3033,8 @@
       "cat": "smi",
       "ch": 2,
       "diff": 3,
-      "ctx": "Bretton Woods, dollars fournis au monde par le déficit américain",
-      "shock": "Encours mondial de dollars très supérieur au stock d'or de la Fed",
+      "ctx": "Bretton Woods, dollars fournis à l'international par le déficit américain",
+      "shock": "Encours international de dollars très supérieur au stock d'or de la Fed",
       "var": "Crédibilité de la convertibilité or à 35 $ l'once",
       "a": "down",
       "why": "Dilemme de Triffin : plus de dollars ⇒ moins de crédibilité. Résultat historique : abandon de la convertibilité en 1971.",
@@ -3234,7 +3234,7 @@
       "diff": 3,
       "ctx": "PNCTI, prime de risque ρ > 0 exigée par les investisseurs",
       "shock": "Introduction d'une prime de risque positive sur la monnaie domestique",
-      "var": "Taux de change au certain e aujourd'hui",
+      "var": "Taux de change au certain e à l'impact",
       "a": "down",
       "trap": "sens-parite",
       "why": "i = i* + ρ − (eᵃ − e). ρ ↑ ⇒ à i, i*, eᵃ donnés, e ↓ (dépréciation compensatoire immédiate).",
@@ -3720,7 +3720,7 @@
         "Identification du risque : baisse du dollar dans 3 mois",
         "Vente des 100 000 USD à terme à 3 mois",
         "Livraison des dollars par l'importateur",
-        "Conversion au taux fixé aujourd'hui, résultat certain"
+        "Conversion au taux fixé à la signature, résultat certain"
       ],
       "why": "Couverture parfaite : le prix en euros est connu dès la signature.",
       "id": "forex-013",
@@ -4187,7 +4187,7 @@
       "ch": 2,
       "diff": 2,
       "q": "Décrire les instruments principaux du marché des changes (spot, terme, swap, option) et leur usage.",
-      "model": "Spot : livraison immédiate. Terme : prix fixé aujourd'hui, livraison future. Swap : achat spot + vente à terme, gestion trésorerie sans exposition nette. Option : droit (pas obligation) d'acheter (call) ou vendre (put) à un prix d'exercice.",
+      "model": "Spot : livraison immédiate. Terme : prix fixé à la signature, livraison future. Swap : achat spot + vente à terme, gestion trésorerie sans exposition nette. Option : droit (pas obligation) d'acheter (call) ou vendre (put) à un prix d'exercice.",
       "points": [
         "spot (immédiat)",
         "terme (forward)",
@@ -4208,7 +4208,7 @@
       "ch": 2,
       "diff": 2,
       "q": "Un exportateur français reçoit 100 000 USD dans 3 mois. Comment se couvre-t-il et pourquoi ?",
-      "model": "Il vend les 100 000 USD à terme (forward sell) à 3 mois. Il fixe aujourd'hui le taux de conversion en euros, éliminant le risque de baisse du dollar.",
+      "model": "Il vend les 100 000 USD à terme (forward sell) à 3 mois. Il fixe à la signature le taux de conversion en euros, éliminant le risque de baisse du dollar.",
       "points": [
         "vente à terme",
         "3 mois",
@@ -4765,7 +4765,7 @@
       "ch": 2,
       "diff": 2,
       "q": "Distinguer une opération de change au comptant (spot) d'une opération à terme (forward) et expliquer l'intérêt de la couverture à terme pour un exportateur.",
-      "model": "Spot : livraison sous 2 jours ouvrés au taux du jour. Forward : contrat aujourd'hui pour une livraison future (1 mois, 3 mois...) à un cours convenu à l'avance (cours à terme f). Intérêt pour un exportateur facturant en devise étrangère : la vente à terme des devises futures fige la contre-valeur en monnaie nationale, éliminant le risque de change. Coût = renoncer à un éventuel gain si la devise s'apprécie.",
+      "model": "Spot : livraison sous 2 jours ouvrés au taux du jour. Forward : contrat conclu à la signature pour une livraison future (1 mois, 3 mois...) à un cours convenu à l'avance (cours à terme f). Intérêt pour un exportateur facturant en devise étrangère : la vente à terme des devises futures fige la contre-valeur en monnaie nationale, éliminant le risque de change. Coût = renoncer à un éventuel gain si la devise s'apprécie.",
       "points": [
         "distinction spot vs forward (délai + cours convenu)",
         "risque exposition exportateur = dépréciation de la devise reçue",
