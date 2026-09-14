@@ -1571,6 +1571,74 @@
       "why": "Sans effet sur Ms (open market compensatoire) → LM inchangée → ni Y ni i changent durablement. Seul le bilan BC (or, devises, obligations) est modifié.",
       "id": "mf-025",
       "mat": "emi"
+    },
+    {
+      "cat": "bdp",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 2,
+      "q": "Selon la convention du cours, l'identité comptable de la balance des paiements s'écrit :",
+      "choices": [
+        "TC + CC − CF + EO = 0",
+        "TC + CC + CF + EO = 0",
+        "TC − CC − CF + EO = 0",
+        "TC + CC − CF = 0 (les erreurs et omissions sont négligeables)"
+      ],
+      "a": 0,
+      "trap": "signe-bdp",
+      "why": "Convention du cours : TC + CC − CF + EO = 0. Le compte financier CF entre avec un signe négatif dans l'identité. Capacité (ou besoin) de financement = TC + CC. Les EO (erreurs et omissions) équilibrent la balance et ne sont jamais négligeables en pratique.",
+      "id": "bdp-021"
+    },
+    {
+      "cat": "bdp",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 2,
+      "q": "Un pays affiche un solde du compte courant négatif et un solde du compte financier négatif au sens de la convention du cours. Comment interpréter cette situation ?",
+      "choices": [
+        "Déficit courant financé par une entrée nette de capitaux",
+        "Excédent courant financé par une sortie nette de capitaux",
+        "Situation comptable impossible",
+        "Baisse des réserves officielles nécessairement compensée par les erreurs et omissions"
+      ],
+      "a": 0,
+      "trap": "signe-bdp",
+      "why": "Convention du cours : CF < 0 = entrée nette de capitaux. Un déficit courant (CC < 0) est financé par une entrée nette de capitaux (CF < 0). L'identité TC + CC − CF + EO = 0 tient : les deux soldes négatifs se compensent au signe près.",
+      "id": "bdp-022"
+    },
+    {
+      "cat": "tcr",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 2,
+      "q": "Le taux de change effectif nominal (TCEN) d'une monnaie i par rapport à J partenaires commerciaux se calcule comme :",
+      "choices": [
+        "Moyenne géométrique pondérée des taux de change bilatéraux, poids = parts commerciales",
+        "Moyenne arithmétique simple des taux de change bilatéraux",
+        "Somme des taux de change bilatéraux",
+        "Produit des taux de change bilatéraux, non pondéré"
+      ],
+      "a": 0,
+      "trap": "niveau-log",
+      "why": "En niveau, TCEN = moyenne géométrique pondérée : Ê_i = Π (E_ij)^ω_ij, avec Σ ω_ij = 1. Les poids sont les parts du partenaire j dans les échanges extérieurs de i. En variation (log), on obtient la moyenne arithmétique pondérée des taux de variation bilatéraux.",
+      "id": "tcr-021"
+    },
+    {
+      "cat": "tcr",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 2,
+      "q": "Un pays a deux partenaires commerciaux, poids 50/50. Sur l'année, sa monnaie s'apprécie de 10 % contre le premier et se déprécie de 10 % contre le second. Quelle est la variation du TCEN en log ?",
+      "choices": [
+        "0 % (0,5 × 10 % + 0,5 × (−10 %))",
+        "+10 % (moyenne géométrique)",
+        "+2 % (compensation partielle)",
+        "Indéterminée sans connaître les niveaux initiaux"
+      ],
+      "a": 0,
+      "trap": "niveau-log",
+      "why": "En log, la variation du TCEN est la moyenne arithmétique pondérée des variations bilatérales : 0,5 × 10 % + 0,5 × (−10 %) = 0 %. C'est précisément l'intérêt du log : éviter l'effet de base qui apparaît en niveau.",
+      "id": "tcr-022"
     }
   ],
   "VF": [
@@ -2198,6 +2266,28 @@
       "why": "Régime intermédiaire = mélange de fixe et flexible : les politiques ont un effet non nul mais amoindri.",
       "id": "mf-022",
       "mat": "emi"
+    },
+    {
+      "cat": "pen",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 2,
+      "q": "La position extérieure nette (PEN) est un stock qui varie exclusivement au rythme du solde courant cumulé.",
+      "a": false,
+      "trap": "stock-flux",
+      "why": "Faux. PEN_t = A_{t-1}(1+i_A) − L_{t-1}(1+i_L) + BC_t (ou avec effets de valorisation E_{t-1}/E_t si A est en devise étrangère). La PEN varie aussi par les intérêts et par les effets de valorisation liés aux taux de change et aux prix d'actifs — le solde courant cumulé n'en est qu'une composante.",
+      "id": "pen-019"
+    },
+    {
+      "cat": "tcr",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 2,
+      "q": "Le taux de change effectif réel (TCER) d'un pays s'obtient en multipliant le TCEN par le ratio des prix étrangers sur prix domestiques : TCER = TCEN × P*/P.",
+      "a": false,
+      "trap": "niveau-log",
+      "why": "Attention au sens du ratio : TCER = TCEN × P/P*, prix domestique au numérateur. Une hausse du TCER = appréciation réelle (les biens domestiques deviennent chers relativement). En variation : Δq ≈ Δe + (π − π*), avec Δe = variation du TCEN.",
+      "id": "tcr-023"
     }
   ],
   "SENS": [
@@ -2962,6 +3052,58 @@
       "why": "Rapatriement = désinvestissement à l'étranger = entrée nette de capitaux ⇒ CF < 0 (convention du cours).",
       "id": "bdp-020",
       "mat": "emi"
+    },
+    {
+      "cat": "pen",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 3,
+      "ctx": "Pays créancier net : actif A libellé en dollars (monnaie étrangère), passif L libellé en euros (monnaie nationale). E = nombre de dollars par euro (taux au certain).",
+      "shock": "Dépréciation surprise de l'euro (E baisse : moins de dollars pour un euro)",
+      "var": "Valeur en euros de la PEN, effet de valorisation de la période",
+      "a": "up",
+      "trap": "certain-incertain",
+      "why": "PEN_t = A_{t-1}(1+i_A) × (E_{t-1}/E_t) − L_{t-1}(1+i_L) + BC_t. E↓ ⇒ E_{t-1}/E_t > 1 ⇒ la valeur en euros de l'actif en $ augmente. Pour un pays créancier en devise étrangère, une dépréciation nationale améliore la PEN par effet de valorisation, indépendamment du solde courant.",
+      "id": "pen-020"
+    },
+    {
+      "cat": "si",
+      "mat": "emi",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Théorie néoclassique : le capital doit affluer des pays riches (rendement faible du capital) vers les pays pauvres (rendement élevé). Lucas (1990) constate le paradoxe : ces flux Nord → Sud sont bien plus faibles qu'attendu.",
+      "shock": "Aggravation de l'instabilité politique et détérioration de la protection sociale dans un pays du Sud",
+      "var": "Flux nets d'investissements Nord → Sud vers ce pays",
+      "a": "down",
+      "trap": "endo-exo",
+      "why": "Lucas identifie parmi les explications : coût du capital physique, corruption, main-d'œuvre peu qualifiée, instabilité politique, système financier peu développé, faible protection sociale (qui pousse à l'épargne locale). Aggraver ces facteurs réduit encore les flux entrants — le paradoxe s'accentue.",
+      "id": "si-018"
+    },
+    {
+      "cat": "forex",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 1,
+      "ctx": "Exportateur français facturant 1 M$ payable dans 3 mois ; son risque est une dépréciation du dollar avant l'échéance (moins d'euros au paiement).",
+      "shock": "Vente à terme (forward) des 1 M$ au cours à 3 mois",
+      "var": "Exposition résiduelle de l'exportateur au risque de change",
+      "a": "down",
+      "trap": "endo-exo",
+      "why": "La vente à terme fixe dès aujourd'hui le taux de change du paiement futur : l'exportateur connaît la contre-valeur en euros avec certitude. Exposition résiduelle = 0 (couverture parfaite tant que la contrepartie honore le contrat). Coût = renoncer au gain si le $ s'apprécie.",
+      "id": "forex-019"
+    },
+    {
+      "cat": "smi",
+      "mat": "emi",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Régime de l'étalon-or 1870-1914 : chaque monnaie est convertible en or à parité fixe et officielle, les taux de change bilatéraux sont donc quasi-fixes.",
+      "shock": "Éclatement de la Première Guerre mondiale (1914) : suspension par les belligérants de la convertibilité or",
+      "var": "Volatilité des taux de change nominaux",
+      "a": "up",
+      "trap": "fixe-flexible",
+      "why": "L'étalon-or ne résiste pas à la guerre : la convertibilité est suspendue dès 1914. Les taux de change deviennent flottants et volatils. Les tentatives de restauration dans l'entre-deux-guerres (livre 1925, franc 1928) échouent — le SMI d'avant 1914 n'est jamais recréé durablement.",
+      "id": "smi-021"
     }
   ],
   "ORDRE": [
