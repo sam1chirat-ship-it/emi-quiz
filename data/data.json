@@ -1987,6 +1987,166 @@
       "a": 2,
       "why": "Gordon (2000) : la productivité américaine croît ~2 %/an longtemps ; ralentit après 1972 ; petite reprise ~2000 ; puis rechute. La 3ᵉ vague (TIC) déçoit par rapport à l'électricité. Partie_2_C2C3_Paul_Romer.txt lignes 72-81.",
       "id": "romer-003"
+    },
+    {
+      "cat": "aghion",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 2,
+      "q": "Selon Jones, la critique principale adressée aux modèles de Romer (1990) est :",
+      "choices": [
+        "l'absence de dépréciation du capital humain",
+        "la présence d'un effet d'échelle non validé empiriquement",
+        "l'oubli de l'ouverture commerciale internationale dans l'analyse",
+        "le rejet de la Cobb-Douglas"
+      ],
+      "a": 1,
+      "why": "Jones : l'effet d'échelle implique que doubler le nombre de chercheurs devrait doubler g. Or aux USA 1950-88, la R&D est ×5, la part des chercheurs ×3, mais g_PTF reste plutôt constante. Rejet empirique de Romer 1990. Partie_2_Chap4_Jones_Aghion.txt lignes 1-40.",
+      "id": "aghion-001"
+    },
+    {
+      "cat": "aghion",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 3,
+      "q": "Dans la fonction de production d'idées révisée par Jones (semi-endogène), l'introduction de 0 < λ < 1 modélise :",
+      "choices": [
+        "une hausse permanente et purement exogène de la productivité des chercheurs employés",
+        "une externalité de connaissance parfaite",
+        "un effet de duplication qui réduit la productivité marginale des chercheurs",
+        "une dépréciation du capital physique"
+      ],
+      "a": 2,
+      "why": "λ < 1 dans Ȧ = δ · L_A · A^φ ou variantes traduit la duplication : plusieurs chercheurs travaillent sur la même idée. Externalité de connaissance moins puissante que chez Romer 1990. Partie_2_Chap4_Jones_Aghion.txt lignes 45-55.",
+      "id": "aghion-002"
+    },
+    {
+      "cat": "aghion",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 3,
+      "q": "Dans la croissance semi-endogène (Jones), le taux de croissance à long terme dépend :",
+      "choices": [
+        "du taux de croissance de la population et non plus de la part de chercheurs seule",
+        "uniquement de la part de chercheurs (comme Romer 1990)",
+        "du taux d'épargne s comme dans les modèles AK à rendements constants dans le capital",
+        "d'une simple règle exogène fixée par le planificateur"
+      ],
+      "a": 0,
+      "why": "Semi-endogène : g_A dépend de n (démographie), la politique de R&D affecte le NIVEAU des idées mais pas le taux de croissance de long terme. Résultat central de Jones (1995). Différence-clé avec Romer 1990.",
+      "id": "aghion-003"
+    },
+    {
+      "cat": "malthus",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 1,
+      "q": "Selon la périodisation du cours (Rubin, Partie 3), l'humanité connaît trois grandes époques historiques de croissance :",
+      "choices": [
+        "ère préindustrielle, révolution industrielle, ère post-1945",
+        "ère malthusienne, ère post-malthusienne, ère moderne",
+        "empires, féodalité, capitalisme",
+        "Antiquité, Moyen Âge, Modernité"
+      ],
+      "a": 1,
+      "why": "Périodisation du cours : (1) malthusienne — croissance nulle ou faible, y ≈ constant, jusqu'à ~1800 ; (2) post-malthusienne — hausse conjointe de la population et du revenu ; (3) moderne — transition démographique, éducation, croissance accélérée. Partie_3_Chap1_Pop.txt lignes 15-60.",
+      "id": "malthus-001"
+    },
+    {
+      "cat": "malthus",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 2,
+      "q": "Le taux de croissance mondial du revenu par habitant entre l'an 1000 et 1820 (source Maddison, cité par Rubin) est estimé à environ :",
+      "choices": [
+        "environ 1,5 % par an, comme au XXᵉ siècle en moyenne mondiale",
+        "0,5 % par an",
+        "0,05 % par an",
+        "0 % (nul)"
+      ],
+      "a": 2,
+      "why": "Maddison : g_y ≈ 0,05 %/an entre 1000 et 1820, très faible mais non nul. Le revenu moyen mondial atteint 670 $ en 1820 (avec 1200 $ en Europe industrialisée). C'est l'ère malthusienne — quasi-stagnation. Partie_3_Chap1_Pop.txt lignes 20-30.",
+      "id": "malthus-002"
+    },
+    {
+      "cat": "malthus",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 2,
+      "q": "Ce qui caractérise l'ère post-malthusienne (~1820-1913) par rapport à l'ère précédente :",
+      "choices": [
+        "un effondrement de la population mondiale",
+        "un revenu par habitant qui recommence à baisser malgré l'industrialisation",
+        "une hausse simultanée de la population ET du revenu par habitant",
+        "l'apparition d'un contrôle centralisé des naissances"
+      ],
+      "a": 2,
+      "why": "Nouveauté post-malthusienne : la croissance démographique ne fait plus baisser y (comme dans Malthus). Au contraire, y croît PLUS vite que L. Débute en Europe de l'Ouest, se diffuse. Éducation reste faible. Partie_3_Chap1_Pop.txt lignes 40-55.",
+      "id": "malthus-003"
+    },
+    {
+      "cat": "malthus",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 3,
+      "q": "La transition démographique se caractérise dans les pays développés européens par une chute du taux de fertilité, atteignant vers 1970 environ :",
+      "choices": [
+        "1 enfant par femme",
+        "2 enfants par femme (seuil de remplacement)",
+        "3 enfants par femme, soit un niveau intermédiaire entre l'ère malthusienne et le seuil de remplacement démographique",
+        "0 enfant (stérilité massive)"
+      ],
+      "a": 1,
+      "why": "Table du cours : dans les pays européens post-1970, F ≈ 2 (Pays-Bas, Allemagne, Royaume-Uni, France passent tous de 4-6 à ~2). Sous 2, la population cesse mécaniquement de croître à long terme (2019 : Allemagne 1,6). Partie_3_Chap1_Pop.txt lignes 60-70.",
+      "id": "malthus-004"
+    },
+    {
+      "cat": "olg",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans le modèle de Diamond à générations imbriquées (1965), la population à la période t se compose de :",
+      "choices": [
+        "seulement les agents jeunes",
+        "seulement les agents âgés",
+        "jeunes producteurs et âgés inactifs, en cohabitation",
+        "d'une population homogène, continue et infinie sur toutes les périodes futures"
+      ],
+      "a": 2,
+      "why": "OLG (Diamond) : deux générations coexistent chaque période. Les jeunes produisent et épargnent ; les âgés consomment l'épargne de leur jeunesse. La population croît au taux n. Partie_2_Chap1_Epargne_endogène.txt lignes 25-40.",
+      "id": "olg-001"
+    },
+    {
+      "cat": "olg",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 3,
+      "q": "Dans le modèle OLG, quelle décision l'agent jeune doit-il prendre à chaque période ?",
+      "choices": [
+        "arbitrer entre consommation présente et épargne pour sa vieillesse",
+        "décider s'il aura des enfants",
+        "voter la politique monétaire et budgétaire nationale au niveau du parlement",
+        "choisir sa profession"
+      ],
+      "a": 0,
+      "why": "Décision d'épargne intertemporelle : maximiser l'utilité U(c1_t, c2_{t+1}) sous contraintes budgétaires des deux périodes. Les âgés n'ont plus de choix, ils consomment leur épargne accumulée. Partie_2_Chap1_Epargne_endogène.txt lignes 40-50.",
+      "id": "olg-002"
+    },
+    {
+      "cat": "olg",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 3,
+      "q": "Le paramètre σ (élasticité de substitution intertemporelle inverse) dans la fonction d'utilité U = c^(1−σ)/(1−σ) contrôle :",
+      "choices": [
+        "la démographie",
+        "la courbure des courbes d'indifférence et le degré de préférence intertemporelle pour la variété",
+        "le taux d'inflation",
+        "la structure de la BdP"
+      ],
+      "a": 1,
+      "why": "σ mesure la préférence pour lisser la consommation dans le temps. σ = 0 : linéaire (indifférent au lissage) ; σ élevé : courbe très convexe (préférence forte pour lisser). Cas limite σ → 1 : utilité logarithmique. Partie_2_Chap1_Epargne_endogène.txt lignes 15-22.",
+      "id": "olg-003"
     }
   ],
   "VF": [
@@ -2716,6 +2876,36 @@
       "a": false,
       "why": "Faux : non-rivalité ≠ non-excluabilité. Une idée peut être non-rivale (usage simultané) MAIS excluable via brevets, secrets, complexité. Sans excluabilité, pas d'incitation privée à investir dans la recherche — d'où le besoin de propriété intellectuelle.",
       "id": "romer-004"
+    },
+    {
+      "cat": "aghion",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 2,
+      "q": "Dans la croissance semi-endogène de Jones, la politique publique de R&D affecte le taux de croissance de long terme.",
+      "a": false,
+      "why": "Faux. Jones : politique de R&D affecte le NIVEAU des idées (effet transitoire) mais pas le taux de croissance de long terme, qui dépend de la démographie n. C'est ce qui rend la croissance « semi » endogène. Contraste avec Romer 1990 (endogène pure).",
+      "id": "aghion-004"
+    },
+    {
+      "cat": "malthus",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 2,
+      "q": "Dans l'ère malthusienne, la population mondiale a stagné pendant plusieurs millénaires.",
+      "a": false,
+      "why": "Faux : la population a augmenté lentement mais de façon accélérée. De 125 000 à 230 millions entre −1 M d'années et l'an 0, puis 438 millions en 1500, 1,04 milliards en 1820. Croissance faible mais positive. Partie_3_Chap1_Pop.txt lignes 30-35.",
+      "id": "malthus-005"
+    },
+    {
+      "cat": "olg",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans le modèle OLG, les âgés arbitrent entre consommation présente et épargne comme les jeunes.",
+      "a": false,
+      "why": "Faux. Les âgés n'ont plus de choix : ils consomment intégralement leur épargne accumulée jeunes (pas de legs, pas d'autre revenu). Seuls les jeunes prennent une décision intertemporelle. Partie_2_Chap1_Epargne_endogène.txt lignes 40-45.",
+      "id": "olg-004"
     }
   ],
   "SENS": [
@@ -3616,6 +3806,42 @@
       "a": "up",
       "why": "Brevets plus protecteurs ⇒ rente d'innovation plus longue ⇒ profit anticipé de la R&D ↑ ⇒ investissement en R&D ↑. Piège : brevets trop longs peuvent aussi freiner la diffusion (arbitrage incitation/diffusion).",
       "id": "romer-005"
+    },
+    {
+      "cat": "aghion",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 3,
+      "ctx": "Modèle de croissance semi-endogène (Jones), économie sur son sentier de croissance équilibré",
+      "shock": "Hausse permanente de la part des chercheurs (s_R) dans la population",
+      "var": "Taux de croissance de long terme du PIB par tête",
+      "a": "same",
+      "why": "Semi-endogène : s_R affecte le NIVEAU des idées, pas le taux de long terme. Ce dernier dépend de n. Contraste avec Romer 1990 où s_R ↑ ⇒ g ↑. C'est le résultat que Jones défend empiriquement.",
+      "id": "aghion-005"
+    },
+    {
+      "cat": "malthus",
+      "mat": "croissance",
+      "ch": 4,
+      "diff": 2,
+      "ctx": "Modèle malthusien avec terre fixe et loi de fertilité endogène",
+      "shock": "Progrès technique qui améliore la productivité agricole (choc positif ponctuel)",
+      "var": "Revenu par habitant à long terme",
+      "a": "same",
+      "why": "Piège malthusien : le progrès technique fait TRANSITOIREMENT monter y, ce qui déclenche une hausse de la fertilité, donc de L, qui ramène y à son niveau de subsistance. Résultat de long terme : y inchangé. Malthus (1798). Partie_3_Chap1_Pop.txt lignes 70+.",
+      "id": "malthus-006"
+    },
+    {
+      "cat": "olg",
+      "mat": "croissance",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle OLG de Diamond, économie à l'état régulier",
+      "shock": "Hausse permanente du taux d'intérêt réel r (rendement du capital)",
+      "var": "Épargne des jeunes",
+      "a": "ambig",
+      "why": "Deux effets opposés : effet de substitution (r ↑ ⇒ épargne plus rentable ⇒ épargner plus) et effet de revenu (r ↑ ⇒ moins besoin d'épargner pour atteindre un niveau donné de c2). Sens dépend du σ (élasticité de substitution intertemporelle). Ambigu en général.",
+      "id": "olg-005"
     }
   ],
   "ORDRE": [
@@ -5061,6 +5287,24 @@
         "Six faits stylisés célèbres de la croissance lui doivent leur base empirique."
       ],
       "id": "et-14"
+    },
+    {
+      "id": "et-15",
+      "name": "Thomas Malthus",
+      "mat": "croissance",
+      "aliases": [
+        "malthus",
+        "thomas malthus",
+        "t. malthus",
+        "t malthus"
+      ],
+      "clues": [
+        "Économiste et pasteur britannique né en 1766, mort en 1834.",
+        "Auteur en 1798 d'un essai sur le principe de population.",
+        "Selon lui la croissance démographique condamnait l'humanité à la misère.",
+        "Un piège de subsistance à long terme porte son nom.",
+        "Sa thèse est démentie par la révolution industrielle."
+      ]
     }
   ],
   "CHEATSHEET": {
