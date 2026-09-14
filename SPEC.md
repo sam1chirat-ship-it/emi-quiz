@@ -380,7 +380,17 @@ Repris de `bamboozle-questions` : `strict_dup`, `fuzzy_dup` (ratio > 0.72), `ans
 | J4 | Coup fatal : horloges, `GEN` × 6, `qcm` 3 choix. Son + haptique. |
 | J5 | Coup de maître (`ouverte`, paliers, cagnotte), étoile, règne, palmarès. |
 | J6 | `playtest.mjs` (scenario, srs, layout), déploiement Pages, test iPhone réel. Banque à 270+. |
-| J7+ | Réviser avec. Ajouter des items au fil des révisions (`add.py`), express en v1.1. |
+| J7 | Mode Express v1.1 (4 candidats / 3 bots / 60 s / 3 questions). Banque 232 items. |
+| J8 | Cibles v1 atteintes : 267 items, 8 générateurs `calc`. |
+| J9 | Consolidations et corrections. |
+| J10 | Mémo (cheatsheet) : modal plein écran avec recherche. |
+| J11 | Structure multi-matière branchée en v1 transparente (`mat` sur items et CATS ; setup filtre par matière ; getMats). |
+| J11-bis | SPEC §2/§3/§8.2 explicités « `"emi"` ou `"croissance"` » ; verify.py contrôle `ALLOWED_MATS`. |
+| J12 | Enrichissement banque EMI depuis sources 2025-2026 (`sources/pdfs_2025/`) : +10 items, WARN SENS résolus. 265 items. |
+| J13 | Lot ORDRE + OUVERTE (+10 items) : chaque catégorie a désormais ≥ 2 ORDRE et ≥ 3 OUVERTE. Baselines de captures régénérées. 275 items. |
+| J14 | Rééquilibrage `qcm_correct_longest` sur smi (100 %→12 %) et parite (88 %→12 %) : 14 QCM patchés, positions `a` réparties, distracteurs allongés en préservant les traps. +6 items ORDRE/OUVERTE. 281 items. **Cible ORDRE v1 (25) atteinte.** |
+| J15 | Plomberie multi-matière au grand jour : `getMats()` se base sur les items (pas CATS) → sélecteur reste transparent tant qu'aucun item d'une seconde matière n'existe. 12 CATS croissance vides ajoutées à data.json (structure prête) : `residu`, `kaldor`, `harrod`, `solow`, `mrw`, `convergence`, `ak`, `romer`, `aghion`, `malthus`, `olg`, `institutions`. |
+| J16+ | Suite : rééquilibrage des 10 catégories QCM restantes ; polissage perishable ; écriture des premiers items `mat:"croissance"`. |
 
 ---
 

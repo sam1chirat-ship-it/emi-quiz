@@ -46,9 +46,14 @@ REQUIRED_IDS = [
 ]
 
 # Catégories autorisées (SPEC §2)
+#   EMI    : bdp, pen, si, forex, cot, tcr, smi, parite, monet, depr, equil, mf (12)
+#   CROIS  : residu, kaldor, harrod, solow, mrw, convergence, ak, romer, aghion,
+#            malthus, olg, institutions (12) — structure prête, items à écrire
 CATS_ORDER = [
     "bdp", "pen", "si", "forex", "cot", "tcr",
     "smi", "parite", "monet", "depr", "equil", "mf",
+    "residu", "kaldor", "harrod", "solow", "mrw", "convergence",
+    "ak", "romer", "aghion", "malthus", "olg", "institutions",
 ]
 
 # `trap` autorisés (SPEC §10)

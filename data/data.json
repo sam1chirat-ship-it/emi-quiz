@@ -59,6 +59,66 @@
       "name": "Mundell-Fleming",
       "ch": 6,
       "mat": "emi"
+    },
+    "residu": {
+      "name": "Comptabilité de la croissance",
+      "ch": 1,
+      "mat": "croissance"
+    },
+    "kaldor": {
+      "name": "Faits stylisés (Kaldor)",
+      "ch": 1,
+      "mat": "croissance"
+    },
+    "harrod": {
+      "name": "Harrod-Domar",
+      "ch": 1,
+      "mat": "croissance"
+    },
+    "solow": {
+      "name": "Modèle de Solow",
+      "ch": 2,
+      "mat": "croissance"
+    },
+    "mrw": {
+      "name": "Capital humain (MRW, Lucas)",
+      "ch": 2,
+      "mat": "croissance"
+    },
+    "convergence": {
+      "name": "Convergence conditionnelle / absolue",
+      "ch": 2,
+      "mat": "croissance"
+    },
+    "ak": {
+      "name": "AK & learning by doing",
+      "ch": 3,
+      "mat": "croissance"
+    },
+    "romer": {
+      "name": "Romer 1990 & Jones 1995 (idées)",
+      "ch": 3,
+      "mat": "croissance"
+    },
+    "aghion": {
+      "name": "Aghion-Howitt (destruction créatrice)",
+      "ch": 3,
+      "mat": "croissance"
+    },
+    "malthus": {
+      "name": "Malthus & Galor unifiée",
+      "ch": 4,
+      "mat": "croissance"
+    },
+    "olg": {
+      "name": "Générations imbriquées (Diamond)",
+      "ch": 4,
+      "mat": "croissance"
+    },
+    "institutions": {
+      "name": "Institutions & environnement",
+      "ch": 5,
+      "mat": "croissance"
     }
   },
   "BOTS": [

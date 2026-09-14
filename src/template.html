@@ -500,7 +500,8 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   line-height: 1.4;
 }
 
-/* sélecteur matière (v1 : caché, SPEC §2) */
+/* sélecteur matière (SPEC §2) — apparaît automatiquement dès qu'un
+   item d'une seconde matière existe dans la banque (cf. getMats). */
 .mats {
   display: flex;
   align-items: center;
@@ -1175,13 +1176,18 @@ function loadRegne() {
 }
 function saveRegne(o)   { saveJSON(KEY_REGNE, o); }
 
-// Liste unique des matières présentes dans DATA.CATS (§2 SPEC).
+// Liste unique des matières effectivement présentes dans la banque d'items
+// (§2 SPEC). Se base sur les items — pas sur DATA.CATS — pour que le
+// sélecteur reste transparent tant qu'aucun item d'une matière n'existe,
+// même si des CATS de cette matière ont déjà été déclarées (structure prête).
 function getMats() {
   const set = new Set();
-  const cats = DATA.CATS || {};
-  for (const cid in cats) {
-    const m = cats[cid] && cats[cid].mat;
-    if (typeof m === "string" && m.trim()) set.add(m);
+  const bank = [].concat(
+    DATA.QCM || [], DATA.VF || [], DATA.SENS || [],
+    DATA.ORDRE || [], DATA.OUVERTE || [], DATA.ETOILE || []
+  );
+  for (const it of bank) {
+    if (typeof it.mat === "string" && it.mat.trim()) set.add(it.mat);
   }
   return Array.from(set);
 }
