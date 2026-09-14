@@ -1699,6 +1699,150 @@
       "trap": "niveau-log",
       "why": "En log, la variation du TCEN est la moyenne arithmétique pondérée des variations bilatérales : 0,5 × 10 % + 0,5 × (−10 %) = 0 %. C'est précisément l'intérêt du log : éviter l'effet de base qui apparaît en niveau.",
       "id": "tcr-022"
+    },
+    {
+      "cat": "residu",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Selon la comptabilité de la croissance (Solow 1957), la croissance du PIB se décompose en :",
+      "choices": [
+        "contribution du capital + contribution du travail + résidu (PTF)",
+        "somme du travail et du capital, uniquement",
+        "produit de la démographie et de l'investissement",
+        "part du salaire dans le revenu multiplié par la croissance de L"
+      ],
+      "a": 0,
+      "why": "g_Y = α·g_K + (1−α)·g_L + g_A. Le résidu g_A est la croissance de la productivité totale des facteurs (PTF), aussi appelé résidu de Solow. Introduction 2025-26, §Solow 1957.",
+      "id": "residu-001"
+    },
+    {
+      "cat": "residu",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 3,
+      "q": "Dans une application de la comptabilité de la croissance aux pays d'Asie du Sud-Est (Singapour, Hong Kong…), quel est le résultat marquant identifié dans les cours ?",
+      "choices": [
+        "la croissance est tirée par l'accumulation des facteurs plutôt que par la PTF",
+        "la croissance provient à 90 % du progrès technique endogène",
+        "la contribution du capital est nulle sur la période",
+        "la démographie explique l'essentiel de la croissance"
+      ],
+      "a": 0,
+      "why": "Résultat étudié en cours (Partie 1 Solow, section D) : dans plusieurs pays asiatiques la croissance de la PTF n'explique qu'une faible fraction ; la croissance est tirée par l'accumulation. Débat Young / Krugman des années 1990.",
+      "id": "residu-002"
+    },
+    {
+      "cat": "residu",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Le résidu de Solow doit être interprété comme :",
+      "choices": [
+        "le progrès technique et tout ce que la comptabilité ne mesure pas",
+        "uniquement le progrès technique au sens strict",
+        "l'erreur statistique du calcul du PIB",
+        "l'effet de l'immigration nette"
+      ],
+      "a": 0,
+      "why": "Résidu = « progrès technique OU autre chose » (Solow 1957 lui-même le reconnaît). Inclut effets non mesurés : qualité des facteurs, réallocation sectorielle, changement institutionnel. Partie 1 Solow, section E (limites).",
+      "id": "residu-003"
+    },
+    {
+      "cat": "solow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 1,
+      "q": "Dans le modèle de Solow, l'équation d'accumulation du capital par tête (avec dépréciation δ et démographie n) s'écrit :",
+      "choices": [
+        "Δk = s·f(k) − (δ + n)·k",
+        "Δk = f(k) − c",
+        "Δk = s·(δ + n)·k",
+        "Δk = f(k) − s·k"
+      ],
+      "a": 0,
+      "why": "Δk = i − (δ+n)·k, avec i = s·f(k). Le terme (δ+n)·k représente l'usure du capital et la dilution par la démographie (croissance en volume par tête).",
+      "id": "solow-001"
+    },
+    {
+      "cat": "solow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "À l'état régulier k* du modèle de Solow (sans progrès technique), le capital par tête vérifie :",
+      "choices": [
+        "s·f(k*) = (δ + n)·k*",
+        "s·f(k*) > (δ + n)·k*",
+        "s·f(k*) < (δ + n)·k*",
+        "s·f(k*) = 0"
+      ],
+      "a": 0,
+      "why": "État régulier : Δk = 0 donc l'investissement s·f(k*) compense exactement l'usure et la dilution (δ+n)·k*. Au-dessus de k*, investissement < dilution donc k baisse ; en dessous, il monte : équilibre stable.",
+      "id": "solow-002"
+    },
+    {
+      "cat": "solow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "La règle d'or de Solow (Phelps 1961) désigne le taux d'épargne s_or qui maximise :",
+      "choices": [
+        "la consommation par tête à l'état régulier",
+        "le stock de capital par tête à l'état régulier",
+        "le taux de croissance de long terme du PIB",
+        "l'investissement brut annuel"
+      ],
+      "a": 0,
+      "why": "s_or maximise c* = (1−s)·f(k*). Condition : f'(k_or) = δ + n (productivité marginale du capital = taux de dilution total). Épargner plus que s_or est dynamiquement inefficace.",
+      "id": "solow-003"
+    },
+    {
+      "cat": "solow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Une hausse permanente du taux d'épargne s dans Solow (sans progrès technique) a quel effet sur le taux de croissance de long terme du PIB par tête ?",
+      "choices": [
+        "aucun effet à long terme (le taux de croissance reste nul)",
+        "hausse permanente proportionnelle à s",
+        "hausse temporaire uniquement (effet de niveau, pas de pente)",
+        "baisse permanente"
+      ],
+      "a": 2,
+      "why": "Solow sans PT : à long terme le taux de croissance du PIB par tête est nul. Une hausse de s élève k* et donc y*, mais l'effet est un effet de NIVEAU (transition) ; le taux de croissance retombe à 0 (ou à g_A avec PT exogène).",
+      "id": "solow-004"
+    },
+    {
+      "cat": "kaldor",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 1,
+      "q": "Parmi les faits stylisés de Kaldor caractérisant la croissance moderne des pays développés, on retient :",
+      "choices": [
+        "la stabilité du ratio capital/PIB (K/Y) et du taux de rendement r",
+        "la baisse continue du ratio K/Y",
+        "la hausse permanente du taux de rendement du capital",
+        "l'instabilité de la répartition capital/travail"
+      ],
+      "a": 0,
+      "why": "Faits stylisés (Introduction 2025-26) : (4) constance de r, (5) constance de K/Y, (6) stabilité des parts (1/3 capital, 2/3 travail) — sur le long terme.",
+      "id": "kaldor-001"
+    },
+    {
+      "cat": "kaldor",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Selon le fait stylisé n°6 de Kaldor, les parts du capital (rK/Y) et du travail (wL/Y) dans le revenu se répartissent typiquement :",
+      "choices": [
+        "environ 1/3 pour le capital, 2/3 pour le travail",
+        "environ 1/2 pour chacun",
+        "2/3 pour le capital, 1/3 pour le travail",
+        "9/10 pour le travail, 1/10 pour le capital"
+      ],
+      "a": 0,
+      "why": "Fait 6 de Kaldor : rapport 1/3 - 2/3 du long terme. Cohérent avec Cobb-Douglas Y = K^α·L^(1−α) et α ≈ 1/3.",
+      "id": "kaldor-002"
     }
   ],
   "VF": [
@@ -2348,6 +2492,56 @@
       "trap": "niveau-log",
       "why": "Attention au sens du ratio : TCER = TCEN × P/P*, prix domestique au numérateur. Une hausse du TCER = appréciation réelle (les biens domestiques deviennent chers relativement). En variation : Δq ≈ Δe + (π − π*), avec Δe = variation du TCEN.",
       "id": "tcr-023"
+    },
+    {
+      "cat": "residu",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Le résidu de Solow est une mesure directe et non biaisée du progrès technique.",
+      "a": false,
+      "why": "Faux : c'est un résidu comptable qui absorbe le progrès technique ET tout ce qui n'est pas mesuré (qualité des facteurs, réallocation sectorielle, changement institutionnel, erreurs de mesure). Partie 1 Solow, section E.",
+      "id": "residu-004"
+    },
+    {
+      "cat": "solow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Dans le modèle de Solow avec progrès technique exogène g_A, le taux de croissance de long terme du PIB par tête vaut g_A.",
+      "a": true,
+      "why": "Vrai. À l'état régulier avec PT exogène, y croît au taux g_A. Solow est un modèle de croissance EXOGÈNE — c'est ce qui a motivé les modèles endogènes (Romer, Lucas, Aghion) où g dépend des choix des agents.",
+      "id": "solow-005"
+    },
+    {
+      "cat": "solow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Épargner au-dessus du taux d'or (s > s_or) permet d'augmenter la consommation à long terme.",
+      "a": false,
+      "why": "Faux : c'est l'inverse. Au-delà de s_or, la consommation d'état régulier c* = (1−s)·f(k*) diminue avec s (inefficience dynamique). Réduire s permet alors d'augmenter la consommation.",
+      "id": "solow-006"
+    },
+    {
+      "cat": "kaldor",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 1,
+      "q": "Selon les faits stylisés du cours (Introduction), la croissance moderne est un phénomène historique récent (moins de 3 siècles à l'échelle mondiale).",
+      "a": true,
+      "why": "Vrai : fait stylisé n°2 (« phénomène récent à l'échelle de l'histoire de l'humanité »). Avant la Révolution industrielle, croissance quasi-nulle du PIB par tête. Décollage progressif à partir de la fin du XVIIIᵉ siècle.",
+      "id": "kaldor-003"
+    },
+    {
+      "cat": "kaldor",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Le fait stylisé n°1 de Kaldor postule que le taux de croissance du PIB par tête est fortement instable dans le long terme.",
+      "a": false,
+      "why": "Faux : c'est l'inverse. Fait n°1 : « taux de croissance moyen positif et relativement constant » à l'échelle du long terme. La stabilité du taux est un fait fondamental à expliquer.",
+      "id": "kaldor-004"
     }
   ],
   "SENS": [
@@ -3164,6 +3358,54 @@
       "trap": "fixe-flexible",
       "why": "L'étalon-or ne résiste pas à la guerre : la convertibilité est suspendue dès 1914. Les taux de change deviennent flottants et volatils. Les tentatives de restauration dans l'entre-deux-guerres (livre 1925, franc 1928) échouent — le SMI d'avant 1914 n'est jamais recréé durablement.",
       "id": "smi-021"
+    },
+    {
+      "cat": "solow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Modèle de Solow avec progrès technique exogène, économie initialement à l'état régulier",
+      "shock": "Hausse permanente du taux d'épargne s",
+      "var": "Niveau du revenu par travailleur efficace ŷ = Y/(A·L) à long terme",
+      "a": "up",
+      "why": "↑s ⇒ ↑k* ⇒ ↑ŷ*. Effet de NIVEAU sur ŷ mais le taux de croissance de long terme (g_A) reste inchangé — c'est le point central du modèle.",
+      "id": "solow-007"
+    },
+    {
+      "cat": "solow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Modèle de Solow, économie à l'état régulier",
+      "shock": "Hausse permanente du taux de dépréciation δ",
+      "var": "Capital par tête d'état régulier k*",
+      "a": "down",
+      "why": "s·f(k*) = (δ+n)·k*. ↑δ ⇒ droite d'investissement de maintien plus pentue ⇒ nouveau k* plus faible. La dépréciation érode plus vite le stock, moins de capital soutenable.",
+      "id": "solow-008"
+    },
+    {
+      "cat": "solow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Modèle de Solow avec progrès technique exogène g_A, économie à l'état régulier",
+      "shock": "Hausse permanente de la démographie n",
+      "var": "Taux de croissance du PIB PAR TÊTE à long terme",
+      "a": "same",
+      "why": "Le taux de croissance du PIB par tête à long terme reste g_A, indépendant de n. En revanche, k* et ŷ* baissent (effets de niveau). Piège classique : confondre PIB total et PIB par tête.",
+      "id": "solow-009"
+    },
+    {
+      "cat": "kaldor",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Faits stylisés de Kaldor sur le long terme d'une économie développée",
+      "shock": "Hausse tendancielle observée du PIB par tête sur plusieurs décennies",
+      "var": "Ratio capital/PIB (K/Y) sur la même période",
+      "a": "same",
+      "why": "Fait stylisé n°5 : K/Y reste stable dans le long terme, malgré la croissance du PIB par tête. C'est l'un des faits fondamentaux que Solow et ses successeurs cherchent à reproduire théoriquement.",
+      "id": "kaldor-005"
     }
   ],
   "ORDRE": [
@@ -4573,6 +4815,42 @@
         "Je conclus que la marche aléatoire n'est pas battue à court terme."
       ],
       "mat": "emi"
+    },
+    {
+      "name": "Robert Solow",
+      "mat": "croissance",
+      "aliases": [
+        "solow",
+        "robert solow",
+        "r. solow",
+        "r solow"
+      ],
+      "clues": [
+        "Économiste américain né en 1924, mort en 2023.",
+        "Enseignant au MIT pendant toute sa carrière.",
+        "Nobel d'économie en 1987.",
+        "Auteur d'une équation d'accumulation Δk = s·f(k) − (δ+n)·k.",
+        "Son résidu porte son nom."
+      ],
+      "id": "et-13"
+    },
+    {
+      "name": "Simon Kuznets",
+      "mat": "croissance",
+      "aliases": [
+        "kuznets",
+        "simon kuznets",
+        "s. kuznets",
+        "s kuznets"
+      ],
+      "clues": [
+        "Économiste américain d'origine russe, né en 1901 mort en 1985.",
+        "Nobel d'économie en 1971.",
+        "Il a défini la comptabilité nationale moderne et le PIB.",
+        "Une courbe empirique reliant inégalités et développement porte son nom.",
+        "Six faits stylisés célèbres de la croissance lui doivent leur base empirique."
+      ],
+      "id": "et-14"
     }
   ],
   "CHEATSHEET": {
