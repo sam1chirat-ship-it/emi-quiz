@@ -181,12 +181,12 @@
       "diff": 2,
       "q": "L'identité comptable de la balance des paiements, selon le cours, s'écrit :",
       "choices": [
-        "TC + CC − CF + EO = 0",
-        "TC + CC + CF + EO = 0",
+        "TC + CF − CC + EO = 0",
+        "TC + CC + CF + EO = 0 (variante avec CF positif)",
         "TC + CC − CF = 0",
-        "TC + CF − CC + EO = 0"
+        "TC + CC − CF + EO = 0"
       ],
-      "a": 0,
+      "a": 3,
       "trap": "signe-bdp",
       "why": "TC + CC − CF + EO = 0 (le signe − devant CF vient de la convention : CF > 0 = sortie de capitaux).",
       "mat": "emi"
@@ -397,12 +397,12 @@
       "diff": 2,
       "q": "Dans le modèle monétaire à prix flexibles (Frenkel), une hausse permanente de l'offre de monnaie nationale entraîne :",
       "choices": [
-        "une dépréciation nominale immédiate d'ampleur équivalente",
-        "aucun effet sur le taux de change",
+        "une baisse des prix domestiques",
+        "aucun effet sur le taux de change (neutralité monétaire à long terme parfaite)",
         "une appréciation nominale de la monnaie",
-        "une baisse des prix domestiques"
+        "une dépréciation nominale immédiate d'ampleur équivalente"
       ],
-      "a": 0,
+      "a": 3,
       "trap": "fixe-flexible",
       "why": "Prix flexibles : la neutralité monétaire s'applique ; l'offre de monnaie ↑ x % fait grimper P de x % et déprécie e de x % (PPA).",
       "mat": "emi"
@@ -448,12 +448,12 @@
       "diff": 3,
       "q": "L'effet Balassa-Samuelson enchaîne les étapes suivantes :",
       "choices": [
-        "productivité ↑ dans l'échangeable → salaires ↑ → contagion à l'abrité → prix des non-échangeables ↑ → appréciation réelle",
-        "productivité ↑ → baisse des prix domestiques → dépréciation réelle",
         "appréciation nominale immédiate uniquement, sans effet sur les prix",
+        "productivité ↑ → baisse des prix domestiques → dépréciation réelle immédiate observable",
+        "productivité échangeable ↑ → salaires ↑ → contagion à l'abrité → prix non-échangeables ↑ → appréciation réelle",
         "hausse des taux d'intérêt puis entrée de capitaux → appréciation"
       ],
-      "a": 0,
+      "a": 2,
       "trap": "bs-etapes",
       "why": "Le prof exige toutes les étapes : la contagion salariale du secteur échangeable au secteur abrité est celle qu'on oublie.",
       "mat": "emi"
@@ -611,12 +611,12 @@
       "diff": 2,
       "q": "Dans le modèle monétaire à prix flexibles, une hausse durable de la production nationale Y :",
       "choices": [
-        "apprécie la monnaie (demande de monnaie ↑)",
         "déprécie la monnaie",
+        "apprécie la monnaie (demande de monnaie ↑)",
         "est neutre sur le change",
-        "provoque une hyperinflation immédiate"
+        "provoque une hyperinflation immédiate et incontrôlable des prix"
       ],
-      "a": 0,
+      "a": 1,
       "why": "Y ↑ ⇒ demande de monnaie L(Y) ↑ ⇒ à Ms donné, P ↓ ⇒ par PPA, e ↑.",
       "mat": "emi"
     },
@@ -627,12 +627,12 @@
       "diff": 2,
       "q": "Le résultat de Meese et Rogoff (1983) implique surtout que :",
       "choices": [
-        "les modèles structurels de change ne battent pas la marche aléatoire à court terme",
-        "la PPA est vérifiée à court terme",
         "les taux d'intérêt sont exogènes",
-        "les modèles ARMA dominent tous les autres"
+        "la PPA est vérifiée à court terme",
+        "les modèles structurels de change ne battent pas la marche aléatoire à court terme",
+        "les modèles ARMA structurels dominent tous les autres à tous les horizons observés"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Constat empirique fondateur de la « déconnexion du change ».",
       "mat": "emi"
     },
@@ -659,12 +659,12 @@
       "diff": 2,
       "q": "Le TCEF (FEER) désigne :",
       "choices": [
+        "un taux de long terme fondé strictement sur la PPA absolue de Cassel",
         "un taux compatible avec équilibre externe et interne à moyen terme",
-        "un taux de long terme fondé sur la PPA absolue",
         "un taux calculé sur l'indice Big Mac",
         "un taux fixé chaque année par le FMI"
       ],
-      "a": 0,
+      "a": 1,
       "why": "TCEF : équilibre externe (solde courant soutenable) et interne (plein emploi non-inflationniste).",
       "mat": "emi"
     },
@@ -724,12 +724,12 @@
       "diff": 2,
       "q": "Le compte de transferts (TC) inclut principalement :",
       "choices": [
-        "les envois de fonds des migrants et les aides internationales",
-        "les investissements directs étrangers (IDE)",
         "les variations de réserves officielles",
+        "les investissements directs étrangers (IDE) et de portefeuille",
+        "les envois de fonds des migrants et les aides internationales",
         "les échanges de biens de consommation"
       ],
-      "a": 0,
+      "a": 2,
       "why": "TC couvre les transferts unilatéraux : remises de fonds, dons, aide au développement.",
       "id": "bdp-009",
       "mat": "emi"
@@ -838,12 +838,12 @@
       "diff": 2,
       "q": "Le TCER (taux de change effectif réel) diffère du TCR bilatéral par :",
       "choices": [
-        "l'agrégation pondérée sur plusieurs partenaires",
-        "l'utilisation d'un indice de matières premières",
         "l'exclusion de l'inflation",
+        "l'utilisation d'un indice de matières premières plutôt que d'un panier de biens et services",
+        "l'agrégation pondérée sur plusieurs partenaires",
         "la fréquence annuelle plutôt que trimestrielle"
       ],
-      "a": 0,
+      "a": 2,
       "why": "TCER : moyenne géométrique pondérée par les parts commerciales des taux de change réels bilatéraux.",
       "id": "equil-009",
       "mat": "emi"
@@ -888,12 +888,12 @@
       "diff": 2,
       "q": "Dans la BdP française, une acquisition par un groupe américain d'une usine française apparaît :",
       "choices": [
-        "en IDE au compte financier, côté engagement (CF négatif dans la convention du cours)",
-        "au compte courant, côté crédit",
         "aux erreurs et omissions",
+        "au compte courant, côté crédit, considérée comme une vente de services financiers exceptionnels",
+        "en IDE au compte financier, côté engagement (CF négatif dans la convention du cours)",
         "n'est jamais enregistrée"
       ],
-      "a": 0,
+      "a": 2,
       "trap": "signe-bdp",
       "why": "IDE entrant = engagement pour le pays receveur → CF < 0 (entrée nette de capitaux, convention du cours).",
       "id": "bdp-016",
@@ -1119,12 +1119,12 @@
       "diff": 2,
       "q": "L'indice « Big Mac » de The Economist est une approximation empirique de :",
       "choices": [
-        "la PPA absolue à partir d'un panier simplifié",
         "la PNCTI",
+        "la PPA absolue à partir d'un panier simplifié",
         "l'effet Balassa-Samuelson",
-        "le TCER"
+        "le TCER effectif ajusté des pouvoirs d'achat de long terme relatifs"
       ],
-      "a": 0,
+      "a": 1,
       "why": "Le Big Mac joue le rôle d'un panier standardisé de biens ; la PPA absolue prédit que son prix converti doit être identique partout.",
       "id": "equil-018",
       "mat": "emi"
@@ -1185,12 +1185,12 @@
       "diff": 2,
       "q": "Le solde de la balance des services couvre notamment :",
       "choices": [
-        "tourisme, transports, assurances, redevances de propriété intellectuelle",
-        "IDE et investissements de portefeuille",
+        "réserves officielles de change",
+        "IDE et investissements de portefeuille, y compris obligations souveraines émises",
         "biens manufacturés",
-        "réserves officielles de change"
+        "tourisme, transports, assurances, redevances de propriété intellectuelle"
       ],
-      "a": 0,
+      "a": 3,
       "why": "Services = tourisme, transport, assurance, licences/redevances, télécom, informatique — poste distinct des biens et du financier.",
       "id": "bdp-018",
       "mat": "emi"
@@ -1201,12 +1201,12 @@
       "diff": 3,
       "q": "Dans la lecture de la BdP française récente, le solde des revenus primaires est structurellement :",
       "choices": [
+        "déficitaire malgré la PEN positive, à cause du poids de la dette publique",
         "excédentaire grâce aux revenus d'investissement à l'étranger",
-        "déficitaire malgré la PEN positive",
         "toujours nul",
         "égal au solde commercial"
       ],
-      "a": 0,
+      "a": 1,
       "why": "La France perçoit plus de revenus sur ses actifs étrangers qu'elle n'en verse — poste stabilisateur du CC.",
       "id": "bdp-019",
       "mat": "emi"
@@ -1474,12 +1474,12 @@
       "diff": 3,
       "q": "Dans le modèle Dornbusch, le degré de surajustement dépend :",
       "choices": [
-        "de l'élasticité de la demande de monnaie et de la vitesse d'ajustement des prix",
-        "de la balance commerciale seule",
+        "de l'inflation étrangère",
+        "de la balance commerciale seule et de son évolution trimestrielle post-choc dornbuschien",
         "de la parité fixe éventuelle",
-        "de l'inflation étrangère"
+        "de l'élasticité de la demande de monnaie et de la vitesse d'ajustement des prix"
       ],
-      "a": 0,
+      "a": 3,
       "trap": "statique-dyn",
       "why": "Plus les prix sont rigides à court terme, plus l'overshooting est marqué ; plus la demande de monnaie est sensible à i, plus le retour se fait vite.",
       "id": "monet-022",
@@ -1491,12 +1491,12 @@
       "diff": 2,
       "q": "Le modèle de Frenkel (1976) est appelé « modèle monétaire » car :",
       "choices": [
-        "le taux de change s'explique par l'offre et la demande relatives de monnaie",
-        "il fixe une politique monétaire",
         "il concerne uniquement les banques centrales",
+        "il fixe une politique monétaire nationale contracyclique en régime de change flottant pur",
+        "le taux de change s'explique par l'offre et la demande relatives de monnaie",
         "il ignore le commerce"
       ],
-      "a": 0,
+      "a": 2,
       "why": "Chaînage : e = P/P* (PPA), P dépend de Ms via l'équation quantitative. e devient fonction de Ms/Ms*, Y/Y*, i, i*.",
       "id": "monet-023",
       "mat": "emi"
@@ -1555,12 +1555,12 @@
       "diff": 3,
       "q": "Selon Balassa-Samuelson, la corrélation empirique entre productivité relative T/N et TCR est :",
       "choices": [
-        "positive : plus productif = TCR élevé (monnaie plus forte)",
-        "négative",
+        "aléatoire",
+        "négative : plus productif implique un TCR bas et une monnaie plus faible",
         "nulle",
-        "aléatoire"
+        "positive : plus productif = TCR élevé (monnaie plus forte)"
       ],
-      "a": 0,
+      "a": 3,
       "trap": "bs-etapes",
       "why": "Régression classique : le TCR d'un pays s'apprécie avec sa productivité relative dans les échangeables (mécanisme BS).",
       "id": "equil-020",
@@ -1572,12 +1572,12 @@
       "diff": 2,
       "q": "Un pays observe TCER = 1,20 (base 1). Sur les 3 déterminants du TCR long terme (productivité, termes de l'échange, dette extérieure), lequel colle le mieux ?",
       "choices": [
+        "détérioration structurelle et durable des termes de l'échange nationaux",
         "gain de productivité relative dans les échangeables",
-        "détérioration des termes de l'échange",
         "hausse de la dette extérieure",
         "baisse de la population active"
       ],
-      "a": 0,
+      "a": 1,
       "why": "Balassa-Samuelson prédit l'appréciation réelle par le canal productivité — cohérent avec un rattrapage émergent.",
       "id": "equil-021",
       "mat": "emi"
@@ -1588,12 +1588,12 @@
       "diff": 3,
       "q": "Le TCEF (FEER) est estimé par la Commission européenne pour évaluer la sous/sur-évaluation. Un excédent courant excessif suggère que la monnaie est :",
       "choices": [
-        "sous-évaluée (elle devrait s'apprécier)",
-        "sur-évaluée",
+        "insensible à l'analyse FEER",
+        "sur-évaluée (elle devrait se déprécier structurellement à moyen terme)",
         "à sa juste valeur",
-        "insensible à l'analyse FEER"
+        "sous-évaluée (elle devrait s'apprécier)"
       ],
-      "a": 0,
+      "a": 3,
       "why": "Excédent courant excessif = déséquilibre externe corrigible par une appréciation réelle ⇒ monnaie sous-évaluée selon FEER.",
       "id": "equil-022",
       "mat": "emi"
