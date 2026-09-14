@@ -3,13 +3,17 @@
  * playtest.mjs — validation runtime avant commit (SPEC §8.4).
  *
  * Modes :
- *   scenario  — parcours joueur juste (bots=weak, seed=42) puis joueur
- *               faux (bots=strong, seed=43). Zéro pageerror.
+ *   scenario  — 3 runs : (1) EMI bots=weak seed=42 joueur juste ; (2) EMI
+ *               bots=strong seed=43 joueur faux ; (3) mat=croissance
+ *               bots=strong seed=44 joueur faux. Zéro pageerror partout.
+ *   gens      — dans le contexte de la page, tire 500 échantillons par
+ *               générateur (GEN emi + croissance) et vérifie 0 doublon
+ *               et cohérence cat ↔ GEN_MAT.
  *   srs       — après mauvaise réponse sur X, X en boîte 0 et resort en
  *               priorité à la reprise.
  *   layout    — safe-area 59+34 émulée, viewport iPhone SE, premier
  *               élément visible >= 59 px, bouton Suivant cliquable.
- *   all       — enchaîne les trois.
+ *   all       — enchaîne les quatre.
  *
  * Options :
  *   --update-baseline   fige les hashes de captures/baseline.json
@@ -188,10 +192,15 @@ async function tapNext(page) {
   return true;
 }
 
-async function playThrough(page, strategy, maxIter = 300) {
+async function playThrough(page, strategy, maxIter = 300, recorder = null) {
+  const seenIds = new Set();
   for (let i = 0; i < maxIter; i++) {
     const S = await getState(page);
     if (!S) return;
+    if (recorder && S && S.q && S.q.id && !seenIds.has(S.q.id)) {
+      seenIds.add(S.q.id);
+      recorder.push({ id: S.q.id, fmt: S.qFmt, cat: S.q.cat, manche: S.manche });
+    }
     if (S.screen === "bilan") return;
 
     if (S.phase === "intro") {
@@ -304,6 +313,151 @@ async function runScenario(baseUrl, browser, baseline, results) {
     results.push(`  → screen=${S?.screen} phase=${S?.phase} joueur.out=${joueurOut} pageerrors=${pageErrors.length}`);
   });
 
+  // Run 3 : mat=croissance, bots=weak, seed=44, joueur juste → le joueur
+  // atteint le coup fatal, ce qui exerce au moins un générateur calc et
+  // permet de vérifier le filtrage par GEN_MAT.
+  const CROISSANCE_CATS = ["residu","kaldor","harrod","solow","mrw","convergence","ak","romer","aghion","malthus","olg","institutions"];
+  await withPage(browser, `${baseUrl}/index.html?seed=44&bots=weak`, baseUrl, async (page, pageErrors) => {
+    const url = `${baseUrl}/index.html?seed=44&bots=weak`;
+    await page.goto(url);
+    await page.evaluate((cats) => {
+      localStorage.clear();
+      localStorage.setItem("emi.settings.v1", JSON.stringify({
+        mat: "croissance", cats: cats, sfx: false, express: false,
+      }));
+    }, CROISSANCE_CATS);
+    await page.goto(url);
+    await page.locator('#boot [data-act="bootStart"]').click();
+    await page.locator('[data-act="startShow"]').click();
+    await page.locator('[data-act="introOK"]').click();
+    await page.waitForFunction(() => window.eval && window.eval("S && S.phase === 'q'"));
+    await capture(page, "scenario-3-envoi-q1", baseline, results);
+    const seen = [];
+    await playThrough(page, "juste", 400, seen);
+    await capture(page, "scenario-3-bilan", baseline, results);
+    const S = await getState(page);
+    const bilanOK = S && S.screen === "bilan";
+    if (!bilanOK) errs.push("scenario 3 : n'a pas atteint le bilan");
+    if (S && S.mat !== "croissance") errs.push(`scenario 3 : S.mat="${S?.mat}" (attendu "croissance")`);
+    // Vérifie que toutes les questions vues (items bank ET calc générés)
+    // sont bien de la matière croissance. seen est peuplé pendant playThrough.
+    const GEN_MAT_JSON = await page.evaluate(() => JSON.stringify(window.eval("GEN_MAT")));
+    const CATS_JSON = await page.evaluate(() => JSON.stringify(window.eval("DATA.CATS")));
+    const GEN_MAT_OBJ = JSON.parse(GEN_MAT_JSON);
+    const CATS_OBJ = JSON.parse(CATS_JSON);
+    let calcTotal = 0, calcForeign = [], bankForeign = [];
+    for (const q of seen) {
+      if (typeof q.id !== "string") continue;
+      if (q.id.startsWith("calc-")) {
+        calcTotal++;
+        const name = q.id.split("-")[1];
+        if (GEN_MAT_OBJ[name] !== "croissance") calcForeign.push(name);
+      } else {
+        const catMat = CATS_OBJ[q.cat] && CATS_OBJ[q.cat].mat;
+        if (catMat !== "croissance") bankForeign.push(q.id);
+      }
+    }
+    if (calcForeign.length) errs.push(`scenario 3 : générateurs non-croissance appelés : ${calcForeign.join(",")}`);
+    if (bankForeign.length) errs.push(`scenario 3 : items hors matière : ${bankForeign.slice(0,3).join(",")}`);
+    if (pageErrors.length) errs.push("scenario 3 pageerrors: " + pageErrors.join(" | "));
+    results.push(`  → screen=${S?.screen} phase=${S?.phase} mat=${S?.mat} vues=${seen.length} calc=${calcTotal - calcForeign.length}/${calcTotal} pageerrors=${pageErrors.length}`);
+  });
+
+  // Run 3b : fatal-probe. Boot en croissance, force S.manche="fatal" et
+  // appelle nextFatalQ() N fois pour vérifier directement le filtrage
+  // GEN_MAT sur des tirages calc effectifs (le run 3 naturel n'exerce
+  // pas toujours le calc, car les weak bots capitulent avant le fatal).
+  await withPage(browser, `${baseUrl}/index.html?seed=44`, baseUrl, async (page, pageErrors) => {
+    const url = `${baseUrl}/index.html?seed=44`;
+    await page.goto(url);
+    await page.evaluate((cats) => {
+      localStorage.clear();
+      localStorage.setItem("emi.settings.v1", JSON.stringify({
+        mat: "croissance", cats, sfx: false, express: false,
+      }));
+    }, CROISSANCE_CATS);
+    await page.goto(url);
+    await page.locator('#boot [data-act="bootStart"]').click();
+    await page.locator('[data-act="startShow"]').click();
+    await page.locator('[data-act="introOK"]').click();
+    await page.waitForFunction(() => window.eval && window.eval("S && S.phase === 'q'"));
+    // Injection d'état : bascule direct en coup fatal, joueur = a (index 0).
+    await page.evaluate(() => {
+      S.manche = "fatal";
+      S.qIdx = 0;
+      S.fatal = { a: 0, b: 1, cur: 0 };
+      S.clocks = [90000, 90000];
+      S.newlyRed = null; S.elimInfo = null;
+    });
+    const N = 24;
+    const probe = await page.evaluate((N) => {
+      const GEN_MAT = window.eval("GEN_MAT");
+      const ids = [];
+      for (let i = 0; i < N; i++) {
+        window.nextFatalQ();
+        const id = S && S.q ? S.q.id : null;
+        const fmt = S && S.qFmt ? S.qFmt : null;
+        ids.push({ id, fmt });
+      }
+      // Retour synchrone (pas de timers actifs vu qu'on ne clique pas).
+      return { ids, GEN_MAT };
+    }, N);
+    const calcIds = probe.ids.filter(x => x.id && x.id.startsWith("calc-"));
+    const foreign = calcIds.filter(x => {
+      const name = x.id.split("-")[1];
+      return probe.GEN_MAT[name] !== "croissance";
+    });
+    if (foreign.length) errs.push(`scenario 3b fatal-probe : ${foreign.length} générateurs non-croissance : ${foreign.map(x => x.id.split("-")[1]).slice(0,5).join(",")}`);
+    if (calcIds.length < 6) errs.push(`scenario 3b fatal-probe : trop peu de calc tirés (${calcIds.length}/${N})`);
+    if (pageErrors.length) errs.push("scenario 3b pageerrors: " + pageErrors.join(" | "));
+    // Comptage des générateurs distincts exercés (idéal : couverture max = 11).
+    const distinct = new Set(calcIds.map(x => x.id.split("-")[1]));
+    results.push(`  → fatal-probe : ${calcIds.length}/${N} calc · ${distinct.size}/11 générateurs distincts · 0 hors matière`);
+  });
+
+  return errs;
+}
+
+// ------------------------------------------------------------- gens mode
+// Exécute chaque générateur GEN 500 fois dans le contexte réel de la page
+// et vérifie 0 doublon + cohérence cat ↔ GEN_MAT. Complète les tests JS
+// isolés (vm) parce qu'il consomme le rng et les CATS du build effectif.
+async function runGens(baseUrl, browser, baseline, results) {
+  results.push("[gens]");
+  const errs = [];
+  await withPage(browser, baseUrl, baseUrl, async (page, pageErrors) => {
+    await page.goto(`${baseUrl}/index.html?seed=1`);
+    const stats = await page.evaluate(() => {
+      const GEN = window.eval("GEN");
+      const GEN_MAT = window.eval("GEN_MAT");
+      const rng = window.eval("rng");
+      const CATS = window.eval("DATA.CATS");
+      const perGen = {};
+      for (const name of Object.keys(GEN)) {
+        let dups = 0, catMismatch = 0, aErr = 0;
+        for (let i = 0; i < 500; i++) {
+          const g = GEN[name](rng);
+          const cs = g.choices.map((c) => String(c));
+          if (new Set(cs).size !== 4) dups++;
+          if (g.a !== 0) aErr++;
+          const mat = CATS[g.cat] && CATS[g.cat].mat;
+          if (mat !== GEN_MAT[name]) catMismatch++;
+        }
+        perGen[name] = { mat: GEN_MAT[name], dups, catMismatch, aErr };
+      }
+      return perGen;
+    });
+    for (const [name, s] of Object.entries(stats)) {
+      if (s.dups) errs.push(`gens ${name}[${s.mat}]: ${s.dups}/500 doublons`);
+      if (s.catMismatch) errs.push(`gens ${name}[${s.mat}]: ${s.catMismatch}/500 cat ↔ GEN_MAT incohérents`);
+      if (s.aErr) errs.push(`gens ${name}[${s.mat}]: ${s.aErr}/500 avec a ≠ 0`);
+    }
+    const n = Object.keys(stats).length;
+    const totalDup = Object.values(stats).reduce((a, s) => a + s.dups, 0);
+    const totalCat = Object.values(stats).reduce((a, s) => a + s.catMismatch, 0);
+    results.push(`  ${n} gens × 500 iter · dups=${totalDup} · catMismatch=${totalCat}`);
+    if (pageErrors.length) errs.push("gens pageerrors: " + pageErrors.join(" | "));
+  });
   return errs;
 }
 
@@ -418,7 +572,7 @@ async function runLayout(baseUrl, browser, baseline, results) {
 // ---------------------------------------------------------------- main
 async function main() {
   const modeList = modes.length ? modes : ["scenario"];
-  const allModes = modeList.includes("all") ? ["scenario", "srs", "layout"] : modeList;
+  const allModes = modeList.includes("all") ? ["scenario", "gens", "srs", "layout"] : modeList;
   const baseline = baselineLoad();
   const results = [];
   const errs = [];
@@ -432,6 +586,7 @@ async function main() {
   try {
     for (const m of allModes) {
       if (m === "scenario") errs.push(...await runScenario(baseUrl, browser, baseline, results));
+      else if (m === "gens") errs.push(...await runGens(baseUrl, browser, baseline, results));
       else if (m === "srs") errs.push(...await runSRS(baseUrl, browser, baseline, results));
       else if (m === "layout") errs.push(...await runLayout(baseUrl, browser, baseline, results));
       else results.push(`(mode inconnu: ${m})`);

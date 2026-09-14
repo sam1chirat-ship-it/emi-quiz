@@ -199,7 +199,7 @@
       "q": "La position extérieure nette (PEN) est :",
       "choices": [
         "un stock d'avoirs nets sur le reste du monde",
-        "un flux annuel de capitaux",
+        "un flux net annuel de capitaux entrant sur le territoire",
         "le solde du compte courant",
         "le solde du compte financier"
       ],
@@ -234,7 +234,7 @@
       "choices": [
         "(S − I) + (T − G) = X − M",
         "S + I + G = X − M",
-        "S − I = T − G",
+        "S − I = T − G, ignorant l'ouverture au reste du monde",
         "X − M = C + G"
       ],
       "a": 0,
@@ -315,7 +315,7 @@
       "q": "Une hausse du taux de change réel (défini au certain, TCER = TCEN × P/P*) signifie :",
       "choices": [
         "une appréciation réelle : perte de compétitivité-prix, gain de pouvoir d'achat",
-        "une dépréciation réelle : gain de compétitivité",
+        "une dépréciation réelle : gain de compétitivité-prix et perte de pouvoir d'achat",
         "aucun effet sur les termes de l'échange",
         "une hausse mécanique des exportations"
       ],
@@ -499,7 +499,7 @@
       "q": "Deux pays ont le même déficit courant chaque année sur dix ans, mais l'un voit sa PEN se dégrader deux fois plus vite. L'explication la plus plausible est :",
       "choices": [
         "des effets de valorisation défavorables au premier",
-        "une comptabilité fautive du second",
+        "une comptabilité fautive du second omettant des flux",
         "des exportations plus faibles",
         "un taux d'épargne plus élevé"
       ],
@@ -776,7 +776,7 @@
         "au certain, sauf pour le dollar contre la plupart des devises",
         "toujours à l'incertain",
         "toujours au certain",
-        "une convention aléatoire pays par pays"
+        "une convention purement aléatoire, changée selon les pays partenaires"
       ],
       "a": 0,
       "why": "Le dollar est le plus souvent coté à l'incertain (1 USD = X yens), sauf paires majeures comme EUR/USD et GBP/USD.",
@@ -1266,7 +1266,7 @@
       "q": "Selon le paradoxe de Feldstein-Horioka, le coefficient de régression de I/Y sur S/Y à l'échelle des pays est empiriquement :",
       "choices": [
         "proche de 1 (forte corrélation)",
-        "proche de 0 (indépendance)",
+        "proche de 0 (indépendance complète entre S et I nationaux)",
         "négatif",
         "supérieur à 2"
       ],
@@ -1282,7 +1282,7 @@
       "q": "Le paradoxe de Lucas s'observe empiriquement par :",
       "choices": [
         "flux de capitaux Nord → Sud plus faibles que prédit",
-        "flux Sud → Nord massifs",
+        "flux massifs Sud → Nord contredisant la théorie standard",
         "convergence rapide des PIB",
         "élasticité nulle du capital"
       ],
@@ -1331,7 +1331,7 @@
       "choices": [
         "1,136 EUR",
         "0,88 EUR",
-        "1,375 EUR",
+        "1,375 EUR (25/1,10 arrondi)",
         "1,10 EUR"
       ],
       "a": 0,
@@ -3080,6 +3080,72 @@
       "a": false,
       "why": "Faux : North inclut aussi les institutions informelles (culture, normes sociales, croyances). Distinction reprise par Acemoglu qui parle plutôt de « culture » pour les informelles. Partie_3_Chap2_Institutions.txt lignes 1-10.",
       "id": "institutions-004"
+    },
+    {
+      "id": "si-024",
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "q": "Un pays dont l'épargne nationale S dépasse durablement l'investissement national I dégage un excédent courant et prête net au reste du monde.",
+      "a": true,
+      "trap": "bc-bcour",
+      "why": "Identité : (S − I) + (T − G) = X − M. À T − G donné, S > I implique X − M > 0 (excédent courant) et une capacité de financement positive vis-à-vis de l'extérieur.",
+      "mat": "emi"
+    },
+    {
+      "id": "si-022",
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "q": "Selon le paradoxe de Feldstein-Horioka, l'ouverture financière a fait disparaître la corrélation entre épargne et investissement nationaux.",
+      "a": false,
+      "trap": "endo-exo",
+      "why": "C'est précisément l'inverse : Feldstein-Horioka (1980) constate que S et I nationaux restent fortement corrélés (coefficient proche de 1) malgré l'ouverture financière.",
+      "mat": "emi"
+    },
+    {
+      "id": "equil-027",
+      "cat": "equil",
+      "ch": 5,
+      "diff": 1,
+      "q": "La PPA absolue affirme que le même panier de biens et services coûte le même prix converti dans tous les pays.",
+      "a": true,
+      "trap": "niveau-log",
+      "why": "PPA absolue : P = S · P* (ou Q = SP*/P = 1). Ne survit pas empiriquement à cause des biens non échangeables et des coûts de transaction.",
+      "mat": "emi"
+    },
+    {
+      "id": "equil-026",
+      "cat": "equil",
+      "ch": 5,
+      "diff": 2,
+      "q": "La PPA relative implique que le taux de change réel reste constant à long terme.",
+      "a": true,
+      "trap": "horizon",
+      "why": "PPA relative : Δe ≈ π* − π (au certain). Cela signifie que les variations nominales compensent les écarts d'inflation, donc TCR = SP*/P stable. Empiriquement moins violée que la PPA absolue mais rejetée sur horizons courts.",
+      "mat": "emi"
+    },
+    {
+      "id": "mf-030",
+      "cat": "mf",
+      "ch": 4,
+      "diff": 3,
+      "q": "En régime de change flexible avec mobilité parfaite des capitaux, la politique budgétaire expansionniste est inefficace : l'appréciation de la monnaie annule l'effet sur la production.",
+      "a": true,
+      "trap": "mf-regime",
+      "why": "Sous MF flexible + mobilité parfaite : G↑ ⇒ i↑ ⇒ entrée de capitaux ⇒ appréciation ⇒ X−M↓ qui compense G↑. Y inchangé. Symétriquement, la politique monétaire est efficace en flexible.",
+      "mat": "emi"
+    },
+    {
+      "id": "mf-029",
+      "cat": "mf",
+      "ch": 4,
+      "diff": 3,
+      "q": "En régime de change fixe avec mobilité parfaite des capitaux, la politique monétaire autonome est impossible : la banque centrale doit ajuster la masse monétaire pour défendre la parité.",
+      "a": true,
+      "trap": "mf-regime",
+      "why": "Sous MF fixe + mobilité parfaite : toute tentative d'augmenter M déclenche fuite de capitaux, dépréciation → la BC vend des réserves et absorbe la liquidité pour maintenir la parité, annulant l'expansion. Triangle d'incompatibilité de Mundell.",
+      "mat": "emi"
     }
   ],
   "SENS": [
@@ -3527,7 +3593,7 @@
       "var": "Solde courant X − M",
       "a": "up",
       "why": "(S − I) + (T − G) = X − M : à S, I fixes, la hausse de T − G se retrouve dans X − M.",
-      "id": "si-010",
+      "id": "si-021",
       "mat": "emi"
     },
     {
@@ -3640,7 +3706,7 @@
       "var": "Taux de change nominal au certain",
       "a": "up",
       "why": "PPA relative : Δe = π* − π > 0 ⇒ appréciation nominale de la monnaie domestique.",
-      "id": "equil-012",
+      "id": "equil-025",
       "mat": "emi"
     },
     {
@@ -3743,7 +3809,7 @@
       "a": "up",
       "trap": "mf-regime",
       "why": "T ↓ ⇒ IS à droite ⇒ i tend à ↑ ⇒ entrées de K ⇒ BC achète devises ⇒ Ms ↑ ⇒ Y ↑ (budgétaire efficace en fixe).",
-      "id": "mf-023",
+      "id": "mf-028",
       "mat": "emi"
     },
     {
@@ -4052,6 +4118,32 @@
       "a": "up",
       "why": "Thèse d'Acemoglu-Robinson (Why Nations Fail 2012) : les institutions inclusives (droits de propriété, incitations, contestabilité politique) favorisent l'innovation et l'investissement ; les extractives les freinent. L'écart se creuse dans le temps.",
       "id": "institutions-005"
+    },
+    {
+      "id": "si-023",
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Économie ouverte, hors effets de valorisation",
+      "shock": "Le solde courant passe d'équilibré à excédentaire (X − M > 0)",
+      "var": "Position extérieure nette (PEN)",
+      "a": "up",
+      "trap": "stock-flux",
+      "why": "ΔPEN = CC + effets de valorisation. Un excédent courant fait croître la PEN (le pays acquiert des créances nettes sur le reste du monde). Piège : confondre PEN (stock) et solde courant (flux).",
+      "mat": "emi"
+    },
+    {
+      "id": "forex-022",
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Marché des changes, i* et anticipations inchangées, mobilité parfaite",
+      "shock": "Hausse surprise du taux d'intérêt directeur domestique",
+      "var": "Demande d'actifs libellés en monnaie nationale (donc de la monnaie)",
+      "a": "up",
+      "trap": "sens-parite",
+      "why": "Un rendement domestique plus attractif attire les capitaux vers les actifs en monnaie nationale, ce qui augmente leur demande et provoque une appréciation immédiate (surajustement à la Dornbusch).",
+      "mat": "emi"
     }
   ],
   "ORDRE": [
@@ -5315,7 +5407,7 @@
       "ch": 1,
       "diff": 2,
       "q": "Énoncer l'identité comptable de la balance des paiements (convention du cours) et définir la capacité de financement d'une économie.",
-      "model": "Identité comptable : TC + CC − CF + EO = 0, où TC = compte de capital, CC = compte courant, CF = compte financier (convention : CF > 0 = sortie nette de capitaux), EO = erreurs et omissions. Capacité (ou besoin) de financement de l'économie = TC + CC. Si TC + CC > 0 : capacité (l'économie prête au reste du monde) ; si TC + CC < 0 : besoin (l'économie emprunte).",
+      "model": "Identité : TC + CC − CF + EO = 0. TC = compte de capital, CC = compte courant, CF = compte financier (convention : CF > 0 = sortie nette), EO = erreurs et omissions. Capacité (ou besoin) de financement = TC + CC : > 0 le pays prête au reste du monde, < 0 il emprunte.",
       "points": [
         "identité TC + CC − CF + EO = 0",
         "signe du CF (convention du cours)",
@@ -5338,7 +5430,7 @@
       "ch": 2,
       "diff": 1,
       "q": "Définir la cotation au certain et à l'incertain. Écrire la relation entre les deux et donner un exemple pour la paire euro-dollar.",
-      "model": "Cotation au certain pour un pays : nombre d'unités de monnaie étrangère pour 1 unité de monnaie nationale (ex. pour la zone euro : 1 EUR = 1,10 USD). Cotation à l'incertain : nombre d'unités de monnaie nationale pour 1 unité de monnaie étrangère (ex. pour la zone euro : 1 USD = 0,91 EUR). Relation : S_incertain = 1/S_certain. En France, l'euro est traditionnellement coté au certain (habitude du prof).",
+      "model": "Certain (pour un pays) : nombre d'unités étrangères pour 1 unité nationale (ex : 1 EUR = 1,10 USD). Incertain : nombre d'unités nationales pour 1 unité étrangère (ex : 1 USD = 0,91 EUR). Relation : S_incertain = 1/S_certain. En France, l'euro est coté au certain (convention du prof).",
       "points": [
         "certain = étrangère pour 1 nationale",
         "incertain = nationale pour 1 étrangère",
@@ -5359,7 +5451,7 @@
       "ch": 1,
       "diff": 3,
       "q": "Écrire l'équation d'accumulation de la position extérieure nette (PEN) dans le cas où l'actif est libellé en monnaie étrangère et le passif en monnaie nationale.",
-      "model": "PEN_t = A_{t-1}(1+i_A)·(E_{t-1}/E_t) − L_{t-1}(1+i_L) + BC_t, où A = actif brut (libellé en monnaie étrangère, ici en dollars), L = passif brut (libellé en monnaie nationale), i_A et i_L leurs taux d'intérêt respectifs, E = taux au certain (nombre de dollars par euro), BC = solde courant de la période. Le terme E_{t-1}/E_t traduit l'effet de valorisation : une dépréciation de la monnaie nationale (E baisse) augmente la valeur en euros de l'actif en dollars.",
+      "model": "PEN_t = A_{t-1}(1+i_A)·(E_{t-1}/E_t) − L_{t-1}(1+i_L) + BC_t. A = actif brut (en $), L = passif brut (en €), i_A/i_L taux d'intérêt, E = taux au certain ($/€), BC = solde courant. Le facteur E_{t-1}/E_t est l'effet de valorisation : dépréciation nationale ⇒ hausse valeur en € de l'actif $.",
       "points": [
         "PEN = A − L (définition)",
         "capitalisation par (1+i_A) et (1+i_L)",
@@ -5405,7 +5497,7 @@
       "ch": 2,
       "diff": 2,
       "q": "Distinguer une opération de change au comptant (spot) d'une opération à terme (forward) et expliquer l'intérêt de la couverture à terme pour un exportateur.",
-      "model": "Spot : livraison sous 2 jours ouvrés au taux du jour. Forward : contrat conclu à la signature pour une livraison future (1 mois, 3 mois...) à un cours convenu à l'avance (cours à terme f). Intérêt pour un exportateur facturant en devise étrangère : la vente à terme des devises futures fige la contre-valeur en monnaie nationale, éliminant le risque de change. Coût = renoncer à un éventuel gain si la devise s'apprécie.",
+      "model": "Spot : livraison sous 2 jours au taux du jour. Forward : contrat signé pour livraison future (1M, 3M...) au cours à terme f fixé. Un exportateur facturant en devise étrangère vend à terme les devises futures : la contre-valeur en monnaie nationale est figée, risque de change nul. Coût : renoncer au gain si la devise s'apprécie.",
       "points": [
         "distinction spot vs forward (délai + cours convenu)",
         "risque exposition exportateur = dépréciation de la devise reçue",
@@ -5491,7 +5583,7 @@
       "ch": 1,
       "diff": 2,
       "q": "Énumérer les faits stylisés de Kaldor concernant la croissance moderne et expliquer leur importance.",
-      "model": "Kaldor identifie 6 faits stylisés : (1) taux de croissance de y positif et stable ; (2) K/L croît ; (3) K/Y stable ; (4) rendement r stable ; (5) parts factorielles stables (~1/3 - 2/3) ; (6) forte hétérogénéité inter-pays. Ces faits contraignent les théories : tout bon modèle doit les reproduire, notamment le fait 5 (partage stable) et le fait 6 (divergence entre pays).",
+      "model": "Kaldor identifie 6 faits stylisés : (1) g_y positif et stable ; (2) K/L croît ; (3) K/Y stable ; (4) r stable ; (5) parts factorielles stables (~1/3 - 2/3) ; (6) forte hétérogénéité inter-pays. Contrainte pour les théories : elles doivent reproduire notamment le partage stable (5) et la divergence entre pays (6).",
       "points": [
         "6 faits stylisés énumérés",
         "insistance sur stabilité K/Y et r",
@@ -5510,7 +5602,7 @@
       "ch": 2,
       "diff": 2,
       "q": "Expliquer le contenu et l'apport du modèle MRW (Mankiw-Romer-Weil 1992).",
-      "model": "MRW augmentent Solow en introduisant le capital humain H dans la fonction : Y = K^α · H^β · (A·L)^(1−α−β). L'estimation donne α ≈ 1/3, β ≈ 1/3, 1−α−β ≈ 1/3 : chaque facteur rémunéré à sa productivité marginale, revenu partagé en trois tiers. Apport : meilleure explication empirique des écarts de revenu inter-pays, et validation de la convergence conditionnelle.",
+      "model": "MRW augmentent Solow avec le capital humain H : Y = K^α · H^β · (A·L)^(1−α−β). L'estimation donne α ≈ β ≈ 1−α−β ≈ 1/3 : chaque facteur rémunéré à sa productivité marginale, revenu partagé en trois tiers. Apport : meilleure explication empirique de la variance inter-pays et validation de la convergence conditionnelle.",
       "points": [
         "fonction Y = K^α · H^β · (AL)^(1−α−β)",
         "estimation ≈ 1/3, 1/3, 1/3",
@@ -5529,7 +5621,7 @@
       "ch": 3,
       "diff": 3,
       "q": "Rappeler la fonction de production du modèle AK et expliquer pourquoi la croissance y est endogène.",
-      "model": "Modèle AK : Y = A · K, linéaire en K. La productivité marginale du capital reste constante (A), donc pas de rendements décroissants et pas d'état régulier borné. Le taux de croissance de long terme est g = s·A − (δ+n), fonction du taux d'épargne s : la politique économique (via s) affecte durablement la croissance. C'est cette dépendance à s qui rend la croissance ENDOGÈNE, contrairement à Solow.",
+      "model": "AK : Y = A · K, linéaire en K. Productivité marginale du capital constante (A), donc pas de rendements décroissants ni d'état régulier borné. Taux de croissance de long terme g = s·A − (δ+n), fonction du taux d'épargne s. Cette dépendance à s rend la croissance ENDOGÈNE, contrairement à Solow où s n'a qu'un effet niveau.",
       "points": [
         "Y = A · K (linéaire)",
         "absence de rendements décroissants",
@@ -5548,7 +5640,7 @@
       "ch": 3,
       "diff": 3,
       "q": "Expliquer la propriété de non-rivalité des idées chez Paul Romer et son implication pour la croissance.",
-      "model": "Non-rivalité : une même idée peut être utilisée simultanément et sans épuisement par plusieurs producteurs. Contrairement au capital physique (rival), une idée reste disponible après usage. Implication : la production d'idées échappe à la loi des rendements décroissants, ce qui permet une croissance endogène soutenue par l'accumulation d'idées. Nécessite en pratique un mécanisme d'excluabilité (brevets) pour maintenir l'incitation privée à investir.",
+      "model": "Non-rivalité : une idée peut être utilisée simultanément par plusieurs producteurs sans épuisement. Contrairement au capital physique (rival), elle reste disponible après usage. Conséquence : la production d'idées échappe aux rendements décroissants et permet une croissance endogène. Nécessite l'excluabilité (brevets) pour l'incitation privée.",
       "points": [
         "définition non-rivalité",
         "contraste avec K rival",
@@ -5567,7 +5659,7 @@
       "ch": 4,
       "diff": 3,
       "q": "Formuler la critique de Jones (1995) au modèle de Romer (1990) et présenter la solution semi-endogène.",
-      "model": "Critique : Romer 1990 implique un effet d'échelle (doubler les chercheurs devrait doubler g). Empiriquement, la R&D est ×5 aux USA 1950-88, mais g_PTF reste stable. Solution semi-endogène : introduire un exposant λ < 1 sur L_A (duplication) et φ < 1 sur A (externalité moindre). Le taux de croissance de long terme dépend alors de n (démographie), pas de s_R. La politique de R&D affecte le niveau, pas la pente.",
+      "model": "Critique de Jones : Romer 1990 implique un effet d'échelle (doubler chercheurs → doubler g). Or R&D ×5 aux USA 1950-88 sans hausse de g_PTF. Solution semi-endogène : λ < 1 (duplication) et φ < 1 (externalité moindre). Résultat : g_LT dépend de n, pas de s_R. La politique R&D affecte le niveau des idées, pas la pente.",
       "points": [
         "effet d'échelle non validé empiriquement",
         "modification λ < 1 (duplication)",
@@ -5586,7 +5678,7 @@
       "ch": 4,
       "diff": 2,
       "q": "Expliquer le mécanisme du piège malthusien et pourquoi il a été rompu à partir du XIXᵉ siècle.",
-      "model": "Piège malthusien : progrès technique ↑ y transitoirement, ↑ fertilité, ↑ L, avec terre fixe et rendements décroissants, y retombe à son niveau de subsistance. Long terme : y ≈ constant, L ↑. Rupture au XIXᵉ : (1) le progrès technique s'accélère assez vite pour dépasser l'ajustement démographique ; (2) la transition démographique fait baisser la fertilité malgré la hausse du revenu (arbitrage quantité/qualité des enfants).",
+      "model": "Piège malthusien : ↑ progrès technique ⇒ ↑ y transitoire ⇒ ↑ fertilité ⇒ ↑ L ; avec terre fixe et rendements décroissants, y retombe à la subsistance. Long terme : y ≈ constant, L ↑. Rupture XIXᵉ : (1) le progrès technique s'accélère assez pour distancer l'ajustement démographique ; (2) transition démographique (fertilité ↓).",
       "points": [
         "mécanisme démographique amplifiant",
         "revenu revient à subsistance",
@@ -5605,7 +5697,7 @@
       "ch": 3,
       "diff": 2,
       "q": "Décrire le modèle OLG de Diamond (1965) : agents, contraintes, décisions.",
-      "model": "OLG : chaque agent vit 2 périodes (jeune, âgé). Population croît au taux n. Les jeunes produisent, gagnent w, choisissent leur épargne s (arbitrage consommer à la période courante vs demain). Les âgés consomment leur épargne accumulée (1+r)·s, pas de choix. Contrainte intertemporelle : c1 + c2/(1+r) = w. Maximisation de U(c1, c2) sous cette contrainte donne s* fonction de w, r, préférences.",
+      "model": "OLG : chaque agent vit 2 périodes (jeune, âgé). Population croît à n. Jeunes produisent, gagnent w, choisissent leur épargne s (arbitrage conso période 1 vs période 2). Âgés consomment (1+r)·s, pas de choix. Contrainte intertemporelle : c1 + c2/(1+r) = w. Maximisation de U(c1, c2) donne s* fonction de w, r, préférences.",
       "points": [
         "2 générations coexistantes",
         "contrainte budgétaire intertemporelle",
@@ -5624,7 +5716,7 @@
       "ch": 1,
       "diff": 2,
       "q": "Décrire brièvement le modèle de Harrod-Domar et l'expression « fil du rasoir ».",
-      "model": "Harrod (1939) et Domar (1947) : dynamisation keynésienne. Coefficient capital/production v fixe (pas de substitution K-L). Taux garanti g_w = s/v (épargne finance investissement). Sentier équilibré exige g = n (démographie). Fil du rasoir : rien n'assure g = n ; tout écart s'amplifie (surinvestissement puis récession, ou inverse). Solow (1956) résout en introduisant la substitution K-L.",
+      "model": "Harrod (1939) et Domar (1947) : dynamisation keynésienne. Coefficient v = K/Y fixe (pas de substitution K-L). Taux garanti g_w = s/v (épargne finance investissement). Sentier équilibré exige g = n. Fil du rasoir : rien n'assure g = n, tout écart s'amplifie. Solow (1956) résout en introduisant la substitution K-L.",
       "points": [
         "keynésien dynamique",
         "coefficient v fixe (Léontief)",
@@ -5643,7 +5735,7 @@
       "ch": 2,
       "diff": 2,
       "q": "Distinguer convergence absolue et convergence conditionnelle. Laquelle est validée empiriquement (MRW 1992) ?",
-      "model": "Convergence absolue : tous les pays convergent vers le même sentier régulier, donc les pays initialement plus pauvres croissent plus vite (rejetée empiriquement à l'échelle planétaire). Convergence conditionnelle : chaque pays converge vers SON sentier régulier propre (fonction de s, n, H), donc les écarts persistent si les structures diffèrent. MRW (1992) valident empiriquement la convergence conditionnelle en régressant g sur y initial + déterminants structurels.",
+      "model": "Convergence absolue : tous les pays convergent vers le même sentier régulier (les plus pauvres croissent plus vite). Empiriquement rejetée à l'échelle planétaire. Convergence conditionnelle : chaque pays converge vers SON sentier propre (fonction de s, n, H). MRW (1992) la valident en régressant g sur y initial + déterminants structurels.",
       "points": [
         "convergence absolue (rejet)",
         "convergence conditionnelle (validation)",
@@ -5662,7 +5754,7 @@
       "ch": 5,
       "diff": 3,
       "q": "Expliquer la distinction entre institutions inclusives et institutions extractives (Acemoglu-Robinson).",
-      "model": "Institutions inclusives : droits de propriété sécurisés, État de droit, contestabilité politique, incitations à investir et innover (ex : Corée du Sud). Institutions extractives : capture des rentes par une élite, insécurité juridique, faibles incitations à l'accumulation (ex : Corée du Nord). Thèse Acemoglu-Robinson : inclusives favorisent la croissance, extractives la freinent. Illustration : contraste Nord/Sud Corée après 1945.",
+      "model": "Inclusives : droits de propriété sécurisés, État de droit, contestabilité politique, incitations à investir (ex : Corée du Sud). Extractives : capture des rentes par une élite, insécurité juridique, faibles incitations (ex : Corée du Nord). Thèse Acemoglu-Robinson : inclusives favorisent la croissance, extractives la freinent.",
       "points": [
         "inclusives : droits, incitations, contestabilité",
         "extractives : capture, insécurité, rentes",
@@ -5969,6 +6061,192 @@
         "Co-auteur d'un livre à succès intitulé Why Nations Fail (2012).",
         "Il oppose institutions inclusives et institutions extractives."
       ]
+    },
+    {
+      "id": "et-17",
+      "name": "Résidu de Solow",
+      "aliases": [
+        "residu de solow",
+        "residu solow",
+        "solow residual",
+        "productivite totale des facteurs",
+        "ptf",
+        "tfp",
+        "progrès technique",
+        "progres technique"
+      ],
+      "clues": [
+        "Je suis identifié en 1957 par un économiste américain.",
+        "Je suis la partie inexpliquée de la croissance mesurée.",
+        "Je fournis une mesure indirecte du progrès technique.",
+        "On me calcule ainsi : g_A = g_Y − α·g_K − (1−α)·g_L.",
+        "On m'appelle aussi productivité totale des facteurs (PTF)."
+      ],
+      "mat": "croissance"
+    },
+    {
+      "id": "et-18",
+      "name": "Fil du rasoir de Harrod",
+      "aliases": [
+        "fil du rasoir",
+        "fil du rasoir de harrod",
+        "instabilite de harrod",
+        "harrod",
+        "harrod domar",
+        "harrod-domar",
+        "domar"
+      ],
+      "clues": [
+        "Je décris l'instabilité d'un sentier de croissance.",
+        "Un économiste britannique m'identifie en 1939.",
+        "Sans substitution capital-travail, tout écart au sentier garanti s'amplifie.",
+        "Solow me résout en 1956 en introduisant les rendements décroissants.",
+        "Mon équation phare : taux garanti = s / v."
+      ],
+      "mat": "croissance"
+    },
+    {
+      "id": "et-19",
+      "name": "Faits stylisés de Kaldor",
+      "aliases": [
+        "faits stylises de kaldor",
+        "faits stylisés de kaldor",
+        "kaldor",
+        "faits stylises",
+        "six faits stylises",
+        "kaldor 1961"
+      ],
+      "clues": [
+        "Un économiste hongrois m'énonce en 1961.",
+        "Je liste six régularités empiriques de long terme.",
+        "Parmi elles : le ratio K/Y est stable dans le temps.",
+        "Autre constat : les parts factorielles restent stables (~1/3 et 2/3).",
+        "Toute théorie de la croissance doit me reproduire, sinon elle est mal spécifiée."
+      ],
+      "mat": "croissance"
+    },
+    {
+      "id": "et-20",
+      "name": "Modèle de Mankiw-Romer-Weil",
+      "aliases": [
+        "mrw",
+        "mankiw romer weil",
+        "mankiw-romer-weil",
+        "modele mrw",
+        "modèle mrw",
+        "solow augmente",
+        "solow augmenté"
+      ],
+      "clues": [
+        "Je date de 1992 et je paraîs dans le Quarterly Journal of Economics.",
+        "J'augmente le modèle de Solow avec un troisième facteur.",
+        "Ce facteur est le capital humain (H).",
+        "Ma fonction de production : Y = K^α · H^β · (A·L)^(1−α−β).",
+        "J'établis empiriquement la convergence conditionnelle avec α ≈ β ≈ 1/3."
+      ],
+      "mat": "croissance"
+    },
+    {
+      "id": "et-21",
+      "name": "Convergence conditionnelle",
+      "aliases": [
+        "convergence conditionnelle",
+        "convergence conditionelle",
+        "beta convergence conditionnelle",
+        "béta convergence"
+      ],
+      "clues": [
+        "Je nuance une hypothèse trop optimiste sur les pays.",
+        "L'hypothèse rejetée : tous les pays convergent vers un même niveau.",
+        "Moi je dis : chaque pays converge vers son propre sentier régulier.",
+        "Mon sentier dépend du taux d'épargne, de la démographie et du capital humain.",
+        "Mankiw-Romer-Weil (1992) me valident économétriquement."
+      ],
+      "mat": "croissance"
+    },
+    {
+      "id": "et-22",
+      "name": "Modèle AK",
+      "aliases": [
+        "ak",
+        "modele ak",
+        "modèle ak",
+        "croissance endogene lineaire",
+        "rebelo",
+        "rebelo 1991"
+      ],
+      "clues": [
+        "Je suis un modèle de croissance endogène.",
+        "Ma technologie est parfaitement linéaire en capital : Y = A · K.",
+        "Contrairement à Solow, je n'ai pas d'état régulier borné.",
+        "Mon taux de croissance de long terme dépend de s (endogène, pas de niveau seul).",
+        "Sergio Rebelo publie ma version canonique en 1991."
+      ],
+      "mat": "croissance"
+    },
+    {
+      "id": "et-23",
+      "name": "Non-rivalité des idées",
+      "aliases": [
+        "non-rivalite",
+        "non rivalite",
+        "non-rivalité",
+        "non rivalité",
+        "romer 1990",
+        "idees non rivales",
+        "idées non rivales"
+      ],
+      "clues": [
+        "Je suis au cœur du modèle de Paul Romer (1990).",
+        "Je décris une propriété que les idées ont, mais pas le capital physique.",
+        "Deux entreprises peuvent m'utiliser en même temps, sans épuisement.",
+        "Je fais échapper la production d'idées aux rendements décroissants.",
+        "Sans excluabilité (brevets), l'incitation privée à me produire s'effondre."
+      ],
+      "mat": "croissance"
+    },
+    {
+      "id": "et-24",
+      "name": "Critique de Jones",
+      "aliases": [
+        "critique de jones",
+        "jones",
+        "modele semi-endogene",
+        "modèle semi-endogène",
+        "semi-endogene",
+        "semi endogene",
+        "jones 1995"
+      ],
+      "clues": [
+        "Je pointe une faiblesse empirique du modèle de Romer 1990.",
+        "Constat : la R&D a été multipliée par cinq aux USA sans hausse de g_PTF.",
+        "Je propose un modèle 'semi-endogène' pour résoudre l'écueil.",
+        "Chez moi, la croissance de long terme dépend de n (chercheurs qui croissent), pas de leur nombre.",
+        "Charles I. Jones publie ma version en 1995."
+      ],
+      "mat": "croissance"
+    },
+    {
+      "id": "et-25",
+      "name": "Modèle OLG de Diamond",
+      "aliases": [
+        "olg",
+        "diamond",
+        "generations imbriquees",
+        "générations imbriquées",
+        "modele diamond",
+        "modèle diamond",
+        "diamond 1965",
+        "overlapping generations"
+      ],
+      "clues": [
+        "Peter Diamond me formalise en 1965.",
+        "Chaque agent me traverse en deux périodes distinctes.",
+        "Le jeune travaille, gagne un salaire et choisit son épargne.",
+        "L'âgé consomme le fruit de son épargne actualisée à (1+r).",
+        "Sous log-utilité, l'épargne du jeune vaut β·w/(1+β), indépendamment du taux d'intérêt."
+      ],
+      "mat": "croissance"
     }
   ],
   "CHEATSHEET": {

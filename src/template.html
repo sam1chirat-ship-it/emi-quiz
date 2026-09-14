@@ -1293,7 +1293,8 @@ const GEN = {
   //    1 USD = A JPY  et  1 USD = B EUR  →  1 EUR = A/B JPY
   cross(rng) {
     const A = 100 + rngInt(4) * 10;     // 100, 110, 120, 130
-    const Bs = [0.8, 0.9, 1.0, 1.25];
+    // B = 1 exclu : donnerait good = A/B = A·B = bad1.
+    const Bs = [0.8, 0.9, 1.25];
     const B = Bs[rngInt(Bs.length)];
     const good = Math.round(A / B);
     const bad1 = Math.round(A * B);      // mauvais sens (mul au lieu de div)
@@ -1315,9 +1316,19 @@ const GEN = {
 
   // 2. Variation du TCR (log-linéarisée) : Δq = Δe + (π − π*).
   varTCR(rng) {
-    const dE  = [-5, -3, 2, 4, 5][rngInt(5)];
-    const pi  = [1, 2, 3, 4][rngInt(4)];
-    const piS = [0, 1, 2][rngInt(3)];
+    // Reject-sampling : garantit 4 réponses distinctes.
+    let dE, pi, piS;
+    for (let att = 0; att < 20; att++) {
+      dE  = [-5, -3, 2, 4, 5][rngInt(5)];
+      pi  = [1, 2, 3, 4][rngInt(4)];
+      piS = [0, 1, 2][rngInt(3)];
+      if (pi === piS) continue;
+      const g0 = dE + (pi - piS);
+      const b1 = dE;
+      const b2 = dE + (piS - pi);
+      const b3 = pi - piS;
+      if (new Set([g0, b1, b2, b3]).size === 4) break;
+    }
     const good = dE + (pi - piS);
     const bad1 = dE;                    // oubli de l'inflation
     const bad2 = dE + (piS - pi);       // signe inversé
@@ -1333,40 +1344,56 @@ const GEN = {
 
   // 3. Variation du TCEN pondérée : Σ ω_i Δe_i.
   neer(rng) {
-    const w1s = [0.5, 0.6, 0.7, 0.8];
-    const w1 = w1s[rngInt(w1s.length)];
-    const w2 = Math.round((1 - w1) * 10) / 10;
-    const dE1 = [-4, -2, 2, 4, 5][rngInt(5)];
-    const dE2 = [-3, -1, 1, 3][rngInt(4)];
-    const good = Math.round((w1 * dE1 + w2 * dE2) * 10) / 10;
-    const bad1 = Math.round((dE1 + dE2) / 2 * 10) / 10; // moyenne non pondérée
-    const bad2 = dE1 + dE2;                             // somme brute
-    const bad3 = Math.round(w1 * dE1 * 10) / 10;        // 1 partenaire seul
+    // Reject-sampling pour éviter les collisions bad1 = bad3 quand
+    // (dE1+dE2)/2 = w1·dE1, fréquentes avec certains couples.
+    let w1, w2, dE1, dE2, gg, b1, b2, b3;
+    for (let att = 0; att < 20; att++) {
+      const w1s = [0.5, 0.6, 0.7, 0.8];
+      w1 = w1s[rngInt(w1s.length)];
+      w2 = Math.round((1 - w1) * 10) / 10;
+      dE1 = [-4, -2, 2, 4, 5][rngInt(5)];
+      dE2 = [-3, -1, 1, 3][rngInt(4)];
+      gg = Math.round((w1 * dE1 + w2 * dE2) * 10) / 10;
+      b1 = Math.round((dE1 + dE2) / 2 * 10) / 10;
+      b2 = Math.round((w1 * dE1 - w2 * dE2) * 10) / 10;
+      b3 = Math.round(w1 * dE1 * 10) / 10;
+      if (new Set([gg, b1, b2, b3]).size === 4) break;
+    }
+    const good = gg, bad1 = b1, bad2 = b2, bad3 = b3;
     return {
       cat: "tcr", ch: 2, diff: 2,
       q: `Deux partenaires : ω₁ = ${w1}, Δe₁ = ${dE1} % ; ω₂ = ${w2}, Δe₂ = ${dE2} %. Variation du TCEN ?`,
       choices: [good + " %", bad1 + " %", bad2 + " %", bad3 + " %"],
       a: 0,
-      why: `Δe_TCEN = ω₁ Δe₁ + ω₂ Δe₂ = ${w1}×${dE1} + ${w2}×${dE2} = ${good} %.`
+      why: `Δe_TCEN = ω₁·Δe₁ + ω₂·Δe₂ = ${w1}×${dE1} + ${w2}×${dE2} = ${good} %. Piège fréquent : oublier la pondération (moyenne simple) ou inverser le signe d'un partenaire.`
     };
   },
 
   // 4. Solde d'un compte à partir de crédits/débits (biens + services).
   bdp(rng) {
-    const xB = 100 + rngInt(20) * 5;    // exports biens
-    const mB = 100 + rngInt(20) * 5;
-    const xS = 20 + rngInt(10) * 5;     // exports services
-    const mS = 20 + rngInt(10) * 5;
-    const good = (xB - mB) + (xS - mS); // solde CC (biens+services)
+    let xB, mB, xS, mS, good;
+    for (let att = 0; att < 20; att++) {
+      xB = 100 + rngInt(20) * 5;
+      mB = 100 + rngInt(20) * 5;
+      xS = 20 + rngInt(10) * 5;
+      mS = 20 + rngInt(10) * 5;
+      good = (xB - mB) + (xS - mS);
+      const b1 = xB - mB;
+      const b2 = -good;
+      const b3 = (xB + xS) - mB;
+      if (good !== 0 && new Set([good, b1, b2, b3]).size === 4) break;
+    }
+    // La ligne suivante reste pour lisibilité — good/bad{1,2,3} recalculés.
+    good = (xB - mB) + (xS - mS);
     const bad1 = (xB - mB);             // oubli des services
     const bad2 = (mB - xB) + (mS - xS); // signe inversé
-    const bad3 = (xB + xS) - (mB - mS); // erreur d'inversion crédit/débit
+    const bad3 = (xB + xS) - mB;        // oubli des imports de services (structurellement ≠ good de mS)
     return {
       cat: "bdp", ch: 1, diff: 2,
       q: `Balance des paiements (Md€) : exports biens ${xB}, imports biens ${mB}, exports services ${xS}, imports services ${mS}. Solde biens + services ?`,
       choices: [good + " Md€", bad1 + " Md€", bad2 + " Md€", bad3 + " Md€"],
       a: 0,
-      why: `Solde = (X_B − M_B) + (X_S − M_S) = (${xB} − ${mB}) + (${xS} − ${mS}) = ${good} Md€.`
+      why: `Solde = (X_B − M_B) + (X_S − M_S) = (${xB} − ${mB}) + (${xS} − ${mS}) = ${good} Md€. Piège : oublier les services (${bad1}) ou une des importations (${bad3}).`
     };
   },
 
@@ -1393,29 +1420,39 @@ const GEN = {
 
   // 6. Parité PNCTI : e = eᵃ + (i − i*) sur horizon annualisé/trimestriel.
   uip(rng) {
-    // Taux annuels, horizon trimestriel (÷ 4).
-    const i  = 4 * (rngInt(5) + 2);   // 8, 12, 16, 20, 24 %
-    const iS = 4 * (rngInt(4) + 1);   // 4, 8, 12, 16 %
+    // Taux annuels, horizon trimestriel (÷ 4). Reject-sampling car i = i*
+    // triple-doublonnait good/bad1/bad2 = 100.
+    let i, iS;
+    for (let att = 0; att < 20; att++) {
+      i  = 4 * (rngInt(5) + 2);       // 8, 12, 16, 20, 24 %
+      iS = 4 * (rngInt(4) + 1);       // 4, 8, 12, 16 %
+      if (i === iS) continue;
+      const diff = (i - iS) / 4;
+      const g0 = 100 + diff, b1 = 100 + (i - iS), b2 = 100 - diff, b3 = 100 + (i + iS) / 4;
+      if (new Set([g0, b1, b2, b3]).size === 4) break;
+    }
     const eA = 100;                    // eᵃ = 100 (base 100)
     // PNCTI : e = eᵃ + (i − i*) sur l'horizon → sur 3 mois : (i − i*)/4
     const diff = (i - iS) / 4;
     const good = eA + diff;
     const bad1 = eA + (i - iS);        // oubli de l'horizon
     const bad2 = eA - diff;             // signe inversé
-    const bad3 = eA + (iS - i) / 4;     // i et i* inversés
+    const bad3 = eA + (i + iS) / 4;     // somme des taux au lieu du différentiel
     return {
       cat: "parite", ch: 3, diff: 3,
       q: `PNCTI : eᵃ = 100, i = ${i} % annuel, i* = ${iS} % annuel. Horizon 3 mois. Taux e aujourd'hui ?`,
       choices: [good.toFixed(2), bad1.toFixed(2), bad2.toFixed(2), bad3.toFixed(2)],
       a: 0,
-      why: `e = eᵃ + (i − i*)/horizon = 100 + (${i} − ${iS})/4 = ${good.toFixed(2)}. Piège : oublier l'annualisation (${bad1.toFixed(2)}).`
+      why: `e = eᵃ + (i − i*)/horizon = 100 + (${i} − ${iS})/4 = ${good.toFixed(2)}. Convention du cours PNCTI. Piège : oublier l'annualisation (${bad1.toFixed(2)}) ou confondre différentiel et somme des taux.`
     };
   },
 
   // 7. PPA relative : Δe ≈ π* − π (au certain, log-linéarisée).
   ppa(rng) {
-    const pi  = [1, 2, 3, 4, 5][rngInt(5)];
-    const piS = [0, 1, 2, 3][rngInt(4)];
+    // π* = 0 exclu (rendait bad1 = bad2 = π) ; π = π* exclu (bad1 = 0 = bad3).
+    let pi  = [2, 3, 4, 5][rngInt(4)];
+    let piS = [1, 2, 3][rngInt(3)];
+    if (pi === piS) pi = (pi === 5) ? pi - 1 : pi + 1;
     const good = piS - pi;
     const bad1 = pi - piS;             // signe inversé (piège classique)
     const bad2 = pi + piS;             // somme au lieu de différence
@@ -1433,7 +1470,8 @@ const GEN = {
   //    ΔPEN = CC + effet valo. Ici on isole l'effet valo pur.
   pen_valo(rng) {
     const avoirs = 200 + rngInt(6) * 50;       // 200 à 450 Md€
-    const engagts = 100 + rngInt(6) * 50;      // 100 à 350 Md€
+    let engagts = 100 + rngInt(6) * 50;        // 100 à 350 Md€
+    if (engagts === avoirs) engagts += 50;     // évite good = bad1
     const dPct = [-10, -5, 5, 10][rngInt(4)];  // variation % des avoirs en devises
     // Effet de valorisation sur les avoirs (engagements en monnaie nationale ici).
     const good = Math.round(avoirs * dPct / 100);
@@ -1449,7 +1487,250 @@ const GEN = {
       trap: "stock-flux",
       why: `Seuls les avoirs libellés en devises sont revalorisés : ΔPEN_valo = ${avoirs} × ${dPct}/100 = ${good} Md€. Les engagements en monnaie nationale ne bougent pas.`
     };
+  },
+
+  // === CROISSANCE (SPEC §9 J26) ============================================
+
+  // C1. Résidu de Solow : g_A = g_Y − α·g_K − (1−α)·g_L.
+  residu_g(rng) {
+    const gY = 2 + rngInt(5);              // 2..6
+    let gK = 2 + rngInt(5);                // 2..6
+    let gL = rngInt(3);                    // 0..2
+    // Exclure gK = gL (donne good = bad2 quand K et L sont symétriques).
+    if (gK === gL) gK = (gK === 6) ? gK - 1 : gK + 1;
+    const alphas = [0.3, 1/3, 0.4];
+    const a = alphas[rngInt(alphas.length)];
+    const aTxt = a === 1/3 ? "1/3" : a.toString();
+    const round1 = (x) => Math.round(x * 10) / 10;
+    const good = round1(gY - a * gK - (1 - a) * gL);
+    const bad1 = round1(gY - gK - gL);                  // α oublié (pondérations à 1)
+    const bad2 = round1(gY - a * gL - (1 - a) * gK);    // α inversé (K↔L)
+    const bad3 = round1(gY + a * gK + (1 - a) * gL);    // signe inversé
+    return {
+      cat: "residu", ch: 1, diff: 2,
+      q: `Comptabilité de la croissance : g_Y = ${gY} %, g_K = ${gK} %, g_L = ${gL} %, α = ${aTxt}. Résidu de Solow g_A ?`,
+      choices: [`${good} %`, `${bad1} %`, `${bad2} %`, `${bad3} %`],
+      a: 0,
+      why: `g_A = g_Y − α·g_K − (1−α)·g_L = ${gY} − ${aTxt}·${gK} − (1−${aTxt})·${gL} = ${good} %. Piège : oublier les pondérations ou inverser K/L.`
+    };
+  },
+
+  // C2. Part factorielle Kaldor (fait stylisé 5).
+  kaldor_alpha(rng) {
+    const rK = 25 + rngInt(4) * 5;    // 25, 30, 35, 40
+    const wL = 100 - rK;               // Y = 100
+    const good = Math.round(rK * 100) / 100;
+    const bad1 = wL;                    // part travail au lieu de capital
+    const bad2 = Math.round(rK / wL * 100) / 100;   // ratio r·K / w·L au lieu de r·K / Y
+    const bad3 = Math.round((rK - wL));              // différence brute
+    return {
+      cat: "kaldor", ch: 1, diff: 1,
+      q: `Y = 100, rémunération du capital r·K = ${rK}, rémunération du travail w·L = ${wL}. Part du capital α = r·K/Y ?`,
+      choices: [`${good} %`, `${bad1} %`, `${bad2}`, `${bad3} %`],
+      a: 0,
+      why: `α = r·K/Y = ${rK}/100 = ${good} %. Kaldor (fait 5) : cette part est stable ~1/3, la part du travail ~2/3.`
+    };
+  },
+
+  // C3. Harrod-Domar : taux garanti g_w = s/v.
+  harrod_gw(rng) {
+    // Paramètres calibrés pour éviter les collisions v/s·100 = s±v.
+    const ss = [12, 15, 18];
+    const s = ss[rngInt(ss.length)];
+    const vs = [3, 4, 5];
+    const v = vs[rngInt(vs.length)];
+    const round2 = (x) => Math.round(x * 100) / 100;
+    const good = round2(s / v);
+    const bad1 = round2(s * v);          // produit au lieu de ratio
+    const bad2 = round2(v / s * 100);    // ratio inversé (v/s en %)
+    const bad3 = round2(s + v);          // somme
+    return {
+      cat: "harrod", ch: 2, diff: 2,
+      q: `Harrod-Domar : taux d'épargne s = ${s} %, coefficient de capital v = K/Y = ${v}. Taux garanti g_w ?`,
+      choices: [`${good} %`, `${bad1} %`, `${bad2} %`, `${bad3} %`],
+      a: 0,
+      why: `g_w = s/v = ${s}/${v} = ${good} %. Piège : v est un ratio K/Y sans dimension, s un taux — la division donne bien un taux de croissance.`
+    };
+  },
+
+  // C4. Solow : capital par tête à l'état régulier (α = 1/2, forme fermée).
+  //     k* = (s/(δ+n))^{1/(1−α)} = (s/(δ+n))² avec α = 1/2.
+  solow_kstar(rng) {
+    const ss = [0.2, 0.25, 0.3];
+    const s = ss[rngInt(ss.length)];
+    const dns = [0.05, 0.10];
+    const dn = dns[rngInt(dns.length)];
+    const ratio = s / dn;
+    const good = Math.round(ratio * ratio * 100) / 100;
+    const bad1 = Math.round(ratio * 100) / 100;              // sans exposant (oubli 1/(1−α))
+    const bad2 = Math.round((dn / s) * (dn / s) * 100) / 100; // ratio inversé
+    const bad3 = Math.round((s - dn) * 100 * 100) / 100;      // différence au lieu de ratio, mise à l'échelle × 100
+    return {
+      cat: "solow", ch: 2, diff: 3,
+      q: `Solow, technologie Cobb-Douglas α = 1/2 : s = ${s}, δ + n = ${dn}. Capital par tête à l'état régulier k* ?`,
+      choices: [`${good}`, `${bad1}`, `${bad2}`, `${bad3}`],
+      a: 0,
+      why: `k* = (s/(δ+n))^{1/(1−α)} = (${s}/${dn})² = ${good}. Avec α = 1/2, l'exposant vaut 2 ; sans exposant on trouve seulement le ratio s/(δ+n).`
+    };
+  },
+
+  // C5. MRW : y = A · k^α · h^β avec α = 0,3, β = 0,3. Variation de y si k↑Δ %.
+  mrw_elast(rng) {
+    const dks = [3, 5, 10, 20];
+    const dk = dks[rngInt(dks.length)];
+    const alpha = 0.3;
+    const beta = 0.3;
+    const round1 = (x) => Math.round(x * 10) / 10;
+    const good = round1(alpha * dk);
+    const bad1 = round1(dk);                     // élasticité 1 (oubli α)
+    const bad2 = round1(beta * dk + alpha * dk); // ajoute la contribution de h (fixe pourtant)
+    const bad3 = round1((1 - alpha - beta) * dk); // élasticité au travail (1−α−β)
+    return {
+      cat: "mrw", ch: 3, diff: 2,
+      q: `MRW : y = A · k^α · h^β, α = β = 0,3. Capital par tête k ↑ ${dk} %, capital humain h et A inchangés. Variation approximative de y ?`,
+      choices: [`+${good} %`, `+${bad1} %`, `+${bad2} %`, `+${bad3} %`],
+      a: 0,
+      why: `Δy ≈ α·Δk = 0,3·${dk} = ${good} %. L'élasticité de y à k dans MRW est α, pas 1 (Solow simple) ni α+β.`
+    };
+  },
+
+  // C6. Convergence : temps de mi-parcours vers y*, T = ln(2)/β.
+  convergence_t(rng) {
+    // β = 1 exclu : bad2 (=β) coïnciderait avec bad3 (=ln2·β ≈ 1).
+    const betas = [2, 3, 5];     // en % par an
+    const b = betas[rngInt(betas.length)];
+    const ln2 = 0.693;
+    const good = Math.round(ln2 / (b / 100));
+    const bad1 = Math.round(100 / b);       // 1/β sans ln 2 (temps caractéristique de e-folding en années)
+    const bad2 = Math.round(b);              // confusion β = temps
+    const bad3 = Math.round(ln2 * b);        // multiplie au lieu de diviser
+    return {
+      cat: "convergence", ch: 2, diff: 3,
+      q: `Convergence conditionnelle : vitesse β = ${b} % par an, ln(2) ≈ 0,693. Temps pour combler la moitié de l'écart au sentier régulier ?`,
+      choices: [`≈ ${good} ans`, `≈ ${bad1} ans`, `≈ ${bad2} ans`, `≈ ${bad3} ans`],
+      a: 0,
+      why: `T_{1/2} = ln(2)/β = 0,693/${b/100} ≈ ${good} ans. Piège fréquent : 1/β donne le temps de réduction d'un facteur e (≈ 63 %), pas de moitié.`
+    };
+  },
+
+  // C7. AK : g = s·A − (δ + n). Paramètres calibrés pour garantir g > 0.
+  ak_g(rng) {
+    // s·A dans [0,06 ; 0,09] et δ+n dans [0,02 ; 0,04] → g ∈ [0,02 ; 0,07].
+    const ss = [0.25, 0.30];
+    const s = ss[rngInt(ss.length)];
+    const As = [0.20, 0.25, 0.30];
+    const A = As[rngInt(As.length)];
+    const dns = [0.02, 0.03, 0.04];
+    const dn = dns[rngInt(dns.length)];
+    const round2 = (x) => Math.round(x * 10000) / 100;   // en %, deux décimales
+    const good = round2(s * A - dn);
+    const bad1 = round2(s * A);              // oubli (δ+n)
+    const bad2 = round2(s * A + dn);         // signe inversé
+    const bad3 = round2(s + A - dn);         // somme s+A au lieu de produit
+    return {
+      cat: "ak", ch: 3, diff: 2,
+      q: `Modèle AK : Y = A·K, taux d'épargne s = ${(s*100)} %, A = ${(A*100)} %, δ + n = ${(dn*100)} %. Taux de croissance de long terme g ?`,
+      choices: [`${good} %`, `${bad1} %`, `${bad2} %`, `${bad3} %`],
+      a: 0,
+      why: `g = s·A − (δ+n) = ${s}·${A} − ${dn} = ${good} %. Le taux d'épargne agit sur la CROISSANCE de long terme (endogène), pas seulement sur le niveau.`
+    };
+  },
+
+  // C8. Romer : g = δ·φ·L_R (progrès semi-linéaire dans L_R).
+  romer_g(rng) {
+    const deltas = [0.05, 0.10, 0.20];       // productivité de la recherche
+    const dl = deltas[rngInt(deltas.length)];
+    // φ = 1 exclu : good = δ·L_R coïnciderait avec bad2 (oubli φ).
+    const phis = [0.5, 0.75];                 // externalité des idées
+    const ph = phis[rngInt(phis.length)];
+    const lrs = [5, 10, 20, 50];              // chercheurs
+    const lr = lrs[rngInt(lrs.length)];
+    const good = Math.round(dl * ph * lr * 100) / 100;
+    const bad1 = Math.round(dl + ph + lr);       // somme
+    const bad2 = Math.round(dl * lr * 100) / 100; // oubli de φ
+    const bad3 = Math.round(ph * lr * 100) / 100; // oubli de δ
+    return {
+      cat: "romer", ch: 3, diff: 2,
+      q: `Romer (1990) : g_A = δ · φ · L_R avec δ = ${dl}, φ = ${ph}, L_R = ${lr}. Taux de croissance des idées ?`,
+      choices: [`${good}`, `${bad1}`, `${bad2}`, `${bad3}`],
+      a: 0,
+      why: `g_A = δ·φ·L_R = ${dl}·${ph}·${lr} = ${good}. Effet d'échelle : doubler L_R double g. Cet effet a été critiqué par Jones (semi-endogène).`
+    };
+  },
+
+  // C9. Aghion / Jones semi-endogène : g_A = n·λ / (1−φ).
+  aghion_gsemi(rng) {
+    const ns = [1, 2, 3];              // croissance démo en %
+    const n = ns[rngInt(ns.length)];
+    const lambdas = [0.5, 0.75, 1];
+    const lam = lambdas[rngInt(lambdas.length)];
+    const phis = [0.4, 0.5, 0.6];
+    const ph = phis[rngInt(phis.length)];
+    const good = Math.round(n * lam / (1 - ph) * 100) / 100;
+    const bad1 = Math.round(n * lam * 100) / 100;              // oubli du dénominateur
+    const bad2 = Math.round((n * lam) / (1 + ph) * 100) / 100; // signe erroné dans le dénominateur
+    const bad3 = Math.round(n * lam * (1 - ph) * 100) / 100;    // produit au lieu de ratio (1−φ)
+    return {
+      cat: "aghion", ch: 3, diff: 3,
+      q: `Modèle semi-endogène (Jones) : g_A = n·λ/(1−φ), n = ${n} %, λ = ${lam}, φ = ${ph}. Taux de croissance de long terme ?`,
+      choices: [`${good} %`, `${bad1} %`, `${bad2} %`, `${bad3} %`],
+      a: 0,
+      why: `g_A = n·λ/(1−φ) = ${n}·${lam}/(1−${ph}) = ${good} %. Contrairement à Romer, g dépend de n (croissance des chercheurs), pas de leur niveau : pas d'effet d'échelle.`
+    };
+  },
+
+  // C10. OLG (Diamond, log-utilité) : épargne du jeune s* = β·w/(1+β).
+  //     β = 1 exclu (donnerait good = w/2, ambigu avec la "moitié naïve").
+  olg_save(rng) {
+    const ws = [80, 100, 120, 150];
+    const w = ws[rngInt(ws.length)];
+    const betas = [0.5, 1.5, 3];
+    const b = betas[rngInt(betas.length)];
+    const round2 = (x) => Math.round(x * 100) / 100;
+    const good = round2(b * w / (1 + b));
+    const bad1 = round2(w / (1 + b));      // oubli du numérateur β
+    const bad2 = round2(b * w);            // oubli de (1+β) au dénominateur
+    const bad3 = round2(w / (2 + b));      // décalage du dénominateur (1+β → 2+β)
+    return {
+      cat: "olg", ch: 2, diff: 3,
+      q: `OLG Diamond, utilité U = ln c₁ + β · ln c₂, β = ${b}, salaire du jeune w = ${w}. Épargne optimale s* ?`,
+      choices: [`${good}`, `${bad1}`, `${bad2}`, `${bad3}`],
+      a: 0,
+      why: `s* = β·w/(1+β) = ${b}·${w}/(1+${b}) = ${good}. Sous log-utilité, la propension à épargner β/(1+β) est INDÉPENDANTE du taux d'intérêt (effets substitution et revenu s'annulent).`
+    };
+  },
+
+  // C11. Malthus : piège malthusien, y = A/L = ȳ (subsistance).
+  //      À l'état stationnaire, ↑ A ⇒ L ∝ A, y reste à ȳ.
+  malthus_L(rng) {
+    const factors = [2, 3, 4];
+    const f = factors[rngInt(factors.length)];
+    const round2 = (x) => Math.round(x * 100) / 100;
+    return {
+      cat: "malthus", ch: 2, diff: 2,
+      q: `Piège malthusien : y = A/L, y = ȳ (subsistance) à l'état stationnaire. Le progrès technique multiplie A par ${f}. À long terme, la population L est multipliée par ?`,
+      choices: [
+        `× ${f}`,
+        `× 1 (le revenu augmente à long terme)`,
+        `× ${f * f} (confusion d'exposant : L ∝ A²)`,
+        `× ${round2(1/f)} (la démographie diminue)`
+      ],
+      a: 0,
+      why: `À l'état stationnaire y = ȳ constant : A/L = ȳ ⇒ L = A/ȳ, donc L ∝ A. A × ${f} ⇒ L × ${f}. Le progrès technique est absorbé par la démographie : y reste à la subsistance (essence du piège).`
+    };
   }
+};
+
+// Registre matière → utilisé pour filtrer GEN par S.mat dans le coup fatal.
+// Institutions (Acemoglu-Robinson) : pas de formule numérique tractable,
+// donc pas de générateur — assumé, non oublié.
+const GEN_MAT = {
+  cross: "emi", varTCR: "emi", neer: "emi", bdp: "emi",
+  capfin: "emi", uip: "emi", ppa: "emi", pen_valo: "emi",
+  residu_g: "croissance", kaldor_alpha: "croissance", harrod_gw: "croissance",
+  solow_kstar: "croissance", mrw_elast: "croissance", convergence_t: "croissance",
+  ak_g: "croissance", romer_g: "croissance", aghion_gsemi: "croissance",
+  olg_save: "croissance", malthus_L: "croissance"
 };
 
 // ---------- state ----------
@@ -2053,7 +2334,21 @@ function nextFatalQ() {
   const fmt = (S.qIdx % 2 === 1) ? "calc" : "qcm3";
   let item;
   if (fmt === "calc") {
-    const names = Object.keys(GEN);
+    const mat = S.mat || "emi";
+    const names = Object.keys(GEN).filter(n => GEN_MAT[n] === mat);
+    if (names.length === 0) {
+      // Aucun générateur pour cette matière : bascule sur qcm3 pour ne pas planter.
+      const q = pickDue("qcm", S.cats);
+      if (!q) { finishFatal(1 - S.fatal.cur); return; }
+      item = shrinkQCM(q);
+      S.asked.push(q.id);
+      S.q = item; S.qFmt = "qcm3"; S.phase = "q"; S.answered = null; S.fatalMsg = null;
+      startClock();
+      const p = S.players[fatalPlayerIdx(S.fatal.cur)];
+      if (p.bot) scheduleBotAnswerFatal();
+      render();
+      return;
+    }
     const name = rngPick(names);
     const gen = GEN[name](rng);
     item = Object.assign({}, gen, {

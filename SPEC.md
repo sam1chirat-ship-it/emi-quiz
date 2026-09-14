@@ -390,7 +390,36 @@ Repris de `bamboozle-questions` : `strict_dup`, `fuzzy_dup` (ratio > 0.72), `ans
 | J13 | Lot ORDRE + OUVERTE (+10 items) : chaque catégorie a désormais ≥ 2 ORDRE et ≥ 3 OUVERTE. Baselines de captures régénérées. 275 items. |
 | J14 | Rééquilibrage `qcm_correct_longest` sur smi (100 %→12 %) et parite (88 %→12 %) : 14 QCM patchés, positions `a` réparties, distracteurs allongés en préservant les traps. +6 items ORDRE/OUVERTE. 281 items. **Cible ORDRE v1 (25) atteinte.** |
 | J15 | Plomberie multi-matière au grand jour : `getMats()` se base sur les items (pas CATS) → sélecteur reste transparent tant qu'aucun item d'une seconde matière n'existe. 12 CATS croissance vides ajoutées à data.json (structure prête) : `residu`, `kaldor`, `harrod`, `solow`, `mrw`, `convergence`, `ak`, `romer`, `aghion`, `malthus`, `olg`, `institutions`. |
-| J16+ | Suite : rééquilibrage des 10 catégories QCM restantes ; polissage perishable ; écriture des premiers items `mat:"croissance"`. |
+| J16-J22 | Peuplement de la matière croissance depuis `sources/croissance_2025/` : QCM, VF, SENS, ORDRE, OUVERTE pour les 12 cats croissance. 12 étoiles croissance ajoutées. Rééquilibrages `qcm_correct_longest` par cat. 369 items totaux (293 EMI + 92 croissance + 16 étoiles). |
+| J23 | Complétion des 5 formats × 12 cats croissance. Base : 92 items croissance. Signalements audit : 18 → 5. |
+| J24 | Polissage OUVERTE : 14 items dont `model` dépassait 350 char raccourcis (4 EMI + 10 croissance), sens économique et notations préservés. Audit : 5 → 4 signalements. |
+| J25 | Rééquilibrage `qcm_correct_longest` sur les 4 dernières cats EMI (pen, si, cot, tcr) : 8 distracteurs allongés incarnant des confusions typiques §10 (stock-flux, clôture d'économie, sens du TCR, paradoxe Feldstein-Horioka, sens des flux Sud→Nord, convention certain/incertain, arbitrage triangulaire, OTC vs bourse). Audit : **0 signalement**. |
+| J26 | 11 générateurs `calc` croissance ajoutés (residu, kaldor, harrod, solow, mrw, convergence, ak, romer, aghion, olg, malthus). **institutions** : pas de générateur (formule d'Acemoglu-Robinson non tractable numériquement, assumé). Registre `GEN_MAT` + filtre par matière dans `nextFatalQ`. Zéro doublon sur 55 000 tirages (statistiquement testé). |
+| J27 | Fix des 7 générateurs EMI hérités souffrant de collisions ou de valeurs invraisemblables : **uip** (bad3 identique à bad2, 100 % dups), varTCR, neer, bdp, cross, ppa, pen_valo. Introduction du **pattern reject-sampling** (max 20 tentatives) comme standard des générateurs à distracteurs contraints. Zéro doublon sur 380 000 tirages. |
+| J28 | Premier test iPhone réel via `python3 -m http.server 8080 --bind 0.0.0.0` sur LAN (192.168.1.55:8080). Golden path validé sur iPhone : tap zones, safe-area, KaTeX, matières EMI et croissance, coup fatal, coup de maître. |
+| J29 | Playtest.mjs étendu : scenario 3 croissance (mat=croissance préseeded, joueur juste, weak → victory), mode `gens` (500 iter/gen dans le contexte page réel, 19 gens × 500 = 9500 tirages), `playThrough` instrumenté avec paramètre `recorder`. Baseline captures rafraîchie (drift de +36 Ko JS attendu). |
+| J30 | Scenario 3b **fatal-probe** : injection directe de `S.manche="fatal"` puis 24 appels à `nextFatalQ()` pour probing forcé du filtre GEN_MAT. Résultat typique : 12/24 calc, 9/11 générateurs distincts, 0 hors matière. Assertion durcie « ≥ 6 calc et 0 foreign ». Doc SPEC §9 mise à jour. |
+| J31 | 8 étoiles croissance ajoutées (et-17 à et-24) : Résidu de Solow, Fil du rasoir de Harrod, Faits stylisés de Kaldor, MRW, Convergence conditionnelle, Modèle AK, Non-rivalité des idées, Critique de Jones. Parité étoiles atteinte : **12 EMI + 12 croissance = 24**. |
+| J32 | Enrichissement banque EMI depuis 15 fichiers `sources/drive-download-*` : 6 VF (si×2, equil×2, mf×2) + 2 SENS (si, forex) — cats les plus faibles remontées à ≥ 5. Correction du modèle d'allocation d'id (unicité **cross-bank**, pas par bank). Étoile OLG Diamond ajoutée (et-25) : 13 étoiles croissance, couvrant les 12 cats. Doc SPEC.md finalisée. **377 items, 25 étoiles, 0 signalement audit**. |
+
+**Patterns clés stabilisés J24→J32** :
+- **Reject-sampling GEN** : chaque générateur avec distracteurs contraints boucle jusqu'à 20 fois pour garantir 4 réponses toutes distinctes. Cassure discrète du déterminisme par seed (au bord des collisions) mais préservation du principe « distracteurs = confusions du prof, pas remplissage ».
+- **Registre `GEN_MAT`** : map `{name → mat}` co-localisée avec `GEN`. Filtre appliqué dans `nextFatalQ` (`Object.keys(GEN).filter(n => GEN_MAT[n] === S.mat)`) + fallback qcm3 si aucun générateur disponible pour la matière.
+- **`playThrough(recorder)`** : signature étendue pour capturer les questions vues sans modifier les scenarios existants. Base pour futures assertions (couverture par cat, séquencement des formats).
+- **`fatal-probe`** : injection d'état + boucle `nextFatalQ()` synchrone → couverture d'intégration sans dépendance à la victoire naturelle du joueur.
+- **Ids `cat-nnn` uniques cross-bank** : la numérotation n'est PAS par bank. Un `si-021` en VF interdit `si-021` ailleurs. `verify.py` règle 5 enforce ce contrat globalement. Toute nouvelle allocation manuelle doit prendre `max(id) + 1` sur toutes les banks confondues pour la cat.
+
+**Note d'écart honnête** : `institutions` n'a pas de générateur `calc`. Aucun modèle d'Acemoglu-Robinson ne produit un calcul de tête crédible ; toute tentative aboutirait à du remplissage. Le format `calc` reste 11/12 pour croissance (contre 8/12 pour EMI où 4 cats sans gen). Non-défaut par design.
+
+---
+
+**État v1 (fin J32) — cibles atteintes** :
+- Émission complète jouable EMI (12 cats, 292 items) et Croissance (12 cats, 85 items). Total : **377 items** dont **25 étoiles mystère** (12 EMI + 13 croissance).
+- 19 générateurs `calc` (8 EMI + 11 croissance), tous zéro-doublon sur 380 000 tirages, filtre par matière opérationnel dans le coup fatal.
+- `playtest.mjs all` : 3 scenarios + fatal-probe + gens + srs + layout, **zéro erreur**, **zéro pageerror**, hashes stables.
+- Audit `tools/audit.py` : **0 signalement, 0 bloquant**.
+- Test iPhone réel validé (WiFi LAN), safe-area OK, KaTeX OK.
+- Doc SPEC.md à jour, plan §9 renseigné J1→J32.
 
 ---
 
