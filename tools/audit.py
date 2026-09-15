@@ -160,11 +160,38 @@ def audit_data(data: dict) -> tuple[list[str], list[str]]:
                 if r > FUZZY_THRESHOLD:
                     blocking.append(f"fuzzy_dup fmt={fmt} ratio={r:.2f} ids=[{id_a},{id_b}]")
 
+    # Traps autorisés (SPEC §10) — miroir de verify.py.
+    TRAPS_OK = {
+        "signe-bdp", "stock-flux", "bc-bcour", "certain-incertain",
+        "niveau-log", "horizon", "sens-parite", "fixe-flexible",
+        "mf-regime", "bs-etapes", "ml-symetrie", "endo-exo",
+        "statique-dyn", "sterilise",
+    }
+
     # 3-8 : contrôles item par item.
     for key, it in all_items:
         iid = it.get("id", "?")
         fmt = _detect_fmt(it)
         src = _item_source(it)
+
+        # 3.a. mat : obligatoire (aligné sur verify.py — évite qu'un lot passe
+        #      l'audit mais casse le build).
+        mat = it.get("mat")
+        if not isinstance(mat, str) or not mat.strip():
+            blocking.append(f"mat_missing id={iid}")
+
+        # 3.b. why : obligatoire pour TOUS les formats, y compris OUVERTE
+        #      (verify.py le vérifie systématiquement).
+        why = it.get("why")
+        if not isinstance(why, str) or not why.strip():
+            blocking.append(f"why_missing id={iid}")
+
+        # 3.c. trap : si présent, doit être dans la liste §10 (verify.py
+        #      refuse « - » ou un tag inventé).
+        trap = it.get("trap")
+        if trap is not None:
+            if trap not in TRAPS_OK:
+                blocking.append(f"trap_invalid id={iid} trap={trap!r}")
 
         # 3. answer_in_question : la bonne réponse (>=3 chars significatifs)
         #    apparaît dans l'énoncé.
