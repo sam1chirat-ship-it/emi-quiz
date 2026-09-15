@@ -478,10 +478,21 @@ async function runSRS(baseUrl, browser, baseline, results) {
     await answerFaux(page);
     await page.locator('[data-act="next"]').first().click();
     const srs = await page.evaluate(() => JSON.parse(localStorage.getItem("emi.srs.v1")));
-    if (!srs || !srs[firstId] || srs[firstId].box !== 0) {
-      errs.push(`srs : après réponse fausse, ${firstId} devrait être box=0 (obs: ${JSON.stringify(srs && srs[firstId])})`);
+    const card = srs && srs[firstId];
+    // Post-J38 : la carte a été « ratée » selon l'algo courant.
+    //   - SM-2   : reps=0, lapses ≥ 1, interval=1.
+    //   - FSRS   : state ∈ {learning, relearning}, lapses ≥ 1.
+    //   - legacy : box=0.
+    let failed = false;
+    if (card) {
+      if (card.algo === "sm2")       failed = (card.reps | 0) === 0 && (card.lapses | 0) >= 1;
+      else if (card.algo === "fsrs") failed = ["learning", "relearning"].includes(card.state) && (card.lapses | 0) >= 1;
+      else                            failed = (card.box | 0) === 0;
     }
-    results.push(`  id=${firstId} box=${srs[firstId] && srs[firstId].box} due<=now=${srs[firstId] && srs[firstId].due <= Date.now()}`);
+    if (!failed) {
+      errs.push(`srs : après réponse fausse, ${firstId} devrait être en échec (obs: ${JSON.stringify(card)})`);
+    }
+    results.push(`  id=${firstId} algo=${card && card.algo} reps=${card && card.reps} lapses=${card && card.lapses}`);
     if (pageErrors.length) errs.push("srs pageerrors: " + pageErrors.join(" | "));
   });
 

@@ -1221,36 +1221,192 @@ function loadSettings() {
   const s = loadJSON(KEY_SETTINGS, null);
   if (!s) {
     const cids = catIdsFor(defaultMat);
-    return { mat: defaultMat, cats: cids.slice(), sfx: true, express: false };
+    return { mat: defaultMat, cats: cids.slice(), sfx: true, express: false, srsAlgo: "sm2" };
   }
   // Rétro-compat : injecte mat si absent.
   if (!s.mat || !mats.includes(s.mat)) s.mat = defaultMat;
   const cids = catIdsFor(s.mat);
   if (!Array.isArray(s.cats)) s.cats = cids.slice();
-  // Nettoyage : ne garde que les cats valides ET dans la matière courante.
   s.cats = s.cats.filter(c => cids.includes(c));
   if (!s.cats.length) s.cats = cids.slice();
+  // J38 : rétro-compat SRS algo.
+  if (s.srsAlgo !== "sm2" && s.srsAlgo !== "fsrs") s.srsAlgo = "sm2";
   return s;
 }
 function saveSettings(o) { saveJSON(KEY_SETTINGS, o); }
 
-// ---------- SRS ----------
-function srsUpdate(id, ok) {
-  const srs = loadSRS();
-  const now = Date.now();
-  const cur = srs[id] || { box: 0, due: now, ok: 0, ko: 0, last: 0 };
-  if (ok) {
-    cur.box = Math.min(4, cur.box + 1);
-    cur.ok = (cur.ok | 0) + 1;
-    cur.due = now + INTERVAL_MS[cur.box];
-  } else {
-    cur.box = 0;
-    cur.ko = (cur.ko | 0) + 1;
-    cur.due = now;
+// ---------- SRS (J38 — SM-2 + FSRS-4.5, choix via settings.srsAlgo) ----------
+//
+// Grade universel (échelle SM-2, 0-5) :
+//   0-1 : Again (mauvaise réponse, oubli)
+//   2   : Hard  (juste mais avec effort)
+//   3   : Good  (juste, standard)
+//   4   : Good+ / Easy
+//   5   : Easy pur
+// Mapping FSRS-4.5 : {0,1}→1 Again, 2→2 Hard, 3-4→3 Good, 5→4 Easy.
+//
+// Chaque carte porte `algo` ("sm2" ou "fsrs"). Si on change de setting.
+// srsAlgo, la carte est migrée à la volée au prochain srsUpdate.
+
+const SM2_EF_DEFAULT = 2.5;
+const SM2_EF_MIN     = 1.3;
+
+// FSRS-4.5 weights par défaut (17 poids).
+const FSRS_W = [0.4, 0.6, 2.4, 5.8, 4.93, 0.94, 0.86, 0.01, 1.49,
+                0.14, 0.94, 2.18, 0.05, 0.34, 1.26, 0.29, 2.61];
+const FSRS_REQUEST_R = 0.9;   // rétention cible 90 %
+
+function _newCard(algo, now) {
+  if (algo === "fsrs") {
+    return { algo: "fsrs", due: now, last: 0, reps: 0, lapses: 0,
+             S: 0, D: 5, state: "new" };
   }
-  cur.last = now;
-  srs[id] = cur;
+  return { algo: "sm2", due: now, last: 0, reps: 0, lapses: 0,
+           ef: SM2_EF_DEFAULT, interval: 0 };
+}
+
+// Migre une carte ancienne ({box, due, ok, ko, last}) ou d'un autre algo
+// vers l'algo cible. Conserve `reps`/`lapses`/`due`/`last`.
+function _migrateCard(card, algo, now) {
+  if (!card) return _newCard(algo, now);
+  if (card.algo === algo) return card;
+  const reps    = (card.reps | 0) || (card.ok | 0);
+  const lapses  = (card.lapses | 0) || (card.ko | 0);
+  const due     = (card.due  | 0) || now;
+  const last    = (card.last | 0) || 0;
+  // Interval approximatif basé sur ancienne box (0..4).
+  const legacyBox = (card.box != null) ? (card.box | 0) : null;
+  const intervalD = legacyBox !== null ? (INTERVAL_DAYS[legacyBox] || 1) : (card.interval || 1);
+  if (algo === "sm2") {
+    return { algo: "sm2", due, last, reps, lapses,
+             ef: card.ef || SM2_EF_DEFAULT, interval: intervalD };
+  }
+  // fsrs
+  return { algo: "fsrs", due, last, reps, lapses,
+           S: card.S || Math.max(0.1, intervalD),
+           D: card.D || 5,
+           state: reps > 0 ? "review" : "new" };
+}
+
+// SM-2 (Wozniak 1987) — grade sur échelle 0-5.
+function _sm2Apply(card, grade) {
+  const now = Date.now();
+  let { ef, reps, interval, lapses } = card;
+  ef = (typeof ef === "number") ? ef : SM2_EF_DEFAULT;
+  reps = reps | 0;
+  interval = interval | 0;
+  lapses = lapses | 0;
+  if (grade < 3) {
+    reps = 0;
+    interval = 1;
+    lapses += 1;
+  } else {
+    if (reps === 0)      interval = 1;
+    else if (reps === 1) interval = 6;
+    else                 interval = Math.max(1, Math.round(interval * ef));
+    reps += 1;
+  }
+  ef = Math.max(SM2_EF_MIN, ef + (0.1 - (5 - grade) * (0.08 + (5 - grade) * 0.02)));
+  return { algo: "sm2", due: now + interval * DAY_MS, last: now,
+           reps, lapses, ef, interval };
+}
+
+// FSRS-4.5. `rating` ∈ {1,2,3,4} (Again, Hard, Good, Easy).
+function _fsrsRetrievability(elapsedDays, S) {
+  if (S <= 0) return 0;
+  return Math.pow(1 + elapsedDays / (9 * S), -1);
+}
+function _fsrsInitialS(rating) {
+  return Math.max(0.1, FSRS_W[rating - 1]);
+}
+function _fsrsInitialD(rating) {
+  const d = FSRS_W[4] - (rating - 3) * FSRS_W[5];
+  return Math.min(10, Math.max(1, d));
+}
+function _fsrsNextD(D, rating) {
+  const D0 = _fsrsInitialD(4); // mean-revert target = Easy anchor
+  let Dn = D - FSRS_W[6] * (rating - 3);
+  Dn = FSRS_W[7] * D0 + (1 - FSRS_W[7]) * Dn;
+  return Math.min(10, Math.max(1, Dn));
+}
+function _fsrsNextS(D, S, R, rating) {
+  if (rating === 1) {
+    // Échec : stabilité chute selon w[11..14].
+    return Math.max(0.01,
+      FSRS_W[11] * Math.pow(D, -FSRS_W[12])
+        * (Math.pow(S + 1, FSRS_W[13]) - 1)
+        * Math.exp((1 - R) * FSRS_W[14]));
+  }
+  // Succès.
+  let mod = 1;
+  if (rating === 2) mod = FSRS_W[15]; // Hard
+  else if (rating === 4) mod = FSRS_W[16]; // Easy
+  return S * (1 + Math.exp(FSRS_W[8]) * (11 - D)
+                * Math.pow(S, -FSRS_W[9])
+                * (Math.exp((1 - R) * FSRS_W[10]) - 1)) * mod;
+}
+function _fsrsApply(card, rating) {
+  const now = Date.now();
+  let { S, D, reps, lapses, state } = card;
+  reps = reps | 0; lapses = lapses | 0;
+  if (state === "new" || !S) {
+    S = _fsrsInitialS(rating);
+    D = _fsrsInitialD(rating);
+    if (rating === 1) { lapses += 1; state = "learning"; }
+    else              { reps  += 1; state = "review"; }
+  } else {
+    const elapsed = Math.max(0, (now - (card.last | 0)) / DAY_MS);
+    const R = _fsrsRetrievability(elapsed, S);
+    S = _fsrsNextS(D, S, R, rating);
+    D = _fsrsNextD(D, rating);
+    if (rating === 1) { lapses += 1; state = "relearning"; }
+    else              { reps  += 1; state = "review"; }
+  }
+  // Intervalle target : t = S * ln(REQUEST_R) / ln(0.9). Avec REQUEST_R=0.9,
+  // ln(0.9)/ln(0.9)=1 → t = S jours.
+  const interval = Math.max(1, Math.round(S * Math.log(FSRS_REQUEST_R) / Math.log(0.9)));
+  return { algo: "fsrs", due: now + interval * DAY_MS, last: now,
+           reps, lapses, S, D, state };
+}
+
+function _sm2GradeToFsrsRating(g) {
+  if (g <= 1) return 1;
+  if (g === 2) return 2;
+  if (g <= 4) return 3;
+  return 4;
+}
+
+// srsUpdate(id, grade) — grade sur échelle SM-2 (0-5). Migration transparente
+// selon settings.srsAlgo.
+function srsUpdate(id, grade) {
+  const algo = (loadSettings().srsAlgo === "fsrs") ? "fsrs" : "sm2";
+  const now = Date.now();
+  const srs = loadSRS();
+  let card = _migrateCard(srs[id], algo, now);
+  card = (algo === "sm2")
+    ? _sm2Apply(card, grade | 0)
+    : _fsrsApply(card, _sm2GradeToFsrsRating(grade | 0));
+  srs[id] = card;
   saveSRS(srs);
+}
+
+// Un item est « maîtrisé » si :
+//   - SM-2 : reps >= 2 (double révision réussie) et interval >= 4 jours.
+//   - FSRS : state === "review" et stability >= 4.
+//   - legacy : box >= 2.
+function isMastered(card) {
+  if (!card) return false;
+  if (card.algo === "sm2")  return (card.reps | 0) >= 2 && (card.interval | 0) >= 4;
+  if (card.algo === "fsrs") return card.state === "review" && (card.S || 0) >= 4;
+  return (card.box | 0) >= 2;
+}
+
+// Tri de priorité pour pickDue : plus faible en premier (moins maîtrisé).
+function _dueSortKey(card) {
+  if (!card) return -1;
+  if (card.algo === "sm2")  return card.reps | 0;
+  if (card.algo === "fsrs") return (card.S | 0);
+  return card.box | 0;
 }
 
 // SPEC §5.2 : priorité échus (par box ↑) → jamais vus → autres (par due ↑).
@@ -1295,7 +1451,7 @@ function pickDue(fmt, cats) {
     else if (st.due <= now) due.push(it);
     else later.push(it);
   }
-  due.sort((a, b) => srs[a.id].box - srs[b.id].box);
+  due.sort((a, b) => _dueSortKey(srs[a.id]) - _dueSortKey(srs[b.id]));
   later.sort((a, b) => srs[a.id].due - srs[b.id].due);
 
   const pool = due.length ? due : (fresh.length ? fresh : later);
@@ -1963,7 +2119,7 @@ function resolveNormal(payload) {
     else if (p.feu === 1) banner("warn", T.feuOrange);
     else                  banner("bad", T.wrong);
   }
-  srsUpdate(S.q.id, ok);
+  srsUpdate(S.q.id, ok ? 4 : 1);
   const newlyRedBots = botAnswerAll(fmt);
 
   const newlyRed = [];
@@ -2086,7 +2242,7 @@ function answerDuel(payload) {
   else if (!okA && okB) d.wins[1]++;
   d.n++;
   // SRS : uniquement pour la réponse du joueur.
-  srsUpdate(S.q.id, payload.ok);
+  srsUpdate(S.q.id, payload.ok ? 4 : 1);
   if (!payload.ok) S.errors.push({ id: S.q.id, fmt: "sens", given: payload.given, ok: false });
   S.answered = { okA: okA, okB: okB, given: payload.given, ok: payload.ok };
   S.phase = "why";
@@ -2485,7 +2641,7 @@ function fatalRespond(ok, given) {
   // SRS uniquement pour le joueur, pas pour les calc générés.
   const curP = S.players[fatalPlayerIdx(S.fatal.cur)];
   if (!curP.bot && !S.q._generated) {
-    srsUpdate(S.q._originalId || S.q.id, ok);
+    srsUpdate(S.q._originalId || S.q.id, ok ? 4 : 1);
   }
   const goodTxt = (S.qFmt === "calc")
     ? String(S.q.choices ? S.q.choices[S.q.a] : "?")
@@ -2575,6 +2731,13 @@ function grade(kind) {
   // kind ∈ "su", "moitie", "pasSu".
   clearInterval(TIMERS.clock); TIMERS.clock = null;
   const m = S.maitre;
+  // J38 : alimente aussi la SRS pour les OUVERTE (avant, le coup de maître
+  // ne mettait rien à jour). Grades sur l'échelle SM-2 (0-5) : Su → 4 (Good+),
+  // À moitié → 3 (Good), Pas su → 1 (Again).
+  if (S.q && S.q.id) {
+    const g = (kind === "su") ? 4 : (kind === "moitie") ? 3 : 1;
+    srsUpdate(S.q.id, g);
+  }
   if (kind === "su") {
     m.su += 1;
     m.palier = PALIERS[Math.min(m.su, PALIERS.length - 1)];
@@ -2658,7 +2821,7 @@ function renderSetup() {
     const bank = [].concat(DATA.QCM || [], DATA.VF || [], DATA.SENS || [], DATA.ORDRE || [], DATA.OUVERTE || []);
     const inCat = bank.filter(it => it.cat === cid);
     const knownIds = Object.keys(srs);
-    const good = inCat.filter(it => knownIds.includes(it.id) && srs[it.id].box >= 2).length;
+    const good = inCat.filter(it => knownIds.includes(it.id) && isMastered(srs[it.id])).length;
     const pct = inCat.length ? Math.round(100 * good / inCat.length) : 0;
     return (
       '<span class="cat-chip' + on + '" data-act="toggleCat" data-v="' + esc(cid) + '">' +
@@ -2688,6 +2851,19 @@ function renderSetup() {
       '</span>' +
     '</div>';
 
+  // J38 : sélecteur d'algorithme SRS. SM-2 par défaut (Wozniak 1987).
+  const srsAlgo = settings.srsAlgo || "sm2";
+  const srsToggle =
+    '<div class="setup-toggle">' +
+      '<span class="cat-chip' + (srsAlgo === "sm2" ? ' on' : '') + '" data-act="pickSrs" data-v="sm2">SM-2</span>' +
+      '<span class="cat-chip' + (srsAlgo === "fsrs" ? ' on' : '') + '" data-act="pickSrs" data-v="fsrs">FSRS</span>' +
+      '<span class="setup-toggle-hint">' +
+        (srsAlgo === "sm2"
+          ? 'SuperMemo-2 · intervalles multiplicatifs, EF ajusté'
+          : 'FSRS-4.5 · stabilité + difficulté + rétention cible 90 %') +
+      '</span>' +
+    '</div>';
+
   stage.innerHTML =
     '<section class="setup">' +
       regneBanner +
@@ -2696,6 +2872,7 @@ function renderSetup() {
       matSelector +
       '<div class="cats">' + chips + '</div>' +
       expressChip +
+      srsToggle +
       '<div class="btnrow">' +
         '<button class="b-gold" data-act="startShow">' + esc(T.setup.start) + '</button>' +
       '</div>' +
@@ -2977,7 +3154,7 @@ function renderBilan() {
     const bank = [].concat(DATA.QCM || [], DATA.VF || [], DATA.SENS || [], DATA.ORDRE || [], DATA.OUVERTE || []);
     const inCat = bank.filter(it => it.cat === cid);
     if (!inCat.length) return "";
-    const good = inCat.filter(it => srs[it.id] && srs[it.id].box >= 2).length;
+    const good = inCat.filter(it => isMastered(srs[it.id])).length;
     const pct = Math.round(100 * good / inCat.length);
     return (
       '<div class="row">' +
@@ -2988,11 +3165,9 @@ function renderBilan() {
     );
   }).join("");
 
-  // Liste « à revoir » : items posés cette émission encore en boîte 0-1.
-  const toRevisit = S.asked.filter(id => {
-    const st = srs[id];
-    return !st || st.box <= 1;
-  });
+  // Liste « à revoir » : items posés cette émission mais pas encore
+  // maîtrisés (peu importe l'algo SRS courant).
+  const toRevisit = S.asked.filter(id => !isMastered(srs[id]));
   const revisitBlock = toRevisit.length ? (
     '<h3 style="font-family:var(--sans);letter-spacing:.06em;font-size:14px;color:var(--bleu);margin:14px 0 6px">À revoir · ' + toRevisit.length + '</h3>' +
     '<div class="hint" style="color:var(--muted);font-size:12px">Ces questions vont revenir en priorité à la prochaine émission (SRS boîte 0-1).</div>'
@@ -3331,6 +3506,14 @@ const ACT = {
   toggleExpress() {
     const s = loadSettings();
     s.express = !s.express;
+    saveSettings(s);
+    render();
+  },
+  pickSrs(v) {
+    if (v !== "sm2" && v !== "fsrs") return;
+    const s = loadSettings();
+    if (s.srsAlgo === v) return;
+    s.srsAlgo = v;
     saveSettings(s);
     render();
   },
