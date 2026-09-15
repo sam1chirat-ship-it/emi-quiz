@@ -181,7 +181,7 @@ header .sub {
   min-height: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height .18s ease, padding .18s ease, margin .18s ease;
+  transition: max-height .08s ease, padding .08s ease, margin .08s ease, opacity .08s ease;
   opacity: 0;
 }
 #banner.show {
@@ -1164,8 +1164,25 @@ function saveJSON(key, obj) {
   catch (e) { /* quota, mode privé — silencieux, l'export/import reste dispo */ }
 }
 
-function loadSRS()      { return loadJSON(KEY_SRS, {}); }
-function saveSRS(o)     { saveJSON(KEY_SRS, o); }
+// Cache SRS en mémoire (J34.B) : loadJSON parse ~kilo-octets à chaque
+// appel, ce qui coûte 20-50 ms sur Safari mobile. On charge une seule
+// fois par démarrage, et on persiste de façon différée (setTimeout 0)
+// pour ne jamais bloquer un tap.
+let _srsCache = null;
+let _srsPersistPending = false;
+function loadSRS() {
+  if (_srsCache === null) _srsCache = loadJSON(KEY_SRS, {});
+  return _srsCache;
+}
+function saveSRS(o) {
+  _srsCache = o;
+  if (_srsPersistPending) return;
+  _srsPersistPending = true;
+  setTimeout(() => {
+    _srsPersistPending = false;
+    saveJSON(KEY_SRS, _srsCache);
+  }, 0);
+}
 function loadRegne() {
   const def = { maitre: false, jours: 0, cagnotte: 0, etoile: null, etoilesTrouvees: [], palmares: [] };
   const r = loadJSON(KEY_REGNE, def);
@@ -1829,6 +1846,13 @@ function banner(kind, text) {
     el.classList.remove("show");
   }, 1400);
 }
+// J34.B : appelé sur tap « Suivant » pour ne pas laisser le banner
+// « traîner » pendant que la question suivante charge.
+function bannerClearNow() {
+  const el = document.getElementById("banner");
+  if (el) el.classList.remove("show");
+  if (bannerTimer) { clearTimeout(bannerTimer); bannerTimer = null; }
+}
 
 // ---------- flux question ----------
 function fmtForNext() {
@@ -1874,7 +1898,22 @@ function nextQ() {
   S.answered = null;
   S.orderPick = null;
   S.orderPerm = null;
+  shuffleCurrentQ();
   render();
+}
+
+// SPEC — anti-répétition (J34) : à chaque tirage, on mélange l'ordre
+// d'affichage des choix (qcm/qcm3/calc). data-v reste l'index original
+// dans q.choices ; seul l'ordre visuel change → aucun impact sur
+// answer(), just re-shuffle sur chaque nouvelle question. S.qOrder est
+// une permutation stable pour l'affichage courant, sérialisable.
+function shuffleCurrentQ() {
+  const q = S && S.q;
+  if (!q || !Array.isArray(q.choices)) { if (S) S.qOrder = null; return; }
+  const fmt = S.qFmt;
+  if (fmt !== "qcm" && fmt !== "qcm3" && fmt !== "calc") { S.qOrder = null; return; }
+  const idxs = q.choices.map((_, i) => i);
+  S.qOrder = rngShuffle(idxs);
 }
 
 // Renvoie la liste des indices de bots qui passent NOUVELLEMENT au rouge
@@ -2343,6 +2382,7 @@ function nextFatalQ() {
       item = shrinkQCM(q);
       S.asked.push(q.id);
       S.q = item; S.qFmt = "qcm3"; S.phase = "q"; S.answered = null; S.fatalMsg = null;
+      shuffleCurrentQ();
       startClock();
       const p = S.players[fatalPlayerIdx(S.fatal.cur)];
       if (p.bot) scheduleBotAnswerFatal();
@@ -2368,6 +2408,7 @@ function nextFatalQ() {
   S.phase = "q";
   S.answered = null;
   S.fatalMsg = null;
+  shuffleCurrentQ();
   // Démarre le chrono du candidat actuel.
   startClock();
   // Si c'est un bot, planifier la réponse après réflexion.
@@ -2683,8 +2724,9 @@ function renderQuestion() {
   const eyebrow = esc(cat) + " · " + fmt.toUpperCase();
 
   if (fmt === "qcm") {
-    const choices = q.choices.map((c, i) =>
-      '<button data-act="answer" data-v="' + i + '">' + esc(c) + '</button>'
+    const order = (S.qOrder && S.qOrder.length === q.choices.length) ? S.qOrder : q.choices.map((_, i) => i);
+    const choices = order.map(origIdx =>
+      '<button data-act="answer" data-v="' + origIdx + '">' + esc(q.choices[origIdx]) + '</button>'
     ).join("");
     return (
       '<article class="card">' +
@@ -2801,11 +2843,12 @@ function renderWhy() {
   let verdict = "";
 
   if (fmt === "qcm") {
-    choicesBlock = '<div class="choices">' + q.choices.map((c, i) => {
+    const order = (S.qOrder && S.qOrder.length === q.choices.length) ? S.qOrder : q.choices.map((_, i) => i);
+    choicesBlock = '<div class="choices">' + order.map(origIdx => {
       let cls = "";
-      if (i === q.a) cls = " correct";
-      else if (i === ans.given && !ans.ok) cls = " wrong";
-      return '<button class="' + cls.trim() + '" disabled data-v="' + i + '">' + esc(c) + '</button>';
+      if (origIdx === q.a) cls = " correct";
+      else if (origIdx === ans.given && !ans.ok) cls = " wrong";
+      return '<button class="' + cls.trim() + '" disabled data-v="' + origIdx + '">' + esc(q.choices[origIdx]) + '</button>';
     }).join("") + '</div>';
   } else if (fmt === "vf") {
     const goodLabel = q.a ? T.vrai : T.faux;
@@ -3037,8 +3080,10 @@ function renderFatalQuestion() {
     );
   }
 
-  const choices = (q.choices || []).map((c, i) =>
-    '<button data-act="answer" data-v="' + i + '">' + esc(c) + '</button>'
+  const ch = q.choices || [];
+  const order = (S.qOrder && S.qOrder.length === ch.length) ? S.qOrder : ch.map((_, i) => i);
+  const choices = order.map(origIdx =>
+    '<button data-act="answer" data-v="' + origIdx + '">' + esc(ch[origIdx]) + '</button>'
   ).join("");
   return (
     '<article class="card">' +
@@ -3447,6 +3492,9 @@ const ACT = {
   },
   next() {
     if (!S) return;
+    // J34.B : coupe le banner immédiatement pour que la question suivante
+    // apparaisse sans "traîne" visuelle.
+    bannerClearNow();
     if (S.phase === "elim") {
       // Reprise post-élimination.
       const info = S.elimInfo || { cont: "endManche" };
