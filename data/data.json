@@ -2291,6 +2291,334 @@
       "a": 1,
       "why": "Argument Acemoglu-Rubin : au XVᵉ siècle, la Chine dépasse l'Europe (population, horloge, tissage). Si la géographie ou l'échelle expliquaient tout, l'industrialisation devrait démarrer là. Elle démarre en Europe → besoin d'expliquer par institutions/culture. Partie_3_Chap2_Institutions.txt lignes 22-28.",
       "id": "institutions-003"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 1,
+      "mat": "emi",
+      "q": "Le principe de la comptabilité en partie double appliqué à la balance des paiements implique que :",
+      "choices": [
+        "chaque transaction est inscrite une fois au crédit et une fois au débit ; le solde global vaut zéro",
+        "le solde du compte courant est nul par construction",
+        "les erreurs et omissions ne sont jamais nécessaires",
+        "chaque transaction n'est enregistrée que dans le compte financier"
+      ],
+      "a": 0,
+      "why": "La BdP enregistre chaque transaction deux fois (crédit et débit), donc le solde global vaut zéro ; le poste erreurs et omissions ajuste les imperfections de mesure.",
+      "id": "bdp-025"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Un résident français achète un téléphone étranger 200 € payé par chèque. Selon les règles de la BdP, on enregistre :",
+      "choices": [
+        "débit au compte courant (importation de biens) 200 € et crédit au compte financier (diminution d'actif) 200 €",
+        "crédit au compte courant 200 € et débit au compte financier 200 €",
+        "un débit uniquement au compte courant",
+        "un crédit uniquement au compte financier"
+      ],
+      "a": 0,
+      "trap": "signe-bdp",
+      "why": "L'importation est un débit du CC ; le paiement par chèque diminue les actifs français à l'étranger, ce qui apparaît au crédit du compte financier.",
+      "id": "bdp-026"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 3,
+      "mat": "emi",
+      "q": "Un pays affiche : CC = −20, TC = +2, EO = −3. Selon l'identité TC + CC − CF + EO = 0, le compte financier CF vaut :",
+      "choices": [
+        "−21",
+        "−15",
+        "+21",
+        "+15"
+      ],
+      "a": 0,
+      "trap": "signe-bdp",
+      "why": "TC + CC + EO = CF donne CF = 2 − 20 − 3 = −21. Un CF négatif signifie une entrée nette de capitaux (convention du cours : CF > 0 = sortie).",
+      "id": "bdp-027"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Dans l'équation d'accumulation PEN_t = A_{t−1}(1 + iA)·E_{t−1}/E_t − L_{t−1}(1 + iL) + BC_t (actif libellé en devise étrangère), une dépréciation de la monnaie nationale sur la période (E_t < E_{t−1}) :",
+      "choices": [
+        "augmente la valeur en monnaie nationale de l'actif étranger, effet de valorisation positif sur la PEN",
+        "diminue la valeur en monnaie nationale de l'actif étranger",
+        "n'a aucun effet sur la PEN à balance commerciale donnée",
+        "diminue simultanément l'actif et le passif dans les mêmes proportions"
+      ],
+      "a": 0,
+      "trap": "stock-flux",
+      "why": "E est au certain (unités étrangères par unité nationale). Une dépréciation (E baisse) fait monter le ratio E_{t−1}/E_t > 1 : l'actif étranger vaut plus en monnaie nationale.",
+      "id": "pen-026"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "mat": "emi",
+      "q": "Un pays a A = 100 Md€ placés en dollars et L = 100 Md€ en euros. Sur l'année, le dollar se déprécie de 10 % face à l'euro (E augmente de 10 %). Hors intérêts et balance commerciale, l'effet de valorisation sur la PEN est approximativement :",
+      "choices": [
+        "−9 Md€",
+        "0",
+        "+10 Md€",
+        "+9 Md€"
+      ],
+      "a": 0,
+      "trap": "stock-flux",
+      "why": "L'actif en $ perd 10 % en euros (100 → environ 91) alors que le passif en € reste à 100. La PEN passe donc de 0 à environ −9 Md€ par pure valorisation.",
+      "id": "pen-027"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Dans la version révisée du cours, l'identité en économie ouverte s'écrit (Sp − I) + Sg = X − M. Sg désigne :",
+      "choices": [
+        "l'épargne publique T − G",
+        "l'épargne privée nette",
+        "l'investissement public",
+        "l'écart de production potentiel"
+      ],
+      "a": 0,
+      "why": "Sg = T − G, épargne du gouvernement. S = Sp + Sg = épargne nationale. L'identité (Sp − I) + Sg = X − M équivaut à S − I = X − M.",
+      "id": "si-010"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 3,
+      "mat": "emi",
+      "q": "En économie fermée, l'identité comptable donne S − I = 0. En économie ouverte, elle devient S − I = X − M. La différence traduit :",
+      "choices": [
+        "l'ouverture financière permet à l'épargne nationale de financer autre chose que l'investissement domestique",
+        "le solde courant est structurellement nul quel que soit le régime",
+        "l'investissement domestique est toujours financé par l'épargne étrangère",
+        "l'épargne publique se substitue à l'épargne privée"
+      ],
+      "a": 0,
+      "why": "En économie ouverte, S − I ≠ 0 est possible car l'excédent (déficit) d'épargne peut être exporté (importé) via le solde courant : le pays prête (emprunte) au reste du monde.",
+      "id": "si-027"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 1,
+      "mat": "emi",
+      "q": "Selon la BRI (enquête triennale 2019), le volume quotidien du marché des changes est de l'ordre de :",
+      "choices": [
+        "7 000 milliards de dollars par jour",
+        "700 milliards de dollars par jour",
+        "70 milliards de dollars par jour",
+        "700 000 milliards de dollars par jour"
+      ],
+      "a": 0,
+      "why": "L'enquête triennale de la BRI (2019) donne environ 7 000 Md$/jour, soit près de 20 fois le PIB mondial quotidien.",
+      "id": "forex-025"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Un importateur français doit payer 110 000 $ dans 3 mois. Il craint une hausse du dollar mais souhaite profiter d'une éventuelle baisse. Sa stratégie de couverture optimale est :",
+      "choices": [
+        "acheter une option d'achat (call) sur dollars",
+        "vendre une option d'achat sur dollars",
+        "acheter les dollars à terme (forward)",
+        "vendre les dollars à terme"
+      ],
+      "a": 0,
+      "why": "L'option d'achat donne le droit (non l'obligation) d'acheter à un prix fixé : il l'exerce si le $ monte, ne l'exerce pas si le $ baisse. Coût = prime de l'option.",
+      "id": "forex-026"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 3,
+      "mat": "emi",
+      "q": "Le scandale du Forex (2013) a révélé principalement :",
+      "choices": [
+        "des manipulations de fixings par une poignée de banques en position oligopolistique",
+        "l'absence totale de dollar sur le marché des changes",
+        "l'inefficacité de l'arbitrage triangulaire",
+        "la disparition du marché OTC au profit des bourses organisées"
+      ],
+      "a": 0,
+      "why": "Le marché des changes est structurellement oligopolistique (top 5 banques concentrent une part majeure). Le scandale de 2013 a exposé des manipulations coordonnées des taux de référence.",
+      "id": "forex-027"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "On note E le taux au certain (monnaie i vers j). L'euro passe de E = 1,20 à E' = 1,32 ($ par €), soit +10 %. À l'incertain (€ par $), la variation est approximativement :",
+      "choices": [
+        "−9,2 % (effet de base : non-linéarité)",
+        "−10 % exactement",
+        "+10 %",
+        "+9,2 %"
+      ],
+      "a": 0,
+      "trap": "certain-incertain",
+      "why": "Effet de base : 1/1,20 = 0,833, 1/1,32 = 0,758, variation = (0,758 − 0,833)/0,833 ≈ −9,2 %. Le passage log ↔ niveau n'est linéaire que pour de petites variations.",
+      "id": "cot-022"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "On a 1 $ = 106 ¥ et 1 € = 1,23 $. Combien vaut 1 € en yens (taux croisé) ?",
+      "choices": [
+        "≈ 130 ¥",
+        "≈ 86 ¥",
+        "≈ 1,16 ¥",
+        "≈ 0,012 ¥"
+      ],
+      "a": 0,
+      "why": "E(€/¥) = E(€/$) × E($/¥) = 1,23 × 106 ≈ 130. Astuce visuelle : ¥/€ = ¥/$ × $/€, on multiplie.",
+      "id": "cot-025"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 1,
+      "mat": "emi",
+      "q": "Le taux de change réel bilatéral (Big Mac) entre la zone euro et les USA est calculé par :",
+      "choices": [
+        "Q = E × P/P*, où E est le taux nominal au certain et P, P* les prix (mêmes biens, monnaies différentes)",
+        "Q = P/P* uniquement, sans le taux nominal",
+        "Q = E − P + P*",
+        "Q = E × (P + P*)"
+      ],
+      "a": 0,
+      "why": "Le TCR compare deux prix exprimés dans la même monnaie. Q = E × P/P* : on convertit le prix domestique via E pour le comparer au prix étranger.",
+      "id": "tcr-027"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "En 2014, indice prix zone euro = 118, indice prix UK = 128, TCN E(€/£) = 0,8. Le TCR Q(€/£) vaut approximativement :",
+      "choices": [
+        "0,74",
+        "0,86",
+        "0,92",
+        "1,08"
+      ],
+      "a": 0,
+      "why": "Q = E × P/P* = 0,8 × 118/128 ≈ 0,74. Comparé à une base 0,70 (2005), l'euro s'est apprécié en réel face à la livre.",
+      "id": "tcr-028"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 1,
+      "mat": "emi",
+      "q": "La conférence de Bretton Woods (1944) a mis en place :",
+      "choices": [
+        "un étalon de change-or : dollar convertible en or à 35 $ l'once, autres monnaies fixées au dollar avec bande ± 1 %",
+        "un régime de changes flottants purs",
+        "un retour immédiat à l'étalon-or classique",
+        "une monnaie mondiale unique gérée par le FMI"
+      ],
+      "a": 0,
+      "why": "Bretton Woods : Gold Exchange Standard. Le $ est convertible en or (35 $/once) ; les autres monnaies ancrées au $ avec bande ± 1 %. Le FMI surveille l'équilibre des paiements.",
+      "id": "smi-026"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Une caisse d'émission (currency board) impose que la base monétaire soit couverte à 100 % par les réserves officielles en devises. Cela implique :",
+      "choices": [
+        "l'abandon de la politique monétaire discrétionnaire (impossible de stériliser les entrées/sorties de capitaux)",
+        "une inflation systématiquement plus élevée que chez le pays d'ancrage",
+        "l'impossibilité d'importer ou d'exporter",
+        "l'obligation d'adopter un régime de changes flottants"
+      ],
+      "a": 0,
+      "trap": "fixe-flexible",
+      "why": "La caisse d'émission (Hong Kong vs $, Bulgarie vs €) rend la base monétaire strictement proportionnelle aux réserves : plus de politique monétaire autonome, ancrage crédible mais rigide.",
+      "id": "smi-027"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "mat": "emi",
+      "q": "L'abandon unilatéral de la convertibilité-or du dollar (15 août 1971) est appelé « choc Nixon ». Il a précipité :",
+      "choices": [
+        "la fin du régime de Bretton Woods et le passage des grandes monnaies au flottement",
+        "l'adoption immédiate d'une monnaie mondiale unique",
+        "le retour à l'étalon-or classique d'avant 1914",
+        "l'expulsion des États-Unis du FMI"
+      ],
+      "a": 0,
+      "why": "Nixon suspend la convertibilité or-dollar à 35 $/once face aux demandes de conversion (déficits US, guerre du Vietnam). Les Accords de la Jamaïque (1976) officialiseront ensuite le flottement.",
+      "id": "smi-028"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "mat": "emi",
+      "q": "La PCTI log-linéarisée à horizon h s'écrit (taux au certain) :",
+      "choices": [
+        "h·i = h·i* + e − f_h",
+        "i = i* − e + f",
+        "i − i* = f/e",
+        "h·i = i* + h·(e − f)"
+      ],
+      "a": 0,
+      "trap": "horizon",
+      "why": "Pour h années : (1 + i)^h = (1 + i*)^h · E/F_h. En log : h·ln(1 + i) ≈ h·i = h·i* + e − f_h. L'horizon multiplie i et i*, pas la différence e − f.",
+      "id": "parite-029"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "mat": "emi",
+      "q": "La BCE annonce une hausse surprise du taux directeur de 1 point pendant 3 ans (le taux étranger et l'anticipation à long terme eᵃ_{t,t+3} restent inchangés). Selon la PNCTI, l'euro s'apprécie immédiatement de :",
+      "choices": [
+        "3 %",
+        "1 %",
+        "9 %",
+        "0 % (rattrapage progressif)"
+      ],
+      "a": 0,
+      "trap": "horizon",
+      "why": "Itération : e_t = Σ(i − i*) + eᵃ_{t,t+3} = 1 % + 1 % + 1 % + eᵃ. À anticipation LT inchangée, l'appréciation immédiate est la somme des écarts sur les 3 ans, puis dépréciation de 1 %/an.",
+      "id": "parite-030"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Dans le modèle monétaire à prix flexibles avec anticipations naïves (eᵃ = e), Eq 1 − Eq 2 donne m − m* = p − p* + a(y − y*) − b(i − i*). Sous anticipations naïves, i = i*, donc :",
+      "choices": [
+        "e = −(m − m*) + a(y − y*)",
+        "e = m − m* − a(y − y*)",
+        "e = (m − m*) + b(i − i*)",
+        "e = a(y − y*) uniquement"
+      ],
+      "a": 0,
+      "why": "Sous anticipations naïves, la PNCTI donne i = i* ; Eq 3 donne p − p* = −e ; on obtient e = −(m − m*) + a(y − y*). Hausse de m ⇒ dépréciation d'ampleur équivalente.",
+      "id": "monet-028"
     }
   ],
   "VF": [
@@ -3245,6 +3573,159 @@
       "trap": "mf-regime",
       "why": "Le régime idéal (fixe, flexible, union monétaire) dépend des caractéristiques structurelles. Pays exposé à mêmes chocs et travailleurs mobiles → union viable. Pays à chocs idiosyncratiques ou main-d'œuvre immobile → change flexible préférable.",
       "mat": "emi"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 1,
+      "mat": "emi",
+      "q": "Selon les règles de comptabilité de la BdP, une augmentation d'actifs (acquisition d'actifs étrangers) est enregistrée au débit.",
+      "a": true,
+      "trap": "signe-bdp",
+      "why": "Le débit couvre : importations, revenu primaire payable, transfert payable, augmentation d'actifs (acquisition), réduction du passif. L'acquisition d'actifs étrangers est bien un débit du compte financier.",
+      "id": "bdp-028"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Une capacité de financement de la nation (CFN > 0) équivaut à un solde du compte courant plus compte de capital positif, soit un besoin de financement pour le reste du monde.",
+      "a": true,
+      "why": "CFN = TC + CC. Si CFN > 0, le pays a un excédent extérieur : il finance le reste du monde (sortie nette de capitaux, CF > 0 dans la convention du cours).",
+      "id": "bdp-029"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Le haut de la balance (compte courant) et le bas de la balance (compte financier) doivent nécessairement s'équilibrer poste par poste.",
+      "a": false,
+      "why": "Seule la BdP globale s'équilibre (comptabilité en partie double). Le haut et le bas peuvent afficher des déséquilibres qui se compensent : un excédent courant est financé par une sortie nette de capitaux.",
+      "id": "bdp-030"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Quand l'actif étranger est libellé en dollars, une appréciation du dollar (E baisse au certain pour l'euro) augmente la valeur en euros de l'actif, effet de valorisation positif sur la PEN.",
+      "a": true,
+      "trap": "stock-flux",
+      "why": "E = $/€ au certain. Si E baisse (dollar plus fort), 1 $ vaut plus en euros. L'actif en $ voit sa contre-valeur en € augmenter : effet de valorisation positif.",
+      "id": "pen-028"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 3,
+      "mat": "emi",
+      "q": "Écrite sous la forme (Sp − I) + Sg = X − M, l'identité rend explicite que le solde courant reflète l'écart entre épargne nationale totale (Sp + Sg) et investissement.",
+      "a": true,
+      "why": "S = Sp + Sg. (Sp − I) + Sg = (Sp + Sg) − I = S − I = X − M. Isoler Sg (épargne publique) rappelle qu'un déficit budgétaire dégrade S et donc, à I inchangé, X − M.",
+      "id": "si-028"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "q": "L'ouverture financière de facto se mesure par les flux de capitaux effectifs (par exemple actifs et passifs transfrontaliers en % du PIB), l'ouverture de jure par les barrières administratives et taxes sur les mouvements de capitaux.",
+      "a": true,
+      "why": "De jure = mesure Chinn-Ito des restrictions légales. De facto = mesure de Lane-Milesi-Ferretti (external wealth of nations). Les deux mesures peuvent diverger significativement.",
+      "id": "si-029"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 1,
+      "mat": "emi",
+      "q": "Une option d'achat (call) sur devise donne à son détenteur le droit mais non l'obligation d'acheter la devise à un prix d'exercice fixé.",
+      "a": true,
+      "why": "L'option d'achat = droit, non l'obligation. L'acheteur paie une prime au vendeur. Si le marché lui est favorable il n'exerce pas ; sinon il exerce.",
+      "id": "forex-028"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Les swaps de change ne sont utilisés que sur les marchés boursiers organisés avec chambre de compensation.",
+      "a": false,
+      "why": "Le marché des changes est dématérialisé et décentralisé. La quasi-totalité des opérations, y compris les swaps, se réalise de gré à gré (OTC). Les futures standardisés existent mais restent marginaux face à l'OTC.",
+      "id": "forex-029"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Environ 60 % des transactions du marché des changes se concentrent sur les places de Londres et New York réunies.",
+      "a": true,
+      "why": "Selon la BRI (2019), Londres + New York concentrent près de 60 % des transactions mondiales, en raison des coûts fixes (informatique) et des marges très faibles qui favorisent la concentration.",
+      "id": "forex-030"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "L'effet de base implique que si une monnaie s'apprécie de 10 % puis se déprécie de 10 %, elle retrouve exactement son niveau de départ.",
+      "a": false,
+      "trap": "certain-incertain",
+      "why": "1 × 1,10 × 0,90 = 0,99 ≠ 1. Non-linéarité multiplicative. C'est pourquoi on utilise les log pour les petites variations : Δln(E) est approximativement symétrique.",
+      "id": "cot-026"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Le taux de variation du TCEN, en log, est la moyenne arithmétique pondérée des taux de variation des taux de change bilatéraux.",
+      "a": true,
+      "why": "TCEN en niveau = moyenne géométrique pondérée. En log : ln(TCEN) = Σ ωⱼ ln(Eⱼ). En variation : ΔTCEN ≈ Σ ωⱼ ΔEⱼ (moyenne arithmétique pondérée).",
+      "id": "tcr-029"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 1,
+      "mat": "emi",
+      "q": "Une monnaie internationale remplit les trois fonctions monétaires classiques (moyen de paiement, unité de compte, réserve de valeur) dans un contexte international.",
+      "a": true,
+      "why": "Une monnaie internationale = monnaie utilisée hors de son pays d'émission pour ces trois fonctions. Le dollar reste dominant, l'euro consolidé, le RMB progresse pour les paiements commerciaux.",
+      "id": "smi-029"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Le renminbi (yuan) a été inclus par le FMI dans le panier du DTS (droits de tirage spéciaux) en 2016, comme cinquième monnaie librement utilisable.",
+      "a": true,
+      "why": "En 2016, le FMI a reconnu le RMB comme monnaie librement utilisable, l'ajoutant au panier du DTS aux côtés du dollar, de l'euro, du yen et de la livre.",
+      "id": "smi-030"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "mat": "emi",
+      "q": "L'hypothèse fondatrice du modèle de PNCTI est la neutralité au risque des investisseurs : ils comparent des rendements anticipés en espérance, sans exiger de prime.",
+      "a": true,
+      "why": "PNCTI suppose neutralité au risque (utilité linéaire) : les agents comparent E(rendement) sans prime. Introduire une prime de risque ρ mène au modèle de portefeuille (Kouri).",
+      "id": "parite-031"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "mat": "emi",
+      "q": "Dans le modèle monétaire à prix flexibles avec anticipations rationnelles, une hausse temporaire de la masse monétaire (m − m* = 0,1 en t, retour à 0 en t+1) déprécie moins la monnaie qu'une hausse permanente.",
+      "a": true,
+      "why": "Formule : e_t = −1/(1+β)·(m−m*)_t − β/(1+β)²·E(m−m*)_{t+1} + ... Choc temporaire → seul le premier terme non nul → dépréciation de −1/(1+β)·0,1, plus faible que −0,1 (permanent).",
+      "id": "monet-029"
     }
   ],
   "SENS": [
@@ -4347,6 +4828,146 @@
       "trap": "mf-regime",
       "why": "Pour maintenir la parité, la banque centrale danoise doit suivre la BCE : sinon i > i* ⇒ entrée massive de capitaux ⇒ pression à l'appréciation ⇒ dépasse la bande. Seule variable d'ajustement autonome = 0 (dilemme du trilemme).",
       "mat": "emi"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "ctx": "Convention du cours : CF > 0 = sortie nette de capitaux ; identité TC + CC − CF + EO = 0",
+      "shock": "Le pays enregistre un fort excédent courant (CC > 0) avec TC et EO nuls",
+      "var": "Solde du compte financier CF",
+      "a": "up",
+      "trap": "signe-bdp",
+      "why": "Si TC = 0, EO = 0 et CC > 0, alors CF = CC > 0 : sortie nette de capitaux (le pays prête au reste du monde ou accumule des réserves).",
+      "id": "bdp-031"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "ctx": "Écriture d'une transaction en BdP, compte financier",
+      "shock": "Un résident français acquiert un actif étranger (augmentation d'actifs)",
+      "var": "Colonne d'inscription (débit)",
+      "a": "up",
+      "why": "L'acquisition d'un actif étranger par un résident est un débit du compte financier (augmentation d'actifs = débit selon les règles de la BdP).",
+      "id": "bdp-032"
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "mat": "emi",
+      "ctx": "Pays créancier net avec A libellé en dollars, L en euros, BC = 0",
+      "shock": "Appréciation du dollar face à l'euro (E au certain pour l'euro diminue)",
+      "var": "PEN évaluée en euros",
+      "a": "up",
+      "trap": "stock-flux",
+      "why": "E_{t−1}/E_t > 1 car E_t < E_{t−1}. La valeur en € de l'actif A augmente, le passif L (en €) est inchangé : PEN augmente par pur effet de valorisation.",
+      "id": "pen-029"
+    },
+    {
+      "cat": "si",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "ctx": "Économie ouverte, (Sp − I) + Sg = X − M, Sp et I inchangés",
+      "shock": "Passage d'un excédent budgétaire à un déficit budgétaire (Sg baisse)",
+      "var": "Solde courant X − M",
+      "a": "down",
+      "why": "S = Sp + Sg. Sg baisse ⇒ S baisse ⇒ à I constant, X − M = S − I baisse. Mécanisme des « déficits jumeaux ».",
+      "id": "si-030"
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "ctx": "Marché des changes, deux places cotant EUR/USD",
+      "shock": "L'euro s'échange contre 1,20 $ à New York et 1,30 $ à Londres (écart signalé)",
+      "var": "Cours de l'euro à New York",
+      "a": "up",
+      "why": "Arbitrage : achat de l'euro bon marché à NY, revente à Londres. La demande d'euros à NY fait monter son cours, l'offre à Londres le fait baisser. Convergence rapide vers ≈ 1,25 $.",
+      "id": "forex-031"
+    },
+    {
+      "cat": "cot",
+      "ch": 2,
+      "diff": 3,
+      "mat": "emi",
+      "ctx": "Cotation au certain pour l'euro, non-linéarité entre certain et incertain",
+      "shock": "L'euro s'apprécie de 20 % au certain (E monte de 1,20 à 1,44)",
+      "var": "Valeur absolue de la dépréciation en % à l'incertain (1/E)",
+      "a": "down",
+      "trap": "certain-incertain",
+      "why": "À l'incertain, on passe de 0,833 à 0,694, soit −16,7 %. La dépréciation à l'incertain est en valeur absolue plus faible que l'appréciation au certain (effet de base sur grandes variations).",
+      "id": "cot-027"
+    },
+    {
+      "cat": "tcr",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "ctx": "TCEN, deux partenaires de poids égaux, écart d'appréciation",
+      "shock": "L'euro se déprécie de 10 % contre le dollar et s'apprécie de 10 % contre le yen",
+      "var": "Taux de variation du TCEN (approximation log)",
+      "a": "same",
+      "trap": "niveau-log",
+      "why": "En log-variation : 0,5 × (−10 %) + 0,5 × (+10 %) = 0. Compensation exacte car poids identiques. En niveau, l'effet de base introduit un très léger biais.",
+      "id": "tcr-030"
+    },
+    {
+      "cat": "smi",
+      "ch": 2,
+      "diff": 3,
+      "mat": "emi",
+      "ctx": "Régime de change fixe pur avec caisse d'émission (Hong Kong-$)",
+      "shock": "La banque centrale tente d'augmenter la base monétaire au-delà des réserves en devises",
+      "var": "Crédibilité de l'ancrage",
+      "a": "down",
+      "trap": "sterilise",
+      "why": "La caisse d'émission impose une couverture 100 % de M par les réserves. Toute expansion non couverte trahit la règle et détruit la crédibilité — les spéculateurs testent alors l'ancrage.",
+      "id": "smi-031"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 2,
+      "mat": "emi",
+      "ctx": "PCTI en logs (au certain), i et i* donnés",
+      "shock": "Hausse du différentiel i − i* de 1 point à horizon 1 an",
+      "var": "Report/déport (e − f) à horizon 1 an",
+      "a": "up",
+      "trap": "sens-parite",
+      "why": "PCTI : i − i* = e − f. Si i − i* augmente de 1 pt, alors e − f augmente de 1 pt : le taux à terme est en dessous du spot (déport de la monnaie domestique).",
+      "id": "parite-032"
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "mat": "emi",
+      "ctx": "PNCTI, i et i* inchangés, itération vers l'avant sur 4 ans",
+      "shock": "Anticipation d'une appréciation durable de 3 % à horizon 4 ans (eᵃ_{t,t+4} monte de 3 %, i inchangés)",
+      "var": "Taux de change spot e_t immédiat",
+      "a": "up",
+      "trap": "endo-exo",
+      "why": "e_t = Σ(i − i*) + eᵃ_{t,t+4}. Si les écarts d'intérêt sont nuls et eᵃ augmente de 3 %, alors e_t s'apprécie immédiatement de 3 % : le change est tourné vers l'avenir.",
+      "id": "parite-033"
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "mat": "emi",
+      "ctx": "Modèle de Dornbusch, hausse permanente de m de 10 %, prix rigides à court terme",
+      "shock": "Impact immédiat sur le taux nominal e (au certain) juste après l'annonce",
+      "var": "Écart de e par rapport à sa valeur de long terme (−10 %)",
+      "a": "down",
+      "trap": "statique-dyn",
+      "why": "Prix rigides ⇒ i baisse à court terme (Eq monnaie). PNCTI impose alors une appréciation anticipée ⇒ e doit surajuster à la baisse (dépréciation > 10 %) puis se rapprécier progressivement.",
+      "id": "monet-030"
     }
   ],
   "ORDRE": [
@@ -6108,6 +6729,119 @@
       "trap": "certain-incertain",
       "why": "Rationalisation du puzzle via le risque de change. Alternative : biais de peso, apprentissage. Le portefeuille reste le cadre pédagogique dominant.",
       "mat": "emi"
+    },
+    {
+      "cat": "bdp",
+      "ch": 1,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Énoncer les cinq catégories inscrites au débit dans les règles de comptabilité de la BdP.",
+      "model": "Débit (–) : importations de biens et services ; revenu primaire payable ; transfert payable ; augmentation d'actifs (acquisition d'actifs) ; réduction du passif. Chaque transaction est enregistrée deux fois (crédit + débit), d'où un solde global nul.",
+      "points": [
+        "importations B&S",
+        "revenu primaire payable",
+        "transfert payable",
+        "augmentation d'actifs (acquisition)",
+        "réduction du passif",
+        "principe de la partie double"
+      ],
+      "notations": [
+        "débit vs crédit",
+        "compte courant vs compte financier"
+      ],
+      "id": "bdp-033",
+      "why": "À retenir : importations B&S. revenu primaire payable. transfert payable."
+    },
+    {
+      "cat": "pen",
+      "ch": 1,
+      "diff": 3,
+      "mat": "emi",
+      "q": "Écrire l'équation d'accumulation de la PEN lorsque l'actif A est libellé en dollars. Commenter le rôle du taux de change.",
+      "model": "PEN_t = A_{t−1}(1 + iA)·E_{t−1}/E_t − L_{t−1}(1 + iL) + BC_t. E est le taux au certain (unités étrangères par unité nationale). Une dépréciation (E_t < E_{t−1}) augmente la contre-valeur en monnaie nationale de A. La PEN varie par flux (BC), intérêts (iA, iL) et effets de valorisation (E).",
+      "points": [
+        "formule complète",
+        "E au certain",
+        "effet de valorisation via E_{t−1}/E_t",
+        "distinction flux/stock",
+        "iA et iL possibles différents",
+        "BC = balance commerciale"
+      ],
+      "notations": [
+        "A, L",
+        "iA, iL",
+        "E au certain",
+        "BC"
+      ],
+      "id": "pen-030",
+      "why": "À retenir : formule complète. E au certain. effet de valorisation via E_{t−1}/E_t."
+    },
+    {
+      "cat": "forex",
+      "ch": 2,
+      "diff": 2,
+      "mat": "emi",
+      "q": "Un importateur français doit payer 110 000 $ dans 3 mois. Détailler pour chaque instrument (spot, forward, option d'achat) l'exposition résultante au risque de change.",
+      "model": "Spot dans 3 mois : pleine exposition au risque de change. Forward (achat à terme) : prix fixé à la signature, aucune exposition mais aucun gain si le $ baisse. Option d'achat (call) : prix plafond garanti, l'importateur exerce si le $ monte, ne l'exerce pas si le $ baisse (gain net minoré de la prime). L'option combine protection et flexibilité.",
+      "points": [
+        "spot = pleine exposition",
+        "forward = neutralise mais bloque",
+        "call = plafond + flexibilité",
+        "coût de la prime",
+        "asymétrie du call"
+      ],
+      "notations": [
+        "spot vs forward",
+        "prix d'exercice (strike)",
+        "prime de l'option"
+      ],
+      "id": "forex-032",
+      "why": "À retenir : spot = pleine exposition. forward = neutralise mais bloque. call = plafond + flexibilité."
+    },
+    {
+      "cat": "parite",
+      "ch": 3,
+      "diff": 3,
+      "mat": "emi",
+      "q": "Écrire la PNCTI itérée vers l'avant sur un horizon de 3 ans. Commenter l'effet d'une annonce non anticipée de hausse durable du taux d'intérêt.",
+      "model": "e_t = (i_t − i*_t) + (iᵃ_{t,t+1} − i*ᵃ_{t,t+1}) + (iᵃ_{t,t+2} − i*ᵃ_{t,t+2}) + eᵃ_{t,t+3}. Une hausse surprise de i de 1 point pendant 3 ans, à eᵃ_{t,t+3} inchangée, produit une appréciation immédiate de e de 3 %, suivie d'une dépréciation de 1 % par an vers l'équilibre de long terme.",
+      "points": [
+        "formule itérée",
+        "eᵃ_{t,t+3} = ancre de long terme",
+        "somme des écarts d'intérêt",
+        "appréciation immédiate",
+        "dépréciation progressive ensuite"
+      ],
+      "notations": [
+        "e au certain",
+        "iᵃ vs i",
+        "horizon",
+        "eᵃ à long terme"
+      ],
+      "id": "parite-034",
+      "why": "À retenir : formule itérée. eᵃ_{t,t+3} = ancre de long terme. somme des écarts d'intérêt."
+    },
+    {
+      "cat": "monet",
+      "ch": 3,
+      "diff": 3,
+      "mat": "emi",
+      "q": "Décrire les hypothèses et les équations du modèle monétaire à prix flexibles de Frenkel (1976).",
+      "model": "4 équations : (1) m = p + a·y − b·i (monnaie domestique) ; (2) m* = p* + a·y* − b·i* (étranger) ; (3) e + p − p* = 0 (TCR stable) ; (4) i = i* + e − eᵃ (PNCTI). Hypothèses : y, m exogènes, neutralité de la monnaie, PPA à chaque instant, prix flexibles. Résultat : hausse permanente de m de x % ⇒ dépréciation de x %, hausse de p de x %, TCR inchangé.",
+      "points": [
+        "4 équations",
+        "neutralité de la monnaie",
+        "PPA",
+        "PNCTI",
+        "prix flexibles",
+        "monnaie voile"
+      ],
+      "notations": [
+        "m, p, y, i, e (log)",
+        "variables endogènes vs exogènes"
+      ],
+      "id": "monet-031",
+      "why": "À retenir : 4 équations. neutralité de la monnaie. PPA."
     }
   ],
   "ETOILE": [
