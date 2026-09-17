@@ -19,8 +19,10 @@ Usage :
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -32,7 +34,42 @@ TEMPLATE = REPO / "src" / "template.html"
 DATA_JSON = REPO / "data" / "data.json"
 OUTPUT = REPO / "index.html"
 
+VENDOR = REPO / "vendor"
+KATEX_CSS = VENDOR / "katex.min.css"
+KATEX_JS = VENDOR / "katex.min.js"
+KATEX_FONTS = VENDOR / "fonts"
+
 MARKER = "/*__DATA__*/"
+MARKER_KATEX_CSS = "/*__KATEX_CSS__*/"
+MARKER_KATEX_JS = "/*__KATEX_JS__*/"
+
+
+def _inline_katex_css() -> str:
+    """Charge katex.min.css et remplace chaque url(fonts/NAME.woff2) par un
+    data URI base64. Supprime les fallbacks woff/ttf pour économiser des octets
+    (Safari iOS et Chromium supportent woff2 partout où on cible)."""
+    css = KATEX_CSS.read_text(encoding="utf-8")
+
+    def repl_src(m: re.Match) -> str:
+        # m.group(0) est un `src:` complet (url(...) format(...), url(...) format(...), ...)
+        # On garde uniquement la première url(...woff2)
+        m2 = re.search(r'url\(fonts/([A-Za-z0-9_-]+)\.woff2\)', m.group(0))
+        if not m2:
+            return m.group(0)
+        name = m2.group(1)
+        font_path = KATEX_FONTS / f"{name}.woff2"
+        if not font_path.exists():
+            raise SystemExit(f"vendor: {font_path} manquant")
+        b64 = base64.b64encode(font_path.read_bytes()).decode("ascii")
+        return f'src:url(data:font/woff2;base64,{b64}) format("woff2")'
+
+    css = re.sub(r'src:\s*url\(fonts/[^)]+\)[^;}]*', repl_src, css)
+    return css
+
+
+def _inline_katex_js() -> str:
+    js = KATEX_JS.read_text(encoding="utf-8")
+    return js
 
 
 def load_data() -> dict:
@@ -45,14 +82,17 @@ def load_template() -> str:
 
 
 def render(template: str, data: dict) -> bytes:
-    if template.count(MARKER) != 1:
-        raise SystemExit(
-            f"template: {template.count(MARKER)} occurrence(s) de {MARKER} "
-            f"(exigé : exactement 1)"
-        )
+    for m in (MARKER, MARKER_KATEX_CSS, MARKER_KATEX_JS):
+        if template.count(m) != 1:
+            raise SystemExit(
+                f"template: {template.count(m)} occurrence(s) de {m} "
+                f"(exigé : exactement 1)"
+            )
     payload = json.dumps(data, ensure_ascii=False, separators=(", ", ": "))
     injected = f"const DATA = {payload};"
     html = template.replace(MARKER, injected)
+    html = html.replace(MARKER_KATEX_CSS, _inline_katex_css())
+    html = html.replace(MARKER_KATEX_JS, _inline_katex_js())
     return html.encode("utf-8")
 
 

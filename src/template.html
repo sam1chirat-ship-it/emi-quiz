@@ -1203,6 +1203,14 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
     transition: none !important;
   }
 }
+
+/*__KATEX_CSS__*/
+
+/* Ajustements KaTeX pour intégration au thème (fond sombre, doré) */
+.katex { color: var(--gold); font-size: 1.02em; }
+.katex-display { margin: .8em 0; overflow-x: auto; overflow-y: hidden; }
+.katex-display > .katex { color: var(--gold); }
+.katex .mord, .katex .mbin, .katex .mrel, .katex .mopen, .katex .mclose, .katex .mpunct, .katex .minner { color: inherit; }
 </style>
 </head>
 <body>
@@ -1234,6 +1242,7 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
 
 <script>
 "use strict";
+/*__KATEX_JS__*/
 /*__DATA__*/
 
 /* ============================================================
@@ -1353,6 +1362,56 @@ function esc(s) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+/* Rend un texte pouvant contenir du LaTeX :
+   \(...\) = mode inline, \[...\] = mode display.
+   Choix de délimiteurs : évite le collision avec $ (USD, symbole
+   monétaire présent dans le contenu). Le reste du texte est échappé
+   HTML classiquement. Si KaTeX n'est pas encore chargé, on retombe
+   proprement sur esc(). */
+function renderMath(s) {
+  const str = String(s == null ? "" : s);
+  if (typeof window.katex === "undefined") return esc(str);
+  const out = [];
+  let i = 0, n = str.length;
+  const findClose = (from, close) => {
+    // recherche du délimiteur fermant, en autorisant \\( et \\) comme
+    // littéraux (rare mais possible dans des étapes LaTeX imbriquées)
+    let j = str.indexOf(close, from);
+    return j;
+  };
+  while (i < n) {
+    if (str[i] === "\\" && (str[i + 1] === "(" || str[i + 1] === "[")) {
+      const open = str[i + 1];
+      const close = open === "(" ? "\\)" : "\\]";
+      const end = findClose(i + 2, close);
+      if (end > 0) {
+        const tex = str.slice(i + 2, end);
+        try {
+          out.push(window.katex.renderToString(tex, {
+            displayMode: open === "[",
+            throwOnError: false,
+            output: "html",
+            strict: "ignore",
+          }));
+        } catch (_) { out.push(esc("\\" + open + tex + close)); }
+        i = end + 2;
+        continue;
+      }
+    }
+    // segment non-math jusqu'au prochain "\("/"\["
+    const nxParen = str.indexOf("\\(", i);
+    const nxBrack = str.indexOf("\\[", i);
+    let nx;
+    if (nxParen < 0) nx = nxBrack;
+    else if (nxBrack < 0) nx = nxParen;
+    else nx = Math.min(nxParen, nxBrack);
+    if (nx < 0) { out.push(esc(str.slice(i))); break; }
+    out.push(esc(str.slice(i, nx)));
+    i = nx;
+  }
+  return out.join("");
 }
 
 function norm(s) {
@@ -3118,12 +3177,12 @@ function renderQuestion() {
   if (fmt === "qcm") {
     const order = (S.qOrder && S.qOrder.length === q.choices.length) ? S.qOrder : q.choices.map((_, i) => i);
     const choices = order.map(origIdx =>
-      '<button data-act="answer" data-v="' + origIdx + '">' + esc(q.choices[origIdx]) + '</button>'
+      '<button data-act="answer" data-v="' + origIdx + '">' + renderMath(q.choices[origIdx]) + '</button>'
     ).join("");
     return (
       '<article class="card">' +
         '<div class="eyebrow">' + eyebrow + '</div>' +
-        '<div class="qtext">' + esc(q.q) + '</div>' +
+        '<div class="qtext">' + renderMath(q.q) + '</div>' +
         '<div class="choices">' + choices + '</div>' +
       '</article>'
     );
@@ -3132,7 +3191,7 @@ function renderQuestion() {
     return (
       '<article class="card">' +
         '<div class="eyebrow">' + eyebrow + '</div>' +
-        '<div class="qtext">' + esc(q.q) + '</div>' +
+        '<div class="qtext">' + renderMath(q.q) + '</div>' +
         '<div class="btnrow" style="margin-top:12px">' +
           '<button class="b-vert"  data-act="answer" data-v="true">'  + esc(T.vrai) + '</button>' +
           '<button class="b-rouge" data-act="answer" data-v="false">' + esc(T.faux) + '</button>' +
@@ -3144,9 +3203,9 @@ function renderQuestion() {
     return (
       '<article class="card">' +
         '<div class="eyebrow">' + eyebrow + '</div>' +
-        '<div class="sens-ctx">' + esc(q.ctx) + '</div>' +
-        '<div class="sens-shock"><span class="sens-lbl">Choc</span> ' + esc(q.shock) + '</div>' +
-        '<div class="sens-var"><span class="sens-lbl">Effet sur</span> ' + esc(q.var) + ' ?</div>' +
+        '<div class="sens-ctx">' + renderMath(q.ctx) + '</div>' +
+        '<div class="sens-shock"><span class="sens-lbl">Choc</span> ' + renderMath(q.shock) + '</div>' +
+        '<div class="sens-var"><span class="sens-lbl">Effet sur</span> ' + renderMath(q.var) + ' ?</div>' +
         '<div class="sens-buttons">' +
           '<button data-act="answer" data-v="up"    class="sens-btn" aria-label="hausse">↑</button>' +
           '<button data-act="answer" data-v="down"  class="sens-btn" aria-label="baisse">↓</button>' +
@@ -3165,20 +3224,20 @@ function renderQuestion() {
     const pile = q.steps.map((_, i) => {
       const idx = S.orderPick[i];
       if (idx == null) return '<li class="empty">—</li>';
-      return '<li>' + esc(q.steps[idx]) + '</li>';
+      return '<li>' + renderMath(q.steps[idx]) + '</li>';
     }).join("");
     const choices = S.orderPerm.map(realIdx => {
       const used = S.orderPick.includes(realIdx);
       return '<button data-act="order" data-v="' + realIdx + '"' + (used ? ' disabled' : '') + '>' +
-        esc(q.steps[realIdx]) + '</button>';
+        renderMath(q.steps[realIdx]) + '</button>';
     }).join("");
     const canValid = S.orderPick.length === q.steps.length;
     const canUndo  = S.orderPick.length > 0;
     return (
       '<article class="card">' +
         '<div class="eyebrow">' + eyebrow + '</div>' +
-        (q.ctx   ? '<div class="sens-ctx">' + esc(q.ctx) + '</div>' : '') +
-        (q.title ? '<div class="qtext">' + esc(q.title) + '</div>' : '') +
+        (q.ctx   ? '<div class="sens-ctx">' + renderMath(q.ctx) + '</div>' : '') +
+        (q.title ? '<div class="qtext">' + renderMath(q.title) + '</div>' : '') +
         '<div class="order-lbl">Ton ordre</div>' +
         '<ol class="order-pile">' + pile + '</ol>' +
         '<div class="order-lbl">Étapes disponibles</div>' +
@@ -3197,18 +3256,18 @@ function renderQuestion() {
 function renderQuestionRestate(q, fmt) {
   if (fmt === "sens") {
     return (
-      '<div class="sens-ctx">' + esc(q.ctx || "") + '</div>' +
-      '<div class="sens-shock"><span class="sens-lbl">Choc</span> ' + esc(q.shock) + '</div>' +
-      '<div class="sens-var"><span class="sens-lbl">Effet sur</span> ' + esc(q.var) + ' ?</div>'
+      '<div class="sens-ctx">' + renderMath(q.ctx || "") + '</div>' +
+      '<div class="sens-shock"><span class="sens-lbl">Choc</span> ' + renderMath(q.shock) + '</div>' +
+      '<div class="sens-var"><span class="sens-lbl">Effet sur</span> ' + renderMath(q.var) + ' ?</div>'
     );
   }
   if (fmt === "ordre") {
     return (
-      (q.ctx   ? '<div class="sens-ctx">' + esc(q.ctx) + '</div>' : '') +
-      (q.title ? '<div class="qtext">' + esc(q.title) + '</div>' : '')
+      (q.ctx   ? '<div class="sens-ctx">' + renderMath(q.ctx) + '</div>' : '') +
+      (q.title ? '<div class="qtext">' + renderMath(q.title) + '</div>' : '')
     );
   }
-  return '<div class="qtext">' + esc(q.q) + '</div>';
+  return '<div class="qtext">' + renderMath(q.q) + '</div>';
 }
 
 // Étiquettes des réponses sens.
@@ -3240,7 +3299,7 @@ function renderWhy() {
       let cls = "";
       if (origIdx === q.a) cls = " correct";
       else if (origIdx === ans.given && !ans.ok) cls = " wrong";
-      return '<button class="' + cls.trim() + '" disabled data-v="' + origIdx + '">' + esc(q.choices[origIdx]) + '</button>';
+      return '<button class="' + cls.trim() + '" disabled data-v="' + origIdx + '">' + renderMath(q.choices[origIdx]) + '</button>';
     }).join("") + '</div>';
   } else if (fmt === "vf") {
     const goodLabel = q.a ? T.vrai : T.faux;
@@ -3257,13 +3316,13 @@ function renderWhy() {
       verdict += '<div class="answered-bad">Ta réponse : ' + esc(givenLabel) + '</div>';
     }
   } else if (fmt === "ordre") {
-    const correct = q.steps.map(step => '<li>' + esc(step) + '</li>').join("");
+    const correct = q.steps.map(step => '<li>' + renderMath(step) + '</li>').join("");
     verdict = '<div class="order-lbl" style="color:var(--vert)">Ordre correct</div>' +
               '<ol class="order-recap">' + correct + '</ol>';
     if (!ans.ok && Array.isArray(ans.given)) {
       const yours = ans.given.map((idx, pos) => {
         const cls = (idx === pos) ? "match" : "mismatch";
-        return '<li class="' + cls + '">' + esc(q.steps[idx]) + '</li>';
+        return '<li class="' + cls + '">' + renderMath(q.steps[idx]) + '</li>';
       }).join("");
       verdict += '<div class="order-lbl" style="color:var(--rouge)">Ton ordre</div>' +
                  '<ol class="order-recap">' + yours + '</ol>';
@@ -3277,7 +3336,7 @@ function renderWhy() {
     }
   }
 
-  const why = q.why ? '<div class="why"><div class="lbl">POURQUOI</div>' + esc(q.why) + '</div>' : '';
+  const why = q.why ? '<div class="why"><div class="lbl">POURQUOI</div>' + renderMath(q.why) + '</div>' : '';
 
   return (
     '<article class="card">' +
@@ -3645,12 +3704,12 @@ function renderCoursLesson() {
     return paragraphs.map(p => {
       const lines = p.split("\n").map(s => s.trim()).filter(Boolean);
       if (lines.every(l => /^[-*] /.test(l))) {
-        return '<ul>' + lines.map(l => '<li>' + esc(l.replace(/^[-*] /, "")) + '</li>').join("") + '</ul>';
+        return '<ul>' + lines.map(l => '<li>' + renderMath(l.replace(/^[-*] /, "")) + '</li>').join("") + '</ul>';
       }
       if (lines.every(l => /^\d+\.\s/.test(l))) {
-        return '<ol>' + lines.map(l => '<li>' + esc(l.replace(/^\d+\.\s/, "")) + '</li>').join("") + '</ol>';
+        return '<ol>' + lines.map(l => '<li>' + renderMath(l.replace(/^\d+\.\s/, "")) + '</li>').join("") + '</ol>';
       }
-      return '<p>' + esc(lines.join(" ")) + '</p>';
+      return '<p>' + renderMath(lines.join(" ")) + '</p>';
     }).join("");
   })();
 
@@ -3672,7 +3731,7 @@ function renderCoursLesson() {
       '<div class="cours-progress"><span style="width:' + pct + '%"></span></div>' +
       '<div class="cours-body">' +
         '<article class="cours-block ' + esc(b.kind || "intro") + '">' +
-          '<div class="cb-head"><span class="cb-icon">' + meta.icon + '</span>' + esc(b.title || meta.label) + '</div>' +
+          '<div class="cb-head"><span class="cb-icon">' + meta.icon + '</span>' + renderMath(b.title || meta.label) + '</div>' +
           '<div class="cb-body">' + bodyHtml + '</div>' +
         '</article>' +
         endCta +
@@ -3702,8 +3761,8 @@ function renderCheatsheet(filter) {
     if (!entries.length) return "";
     const items = entries.map(e =>
       '<dl class="cs-item">' +
-        '<dt>' + esc(e.t) + '</dt>' +
-        '<dd>' + esc(e.d) + '</dd>' +
+        '<dt>' + renderMath(e.t) + '</dt>' +
+        '<dd>' + renderMath(e.d) + '</dd>' +
       '</dl>'
     ).join("");
     return (
