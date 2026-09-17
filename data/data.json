@@ -241,10 +241,10 @@
       "diff": 2,
       "q": "L'identité comptable de la balance des paiements, selon le cours, s'écrit :",
       "choices": [
-        "TC + CF − CC + EO = 0",
+        "\\[TC + CF - CC + EO = 0\\]",
         "TC + CC + CF + EO = 0 (variante avec CF positif)",
-        "TC + CC − CF = 0",
-        "TC + CC − CF + EO = 0"
+        "\\[TC + CC - CF = 0\\]",
+        "\\[TC + CC - CF + EO = 0\\]"
       ],
       "a": 3,
       "trap": "signe-bdp",
@@ -292,10 +292,10 @@
       "diff": 2,
       "q": "L'identité macroéconomique en économie ouverte s'écrit :",
       "choices": [
-        "(S − I) + (T − G) = X − M",
-        "S + I + G = X − M",
+        "\\[(S - I) + (T - G) = X - M\\]",
+        "\\[S + I + G = X - M\\]",
         "S − I = T − G, ignorant l'ouverture au reste du monde",
-        "X − M = C + G"
+        "\\[X - M = C + G\\]"
       ],
       "a": 0,
       "why": "Épargne privée nette + épargne publique = solde courant. Un excédent courant traduit un excès d'épargne domestique.",
@@ -423,9 +423,9 @@
       "diff": 2,
       "q": "Sous la PNCTI (e = log du taux au certain, eᵃ son anticipation), la relation reliant i, i*, e, eᵃ est :",
       "choices": [
-        "i − i* = Eᵃ / E",
-        "i = i* + (eᵃ − e)",
-        "i = i* − (eᵃ − e), soit e = eᵃ + (i − i*)",
+        "\\[i - i^* = E^a / E\\]",
+        "\\[i = i^* + (e^a - e)\\]",
+        "\\[i = i^* - (e^a - e), soit e = e^a + (i - i^*)\\]",
         "i = i* + f, où f est le taux à terme observé au comptant sur le marché forex"
       ],
       "a": 2,
@@ -629,7 +629,7 @@
         "+1 %"
       ],
       "a": 0,
-      "why": "0,7 × 2 + 0,3 × (−3) = 1,4 − 0,9 = 0,5 %.",
+      "why": "\\[0,7 \\times 2 + 0,3 \\times (-3) = 1,4 - 0,9 = 0,5 \\%\\].",
       "mat": "emi"
     },
     {
@@ -645,7 +645,7 @@
         "−1 %"
       ],
       "a": 0,
-      "why": "Δq ≈ Δe + (π − π*) = 5 + (3 − 1) = 7 %.",
+      "why": "\\[\\Delta q \\approx \\Delta e + (\\pi - \\pi^*) = 5 + (3 - 1) = 7 \\%\\].",
       "mat": "emi"
     },
     {
@@ -1427,7 +1427,7 @@
         "−0,9 %"
       ],
       "a": 0,
-      "why": "0,4×3 + 0,3×(−2) + 0,3×1 = 1,2 − 0,6 + 0,3 = 0,9 %.",
+      "why": "\\[0,4\\times 3 + 0,3\\times (-2) + 0,3\\times 1 = 1,2 - 0,6 + 0,3 = 0,9 \\%\\].",
       "id": "tcr-018",
       "mat": "emi"
     },
@@ -1487,7 +1487,7 @@
       "choices": [
         "i < i*",
         "i > i* (le pays domestique a un taux plus élevé)",
-        "i = i*",
+        "\\[i = i^*\\]",
         "on ne peut rien dire sans connaître le niveau exact du taux d'anticipation eᵃ des agents"
       ],
       "a": 1,
@@ -1699,9 +1699,9 @@
       "diff": 2,
       "q": "Selon la convention du cours, l'identité comptable de la balance des paiements s'écrit :",
       "choices": [
-        "TC + CC − CF + EO = 0",
-        "TC + CC + CF + EO = 0",
-        "TC − CC − CF + EO = 0",
+        "\\[TC + CC - CF + EO = 0\\]",
+        "\\[TC + CC + CF + EO = 0\\]",
+        "\\[TC - CC - CF + EO = 0\\]",
         "TC + CC − CF = 0 (les erreurs et omissions sont négligeables)"
       ],
       "a": 0,
@@ -1815,10 +1815,10 @@
       "diff": 1,
       "q": "Dans le modèle de Solow, l'équation d'accumulation du capital par tête (avec dépréciation δ et démographie n) s'écrit :",
       "choices": [
-        "Δk = s·(δ + n)·k",
+        "\\[\\Delta k = s\\cdot (\\delta + n)\\cdot k\\]",
         "Δk = f(k) − c(t) sans dépréciation ni démographie prises en compte",
-        "Δk = s·f(k) − (δ + n)·k",
-        "Δk = f(k) − s·k"
+        "\\[\\Delta k = s\\cdot f(k) - (\\delta + n)\\cdot k\\]",
+        "\\[\\Delta k = f(k) - s\\cdot k\\]"
       ],
       "a": 2,
       "why": "Δk = i − (δ+n)·k, avec i = s·f(k). Le terme (δ+n)·k représente l'usure du capital et la dilution par la démographie (croissance en volume par tête).",
@@ -1831,10 +1831,10 @@
       "diff": 2,
       "q": "À l'état régulier k* du modèle de Solow (sans progrès technique), le capital par tête vérifie :",
       "choices": [
-        "s·f(k*) = 0",
+        "\\[s\\cdot f(k^*) = 0\\]",
         "s·f(k*) > (δ + n)·k* (situation de surinvestissement soutenu)",
         "s·f(k*) < (δ + n)·k*",
-        "s·f(k*) = (δ + n)·k*"
+        "\\[s\\cdot f(k^*) = (\\delta + n)\\cdot k^*\\]"
       ],
       "a": 3,
       "why": "État régulier : Δk = 0 donc l'investissement s·f(k*) compense exactement l'usure et la dilution (δ+n)·k*. Au-dessus de k*, investissement < dilution donc k baisse ; en dessous, il monte : équilibre stable.",
@@ -2540,10 +2540,10 @@
       "mat": "emi",
       "q": "On a 1 $ = 106 ¥ et 1 € = 1,23 $. Combien vaut 1 € en yens (taux croisé) ?",
       "choices": [
-        "≈ 130 ¥",
-        "≈ 86 ¥",
-        "≈ 1,16 ¥",
-        "≈ 0,012 ¥"
+        "\\[\\approx 130 ¥\\]",
+        "\\[\\approx 86 ¥\\]",
+        "\\[\\approx 1,16 ¥\\]",
+        "\\[\\approx 0,012 ¥\\]"
       ],
       "a": 0,
       "why": "E(€/¥) = E(€/$) × E($/¥) = 1,23 × 106 ≈ 130. Astuce visuelle : ¥/€ = ¥/$ × $/€, on multiplie.",
@@ -2558,8 +2558,8 @@
       "choices": [
         "Q = E × P/P*, où E est le taux nominal au certain et P, P* les prix (mêmes biens, monnaies différentes)",
         "Q = P/P* uniquement, sans le taux nominal",
-        "Q = E − P + P*",
-        "Q = E × (P + P*)"
+        "\\[Q = E - P + P^*\\]",
+        "\\[Q = E \\times (P + P^*)\\]"
       ],
       "a": 0,
       "why": "Le TCR compare deux prix exprimés dans la même monnaie. Q = E × P/P* : on convertit le prix domestique via E pour le comparer au prix étranger.",
@@ -2637,10 +2637,10 @@
       "mat": "emi",
       "q": "La PCTI log-linéarisée à horizon h s'écrit (taux au certain) :",
       "choices": [
-        "h·i = h·i* + e − f_h",
-        "i = i* − e + f",
-        "i − i* = f/e",
-        "h·i = i* + h·(e − f)"
+        "\\[h\\cdot i = h\\cdot i^* + e - f_h\\]",
+        "\\[i = i^* - e + f\\]",
+        "\\[i - i^* = f/e\\]",
+        "\\[h\\cdot i = i^* + h\\cdot (e - f)\\]"
       ],
       "a": 0,
       "trap": "horizon",
@@ -2671,9 +2671,9 @@
       "mat": "emi",
       "q": "Dans le modèle monétaire à prix flexibles avec anticipations naïves (eᵃ = e), Eq 1 − Eq 2 donne m − m* = p − p* + a(y − y*) − b(i − i*). Sous anticipations naïves, i = i*, donc :",
       "choices": [
-        "e = −(m − m*) + a(y − y*)",
-        "e = m − m* − a(y − y*)",
-        "e = (m − m*) + b(i − i*)",
+        "\\[e = -(m - m^*) + a(y - y^*)\\]",
+        "\\[e = m - m^* - a(y - y^*)\\]",
+        "\\[e = (m - m^*) + b(i - i^*)\\]",
         "e = a(y − y*) uniquement"
       ],
       "a": 0,
@@ -3077,10 +3077,10 @@
       "diff": 3,
       "q": "Sauf lorsque la prime de risque ρ est nulle, la PNCTI implique que la condition d'arbitrage prend la forme :",
       "choices": [
-        "i = i* − (eᵃ − e).",
-        "i = i* − (eᵃ − e) + ρ.",
-        "i = i* + (eᵃ − e) − ρ.",
-        "i = i* × (eᵃ / e) + ρ."
+        "\\[i = i^* - (e^a - e)\\].",
+        "\\[i = i^* - (e^a - e) + \\rho\\].",
+        "\\[i = i^* + (e^a - e) - \\rho\\].",
+        "\\[i = i^* \\times (e^a / e) + \\rho\\]."
       ],
       "a": 1,
       "trap": "niveau-log",
@@ -3128,10 +3128,10 @@
       "diff": 2,
       "q": "Dans le modèle monétaire à prix flexibles, l'équation fondamentale reliant taux de change et fondamentaux s'écrit (en logs) :",
       "choices": [
-        "e = (m − m*) − φ(y − y*) + λ(i − i*).",
-        "e = (m − m*) + φ(y − y*) − λ(i − i*).",
-        "e = (m* − m) + φ(y − y*) + λ(i* − i).",
-        "e = (m + m*) − φ(y + y*) + λ(i − i*)."
+        "\\[e = (m - m^*) - \\varphi (y - y^*) + \\lambda (i - i^*)\\].",
+        "\\[e = (m - m^*) + \\varphi (y - y^*) - \\lambda (i - i^*)\\].",
+        "\\[e = (m^* - m) + \\varphi (y - y^*) + \\lambda (i^* - i)\\].",
+        "\\[e = (m + m^*) - \\varphi (y + y^*) + \\lambda (i - i^*)\\]."
       ],
       "a": 0,
       "trap": "fixe-flexible",
@@ -3675,7 +3675,7 @@
       "q": "Un pays a A = 500 (60 % en dollars, 40 % en euros), L = 400 (tous en euros). Le dollar s'apprécie de 20 % face à l'euro, CC = 0. Estimation de ΔPEN en euros :",
       "choices": [
         "ΔPEN = 0 puisque CC = 0 sur la période",
-        "ΔPEN ≈ +60 (60 % × 500 × 20 %)",
+        "\\[\\Delta PEN \\approx +60 (60 \\% \\times 500 \\times 20 \\%)\\]",
         "ΔPEN ≈ +100 (application au total des actifs)",
         "ΔPEN ≈ −60, une appréciation du dollar pénalisant les passifs"
       ],
@@ -3693,7 +3693,7 @@
         "ΔPEN = CC uniquement",
         "ΔPEN = CC + effets de valorisation",
         "ΔPEN = CF selon la convention du cours",
-        "ΔPEN = CC + CF"
+        "\\[\\Delta PEN = CC + CF\\]"
       ],
       "a": 1,
       "trap": "stock-flux",
@@ -3708,9 +3708,9 @@
       "q": "Dans (S − I) + (T − G) = X − M, quel scénario n'est PAS cohérent avec un excédent courant persistant ?",
       "choices": [
         "S >> I et Sg ≥ 0",
-        "S = I et Sg > 0",
+        "\\[S = I et Sg > 0\\]",
         "S < I et Sg >> 0 (surcompensation)",
-        "S < I et Sg = 0"
+        "\\[S < I et Sg = 0\\]"
       ],
       "a": 3,
       "why": "S < I et Sg = 0 ⇒ (S − I) + Sg < 0 ⇒ X − M < 0 : déficit courant, incohérent avec un excédent.",
@@ -4388,9 +4388,9 @@
       "diff": 2,
       "q": "Complétez : sous PNCTI avec prime de risque ρ (exigée sur la monnaie domestique), la condition d'arbitrage devient :",
       "choices": [
-        "i − i* = eᵃ − e",
-        "i − i* = eᵃ − e + ρ",
-        "i − i* = eᵃ − e − ρ",
+        "\\[i - i^* = e^a - e\\]",
+        "\\[i - i^* = e^a - e + \\rho\\]",
+        "\\[i - i^* = e^a - e - \\rho\\]",
         "i − i* = ρ, indépendamment de eᵃ − e"
       ],
       "a": 1,
@@ -5202,10 +5202,10 @@
       "diff": 3,
       "q": "À l'état stationnaire du modèle de Solow avec progrès technique, on a :",
       "choices": [
-        "g_y = g_k = 0",
-        "g_y = g_k = g_A",
-        "g_y = α·g_A et g_k = g_A",
-        "g_y = g_A et g_k = 0"
+        "\\[g_y = g_k = 0\\]",
+        "\\[g_y = g_k = g_A\\]",
+        "\\[g_y = \\alpha \\cdot g_A et g_k = g_A\\]",
+        "\\[g_y = g_A et g_k = 0\\]"
       ],
       "a": 1,
       "why": "Sur le sentier régulier, y/A et k/A sont constants ⇒ g_y = g_k = g_A. Le cours l'utilise pour relier comptabilité de la croissance et prédictions du modèle.",
@@ -5316,7 +5316,7 @@
       "choices": [
         "que la part du capital rK/Y est stable",
         "que le taux d'épargne est nul",
-        "que α = 1",
+        "\\[que \\alpha = 1\\]",
         "que Y/L est nul"
       ],
       "a": 0,
@@ -5378,10 +5378,10 @@
       "diff": 1,
       "q": "Dans Harrod-Domar, le taux de croissance garanti gw est donné par :",
       "choices": [
-        "gw = s + v",
-        "gw = s/v",
-        "gw = s − δ",
-        "gw = v/s"
+        "\\[gw = s + v\\]",
+        "\\[gw = s/v\\]",
+        "\\[gw = s - \\delta\\]",
+        "\\[gw = v/s\\]"
       ],
       "a": 1,
       "why": "gw = s/v où s = taux d'épargne et v = K/Y (coefficient de capital, hypothèse fixe). C'est le taux qui égalise investissement voulu et épargne, condition d'équilibre de long terme.",
@@ -5541,10 +5541,10 @@
       "diff": 2,
       "q": "Cas chiffré : α=1/3, s=0,2, n=0,01, g=0,02, δ=0,05. Dans le Solow AVEC progrès technique, k̂* (capital par unité de travail efficace) est solution de :",
       "choices": [
-        "0,2·k̂ = 0,08·k̂^(1/3)",
-        "0,2·k̂^(1/3) = 0,08·k̂",
+        "\\[0,2\\cdot \\hat{k} = 0,08\\cdot \\hat{k}^{1/3}\\]",
+        "\\[0,2\\cdot \\hat{k}^{1/3} = 0,08\\cdot \\hat{k}\\]",
         "0,2·k̂^(1/3) = 0,05·k̂ (on oublie n+g)",
-        "0,2·k̂^(2/3) = 0,08·k̂"
+        "\\[0,2\\cdot \\hat{k}^{2/3} = 0,08\\cdot \\hat{k}\\]"
       ],
       "a": 1,
       "trap": "statique-dyn",
@@ -5560,7 +5560,7 @@
       "choices": [
         "(0,2/0,08)^(1/2) ≈ 1,58 (erreur sur l'exposant α/(1−α))",
         "0,2/0,08 = 2,5 (on oublie l'exposant)",
-        "(0,2/0,08)^(3/2) ≈ 3,95",
+        "\\[(0,2/0,08)^{3/2} \\approx 3,95\\]",
         "(0,08/0,2)^(3/2) ≈ 0,25 (on inverse le rapport)"
       ],
       "a": 2,
@@ -5796,10 +5796,10 @@
       "diff": 2,
       "q": "Chez Jones (version simplifiée de MRW), la variable h (capital humain par travailleur) est reliée à la durée de scolarisation u par :",
       "choices": [
-        "h = ψ · u",
-        "h = u/ψ",
-        "h = e^(ψu)",
-        "h = u^ψ"
+        "\\[h = ψ \\cdot u\\]",
+        "\\[h = u/ψ\\]",
+        "\\[h = e^{ψu}\\]",
+        "\\[h = u^ψ\\]"
       ],
       "a": 2,
       "trap": "niveau-log",
@@ -5898,10 +5898,10 @@
       "diff": 2,
       "q": "La vitesse de convergence λ dans Solow standard vaut :",
       "choices": [
-        "λ = (1−α)(n+g+δ)",
-        "λ = α(n+g+δ)",
+        "\\[\\lambda = (1-\\alpha )(n+g+\\delta )\\]",
+        "\\[\\lambda = \\alpha (n+g+\\delta )\\]",
         "λ = 2 %/an quel que soit le modèle",
-        "λ = s − (n+g+δ)"
+        "\\[\\lambda = s - (n+g+\\delta )\\]"
       ],
       "a": 0,
       "trap": "niveau-log",
@@ -6361,7 +6361,7 @@
       "diff": 2,
       "q": "Dans Aghion-Howitt, la fonction de production d'idées inclut une probabilité d'innovation μ_i pour chaque chercheur, avec μ = γ · L_A^λ · A_i^ϕ. Le taux de croissance moyen de A vaut :",
       "choices": [
-        "g_A = μ · ln(σ).",
+        "\\[g_A = \\mu \\cdot ln(\\sigma )\\].",
         "g_A = γ + δ, somme des paramètres.",
         "g_A = μ / σ, rapport probabilité sur taille.",
         "g_A = σ − μ, différence entre taille et probabilité."
@@ -6410,7 +6410,7 @@
       "diff": 3,
       "q": "Dans Jones (1995), avec λ = 1 et ϕ = 0, le taux de croissance de long terme vaut :",
       "choices": [
-        "g_A = n.",
+        "\\[g_A = n\\].",
         "g_A = γ, paramètre exogène de productivité.",
         "g_A = s, dépend du taux d'épargne des ménages.",
         "g_A = 0, la croissance s'éteint à long terme."
@@ -6652,10 +6652,10 @@
       "diff": 1,
       "q": "Dans Diamond (1965), la contrainte budgétaire intertemporelle d'un agent jeune s'écrit :",
       "choices": [
-        "c_1 + c_2/(1+r) = w",
-        "c_1·(1+r) + c_2 = w",
-        "c_1 + c_2 = w·(1+r)",
-        "c_1 = w et c_2 = (1+r)·w"
+        "\\[c_1 + c_2/(1+r) = w\\]",
+        "\\[c_1\\cdot (1+r) + c_2 = w\\]",
+        "\\[c_1 + c_2 = w\\cdot (1+r)\\]",
+        "\\[c_1 = w et c_2 = (1+r)\\cdot w\\]"
       ],
       "a": 0,
       "trap": "niveau-log",
@@ -6669,10 +6669,10 @@
       "diff": 2,
       "q": "Fonction d'utilité U = ln(c_1) + (1/(1+ρ))·ln(c_2). La condition Keynes-Ramsey donne :",
       "choices": [
-        "c_2/c_1 = (1+r)/(1+ρ)",
-        "c_2/c_1 = (1+ρ)/(1+r)",
-        "c_1·c_2 = 1",
-        "c_2 - c_1 = r - ρ"
+        "\\[c_2/c_1 = (1+r)/(1+\\rho )\\]",
+        "\\[c_2/c_1 = (1+\\rho )/(1+r)\\]",
+        "\\[c_1\\cdot c_2 = 1\\]",
+        "\\[c_2 - c_1 = r - \\rho\\]"
       ],
       "a": 0,
       "why": "CPO : u'(c_1) = (1+r)/(1+ρ)·u'(c_2). Avec u'(c)=1/c, il vient c_2/c_1 = (1+r)/(1+ρ). Si r>ρ le profil de consommation croît."
@@ -6686,9 +6686,9 @@
       "q": "Utilité log et Cobb-Douglas. L'épargne d'un jeune s(w,r) vaut :",
       "choices": [
         "s = w/(2+ρ), indépendante de r",
-        "s = w·(1+r)/(2+ρ)",
-        "s = w·r",
-        "s = w/(1+r)"
+        "\\[s = w\\cdot (1+r)/(2+\\rho )\\]",
+        "\\[s = w\\cdot r\\]",
+        "\\[s = w/(1+r)\\]"
       ],
       "a": 0,
       "why": "Avec utilité log, les effets revenu et substitution du taux d'intérêt se compensent exactement : s ne dépend que de w. Interprétation : la fraction épargnée est fixée par ρ."
@@ -6717,10 +6717,10 @@
       "diff": 2,
       "q": "Dynamique du capital par tête en Diamond (Cobb-Douglas, utilité log, salaire w=(1-α)k^α) :",
       "choices": [
-        "k_{t+1} = [(1-α)/((1+n)(2+ρ))]·k_t^α",
-        "k_{t+1} = s·k_t^α - (n+δ)k_t",
-        "k_{t+1} = α·k_t",
-        "k_{t+1} = (1-α)·k_t^α"
+        "\\[k_{t+1} = [(1-\\alpha )/((1+n)(2+\\rho ))]\\cdot k_t^\\alpha\\]",
+        "\\[k_{t+1} = s\\cdot k_t^\\alpha - (n+\\delta )k_t\\]",
+        "\\[k_{t+1} = \\alpha \\cdot k_t\\]",
+        "\\[k_{t+1} = (1-\\alpha )\\cdot k_t^\\alpha\\]"
       ],
       "a": 0,
       "why": "s = w/(2+ρ) = (1-α)k^α/(2+ρ) ; K_{t+1} = s·L_t ; k_{t+1} = K_{t+1}/L_{t+1} = s/(1+n). D'où l'équation dynamique en k^α."
@@ -6751,8 +6751,8 @@
       "choices": [
         "r < n (ou r < n+g avec progrès technique)",
         "r > n",
-        "r = 0",
-        "n = 0"
+        "\\[r = 0\\]",
+        "\\[n = 0\\]"
       ],
       "a": 0,
       "why": "Le rendement implicite de la répartition est 1+n (les cotisants suivants sont 1+n fois plus nombreux). Elle domine le capital ssi n>r. Avec progrès g : condition n+g > r."
@@ -7213,7 +7213,7 @@
       "diff": 3,
       "q": "Dans Kouri, deux actifs (national et étranger) sont dits « parfaitement substituables » si et seulement si :",
       "choices": [
-        "σ²_E = 0 ou α = 0",
+        "\\[\\sigma^2_E = 0 ou \\alpha = 0\\]",
         "les rendements attendus sont égaux avant même toute prime éventuelle",
         "le pays est en régime de changes fixes crédible et durable",
         "la PPA est vérifiée à chaque instant sans exception"
@@ -7810,7 +7810,7 @@
       "choices": [
         "n+g+δ = 0,08 (règle d'or, or s ≠ α ici : erreur)",
         "s = 0,20 (confusion investissement-productivité)",
-        "α·(n+g+δ)/s ≈ 0,133",
+        "\\[\\alpha \\cdot (n+g+\\delta )/s \\approx 0,133\\]",
         "α·s ≈ 0,067 (produit direct, résultat piégé)"
       ],
       "a": 2,
@@ -7826,7 +7826,7 @@
       "q": "Vitesse de convergence λ chez Solow avec α=1/3, n=0,01, g=0,02, δ=0,05 :",
       "choices": [
         "λ = α(n+g+δ) ≈ 2,7 % (erreur d'exposant sur la linéarisation)",
-        "λ = (1−α)(n+g+δ) ≈ 5,3 %",
+        "\\[\\lambda = (1-\\alpha )(n+g+\\delta ) \\approx 5,3 \\%\\]",
         "λ = s·(1−α) ≈ 13 % (confusion avec l'épargne)",
         "λ = n+g+δ = 8 % (oubli du facteur 1−α de la Cobb-Douglas)"
       ],
@@ -7861,7 +7861,7 @@
       "choices": [
         "ŷ* = s/(n+g+δ) (confusion niveau linéaire vs exposant)",
         "ŷ* = (s/(n+g+δ))^(1/(1−α)) (formule de k̂*, pas de ŷ*)",
-        "ŷ* = (s/(n+g+δ))^(α/(1−α))",
+        "\\[\\hat y * = (s/(n+g+\\delta ))^(\\alpha /(1-\\alpha ))\\]",
         "ŷ* = α·(n+g+δ)/s (formule de f'(k̂*), pas de ŷ*)"
       ],
       "a": 2,
@@ -7996,7 +7996,7 @@
         "g_A = δ·A (indépendant du nombre de chercheurs, contrefactuel)",
         "g_A = H_A/A (décroissant avec le stock d'idées, non-Romer)",
         "g_A = δ (constant exogène, retour à Solow)",
-        "g_A = δ·H_A"
+        "\\[g_A = \\delta \\cdot H_A\\]"
       ],
       "a": 3,
       "trap": "endo-exo",
@@ -8062,7 +8062,7 @@
       "choices": [
         "α (prix = α·r, prix inférieur au coût marginal, non tenable)",
         "1−α (prix = (1−α)·r, erreur sur l'élasticité)",
-        "1/α (prix = r/α)",
+        "\\[1/\\alpha (prix = r/\\alpha )\\]",
         "1 (concurrence parfaite, prix = r, contradiction avec brevet)"
       ],
       "a": 2,
@@ -8146,7 +8146,7 @@
         "g = λ·n·γ (oubli du passage au log)",
         "g = λ + n + γ (composition additive, dimensionnellement absurde)",
         "g = (λ·n)^γ (mauvaise combinatoire des paramètres)",
-        "g = λ·n·ln(γ)"
+        "\\[g = \\lambda \\cdot n\\cdot ln(\\gamma )\\]"
       ],
       "a": 3,
       "trap": "niveau-log",
@@ -8161,7 +8161,7 @@
       "q": "Cas chiffré Aghion-Howitt : λ=0,1, n=2, γ=1,5. Le taux de croissance espéré vaut :",
       "choices": [
         "g = 0,3 (30 %, oubli complet du log)",
-        "g ≈ 0,081 (8,1 %)",
+        "\\[g \\approx 0,081 (8,1 \\%)\\]",
         "g = 0,2·1,5 = 0,3 (double comptage, oubli du log)",
         "g = 0,1·1,5^2 = 0,225 (mauvais exposant)"
       ],
@@ -8327,7 +8327,7 @@
       "q": "Sous quelle condition Diamond identifie-t-il une INEFFICIENCE DYNAMIQUE (suraccumulation) à l'état régulier ?",
       "choices": [
         "r > n",
-        "r = n",
+        "\\[r = n\\]",
         "r < n (règle d'or franchie par excès)",
         "β > 1"
       ],
@@ -8407,10 +8407,10 @@
       "diff": 2,
       "q": "Dans Diamond avec log-utilité et Cobb-Douglas y = k^α, l'état régulier admet une expression analytique :",
       "choices": [
-        "k* = (1-α)·β/((1+β)(1+n))",
-        "k* = α/(1+n)",
-        "k* = w/(1+r)",
-        "k* = s·y*/(δ+n)"
+        "\\[k^* = (1-\\alpha )\\cdot \\beta /((1+\\beta )(1+n))\\]",
+        "\\[k^* = \\alpha /(1+n)\\]",
+        "\\[k^* = w/(1+r)\\]",
+        "\\[k^* = s\\cdot y^*/(\\delta +n)\\]"
       ],
       "a": 0,
       "why": "s = β/(1+β)·w, w = (1-α)·k^α (rémunération concurrentielle du travail), équation d'accumulation → k*^{1-α} = (1-α)β/((1+β)(1+n)). Résultat à connaître pour les TD.",
@@ -8567,10 +8567,10 @@
       "diff": 2,
       "q": "Fonction de production malthusienne canonique (X terre fixe, L travail, β part de la terre) :",
       "choices": [
-        "Y = A·K^α·L^{1-α}",
-        "Y = B·X^β·L^{1-β}, d'où y = B·(X/L)^β",
-        "Y = A·L",
-        "Y = K/L"
+        "\\[Y = A\\cdot K^\\alpha \\cdot L^{1-\\alpha }\\]",
+        "\\[Y = B\\cdot X^\\beta \\cdot L^{1-\\beta }, d'où y = B\\cdot (X/L)^\\beta\\]",
+        "\\[Y = A\\cdot L\\]",
+        "\\[Y = K/L\\]"
       ],
       "a": 1,
       "why": "La terre X est le facteur fixe : rendements décroissants sur L → y = B·(X/L)^β. C'est cette forme précise qui produit le piège malthusien. Sans facteur fixe, pas de piège.",
@@ -8586,7 +8586,7 @@
         "y augmente définitivement",
         "y augmente temporairement puis revient au niveau de subsistance",
         "y baisse",
-        "y = 0"
+        "\\[y = 0\\]"
       ],
       "a": 1,
       "trap": "statique-dyn",
@@ -8600,10 +8600,10 @@
       "diff": 3,
       "q": "Modèle de Kremer (1993) : équation du taux de croissance de la productivité (λ = 1, φ = 1) :",
       "choices": [
-        "Ḃ/B = φ·A·L",
-        "Ḃ = 0",
+        "\\[\\dot B /B = \\varphi \\cdot A\\cdot L\\]",
+        "\\[\\dot B = 0\\]",
         "Ḃ/B = g exogène",
-        "Ḃ = L^2"
+        "\\[\\dot B = L^2\\]"
       ],
       "a": 0,
       "why": "Kremer suppose que la population entière participe à la recherche (λ = 1) et rendements constants sur les idées (φ = 1). Alors Ḃ/B croît linéairement avec L : plus de personnes = plus d'inventeurs = accélération cumulative des idées.",
@@ -14144,7 +14144,7 @@
       "ch": 2,
       "diff": 2,
       "ctx": "TCEN, deux partenaires de poids égaux (0,5 / 0,5)",
-      "shock": "Δe₁ = +6 %, Δe₂ = +4 %",
+      "shock": "\\[\\Delta e_1 = +6 \\%, \\Delta e_2 = +4 \\%\\]",
       "var": "Δe_eff log-linéarisé",
       "a": "up",
       "trap": "niveau-log",
@@ -19322,7 +19322,7 @@
         {
           "kind": "formule",
           "title": "L'identité comptable",
-          "text": "TC + CC − CF + EO = 0\n\nSymboles :\n- TC : compte de transferts en capital (remises de dettes, brevets — petit).\n- CC : compte courant (biens + services + revenus primaires + revenus secondaires).\n- CF : compte financier (IDE, portefeuille, autres, réserves).\n- EO : erreurs et omissions (l'ajustement statistique).\n\nCorollaire à retenir : capacité (ou besoin) de financement = TC + CC ≈ CF."
+          "text": "\\[TC + CC - CF + EO = 0\\]\n\nSymboles :\n- TC : compte de transferts en capital (remises de dettes, brevets — petit).\n- CC : compte courant (biens + services + revenus primaires + revenus secondaires).\n- CF : compte financier (IDE, portefeuille, autres, réserves).\n- EO : erreurs et omissions (l'ajustement statistique).\n\nCorollaire à retenir : capacité (ou besoin) de financement = TC + CC ≈ CF."
         },
         {
           "kind": "mecanisme",
@@ -19381,7 +19381,7 @@
         {
           "kind": "formule",
           "title": "PCTI et PNCTI",
-          "text": "PCTI (parité couverte, arbitrage sans risque via forward) :\n\nf − e = i* − i\n\nPNCTI (parité non couverte, arbitrage ex ante) :\n\ni = i* − (eᵃ − e)   ⇔   e = eᵃ + (i − i*)\n\nLire la PNCTI : le taux domestique compense le taux étranger + la dépréciation anticipée. Si i monte à eᵃ donné, le taux courant e doit monter aussitôt (appréciation immédiate) pour laisser place à une dépréciation future qui compense."
+          "text": "PCTI (parité couverte, arbitrage sans risque via forward) :\n\n\\[f - e = i^* - i\\]\n\nPNCTI (parité non couverte, arbitrage ex ante) :\n\n\\[i = i^* - (e^a - e) \\Leftrightarrow e = e^a + (i - i^*)\\]\n\nLire la PNCTI : le taux domestique compense le taux étranger + la dépréciation anticipée. Si i monte à eᵃ donné, le taux courant e doit monter aussitôt (appréciation immédiate) pour laisser place à une dépréciation future qui compense."
         },
         {
           "kind": "formule",
@@ -19454,7 +19454,7 @@
         },
         {
           "kind": "exemple",
-          "title": "εX = 0,4, εM = 0,5",
+          "title": "\\[\\varepsilon X = 0,4, \\varepsilon M = 0,5\\]",
           "text": "Un pays fait face à une dépréciation nominale de 10 %.\n\nSomme des élasticités : 0,4 + 0,5 = 0,9 < 1. Marshall-Lerner NON vérifiée.\n\nEffet sur les volumes : X ↑ de 4 %, M ↓ de 5 %. Modeste.\nEffet valeur : imports plus chers de 10 % en monnaie locale.\n\nBilan : l'effet valeur (défavorable) domine l'effet volume. Le solde commercial se dégrade, même à moyen terme. Cas typique des pays très dépendants d'imports incompressibles (énergie)."
         },
         {
@@ -19494,7 +19494,7 @@
         {
           "kind": "convention",
           "title": "TCR, TCER, taux réel",
-          "text": "Deux notations à ne pas confondre :\n\n- TCR bilatéral : q = e × P*/P (au certain). Hausse de q = dépréciation réelle = gain de compétitivité-prix.\n- TCER (effectif réel) : moyenne géométrique pondérée des TCR bilatéraux, poids = parts commerciales.\n\nEn log linéarisé (petits chocs) :\n\nΔq ≈ Δe + (π* − π)\n\nSi la monnaie s'apprécie (Δe < 0) mais que l'inflation domestique est plus basse (π < π*), la compétitivité réelle peut être préservée."
+          "text": "Deux notations à ne pas confondre :\n\n- TCR bilatéral : q = e × P*/P (au certain). Hausse de q = dépréciation réelle = gain de compétitivité-prix.\n- TCER (effectif réel) : moyenne géométrique pondérée des TCR bilatéraux, poids = parts commerciales.\n\nEn log linéarisé (petits chocs) :\n\n\\[\\Delta q \\approx \\Delta e + (\\pi^* - \\pi )\\]\n\nSi la monnaie s'apprécie (Δe < 0) mais que l'inflation domestique est plus basse (π < π*), la compétitivité réelle peut être préservée."
         },
         {
           "kind": "convention",
@@ -19617,7 +19617,7 @@
         {
           "kind": "formule",
           "title": "L'équation sacrée",
-          "text": "Fonction de production Cobb-Douglas :\ny = k^α\n\nÉquation d'accumulation en travail efficace :\nk̇ = s·y − (n+g+δ)·k\n\nÉtat régulier (k̇ = 0) :\nk* = (s/(n+g+δ))^(1/(1−α))\n\ny* = (s/(n+g+δ))^(α/(1−α))"
+          "text": "Fonction de production Cobb-Douglas :\n\\[y = k^\\alpha\\]\n\nÉquation d'accumulation en travail efficace :\n\\[\\dot{k} = s\\cdot y - (n+g+\\delta )\\cdot k\\]\n\nÉtat régulier (k̇ = 0) :\n\\[k^* = (s/(n+g+\\delta ))^(1/(1-\\alpha ))\\]\n\n\\[y^* = (s/(n+g+\\delta ))^(\\alpha /(1-\\alpha ))\\]"
         },
         {
           "kind": "mecanisme",
@@ -19637,7 +19637,7 @@
         {
           "kind": "formule",
           "title": "Vitesse de convergence",
-          "text": "Autour de k*, k̇/k ≈ −λ · ln(k/k*) avec :\n\nλ = (1−α)·(n+g+δ)\n\nCalibration standard : α = 1/3, n = 0,01, g = 0,02, δ = 0,05.\nλ = (2/3)·0,08 ≈ 5,3 %/an.\n\nDemi-vie de l'écart = ln(2)/λ ≈ 13 ans. Trop rapide pour être empiriquement crédible → motivation pour MRW."
+          "text": "Autour de k*, k̇/k ≈ −λ · ln(k/k*) avec :\n\n\\[\\lambda = (1-\\alpha )\\cdot (n+g+\\delta )\\]\n\nCalibration standard : α = 1/3, n = 0,01, g = 0,02, δ = 0,05.\n\\[\\lambda = (2/3)\\cdot 0,08 \\approx 5,3 \\%/an\\].\n\nDemi-vie de l'écart = ln(2)/λ ≈ 13 ans. Trop rapide pour être empiriquement crédible → motivation pour MRW."
         },
         {
           "kind": "exemple",
@@ -19686,7 +19686,7 @@
         {
           "kind": "formule",
           "title": "Fonction de production augmentée",
-          "text": "Y = K^α · H^β · (A·L)^(1−α−β)\n\nAvec α + β < 1 (rendements décroissants sur les facteurs cumulables).\n\nEn travail efficace :\ny = k^α · h^β\n\nDeux équations d'accumulation :\nk̇ = s_K·y − (n+g+δ)·k\nḣ = s_H·y − (n+g+δ)·h\n\nÉtat régulier : chaque facteur cumulable rémunéré à sa productivité marginale."
+          "text": "\\[Y = K^\\alpha \\cdot H^\\beta \\cdot (A\\cdot L)^{1-\\alpha -\\beta }\\]\n\nAvec α + β < 1 (rendements décroissants sur les facteurs cumulables).\n\nEn travail efficace :\n\\[y = k^\\alpha \\cdot h^\\beta\\]\n\nDeux équations d'accumulation :\n\\[\\dot{k} = s_K\\cdot y - (n+g+\\delta )\\cdot k\\]\n\\[\\dot h = s_H\\cdot y - (n+g+\\delta )\\cdot h\\]\n\nÉtat régulier : chaque facteur cumulable rémunéré à sa productivité marginale."
         },
         {
           "kind": "mecanisme",
@@ -19706,7 +19706,7 @@
         {
           "kind": "formule",
           "title": "Vitesse de convergence conditionnelle",
-          "text": "λ = (1−α−β)·(n+g+δ)\n\nCalibration MRW : α = β = 1/3, n+g+δ ≈ 0,06 :\nλ ≈ 0,33 · 0,06 ≈ 2 %/an\n\nDemi-vie de l'écart = ln(2)/0,02 ≈ 35 ans.\n\nDonnée empirique canonique (Barro, MRW) : λ ≈ 2 %/an entre pays similaires. MRW « prédit » ce chiffre à partir des paramètres micro. Miracle de calibration."
+          "text": "\\[\\lambda = (1-\\alpha -\\beta )\\cdot (n+g+\\delta )\\]\n\nCalibration MRW : α = β = 1/3, n+g+δ ≈ 0,06 :\n\\[\\lambda \\approx 0,33 \\cdot 0,06 \\approx 2 \\%/an\\]\n\nDemi-vie de l'écart = ln(2)/0,02 ≈ 35 ans.\n\nDonnée empirique canonique (Barro, MRW) : λ ≈ 2 %/an entre pays similaires. MRW « prédit » ce chiffre à partir des paramètres micro. Miracle de calibration."
         },
         {
           "kind": "piege",
@@ -19755,7 +19755,7 @@
         {
           "kind": "formule",
           "title": "La formule sacrée",
-          "text": "Fonction de production du bien final :\nY = K^α · (A·L_Y)^(1−α)\n\nFonction de production d'idées :\nȦ = δ · L_A · A\n\nDonc taux de croissance des idées :\ng_A = Ȧ/A = δ · L_A = δ · s_R · H\n\nÀ long terme, g_Y/L = g_A. La croissance dépend directement de s_R : plus on met de gens en R&D, plus g monte. ENDOGÈNE."
+          "text": "Fonction de production du bien final :\n\\[Y = K^\\alpha \\cdot (A\\cdot L_Y)^{1-\\alpha }\\]\n\nFonction de production d'idées :\n\\[\\dot A = \\delta \\cdot L_A \\cdot A\\]\n\nDonc taux de croissance des idées :\n\\[g_A = \\dot A /A = \\delta \\cdot L_A = \\delta \\cdot s_R \\cdot H\\]\n\nÀ long terme, g_Y/L = g_A. La croissance dépend directement de s_R : plus on met de gens en R&D, plus g monte. ENDOGÈNE."
         },
         {
           "kind": "mecanisme",
@@ -19775,7 +19775,7 @@
         {
           "kind": "formule",
           "title": "Mark-up du monopoleur intermédiaire",
-          "text": "Chaque variété est produite par un monopoleur avec brevet. Demande inverse dérivée de Y = K^α · (A·L_Y)^(1−α), coût marginal = r (loyer du capital) :\n\np_i = r / α\n\nMark-up de Lerner = 1/α > 1. Avec α = 1/3, prix du monopoleur = 3·r. Rente triangulaire (perte sèche) mais indispensable pour rentabiliser la R&D. Trade-off au cœur du modèle."
+          "text": "Chaque variété est produite par un monopoleur avec brevet. Demande inverse dérivée de Y = K^α · (A·L_Y)^(1−α), coût marginal = r (loyer du capital) :\n\n\\[p_i = r / \\alpha\\]\n\nMark-up de Lerner = 1/α > 1. Avec α = 1/3, prix du monopoleur = 3·r. Rente triangulaire (perte sèche) mais indispensable pour rentabiliser la R&D. Trade-off au cœur du modèle."
         },
         {
           "kind": "piege",
@@ -19814,7 +19814,7 @@
         {
           "kind": "formule",
           "title": "Formule sacrée du taux de croissance",
-          "text": "Sauts de qualité poissoniens :\nA_{i+1} = γ · A_i\n\nEspérance du taux de croissance de long terme :\ng = λ · n · ln(γ)\n\nInterprétation directe :\n- λ · n : fréquence des innovations par unité de temps\n- ln(γ) : ampleur log de chaque saut qualitatif\n\nCroissance = fréquence × taille (en log). Formule à connaître par cœur, examinateur en attendra les trois termes."
+          "text": "Sauts de qualité poissoniens :\n\\[A_{i+1} = \\gamma \\cdot A_i\\]\n\nEspérance du taux de croissance de long terme :\n\\[g = \\lambda \\cdot n \\cdot ln(\\gamma )\\]\n\nInterprétation directe :\n- λ · n : fréquence des innovations par unité de temps\n- ln(γ) : ampleur log de chaque saut qualitatif\n\nCroissance = fréquence × taille (en log). Formule à connaître par cœur, examinateur en attendra les trois termes."
         },
         {
           "kind": "exemple",
@@ -19947,7 +19947,7 @@
         {
           "kind": "formule",
           "title": "L'équation d'accumulation",
-          "text": "Hors effets de valorisation :\n\nΔPEN = CC (solde courant, pas la seule balance commerciale)\n\nAvec effets de valorisation :\n\nPEN(t+1) = PEN(t) + CC(t→t+1) + V(t→t+1)\n\nSymboles :\n- CC : biens + services + revenus primaires + revenus secondaires.\n- V : effet de valorisation (variation du change × actifs en devises, ± variations de prix des actifs).\n\nCas typique : actif A libellé en $, passif L en €. Si l'€ s'apprécie de x %, la valeur en € de A baisse de x % ⇒ PEN diminue."
+          "text": "Hors effets de valorisation :\n\nΔPEN = CC (solde courant, pas la seule balance commerciale)\n\nAvec effets de valorisation :\n\n\\[PEN(t+1) = PEN(t) + CC(t\\to t+1) + V(t\\to t+1)\\]\n\nSymboles :\n- CC : biens + services + revenus primaires + revenus secondaires.\n- V : effet de valorisation (variation du change × actifs en devises, ± variations de prix des actifs).\n\nCas typique : actif A libellé en $, passif L en €. Si l'€ s'apprécie de x %, la valeur en € de A baisse de x % ⇒ PEN diminue."
         },
         {
           "kind": "mecanisme",
@@ -19991,7 +19991,7 @@
         {
           "kind": "formule",
           "title": "L'identité sacrée",
-          "text": "En économie ouverte :\n\n(S − I) + (T − G) = X − M\n\nDérivation en 4 lignes :\n\n1. Y = C + I + G + (X − M) (emploi du revenu).\n2. Y = C + T + S (revenu disponible : consommer, payer les impôts, épargner).\n3. Égaler les deux : C + I + G + X − M = C + T + S.\n4. Réarranger : (S − I) + (T − G) = (X − M). CQFD.\n\nLecture : un excédent courant traduit un excès d'épargne domestique (privée ou publique) sur l'investissement domestique."
+          "text": "En économie ouverte :\n\n\\[(S - I) + (T - G) = X - M\\]\n\nDérivation en 4 lignes :\n\n1. Y = C + I + G + (X − M) (emploi du revenu).\n2. Y = C + T + S (revenu disponible : consommer, payer les impôts, épargner).\n3. Égaler les deux : C + I + G + X − M = C + T + S.\n4. Réarranger : (S − I) + (T − G) = (X − M). CQFD.\n\nLecture : un excédent courant traduit un excès d'épargne domestique (privée ou publique) sur l'investissement domestique."
         },
         {
           "kind": "mecanisme",
@@ -20079,7 +20079,7 @@
         {
           "kind": "formule",
           "title": "Les 2 relations sacrées",
-          "text": "1. Réciprocité :\n\nS_I = 1 / S_C\n\nSi 1 € = 1,25 $ (certain, PdV européen), alors 1 $ = 1/1,25 = 0,80 € (incertain, même PdV).\n\n2. Arbitrage triangulaire (taux croisé) : si 1 A = X B et 1 B = Y C, alors sans risque :\n\n1 A = (X × Y) C\n\nExemple : 1 € = 1,25 $ et 1 $ = 100 ¥ ⇒ 1 € = 125 ¥.\n\nLa loi du prix unique impose que ce taux croisé calculé coïncide avec le taux €/¥ directement coté sur le marché. Sinon, arbitrage sans risque."
+          "text": "1. Réciprocité :\n\n\\[S_I = 1 / S_C\\]\n\nSi 1 € = 1,25 $ (certain, PdV européen), alors 1 $ = 1/1,25 = 0,80 € (incertain, même PdV).\n\n2. Arbitrage triangulaire (taux croisé) : si 1 A = X B et 1 B = Y C, alors sans risque :\n\n\\[1 A = (X \\times Y) C\\]\n\nExemple : 1 € = 1,25 $ et 1 $ = 100 ¥ ⇒ 1 € = 125 ¥.\n\nLa loi du prix unique impose que ce taux croisé calculé coïncide avec le taux €/¥ directement coté sur le marché. Sinon, arbitrage sans risque."
         },
         {
           "kind": "mecanisme",
@@ -20123,7 +20123,7 @@
         {
           "kind": "formule",
           "title": "TCEN, TCER, variation",
-          "text": "TCEN (niveau) : moyenne GÉOMÉTRIQUE pondérée des taux bilatéraux.\n\nTCEN = Π (Eᵢ)^ωᵢ\n\nTCEN (log) : moyenne ARITHMÉTIQUE pondérée.\n\ne_eff = Σᵢ ωᵢ · eᵢ\n\nTCER :\n\nTCER = TCEN × (P / P*)\n\nVariation log-linéarisée (LA formule sacrée) :\n\nΔq ≈ Δe + (π − π*)\n\nOù π = inflation domestique, π* = inflation étrangère. Toutes les variations en pourcentages."
+          "text": "TCEN (niveau) : moyenne GÉOMÉTRIQUE pondérée des taux bilatéraux.\n\n\\[TCEN = \\Pi (E_i)^\\omega_i\\]\n\nTCEN (log) : moyenne ARITHMÉTIQUE pondérée.\n\n\\[e_eff = \\Sigma_i \\omega_i \\cdot e_i\\]\n\nTCER :\n\n\\[TCER = TCEN \\times (P / P^*)\\]\n\nVariation log-linéarisée (LA formule sacrée) :\n\n\\[\\Delta q \\approx \\Delta e + (\\pi - \\pi^*)\\]\n\nOù π = inflation domestique, π* = inflation étrangère. Toutes les variations en pourcentages."
         },
         {
           "kind": "mecanisme",
@@ -20133,7 +20133,7 @@
         {
           "kind": "exemple",
           "title": "Calcul de variation en 15 secondes",
-          "text": "Données : le TCEN de la France s'apprécie de 3 % sur l'année (Δe = +3 %). Inflation en France : π = 4 %. Inflation chez les partenaires : π* = 1 %.\n\nΔq ≈ Δe + (π − π*) = 3 + (4 − 1) = +6 %.\n\nInterprétation : le TCER s'apprécie de 6 %. La France perd 6 % de compétitivité-prix vis-à-vis de ses partenaires. En parallèle, les Français peuvent acheter 6 % plus de biens étrangers pour un même panier domestique.\n\nAutre exemple, TCEN : partenaires 1 et 2 avec ω₁ = 0,7 et ω₂ = 0,3. Δe₁ = +2 %, Δe₂ = −3 %. ΔTCEN = 0,7 × 2 + 0,3 × (−3) = +0,5 %."
+          "text": "Données : le TCEN de la France s'apprécie de 3 % sur l'année (Δe = +3 %). Inflation en France : π = 4 %. Inflation chez les partenaires : π* = 1 %.\n\n\\[\\Delta q \\approx \\Delta e + (\\pi - \\pi^*) = 3 + (4 - 1) = +6 \\%\\].\n\nInterprétation : le TCER s'apprécie de 6 %. La France perd 6 % de compétitivité-prix vis-à-vis de ses partenaires. En parallèle, les Français peuvent acheter 6 % plus de biens étrangers pour un même panier domestique.\n\nAutre exemple, TCEN : partenaires 1 et 2 avec ω₁ = 0,7 et ω₂ = 0,3. Δe₁ = +2 %, Δe₂ = −3 %. ΔTCEN = 0,7 × 2 + 0,3 × (−3) = +0,5 %."
         },
         {
           "kind": "piege",
@@ -20211,7 +20211,7 @@
         {
           "kind": "formule",
           "title": "Les 3 équations à connaître",
-          "text": "Frenkel (prix flexibles) — chaîne logique :\n\n1. Ms / P = L(Y, i) ⇒ P ∝ Ms (à Y et i donnés).\n2. PPA : e = P / P*.\n3. Substituer : e ∝ Ms / Ms*.\n\nConclusion : le taux de change est déterminé par les offres relatives de monnaie. Ms ↑ ⇒ e ↑ (dépréciation).\n\nDornbusch (surajustement) — ajout de la PNCTI :\n\ni = i* − (eᵃ − e)\n\nÀ court terme, i baisse (car Ms ↑ et P rigide), donc pour respecter la PNCTI il faut anticiper une appréciation future (eᵃ < e_actuel). Donc e_actuel dépasse e_long_terme : SURAJUSTEMENT."
+          "text": "Frenkel (prix flexibles) — chaîne logique :\n\n1. Ms / P = L(Y, i) ⇒ P ∝ Ms (à Y et i donnés).\n2. PPA : e = P / P*.\n3. Substituer : e ∝ Ms / Ms*.\n\nConclusion : le taux de change est déterminé par les offres relatives de monnaie. Ms ↑ ⇒ e ↑ (dépréciation).\n\nDornbusch (surajustement) — ajout de la PNCTI :\n\n\\[i = i^* - (e^a - e)\\]\n\nÀ court terme, i baisse (car Ms ↑ et P rigide), donc pour respecter la PNCTI il faut anticiper une appréciation future (eᵃ < e_actuel). Donc e_actuel dépasse e_long_terme : SURAJUSTEMENT."
         },
         {
           "kind": "mecanisme",
@@ -20250,12 +20250,12 @@
         {
           "kind": "convention",
           "title": "Notations et cadre",
-          "text": "Fonction de production agrégée à rendements constants :\n\nY = A · F(K, L)\n\n- Y : production, K : stock de capital, L : travail, A : PGF (productivité globale des facteurs).\n- α = part du capital dans la valeur ajoutée (≈ 1/3 aux US).\n- 1 − α = part du travail (≈ 2/3).\n- g_X = Ẋ/X : taux de croissance de la variable X.\n\nHypothèse cruciale : concurrence pure et parfaite. Alors la rémunération des facteurs = productivités marginales, et les parts α et 1−α sont observables dans la comptabilité nationale."
+          "text": "Fonction de production agrégée à rendements constants :\n\n\\[Y = A \\cdot F(K, L)\\]\n\n- Y : production, K : stock de capital, L : travail, A : PGF (productivité globale des facteurs).\n- α = part du capital dans la valeur ajoutée (≈ 1/3 aux US).\n- 1 − α = part du travail (≈ 2/3).\n- g_X = Ẋ/X : taux de croissance de la variable X.\n\nHypothèse cruciale : concurrence pure et parfaite. Alors la rémunération des facteurs = productivités marginales, et les parts α et 1−α sont observables dans la comptabilité nationale."
         },
         {
           "kind": "formule",
           "title": "La décomposition sacrée",
-          "text": "En log-différenciant Y = A · K^α · L^(1−α) :\n\ng_Y = α · g_K + (1 − α) · g_L + g_A\n\nLe résidu se lit à l'envers :\n\ng_A = g_Y − α · g_K − (1 − α) · g_L\n\nEn per capita (y = Y/L, k = K/L) :\n\ng_y = α · g_k + g_A\n\nÀ l'état régulier de Solow (k/y constant) : g_y = g_A. Toute la croissance par tête vient du progrès technique. C'est mécanique."
+          "text": "En log-différenciant Y = A · K^α · L^(1−α) :\n\n\\[g_Y = \\alpha \\cdot g_K + (1 - \\alpha ) \\cdot g_L + g_A\\]\n\nLe résidu se lit à l'envers :\n\n\\[g_A = g_Y - \\alpha \\cdot g_K - (1 - \\alpha ) \\cdot g_L\\]\n\nEn per capita (y = Y/L, k = K/L) :\n\n\\[g_y = \\alpha \\cdot g_k + g_A\\]\n\nÀ l'état régulier de Solow (k/y constant) : g_y = g_A. Toute la croissance par tête vient du progrès technique. C'est mécanique."
         },
         {
           "kind": "mecanisme",
@@ -20358,7 +20358,7 @@
         {
           "kind": "exemple",
           "title": "Calibrage à la main",
-          "text": "Prends s = 0,20 et v = 4 (il faut 4 € de capital pour 1 € de production annuelle).\n\ng_w = s/v = 0,20/4 = 5 %/an.\n\nSi n = 1 % et g_A = 2 %, alors g_n = 3 %.\n\nDéséquilibre : g_w (5 %) > g_n (3 %). L'économie voudrait accumuler à 5 %, mais la main-d'œuvre ne croît qu'à 3 %. Résultat : pénurie de travail, tensions inflationnistes.\n\nInverser : si g_n > g_w (pays émergent, s faible), chômage structurel. C'est la lecture qu'on donne à l'Inde des années 60 (s ≈ 12 %, v ≈ 3 : g_w = 4 %, mais g_n ≈ 5 % → chômage rural persistant)."
+          "text": "Prends s = 0,20 et v = 4 (il faut 4 € de capital pour 1 € de production annuelle).\n\n\\[g_w = s/v = 0,20/4 = 5 \\%/an\\].\n\nSi n = 1 % et g_A = 2 %, alors g_n = 3 %.\n\nDéséquilibre : g_w (5 %) > g_n (3 %). L'économie voudrait accumuler à 5 %, mais la main-d'œuvre ne croît qu'à 3 %. Résultat : pénurie de travail, tensions inflationnistes.\n\nInverser : si g_n > g_w (pays émergent, s faible), chômage structurel. C'est la lecture qu'on donne à l'Inde des années 60 (s ≈ 12 %, v ≈ 3 : g_w = 4 %, mais g_n ≈ 5 % → chômage rural persistant)."
         },
         {
           "kind": "piege",
@@ -20392,7 +20392,7 @@
         {
           "kind": "formule",
           "title": "Régression de Barro (β-convergence)",
-          "text": "Sur un échantillon de N pays, période 0 → T :\n\n(1/T) · ln(y_{i,T}/y_{i,0}) = α − β · ln(y_{i,0}) + γ · X_i + ε_i\n\n- Sans X_i : β-convergence ABSOLUE (les fondamentaux sont ignorés).\n- Avec X_i (taux d'épargne, éducation, institutions, ouverture) : β-convergence CONDITIONNELLE.\n\nLien avec Solow : autour de l'état régulier, ln(y_t) = ln(y*) + e^{−λt} · [ln(y_0) − ln(y*)]. Vitesse théorique λ = (1−α)·(n+g+δ). Calibrée : λ ≈ 5 %/an. Empiriquement : λ ≈ 2 %/an. Écart qui motive MRW."
+          "text": "Sur un échantillon de N pays, période 0 → T :\n\n\\[(1/T) \\cdot ln(y_{i,T}/y_{i,0}) = \\alpha - \\beta \\cdot ln(y_{i,0}) + \\gamma \\cdot X_i + \\varepsilon_i\\]\n\n- Sans X_i : β-convergence ABSOLUE (les fondamentaux sont ignorés).\n- Avec X_i (taux d'épargne, éducation, institutions, ouverture) : β-convergence CONDITIONNELLE.\n\nLien avec Solow : autour de l'état régulier, ln(y_t) = ln(y*) + e^{−λt} · [ln(y_0) − ln(y*)]. Vitesse théorique λ = (1−α)·(n+g+δ). Calibrée : λ ≈ 5 %/an. Empiriquement : λ ≈ 2 %/an. Écart qui motive MRW."
         },
         {
           "kind": "mecanisme",
@@ -20436,12 +20436,12 @@
         {
           "kind": "convention",
           "title": "Notations et l'hypothèse-clé",
-          "text": "- Y : production, K : capital, L : travail (souvent normalisé à 1 ou intégré dans K).\n- A > 0 : productivité constante (paramètre, PAS un stock).\n- s : taux d'épargne (constant), δ : dépréciation, n : croissance démographique.\n\nFonction de production AK :\n\nY = A · K\n\nUn seul facteur (K), un seul paramètre (A). Rendement marginal du capital = A, CONSTANT. Pas de rendements décroissants. C'est l'hypothèse qui change tout.\n\nInterprétation large : K est un « capital total » incluant physique + humain + savoir. Avec l'externalité du capital humain, il n'a plus de rendements décroissants au niveau agrégé."
+          "text": "- Y : production, K : capital, L : travail (souvent normalisé à 1 ou intégré dans K).\n- A > 0 : productivité constante (paramètre, PAS un stock).\n- s : taux d'épargne (constant), δ : dépréciation, n : croissance démographique.\n\nFonction de production AK :\n\n\\[Y = A \\cdot K\\]\n\nUn seul facteur (K), un seul paramètre (A). Rendement marginal du capital = A, CONSTANT. Pas de rendements décroissants. C'est l'hypothèse qui change tout.\n\nInterprétation large : K est un « capital total » incluant physique + humain + savoir. Avec l'externalité du capital humain, il n'a plus de rendements décroissants au niveau agrégé."
         },
         {
           "kind": "formule",
           "title": "Le taux de croissance endogène",
-          "text": "Équation d'accumulation :\n\nK̇ = s · Y − δ · K − n · K\n\nDivisons par K :\n\nK̇/K = s · Y/K − δ − n = s · A − δ − n\n\nCroissance du capital PAR TÊTE (K/L) :\n\ng_k = s · A − (n + δ)\n\nEt comme Y = A·K, on a g_y = g_k. Résultat :\n\ng = s · A − δ − n\n\nAucun état régulier de k*. Le capital croît indéfiniment au taux g. Une hausse permanente de s augmente PERMANENCE g. Politique publique = levier de croissance."
+          "text": "Équation d'accumulation :\n\n\\[\\dot{K} = s \\cdot Y - \\delta \\cdot K - n \\cdot K\\]\n\nDivisons par K :\n\n\\[\\dot{K}/K = s \\cdot Y/K - \\delta - n = s \\cdot A - \\delta - n\\]\n\nCroissance du capital PAR TÊTE (K/L) :\n\n\\[g_k = s \\cdot A - (n + \\delta )\\]\n\nEt comme Y = A·K, on a g_y = g_k. Résultat :\n\n\\[g = s \\cdot A - \\delta - n\\]\n\nAucun état régulier de k*. Le capital croît indéfiniment au taux g. Une hausse permanente de s augmente PERMANENCE g. Politique publique = levier de croissance."
         },
         {
           "kind": "mecanisme",
@@ -20451,7 +20451,7 @@
         {
           "kind": "exemple",
           "title": "Calcul de tête",
-          "text": "Calibrage standard : A = 0,15, δ = 0,05, n = 0,01, s = 0,20.\n\ng = s·A − δ − n = 0,20 × 0,15 − 0,05 − 0,01 = 0,03 − 0,06 = −0,03 ?\n\nOups : à ces paramètres, l'économie DÉCROÎT. Il faut s·A > n+δ pour croître. Reprenons avec A = 0,4 (compatible K « large ») :\n\ng = 0,20 × 0,40 − 0,06 = 0,08 − 0,06 = 2 %/an.\n\nSi on double s à 0,40 : g = 0,40 × 0,40 − 0,06 = 0,10, soit 10 %/an. En AK, doubler le taux d'épargne quintuple le taux de croissance permanent. En Solow, la même hausse laisserait g inchangé à long terme. Contraste maximal."
+          "text": "Calibrage standard : A = 0,15, δ = 0,05, n = 0,01, s = 0,20.\n\n\\[g = s\\cdot A - \\delta - n = 0,20 \\times 0,15 - 0,05 - 0,01 = 0,03 - 0,06 = -0,03 ?\\]\n\nOups : à ces paramètres, l'économie DÉCROÎT. Il faut s·A > n+δ pour croître. Reprenons avec A = 0,4 (compatible K « large ») :\n\n\\[g = 0,20 \\times 0,40 - 0,06 = 0,08 - 0,06 = 2 \\%/an\\].\n\nSi on double s à 0,40 : g = 0,40 × 0,40 − 0,06 = 0,10, soit 10 %/an. En AK, doubler le taux d'épargne quintuple le taux de croissance permanent. En Solow, la même hausse laisserait g inchangé à long terme. Contraste maximal."
         },
         {
           "kind": "piege",
@@ -20466,7 +20466,7 @@
         {
           "kind": "astuce",
           "title": "Le triangle A-s-δ",
-          "text": "Retiens la formule sacrée avec trois symboles :\n\ng = s·A − (n+δ)\n\n- s pousse à la croissance (épargne).\n- A pousse à la croissance (productivité).\n- n+δ diluent (démographie + usure).\n\nCondition de croissance positive : s·A > n+δ. Si tu vois s·A < n+δ dans un exercice, l'économie AK décroît. C'est possible dans le modèle.\n\nEt le mantra à écrire au brouillon : « AK : rendements constants → pas de convergence → s affecte g pour toujours ». Trois flèches, tu as la thèse."
+          "text": "Retiens la formule sacrée avec trois symboles :\n\n\\[g = s\\cdot A - (n+\\delta )\\]\n\n- s pousse à la croissance (épargne).\n- A pousse à la croissance (productivité).\n- n+δ diluent (démographie + usure).\n\nCondition de croissance positive : s·A > n+δ. Si tu vois s·A < n+δ dans un exercice, l'économie AK décroît. C'est possible dans le modèle.\n\nEt le mantra à écrire au brouillon : « AK : rendements constants → pas de convergence → s affecte g pour toujours ». Trois flèches, tu as la thèse."
         },
         {
           "kind": "resume",
@@ -20490,7 +20490,7 @@
         {
           "kind": "formule",
           "title": "L'équation malthusienne",
-          "text": "Fonction de production à la terre fixe :\n\nY = A · T^(1−θ) · L^θ    avec 0 < θ < 1\n\nRevenu par tête (T normalisé à 1) :\n\ny = Y/L = A · L^(θ−1) = A / L^(1−θ)\n\nRendements décroissants du travail (parce que la terre ne suit pas). Une hausse de A ↑ y transitoirement. Mais alors n(y) > 0 → L ↑ → y ↓ vers ȳ.\n\nÉtat stationnaire : y = ȳ ⇔ L* = (A/ȳ)^(1/(1−θ))\n\nHausse permanente de A augmente la POPULATION D'ÉQUILIBRE, pas le revenu par tête. C'est le PIÈGE malthusien."
+          "text": "Fonction de production à la terre fixe :\n\n\\[Y = A \\cdot T^{1-\\theta } \\cdot L^\\theta avec 0 < \\theta < 1\\]\n\nRevenu par tête (T normalisé à 1) :\n\n\\[y = Y/L = A \\cdot L^{\\theta -1} = A / L^{1-\\theta }\\]\n\nRendements décroissants du travail (parce que la terre ne suit pas). Une hausse de A ↑ y transitoirement. Mais alors n(y) > 0 → L ↑ → y ↓ vers ȳ.\n\nÉtat stationnaire : y = ȳ ⇔ L* = (A/ȳ)^(1/(1−θ))\n\nHausse permanente de A augmente la POPULATION D'ÉQUILIBRE, pas le revenu par tête. C'est le PIÈGE malthusien."
         },
         {
           "kind": "mecanisme",
@@ -20544,12 +20544,12 @@
         {
           "kind": "formule",
           "title": "Le programme du ménage",
-          "text": "Maximisation de l'utilité intertemporelle :\n\nU = u(c1_t) + β · u(c2_{t+1})\n\nSous contraintes :\nc1_t + s_t = w_t\nc2_{t+1} = (1 + r_{t+1}) · s_t\n\nOn ré-écrit en contrainte intertemporelle :\n\nc1_t + c2_{t+1} / (1 + r_{t+1}) = w_t\n\nAvec u(c) = ln(c) :\n\ns_t = [β/(1+β)] · w_t\n\nL'épargne est PROPORTIONNELLE au salaire, mais le coefficient dépend de la préférence pour l'avenir β. Contrairement à Solow où s est un paramètre, ici c'est le résultat d'un arbitrage."
+          "text": "Maximisation de l'utilité intertemporelle :\n\n\\[U = u(c1_t) + \\beta \\cdot u(c2_{t+1})\\]\n\nSous contraintes :\n\\[c1_t + s_t = w_t\\]\n\\[c2_{t+1} = (1 + r_{t+1}) \\cdot s_t\\]\n\nOn ré-écrit en contrainte intertemporelle :\n\n\\[c1_t + c2_{t+1} / (1 + r_{t+1}) = w_t\\]\n\nAvec u(c) = ln(c) :\n\n\\[s_t = [\\beta /(1+\\beta )] \\cdot w_t\\]\n\nL'épargne est PROPORTIONNELLE au salaire, mais le coefficient dépend de la préférence pour l'avenir β. Contrairement à Solow où s est un paramètre, ici c'est le résultat d'un arbitrage."
         },
         {
           "kind": "mecanisme",
           "title": "Dynamique du capital",
-          "text": "Le capital de demain est l'épargne d'aujourd'hui :\n\nK_{t+1} = L_t · s_t\n\nDivisé par L_{t+1} = (1+n)·L_t :\n\nk_{t+1} = s_t / (1+n) = [β/(1+β)] · w_t / (1+n)\n\nAvec w_t = (1−α)·k_t^α :\n\nk_{t+1} = [β·(1−α) / ((1+β)·(1+n))] · k_t^α\n\nÉtat régulier k* résolu par k* = k*^α · [β·(1−α)/((1+β)(1+n))]^(1/(1−α)).\n\nStable et unique. Convergence monotone comme chez Solow. Mais la valeur de k* peut être supérieure à la règle d'or."
+          "text": "Le capital de demain est l'épargne d'aujourd'hui :\n\n\\[K_{t+1} = L_t \\cdot s_t\\]\n\nDivisé par L_{t+1} = (1+n)·L_t :\n\n\\[k_{t+1} = s_t / (1+n) = [\\beta /(1+\\beta )] \\cdot w_t / (1+n)\\]\n\nAvec w_t = (1−α)·k_t^α :\n\n\\[k_{t+1} = [\\beta \\cdot (1-\\alpha ) / ((1+\\beta )\\cdot (1+n))] \\cdot k_t^\\alpha\\]\n\nÉtat régulier k* résolu par k* = k*^α · [β·(1−α)/((1+β)(1+n))]^(1/(1−α)).\n\nStable et unique. Convergence monotone comme chez Solow. Mais la valeur de k* peut être supérieure à la règle d'or."
         },
         {
           "kind": "piege",
@@ -20564,7 +20564,7 @@
         {
           "kind": "exemple",
           "title": "Numérique express",
-          "text": "α = 1/3, β = 0,7, n = 0,01 par génération.\n\ns = β/(1+β) · w = 0,412 · w. Le jeune épargne environ 41 % de son salaire.\n\nÀ l'état régulier :\nk* = [0,412 × 2/3 / (1,01)]^(3/2) ≈ (0,272)^1,5 ≈ 0,142.\ny* = k*^(1/3) ≈ 0,522.\nw* = 2/3 · y* ≈ 0,348.\nr* = 1/3 · y*/k* − δ. Avec δ = 0,1 par génération : r* ≈ 1/3 · 3,68 − 0,1 ≈ 1,13 !\n\nGros r* : l'économie n'est PAS en inefficience. Pour y arriver il faut β très élevé (patience extrême), ce qui explique que l'inefficience soit rare empiriquement."
+          "text": "α = 1/3, β = 0,7, n = 0,01 par génération.\n\ns = β/(1+β) · w = 0,412 · w. Le jeune épargne environ 41 % de son salaire.\n\nÀ l'état régulier :\n\\[k^* = [0,412 \\times 2/3 / (1,01)]^{3/2} \\approx (0,272)^1,5 \\approx 0,142\\].\n\\[y^* = k^*^{1/3} \\approx 0,522\\].\n\\[w^* = 2/3 \\cdot y^* \\approx 0,348\\].\nr* = 1/3 · y*/k* − δ. Avec δ = 0,1 par génération : r* ≈ 1/3 · 3,68 − 0,1 ≈ 1,13 !\n\nGros r* : l'économie n'est PAS en inefficience. Pour y arriver il faut β très élevé (patience extrême), ce qui explique que l'inefficience soit rare empiriquement."
         },
         {
           "kind": "piege",
@@ -20652,7 +20652,7 @@
         {
           "kind": "formule",
           "title": "L'équation dynamique du sentier de selle",
-          "text": "Notations : e = log du taux au certain, ē = valeur de long terme, θ = vitesse d'ajustement.\n\ne(t) = ē + (e⁰ − ē) · exp(−θt)\n\nÉquivalent en dérivée : de/dt = −θ · (e − ē).\n\nθ dépend positivement de la vitesse d'ajustement des prix (π) et de la sensibilité de la demande agrégée au TCR ; négativement de la sensibilité de la demande de monnaie au taux d'intérêt (b). Formellement : θ = ½ [ π(1+φ·b) − √(…) ] où φ mesure la réaction de la demande au TCR. Retiens seulement : plus π est petit (prix très rigides), plus θ est petit, plus la convergence est longue et plus l'overshooting initial est ample."
+          "text": "Notations : e = log du taux au certain, ē = valeur de long terme, θ = vitesse d'ajustement.\n\n\\[e(t) = \\bar e + (e^0 - \\bar e ) \\cdot exp(-\\theta t)\\]\n\nÉquivalent en dérivée : de/dt = −θ · (e − ē).\n\nθ dépend positivement de la vitesse d'ajustement des prix (π) et de la sensibilité de la demande agrégée au TCR ; négativement de la sensibilité de la demande de monnaie au taux d'intérêt (b). Formellement : θ = ½ [ π(1+φ·b) − √(…) ] où φ mesure la réaction de la demande au TCR. Retiens seulement : plus π est petit (prix très rigides), plus θ est petit, plus la convergence est longue et plus l'overshooting initial est ample."
         },
         {
           "kind": "mecanisme",
@@ -20711,7 +20711,7 @@
         {
           "kind": "formule",
           "title": "L'équation centrale",
-          "text": "Version courante enseignée au cours :\n\ne = eᵃ + (i − i*) + ρ, avec ρ = α · σ²_E · (f − f₀)\n\nSymboles :\n- **α** : coefficient d'aversion au risque (> 0).\n- **σ²_E** : variance anticipée du taux de change.\n- **f** : part des actifs libellés en devise étrangère détenus par les résidents (en fraction du portefeuille).\n- **f₀** : allocation « neutre au risque » (portefeuille de marché, exogène).\n\nInterprétation : plus le pays est débiteur (f grand), plus les investisseurs exigent une prime pour continuer à détenir ses titres. Cas limites : α → 0 (neutralité au risque) ⇒ ρ = 0 ⇒ retour PNCTI stricte. σ²_E = 0 (change parfaitement prévisible) ⇒ ρ = 0."
+          "text": "Version courante enseignée au cours :\n\n\\[e = e^a + (i - i^*) + \\rho , avec \\rho = \\alpha \\cdot \\sigma^2_E \\cdot (f - f_0)\\]\n\nSymboles :\n- **α** : coefficient d'aversion au risque (> 0).\n- **σ²_E** : variance anticipée du taux de change.\n- **f** : part des actifs libellés en devise étrangère détenus par les résidents (en fraction du portefeuille).\n- **f₀** : allocation « neutre au risque » (portefeuille de marché, exogène).\n\nInterprétation : plus le pays est débiteur (f grand), plus les investisseurs exigent une prime pour continuer à détenir ses titres. Cas limites : α → 0 (neutralité au risque) ⇒ ρ = 0 ⇒ retour PNCTI stricte. σ²_E = 0 (change parfaitement prévisible) ⇒ ρ = 0."
         },
         {
           "kind": "mecanisme",
@@ -20726,7 +20726,7 @@
         {
           "kind": "exemple",
           "title": "Application : pays émergent endetté",
-          "text": "Un pays émergent affiche i − i* = 8 % (taux domestique très supérieur au taux mondial). La PNCTI stricte prédit une dépréciation anticipée de 8 %.\n\nMais si le pays est très endetté extérieur (f − f₀ = 0,4), avec σ²_E = 0,09 et α = 2 :\n\nρ = 2 · 0,09 · 0,4 = 7,2 %.\n\nLa prime de risque « avale » quasiment tout le différentiel d'intérêt : la dépréciation anticipée effective n'est plus que 8 % − 7,2 % = 0,8 %.\n\nC'est le mécanisme des « sudden stops » (Calvo 1998) : quand f augmente et que la variance perçue explose, la prime devient prohibitive, les capitaux fuient, le change s'effondre. Argentine 2001, Turquie 2018, Argentine 2022 : illustrations empiriques du canal Kouri."
+          "text": "Un pays émergent affiche i − i* = 8 % (taux domestique très supérieur au taux mondial). La PNCTI stricte prédit une dépréciation anticipée de 8 %.\n\nMais si le pays est très endetté extérieur (f − f₀ = 0,4), avec σ²_E = 0,09 et α = 2 :\n\n\\[\\rho = 2 \\cdot 0,09 \\cdot 0,4 = 7,2 \\%\\].\n\nLa prime de risque « avale » quasiment tout le différentiel d'intérêt : la dépréciation anticipée effective n'est plus que 8 % − 7,2 % = 0,8 %.\n\nC'est le mécanisme des « sudden stops » (Calvo 1998) : quand f augmente et que la variance perçue explose, la prime devient prohibitive, les capitaux fuient, le change s'effondre. Argentine 2001, Turquie 2018, Argentine 2022 : illustrations empiriques du canal Kouri."
         },
         {
           "kind": "piege",
@@ -20878,7 +20878,7 @@
         {
           "kind": "formule",
           "title": "La formule du taux réel",
-          "text": "Version log-linéarisée à retenir :\n\nΔq = (1 − γ) · (ΔΠ_T − ΔΠ*_T)\n\nSymboles :\n- **q** : logarithme du TCR (au certain, hausse = appréciation).\n- **γ** : part des non-échangeables dans la consommation (typiquement 0,3 à 0,4).\n- **ΔΠ_T** : gains de productivité dans T domestique.\n- **ΔΠ*_T** : gains dans T étranger.\n\nDérivation : sous PPA absolue sur T (loi du prix unique) et marché du travail unifié, on obtient P_N/P_T = w · (1/PMT_N − 1/PMT_T). En log-différentiant et en agrégeant : Δq = (1 − γ) · Δ(π_T − π_N) domestique, moins la même différence étranger. Approximation courante : Δπ_N ≈ 0 des deux côtés ⇒ Δq ≈ (1 − γ) · (ΔΠ_T − ΔΠ*_T)."
+          "text": "Version log-linéarisée à retenir :\n\n\\[\\Delta q = (1 - \\gamma ) \\cdot (\\Delta \\Pi_T - \\Delta \\Pi^*_T)\\]\n\nSymboles :\n- **q** : logarithme du TCR (au certain, hausse = appréciation).\n- **γ** : part des non-échangeables dans la consommation (typiquement 0,3 à 0,4).\n- **ΔΠ_T** : gains de productivité dans T domestique.\n- **ΔΠ*_T** : gains dans T étranger.\n\nDérivation : sous PPA absolue sur T (loi du prix unique) et marché du travail unifié, on obtient P_N/P_T = w · (1/PMT_N − 1/PMT_T). En log-différentiant et en agrégeant : Δq = (1 − γ) · Δ(π_T − π_N) domestique, moins la même différence étranger. Approximation courante : Δπ_N ≈ 0 des deux côtés ⇒ Δq ≈ (1 − γ) · (ΔΠ_T − ΔΠ*_T)."
         },
         {
           "kind": "exemple",
@@ -20996,17 +20996,17 @@
         {
           "kind": "formule",
           "title": "L'équation dynamique",
-          "text": "Le cœur du modèle, à écrire de tête :\n\nk̂̇ = s·k̂^α − (n + g + δ)·k̂\n\nLecture :\n- s·k̂^α : investissement par unité de travail efficace (courbe concave qui part de zéro).\n- (n+g+δ)·k̂ : investissement de « maintien » (droite passant par l'origine). n compense la démographie, g compense le progrès technique, δ compense l'usure.\n\nÉtat régulier : k̂̇ = 0 ⇔ s·k̂*^α = (n+g+δ)·k̂*. Résolution :\n\nk̂* = ( s / (n+g+δ) )^(1/(1−α))\nŷ* = ( s / (n+g+δ) )^(α/(1−α))\n\nAttention à l'exposant : 1/(1−α) sur k̂*, α/(1−α) sur ŷ*. C'est le piège classique du prof."
+          "text": "Le cœur du modèle, à écrire de tête :\n\n\\[\\hat{k}̇ = s\\cdot \\hat{k}^\\alpha - (n + g + \\delta )\\cdot \\hat{k}\\]\n\nLecture :\n- s·k̂^α : investissement par unité de travail efficace (courbe concave qui part de zéro).\n- (n+g+δ)·k̂ : investissement de « maintien » (droite passant par l'origine). n compense la démographie, g compense le progrès technique, δ compense l'usure.\n\nÉtat régulier : k̂̇ = 0 ⇔ s·k̂*^α = (n+g+δ)·k̂*. Résolution :\n\n\\[\\hat{k}^* = ( s / (n+g+\\delta ) )^(1/(1-\\alpha ))\\]\n\\[\\hat y * = ( s / (n+g+\\delta ) )^(\\alpha /(1-\\alpha ))\\]\n\nAttention à l'exposant : 1/(1−α) sur k̂*, α/(1−α) sur ŷ*. C'est le piège classique du prof."
         },
         {
           "kind": "formule",
           "title": "Règle d'or de Phelps",
-          "text": "Question : quelle épargne maximise la consommation par unité de travail efficace à l'état régulier ?\n\nc*(s) = (1−s) · ŷ*(s) = ŷ*(s) − (n+g+δ)·k̂*(s).\n\nDériver par rapport à s (via k̂*) et annuler :\n\nf'(k̂*_or) = n + g + δ\n\nEn Cobb-Douglas, f'(k̂) = α · k̂^(α−1), et à l'état régulier s·k̂*^α = (n+g+δ)·k̂*, donc α · (n+g+δ)/s = n+g+δ. Simplification directe :\n\ns_or = α\n\nLa règle d'or dit : épargne = part du capital dans le revenu. Au-dessus, on suraccumule (dynamique inefficace). En-dessous (cas normal), s < α, marge d'accroissement."
+          "text": "Question : quelle épargne maximise la consommation par unité de travail efficace à l'état régulier ?\n\n\\[c^*(s) = (1-s) \\cdot \\hat y *(s) = \\hat y *(s) - (n+g+\\delta )\\cdot \\hat{k}^*(s)\\].\n\nDériver par rapport à s (via k̂*) et annuler :\n\n\\[f'(\\hat{k}^*_or) = n + g + \\delta\\]\n\nEn Cobb-Douglas, f'(k̂) = α · k̂^(α−1), et à l'état régulier s·k̂*^α = (n+g+δ)·k̂*, donc α · (n+g+δ)/s = n+g+δ. Simplification directe :\n\n\\[s_or = \\alpha\\]\n\nLa règle d'or dit : épargne = part du capital dans le revenu. Au-dessus, on suraccumule (dynamique inefficace). En-dessous (cas normal), s < α, marge d'accroissement."
         },
         {
           "kind": "mecanisme",
           "title": "Vitesse de convergence et demi-vie",
-          "text": "Linéarisation de la dynamique autour de k̂* :\n\ndln(k̂)/dt ≈ −λ · (ln k̂ − ln k̂*)   avec   λ = (1−α)(n+g+δ)\n\nAvec α = 1/3, n = 0,01, g = 0,02, δ = 0,05 : n+g+δ = 0,08. Donc λ = (2/3) × 0,08 ≈ 5,3 %/an.\n\nDemi-vie : ln(2)/λ = 0,693/0,053 ≈ 13 ans. Un pays sous son ŷ* comble la moitié de l'écart en 13 ans, sous Solow standard.\n\nCritique MRW 1992 : en ajoutant le capital humain, la part effective (1−α−β) tombe à ~1/3, λ ≈ 2 %/an, demi-vie ≈ 35 ans. Beaucoup plus proche des données."
+          "text": "Linéarisation de la dynamique autour de k̂* :\n\n\\[dln(\\hat{k})/dt \\approx -\\lambda \\cdot (ln \\hat{k} - ln \\hat{k}^*) avec \\lambda = (1-\\alpha )(n+g+\\delta )\\]\n\nAvec α = 1/3, n = 0,01, g = 0,02, δ = 0,05 : n+g+δ = 0,08. Donc λ = (2/3) × 0,08 ≈ 5,3 %/an.\n\nDemi-vie : ln(2)/λ = 0,693/0,053 ≈ 13 ans. Un pays sous son ŷ* comble la moitié de l'écart en 13 ans, sous Solow standard.\n\nCritique MRW 1992 : en ajoutant le capital humain, la part effective (1−α−β) tombe à ~1/3, λ ≈ 2 %/an, demi-vie ≈ 35 ans. Beaucoup plus proche des données."
         },
         {
           "kind": "exemple",
@@ -21050,7 +21050,7 @@
         {
           "kind": "formule",
           "title": "L'équation de la R&D",
-          "text": "Ȧ = δ · H_A · A\n\nLecture ligne par ligne :\n- δ : productivité brute du chercheur (paramètre).\n- H_A : capital humain affecté à la R&D (endogène, choix d'allocation).\n- A : stock d'idées déjà accumulées (externalité positive « standing on the shoulders of giants »).\n\nCroissance : g_A = Ȧ/A = δ · H_A. À l'équilibre décentralisé, H_A = s_R · H, donc :\n\ng = δ · s_R · H\n\nRésultat central : la croissance est PROPORTIONNELLE au capital humain H. Deux fois plus de chercheurs ⇒ deux fois plus de croissance. C'est l'EFFET D'ÉCHELLE, empiriquement contesté."
+          "text": "\\[\\dot A = \\delta \\cdot H_A \\cdot A\\]\n\nLecture ligne par ligne :\n- δ : productivité brute du chercheur (paramètre).\n- H_A : capital humain affecté à la R&D (endogène, choix d'allocation).\n- A : stock d'idées déjà accumulées (externalité positive « standing on the shoulders of giants »).\n\nCroissance : g_A = Ȧ/A = δ · H_A. À l'équilibre décentralisé, H_A = s_R · H, donc :\n\n\\[g = \\delta \\cdot s_R \\cdot H\\]\n\nRésultat central : la croissance est PROPORTIONNELLE au capital humain H. Deux fois plus de chercheurs ⇒ deux fois plus de croissance. C'est l'EFFET D'ÉCHELLE, empiriquement contesté."
         },
         {
           "kind": "mecanisme",
@@ -21104,17 +21104,17 @@
         {
           "kind": "formule",
           "title": "Le taux de croissance",
-          "text": "Formule centrale à connaître :\n\ng = λ · n · ln(γ)\n\nDérivation intuitive :\n- Chaque arrivée d'innovation multiplie la qualité par γ, donc ajoute ln(γ) au logarithme du niveau (approximation continue).\n- Le nombre d'arrivées par unité de temps est λ · n (intensité Poisson).\n- Sur un secteur (et par symétrie sur tous), la croissance moyenne est le produit :\n\ng = (fréquence d'innovations) × (taille du saut en log) = λn × ln(γ)\n\nRésultat clé : g augmente avec λ (productivité de la R&D), avec n (effort de R&D) et avec γ (taille de chaque innovation)."
+          "text": "Formule centrale à connaître :\n\n\\[g = \\lambda \\cdot n \\cdot ln(\\gamma )\\]\n\nDérivation intuitive :\n- Chaque arrivée d'innovation multiplie la qualité par γ, donc ajoute ln(γ) au logarithme du niveau (approximation continue).\n- Le nombre d'arrivées par unité de temps est λ · n (intensité Poisson).\n- Sur un secteur (et par symétrie sur tous), la croissance moyenne est le produit :\n\ng = (fréquence d'innovations) × (taille du saut en log) = λn × ln(γ)\n\nRésultat clé : g augmente avec λ (productivité de la R&D), avec n (effort de R&D) et avec γ (taille de chaque innovation)."
         },
         {
           "kind": "exemple",
           "title": "Cas chiffré",
-          "text": "Paramètres : λ = 0,1 (arrivées par unité de R&D par an), n = 2 (unités de R&D), γ = 1,5 (chaque innovation augmente la qualité de 50 %).\n\nCalcul :\n\ng = λ · n · ln(γ) = 0,1 × 2 × ln(1,5) = 0,2 × 0,405 ≈ 0,081 = 8,1 %/an\n\nInterprétation : une innovation majeure arrive en moyenne λn = 0,2 fois par an dans chaque secteur, soit une innovation tous les 5 ans. Chaque saut multiplie la qualité par 1,5, contribuant 40,5 % en log. La croissance moyenne s'établit autour de 8 % — chiffre volontairement élevé pour illustrer le mécanisme."
+          "text": "Paramètres : λ = 0,1 (arrivées par unité de R&D par an), n = 2 (unités de R&D), γ = 1,5 (chaque innovation augmente la qualité de 50 %).\n\nCalcul :\n\n\\[g = \\lambda \\cdot n \\cdot ln(\\gamma ) = 0,1 \\times 2 \\times ln(1,5) = 0,2 \\times 0,405 \\approx 0,081 = 8,1 \\%/an\\]\n\nInterprétation : une innovation majeure arrive en moyenne λn = 0,2 fois par an dans chaque secteur, soit une innovation tous les 5 ans. Chaque saut multiplie la qualité par 1,5, contribuant 40,5 % en log. La croissance moyenne s'établit autour de 8 % — chiffre volontairement élevé pour illustrer le mécanisme."
         },
         {
           "kind": "mecanisme",
           "title": "La rente d'innovation",
-          "text": "L'entrant qui découvre la génération γ·q sait qu'il ne peut pas fixer un prix trop haut : l'ancien fournisseur, avec la génération q, peut casser les prix jusqu'à p = coût marginal.\n\nRésultat : l'entrant en concurrence à la Bertrand fixe un prix qui capture juste l'avantage γ. Sa rente instantanée vaut π ∝ (γ − 1)/γ dans le cas linéaire.\n\nMais cette rente est TEMPORAIRE : quand la prochaine innovation arrive (intensité λ·n' de la prochaine cohorte), il est à son tour évincé. Sa valeur actualisée s'écrit :\n\nV = π / (r + λ·n')\n\nOù r est le taux d'intérêt et λ·n' la « hazard rate » d'être détrôné. Plus la R&D est intense en aval, plus la valeur d'un brevet est faible."
+          "text": "L'entrant qui découvre la génération γ·q sait qu'il ne peut pas fixer un prix trop haut : l'ancien fournisseur, avec la génération q, peut casser les prix jusqu'à p = coût marginal.\n\nRésultat : l'entrant en concurrence à la Bertrand fixe un prix qui capture juste l'avantage γ. Sa rente instantanée vaut π ∝ (γ − 1)/γ dans le cas linéaire.\n\nMais cette rente est TEMPORAIRE : quand la prochaine innovation arrive (intensité λ·n' de la prochaine cohorte), il est à son tour évincé. Sa valeur actualisée s'écrit :\n\n\\[V = \\pi / (r + \\lambda \\cdot n')\\]\n\nOù r est le taux d'intérêt et λ·n' la « hazard rate » d'être détrôné. Plus la R&D est intense en aval, plus la valeur d'un brevet est faible."
         },
         {
           "kind": "mecanisme",
@@ -21163,12 +21163,12 @@
         {
           "kind": "formule",
           "title": "Contrainte et épargne optimale",
-          "text": "Le jeune maximise U = u(c_1) + β · u(c_2) sous :\n\nc_1 + s = w\nc_2 = (1+r) · s\n\nSoit contrainte intertemporelle : c_1 + c_2/(1+r) = w.\n\nCas utilité logarithmique (le plus travaillé au partiel) : U = ln(c_1) + β · ln(c_2). Résolution en Lagrange :\n\ns* = β/(1+β) · w\n\nRemarquable : l'épargne est INDÉPENDANTE de r. Les effets substitution et revenu se compensent exactement en log. Avec β = 1 (aucune préférence temporelle) : s* = w/2. Avec β < 1 (impatience) : s* < w/2."
+          "text": "Le jeune maximise U = u(c_1) + β · u(c_2) sous :\n\n\\[c_1 + s = w\\]\n\\[c_2 = (1+r) \\cdot s\\]\n\nSoit contrainte intertemporelle : c_1 + c_2/(1+r) = w.\n\nCas utilité logarithmique (le plus travaillé au partiel) : U = ln(c_1) + β · ln(c_2). Résolution en Lagrange :\n\n\\[s^* = \\beta /(1+\\beta ) \\cdot w\\]\n\nRemarquable : l'épargne est INDÉPENDANTE de r. Les effets substitution et revenu se compensent exactement en log. Avec β = 1 (aucune préférence temporelle) : s* = w/2. Avec β < 1 (impatience) : s* < w/2."
         },
         {
           "kind": "formule",
           "title": "Dynamique du capital",
-          "text": "Le capital par tête à la période t+1 est financé par l'épargne agrégée des jeunes en t, rapportée à la population jeune de t+1 :\n\nK_{t+1} = s_t · L_t\nk_{t+1} = K_{t+1}/L_{t+1} = s_t / (1+n)\n\nAvec Cobb-Douglas Y = K^α · L^(1−α), on a w_t = (1−α) · k_t^α et s_t = β/(1+β) · w_t. Donc :\n\nk_{t+1} = (1−α)/(1+n) · β/(1+β) · k_t^α\n\nÉquation autonome, à un seul point fixe positif k* :\n\nk* = [ (1−α)/(1+n) · β/(1+β) ]^(1/(1−α))\n\nStabilité : la pente en k* est α < 1 ⇒ convergence globale."
+          "text": "Le capital par tête à la période t+1 est financé par l'épargne agrégée des jeunes en t, rapportée à la population jeune de t+1 :\n\n\\[K_{t+1} = s_t \\cdot L_t\\]\n\\[k_{t+1} = K_{t+1}/L_{t+1} = s_t / (1+n)\\]\n\nAvec Cobb-Douglas Y = K^α · L^(1−α), on a w_t = (1−α) · k_t^α et s_t = β/(1+β) · w_t. Donc :\n\n\\[k_{t+1} = (1-\\alpha )/(1+n) \\cdot \\beta /(1+\\beta ) \\cdot k_t^\\alpha\\]\n\nÉquation autonome, à un seul point fixe positif k* :\n\n\\[k^* = [ (1-\\alpha )/(1+n) \\cdot \\beta /(1+\\beta ) ]^(1/(1-\\alpha ))\\]\n\nStabilité : la pente en k* est α < 1 ⇒ convergence globale."
         },
         {
           "kind": "mecanisme",
@@ -21222,7 +21222,7 @@
         {
           "kind": "formule",
           "title": "Le piège malthusien",
-          "text": "Dynamique de population :\n\nL̇/L = b(y) − d(y)\n\nOù b(y) croissante (natalité), d(y) décroissante (mortalité). Il existe un unique y* tel que b(y*) = d(y*).\n\nProduction : y = A/L^θ. Donc à A donné, il existe un L* tel que y(L*) = y*, soit :\n\nL* = (A/y*)^(1/θ)\n\nÉQUILIBRE MALTHUSIEN : le revenu par tête est BLOQUÉ à y*, quels que soient les chocs positifs sur A. Tout gain de productivité est absorbé par l'augmentation de la population.\n\nCorollaire redoutable : plus l'économie invente, plus elle devient peuplée, mais pas plus riche."
+          "text": "Dynamique de population :\n\n\\[\\dot{L}/L = b(y) - d(y)\\]\n\nOù b(y) croissante (natalité), d(y) décroissante (mortalité). Il existe un unique y* tel que b(y*) = d(y*).\n\nProduction : y = A/L^θ. Donc à A donné, il existe un L* tel que y(L*) = y*, soit :\n\n\\[L^* = (A/y^*)^{1/\\theta }\\]\n\nÉQUILIBRE MALTHUSIEN : le revenu par tête est BLOQUÉ à y*, quels que soient les chocs positifs sur A. Tout gain de productivité est absorbé par l'augmentation de la population.\n\nCorollaire redoutable : plus l'économie invente, plus elle devient peuplée, mais pas plus riche."
         },
         {
           "kind": "mecanisme",
