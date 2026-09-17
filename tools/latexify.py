@@ -104,11 +104,64 @@ def to_latex(run: str) -> str:
     #    donc on capture "\dot" via une passe : lettre isolée suivie
     #    de rien de spécifique ne peut pas être détectée fiablement.
     #    On accepte de perdre le point.
-    # 6) exposants entre parens : `x^(a+b)` → `x^{a+b}`
-    s = re.sub(r"\^\(([^()]{1,40})\)", r"^{\1}", s)
-    s = re.sub(r"_\(([^()]{1,20})\)", r"_{\1}", s)
-    # 7) préfixe modifieur devant un opérateur : `2/3\cdot ` -> `\tfrac{2}{3}`
-    #    trop risqué en regex ; on laisse.
+    # 6) exposants/indices entre parens (avec parens imbriquées OK) :
+    #    `x^(1/(1-\alpha))` → `x^{1/(1-\alpha)}`
+    def _wrap_paren_after(s: str, op: str) -> str:
+        out = []
+        i = 0
+        while i < len(s):
+            c = s[i]
+            if c == op and i + 1 < len(s) and s[i + 1] == "(":
+                # trouve la parens fermante balancée
+                depth = 1
+                j = i + 2
+                while j < len(s) and depth > 0:
+                    if s[j] == "(":
+                        depth += 1
+                    elif s[j] == ")":
+                        depth -= 1
+                    j += 1
+                if depth == 0 and (j - (i + 2)) <= 60:
+                    out.append(op + "{" + s[i + 2:j - 1] + "}")
+                    i = j
+                    continue
+            out.append(c)
+            i += 1
+        return "".join(out)
+
+    s = _wrap_paren_after(s, "^")
+    s = _wrap_paren_after(s, "_")
+    # 7) INDICES LETTRES → droit (\mathrm{}) pour matcher la
+    #    convention des manuels : `x^n` reste puissance italique,
+    #    `x_A` devient label droit lisible.
+    #    Règles :
+    #    - `_X` (une majuscule seule) : wrap → label typique (g_A, s_H, L_A)
+    #    - `_{ABC}` ou `_{Ab}` (mot commençant par majuscule) : wrap
+    #    - `_i`, `_j`, `_k`, `_n`, `_t` (minuscule seule) : LAISSE italique
+    #      (indices de sommation / itération, convention math standard)
+    #    - `_0`..`_9`, `_{...}` avec macro (\alpha...) : LAISSE tel quel
+    def _wrap_sub_content(m: re.Match) -> str:
+        content = m.group(1)
+        # Skip si contient déjà une macro (\alpha, \mathrm, etc.)
+        if "\\" in content:
+            return m.group(0)
+        # Skip si commence par un chiffre (indice numérique italique)
+        if re.match(r"^\d", content):
+            return m.group(0)
+        # Skip si contient uniquement des opérateurs / expression
+        # arithmétique (i+1, t-1, i,j, n-1) : garde italique
+        if re.match(r"^[a-z]([\+\-,][a-z0-9]+)+$", content):
+            return m.group(0)
+        # Toute lettre / label passe en \mathrm
+        if re.match(r"^[A-Za-z][A-Za-z0-9]*$", content):
+            return "_{\\mathrm{" + content + "}}"
+        return m.group(0)
+
+    # cas `_X` (une lettre seule non suivie de lettre) : wrap direct
+    s = re.sub(r"_([A-Za-z])(?![A-Za-z{])",
+               lambda m: "_{\\mathrm{" + m.group(1) + "}}", s)
+    # cas `_{...}` : appliquer la logique
+    s = re.sub(r"_\{([^{}]{1,20})\}", _wrap_sub_content, s)
     # 8) compacte
     s = re.sub(r"[ \t]+", " ", s).strip()
     return s
@@ -170,7 +223,92 @@ def latexify_line(line: str) -> str:
     return indent + r"\[" + to_latex(body) + r"\]" + tail_punct + trailing
 
 
+MATH_BLOCK_RE = re.compile(r"\\\[([^\[\]]{1,200})\\\]|\\\(([^()]{1,200})\\\)")
+
+
+def reprocess_math_blocks(text: str) -> str:
+    """Applique to_latex à l'intérieur des blocs \[...\] et \(...\) déjà
+    présents dans le texte (utile pour ré-appliquer to_latex après une
+    évolution du convertisseur, ex. ajout du mathrm sur les indices).
+    """
+    def _repl(m):
+        if m.group(1) is not None:
+            return r"\[" + to_latex(m.group(1)) + r"\]"
+        return r"\(" + to_latex(m.group(2)) + r"\)"
+    return MATH_BLOCK_RE.sub(_repl, text)
+
+
+# Regex pour repérer des variables inline dans la prose :
+#   x_A, g_w, g_n, s_R, \pi_T, k^*, x^2, y*, π* (Unicode)
+# On ne match PAS les mots contenant un `_` (file_name, snake_case) :
+#   on exige une lettre unique avant le `_` (au sens Unicode BMP),
+#   pas précédée d'une autre lettre.
+INLINE_MATH_RE = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9\\])"
+    r"([A-Za-zΔΠΣαβγδεηθλμπρστφϕω])"
+    r"(?:_(?:[A-Za-z0-9]|\{[^{}]{1,15}\}))+"
+    r"(?:\^[*A-Za-z0-9]|\^\{[^{}]{1,15}\})?"
+    r"(?![A-Za-zÀ-ÿ])"
+)
+
+# Variables Unicode nues qui méritent un rendu math si isolées :
+#   `π*`, `i*`, `e^a` en prose.
+INLINE_STAR_RE = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9\\])"
+    r"([A-Za-zΔΠΣαβγδεηθλμπρστφϕω])\*"
+    r"(?![A-Za-zÀ-ÿ])"
+)
+
+
+def wrap_inline_math(text: str) -> str:
+    """Enveloppe les micro-formules inline dans la prose : `g_A` → `\(g_A\)`.
+
+    Applique to_latex à chaque match pour la mise en \mathrm des indices.
+    Idempotent : ignore les matches déjà à l'intérieur d'un `\(…\)` ou `\[…\]`.
+    """
+    # Découpage : on skip les blocs déjà math
+    parts = []
+    i = 0
+    n = len(text)
+    while i < n:
+        # cherche prochain \[ ou \(
+        p_bracket = text.find(r"\[", i)
+        p_paren = text.find(r"\(", i)
+        candidates = [x for x in (p_bracket, p_paren) if x >= 0]
+        nx = min(candidates) if candidates else -1
+        if nx < 0:
+            parts.append(_wrap_prose(text[i:]))
+            break
+        parts.append(_wrap_prose(text[i:nx]))
+        # trouve fin de bloc
+        close = r"\]" if nx == p_bracket else r"\)"
+        end = text.find(close, nx + 2)
+        if end < 0:
+            parts.append(text[i:])
+            break
+        parts.append(text[nx:end + 2])
+        i = end + 2
+    return "".join(parts)
+
+
+def _wrap_prose(prose: str) -> str:
+    def _inline_repl(m: re.Match) -> str:
+        return "\\(" + to_latex(m.group(0)) + "\\)"
+
+    def _star_repl(m: re.Match) -> str:
+        return "\\(" + to_latex(m.group(1) + "*") + "\\)"
+
+    prose = INLINE_MATH_RE.sub(_inline_repl, prose)
+    prose = INLINE_STAR_RE.sub(_star_repl, prose)
+    return prose
+
+
 def latexify_text(text: str) -> str:
+    # 1) ré-applique to_latex sur les blocs existants (idempotent)
+    text = reprocess_math_blocks(text)
+    # 2) enveloppe les micro-formules inline
+    text = wrap_inline_math(text)
+    # 3) puis passe ligne-formule complète
     return "\n".join(latexify_line(l) for l in text.split("\n"))
 
 
