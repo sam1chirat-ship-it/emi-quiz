@@ -415,6 +415,185 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   min-height: 52px;
 }
 
+/* cours ludiques (J40) — écran plein cadre avec blocs typés */
+#cours {
+  padding: 0;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.cours-sheet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: max(20px, var(--sat)) 14px calc(24px + var(--sab));
+  min-height: 100vh;
+}
+.cours-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 10px;
+}
+.cours-topbar h1 {
+  font-family: var(--sans);
+  letter-spacing: .08em;
+  color: var(--gold);
+  font-size: 22px;
+  margin: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cours-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 6px 2px 12px;
+}
+.cours-index-hint {
+  font-family: var(--serif);
+  color: var(--muted);
+  font-size: 13px;
+  margin: 4px 0 10px;
+  font-style: italic;
+}
+.cours-index-mat {
+  font-family: var(--sans);
+  letter-spacing: .1em;
+  font-size: 12px;
+  color: var(--bleu);
+  text-transform: uppercase;
+  margin: 14px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+}
+.cours-index-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  margin: 5px 0;
+  border-radius: 10px;
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  font-family: var(--serif);
+  font-size: 14px;
+  cursor: pointer;
+}
+.cours-index-item.avail {
+  border-color: rgba(255, 201, 60, .35);
+  background: rgba(255, 201, 60, .06);
+}
+.cours-index-item.avail .cours-index-badge {
+  color: var(--gold);
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  font-size: 11px;
+}
+.cours-index-item.soon {
+  opacity: .55;
+}
+.cours-index-item.soon .cours-index-badge {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 12px;
+}
+.cours-index-item .cours-index-name {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Blocs de cours — chaque type a un cadre coloré et une icône */
+.cours-progress {
+  height: 4px;
+  background: rgba(255, 255, 255, .08);
+  border-radius: 2px;
+  margin: 6px 0 14px;
+  overflow: hidden;
+}
+.cours-progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--vert), var(--gold));
+  transition: width .18s ease;
+}
+.cours-block {
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--cream);
+}
+.cours-block .cb-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  font-size: 12px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.cours-block .cb-icon { font-size: 18px; }
+.cours-block.intro     { background: linear-gradient(135deg, rgba(255,201,60,.14), rgba(255,201,60,.04)); border-color: rgba(255,201,60,.35); }
+.cours-block.intro     .cb-head { color: var(--gold); }
+.cours-block.formule   { background: rgba(79,195,247,.10); border-color: rgba(79,195,247,.35); }
+.cours-block.formule   .cb-head { color: var(--bleu); }
+.cours-block.formule   .cb-body { font-family: 'SFMono-Regular', Menlo, monospace; font-size: 15px; line-height: 1.55; }
+.cours-block.mecanisme { background: rgba(77,230,168,.08); border-color: rgba(77,230,168,.32); }
+.cours-block.mecanisme .cb-head { color: var(--vert); }
+.cours-block.exemple   { background: rgba(255,244,224,.05); border-color: rgba(255,244,224,.22); }
+.cours-block.exemple   .cb-head { color: var(--cream); }
+.cours-block.piege     { background: rgba(255,77,90,.10); border-color: rgba(255,77,90,.4); }
+.cours-block.piege     .cb-head { color: var(--rouge); }
+.cours-block.convention{ background: rgba(255,159,67,.10); border-color: rgba(255,159,67,.4); }
+.cours-block.convention .cb-head { color: var(--orange); }
+.cours-block.astuce    { background: rgba(178,108,255,.10); border-color: rgba(178,108,255,.35); }
+.cours-block.astuce    .cb-head { color: #b26cff; }
+.cours-block.resume    { background: linear-gradient(135deg, rgba(255,201,60,.10), rgba(77,230,168,.08)); border-color: rgba(255,201,60,.35); }
+.cours-block.resume    .cb-head { color: var(--gold); }
+.cours-block ul, .cours-block ol { padding-left: 20px; margin: 6px 0; }
+.cours-block li { margin: 2px 0; }
+
+.cours-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+.cours-nav button {
+  padding: 12px 10px;
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  font-size: 14px;
+}
+.cours-endcta {
+  margin-top: 14px;
+  padding: 14px;
+  background: rgba(255,201,60,.10);
+  border: 1px dashed rgba(255,201,60,.45);
+  border-radius: 12px;
+  text-align: center;
+}
+.cours-endcta .cec-title {
+  font-family: var(--sans);
+  letter-spacing: .06em;
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.cours-endcta button { width: 100%; }
+
 /* mémo (cheatsheet) — modal plein écran */
 #modal .cheatsheet-sheet {
   max-width: 480px;
@@ -931,7 +1110,7 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
 }
 
 /* overlays : z-index 50 · modal 60 · etoile 85 · boot 95 */
-#overlay, #modal, #etoile, #boot {
+#overlay, #modal, #etoile, #cours, #boot {
   position: fixed;
   inset: 0;
   display: none;
@@ -944,6 +1123,7 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
 #overlay.show, #modal.show, #etoile.show, #boot.show { display: flex; }
 #overlay { z-index: 50; }
 #modal { z-index: 60; }
+#cours { z-index: 80; background: var(--ink); }
 #etoile { z-index: 85; }
 #boot { z-index: 95; background: var(--ink); }
 
@@ -1000,6 +1180,7 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   <button class="b-sm b-ghost" data-act="importGame" aria-label="Importer">IMP</button>
   <span class="spacer"></span>
   <button class="b-sm b-ghost" data-act="cheatsheet">MEMO</button>
+  <button class="b-sm b-ghost" data-act="cours">COURS</button>
   <button class="b-sm b-ghost" data-act="palmares">PALMARES</button>
 </div>
 
@@ -1015,6 +1196,7 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
 <div id="overlay" role="dialog" aria-modal="true"></div>
 <div id="modal" role="dialog" aria-modal="true"></div>
 <div id="etoile" role="dialog" aria-modal="true"></div>
+<div id="cours" role="dialog" aria-modal="true"></div>
 <div id="boot" role="dialog" aria-modal="true"></div>
 
 <script>
@@ -3346,6 +3528,132 @@ function renderEtoile() {
   el.classList.add("show");
 }
 
+// ---------- Cours (J40) — écran plein cadre avec blocs typés ---------
+// COURS n'est pas dans S : c'est un mode indépendant du jeu, ouvert/fermé
+// via la topbar. On stocke {cid, blockIdx} au niveau module.
+let COURS = { cid: null, blockIdx: 0 };
+
+const COURS_BLOCK_META = {
+  intro:     { label: "Intro",       icon: "📘" },
+  convention:{ label: "Convention",  icon: "⚠️" },
+  formule:   { label: "Formule",     icon: "📐" },
+  mecanisme: { label: "Mécanisme",   icon: "⚙️" },
+  exemple:   { label: "Exemple",     icon: "💡" },
+  piege:     { label: "Piège",       icon: "🚨" },
+  astuce:    { label: "Astuce",      icon: "✨" },
+  resume:    { label: "À retenir",   icon: "🎯" },
+};
+
+function renderCoursIndex() {
+  const el = document.getElementById("cours");
+  const lessons = DATA.LESSONS || {};
+  const mats = getMats();
+  const settings = loadSettings();
+  const currentMat = settings.mat || mats[0] || "emi";
+
+  // Groupe les cats par mat, dans l'ordre : matière courante d'abord.
+  const orderedMats = [currentMat].concat(mats.filter(m => m !== currentMat));
+
+  const blocks = orderedMats.map(mat => {
+    const cids = catIdsFor(mat);
+    if (!cids.length) return "";
+    const items = cids.map(cid => {
+      const cat = DATA.CATS[cid];
+      const has = !!(lessons[cid] && Array.isArray(lessons[cid].blocks) && lessons[cid].blocks.length);
+      const cls = has ? "avail" : "soon";
+      const badge = has ? "▶ ouvrir" : "à venir";
+      const act = has ? `data-act="coursOpen" data-v="${esc(cid)}"` : '';
+      return (
+        '<div class="cours-index-item ' + cls + '"' + (act ? ' ' + act : '') + '>' +
+          '<span class="cours-index-name">' + esc(cat.name) + '</span>' +
+          '<span class="cours-index-badge">' + badge + '</span>' +
+        '</div>'
+      );
+    }).join("");
+    return (
+      '<div class="cours-index-mat">' + esc(mat.toUpperCase()) + '</div>' +
+      items
+    );
+  }).join("");
+
+  el.innerHTML =
+    '<div class="cours-sheet">' +
+      '<div class="cours-topbar">' +
+        '<h1>Cours</h1>' +
+        '<button class="b-sm b-ghost" data-act="coursClose">Fermer</button>' +
+      '</div>' +
+      '<div class="cours-index-hint">Chaque cours prépare la catégorie correspondante dans le quiz. Sélectionne une catégorie pour commencer.</div>' +
+      '<div class="cours-body">' + blocks + '</div>' +
+    '</div>';
+  el.classList.add("show");
+}
+
+function renderCoursLesson() {
+  const el = document.getElementById("cours");
+  const lessons = DATA.LESSONS || {};
+  const cid = COURS.cid;
+  const lesson = cid ? lessons[cid] : null;
+  if (!lesson) { renderCoursIndex(); return; }
+  const blocks = lesson.blocks || [];
+  const n = blocks.length;
+  const i = Math.max(0, Math.min(n - 1, COURS.blockIdx | 0));
+  const b = blocks[i] || { kind: "intro", text: "" };
+  const meta = COURS_BLOCK_META[b.kind] || { label: b.kind, icon: "•" };
+  const cat = DATA.CATS[cid];
+  const title = (cat && cat.name) || lesson.title || cid;
+  const pct = n > 0 ? Math.round(100 * (i + 1) / n) : 0;
+
+  // Contenu du bloc : lignes de texte séparées par \n\n → paragraphes.
+  // Une ligne commençant par "- " ou "* " → item de liste.
+  const bodyHtml = (function () {
+    const text = (b.text || "").trim();
+    if (!text) return "";
+    const paragraphs = text.split(/\n{2,}/);
+    return paragraphs.map(p => {
+      const lines = p.split("\n").map(s => s.trim()).filter(Boolean);
+      if (lines.every(l => /^[-*] /.test(l))) {
+        return '<ul>' + lines.map(l => '<li>' + esc(l.replace(/^[-*] /, "")) + '</li>').join("") + '</ul>';
+      }
+      if (lines.every(l => /^\d+\.\s/.test(l))) {
+        return '<ol>' + lines.map(l => '<li>' + esc(l.replace(/^\d+\.\s/, "")) + '</li>').join("") + '</ol>';
+      }
+      return '<p>' + esc(lines.join(" ")) + '</p>';
+    }).join("");
+  })();
+
+  const isLast = (i >= n - 1);
+  const prevDis = (i <= 0) ? ' disabled' : '';
+  const endCta = isLast ? (
+    '<div class="cours-endcta">' +
+      '<div class="cec-title">Prêt pour un quiz éclair ?</div>' +
+      '<button class="b-gold" data-act="coursQuiz" data-v="' + esc(cid) + '">Lancer une émission sur ' + esc(title) + '</button>' +
+    '</div>'
+  ) : "";
+
+  el.innerHTML =
+    '<div class="cours-sheet">' +
+      '<div class="cours-topbar">' +
+        '<h1>' + esc(title) + '</h1>' +
+        '<button class="b-sm b-ghost" data-act="coursIndex">Sommaire</button>' +
+      '</div>' +
+      '<div class="cours-progress"><span style="width:' + pct + '%"></span></div>' +
+      '<div class="cours-body">' +
+        '<article class="cours-block ' + esc(b.kind || "intro") + '">' +
+          '<div class="cb-head"><span class="cb-icon">' + meta.icon + '</span>' + esc(b.title || meta.label) + '</div>' +
+          '<div class="cb-body">' + bodyHtml + '</div>' +
+        '</article>' +
+        endCta +
+        '<div class="cours-nav">' +
+          '<button class="b-ghost" data-act="coursPrev"' + prevDis + '>← Précédent</button>' +
+          (isLast
+            ? '<button class="b-ghost" data-act="coursClose">Terminer</button>'
+            : '<button class="b-gold" data-act="coursNext">Suivant →</button>') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  el.classList.add("show");
+}
+
 function renderCheatsheet(filter) {
   const modal = document.getElementById("modal");
   const cs = DATA.CHEATSHEET || { sigles: [], notations: [], conventions: [] };
@@ -3743,6 +4051,57 @@ const ACT = {
   },
   cheatsheet() {
     renderCheatsheet("");
+  },
+  cours() {
+    COURS = { cid: null, blockIdx: 0 };
+    renderCoursIndex();
+  },
+  coursOpen(v) {
+    if (!v) return;
+    const lessons = (DATA.LESSONS || {});
+    if (!lessons[v] || !Array.isArray(lessons[v].blocks) || !lessons[v].blocks.length) return;
+    COURS = { cid: v, blockIdx: 0 };
+    renderCoursLesson();
+  },
+  coursIndex() {
+    COURS = { cid: null, blockIdx: 0 };
+    renderCoursIndex();
+  },
+  coursPrev() {
+    if (!COURS.cid) return;
+    COURS.blockIdx = Math.max(0, (COURS.blockIdx | 0) - 1);
+    renderCoursLesson();
+  },
+  coursNext() {
+    if (!COURS.cid) return;
+    const l = (DATA.LESSONS || {})[COURS.cid];
+    const n = l && l.blocks ? l.blocks.length : 0;
+    COURS.blockIdx = Math.min(n - 1, (COURS.blockIdx | 0) + 1);
+    renderCoursLesson();
+  },
+  coursClose() {
+    COURS = { cid: null, blockIdx: 0 };
+    const el = document.getElementById("cours");
+    el.classList.remove("show");
+    el.innerHTML = "";
+  },
+  coursQuiz(v) {
+    // Lance une émission Express sur cette seule catégorie.
+    if (!v) return;
+    const s = loadSettings();
+    const cat = (DATA.CATS || {})[v];
+    if (!cat) return;
+    s.mat = cat.mat || s.mat;
+    s.cats = [v];
+    s.express = true;
+    saveSettings(s);
+    // Ferme le cours et démarre une émission fraîche.
+    const el = document.getElementById("cours");
+    el.classList.remove("show");
+    el.innerHTML = "";
+    COURS = { cid: null, blockIdx: 0 };
+    newShow(s);
+    render();
   },
   cheatSearch() {
     // pas d'usage direct : le champ de recherche a un listener input()

@@ -19304,5 +19304,477 @@
         "d": "Achat/vente de devises compensé par une opération d'open market inverse. Ms inchangée → LM inchangée → aucun effet monétaire durable. Seule la composition du bilan BC change."
       }
     ]
+  },
+  "LESSONS": {
+    "bdp": {
+      "title": "Balance des paiements",
+      "mat": "emi",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "La balance des paiements (BdP), c'est la comptabilité du pays face au reste du monde sur un an. Tout est en partie double : chaque échange de biens ou d'actifs apparaît deux fois, une en flux réel, une en flux financier. Bien maîtrisée, c'est trois questions faciles au partiel. Mal maîtrisée, c'est le piège à erreurs de signe garanti. On la démonte en cinq minutes."
+        },
+        {
+          "kind": "convention",
+          "title": "Les signes du prof",
+          "text": "Convention centrale du cours (à écrire en gros sur ta copie) :\n\n- CC > 0 : excédent courant → le pays exporte plus qu'il n'importe (biens, services, revenus).\n- CF > 0 : sortie nette de capitaux → le pays prête au reste du monde ou accumule des réserves.\n- Hausse des réserves officielles : CF > 0 (le pays achète des actifs étrangers).\n\nAttention : la convention internationale (BPM6) est inversée pour CF. Le cours parisien garde l'ancienne convention. Reste fidèle au cours."
+        },
+        {
+          "kind": "formule",
+          "title": "L'identité comptable",
+          "text": "TC + CC − CF + EO = 0\n\nSymboles :\n- TC : compte de transferts en capital (remises de dettes, brevets — petit).\n- CC : compte courant (biens + services + revenus primaires + revenus secondaires).\n- CF : compte financier (IDE, portefeuille, autres, réserves).\n- EO : erreurs et omissions (l'ajustement statistique).\n\nCorollaire à retenir : capacité (ou besoin) de financement = TC + CC ≈ CF."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Lire un solde en 3 secondes",
+          "text": "Marche à suivre devant un tableau BdP :\n\n1. Repérer le signe du CC. CC > 0 = excédent → le pays a une capacité de financement.\n2. Cette épargne doit sortir : donc CF > 0 (convention du cours), le pays place à l'étranger.\n3. Si tu vois « les réserves augmentent », c'est aussi CF > 0.\n4. EO absorbe le résidu (rarement zéro).\n\nInverse pour un pays déficitaire : CC < 0 → besoin de financement → CF < 0 (entrées nettes)."
+        },
+        {
+          "kind": "exemple",
+          "title": "Cas chiffré simple",
+          "text": "France, année N (chiffres ronds fictifs, en milliards €) :\n- Biens : −60 (importe plus qu'elle n'exporte).\n- Services : +30 (tourisme).\n- Revenus primaires : +20 (dividendes sur avoirs étrangers).\n- Revenus secondaires : −10 (transferts nets).\n\nCC = −60 + 30 + 20 − 10 = −20. Besoin de financement.\nTC ≈ 0, EO ≈ 0 → CF ≈ −20 : entrée nette de capitaux de 20 pour boucler. Le pays s'endette auprès du reste du monde."
+        },
+        {
+          "kind": "piege",
+          "title": "Piège n°1 : le signe de CF (trap signe-bdp)",
+          "text": "Le prof adore te tester sur ce point. Chaque fois qu'on parle de flux de capitaux, arrête-toi et pense « au sens du cours ».\n\n- IDE américain qui rachète une usine française = entrée de capitaux pour la France ⇒ CF < 0.\n- Rapatriement des avoirs français à l'étranger = entrée nette ⇒ CF < 0.\n- Hausse des réserves officielles = achat d'actifs étrangers = sortie nette ⇒ CF > 0.\n\nNe confonds pas non plus balance commerciale (biens seuls) et balance courante (biens + services + revenus). Trap bc-bcour."
+        },
+        {
+          "kind": "astuce",
+          "title": "Le truc du sablier",
+          "text": "Imagine un sablier : en haut, le pays ; en bas, le reste du monde. Le CC dit dans quel sens s'écoule le sable réel (biens/services). Le CF dit dans quel sens s'écoule le sable financier. Les deux sabliers tournent en sens opposés : si le sable réel descend (CC > 0, on exporte), le sable financier remonte (CF > 0, on prête). C'est l'identité comptable en image."
+        },
+        {
+          "kind": "resume",
+          "text": "Avant de fermer le cahier, mémorise :\n\n- TC + CC − CF + EO = 0 (l'identité sacrée).\n- CF > 0 = sortie nette de capitaux (convention du cours, pas BPM6).\n- CC > 0 ⇒ capacité de financement ⇒ CF > 0.\n- Hausse des réserves = CF > 0.\n- BC (biens) ≠ CC (biens + services + revenus)."
+        }
+      ]
+    },
+    "parite": {
+      "title": "Parités de taux d'intérêt",
+      "mat": "emi",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Deux placements, deux monnaies, un arbitrage. Les parités de taux d'intérêt (PCTI et PNCTI) expliquent pourquoi une hausse surprise du taux directeur fait bondir le change tout de suite. C'est le chapitre qui fait tomber la moitié des copies : sens du signe inversé, horizon oublié, log confondu avec ratio. On te donne les trois formules qui sauvent."
+        },
+        {
+          "kind": "convention",
+          "title": "Notations qui piègent",
+          "text": "Convention du cours (à ne surtout pas inverser) :\n\n- e : logarithme du taux de change au certain (1 € = e $, ou plus précisément ln de ce taux).\n- Au certain : hausse de e = appréciation de la monnaie domestique.\n- eᵃ : anticipation à horizon donné du même e.\n- i : taux domestique. i* : taux étranger.\n- f : taux à terme (forward), en log également.\n\nBcp d'auteurs travaillent à l'incertain (inverse). Le prof est au certain. Reste au certain."
+        },
+        {
+          "kind": "formule",
+          "title": "PCTI et PNCTI",
+          "text": "PCTI (parité couverte, arbitrage sans risque via forward) :\n\nf − e = i* − i\n\nPNCTI (parité non couverte, arbitrage ex ante) :\n\ni = i* − (eᵃ − e)   ⇔   e = eᵃ + (i − i*)\n\nLire la PNCTI : le taux domestique compense le taux étranger + la dépréciation anticipée. Si i monte à eᵃ donné, le taux courant e doit monter aussitôt (appréciation immédiate) pour laisser place à une dépréciation future qui compense."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Choc de i : le film en trois plans",
+          "text": "Contexte : PNCTI, i* et eᵃ inchangés. La banque centrale relève i par surprise.\n\n1. Rendement domestique attendu monte au-dessus du rendement étranger.\n2. Les capitaux se ruent vers la monnaie domestique → e bondit à l'instant (appréciation).\n3. Une fois e monté au-dessus de eᵃ, les investisseurs anticipent une dépréciation future (retour vers eᵃ). C'est cette dépréciation attendue qui rétablit l'égalité des rendements.\n\nRésultat : hausse de i ⇒ appréciation immédiate + dépréciation anticipée. Overshooting en germe (voir Dornbusch)."
+        },
+        {
+          "kind": "exemple",
+          "title": "PCTI en 30 secondes",
+          "text": "Données : i = 4 % par an (zone €), i* = 6 % par an (US). Taux au comptant : 1 € = 1,10 $. Horizon 1 an.\n\nEn log : i* − i = 2 %. Donc f − e = +2 %. Le dollar est en report à terme de 2 %.\n\nEn niveau : F/S ≈ 1 + (i* − i) = 1,02. F ≈ 1,10 × 1,02 = 1,122 $ par euro.\n\nInterprétation : le forward compense exactement le différentiel de taux. Aucun arbitrage possible sans risque."
+        },
+        {
+          "kind": "piege",
+          "title": "Les 3 pièges maison du prof",
+          "text": "Trap sens-parite : ne jamais dire « une hausse de i déprécie ». En PNCTI au certain, i ↑ ⇒ e ↑ (appréciation).\n\nTrap horizon : un taux de 4 % annuel sur 3 mois vaut 1 % (4 %/4), pas 4 %. Toujours annualiser dans le même sens que le différentiel.\n\nTrap niveau-log : ne compare pas Eᵃ/E avec i − i*. Compare eᵃ − e (différence de logs) avec i − i*. Ratio vs différence, jamais mélanger.\n\nBonus : le forward premium puzzle contredit empiriquement la PNCTI. La PCTI, elle, tient toujours (arbitrage pur)."
+        },
+        {
+          "kind": "astuce",
+          "title": "Le mnémotechnique « CENT »",
+          "text": "PCTI = Couverture par le Forward = Sans risque = tient toujours.\nPNCTI = Non couverture = arbitrage ex ante = testable, souvent réfutée.\n\nPour le sens : « au CENTain, i qui monte, e qui monte ». Ou visualise : plus d'intérêt → les capitaux arrivent → la monnaie prend de la valeur → e (au certain) monte.\n\nEt garde en tête que la PNCTI se lit toujours dans le sens : « taux courant = anticipation + différentiel »."
+        },
+        {
+          "kind": "resume",
+          "text": "Fiche express pour la salle d'exam :\n\n- PCTI : f − e = i* − i (via forward, sans risque, toujours vraie).\n- PNCTI : e = eᵃ + (i − i*) (ex ante, testable).\n- i ↑ à eᵃ, i* donnés ⇒ e ↑ (appréciation immédiate au certain).\n- Toujours convertir les taux au bon horizon.\n- Forward premium puzzle : la PNCTI est empiriquement rejetée."
+        }
+      ]
+    },
+    "depr": {
+      "title": "Dépréciation & balance commerciale",
+      "mat": "emi",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Une dépréciation, ça devrait doper les exports et freiner les imports, non ? Oui, mais pas tout de suite, et pas toujours. Ce chapitre te donne les deux garde-fous que le prof veut voir dans ta copie : la condition de Marshall-Lerner (la seule qui vaut) et la courbe en J (le décalage temporel). Bien racontés, ce sont des points cadeaux."
+        },
+        {
+          "kind": "convention",
+          "title": "Effet volume vs effet valeur",
+          "text": "Quand la monnaie se déprécie de x % :\n\n- Effet volume (favorable) : exports moins chers pour l'étranger → volumes X ↑. Imports plus chers → volumes M ↓.\n- Effet valeur (défavorable) : les imports coûtent plus cher pour la même quantité. La facture monte.\n\nBalance commerciale = (P_X × X) − (e × P_M* × M). La dépréciation ↑ e agit sur les 3 termes. L'effet net dépend des élasticités."
+        },
+        {
+          "kind": "formule",
+          "title": "Condition de Marshall-Lerner",
+          "text": "Pour qu'une dépréciation améliore le solde commercial (à moyen terme, à partir d'un solde équilibré) :\n\nεX + εM > 1\n\nSymboles :\n- εX : élasticité-prix des exportations (valeur absolue).\n- εM : élasticité-prix des importations (valeur absolue).\n\nSi la somme dépasse 1, l'effet volume l'emporte sur l'effet valeur. Sinon, la dépréciation dégrade le solde."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "La courbe en J étape par étape",
+          "text": "Après une dépréciation, le solde commercial suit une trajectoire en J :\n\n1. Court terme (0 à 6 mois) : contrats déjà signés, volumes rigides. Seul l'effet valeur joue → solde ↓ (creux du J).\n2. Moyen terme (6 à 18 mois) : les volumes s'ajustent, exports décollent, imports reculent. Si Marshall-Lerner tient, le solde remonte au-dessus du niveau initial.\n3. Long terme : nouveau plateau, solde amélioré.\n\nLe pricing to market (les exportateurs absorbent une partie du choc dans leur marge) allonge la phase descendante."
+        },
+        {
+          "kind": "exemple",
+          "title": "εX = 0,4, εM = 0,5",
+          "text": "Un pays fait face à une dépréciation nominale de 10 %.\n\nSomme des élasticités : 0,4 + 0,5 = 0,9 < 1. Marshall-Lerner NON vérifiée.\n\nEffet sur les volumes : X ↑ de 4 %, M ↓ de 5 %. Modeste.\nEffet valeur : imports plus chers de 10 % en monnaie locale.\n\nBilan : l'effet valeur (défavorable) domine l'effet volume. Le solde commercial se dégrade, même à moyen terme. Cas typique des pays très dépendants d'imports incompressibles (énergie)."
+        },
+        {
+          "kind": "piege",
+          "title": "Ce que teste le prof (trap ml-symetrie)",
+          "text": "Erreur classique : « une dépréciation améliore tout de suite le solde ». Faux. Court terme : ça le dégrade (effet valeur seul). Toujours dire « à moyen terme, si Marshall-Lerner tient ».\n\nAutre piège : croire que ML est automatique. Il faut vérifier εX + εM > 1. Pour beaucoup de pays émergents, la contrainte extérieure ne se relâche pas par la dépréciation.\n\nDernier piège : oublier la symétrie. Une appréciation, si ML tient, dégrade symétriquement le solde. Le pricing to market amortit dans les deux sens."
+        },
+        {
+          "kind": "astuce",
+          "title": "Le J qui plonge avant de remonter",
+          "text": "Visualise physiquement la lettre J : elle descend d'abord, puis remonte. C'est exactement le solde commercial après une dépréciation.\n\nPour retenir la condition ML : « E X plus E M supérieur à un ». Trois lettres : E X E M UN. Répète-le trois fois avant l'examen.\n\nEt souviens-toi : sans ML, la dépréciation empire tout. C'est la clé de bien des crises de balance des paiements."
+        },
+        {
+          "kind": "resume",
+          "text": "À emporter à l'examen :\n\n- Condition Marshall-Lerner : εX + εM > 1.\n- Courbe en J : court terme ↓ (effet valeur), moyen terme ↑ (effet volume).\n- Pricing to market : marges qui absorbent, pass-through incomplet, J allongé.\n- Sans ML : la dépréciation dégrade le solde durablement.\n- Symétrie : appréciation + ML ⇒ solde ↓."
+        }
+      ]
+    },
+    "equil": {
+      "title": "Change d'équilibre",
+      "mat": "emi",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "À long terme, quel est le « bon » taux de change ? Trois théories concurrentes : la PPA (loi du prix unique, la plus vieille), Balassa-Samuelson (productivité et rattrapage), le TCEF (équilibre externe + interne). Le prof adore te faire réciter les cinq étapes de Balassa-Samuelson : s'en oublier une = point perdu. On les fixe une fois pour toutes."
+        },
+        {
+          "kind": "convention",
+          "title": "TCR, TCER, taux réel",
+          "text": "Deux notations à ne pas confondre :\n\n- TCR bilatéral : q = e × P*/P (au certain). Hausse de q = dépréciation réelle = gain de compétitivité-prix.\n- TCER (effectif réel) : moyenne géométrique pondérée des TCR bilatéraux, poids = parts commerciales.\n\nEn log linéarisé (petits chocs) :\n\nΔq ≈ Δe + (π* − π)\n\nSi la monnaie s'apprécie (Δe < 0) mais que l'inflation domestique est plus basse (π < π*), la compétitivité réelle peut être préservée."
+        },
+        {
+          "kind": "formule",
+          "title": "PPA absolue et PPA relative",
+          "text": "PPA absolue (niveau) :\n\nE = P / P*   (loi du prix unique généralisée)\n\nPPA relative (variations, plus robuste empiriquement) :\n\nΔe ≈ π* − π   (au certain)\n\nSymboles : π = inflation domestique, π* = inflation étrangère, e = log taux au certain.\n\nInterprétation : la monnaie du pays le plus inflationniste se déprécie. C'est le canal désinflationniste qu'Allemagne années 80 a exploité."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Balassa-Samuelson en 5 étapes",
+          "text": "Le prof exige les cinq étapes dans l'ordre. Pas quatre, pas six :\n\n1. Gain de productivité dans le secteur échangeable (T) : innovations, rattrapage technologique.\n2. Hausse des salaires dans l'échangeable : la productivité rémunère.\n3. Contagion salariale au secteur abrité (N) : marché du travail unifié, les salaires s'alignent.\n4. Hausse des prix des non-échangeables : les coûts salariaux s'y répercutent (pas de gain de productivité pour compenser).\n5. Hausse du niveau général des prix relatifs → appréciation réelle de la monnaie.\n\nConclusion : les pays en rattrapage voient leur monnaie s'apprécier en termes réels."
+        },
+        {
+          "kind": "exemple",
+          "title": "Chine années 2000",
+          "text": "Sur la période 2000-2010, la Chine cumule :\n- gains de productivité massifs dans l'industrie manufacturière (T),\n- hausse continue des salaires urbains (contagion vers services N),\n- inflation des services domestiques (logement, restauration) supérieure à l'inflation manufacturière.\n\nRésultat conforme à Balassa-Samuelson : le yuan s'apprécie en termes réels malgré le change nominal quasi-fixe. L'ajustement passe entièrement par les prix relatifs domestiques."
+        },
+        {
+          "kind": "piege",
+          "title": "Trap bs-etapes : la contagion oubliée",
+          "text": "L'étape 3 (contagion salariale) est celle que 80 % des candidats oublient. Sans elle, la chaîne se casse : les gains de productivité T ne se transmettent pas aux prix N.\n\nDeuxième piège (trap horizon) : la PPA absolue n'est pas vérifiée empiriquement (biens non-échangeables, coûts de transport). La PPA relative marche mieux, mais à long terme seulement (10-20 ans).\n\nTroisième piège : le TCEF (FEER) est un concept de moyen terme, pas un objectif de banque centrale à piloter au comptant. C'est une norme de convergence."
+        },
+        {
+          "kind": "astuce",
+          "title": "La comptine PSCPA",
+          "text": "Retiens Balassa-Samuelson avec « PSCPA » :\n\n- P : Productivité échangeable.\n- S : Salaires échangeable.\n- C : Contagion abrité.\n- P : Prix non-échangeables.\n- A : Appréciation réelle.\n\nCinq lettres, cinq étapes. Récite-les à voix haute avant l'exam. Et n'oublie pas le TCEF : « équilibre externe (CC soutenable) + équilibre interne (plein emploi) »."
+        },
+        {
+          "kind": "resume",
+          "text": "Le triptyque à ranger dans ta tête :\n\n- PPA relative : Δe ≈ π* − π (long terme).\n- Balassa-Samuelson : 5 étapes P-S-C-P-A → pays en rattrapage s'apprécient en réel.\n- TCEF (FEER) : équilibre externe + interne, moyen terme.\n- TCER = moyenne géométrique pondérée par le commerce.\n- La contagion salariale : ne l'oublie pas dans BS."
+        }
+      ]
+    },
+    "mf": {
+      "title": "Mundell-Fleming & politiques de change",
+      "mat": "emi",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Mundell-Fleming, c'est LE modèle qui décide si ta politique budgétaire ou monétaire aura un effet. Réponse : ça dépend de deux paramètres, le régime de change et la mobilité des capitaux. Quatre cases, quatre verdicts, et un triangle magique (l'incompatibilité) qui résume tout. Bien maîtrisé, c'est 20 % du partiel qui tombent tout seuls."
+        },
+        {
+          "kind": "convention",
+          "title": "Cadre statique et prix fixes",
+          "text": "À retenir avant tout :\n\n- MF est un modèle STATIQUE (comparaisons d'équilibres, pas de dynamique).\n- Prix fixes à court terme (P = 1). Toute l'action passe par les quantités.\n- Mobilité parfaite : i = i* obligatoire à l'équilibre.\n- IS-LM-BP dans un plan (Y, i). BP = ligne horizontale à i = i* si mobilité parfaite.\n\nPour la dynamique (surajustement, retour vers PPA), c'est Dornbusch, pas MF. Ne les confonds jamais (trap statique-dyn)."
+        },
+        {
+          "kind": "formule",
+          "title": "Le triangle d'incompatibilité",
+          "text": "Trois sommets, on ne peut en garder que deux :\n\n1. Régime de change fixe.\n2. Mobilité parfaite des capitaux.\n3. Autonomie de la politique monétaire.\n\nMatrice 2×2 (régime × mobilité) pour lire les effets :\n\n              | Change fixe          | Change flexible\nMobilité      | G efficace           | G inefficace (éviction totale)\nparfaite      | Ms inefficace        | Ms efficace\n\nEn changes fixes, la BC perd Ms mais garde G. En flexibles, l'inverse."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Deux cas d'école à raconter",
+          "text": "Cas 1 : Flexible + mobilité parfaite, hausse de G.\n\n1. G ↑ → IS se déplace à droite → Y ↑ et i ↑.\n2. i > i* → entrées massives de capitaux → appréciation.\n3. Appréciation → X − M ↓ → IS revient exactement à sa position initiale.\n4. Verdict : Y inchangé, éviction TOTALE par le change. G inefficace.\n\nCas 2 : Fixe + mobilité parfaite, hausse de Ms.\n\n1. Ms ↑ → LM à droite → i ↓.\n2. i < i* → sortie de capitaux → pression à la dépréciation.\n3. Pour tenir la parité, la BC vend des devises, rachète de la monnaie → Ms revient à son niveau initial.\n4. Verdict : Ms inefficace, la BC subit."
+        },
+        {
+          "kind": "exemple",
+          "title": "Zone euro et politique budgétaire",
+          "text": "Un pays de la zone euro (change fixe interne, mobilité parfaite) veut relancer par la dépense publique G.\n\nEn théorie MF : G efficace, car en fixe + mobilité parfaite, l'entrée de capitaux force la BCE à accommoder → Ms ↑ endogène → double effet expansionniste.\n\nEn pratique : la BCE ne cible pas un pays, donc l'accommodation reste locale (via TARGET2). Y ↑ effectivement. C'est le principal levier laissé à un pays de la zone : la politique monétaire, elle, a été abandonnée par construction (deux sommets du triangle sur trois choisis)."
+        },
+        {
+          "kind": "piege",
+          "title": "Traps mf-regime et sterilise",
+          "text": "Trap mf-regime : ne mélange jamais les cases. La politique BUDGÉTAIRE est efficace en fixe, inefficace en flexible + mobilité parfaite. La politique MONÉTAIRE est l'inverse.\n\nTrap sterilise : une intervention STÉRILISÉE, c'est quand la BC compense son achat/vente de devises par une opération d'open market inverse. Résultat : Ms inchangée, LM inchangée, effet neutralisé. Beaucoup répondent « LM se déplace » : faux, c'est justement l'inverse.\n\nTrap statique-dyn : pas de surajustement dans MF. Le surajustement, c'est Dornbusch (prix flexibles à long terme).\n\nTrap fixe-flexible : en régimes intermédiaires (crawling peg, bandes), les effets sont ATTÉNUÉS, pas nuls."
+        },
+        {
+          "kind": "astuce",
+          "title": "Le tableau à recopier en marge",
+          "text": "Dessine cette croix sur ton brouillon dès le début :\n\n              Fixe      Flexible\n  Ms          NON        OUI\n  G           OUI        NON\n\n(sous mobilité parfaite des capitaux)\n\nMnémo : « en fixe, la BC est prisonnière ; en flexible, le budget est prisonnier ». Puis pour le triangle : « trois sommets, on n'en garde que deux ». Trois secondes par sous-question, dix points d'avance."
+        },
+        {
+          "kind": "resume",
+          "text": "L'essentiel du chapitre 6 :\n\n- Triangle d'incompatibilité : 2 sur 3 max (fixe / mobilité / autonomie monétaire).\n- Fixe + mobilité parfaite : G efficace, Ms inefficace.\n- Flexible + mobilité parfaite : G inefficace (éviction), Ms efficace.\n- Stérilisation : Ms inchangée, LM inchangée.\n- MF = statique, prix fixes. Dornbusch = dynamique, prix flexibles LT."
+        }
+      ]
+    },
+    "solow": {
+      "title": "Modèle de Solow",
+      "mat": "croissance",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Solow (1956) est le point de départ obligé de tout partiel de croissance. Il pose la question centrale : pourquoi les pays croissent-ils différemment, et jusqu'où ?\n\nRésultat sacré à retenir : à long terme, le taux de croissance du PIB par tête ne dépend PAS du taux d'épargne. Il ne dépend que du progrès technique exogène g. L'épargne ne fait bouger que le NIVEAU du sentier, pas sa pente.\n\nCe résultat déroute — c'est justement pour cela que le jury adore le tester."
+        },
+        {
+          "kind": "convention",
+          "title": "Notations",
+          "text": "- k = K/(A·L) : capital par unité de travail efficace\n- y = Y/(A·L) = f(k) : production par unité de travail efficace\n- s : taux d'épargne (exogène)\n- n : taux de croissance de la population\n- g : taux de progrès technique (exogène)\n- δ : taux de dépréciation\n- α : élasticité du capital dans Cobb-Douglas, ≈ 1/3"
+        },
+        {
+          "kind": "formule",
+          "title": "L'équation sacrée",
+          "text": "Fonction de production Cobb-Douglas :\ny = k^α\n\nÉquation d'accumulation en travail efficace :\nk̇ = s·y − (n+g+δ)·k\n\nÉtat régulier (k̇ = 0) :\nk* = (s/(n+g+δ))^(1/(1−α))\n\ny* = (s/(n+g+δ))^(α/(1−α))"
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Convergence vers l'état régulier",
+          "text": "Trois forces se disputent le capital par tête :\n\n- s·y le nourrit (investissement brut)\n- (n+g+δ)·k le dilue (usure, démographie, progrès technique)\n- rendements décroissants de k : chaque unité supplémentaire rapporte moins\n\nSi k < k* : s·y > (n+g+δ)·k, donc k monte.\nSi k > k* : s·y < (n+g+δ)·k, donc k baisse.\nL'équilibre k* est globalement stable : toute économie y converge, quelle que soit sa condition initiale."
+        },
+        {
+          "kind": "formule",
+          "title": "Vitesse de convergence",
+          "text": "Autour de k*, k̇/k ≈ −λ · ln(k/k*) avec :\n\nλ = (1−α)·(n+g+δ)\n\nCalibration standard : α = 1/3, n = 0,01, g = 0,02, δ = 0,05.\nλ = (2/3)·0,08 ≈ 5,3 %/an.\n\nDemi-vie de l'écart = ln(2)/λ ≈ 13 ans. Trop rapide pour être empiriquement crédible → motivation pour MRW."
+        },
+        {
+          "kind": "exemple",
+          "title": "Calcul de tête",
+          "text": "Prends s = 0,2, α = 1/3, n+g+δ = 0,08.\n\n1. k* = (0,2/0,08)^(1/(1−1/3)) = 2,5^(3/2) ≈ 3,95\n2. y* = k*^α = 3,95^(1/3) ≈ 1,58\n3. λ ≈ 5,3 %/an\n\nDoubler s de 0,2 à 0,4 : k* passe à 5^1,5 ≈ 11,2. y* est multiplié par 2^(1/2) ≈ 1,41. Gros effet NIVEAU. Effet CROISSANCE à long terme : nul (g reste = g)."
+        },
+        {
+          "kind": "formule",
+          "title": "Règle d'or (Phelps 1961)",
+          "text": "Taux d'épargne qui maximise la consommation par tête à l'état régulier c* = (1−s)·y*.\n\nCondition : f'(k*_or) = n+g+δ.\n\nAvec Cobb-Douglas : s*_or = α.\n\nS'il faut se souvenir d'un chiffre : α ≈ 1/3, donc le taux d'épargne d'or vaut 33 %. Épargner plus est dynamiquement inefficace (on sacrifie de la conso aujourd'hui sans gain à long terme)."
+        },
+        {
+          "kind": "piege",
+          "title": "Effet NIVEAU vs effet CROISSANCE",
+          "text": "LE piège numéro un du partiel.\n\nUne hausse permanente de s :\n- augmente k*, y* : effet NIVEAU permanent\n- accélère g pendant la transition : effet CROISSANCE transitoire\n- ne modifie PAS le taux de croissance de long terme g_y = g (exogène)\n\nSi la question demande « effet à long terme sur le taux de croissance du PIB par tête » : la réponse est ZÉRO. Si elle demande « effet sur le PIB par tête » : POSITIF PERMANENT. Lire deux fois."
+        },
+        {
+          "kind": "astuce",
+          "title": "Mnémotechnique",
+          "text": "SOLOW = « Sans Origine de croissance à Long terme, Oubliez l'épargne, Watch g exogène ».\n\nPour l'exposant : k* ∝ (s/(n+g+δ))^(1/(1−α)). Si α = 1/3 : exposant = 3/2. Se retient facilement : « un demi de plus que 1 ».\n\nPour la vitesse : λ = (1−α)·(n+g+δ). Se retient comme « part du travail × total des dilutions » ≈ 5 %/an au calibrage standard."
+        },
+        {
+          "kind": "resume",
+          "text": "- Solow explique le NIVEAU de richesse par (s, n, g, δ), pas la pente\n- k* = (s/(n+g+δ))^(1/(1−α)), y* = k*^α\n- Convergence à taux λ = (1−α)(n+g+δ) ≈ 5 %/an, trop rapide empiriquement\n- Règle d'or : s*_or = α, maximise la consommation stationnaire\n- Croissance de long terme = g (exogène) : rien de très satisfaisant, d'où Romer et Aghion"
+        }
+      ]
+    },
+    "mrw": {
+      "title": "Mankiw-Romer-Weil (1992)",
+      "mat": "croissance",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "MRW est LE test empirique canonique du modèle de Solow. Trois auteurs (Mankiw, Romer, Weil) prennent Solow au sérieux et se demandent : est-ce que les données confirment ses prédictions ?\n\nRéponse : oui, mais à condition d'ajouter le CAPITAL HUMAIN. Solow pur prédit une vitesse de convergence de ~5 %/an — les données montrent ~2 %/an. Ajouter H résout le paradoxe et sauve le cadre néoclassique.\n\nArticle publié dans QJE 1992. À citer les yeux fermés."
+        },
+        {
+          "kind": "convention",
+          "title": "Notations",
+          "text": "- K : capital physique\n- H : capital humain (stock)\n- A : progrès technique (exogène, comme chez Solow)\n- L : population active\n- α, β : élasticités de K et H dans la production\n- s_K, s_H : taux d'épargne physique et humain\n- Empiriquement estimés : α ≈ 1/3, β ≈ 1/3"
+        },
+        {
+          "kind": "formule",
+          "title": "Fonction de production augmentée",
+          "text": "Y = K^α · H^β · (A·L)^(1−α−β)\n\nAvec α + β < 1 (rendements décroissants sur les facteurs cumulables).\n\nEn travail efficace :\ny = k^α · h^β\n\nDeux équations d'accumulation :\nk̇ = s_K·y − (n+g+δ)·k\nḣ = s_H·y − (n+g+δ)·h\n\nÉtat régulier : chaque facteur cumulable rémunéré à sa productivité marginale."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Partage tiers/tiers/tiers du revenu",
+          "text": "Pourquoi MRW s'en sortent-ils là où Solow échoue ?\n\n- Solow pur : α ≈ 1/3 pour K, 2/3 pour L → vitesse λ = (1−α)(n+g+δ) ≈ 5 %/an\n- MRW : α ≈ 1/3, β ≈ 1/3, (1−α−β) ≈ 1/3 → vitesse λ = (1−α−β)(n+g+δ) ≈ 2 %/an\n\nLa part des facteurs cumulables monte de 1/3 à 2/3. La part du facteur non cumulable (A·L) tombe à 1/3. Donc la convergence est TROIS FOIS plus lente. Colle aux données."
+        },
+        {
+          "kind": "exemple",
+          "title": "Proxy scolaire",
+          "text": "Comment mesure-t-on H empiriquement ? MRW utilisent un proxy simple mais brutal :\n\n- s_H approximé par SCHOOL = part de la population 15-19 ans scolarisée dans le secondaire\n- Justification : c'est un investissement en capital humain qui remplace du travail productif\n- Régression cross-country sur ~100 pays, période 1960-1985\n\nRésultat : les coefficients estimés sont statistiquement cohérents avec α = β = 1/3. Solow AUGMENTÉ colle. Solow PUR ne colle pas."
+        },
+        {
+          "kind": "formule",
+          "title": "Vitesse de convergence conditionnelle",
+          "text": "λ = (1−α−β)·(n+g+δ)\n\nCalibration MRW : α = β = 1/3, n+g+δ ≈ 0,06 :\nλ ≈ 0,33 · 0,06 ≈ 2 %/an\n\nDemi-vie de l'écart = ln(2)/0,02 ≈ 35 ans.\n\nDonnée empirique canonique (Barro, MRW) : λ ≈ 2 %/an entre pays similaires. MRW « prédit » ce chiffre à partir des paramètres micro. Miracle de calibration."
+        },
+        {
+          "kind": "piege",
+          "title": "Convergence absolue vs conditionnelle",
+          "text": "Convergence ABSOLUE : tous les pays convergent vers le même y*. Empiriquement FAUX.\n\nConvergence CONDITIONNELLE : chaque pays converge vers SON y*, qui dépend de (s_K, s_H, n) locaux. Empiriquement VRAI.\n\nMRW démontre la convergence conditionnelle, pas l'absolue. Les pays pauvres restent pauvres si leurs (s_K, s_H) sont bas ; ils ne rattrapent pas les riches automatiquement. Piège classique du partiel : dire « MRW démontre que tous les pays convergent »."
+        },
+        {
+          "kind": "astuce",
+          "title": "Mnémotechnique",
+          "text": "MRW = « Mankiw-Romer-Weil, un Mankiw pas Paul Romer ! ». Le Romer de MRW est David Romer (mari de Christina), pas Paul Romer (Nobel 2018).\n\nPour retenir la vitesse : sans H → 5, avec H → 2. « Cinq sans, deux avec ».\n\nPour la fonction : α, β, puis (1−α−β). Trois exposants qui somment à 1 : rendements constants globaux."
+        },
+        {
+          "kind": "resume",
+          "text": "- MRW = Solow + capital humain H, publié dans QJE 1992\n- Y = K^α · H^β · (A·L)^(1−α−β), avec α ≈ β ≈ 1/3\n- Vitesse de convergence : λ ≈ 2 %/an (vs 5 %/an pour Solow pur)\n- Proxy empirique : taux de scolarisation secondaire\n- Sauve Solow au prix de : convergence conditionnelle seulement, croissance LT toujours exogène"
+        }
+      ]
+    },
+    "romer": {
+      "title": "Romer (1990) — Croissance endogène par les variétés",
+      "mat": "croissance",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Paul Romer (Nobel 2018) fait sauter le verrou de Solow : le progrès technique n'est plus tombé du ciel, il est PRODUIT par des chercheurs qui répondent à des incitations économiques. C'est la naissance de la croissance ENDOGÈNE.\n\nDeux articles cultes : Romer (1986) « learning-by-doing » avec externalités de K, puis Romer (1990) « Endogenous Technological Change » avec R&D et variétés de biens intermédiaires.\n\nLa politique publique reprend un rôle : subventionner la R&D peut faire monter le taux de croissance de long terme."
+        },
+        {
+          "kind": "convention",
+          "title": "Notations",
+          "text": "- A : stock d'idées (nombre de variétés inventées)\n- L_A : nombre de chercheurs en R&D\n- L_Y : nombre de travailleurs dans le bien final\n- s_R = L_A/L : part de la population en R&D\n- H : capital humain total\n- δ (ou γ) : productivité de la R&D\n- Idée = bien NON RIVAL et partiellement EXCLUABLE (via brevet)"
+        },
+        {
+          "kind": "formule",
+          "title": "La formule sacrée",
+          "text": "Fonction de production du bien final :\nY = K^α · (A·L_Y)^(1−α)\n\nFonction de production d'idées :\nȦ = δ · L_A · A\n\nDonc taux de croissance des idées :\ng_A = Ȧ/A = δ · L_A = δ · s_R · H\n\nÀ long terme, g_Y/L = g_A. La croissance dépend directement de s_R : plus on met de gens en R&D, plus g monte. ENDOGÈNE."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Non-rivalité et rendements croissants",
+          "text": "Pourquoi les idées font-elles sauter les rendements décroissants ?\n\n- Un capital physique (K) ne peut servir qu'à une firme à la fois : rival\n- Une idée (formule chimique, algorithme) peut servir simultanément à toutes les firmes du monde : non rivale\n- Sans exclusion, l'inventeur ne récupère rien → sous-production\n- Le BREVET crée une exclusion artificielle temporaire : rente monopoliste qui rémunère la R&D\n\nDeux sources de sous-optimalité chez Romer 1990 : externalité de connaissance (chercheurs ignorent le bénéfice social futur) + concurrence imparfaite (monopole intermédiaire produit trop peu). Justifient subvention publique."
+        },
+        {
+          "kind": "exemple",
+          "title": "Explosion combinatoire",
+          "text": "L'image emblématique de Romer : la chimie.\n\nAvec 100 éléments, on peut former C(100, 4) ≈ 3,9 millions de tétrades possibles. Or on n'en a exploré qu'une infime partie. Le stock d'idées possibles n'est PAS borné.\n\nAutre exemple : « standing on the shoulders of giants ». Chaque nouvelle idée s'appuie sur toutes les précédentes → externalité de connaissance positive → ϕ > 0 dans Ȧ = δ · L_A · A^ϕ. Chez Romer 1990, ϕ = 1 : la R&D est d'autant plus productive que A est grand."
+        },
+        {
+          "kind": "formule",
+          "title": "Mark-up du monopoleur intermédiaire",
+          "text": "Chaque variété est produite par un monopoleur avec brevet. Demande inverse dérivée de Y = K^α · (A·L_Y)^(1−α), coût marginal = r (loyer du capital) :\n\np_i = r / α\n\nMark-up de Lerner = 1/α > 1. Avec α = 1/3, prix du monopoleur = 3·r. Rente triangulaire (perte sèche) mais indispensable pour rentabiliser la R&D. Trade-off au cœur du modèle."
+        },
+        {
+          "kind": "piege",
+          "title": "Effet d'échelle et critique de Jones (1995)",
+          "text": "Romer 1990 prédit : doubler L_A double g_A. C'est l'EFFET D'ÉCHELLE.\n\nProblème empirique documenté par Jones (1995) :\n- Aux USA 1950-1988, nombre de chercheurs × 5\n- Part des chercheurs dans la population × 3\n- Mais TFP quasi-constante à ~1,5 %/an\n\nContradiction flagrante. Jones corrige avec ϕ < 1 (fishing out) et λ < 1 (duplication) : Ȧ = δ · L_A^λ · A^ϕ. Résultat semi-endogène : g_A = λ·n/(1−ϕ). À long terme, seul le taux démographique n compte, la politique de R&D n'a plus qu'un effet de niveau.\n\nAu partiel : NE PAS confondre variétés horizontales (Romer) et innovations verticales (Aghion)."
+        },
+        {
+          "kind": "astuce",
+          "title": "Mnémotechnique",
+          "text": "ROMER = « Rendements Ouverts par Merci de la R&D ». Ou plus mnémonique : Romer = variétés HORIZONTALES (on empile des idées à côté), Aghion = innovations VERTICALES (chaque idée remplace la précédente).\n\nPour g_A = δ·s_R·H : « delta fois s_R fois H », se lit comme une phrase : productivité de la R&D, effort de R&D, taille du bassin de chercheurs.\n\nRomer 1986 = externalités de K. Romer 1990 = R&D + brevets. Deux articles différents, souvent confondus."
+        },
+        {
+          "kind": "resume",
+          "text": "- Romer 1990 endogénéise le progrès technique via R&D et brevets\n- Idée = bien non rival, partiellement excluable → externalité + monopole\n- g_A = δ · s_R · H : la croissance dépend des choix économiques\n- Effet d'échelle empiriquement rejeté par Jones (1995)\n- Politique optimale : subvention à la R&D (justifiée par spillovers)\n- À distinguer d'Aghion : variétés horizontales, pas destruction créatrice"
+        }
+      ]
+    },
+    "aghion": {
+      "title": "Aghion-Howitt (1992) — Destruction créatrice",
+      "mat": "croissance",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Aghion et Howitt (1992) formalisent Schumpeter : la croissance moderne procède par sauts qualitatifs discrets où chaque innovation détrône la précédente. Le monopoleur d'hier disparaît, remplacé par l'innovateur d'aujourd'hui.\n\nRupture avec Romer 1990 : là où Romer empile des variétés horizontalement, Aghion-Howitt les empile VERTICALEMENT. Chaque cran de qualité obsolète le précédent. C'est la destruction créatrice.\n\nÉnorme succès théorique et empirique. Fondement des travaux ultérieurs d'Aghion sur concurrence, croissance et politiques industrielles."
+        },
+        {
+          "kind": "convention",
+          "title": "Notations",
+          "text": "- A_i : qualité de l'input intermédiaire après i innovations\n- γ > 1 : taille d'un saut qualitatif (A_{i+1} = γ · A_i)\n- λ : intensité d'innovation par chercheur (paramètre de Poisson)\n- n : nombre de chercheurs\n- λ·n : taux d'arrivée des innovations (Poisson)\n- Une seule variété active à la fois : la plus récente"
+        },
+        {
+          "kind": "formule",
+          "title": "Formule sacrée du taux de croissance",
+          "text": "Sauts de qualité poissoniens :\nA_{i+1} = γ · A_i\n\nEspérance du taux de croissance de long terme :\ng = λ · n · ln(γ)\n\nInterprétation directe :\n- λ · n : fréquence des innovations par unité de temps\n- ln(γ) : ampleur log de chaque saut qualitatif\n\nCroissance = fréquence × taille (en log). Formule à connaître par cœur, examinateur en attendra les trois termes."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Destruction créatrice",
+          "text": "Séquence type d'un cycle Aghion-Howitt :\n\n1. Un monopoleur produit avec la variété la plus récente A_i, perçoit une rente\n2. Des chercheurs travaillent à découvrir la génération i+1, motivés par la rente future\n3. Une innovation arrive (processus de Poisson d'intensité λ·n)\n4. Le nouveau monopoleur A_{i+1} = γ · A_i évince l'ancien\n5. L'ancienne variété n'est plus produite (obsolète)\n6. Retour à l'étape 1\n\nCoût social : perte du monopole actuel. Gain social : progrès technique par sauts. Le modèle rend explicite l'arbitrage."
+        },
+        {
+          "kind": "exemple",
+          "title": "Calcul de tête",
+          "text": "Prends γ = 1,25 (saut de +25 % par innovation), λ·n = 0,05 (5 % de chances d'innovation par an).\n\n1. ln(1,25) ≈ 0,22\n2. g = 0,05 · 0,22 ≈ 0,011 = 1,1 %/an\n\nCohérent avec la TFP américaine post-1950. Si on double le nombre de chercheurs n, g double : 2,2 %/an. C'est aussi un effet d'échelle, critiqué comme chez Romer."
+        },
+        {
+          "kind": "formule",
+          "title": "Trade-off concurrence vs rentes",
+          "text": "La rente monopoliste est INDISPENSABLE : sans elle, personne n'innove. Mais elle représente aussi un coût statique (perte sèche).\n\nDeux effets opposés d'une hausse de la concurrence :\n- Effet Schumpeter : rentes ↓ → incitations à innover ↓\n- Effet « escape competition » (Aghion-BBGH 2005) : concurrence pousse les entreprises leader à fuir vers l'innovation\n\nRésultat célèbre : relation en U INVERSÉ entre concurrence et innovation. Optimum intermédiaire. Ni monopole absolu (paresse), ni concurrence pure et parfaite (rentes nulles)."
+        },
+        {
+          "kind": "piege",
+          "title": "Horizontal (Romer) vs vertical (Aghion)",
+          "text": "LE piège du partiel.\n\n- Romer 1990 : innovations HORIZONTALES. Nouvelles variétés qui coexistent avec les anciennes. Le nombre de variétés A monte.\n- Aghion-Howitt 1992 : innovations VERTICALES. Chaque nouvelle qualité EN REMPLACE une ancienne. UNE seule variété active à la fois. La qualité A monte.\n\nAutre piège : les deux modèles souffrent de l'EFFET D'ÉCHELLE (g croît avec n ou L_A). Jones (1995) corrige les deux dans le sens semi-endogène.\n\nDernier piège : la destruction créatrice n'est pas la dépréciation physique δ du capital. Ne pas mélanger avec Solow."
+        },
+        {
+          "kind": "astuce",
+          "title": "Mnémotechnique",
+          "text": "AGHION = « Ancien viré, Génération +1, Innovation Obsolétise à Nouveau ».\n\nFormule à retenir : « la fréquence × la taille ». g = λ·n · ln(γ). Trois lettres, trois notions.\n\nPour la relation en U inversé concurrence-innovation : image du monopoleur paresseux d'un côté (pas d'incitation à innover), du concurrent affamé de l'autre (rentes nulles). L'optimum est le duopoleur tendu.\n\nSchumpeter (1942) « Capitalisme, Socialisme et Démocratie » = source intellectuelle. À citer en intro pour crédibiliser."
+        },
+        {
+          "kind": "resume",
+          "text": "- Aghion-Howitt (1992) : croissance par sauts qualitatifs discrets\n- g = λ · n · ln(γ) : fréquence × taille des innovations (en log)\n- Une seule variété active à la fois, la plus récente\n- Trade-off : rentes indispensables (Schumpeter) vs perte sèche (concurrence)\n- U inversé concurrence-innovation (Aghion et al. 2005)\n- À distinguer : horizontal (Romer) vs vertical (Aghion)"
+        }
+      ]
+    },
+    "ajr": {
+      "title": "Acemoglu-Johnson-Robinson — Les institutions",
+      "mat": "croissance",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Acemoglu, Johnson et Robinson (Nobel 2024) proposent la thèse la plus influente des vingt dernières années : ce sont les INSTITUTIONS, pas la géographie ni la culture, qui expliquent pourquoi certaines nations sont riches et d'autres pauvres.\n\nDeux articles fondateurs : AJR (2001) dans l'American Economic Review, qui identifie CAUSALEMENT l'effet des institutions via une variable instrumentale ; AJR (2002) dans le Quarterly Journal of Economics, qui documente le fameux « Reversal of Fortune ».\n\nL'agenda AJR bascule la croissance de la « proximate causation » (K, H, A) à la « fundamental causation » (institutions, culture, géographie)."
+        },
+        {
+          "kind": "convention",
+          "title": "Notations et vocabulaire",
+          "text": "- Institutions INCLUSIVES : droits de propriété sécurisés, État de droit, participation politique large\n- Institutions EXTRACTIVES : concentration du pouvoir et de la rente sur une élite étroite\n- IV : instrumental variable, méthode économétrique pour identifier une causalité\n- North (1990) : institutions = « règles du jeu ». À distinguer des ORGANISATIONS (les joueurs).\n- Acemoglu (2009) : 4 causes fondamentales de la croissance = chance, géographie, institutions, culture"
+        },
+        {
+          "kind": "formule",
+          "title": "L'équation structurelle et l'IV",
+          "text": "AJR estiment :\nln(y_c) = α + β · Institutions_c + ε_c\n\nProblème : Institutions_c est endogène (biais de simultanéité, variables omises). Solution : instrumenter par la mortalité historique des colons.\n\n1re étape : Institutions_c = π_0 + π_1 · Mortalité_colons_c + u_c\n2e étape : ln(y_c) prédit avec Institutions_hat\n\nCondition d'exclusion : la mortalité coloniale n'affecte le revenu ACTUEL que via les institutions (débattu par Glaeser)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le mécanisme AJR 2001",
+          "text": "Chaîne causale identifiée par AJR :\n\n1. Environnement épidémiologique du XVIIᵉ-XIXᵉ siècle : mortalité des colons variable selon la région\n2. Zones à forte mortalité (paludisme, fièvre jaune : Afrique tropicale, Caraïbes, Amérique centrale) : peu de colons s'y installent\n3. Stratégie coloniale = EXTRACTIVE : comptoirs, mines, plantations, travail forcé, faible protection de la propriété\n4. Zones à basse mortalité (Amérique du Nord, Australie, Nouvelle-Zélande) : peuplement massif\n5. Stratégie coloniale = INCLUSIVE : transfert des institutions européennes (parlement, propriété)\n6. Persistance institutionnelle jusqu'à aujourd'hui → écart de revenu 2000\n\nMortalité de 1700 explique encore le PIB de 2000. Résultat spectaculaire."
+        },
+        {
+          "kind": "exemple",
+          "title": "Reversal of Fortune (AJR 2002)",
+          "text": "Fait empirique canonique du cours :\n\n- Colonies RICHES en 1500 (empires précolombiens : Aztèques, Incas, Mogols, Chine côtière) : population dense, or, agriculture, urbanisation → aujourd'hui pauvres (Mexique, Pérou, Bolivie)\n- Colonies PAUVRES en 1500 (Amérique du Nord, Australie : quasi-vides) → aujourd'hui riches\n\nExemple chiffré du cours : Guatemala urbanisé à 9,2 % en 1500, Uruguay quasi-inhabité. Aujourd'hui, Uruguay ≈ 2× plus riche.\n\nMécanisme : là où il y avait déjà une élite indigène à exploiter (institutions extractives héritées et pérennisées), la croissance moderne fondée sur droits de propriété diffus n'a pas pu s'enclencher."
+        },
+        {
+          "kind": "exemple",
+          "title": "Corée du Nord / Corée du Sud",
+          "text": "Quasi-expérience naturelle emblématique du livre Why Nations Fail (2012).\n\n- Même géographie, même climat, même culture pré-1948, même population de base, même langue, mêmes gènes\n- Séparation politique en 1948 : deux jeux d'institutions distincts\n- 60 ans plus tard : PIB par tête sud-coréen ≈ 16× celui du Nord\n\nToute théorie qui explique la richesse par la géographie ou la culture EST RÉFUTÉE par ce cas. Seules les institutions varient → elles expliquent l'écart. Argument par élimination."
+        },
+        {
+          "kind": "piege",
+          "title": "Institutions vs proxy à la Glaeser",
+          "text": "Critique majeure de Glaeser, La Porta, Lopez-de-Silanes, Shleifer (2004) « Do Institutions Cause Growth? » :\n\n- Ce n'est pas les INSTITUTIONS que les colons ont transférées, c'est du CAPITAL HUMAIN\n- En ajoutant la scolarisation des colons dans la régression, le coefficient sur les institutions devient non significatif\n- Le vrai canal serait l'éducation, pas les règles du jeu\n\nRéplique AJR : l'éducation est elle-même endogène aux institutions coloniales (les régimes inclusifs financent plus l'école). Débat ouvert.\n\nPiège du partiel : NE PAS confondre AJR 2001 (Colonial Origins, AER) et AJR 2002 (Reversal of Fortune, QJE). Deux articles, deux revues, deux résultats complémentaires."
+        },
+        {
+          "kind": "astuce",
+          "title": "Mnémotechnique",
+          "text": "AJR = « Acemoglu-Johnson-Robinson », mais moyen mnémotechnique : « Ancien = Just Reversed ». Riches d'hier = pauvres d'aujourd'hui.\n\n2001 = AER = mortalité coloniale (Colonial Origins).\n2002 = QJE = Reversal of Fortune.\n2024 = Nobel (Sveriges Riksbank Prize).\n2012 = Why Nations Fail (livre grand public avec Robinson).\n\nDeux mots à placer en dissert : « inclusives » et « extractives ». Deux exemples : « les deux Corées » et « Guatemala vs Uruguay ».\n\nSi on te demande une critique : Glaeser 2004 sur le capital humain."
+        },
+        {
+          "kind": "resume",
+          "text": "- AJR 2001 (AER) : IV mortalité coloniale → institutions inclusives vs extractives → PIB actuel\n- AJR 2002 (QJE) : « Reversal of Fortune », colonies riches en 1500 devenues pauvres\n- Cas des deux Corées : quasi-expérience pointant les seules institutions\n- Critique Glaeser 2004 : le vrai canal serait le capital humain, pas les institutions\n- Nobel 2024 pour Acemoglu, Johnson, Robinson\n- Institutions = cause FONDAMENTALE (vs proximate : K, H, A)"
+        }
+      ]
+    }
   }
 }
