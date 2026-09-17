@@ -238,40 +238,88 @@ def reprocess_math_blocks(text: str) -> str:
     return MATH_BLOCK_RE.sub(_repl, text)
 
 
-# Regex pour repérer des variables inline dans la prose :
-#   x_A, g_w, g_n, s_R, \pi_T, k^*, x^2, y*, π* (Unicode)
-# On ne match PAS les mots contenant un `_` (file_name, snake_case) :
-#   on exige une lettre unique avant le `_` (au sens Unicode BMP),
-#   pas précédée d'une autre lettre.
-INLINE_MATH_RE = re.compile(
+# === Regex de détection inline ===
+
+# Alphabet math étendu (Grec + majuscules capitalisées + minuscules)
+_GREEK = "ΔΠΣαβγδεηθλμπρστφϕω"
+_MOD = "ᵃᵇⁿᵗᵢⱼₖₙ⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉"     # modifier letters
+_DIA = "̇̄̂"                       # combining dot/bar/hat
+_PRECOMP_DIA = "ȦȧḂḃḢḣĠġẊẋẎẏŻżĀāĒēĪīŌōŪūȲȳÂâĤĥŶŷ"  # attention: Êê=vraie
+                                                    # accentuation FR, exclue
+
+# 1) Motif « variable + sub/sup » : `g_A`, `\pi_T^*`, `y^n`
+RE_VARIABLE = re.compile(
     r"(?<![A-Za-zÀ-ÿ0-9\\])"
-    r"([A-Za-zΔΠΣαβγδεηθλμπρστφϕω])"
-    r"(?:_(?:[A-Za-z0-9]|\{[^{}]{1,15}\}))+"
-    r"(?:\^[*A-Za-z0-9]|\^\{[^{}]{1,15}\})?"
+    r"[A-Za-z" + _GREEK + r"]"
+    r"(?:"
+    r"_(?:[A-Za-z0-9]|\{[^{}]{1,15}\})"
+    r"|\^(?:[*A-Za-z0-9]|\{[^{}]{1,15}\})"
+    r")+"
     r"(?![A-Za-zÀ-ÿ])"
 )
 
-# Variables Unicode nues qui méritent un rendu math si isolées :
-#   `π*`, `i*`, `e^a` en prose.
-INLINE_STAR_RE = re.compile(
+# 2) Grec en début de multi-lettre : `Δq`, `ΔPEN`, `Δe`, `Πα`, etc.
+RE_DELTA_PREFIX = re.compile(
     r"(?<![A-Za-zÀ-ÿ0-9\\])"
-    r"([A-Za-zΔΠΣαβγδεηθλμπρστφϕω])\*"
+    r"[ΔΠΣ][A-Za-z" + _GREEK + r"]+"
     r"(?![A-Za-zÀ-ÿ])"
 )
+
+# 3) Variable + étoile isolée : `π*`, `i*`, `e*`
+RE_STAR = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9\\])"
+    r"[A-Za-z" + _GREEK + r"]\*"
+    r"(?![A-Za-zÀ-ÿ*])"
+)
+
+# 4) Variable + modifier Unicode : `eᵃ`, `x²`, `xᵢ`
+RE_MODIFIER = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9\\])"
+    r"[A-Za-z" + _GREEK + r"][" + _MOD + r"]"
+    r"(?![A-Za-zÀ-ÿ])"
+)
+
+# 5) Variable + diacritique combinante : `k̇`, `p̄`, `k̂`
+RE_COMBINING = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9\\])"
+    r"[A-Za-z][" + _DIA + r"]"
+    r"(?![A-Za-zÀ-ÿ])"
+)
+
+# 6) Précomposées math courantes : `Ȧ`, `ŷ`, `Ā`
+RE_PRECOMP = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9\\])"
+    r"[" + _PRECOMP_DIA + r"]"
+    r"(?![A-Za-zÀ-ÿ])"
+)
+
+# 7) Lettre Grecque nue isolée (utilisée en variable dans la prose).
+#    Applique après les autres pour ne pas voler les matches spécifiques.
+RE_GREEK_LONE = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9\\])"
+    r"[" + _GREEK + r"]"
+    r"(?![A-Za-zÀ-ÿ])"
+)
+
+# Réunion : n'importe lequel des patterns, dans l'ordre du + spécifique
+# au + générique.
+_ALL_INLINE = [RE_VARIABLE, RE_DELTA_PREFIX, RE_STAR, RE_MODIFIER,
+               RE_COMBINING, RE_PRECOMP, RE_GREEK_LONE]
 
 
 def wrap_inline_math(text: str) -> str:
-    """Enveloppe les micro-formules inline dans la prose : `g_A` → `\(g_A\)`.
+    """Enveloppe les micro-formules inline dans la prose en `\(…\)`.
 
-    Applique to_latex à chaque match pour la mise en \mathrm des indices.
-    Idempotent : ignore les matches déjà à l'intérieur d'un `\(…\)` ou `\[…\]`.
+    Passes successives :
+      1. Chaque regex spécialisée wrap ses matches.
+      2. Merge des `\(A\)` op `\(B\)` séparés uniquement par un
+         opérateur math et de espaces (fusionne les fragments).
+    Idempotent : les blocs déjà `\(…\)` / `\[…\]` sont préservés.
     """
-    # Découpage : on skip les blocs déjà math
     parts = []
     i = 0
     n = len(text)
     while i < n:
-        # cherche prochain \[ ou \(
         p_bracket = text.find(r"\[", i)
         p_paren = text.find(r"\(", i)
         candidates = [x for x in (p_bracket, p_paren) if x >= 0]
@@ -280,7 +328,6 @@ def wrap_inline_math(text: str) -> str:
             parts.append(_wrap_prose(text[i:]))
             break
         parts.append(_wrap_prose(text[i:nx]))
-        # trouve fin de bloc
         close = r"\]" if nx == p_bracket else r"\)"
         end = text.find(close, nx + 2)
         if end < 0:
@@ -288,27 +335,124 @@ def wrap_inline_math(text: str) -> str:
             break
         parts.append(text[nx:end + 2])
         i = end + 2
-    return "".join(parts)
+    joined = "".join(parts)
+    # Merge : `\(x\) op \(y\)` → `\(x op y\)`
+    joined = _merge_adjacent_math(joined)
+    return joined
+
+
+# Opérateurs qui peuvent séparer deux blocs `\(...\)` à fusionner.
+# On garde une whitelist : `=`, `+`, `-`, `−`, `·`, `\cdot`, `·`,
+# `≈`, `>`, `<`, `≤`, `≥`, `/`, `,` (indices), espaces.
+MERGE_SEP_RE = re.compile(
+    r"^\s*(?:="
+    r"|\+|\-|−"
+    r"|·|\\cdot|×"
+    r"|≈|≠|≤|≥|>|<"
+    r"|/"
+    r"|,"
+    r")\s*$"
+)
+
+
+# Cas d'extension à droite : après `\(X\)`, si on trouve `sep <atome>`
+# où sep est un op math et atome un nombre / littéral, on absorbe.
+# Ex : `\(\alpha + \beta\) < 1` → `\(\alpha + \beta < 1\)`.
+NUMERIC_LITERAL = r"[0-9]+(?:[.,][0-9]+)?(?:\s*\\%)?"
+RIGHT_EXTEND_RE = re.compile(
+    r"\\\(([^()]{1,400})\\\)"
+    r"(\s*(?:="
+    r"|\+|\-|−|·|\\cdot|×|/|,"
+    r"|≈|≠|≤|≥|>|<"
+    r")\s*)"
+    r"(" + NUMERIC_LITERAL + r")"
+    r"(?![A-Za-zÀ-ÿ])"
+)
+LEFT_EXTEND_RE = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9])"
+    r"(" + NUMERIC_LITERAL + r")"
+    r"(\s*(?:="
+    r"|\+|\-|−|·|\\cdot|×|/|,"
+    r"|≈|≠|≤|≥|>|<"
+    r")\s*)"
+    r"\\\(([^()]{1,400})\\\)"
+)
+
+
+def _merge_adjacent_math(s: str) -> str:
+    """Fusionne les paires `\(x\) sep \(y\)` où sep est un opérateur math.
+    Étend aussi à droite/gauche pour absorber les nombres qui bordent
+    un bloc math (ex : `\(\alpha + \beta\) < 1` → `\(\alpha + \beta < 1\)`).
+    Itère jusqu'à stabilité.
+    """
+    changed = True
+    while changed:
+        changed = False
+        # 1) Merge deux blocs adjacents \(X\) sep \(Y\)
+        new_parts = []
+        i = 0
+        n = len(s)
+        while i < n:
+            open_ = s.find(r"\(", i)
+            if open_ < 0:
+                new_parts.append(s[i:])
+                break
+            close_ = s.find(r"\)", open_ + 2)
+            if close_ < 0:
+                new_parts.append(s[i:])
+                break
+            next_open = s.find(r"\(", close_ + 2)
+            if next_open >= 0:
+                sep = s[close_ + 2:next_open]
+                if MERGE_SEP_RE.match(sep):
+                    next_close = s.find(r"\)", next_open + 2)
+                    if next_close >= 0:
+                        inner_a = s[open_ + 2:close_]
+                        inner_b = s[next_open + 2:next_close]
+                        new_parts.append(s[i:open_])
+                        new_parts.append(r"\(" + inner_a + sep + inner_b + r"\)")
+                        i = next_close + 2
+                        changed = True
+                        continue
+            new_parts.append(s[i:close_ + 2])
+            i = close_ + 2
+        s = "".join(new_parts)
+        # 2) Étend un bloc math vers un nombre à droite
+        s2 = RIGHT_EXTEND_RE.sub(
+            lambda m: r"\(" + m.group(1) + m.group(2) + m.group(3) + r"\)", s)
+        if s2 != s:
+            changed = True
+            s = s2
+        # 3) Étend un bloc math vers un nombre à gauche
+        s2 = LEFT_EXTEND_RE.sub(
+            lambda m: r"\(" + m.group(1) + m.group(2) + m.group(3) + r"\)", s)
+        if s2 != s:
+            changed = True
+            s = s2
+    return s
 
 
 def _wrap_prose(prose: str) -> str:
-    def _inline_repl(m: re.Match) -> str:
+    """Wrap chaque motif inline via to_latex(). Le placement est fait
+    en un passage ; les motifs concurrents sont traités du plus
+    spécifique au plus générique."""
+    def _repl(m: re.Match) -> str:
         return "\\(" + to_latex(m.group(0)) + "\\)"
 
-    def _star_repl(m: re.Match) -> str:
-        return "\\(" + to_latex(m.group(1) + "*") + "\\)"
-
-    prose = INLINE_MATH_RE.sub(_inline_repl, prose)
-    prose = INLINE_STAR_RE.sub(_star_repl, prose)
+    for pat in _ALL_INLINE:
+        prose = pat.sub(_repl, prose)
     return prose
 
 
 def latexify_text(text: str) -> str:
     # 1) ré-applique to_latex sur les blocs existants (idempotent)
     text = reprocess_math_blocks(text)
-    # 2) enveloppe les micro-formules inline
+    # 2) enveloppe les micro-formules inline (+ merge)
     text = wrap_inline_math(text)
-    # 3) puis passe ligne-formule complète
+    # 3) après merge, normalise à nouveau (Unicode → LaTeX dans les
+    #    nouveaux blocs issus du merge)
+    text = reprocess_math_blocks(text)
+    # 4) puis passe ligne-formule complète
     return "\n".join(latexify_line(l) for l in text.split("\n"))
 
 
