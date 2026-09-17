@@ -54,6 +54,9 @@ CATS_ORDER = [
     "smi", "parite", "monet", "depr", "equil", "mf",
     "residu", "kaldor", "harrod", "solow", "mrw", "convergence",
     "ak", "romer", "aghion", "malthus", "olg", "institutions",
+    # J39 : cats ultra-fines par auteur / modèle (EMI 6 + Croissance 6).
+    "dornbu", "kouri", "meesero", "triffin", "bsdet", "mfdet",
+    "solowd", "romerv", "aghhow", "diamold", "ajr", "malthd",
 ]
 
 # `trap` autorisés (SPEC §10)

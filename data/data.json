@@ -119,6 +119,66 @@
       "name": "Institutions & environnement",
       "ch": 5,
       "mat": "croissance"
+    },
+    "dornbu": {
+      "name": "Dornbusch (1976) surajustement",
+      "ch": 3,
+      "mat": "emi"
+    },
+    "kouri": {
+      "name": "Kouri (1976) portefeuille",
+      "ch": 4,
+      "mat": "emi"
+    },
+    "meesero": {
+      "name": "Meese-Rogoff (1983)",
+      "ch": 3,
+      "mat": "emi"
+    },
+    "triffin": {
+      "name": "Dilemme de Triffin",
+      "ch": 2,
+      "mat": "emi"
+    },
+    "bsdet": {
+      "name": "Balassa-Samuelson détaillé",
+      "ch": 5,
+      "mat": "emi"
+    },
+    "mfdet": {
+      "name": "Mundell-Fleming détaillé",
+      "ch": 6,
+      "mat": "emi"
+    },
+    "solowd": {
+      "name": "Solow (1956) détaillé",
+      "ch": 1,
+      "mat": "croissance"
+    },
+    "romerv": {
+      "name": "Romer 1990 (variétés)",
+      "ch": 2,
+      "mat": "croissance"
+    },
+    "aghhow": {
+      "name": "Aghion-Howitt (1992)",
+      "ch": 2,
+      "mat": "croissance"
+    },
+    "diamold": {
+      "name": "Diamond OLG (1965)",
+      "ch": 3,
+      "mat": "croissance"
+    },
+    "ajr": {
+      "name": "Acemoglu-Johnson-Robinson",
+      "ch": 3,
+      "mat": "croissance"
+    },
+    "malthd": {
+      "name": "Malthus (1798) détaillé",
+      "ch": 3,
+      "mat": "croissance"
     }
   },
   "BOTS": [
@@ -6856,6 +6916,1762 @@
       ],
       "a": 0,
       "why": "North : « règles ou contraintes pesant sur les comportements individuels », formelles (constitutions, lois) ET informelles (normes, culture). Distinguer règles (institutions) et joueurs (organisations)."
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 1,
+      "q": "Dans Dornbusch (1976), à quel horizon les prix sont-ils supposés rigides ?",
+      "choices": [
+        "à court terme uniquement",
+        "à long terme uniquement",
+        "à tous les horizons y compris de très long terme",
+        "seulement à horizon un an et au-delà"
+      ],
+      "a": 0,
+      "trap": "statique-dyn",
+      "why": "Rigidité PRIX à court terme (« sticky prices »), flexibles à long terme. C'est la seule hypothèse qui distingue Dornbusch de Frenkel : PPA rétablie à LT, pas à CT.",
+      "id": "dornbu-001"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 2,
+      "q": "Les trois hypothèses conjointes indispensables au surajustement de Dornbusch sont :",
+      "choices": [
+        "prix rigides CT + PCTI + anticipations naïves",
+        "prix rigides CT + PNCTI + anticipations rationnelles",
+        "prix flexibles + PNCTI + aversion au risque nulle",
+        "prix rigides + PPA à chaque instant + mobilité imparfaite"
+      ],
+      "a": 1,
+      "trap": "fixe-flexible",
+      "why": "Retirer une seule des trois hypothèses fait disparaître l'overshooting. Anticipations rationnelles + PNCTI forcent le change à surréagir pour compenser la rigidité prix.",
+      "id": "dornbu-002"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "q": "Dans Dornbusch, l'équation dynamique du taux de change sur le sentier de selle s'écrit de/dt = −θ(e − ē), où ē est la valeur de long terme. Le paramètre θ dépend :",
+      "choices": [
+        "uniquement de la vitesse q d'ajustement des prix",
+        "uniquement de l'élasticité b de la demande de monnaie à i",
+        "positivement de q et de la sensibilité du TCR à la demande, négativement de b",
+        "de la crédibilité de la banque centrale, non modélisée explicitement dans le cours"
+      ],
+      "a": 2,
+      "trap": "statique-dyn",
+      "why": "La vitesse θ combine rigidité prix (q), élasticité de la demande au TCR (d) et sensibilité de la demande de monnaie à i (b). Plus q est petit ou b grand, plus θ est faible : convergence lente et surajustement fort.",
+      "id": "dornbu-003"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 2,
+      "q": "Ms augmente durablement de 10 %. Dans Dornbusch, la trajectoire de i domestique après le choc est :",
+      "choices": [
+        "hausse immédiate puis retour",
+        "baisse immédiate puis remontée progressive vers i*",
+        "constante à i*",
+        "baisse immédiate puis stabilisation en dessous de i*"
+      ],
+      "a": 1,
+      "trap": "sens-parite",
+      "why": "Prix rigides + Ms↑ ⇒ équation LM impose i↓. Puis P monte progressivement, la demande réelle de monnaie baisse, et i remonte vers i*. Trajectoire non monotone symétrique de celle de e.",
+      "id": "dornbu-004"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "q": "À l'impact d'un choc Ms↑ dans Dornbusch, quelle inégalité relie la dépréciation immédiate |Δe⁰| et la dépréciation de long terme |Δē| ?",
+      "choices": [
+        "|Δe⁰| < |Δē| (sous-ajustement)",
+        "|Δe⁰| = |Δē| (proportionnalité pure)",
+        "|Δe⁰| > |Δē| (surajustement strict)",
+        "|Δe⁰| = 0 : le change ne bouge qu'après ajustement complet des prix"
+      ],
+      "a": 2,
+      "trap": "statique-dyn",
+      "why": "Overshooting : |Δe⁰| > |Δē|. Le change doit surréagir pour créer une appréciation anticipée qui compense la baisse temporaire de i. C'est le résultat central de Dornbusch (1976).",
+      "id": "dornbu-005"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "q": "Sur le diagramme des phases (e, p) de Dornbusch, la trajectoire post-choc Ms↑ passe par :",
+      "choices": [
+        "saut vertical de e à l'impact, puis glissement le long du sentier de selle vers (ē, p̄)",
+        "un déplacement en ligne droite direct du vieil au nouvel équilibre sans discontinuité",
+        "un cycle amorti autour de (ē, p̄) avant convergence complète",
+        "un mouvement instantané en (ē, p̄), les prix s'ajustant sans délai perceptible"
+      ],
+      "a": 0,
+      "trap": "statique-dyn",
+      "why": "e saute (variable financière, forward-looking) tandis que p est prédéterminé. Le point atterrit hors sentier de selle sans le saut. C'est le sentier de selle qui garantit l'unicité de la solution non-explosive.",
+      "id": "dornbu-006"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "q": "Un étudiant conclut : « Dornbusch dit qu'une Ms↑ de 10 % déprécie de 15 % à court terme, donc de −5 % à long terme (retour). » Où est l'erreur ?",
+      "choices": [
+        "aucune erreur, c'est bien la lecture du modèle",
+        "à long terme, la dépréciation revient à −10 % (PPA), pas à −5 %",
+        "à long terme, la dépréciation totale est nulle par retour au point de départ",
+        "à court terme, Dornbusch prédit une appréciation, pas une dépréciation"
+      ],
+      "a": 1,
+      "trap": "statique-dyn",
+      "why": "À LT : neutralité monétaire ⇒ Δe = Δm = 10 % (dépréciation). CT : surajustement à 15 %. Le change RÉ-APPRÉCIE de 5 pts entre CT et LT, mais reste à 10 % de dépréciation nette.",
+      "id": "dornbu-007"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans le modèle Dornbusch, la PNCTI impose i − i* = eᵃ − e (log, certain). Quand i baisse à l'impact et i* reste constant, l'anticipation eᵃ − e doit :",
+      "choices": [
+        "devenir positive : dépréciation anticipée du taux nominal domestique",
+        "devenir négative : appréciation anticipée (retour vers le sentier de LT)",
+        "rester nulle : la PNCTI n'exige rien de particulier ici",
+        "devenir infinie : les anticipations divergent nécessairement"
+      ],
+      "a": 1,
+      "trap": "sens-parite",
+      "why": "i↓ ⇒ PNCTI ⇒ eᵃ − e < 0 ⇒ e doit être supérieur à eᵃ, i.e. la monnaie doit d'abord se déprécier au-delà, pour ensuite s'apprécier vers eᵃ. Mécanisme moteur du surajustement.",
+      "id": "dornbu-008"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "q": "Annonce crédible à t = 0 d'une hausse permanente de m de 10 % qui aura lieu en t = 1 (pas immédiatement). Dans Dornbusch avec anticipations forward-looking, le change à t = 0 :",
+      "choices": [
+        "ne bouge pas tant que le choc n'est pas physiquement réalisé",
+        "surajuste immédiatement d'un montant inférieur à la dépréciation d'un choc immédiat, puis se réajuste en t = 1",
+        "se déprécie exactement de 10 % dès t = 0 comme si le choc avait déjà eu lieu",
+        "s'apprécie transitoirement, puis se déprécie brutalement en t = 1"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "Les anticipations rationnelles capitalisent l'information dès t = 0 : e saute partiellement (pondéré par un facteur < 1), puis complète l'ajustement au moment du choc. Mécanisme identique à Frenkel forward-looking, transposé au cadre rigide.",
+      "id": "dornbu-009"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "q": "Ms↑ permanente de 5 % dans Dornbusch, paramètres b = 0,5 ; q = 0,25 ; d = 0,5. Long terme : dépréciation exacte de 5 %. Court terme, l'amplitude typique de la dépréciation à l'impact est de l'ordre de :",
+      "choices": [
+        "exactement 5 % (pas de surajustement pour ces paramètres)",
+        "environ 15 % (surajustement d'un facteur 3 environ)",
+        "environ 2 % (sous-ajustement partiel systématique)",
+        "nulle : le change ne réagit qu'après ajustement des prix"
+      ],
+      "a": 1,
+      "trap": "statique-dyn",
+      "why": "Amplitude CT : Δe⁰ ≈ Δē · (1 + 1/(b·(q·d)^½)) — croissant quand q ↓. Pour q petit et b modeste, un choc de 5 % peut engendrer une dépréciation immédiate 2 à 3 fois plus grande.",
+      "id": "dornbu-010"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 1,
+      "q": "Dans Kouri (1976), l'équation fondamentale du modèle de portefeuille s'écrit e = eᵃ + (i − i*) + α·σ²_E·(f − f₀), où f est la part de l'actif étranger dans le portefeuille. Que représente α ?",
+      "choices": [
+        "la variance du taux de change",
+        "le coefficient d'aversion au risque des investisseurs",
+        "la vitesse d'ajustement du portefeuille",
+        "l'élasticité de la balance courante au TCR"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "α = aversion relative au risque (Arrow-Pratt). Plus α est grand, plus les investisseurs exigent une prime pour détenir un actif étranger risqué, plus la PNCTI est violée.",
+      "id": "kouri-001"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 2,
+      "q": "Dans Kouri, quand α tend vers 0 (neutralité au risque), le modèle de portefeuille :",
+      "choices": [
+        "prédit une prime de risque nulle et se réduit à la PNCTI",
+        "prédit une prime de risque maximale, indépendante de σ²_E",
+        "devient identique à Dornbusch avec surajustement",
+        "cesse d'admettre un équilibre bien défini"
+      ],
+      "a": 0,
+      "trap": "sens-parite",
+      "why": "α = 0 ⇒ le terme α·σ²_E·(f − f₀) disparaît ⇒ e = eᵃ + (i − i*), soit la PNCTI. Le portefeuille redevient un cas particulier ; les actifs sont parfaitement substituables.",
+      "id": "kouri-002"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 2,
+      "q": "Dans Kouri, la prime de risque ρ = e − eᵃ − (i − i*) est proportionnelle à :",
+      "choices": [
+        "l'écart-type σ_E seul",
+        "la somme α + σ²_E",
+        "au produit α × σ²_E × (f − f₀)",
+        "au différentiel d'inflation π − π*"
+      ],
+      "a": 2,
+      "trap": "stock-flux",
+      "why": "ρ = α·σ²_E·(f − f₀). Trois facteurs multiplicatifs : aversion au risque, variance du change, sur/sous-détention. Un pays qui doit émettre beaucoup de dette étrangère paie une prime plus élevée.",
+      "id": "kouri-003"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "q": "Un pays voit sa PEN se détériorer (déficits courants cumulés). Selon Kouri, à eᵃ, i* donnés :",
+      "choices": [
+        "sa monnaie s'apprécie car les capitaux affluent pour financer le déficit et le rétablir",
+        "sa monnaie se déprécie et/ou i doit monter pour compenser la prime de risque exigée",
+        "aucun effet : la PEN n'influence pas le change dans ce modèle strict de portefeuille",
+        "l'effet dépend uniquement de la parité fixe éventuelle du pays"
+      ],
+      "a": 1,
+      "trap": "stock-flux",
+      "why": "PEN ↓ ⇒ f (offre nette d'actifs domestiques aux étrangers) ↑ ⇒ ρ = α·σ²_E·Δf > 0 requis. Ajustement soit par i↑ (attirer capitaux), soit par dépréciation immédiate créant appréciation anticipée.",
+      "id": "kouri-004"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "q": "Kouri : α = 2, σ²_E = 0,04 (σ_E = 20 %), f − f₀ = 0,125. La prime de risque annuelle exigée est de :",
+      "choices": [
+        "0,25 %",
+        "1 %",
+        "4 %",
+        "10 %"
+      ],
+      "a": 1,
+      "trap": "niveau-log",
+      "why": "ρ = α·σ²_E·(f − f₀) = 2 × 0,04 × 0,125 = 0,01, soit 1 % par an. Ordre de grandeur cohérent avec les primes empiriques observées sur les grandes paires.",
+      "id": "kouri-005"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 2,
+      "q": "Selon Kouri, si σ²_E tend vers 0 (change parfaitement stable en variance), la prime de risque :",
+      "choices": [
+        "tend vers l'infini",
+        "tend vers zéro",
+        "tend vers la valeur du paramètre α",
+        "reste indéterminée sans information supplémentaire"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "ρ = α·σ²_E·(f − f₀). Sans variance de change, détenir un actif étranger ne comporte plus de risque de conversion ⇒ ρ → 0 ⇒ PNCTI. La prime disparaît sous ancrage crédible parfait.",
+      "id": "kouri-006"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 2,
+      "q": "Kouri introduit dans l'analyse du change quel élément absent de la PNCTI classique ?",
+      "choices": [
+        "une prime de risque de change fonction de la PEN et de la variance",
+        "une hypothèse de rigidité des prix à court terme",
+        "un régime de changes fixes obligatoire pour le pays domestique",
+        "l'inflation anticipée comme variable purement exogène"
+      ],
+      "a": 0,
+      "trap": "fixe-flexible",
+      "why": "Trois briques nouvelles : (1) risque (α > 0), (2) variance du change (σ²_E), (3) stock d'actifs (PEN/portefeuille). La PPA et la rigidité prix restent hors du modèle.",
+      "id": "kouri-007"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "q": "Dans Kouri, deux actifs (national et étranger) sont dits « parfaitement substituables » si et seulement si :",
+      "choices": [
+        "σ²_E = 0 ou α = 0",
+        "les rendements attendus sont égaux avant même toute prime éventuelle",
+        "le pays est en régime de changes fixes crédible et durable",
+        "la PPA est vérifiée à chaque instant sans exception"
+      ],
+      "a": 0,
+      "trap": "sens-parite",
+      "why": "Substituabilité parfaite ⇔ investisseurs indifférents ⇔ prime nulle ⇔ α·σ²_E·(f − f₀) = 0. Deux voies : neutralité au risque (α = 0) OU absence de risque (σ²_E = 0).",
+      "id": "kouri-008"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 2,
+      "q": "L'apport principal de Kouri (1976) par rapport à la PNCTI est :",
+      "choices": [
+        "une nouvelle formulation de la PPA absolue en économie ouverte",
+        "l'introduction du risque et de la PEN comme déterminants du change",
+        "la démonstration que les prix sont rigides à court terme",
+        "la mise en évidence du surajustement du change nominal après un choc monétaire"
+      ],
+      "a": 1,
+      "trap": "stock-flux",
+      "why": "Deux nouveautés couplées : le risque (α, σ²_E) et le stock d'actifs (PEN). Explique pourquoi certains pays fortement endettés doivent offrir un rendement supérieur : le rendement excédentaire est bien une prime de risque, pas une inefficience.",
+      "id": "kouri-009"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "q": "Un pays A voit sa monnaie soumise à une variance σ²_E doublée ; son (f − f₀) est inchangé. Dans Kouri, la prime de risque exigée :",
+      "choices": [
+        "est inchangée",
+        "double aussi",
+        "quadruple par convexité",
+        "baisse mécaniquement de moitié"
+      ],
+      "a": 1,
+      "trap": "niveau-log",
+      "why": "ρ = α·σ²_E·(f − f₀). σ²_E est en facteur linéaire ⇒ doubler σ²_E double ρ. Piège niveau/log : c'est la variance qui compte, pas l'écart-type (dont la mise au carré modifie la sensibilité).",
+      "id": "kouri-010"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 2,
+      "q": "Dans Kouri, la demande relative d'actifs domestiques par les non-résidents est une fonction :",
+      "choices": [
+        "décroissante de α et de σ²_E, croissante de (i − i* + eᵃ − e)",
+        "croissante de α et de σ²_E indépendamment du différentiel de taux",
+        "constante, imposée par la mobilité parfaite des capitaux",
+        "purement aléatoire, sans structure théorique"
+      ],
+      "a": 0,
+      "trap": "sens-parite",
+      "why": "f = f₀ + (i − i* + eᵃ − e)/(α·σ²_E). Plus α ou σ²_E augmentent, plus la sensibilité de f à l'excédent de rendement (numérateur) diminue : les investisseurs deviennent moins réactifs face au risque perçu.",
+      "id": "kouri-011"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 1,
+      "q": "Meese et Rogoff (1983) comparent des modèles de change à :",
+      "choices": [
+        "un modèle ARIMA(1,1,1) structurel avec dérive stochastique",
+        "une marche aléatoire e_t = e_{t−1} + v_t sans dérive",
+        "un modèle à correction d'erreur multivariée cointégrée",
+        "un VAR(4) sans restriction, réestimé chaque période"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "La marche aléatoire est le benchmark naïf : la meilleure prévision de e_{t+h} est e_t. Elle n'utilise aucune information sur les fondamentaux — d'où l'importance du résultat que les modèles structurels ne la battent pas.",
+      "id": "meesero-001"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 2,
+      "q": "L'échantillon d'estimation de Meese-Rogoff (1983) couvre principalement :",
+      "choices": [
+        "1946-1971 sur l'ensemble des paires du système de Bretton Woods avec parité fixe ajustable",
+        "1973-1981 (post-flottement) sur dollar-DM, dollar-yen, dollar-livre",
+        "1990-2000 pendant la première décennie de mondialisation financière globale accélérée par Internet",
+        "2008-2020, période post-crise financière globale et politiques non conventionnelles"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "Meese-Rogoff estiment sur 1973-nov. 1976, testent hors échantillon 1977-1981. Post-Smithsonian, régime de flottement pur. Sur les trois paires majeures ex-Bretton Woods.",
+      "id": "meesero-002"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "q": "À horizon 12 mois, le ratio RMSE(modèle monétaire) / RMSE(marche aléatoire) trouvé par Meese-Rogoff est typiquement :",
+      "choices": [
+        "nettement inférieur à 1 : le modèle bat largement la marche aléatoire à horizon annuel comme mensuel",
+        "environ égal à 1 (voire supérieur : le modèle est équivalent ou pire)",
+        "de l'ordre de 0,5, indiquant une réduction de moitié de l'erreur RMSE hors échantillon",
+        "négatif : les erreurs se compensent en moyenne par construction du protocole comptable"
+      ],
+      "a": 1,
+      "trap": "niveau-log",
+      "why": "Le ratio RMSE est proche ou supérieur à 1 à tous les horizons 1-12 mois. Aucun modèle structurel — monétaire à prix flexibles, sticky-price, portefeuille — ne bat significativement la marche aléatoire. C'est cet écart quasi-nul qui a créé l'énigme.",
+      "id": "meesero-003"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "q": "Un étudiant conclut : « Meese-Rogoff montrent que les fondamentaux monétaires n'ont aucun lien avec le taux de change. » La lecture correcte est :",
+      "choices": [
+        "Aucune correction : les fondamentaux ne comptent effectivement pas",
+        "L'échec porte sur la PRÉVISION hors échantillon, pas sur l'existence d'un lien in-sample",
+        "L'échec porte in-sample : les fondamentaux sont statistiquement rejetés",
+        "Le résultat ne concerne que la livre sterling, la BCE et le yen restent bien prédits"
+      ],
+      "a": 1,
+      "trap": "statique-dyn",
+      "why": "Nuance essentielle du cours : Meese-Rogoff estiment BIEN les modèles in-sample (paramètres significatifs, signes attendus). C'est la prévision hors échantillon qui échoue. « Disconnect » à CT, cohérence à LT.",
+      "id": "meesero-004"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 2,
+      "q": "Les modèles structurels testés par Meese-Rogoff (1983) incluent :",
+      "choices": [
+        "Frenkel (monétaire prix flexibles), Dornbusch-Frankel (sticky-price), Hooper-Morton (portefeuille)",
+        "uniquement Frenkel dans ses différentes variantes économétriques avec sensibilité aux taux d'intérêt réels",
+        "uniquement Dornbusch dans sa version de base sans extensions par différentiels d'inflation",
+        "un modèle VAR sans aucune structure théorique sous-jacente, calibré sur données mensuelles post-flottement"
+      ],
+      "a": 0,
+      "trap": "endo-exo",
+      "why": "Trois familles comparées : (1) prix flexibles (Frenkel-Bilson), (2) prix rigides à la Dornbusch (Frankel 1979), (3) portefeuille (Hooper-Morton 1982, dérivé de Kouri). Aucune ne bat la marche aléatoire.",
+      "id": "meesero-005"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "q": "L'extension de Cheung, Chinn et Garcia Pascual (2005) sur 1973-2000 conclut :",
+      "choices": [
+        "que les modèles battent enfin la marche aléatoire à tous les horizons testés",
+        "que les résultats de Meese-Rogoff sont infirmés à horizon 3 mois exactement",
+        "que le résultat de Meese-Rogoff est robuste malgré les améliorations économétriques",
+        "que la PPA absolue devient la meilleure prévision hors échantillon"
+      ],
+      "a": 2,
+      "trap": "endo-exo",
+      "why": "CCGP améliorent (période plus longue, non-stationnarité corrigée par modèles à correction d'erreur) et CONFIRMENT le verdict : les modèles structurels ne battent pas la marche aléatoire à horizon court. Le puzzle est robuste.",
+      "id": "meesero-006"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "q": "L'interprétation dominante du résultat de Meese-Rogoff dans le cours est :",
+      "choices": [
+        "le taux de change est déterminé uniquement par la spéculation irrationnelle des agents",
+        "le taux de change est « déconnecté » (exchange rate disconnect) des fondamentaux à court terme",
+        "les fondamentaux monétaires sont endogènes au change lui-même, provoquant un biais d'estimation",
+        "la mobilité des capitaux est en réalité imparfaite et faussait le test"
+      ],
+      "a": 1,
+      "trap": "statique-dyn",
+      "why": "« Exchange rate disconnect puzzle » (Obstfeld-Rogoff 2000, dans le prolongement de Meese-Rogoff). Fondamentaux et change évoluent quasi-indépendamment à horizons courts, alors qu'à LT une cointégration est détectable.",
+      "id": "meesero-007"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "q": "Meese-Rogoff (1983) alimentent leurs prévisions hors échantillon avec les VRAIES valeurs futures des fondamentaux (m, y, i) — les modèles ne sont donc pas pénalisés par l'incertitude sur ces variables. Malgré cela :",
+      "choices": [
+        "ils battent la marche aléatoire comme attendu",
+        "ils ne battent toujours pas la marche aléatoire",
+        "ils ne peuvent être évalués correctement dans cette configuration",
+        "ils battent uniquement Dornbusch mais pas Frenkel"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "Détail crucial du protocole : même en donnant aux modèles les valeurs FUTURES exactes des fondamentaux (avantage informationnel), ils ne battent pas la marche aléatoire. Renforce le puzzle : le problème n'est pas l'incertitude sur les régresseurs.",
+      "id": "meesero-008"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans le protocole Meese-Rogoff, la performance est mesurée par :",
+      "choices": [
+        "le R² in-sample",
+        "des statistiques d'erreur de prévision (RMSE, erreur moyenne absolue)",
+        "la significativité individuelle des paramètres par test de Student",
+        "un test de cointégration de Johansen entre e et fondamentaux"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "RMSE (racine de l'erreur quadratique moyenne) et MAE sur les prévisions HORS échantillon. Le R² in-sample est bon mais ne dit rien sur la capacité prédictive. La distinction est centrale.",
+      "id": "meesero-009"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "En 1950, la couverture-or du dollar (stock d'or Fed / dollars détenus par l'étranger) atteignait environ 55 %. Vers 1971, ce ratio est tombé à :",
+      "choices": [
+        "environ 22 %, seuil jugé insuffisant par les marchés",
+        "environ 5 %, la crise étant précipitée par un effondrement quasi complet de la couverture",
+        "encore 50 %, la crise venant d'un autre canal (inflation, Vietnam)",
+        "0 %, l'or de Fort Knox ayant été entièrement épuisé par les conversions officielles"
+      ],
+      "a": 0,
+      "trap": "stock-flux",
+      "why": "La couverture-or est un ratio stock/stock : elle est passée d'environ 55 % (1950) à environ 22 % (1971). Ce n'est pas 0 % (Fort Knox tenait encore ~8 000 t d'or), c'est l'écart croissant entre encours mondial de dollars et stock d'or qui a miné la crédibilité.",
+      "id": "triffin-001"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "Selon Triffin (1960), pour fournir la liquidité mondiale, les États-Unis doivent :",
+      "choices": [
+        "accumuler des excédents courants persistants pour distribuer les dollars nécessaires au commerce",
+        "accepter un déficit extérieur permanent qui exporte des dollars vers le reste du monde",
+        "laisser le FMI émettre à leur place les DTS servant de réserves internationales",
+        "réévaluer périodiquement le dollar contre l'or pour compenser la hausse des besoins"
+      ],
+      "a": 1,
+      "trap": "signe-bdp",
+      "why": "Seul un déficit US (biens/services ou capitaux sortants) fait sortir des dollars vers le reste du monde. Un excédent courant retirerait au contraire des dollars du reste du monde — c'est l'exact contraire de la logique du dilemme.",
+      "id": "triffin-002"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 2,
+      "q": "Le dilemme de Triffin est-il propre au dollar sous Bretton Woods ?",
+      "choices": [
+        "Oui, il disparaît définitivement avec l'abandon officiel de la convertibilité or en 1971",
+        "Non, il s'applique à toute monnaie internationale dont l'émetteur doit fournir la liquidité mondiale",
+        "Oui, sauf pour la livre sterling qui n'a jamais été considérée comme une véritable monnaie clef",
+        "Non, mais uniquement en régime de changes flottants adossé à des banques centrales indépendantes"
+      ],
+      "a": 1,
+      "trap": "fixe-flexible",
+      "why": "Le prof insiste : la contradiction structurelle (offrir la liquidité vs préserver la valeur) survit à l'abandon de l'or. Toute devise internationale hérite d'une version du dilemme (RMB en particulier, freiné par une convertibilité limitée).",
+      "id": "triffin-003"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "Un étudiant écrit : « Nixon a suspendu la convertibilité en 1971 parce que l'inflation US était trop élevée. » Cette lecture est :",
+      "choices": [
+        "exacte, l'inflation est la cause unique et suffisante de la suspension de la convertibilité",
+        "partielle : la cause structurelle est le dilemme de Triffin (encours de dollars > stock d'or)",
+        "fausse, il s'agissait d'un choix politique sans aucun lien avec l'or ou la balance des paiements",
+        "exacte, à condition d'ajouter la guerre du Vietnam et le programme social de Johnson"
+      ],
+      "a": 1,
+      "trap": "stock-flux",
+      "why": "L'inflation US (Vietnam, Great Society) accélère la fuite d'or mais la cause structurelle est le déséquilibre stock d'or / encours de dollars détenus par l'étranger : le dilemme rend l'issue inéluctable même sans inflation.",
+      "id": "triffin-004"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 2,
+      "q": "Le « privilège exorbitant » (Giscard d'Estaing, 1965) désigne :",
+      "choices": [
+        "le droit du dollar de flotter librement sur les marchés des changes internationaux hors contrainte",
+        "la capacité américaine à financer le déficit extérieur dans leur propre monnaie sans contrainte externe",
+        "le monopole reconnu au FMI d'émettre des DTS convertibles en toutes les autres devises",
+        "l'exemption américaine de l'obligation d'appliquer les règles de Bretton Woods"
+      ],
+      "a": 1,
+      "trap": "signe-bdp",
+      "why": "Le « privilège exorbitant » : les États-Unis émettent leur propre monnaie de réserve, donc leur déficit courant est financé sans avoir à céder de réserves ou à ajuster leur économie. C'est la face « gagnante » du dilemme de Triffin.",
+      "id": "triffin-005"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "Les DTS (Droits de Tirage Spéciaux) du FMI ont été créés en 1969 principalement pour :",
+      "choices": [
+        "remplacer immédiatement le dollar comme unique monnaie de réserve internationale utilisée",
+        "fournir une liquidité internationale non nationale, échappant à la contrainte d'un déficit US permanent",
+        "servir de monnaie unique aux banques centrales asiatiques face au dollar dominant",
+        "permettre aux États-Unis d'imprimer davantage de dollars sans contrainte de convertibilité or"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "L'idée des DTS : une liquidité internationale exogène, émise par le FMI, casserait le lien liquidité mondiale ↔ déficit US. La solution n'a pas pris à l'échelle attendue, mais l'intention répond au dilemme de Triffin.",
+      "id": "triffin-006"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "En quoi l'étalon de change-or (Gold Exchange Standard) diffère-t-il de l'étalon-or classique et rend-il Triffin possible ?",
+      "choices": [
+        "Aucune différence, les deux régimes fonctionnent selon des règles identiques d'émission monétaire",
+        "L'étalon de change-or admet une devise clef comme réserve à côté de l'or, permettant une émission > stock",
+        "L'étalon-or classique interdirait l'usage de l'or comme réserve des banques centrales étrangères",
+        "L'étalon de change-or exclut les banques centrales du marché de l'or, contrairement à l'étalon-or"
+      ],
+      "a": 1,
+      "trap": "stock-flux",
+      "why": "L'étalon de change-or (issu de Gênes 1922, Bretton Woods) permet la superposition dollars-or comme réserves. Cette pyramide inversée est précisément ce qui rend possible l'écart entre encours de dollars et stock d'or — donc Triffin.",
+      "id": "triffin-007"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "Dans la formule de Balassa-Samuelson Δq = (1−γ)·(ΔΠE_T − ΔΠE*_T) − γ·(ΔΠE_N − ΔΠE*_N), le coefficient γ représente :",
+      "choices": [
+        "la part des échangeables T dans le panier de consommation représentatif du pays",
+        "la part des non-échangeables dans le panier de consommation représentatif du pays",
+        "l'élasticité de substitution entre biens échangeables T et non-échangeables N dans la demande",
+        "le poids relatif du commerce extérieur (X + M) rapporté au PIB nominal du pays"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "γ = part des non-échangeables (typiquement 0,3 à 0,5). C'est parce que les prix des non-échangeables entrent dans le panier via γ que la contagion des productivités T se traduit en appréciation réelle.",
+      "id": "bsdet-001"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "Un pays émergent gagne 4 %/an de productivité T, contre 1 %/an chez le partenaire, sans écart N. Avec γ = 0,3, Δq annuel prédit vaut :",
+      "choices": [
+        "environ 3 % (0,7 × 3, en oubliant la pondération)",
+        "environ 2,1 % (application correcte de (1−γ) au différentiel de productivité T)",
+        "environ 0,9 % (0,3 × 3, en confondant γ et (1−γ))",
+        "environ 4 % (l'écart brut, sans pondération)"
+      ],
+      "a": 1,
+      "trap": "niveau-log",
+      "why": "Δq = (1−γ)·(ΔΠE_T − ΔΠE*_T) = 0,7 × 3 = 2,1 %. Piège : (1−γ) et non γ pondère l'écart de productivité échangeable — les émergents rattrapent d'environ 1-3 %/an, cohérent avec l'estimation.",
+      "id": "bsdet-002"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "L'étape la plus souvent oubliée du mécanisme Balassa-Samuelson est :",
+      "choices": [
+        "les gains initiaux de productivité concentrés dans le secteur échangeable exportateur",
+        "la contagion salariale du secteur échangeable vers le non-échangeable via l'unicité du marché du travail",
+        "la hausse subséquente du niveau général des prix mesurée sur le panier de consommation",
+        "l'appréciation réelle finale du taux de change vis-à-vis de l'ensemble des partenaires"
+      ],
+      "a": 1,
+      "trap": "bs-etapes",
+      "why": "Le prof insiste : c'est la contagion salariale (marché du travail unique dans le pays) qui explique pourquoi les salaires N suivent les salaires T alors que la productivité N stagne. Sans cette étape, prix N n'augmenteraient pas.",
+      "id": "bsdet-003"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 2,
+      "q": "L'effet Penn (« Penn effect ») empirique cohérent avec Balassa-Samuelson énonce que :",
+      "choices": [
+        "les prix mesurés au taux de change courant sont plus bas dans les pays pauvres qu'aux USA",
+        "les prix agrégés sont partout parfaitement identiques une fois convertis en dollars courants",
+        "les pays pauvres ont systématiquement des prix nominaux plus élevés que les pays riches",
+        "seuls les prix des biens échangeables varient sensiblement d'un pays à l'autre du monde"
+      ],
+      "a": 0,
+      "trap": "certain-incertain",
+      "why": "Penn effect : Q < 1 dans les pays pauvres (leurs prix convertis en dollars sont plus bas). Cohérent avec BS : productivité T faible → salaires bas → prix N bas → niveau agrégé bas.",
+      "id": "bsdet-004"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "Une critique importante du modèle Balassa-Samuelson, particulièrement pertinente pour les pays en développement, est :",
+      "choices": [
+        "l'hypothèse de marché du travail unifié ne tient pas en présence de dualisme (formel/informel, urbain/rural)",
+        "l'hypothèse simplificatrice d'une économie représentée par deux secteurs seulement (T et N)",
+        "l'existence même de biens non-échangeables dans les économies contemporaines mondialisées",
+        "l'observation empirique d'une appréciation réelle chez les pays en rattrapage rapide"
+      ],
+      "a": 0,
+      "trap": "bs-etapes",
+      "why": "Le dualisme salarial rompt la contagion : dans un pays avec un large secteur informel/rural, les salaires T ne se propagent pas au N, cassant le mécanisme. Le prof évoque cette limite pour les PED.",
+      "id": "bsdet-005"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 2,
+      "q": "Dans Balassa-Samuelson, quelle hypothèse sur les prix des échangeables T assure la transmission internationale du mécanisme ?",
+      "choices": [
+        "les prix T sont fixés localement par la banque centrale via une politique de contrôle des prix",
+        "loi du prix unique sur les échangeables : P_T = E × P*_T (arbitrage international parfait)",
+        "les prix T sont fixés administrativement par l'État sur la base d'objectifs industriels",
+        "aucune hypothèse n'est réellement nécessaire sur P_T pour le fonctionnement du mécanisme"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "PPA absolue restreinte aux échangeables : l'arbitrage international fixe P_T. Toute la logique BS repose sur ce point d'ancrage — puis la productivité T domestique détermine les salaires, et par contagion tout le reste.",
+      "id": "bsdet-006"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "Concernant la paternité du mécanisme Balassa-Samuelson :",
+      "choices": [
+        "Balassa et Samuelson ont co-écrit ensemble à Harvard le premier article fondateur en 1964",
+        "Balassa (1964) et Samuelson (1964) sont arrivés indépendamment à la même conclusion la même année",
+        "Il y a environ quinze ans d'écart entre la publication de Balassa et celle plus tardive de Samuelson",
+        "L'un travaillait empiriquement, l'autre théoriquement, mais leurs travaux ne se sont jamais croisés"
+      ],
+      "a": 1,
+      "trap": "bs-etapes",
+      "why": "Deux articles publiés en 1964 (JPE et Review of Economics and Statistics) indépendamment. La convention est de citer les deux, comme Modigliani-Miller.",
+      "id": "bsdet-007"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "Dans Mundell-Fleming standard, l'hypothèse de mobilité parfaite des capitaux se traduit graphiquement par :",
+      "choices": [
+        "une courbe BP verticale à Y = Y*, reflétant une fermeture financière quasi complète",
+        "une courbe BP parfaitement horizontale au niveau i = i* imposé par l'arbitrage international",
+        "une courbe BP pentue positivement, plus ou moins raide selon le degré de mobilité",
+        "l'absence pure et simple de courbe BP dans le diagramme IS-LM habituel"
+      ],
+      "a": 1,
+      "trap": "mf-regime",
+      "why": "Mobilité parfaite : le moindre écart i ≠ i* déclenche des flux infinis, forçant l'équilibre i = i* — la BP est plate. Mobilité imparfaite : BP pentue positivement. Mobilité nulle : BP verticale (compte financier fermé).",
+      "id": "mfdet-001"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "En Mundell-Fleming, changes fixes + mobilité imparfaite des capitaux (BP pentue), une hausse de G a pour effet :",
+      "choices": [
+        "Y inchangé du fait de l'éviction totale par le canal du taux d'intérêt et des capitaux",
+        "Y augmente modérément : la BP pentue amortit les entrées, la BC accommode moins qu'en mobilité parfaite",
+        "Y diminue à cause de la contraction monétaire imposée par la défense de la parité fixe",
+        "Y augmente encore davantage qu'en mobilité parfaite, la BP étant favorable au budgétaire"
+      ],
+      "a": 1,
+      "trap": "mf-regime",
+      "why": "BP pentue : les entrées de capitaux répondant à i ↑ sont limitées, la BC n'a pas besoin d'accommoder autant. La politique budgétaire reste efficace, mais moins qu'en mobilité parfaite (où l'accommodation monétaire est totale).",
+      "id": "mfdet-002"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 2,
+      "q": "L'expression « éviction totale » (crowding-out complet) en Mundell-Fleming s'applique typiquement à :",
+      "choices": [
+        "une hausse de G en changes fixes + mobilité parfaite, la BC accommodant intégralement les entrées",
+        "une hausse de G en flexible + mobilité parfaite (l'appréciation annule exactement X − M)",
+        "une hausse de Ms en changes fixes + mobilité parfaite, canal du taux d'intérêt bridé",
+        "une baisse permanente d'impôts en changes flexibles + immobilité complète des capitaux"
+      ],
+      "a": 1,
+      "trap": "mf-regime",
+      "why": "Éviction totale = crowding-out complet : G ↑ → i ↑ → entrées → appréciation → X−M ↓ exactement du montant de G ↑, Y inchangé. Cas classique du régime flexible + mobilité parfaite.",
+      "id": "mfdet-003"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "Une intervention stérilisée consiste à :",
+      "choices": [
+        "laisser l'intervention affecter Ms comme une politique monétaire standard avec effet plein sur LM",
+        "compenser l'effet monétaire d'une intervention de change par un open market inverse, Ms inchangée",
+        "renoncer à intervenir directement sur le marché des changes malgré des tensions sur la parité",
+        "vendre uniquement des devises sur le marché sans opération compensatoire de rachat de titres"
+      ],
+      "a": 1,
+      "trap": "sterilise",
+      "why": "Stérilisation = intervention change + open market compensatoire. Exemple : BC vend $ (Ms baisse) puis rachète des titres d'État (Ms remonte). Ms reste inchangée, seule la composition du bilan varie.",
+      "id": "mfdet-004"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "En mobilité parfaite des capitaux, l'efficacité d'une intervention stérilisée est :",
+      "choices": [
+        "totale : elle déplace durablement le taux de change grâce au canal du portefeuille amplifié",
+        "quasi nulle : substituts parfaits ⇒ canal portefeuille inopérant, i converge vers i*",
+        "négative : elle fait fuir les capitaux plutôt que d'ancrer le taux de change domestique",
+        "supérieure à une intervention non stérilisée, car le contrôle de Ms rassure les marchés"
+      ],
+      "a": 1,
+      "trap": "sterilise",
+      "why": "Substitution parfaite ⇒ canal portefeuille inopérant : les investisseurs sont indifférents à la composition. La stérilisation devient purement cosmétique en mobilité parfaite. Effet non nul en mobilité imparfaite (canal signalisation, canal portefeuille).",
+      "id": "mfdet-005"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 2,
+      "q": "En Mundell-Fleming, quelle hypothèse sur les prix distingue le modèle du modèle monétaire à prix flexibles (Frenkel) ?",
+      "choices": [
+        "Les prix sont parfaitement flexibles à court terme, l'ajustement se fait par le niveau général",
+        "Les prix sont visqueux (fixes) à court terme ; l'ajustement passe par les quantités (production Y)",
+        "Les prix évoluent en tandem avec le taux de change nominal, sans effet réel sur la production",
+        "Aucune hypothèse spécifique sur les prix n'est nécessaire pour la logique du modèle MF"
+      ],
+      "a": 1,
+      "trap": "fixe-flexible",
+      "why": "Le socle keynésien de MF : prix fixes CT ⇒ le choc réel se transmet à Y (et pas immédiatement à P). Distinction clef avec le modèle monétaire (Frenkel) où P est parfaitement flexible et Y = Y*.",
+      "id": "mfdet-006"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "Matrice d'efficacité en Mundell-Fleming (mobilité parfaite) — quel énoncé est exact ?",
+      "choices": [
+        "Fixe : budgétaire OK, monétaire OK ; Flexible : budgétaire OK, monétaire OK (tout marche)",
+        "Fixe : budgétaire OK, monétaire KO ; Flexible : budgétaire KO, monétaire OK",
+        "Fixe : budgétaire KO, monétaire OK ; Flexible : budgétaire OK, monétaire KO (symétrie inversée)",
+        "Toutes les politiques marchent également bien sous les deux régimes avec mobilité parfaite"
+      ],
+      "a": 1,
+      "trap": "mf-regime",
+      "why": "Cœur du chapitre 6 : en changes fixes + mobilité parfaite, la BC est asservie au maintien de la parité (monétaire KO) mais la budgétaire est accommodée (OK). En flexible, le change absorbe la budgétaire (KO) et amplifie la monétaire (OK).",
+      "id": "mfdet-007"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 1,
+      "q": "Chez Solow (1956), la fonction de production Y=K^α·(A·L)^(1−α) est dite à progrès technique « harrodien » ou labour-augmenting parce que :",
+      "choices": [
+        "A dépend endogènement de K et L",
+        "A multiplie K (efficacité du capital)",
+        "A multiplie L (efficacité du travail)",
+        "A est un facteur additif hors production"
+      ],
+      "a": 2,
+      "trap": "endo-exo",
+      "why": "Progrès technique harrodien = labour-augmenting : A entre en produit avec L, jamais avec K seul. C'est la seule spécification compatible avec une croissance équilibrée à parts factorielles stables (fait 5 de Kaldor).",
+      "id": "solowd-001"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Cas chiffré Solow avec α=1/3, s=0,2, n=0,01, g=0,02, δ=0,05. La productivité marginale du capital f'(k̂*) à l'état régulier vaut :",
+      "choices": [
+        "n+g+δ = 0,08 (règle d'or, or s ≠ α ici : erreur)",
+        "s = 0,20 (confusion investissement-productivité)",
+        "α·(n+g+δ)/s ≈ 0,133",
+        "α·s ≈ 0,067 (produit direct, résultat piégé)"
+      ],
+      "a": 2,
+      "trap": "niveau-log",
+      "why": "Cobb-Douglas : f'(k̂)=α·k̂^(α−1). À l'état régulier s·f(k̂*)=(n+g+δ)·k̂*, donc s·k̂*^α=(n+g+δ)·k̂* ⇒ k̂*^(α−1)=(n+g+δ)/s. D'où f'(k̂*)=α·(n+g+δ)/s = (1/3)·0,08/0,2 ≈ 0,133. Attention : f'(k̂*)=n+g+δ = 0,08 UNIQUEMENT à la règle d'or (s=α), ce qui n'est pas le cas ici (s=0,2 < s_or=α=1/3).",
+      "id": "solowd-002"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Vitesse de convergence λ chez Solow avec α=1/3, n=0,01, g=0,02, δ=0,05 :",
+      "choices": [
+        "λ = α(n+g+δ) ≈ 2,7 % (erreur d'exposant sur la linéarisation)",
+        "λ = (1−α)(n+g+δ) ≈ 5,3 %",
+        "λ = s·(1−α) ≈ 13 % (confusion avec l'épargne)",
+        "λ = n+g+δ = 8 % (oubli du facteur 1−α de la Cobb-Douglas)"
+      ],
+      "a": 1,
+      "trap": "niveau-log",
+      "why": "Linéarisation de l'équation dynamique autour de k̂* : dk̂/dt ≈ −λ(k̂−k̂*) avec λ=(1−α)(n+g+δ). Ici λ=(2/3)·0,08≈5,3 %/an. Demi-vie ln(2)/λ≈13 ans. Attention : Solow standard donne une convergence trop rapide (MRW la ramène à 2 %/an en abaissant 1−α).",
+      "id": "solowd-003"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 3,
+      "q": "Demi-vie de convergence dans Solow avec λ≈5,3 %/an (α=1/3, n+g+δ=0,08) :",
+      "choices": [
+        "environ 26 ans (double erreur d'échelle)",
+        "environ 35 ans (chiffre de MRW, pas Solow standard)",
+        "environ 6 ans (calcul avec α au numérateur)",
+        "environ 13 ans"
+      ],
+      "a": 3,
+      "trap": "niveau-log",
+      "why": "Demi-vie = ln(2)/λ. Avec λ=(1−α)(n+g+δ)=0,053 : ln(2)/0,053=0,693/0,053≈13 ans. Interprétation : un pays sous son y* comble la moitié de l'écart en 13 ans. MRW (avec H) allonge à ~35 ans, plus conforme aux données.",
+      "id": "solowd-004"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 3,
+      "q": "Formule explicite du revenu par unité de travail efficace ŷ* dans Solow (Cobb-Douglas) :",
+      "choices": [
+        "ŷ* = s/(n+g+δ) (confusion niveau linéaire vs exposant)",
+        "ŷ* = (s/(n+g+δ))^(1/(1−α)) (formule de k̂*, pas de ŷ*)",
+        "ŷ* = (s/(n+g+δ))^(α/(1−α))",
+        "ŷ* = α·(n+g+δ)/s (formule de f'(k̂*), pas de ŷ*)"
+      ],
+      "a": 2,
+      "trap": "niveau-log",
+      "why": "De k̂*=(s/(n+g+δ))^(1/(1−α)) et ŷ*=k̂*^α, on tire ŷ*=(s/(n+g+δ))^(α/(1−α)). L'exposant α/(1−α) sur ŷ*, contre 1/(1−α) sur k̂*, est LE piège classique : confondre les deux.",
+      "id": "solowd-005"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Chez Solow avec progrès technique, sur le sentier régulier le salaire réel w croît au rythme :",
+      "choices": [
+        "zéro (w constant à l'état régulier de Solow simple)",
+        "n (croissance démographique, fausse mise en équation)",
+        "n+g (agrégat Y, pas w par tête)",
+        "g (rythme du progrès technique)"
+      ],
+      "a": 3,
+      "trap": "stock-flux",
+      "why": "En concurrence parfaite w=(1−α)·Y/L=(1−α)·A·ŷ*. ŷ* constant, A croît à g ⇒ w croît à g. Le taux de profit r=α·Y/K est lui constant (fait 4 de Kaldor). Deux résultats du modèle qui reproduisent les faits stylisés.",
+      "id": "solowd-006"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Un pays subit un choc positif ponctuel sur A (invention brutale) qui ne modifie pas g. Effet à long terme sur y :",
+      "choices": [
+        "baisse permanente de y (erreur : le choc est positif)",
+        "effet de croissance permanent sur g_y (confusion niveau/croissance)",
+        "aucun effet permanent (négation de la persistance)",
+        "effet de niveau positif permanent sur y"
+      ],
+      "a": 3,
+      "trap": "statique-dyn",
+      "why": "A saute à A₁>A₀ mais g inchangé : la trajectoire ln y(t)=ln A(t)+ln ŷ* se déplace parallèlement vers le haut. Pente inchangée (=g), ordonnée à l'origine plus haute. C'est un « effet de niveau » caractéristique du néoclassique.",
+      "id": "solowd-007"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 3,
+      "q": "Effet d'un choc migratoire ponctuel (L saute à L₁>L₀, n inchangé) chez Solow avec progrès technique :",
+      "choices": [
+        "k̂ inchangé et y monte par effet d'échelle",
+        "k̂ chute et reste bas définitivement ; y* baisse en permanence",
+        "k̂ chute à l'impact puis retourne à k̂* ; y revient à y* initial (afflux neutre à LT)",
+        "k̂ inchangé ; y* baisse par dilution démographique"
+      ],
+      "a": 2,
+      "trap": "statique-dyn",
+      "why": "L saute mais K ne saute pas : k̂ chute à l'impact. Ipm inchangé (n identique), sf(k̂) au-dessus de l'ipm ⇒ k̂ remonte vers k̂*. À LT, k̂ et donc y sont revenus à leur valeur initiale. La vague est absorbée par l'accumulation ; y agrégé plus élevé mais y par tête inchangé.",
+      "id": "solowd-008"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 3,
+      "q": "Chez Solow, une accélération permanente du progrès technique (g₀ < g₁) provoque à l'impact sur y :",
+      "choices": [
+        "hausse immédiate de y proportionnelle à Δg (oubli que les stocks existants ne bougent pas à l'impact)",
+        "y inchangé à l'impact (stocks de K, L, A pré-existants) puis accélération",
+        "chute permanente de y (pente plus forte mais niveau plus bas, confusion)",
+        "aucun effet ni à court ni à long terme (négation de la dynamique)"
+      ],
+      "a": 1,
+      "trap": "statique-dyn",
+      "why": "À l'impact, les stocks K, L, A sont les mêmes qu'un instant avant : y=f(k̂)·A est identique. Ce qui change est le taux futur d'A. En transition, k̂ chute (ipm plus pentu), mais A accélère : g_y à l'impact est entre g₀ et g₁, puis converge vers g₁. Effet en croissance permanent.",
+      "id": "solowd-009"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 1,
+      "q": "La « conditions d'Inada » utilisées par Solow garantissent :",
+      "choices": [
+        "l'égalité des parts factorielles à long terme (fait de Kaldor, pas Inada)",
+        "la neutralité harrodienne du progrès technique (résultat d'Uzawa 1961)",
+        "la substituabilité parfaite K/L (hypothèse séparée sur la Cobb-Douglas)",
+        "l'existence et l'unicité d'un état régulier stable k̂*>0"
+      ],
+      "a": 3,
+      "why": "Inada : f'(k)→∞ quand k→0, f'(k)→0 quand k→∞. Elles assurent que sf(k) coupe une seule fois l'ipm au-dessus de zéro, et que k=0 est un état stationnaire instable. Base mathématique de la stabilité globale.",
+      "id": "solowd-010"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 1,
+      "q": "Dans Romer (1990) « Endogenous Technological Change », les trois secteurs sont :",
+      "choices": [
+        "biens échangeables, biens abrités, gouvernement (typologie ouverte, hors sujet)",
+        "biens finals, capital humain, travail brut (confusion avec MRW 1992)",
+        "capital, travail, technologie (nomenclature de Solow, pas de Romer)",
+        "biens finals (parfait), biens intermédiaires (monopol. brevetés), R&D"
+      ],
+      "a": 3,
+      "why": "Architecture Romer 1990 : secteur du bien final en concurrence parfaite ; secteur des biens intermédiaires (variétés) chacun protégé par brevet (monopole) ; secteur R&D produisant des idées vendues sous forme de brevets. C'est cette hiérarchie qui rend la R&D privée profitable.",
+      "id": "romerv-001"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Fonction de production du bien final chez Romer (1990) avec continuum de biens intermédiaires : Y = L_Y^(1−α) · ∫₀^A x_i^α di. À x_i = x uniforme, cette expression se réduit à :",
+      "choices": [
+        "Y = A^α · L_Y · x (mauvais exposant sur le stock d'idées A)",
+        "Y = A · L_Y^(1−α) · x^α (linéaire en A)",
+        "Y = L_Y · x^A (l'exposant A n'a aucun sens dimensionnel)",
+        "Y = L_Y^(1−α) · A^(1−α) · x^α (double la puissance sur variétés)"
+      ],
+      "a": 1,
+      "trap": "niveau-log",
+      "why": "∫₀^A x^α di = A·x^α. Donc Y=L_Y^(1−α)·A·x^α. Fondamental : Y est LINÉAIRE en A (le nombre de variétés). Doubler A double Y (à x et L_Y donnés) : rendements croissants sur (K, L, A) ensemble, base de la croissance endogène.",
+      "id": "romerv-002"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Romer (1990) avec production d'idées Ȧ = δ·H_A·A (H_A capital humain en R&D), le taux de croissance vaut :",
+      "choices": [
+        "g_A = δ·A (indépendant du nombre de chercheurs, contrefactuel)",
+        "g_A = H_A/A (décroissant avec le stock d'idées, non-Romer)",
+        "g_A = δ (constant exogène, retour à Solow)",
+        "g_A = δ·H_A"
+      ],
+      "a": 3,
+      "trap": "endo-exo",
+      "why": "Ȧ/A=δ·H_A. Effet d'échelle : le NIVEAU de H_A détermine le TAUX de croissance. C'est ce qui rend la croissance endogène (dépend de choix) mais aussi ce que Jones (1995) contestera empiriquement.",
+      "id": "romerv-003"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Résultat central de Romer (1990) : g = δ·s_R·H − λ·ρ (avec s_R part de H en R&D, ρ préférence pour le présent, λ paramètre de partage). Une hausse de la préférence pour le présent ρ :",
+      "choices": [
+        "augmente g (les agents veulent innover vite, intuition trompeuse)",
+        "réduit g (moins d'incitation R&D)",
+        "n'a aucun effet sur g (négation de l'arbitrage intertemporel)",
+        "double g par effet de composition (fausse mécanique multiplicative)"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "ρ ↑ : agents impatients ⇒ actualisent plus fort les gains futurs de la R&D ⇒ moins de H en R&D ⇒ s_R ↓ ⇒ g ↓. Politique : subventionner la R&D pour compenser cette sous-incitation. Note : ρ apparaît via −λ·ρ dans la formule fermée du modèle.",
+      "id": "romerv-004"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Effet d'échelle chez Romer (1990) : doubler la taille de la population H (à s_R constant) :",
+      "choices": [
+        "double le niveau y sans changer g (raisonnement Solow, erroné ici)",
+        "n'a aucun effet (négation totale de l'effet d'échelle)",
+        "double g",
+        "réduit g par duplication (correction de Jones, pas Romer 1990)"
+      ],
+      "a": 2,
+      "trap": "endo-exo",
+      "why": "g=δ·s_R·H : H↑ ⇒ g↑ proportionnellement. C'est L'effet d'échelle rejeté par Jones. Prédiction contrefactuelle : la Chine ou l'Inde devraient croître beaucoup plus vite que la Suisse, ce qui n'est pas observé.",
+      "id": "romerv-005"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Romer (1990), l'équation d'arbitrage sur le prix du brevet p_A s'écrit r·p_A = π + ṗ_A, où π est le profit monopoliste. Elle exprime :",
+      "choices": [
+        "l'équilibre budgétaire du gouvernement (non modélisé chez Romer)",
+        "l'égalité de rendement entre K et brevet",
+        "la clearance du marché du travail (loi de Say, condition différente)",
+        "la condition d'Inada sur le capital (Solow, borne à la Cobb-Douglas)"
+      ],
+      "a": 1,
+      "why": "Un agent choisit entre placer p_A en K (loyer r·p_A) ou acheter le brevet (flux π + gain de valeur ṗ_A). L'arbitrage annule tout profit d'opportunité. C'est ce qui rend le modèle cohérent et permet de calculer p_A à l'état régulier.",
+      "id": "romerv-006"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Dans Romer (1990), le mark-up de Lerner du monopoleur produisant le bien intermédiaire i, avec demande p(x)·x^(1−α) et coût marginal r, est :",
+      "choices": [
+        "α (prix = α·r, prix inférieur au coût marginal, non tenable)",
+        "1−α (prix = (1−α)·r, erreur sur l'élasticité)",
+        "1/α (prix = r/α)",
+        "1 (concurrence parfaite, prix = r, contradiction avec brevet)"
+      ],
+      "a": 2,
+      "trap": "endo-exo",
+      "why": "Élasticité de la demande = −1/(1−α). Mark-up = 1/(1−élasticité inverse) = 1/α. Prix = r/α > r : perte sèche (triangle) car sous-production par rapport à l'optimum social. Justification supplémentaire pour subvention publique.",
+      "id": "romerv-007"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Romer (1990), l'innovation est qualifiée d'HORIZONTALE (« variétés ») parce que :",
+      "choices": [
+        "chaque idée AMÉLIORE la qualité d'un bien existant (c'est vertical, chez Aghion)",
+        "les idées se substituent les unes aux autres (destruction, Aghion pas Romer)",
+        "les idées transforment les préférences des consommateurs (hors modèle)",
+        "chaque idée ajoute un NOUVEAU bien intermédiaire"
+      ],
+      "a": 3,
+      "trap": "endo-exo",
+      "why": "Romer 1990 : variétés (horizontal). A augmente = nombre de variétés augmente, sans destruction. Contraste avec Aghion-Howitt (vertical) : chaque innovation détrône la précédente (destruction créatrice). Distinction fondamentale entre les deux traditions de croissance endogène.",
+      "id": "romerv-008"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 1,
+      "q": "Chez Romer (1990), la R&D est motivée par :",
+      "choices": [
+        "un plan public de recherche fixé exogènement (rappel Solow)",
+        "l'espérance d'obtenir la rente monopolistique via le brevet",
+        "un simple accident de production (learning by doing, cadre AK)",
+        "une externalité pure sans compensation privée (cadre Frankel-Arrow)"
+      ],
+      "a": 1,
+      "why": "Rupture avec Solow et Arrow/Frankel (AK) : Romer fait de la R&D un choix privé motivé par le profit. Les brevets rendent l'idée excluable temporairement, ce qui permet à l'inventeur de capturer une rente. Sans brevet, retour à la sous-production.",
+      "id": "romerv-009"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Sur le sentier régulier chez Romer (1990) avec Ȧ=δ·H_A·A et H_A constant, le taux de croissance de la part des chercheurs s_R = H_A/H :",
+      "choices": [
+        "croît sans borne au taux g (impossible : s_R serait > 1 en LT)",
+        "converge vers zéro (contradictoire avec l'hypothèse H_A constant)",
+        "oscille autour de sa moyenne (pas de dynamique cyclique dans Romer)",
+        "est constant (état régulier)"
+      ],
+      "a": 3,
+      "trap": "statique-dyn",
+      "why": "Sur le sentier régulier de croissance équilibrée, toutes les parts (s_R, y/A, K/(AL)) sont constantes. Sinon on aurait plus de chercheurs que d'habitants en LT. C'est une CONSÉQUENCE d'équilibre imposée sur le modèle, pas une hypothèse ad hoc.",
+      "id": "romerv-010"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 1,
+      "q": "Aghion-Howitt (1992) publient dans Econometrica « A Model of Growth Through Creative Destruction ». Leur innovation-clé par rapport à Romer 1990 est :",
+      "choices": [
+        "chaque innovation ajoute une variété sans remplacer les anciennes (c'est Romer 1990)",
+        "les idées deviennent rivales (contredit la non-rivalité maintenue chez Aghion)",
+        "chaque amélioration de qualité remplace la précédente",
+        "la R&D est purement publique et gratuite (négation du profit privé)"
+      ],
+      "a": 2,
+      "why": "Aghion-Howitt (Econometrica 1992) : innovations verticales. Une nouvelle version évince l'ancienne du marché (Bertrand price competition avec une meilleure qualité). C'est la destruction créatrice de Schumpeter formalisée. Contra Romer 1990 (horizontal).",
+      "id": "aghhow-001"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Formule du taux de croissance chez Aghion-Howitt : arrivée d'innovations selon Poisson d'intensité λ·n (n effort R&D), saut de qualité γ>1 par innovation. Taux de croissance espéré :",
+      "choices": [
+        "g = λ·n·γ (oubli du passage au log)",
+        "g = λ + n + γ (composition additive, dimensionnellement absurde)",
+        "g = (λ·n)^γ (mauvaise combinatoire des paramètres)",
+        "g = λ·n·ln(γ)"
+      ],
+      "a": 3,
+      "trap": "niveau-log",
+      "why": "E[dln A] = (probabilité)·(saut log) = λ·n·ln(γ). L'espérance du taux de croissance de ln A est donc λ·n·ln(γ). Le passage au log est essentiel : γ multiplicatif devient ln(γ) additif dans le taux. Confondre γ et ln(γ) est LE piège du calcul.",
+      "id": "aghhow-002"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Cas chiffré Aghion-Howitt : λ=0,1, n=2, γ=1,5. Le taux de croissance espéré vaut :",
+      "choices": [
+        "g = 0,3 (30 %, oubli complet du log)",
+        "g ≈ 0,081 (8,1 %)",
+        "g = 0,2·1,5 = 0,3 (double comptage, oubli du log)",
+        "g = 0,1·1,5^2 = 0,225 (mauvais exposant)"
+      ],
+      "a": 1,
+      "trap": "niveau-log",
+      "why": "g=λ·n·ln(γ)=0,1·2·ln(1,5)=0,2·0,405≈0,081 soit 8,1 %/an. L'oubli de ln(γ) (choix 2) donne 0,3, résultat impossible car ln(1,5)<1. Rappel : ln(1,5)≈0,405 est un ordre de grandeur à connaître.",
+      "id": "aghhow-003"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Effet-U inversé Aghion-Bloom-Blundell-Griffith-Howitt (2005) : concurrence modérée maximise g. Mécanisme :",
+      "choices": [
+        "concurrence toujours favorable à l'innovation, la relation est linéaire croissante et sans saturation",
+        "concurrence trop faible ⇒ pas d'incitation ; concurrence trop forte ⇒ rente nulle",
+        "concurrence toujours défavorable (Schumpeter pur, dominé par la destruction de rente)",
+        "aucun lien entre concurrence et innovation (neutralité empiriquement rejetée)"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "Deux forces opposées : (1) effet Schumpeter — concurrence détruit la rente attendue, décourage la R&D ; (2) effet « escape competition » — la concurrence pousse les leaders à innover pour ne pas être rattrapés. La résultante est un U inversé, avec optimum au milieu.",
+      "id": "aghhow-004"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Aghion-Howitt, la rente d'innovation π est déterminée par la concurrence à la Bertrand entre nouvel entrant et ancien fabricant. L'entrant peut :",
+      "choices": [
+        "conclure un cartel avec l'ancien fabricant, partager la rente durablement",
+        "coexister à parts égales sur le marché grâce à des goûts hétérogènes des acheteurs",
+        "être obligé de sortir du marché par les règles antitrust ou de propriété intellectuelle",
+        "évincer l'ancien par limit pricing sur qualité γ"
+      ],
+      "a": 3,
+      "why": "Bertrand avec qualité supérieure γ : l'entrant peut baisser son prix à un niveau tel que l'ancien perd tous ses clients. Il fixe donc son prix pour capturer toute la rente. Structure classique du modèle Schumpeterien.",
+      "id": "aghhow-005"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "L'absence d'effet d'échelle chez Aghion pur (sans complexité croissante) implique que g dépend de :",
+      "choices": [
+        "uniquement des paramètres exogènes λ et γ, jamais de n (négation de l'effet R&D)",
+        "uniquement de γ, jamais de λ ni n (résultat non-vérifié algébriquement)",
+        "λ, n, γ ; l'effet d'échelle passe par n",
+        "de la démographie exclusivement, comme chez Jones (semi-endogène, faux ici)"
+      ],
+      "a": 2,
+      "trap": "endo-exo",
+      "why": "g=λ·n·ln(γ) : n est bien effort de R&D. L'effet d'échelle demeure dans Aghion 1992 pur : doubler l'effort n double g. Pour l'éliminer, il faut supposer que le coût d'innovation croît avec la complexité (Aghion-Howitt 1998, Segerstrom 1998) : on retrouve un modèle semi-endogène.",
+      "id": "aghhow-006"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Aghion-Howitt, le rythme de rotation des firmes (turnover) est corrélé au taux de croissance :",
+      "choices": [
+        "négativement (stabilité favorise la croissance, contredit par Foster et al.)",
+        "positivement",
+        "de façon ambiguë selon les pays et périodes considérées empiriquement",
+        "sans corrélation systématique (indépendance non conforme au cadre schumpeterien)"
+      ],
+      "a": 1,
+      "why": "Chaque innovation détrône un incumbent : plus λ·n est élevé, plus la rotation est rapide, plus g est élevé. Fait stylisé confirmé empiriquement (Foster-Haltiwanger-Krizan). Politique : entraves à l'entrée (protection excessive de l'ancien) freinent g.",
+      "id": "aghhow-007"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 1,
+      "q": "L'expression « creative destruction » remonte à :",
+      "choices": [
+        "Karl Marx (Das Kapital, 1867) qui parlait déjà de contradictions dynamiques",
+        "Adam Smith (Wealth of Nations, 1776) et sa main invisible du marché",
+        "Robert Solow (1956) dans son modèle de croissance de long terme néoclassique",
+        "Joseph Schumpeter (Capitalisme, 1942)"
+      ],
+      "a": 3,
+      "why": "Schumpeter (1942) : « the process of creative destruction is the essential fact about capitalism ». Aghion-Howitt (1992) formalise mathématiquement cette intuition dans un cadre de croissance endogène.",
+      "id": "aghhow-008"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Effet ambigu de la probabilité d'innovation μ sur la part des chercheurs s_R chez Aghion-Howitt :",
+      "choices": [
+        "effet toujours strictement positif sans ambiguïté (mécanisme unilatéral simpliste)",
+        "double effet : +/− ; net positif par préférence pour le présent",
+        "effet toujours strictement négatif (contredit l'observation empirique)",
+        "effet nul par compensation exacte (les deux forces ne s'annulent pas identiquement)"
+      ],
+      "a": 1,
+      "trap": "endo-exo",
+      "why": "Deux forces : (1) μ↑ ⇒ probabilité individuelle d'innovation ↑ ⇒ s_R↑ ; (2) μ↑ ⇒ probabilité de destruction par un futur entrant ↑ ⇒ rente attendue baisse ⇒ s_R↓. Nettement globalement positif car ρ>0 (les gains proches comptent plus que les pertes lointaines actualisées).",
+      "id": "aghhow-009"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Aghion-Howitt (1992), la rente monopoliste π du dernier innovateur croît au rythme :",
+      "choices": [
+        "λ·n (probabilité d'innovation, indépendant de la macro)",
+        "n (croissance démographique, oubli du canal Y/A)",
+        "g",
+        "zéro (π constante, incompatible avec état régulier)"
+      ],
+      "a": 2,
+      "trap": "stock-flux",
+      "why": "π ∝ Y/A car chaque monopoleur produit un bien intermédiaire dont la rente scale avec l'output final. Y/A croît au taux g_Y − g_A = g (Y et A croissent à taux différents), donc π croît à g. Nécessaire pour maintenir l'arbitrage brevet/capital sur le sentier régulier.",
+      "id": "aghhow-010"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 1,
+      "q": "Dans le modèle de Diamond (AER 1965) à générations imbriquées, chaque agent vit :",
+      "choices": [
+        "une seule période",
+        "exactement deux périodes (jeune actif, vieux retraité)",
+        "trois périodes (enfance, actif, retraite)",
+        "une durée aléatoire tirée à la naissance"
+      ],
+      "a": 1,
+      "why": "Diamond OLG canonique : deux périodes. Le jeune travaille et épargne ; le vieux consomme son épargne capitalisée. C'est ce qui distingue OLG du modèle de Ramsey (agent infiniment vécu).",
+      "id": "diamold-001"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "q": "Avec U = ln(c1) + β·ln(c2), l'épargne optimale du jeune s* :",
+      "choices": [
+        "dépend positivement de r",
+        "dépend négativement de r",
+        "ne dépend pas de r et vaut w·β/(1+β)",
+        "vaut w/2 quel que soit β"
+      ],
+      "a": 2,
+      "trap": "endo-exo",
+      "why": "Cas log-utilité : les effets substitution et revenu s'annulent exactement, s* = β/(1+β)·w. Résultat clé souvent testé — les autres CRRA (σ≠1) donnent une dépendance à r.",
+      "id": "diamold-002"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 3,
+      "q": "Sous quelle condition Diamond identifie-t-il une INEFFICIENCE DYNAMIQUE (suraccumulation) à l'état régulier ?",
+      "choices": [
+        "r > n",
+        "r = n",
+        "r < n (règle d'or franchie par excès)",
+        "β > 1"
+      ],
+      "a": 2,
+      "trap": "statique-dyn",
+      "why": "Si le rendement du capital est inférieur au taux de croissance démographique, l'économie a suraccumulé : on peut Pareto-améliorer en consommant du capital. Diamond distingue cet équilibre décentralisé de l'optimum planificateur (règle d'or : r = n).",
+      "id": "diamold-003"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "q": "Système de retraite par répartition (pay-as-you-go) vs capitalisation : que montre Diamond ?",
+      "choices": [
+        "La capitalisation domine toujours",
+        "La répartition domine toujours",
+        "La répartition Pareto-améliore si et seulement si l'économie est dynamiquement inefficace",
+        "Les deux sont équivalents à long terme"
+      ],
+      "a": 2,
+      "why": "Résultat central de Diamond-Samuelson : la répartition transfère à un taux de rendement implicite égal à n. Elle bat le marché (rendement r) seulement si r < n, i.e. économie suraccumulée. Sinon elle détériore le bien-être.",
+      "id": "diamold-004"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 3,
+      "q": "Cas chiffré : U log, β = 0,9, w = 1, n = 0,02, technologie Cobb-Douglas k^α avec α = 1/3. À l'état régulier k*, r* ≈ 0,20 (dérivable). L'économie est :",
+      "choices": [
+        "dynamiquement inefficace (r < n)",
+        "dynamiquement efficace (r > n)",
+        "à la règle d'or exacte (r = n)",
+        "indéterminée sans plus d'infos"
+      ],
+      "a": 1,
+      "why": "s = β/(1+β)·w = 0,47. r ≈ 20 % > n = 2 % : loin de la suraccumulation. Diamond n'implique pas mécaniquement l'inefficience — elle apparaît pour β très élevé, α faible, n élevé.",
+      "id": "diamold-005"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "q": "« Un étudiant écrit : 'Dans Diamond, comme les agents rationnels épargnent librement, on est toujours à la règle d'or.' » Erreur :",
+      "choices": [
+        "Les agents ne sont pas rationnels dans Diamond",
+        "La règle d'or est un critère de planificateur (bien-être intergénérationnel), pas un attracteur de l'équilibre décentralisé",
+        "La règle d'or n'existe pas dans Diamond",
+        "Aucune erreur, l'énoncé est correct"
+      ],
+      "a": 1,
+      "why": "Confusion classique : la rationalité individuelle ne suffit pas à internaliser les externalités intergénérationnelles. L'équilibre décentralisé peut sous-épargner OU sur-épargner par rapport à l'optimum du planificateur.",
+      "id": "diamold-006"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 1,
+      "q": "Dans Diamond, à quel âge l'agent prend-il sa décision d'épargne ?",
+      "choices": [
+        "Jeune, en fonction de w et de r anticipé",
+        "Vieux, sur ses revenus retraite",
+        "Les deux périodes",
+        "Jamais, l'épargne est imposée"
+      ],
+      "a": 0,
+      "why": "L'agent ne décide qu'une fois : jeune. Le vieux consomme mécaniquement (1+r)·s. Cette structure minimale rend l'OLG tractable analytiquement.",
+      "id": "diamold-007"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans Diamond avec log-utilité et Cobb-Douglas y = k^α, l'état régulier admet une expression analytique :",
+      "choices": [
+        "k* = (1-α)·β/((1+β)(1+n))",
+        "k* = α/(1+n)",
+        "k* = w/(1+r)",
+        "k* = s·y*/(δ+n)"
+      ],
+      "a": 0,
+      "why": "s = β/(1+β)·w, w = (1-α)·k^α (rémunération concurrentielle du travail), équation d'accumulation → k*^{1-α} = (1-α)β/((1+β)(1+n)). Résultat à connaître pour les TD.",
+      "id": "diamold-008"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 1,
+      "q": "L'article fondateur de Acemoglu, Johnson, Robinson (2001) paraît dans :",
+      "choices": [
+        "Quarterly Journal of Economics",
+        "American Economic Review",
+        "Journal of Political Economy",
+        "Econometrica"
+      ],
+      "a": 1,
+      "why": "« The Colonial Origins of Comparative Development: An Empirical Investigation », AER 2001. À ne pas confondre avec AJR 2002 « Reversal of Fortune », publié dans QJE.",
+      "id": "ajr-001"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "q": "Instrument variable proposé par AJR 2001 pour identifier l'effet causal des institutions :",
+      "choices": [
+        "Le PIB de 1500",
+        "La latitude géographique",
+        "La mortalité historique des colons européens",
+        "La densité de population actuelle"
+      ],
+      "a": 2,
+      "why": "Cœur de l'article : la mortalité (soldats, marins, évêques, XVIIᵉ-XIXᵉ) prédit la stratégie coloniale (colons s'installent vs comptoirs extractifs), qui prédit les institutions actuelles. IV supposé exclu de l'effet direct sur le PIB actuel.",
+      "id": "ajr-002"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "q": "Mécanisme reliant mortalité et institutions selon AJR 2001 :",
+      "choices": [
+        "Mortalité haute → colonies inclusives (moins de colons, plus de démocratie)",
+        "Mortalité haute → institutions extractives (comptoirs, travail forcé, faible propriété)",
+        "Mortalité haute → institutions inclusives (élite plus faible)",
+        "Mortalité et institutions non corrélées"
+      ],
+      "a": 1,
+      "why": "Zones à forte mortalité (paludisme, fièvre jaune : Afrique tropicale, Amérique centrale) : peu de colons s'y installent, on met en place des dispositifs de prédation avec faible protection de la propriété. Zones tempérées (Amérique du Nord, Australie) : peuplement + transfert d'institutions européennes.",
+      "id": "ajr-003"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "q": "AJR 2002 « Reversal of Fortune » établit :",
+      "choices": [
+        "Que la géographie explique tout",
+        "Que les colonies riches en 1500 sont pauvres aujourd'hui, et inversement — parmi les anciennes colonies",
+        "Que la culture domine les institutions",
+        "Que les colonies riches en 1500 sont restées riches"
+      ],
+      "a": 1,
+      "why": "Publié dans QJE 2002. Empires précolombiens (Aztèques, Incas, Mogols) : riches en 1500 → pauvres aujourd'hui. Amérique du Nord, Australie : quasi-vides en 1500 → riches. Ce revers contredit la persistance et pointe un choc institutionnel.",
+      "id": "ajr-004"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 3,
+      "q": "Critique de Glaeser, La Porta, Lopez-de-Silanes, Shleifer (2004) contre AJR :",
+      "choices": [
+        "L'instrument mortalité est trop élevé",
+        "Les colons ont transféré du capital humain, pas des institutions — le vrai canal est l'éducation",
+        "AJR n'ont pas utilisé la bonne base",
+        "La géographie est le vrai canal"
+      ],
+      "a": 1,
+      "why": "Glaeser et al. « Do Institutions Cause Growth? » JEG 2004 : en incluant les années de scolarisation initiales des colons, l'effet institutions disparaît. Réponse AJR : mais l'éducation est elle-même endogène aux institutions coloniales.",
+      "id": "ajr-005"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "q": "Exemple canonique d'AJR pour invalider l'explication géographique pure :",
+      "choices": [
+        "USA vs Mexique (frontière Nogales)",
+        "Chine vs Japon",
+        "France vs Allemagne",
+        "Corée du Nord vs Corée du Sud"
+      ],
+      "a": 3,
+      "why": "Les deux Corées : mêmes gènes, même climat, même géographie, même culture pré-1948. Divergence de PIB × 16 en 60 ans → seule différence : les institutions. Expérience naturelle mise en avant dans Why Nations Fail.",
+      "id": "ajr-006"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 1,
+      "q": "Année du Nobel d'Acemoglu, Johnson, Robinson :",
+      "choices": [
+        "2019",
+        "2024",
+        "2010",
+        "2020"
+      ],
+      "a": 1,
+      "why": "Prix Nobel 2024 pour leurs travaux sur les institutions et la prospérité comparée. Reconnaissance tardive mais attendue de l'agenda AJR sur les origines historiques de la croissance.",
+      "id": "ajr-007"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 3,
+      "q": "Cas chiffré : Guatemala urbanisé à 9,2 % en 1500 (parmi les plus riches), Uruguay quasi-inhabité. Aujourd'hui :",
+      "choices": [
+        "Guatemala reste plus riche",
+        "Guatemala 42 % plus riche",
+        "Uruguay ≈ 105 % plus riche que Guatemala (revers de fortune illustratif)",
+        "Même PIB"
+      ],
+      "a": 2,
+      "why": "Exemple canonique du cours (partie 3 ch. 2 p. 20) : le pays riche en 1500 est aujourd'hui pauvre, et inversement. Confirme le mécanisme institutionnel — la richesse pré-coloniale a AGGRAVÉ le sort long-terme via institutions extractives.",
+      "id": "ajr-008"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 1,
+      "q": "Année de publication de l'« Essai sur le principe de population » de Robert Malthus :",
+      "choices": [
+        "1776",
+        "1798",
+        "1848",
+        "1867"
+      ],
+      "a": 1,
+      "why": "1798 (première édition anonyme). Écrit en réaction aux thèses optimistes de Condorcet et Godwin. Malthus révisera 6 fois son texte jusqu'en 1826, avec des nuances sur les « obstacles préventifs » (contrôle des naissances).",
+      "id": "malthd-001"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "q": "Fonction de production malthusienne canonique (X terre fixe, L travail, β part de la terre) :",
+      "choices": [
+        "Y = A·K^α·L^{1-α}",
+        "Y = B·X^β·L^{1-β}, d'où y = B·(X/L)^β",
+        "Y = A·L",
+        "Y = K/L"
+      ],
+      "a": 1,
+      "why": "La terre X est le facteur fixe : rendements décroissants sur L → y = B·(X/L)^β. C'est cette forme précise qui produit le piège malthusien. Sans facteur fixe, pas de piège.",
+      "id": "malthd-002"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "q": "Piège malthusien : effet d'une hausse ponctuelle de B (productivité) sur y à long terme ?",
+      "choices": [
+        "y augmente définitivement",
+        "y augmente temporairement puis revient au niveau de subsistance",
+        "y baisse",
+        "y = 0"
+      ],
+      "a": 1,
+      "trap": "statique-dyn",
+      "why": "Court terme : y↑. Mais la natalité positive avec y fait croître L, ce qui baisse y (rendements décroissants sur la terre fixe) jusqu'à retour au niveau de subsistance. Seule la population de long terme change (L* ↑).",
+      "id": "malthd-003"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 3,
+      "q": "Modèle de Kremer (1993) : équation du taux de croissance de la productivité (λ = 1, φ = 1) :",
+      "choices": [
+        "Ḃ/B = φ·A·L",
+        "Ḃ = 0",
+        "Ḃ/B = g exogène",
+        "Ḃ = L^2"
+      ],
+      "a": 0,
+      "why": "Kremer suppose que la population entière participe à la recherche (λ = 1) et rendements constants sur les idées (φ = 1). Alors Ḃ/B croît linéairement avec L : plus de personnes = plus d'inventeurs = accélération cumulative des idées.",
+      "id": "malthd-004"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "q": "Selon la source Maddison, croissance annuelle de y au niveau mondial 1000-1820 :",
+      "choices": [
+        "0 %",
+        "0,05 %",
+        "1 %",
+        "3 %"
+      ],
+      "a": 1,
+      "why": "Chiffre du cours (partie 3 ch. 1 p. 3) : Gy ≈ 0,05 % — quasi-stagnation sur 820 ans. Bornée par le piège malthusien. Contraste avec l'ère post-1820 (Gy 0,5 % puis 1,3 % vers 1870-1913).",
+      "id": "malthd-005"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "q": "Galor-Weil (2000) : modèle de transition démographique. Mécanisme central :",
+      "choices": [
+        "Baisse de la mortalité",
+        "Arbitrage QUANTITÉ / QUALITÉ des enfants : au-dessus d'un seuil y_T, les parents investissent en éducation plutôt qu'en nombre",
+        "Politiques publiques",
+        "Migration"
+      ],
+      "a": 1,
+      "why": "Idée Becker (1960, 1981) formalisée par Galor-Weil : sous y_T, éducation gratuite/familiale, n croît avec y. Au-dessus de y_T, coût d'opportunité domine, n décroît avec y. Explique la transition démographique observée post-1870.",
+      "id": "malthd-006"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 3,
+      "q": "« Un étudiant écrit : 'Le modèle de Malthus prédit correctement l'histoire humaine jusqu'à aujourd'hui.' » Erreur :",
+      "choices": [
+        "Aucune",
+        "Malthus prédit une continuité de la stagnation ; il n'anticipe pas la révolution industrielle qui l'a précisément invalidé",
+        "Malthus prédit une explosion démographique dès 1800",
+        "Malthus ignorait la terre"
+      ],
+      "a": 1,
+      "why": "Malthus, écrivant en 1798, prolonge l'expérience des millénaires précédents et ne voit pas venir le décollage industriel imminent. Ironie : son modèle décrit brillamment les 2000 ans qui le précèdent, et devient obsolète 30 ans après sa publication.",
+      "id": "malthd-007"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "q": "À trous : « Dans le modèle malthusien, une hausse ponctuelle de B augmente ___ mais pas ___ à long terme. »",
+      "choices": [
+        "y, L",
+        "L, y",
+        "B, X",
+        "w, r"
+      ],
+      "a": 1,
+      "why": "L* monte, y* reste au niveau de subsistance. C'est l'essence du piège. Piège à retenir pour l'examen : effet asymétrique sur les niveaux d'équilibre.",
+      "id": "malthd-008"
     }
   ],
   "VF": [
@@ -9908,6 +11724,634 @@
       "q": "Selon North (1990), les institutions désignent uniquement les règles formelles écrites, à l'exclusion des normes informelles.",
       "a": false,
       "why": "North inclut explicitement les règles informelles (culture, normes sociales, coutumes) aux côtés des règles formelles (constitutions, lois). Acemoglu (2009) sépare les deux mais la définition originale de North englobe les deux registres."
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans Dornbusch (1976), la PPA est vérifiée à chaque instant.",
+      "a": false,
+      "trap": "fixe-flexible",
+      "why": "FAUX : la PPA est vérifiée seulement à LONG TERME. À court terme, les prix rigides autorisent un TCR variable. C'est cette rupture temporaire de PPA qui distingue Dornbusch de Frenkel.",
+      "id": "dornbu-011"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "q": "Si la vitesse d'ajustement des prix q tend vers l'infini, le modèle Dornbusch dégénère vers Frenkel et le surajustement disparaît.",
+      "a": true,
+      "trap": "statique-dyn",
+      "why": "q → ∞ ⇒ prix instantanément flexibles ⇒ PPA continue ⇒ Frenkel. La rigidité, ingrédient sine qua non du surajustement, s'évanouit. Cas limite intéressant à mentionner en dissertation.",
+      "id": "dornbu-012"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans Dornbusch, l'offre agrégée y est traitée comme exogène (à la Frenkel).",
+      "a": true,
+      "trap": "endo-exo",
+      "why": "y = ȳ exogène (plein emploi), c'est la DEMANDE d qui varie avec le TCR. Différence majeure avec Mundell-Fleming où c'est la production qui s'ajuste. Attention à ne pas confondre les cadres.",
+      "id": "dornbu-013"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "q": "Après un choc Ms↑ dans Dornbusch, le TCR se déprécie transitoirement puis revient à son niveau initial.",
+      "a": true,
+      "trap": "niveau-log",
+      "why": "À court terme, e saute mais p reste fixe ⇒ q = e + p − p* saute avec e (dépréciation réelle). À long terme, p rattrape et q revient à sa norme initiale. Le TCR fait un aller-retour.",
+      "id": "dornbu-014"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 2,
+      "q": "Le mécanisme moteur du surajustement de Dornbusch est la baisse temporaire de i qui exige une appréciation anticipée du change, laquelle n'est possible que si e a d'abord surajusté à la baisse.",
+      "a": true,
+      "trap": "sens-parite",
+      "why": "Chaîne logique : Ms↑ ⇒ i↓ ⇒ PNCTI ⇒ eᵃ − e < 0 (appréciation anticipée) ⇒ e > eᵃ (surajustement). La logique du surajustement suit la PNCTI, pas une friction irrationnelle.",
+      "id": "dornbu-015"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 2,
+      "q": "Dans le modèle de portefeuille de Kouri (1976), la substituabilité parfaite entre actifs correspond au cas α → 0.",
+      "a": true,
+      "trap": "endo-exo",
+      "why": "α = 0 ⇒ agents indifférents au risque ⇒ prime nulle ⇒ PNCTI stricte ⇒ substituabilité parfaite. Le degré d'imperfection est mesuré par α·σ²_E.",
+      "id": "kouri-012"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "q": "Dans Kouri, un déficit courant persistant creuse la PEN négative et augmente, à autres facteurs constants, la prime de risque exigée sur les actifs domestiques.",
+      "a": true,
+      "trap": "stock-flux",
+      "why": "Déficit courant (FLUX) ⇒ accumulation de dette externe ⇒ PEN (STOCK) ↓ ⇒ f offert aux étrangers ↑ ⇒ ρ = α·σ²_E·(f − f₀) ↑. L'ajustement se fait par i↑ ou dépréciation. Piège stock-flux classique.",
+      "id": "kouri-013"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 2,
+      "q": "Dans Kouri, la prime de risque de change est indépendante de la position extérieure nette du pays.",
+      "a": false,
+      "trap": "stock-flux",
+      "why": "FAUX : c'est le contraire. ρ dépend explicitement de f − f₀, où f est la part des actifs domestiques détenus par les étrangers, corrélée à la PEN. Un pays débiteur paie plus.",
+      "id": "kouri-014"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "q": "Une hausse crédible de la variance anticipée du change σ²_E augmente, toutes choses égales, la prime de risque exigée dans Kouri.",
+      "a": true,
+      "trap": "endo-exo",
+      "why": "σ²_E est un paramètre de risque perçu. Plus grande volatilité anticipée ⇒ risque de conversion accru ⇒ prime ↑. Boucle : instabilité ⇒ prime ⇒ dépréciation ⇒ instabilité (auto-entretien étudié en TD).",
+      "id": "kouri-015"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 2,
+      "q": "Meese-Rogoff (1983) évaluent la performance des modèles structurels EN échantillon (in-sample) et concluent à leur défaillance.",
+      "a": false,
+      "trap": "statique-dyn",
+      "why": "FAUX : le test est HORS échantillon (out-of-sample). In-sample, les modèles ajustent correctement. C'est justement la contradiction entre bon ajustement in-sample et échec en prévision qui fait l'énigme.",
+      "id": "meesero-010"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "q": "Le résultat de Meese-Rogoff implique que le taux de change n'est en aucun cas lié aux fondamentaux monétaires, même à long terme.",
+      "a": false,
+      "trap": "statique-dyn",
+      "why": "FAUX : à long terme, une cointégration entre e et fondamentaux monétaires est détectée dans les études postérieures (Mark 1995). L'échec Meese-Rogoff concerne les horizons COURTS (1-12 mois). Distinction CT/LT capitale.",
+      "id": "meesero-011"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 2,
+      "q": "Le message pédagogique central de Meese-Rogoff est qu'une prévision naïve du type « le taux de change de la période suivante est celui de la période courante » n'est pas battue par les modèles structurels aux horizons courts.",
+      "a": true,
+      "trap": "endo-exo",
+      "why": "Formulation exacte du résultat. La marche aléatoire dit exactement cela (E(e_{t+h}) = e_t). Les modèles monétaire, sticky-price et portefeuille ne font pas mieux à horizons ≤ 12 mois.",
+      "id": "meesero-012"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 2,
+      "q": "L'extension Cheung-Chinn-Garcia-Pascual (2005) invalide le résultat de Meese-Rogoff en montrant que les modèles structurels battent finalement la marche aléatoire.",
+      "a": false,
+      "trap": "endo-exo",
+      "why": "FAUX : CCGP CONFIRMENT Meese-Rogoff sur période 1973-2000 avec améliorations économétriques (correction d'erreur, différenciation pour non-stationnarité). Le puzzle est robuste et n'est pas dû à l'appareil statistique de 1983.",
+      "id": "meesero-013"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "q": "Dans le protocole de Meese-Rogoff, les modèles reçoivent les vraies valeurs des fondamentaux sur la période de prévision (avantage informationnel) et échouent malgré cela à battre la marche aléatoire.",
+      "a": true,
+      "trap": "endo-exo",
+      "why": "Détail méthodologique crucial : Meese-Rogoff donnent les valeurs futures exactes de (m, y, i) aux modèles. Malgré cet avantage informationnel considérable, la marche aléatoire n'est pas battue. Renforce la robustesse du puzzle.",
+      "id": "meesero-014"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "Le dilemme de Triffin a été formulé en 1960, soit onze ans avant la suspension effective de la convertibilité or par Nixon.",
+      "a": true,
+      "why": "Robert Triffin, Gold and the Dollar Crisis, 1960 : le diagnostic précède de 11 ans le verdict historique du 15 août 1971.",
+      "id": "triffin-008"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "En 1971, le stock d'or de la Fed couvrait environ 22 % de l'encours de dollars détenus par l'étranger, contre 55 % en 1950.",
+      "a": true,
+      "trap": "stock-flux",
+      "why": "L'un des chiffres du cours : la couverture-or (ratio stock d'or / stock de dollars détenus par l'étranger) a fondu de 55 % à 22 % en deux décennies — expression quantitative du dilemme de Triffin.",
+      "id": "triffin-009"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 2,
+      "q": "Résoudre le dilemme de Triffin est possible en accumulant des excédents courants américains sans réduire l'émission internationale de dollars.",
+      "a": false,
+      "trap": "signe-bdp",
+      "why": "Contradiction logique : si les États-Unis ont un excédent, ils absorbent des dollars du reste du monde, ce qui tarit la liquidité mondiale. Le dilemme est justement l'impossibilité de faire les deux ensemble.",
+      "id": "triffin-010"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "Le dilemme de Triffin s'applique uniquement au dollar sous Bretton Woods et n'affecte ni l'euro ni le RMB.",
+      "a": false,
+      "trap": "fixe-flexible",
+      "why": "Le prof insiste : toute monnaie internationale hérite d'une version du dilemme. Le RMB en particulier reste bridé par une convertibilité limitée, empêchant précisément la Chine d'endosser le rôle de fournisseur de liquidité internationale.",
+      "id": "triffin-011"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "Une intervention stérilisée par la Fed dans les années 1960 aurait pu résoudre le dilemme de Triffin.",
+      "a": false,
+      "trap": "sterilise",
+      "why": "Le dilemme est structurel (stock d'or fini vs encours de dollars détenus par l'étranger croissant), pas conjoncturel. Aucune politique monétaire, stérilisée ou non, ne réconcilie les deux exigences dans le cadre Bretton Woods.",
+      "id": "triffin-012"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "Sous Balassa-Samuelson, la formule Δq = (1−γ)·(ΔΠE_T − ΔΠE*_T) − γ·(ΔΠE_N − ΔΠE*_N) prédit une appréciation réelle même si la productivité N domestique croît au même rythme que celle de l'étranger.",
+      "a": true,
+      "trap": "bs-etapes",
+      "why": "Si ΔΠE_N = ΔΠE*_N, le second terme s'annule et Δq = (1−γ)·(ΔΠE_T − ΔΠE*_T) > 0 dès que la productivité T domestique rattrape l'étranger. C'est le cas canonique du rattrapage émergent.",
+      "id": "bsdet-008"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "L'effet Balassa-Samuelson suppose que l'écart de productivité entre les deux secteurs (T et N) soit plus grand dans le pays en rattrapage que chez le partenaire.",
+      "a": true,
+      "trap": "bs-etapes",
+      "why": "Formulation équivalente : (ΔΠE_T − ΔΠE_N)_domestique > (ΔΠE_T − ΔΠE_N)_étranger. C'est cet écart d'écarts qui crée le différentiel de prix N — pas la productivité T seule.",
+      "id": "bsdet-009"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 2,
+      "q": "Balassa (1964) et Samuelson (1964) ont co-écrit l'article fondateur du mécanisme.",
+      "a": false,
+      "why": "Publications simultanées mais indépendantes en 1964. La convention de double-nom vient de la coïncidence chronologique et de la convergence des résultats, pas d'une collaboration.",
+      "id": "bsdet-010"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "Si le marché du travail domestique est fortement dualiste (secteur informel étendu), le mécanisme Balassa-Samuelson est atténué.",
+      "a": true,
+      "trap": "bs-etapes",
+      "why": "La contagion salariale suppose un marché du travail unifié. Un dualisme rompt cette étape : les salaires T ne se propagent pas au N informel, et donc les prix N n'augmentent pas mécaniquement. Une des critiques BS pour PED.",
+      "id": "bsdet-011"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "L'effet Penn (les prix agrégés sont plus bas dans les pays pauvres, convertis en dollars) est cohérent avec Balassa-Samuelson.",
+      "a": true,
+      "why": "Q < 1 dans les PED s'explique par des salaires bas dans le T (productivité T faible) qui déteignent sur le N via contagion salariale, donc P_N bas et niveau agrégé bas. Penn effect = observation empirique, BS = explication théorique.",
+      "id": "bsdet-012"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "En Mundell-Fleming, changes flexibles + mobilité parfaite, une hausse permanente de Ms provoque une dépréciation qui stimule X − M et donc Y.",
+      "a": true,
+      "trap": "mf-regime",
+      "why": "Ms ↑ → LM à droite → i ↓ → sorties → dépréciation → X − M ↑ → Y ↑. La politique monétaire est efficace en flexible + mobilité parfaite, canal du change amplifiant l'effet.",
+      "id": "mfdet-008"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "Une intervention stérilisée déplace durablement la courbe LM.",
+      "a": false,
+      "trap": "sterilise",
+      "why": "Par construction, la stérilisation neutralise l'effet de l'intervention sur la base monétaire : Ms inchangée, LM immobile. C'est précisément la définition de la stérilisation, à opposer à une intervention non stérilisée.",
+      "id": "mfdet-009"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "En mobilité imparfaite des capitaux (BP pentue), la politique budgétaire est totalement inefficace en changes flexibles.",
+      "a": false,
+      "trap": "mf-regime",
+      "why": "L'inefficacité totale est le cas mobilité parfaite. En mobilité imparfaite, l'appréciation est moindre (i n'est pas ancré à i*), donc l'éviction n'est que partielle : la politique budgétaire garde un effet modéré sur Y.",
+      "id": "mfdet-010"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 2,
+      "q": "Mundell-Fleming étend le cadre IS-LM en ajoutant une troisième courbe BP (balance des paiements).",
+      "a": true,
+      "why": "IS-LM (économie fermée) + BP (contrainte extérieure) = Mundell-Fleming (économie ouverte). BP donne les couples (Y, i) compatibles avec un solde extérieur donné pour un régime de change et une mobilité donnés.",
+      "id": "mfdet-011"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "En mobilité parfaite, un choc budgétaire (G ↑) en régime fixe est amplifié parce que la banque centrale doit acheter des devises pour tenir la parité, ce qui augmente Ms.",
+      "a": true,
+      "trap": "mf-regime",
+      "why": "Cœur du mécanisme fixe + mobilité parfaite : la BC devient endogène, achète les devises entrantes, Ms ↑, LM à droite. La politique budgétaire est de facto « accommodée » monétairement — d'où son efficacité maximale.",
+      "id": "mfdet-012"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 1,
+      "q": "Chez Solow (1956), Y = K^α · (A·L)^(1−α) est une Cobb-Douglas à progrès technique labour-augmenting.",
+      "a": true,
+      "why": "Spécification harrodienne : A entre en produit avec L. Seule forme compatible avec sentier régulier à parts factorielles constantes (résultat d'Uzawa 1961).",
+      "id": "solowd-011"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "La règle d'or de Phelps (1961) donne s* = α sous Cobb-Douglas, quels que soient n, g et δ.",
+      "a": true,
+      "why": "f'(k̂*)=n+g+δ ⇔ α·k̂*^(α−1)=n+g+δ. Or à l'état régulier k̂*^(α−1)=(n+g+δ)/s. En égalant α·(n+g+δ)/s=n+g+δ, on obtient s=α. Ce résultat est indépendant des paramètres démographiques et de dépréciation.",
+      "id": "solowd-012"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Chez Solow avec α=1/3, s=0,2, n=0,01, g=0,02, δ=0,05, la vitesse de convergence λ vaut environ 5,3 %/an.",
+      "a": true,
+      "trap": "niveau-log",
+      "why": "λ=(1−α)(n+g+δ)=(2/3)·0,08=0,0533. Solow standard est trop rapide (13 ans de demi-vie) ; MRW le ramène à 2 %/an (35 ans) en abaissant l'exposant à (1−α−β).",
+      "id": "solowd-013"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 3,
+      "q": "Chez Solow, l'équilibre décentralisé est toujours Pareto-optimal.",
+      "a": false,
+      "trap": "endo-exo",
+      "why": "Solow est un modèle à s EXOGÈNE. Rien n'oblige s=s_or. Si s>s_or (k̂*>k̂_or), on peut Pareto-améliorer en baissant s : plus de conso à toutes les périodes. Inefficience dynamique — corrigée par Ramsey/Cass-Koopmans.",
+      "id": "solowd-014"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "q": "Chez Solow, le taux de croissance de long terme du PIB par tête est déterminé par l'endogénéisation du taux d'épargne.",
+      "a": false,
+      "trap": "endo-exo",
+      "why": "g_LT = g exogène (rythme du progrès technique). C'est LA critique principale : Solow explique la convergence conditionnelle et les niveaux, mais le taux de long terme est un paramètre exogène. L'endogénéisation viendra avec Romer/Lucas.",
+      "id": "solowd-015"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 1,
+      "q": "Dans Romer (1990), la production du bien final utilise un continuum de biens intermédiaires variés dont le nombre A croît avec la R&D.",
+      "a": true,
+      "why": "Y = L_Y^(1−α)·∫₀^A x_i^α di. Croissance de A = ajout de nouvelles variétés (horizontal). Cette forme fonctionnelle assure des rendements croissants sur (K, L, A) globalement, tout en préservant rendements constants sur (K, L) seuls.",
+      "id": "romerv-011"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Romer (1990), doubler le nombre de chercheurs H_A double le taux de croissance à long terme (effet d'échelle).",
+      "a": true,
+      "trap": "endo-exo",
+      "why": "g=δ·H_A : dépendance linéaire au niveau (pas au taux de croissance) de H_A. Prédiction contrefactuelle rejetée par Jones (1995) sur les données US 1950-88 (chercheurs × 5, g constant). Motive la correction semi-endogène.",
+      "id": "romerv-012"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Romer (1990), la source de la sous-optimalité de l'équilibre décentralisé est uniquement la concurrence imparfaite dans les biens intermédiaires.",
+      "a": false,
+      "why": "DEUX sources : (1) externalité de connaissance (les chercheurs ne perçoivent pas leur impact futur sur δ) ⇒ sous-production ; (2) mark-up monopoliste sur biens intermédiaires ⇒ sous-production par le monopoleur. Les deux justifient la subvention à la R&D.",
+      "id": "romerv-013"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "L'externalité de connaissance « standing on the shoulders of giants » chez Romer correspond au paramètre ϕ > 0 tel que Ȧ = δ·H_A·A^ϕ.",
+      "a": true,
+      "trap": "endo-exo",
+      "why": "ϕ>0 : la productivité des chercheurs croît avec le stock d'idées. Cas Romer : ϕ=1 (proportionnelle). Cas Jones : 0<ϕ<1 (semi-endogène). Cas « fishing out » : ϕ<0 (idées faciles épuisées).",
+      "id": "romerv-014"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Chez Romer (1990), l'équation d'arbitrage r·p_A = π + ṗ_A impose ṗ_A/p_A = n sur le sentier régulier.",
+      "a": true,
+      "trap": "stock-flux",
+      "why": "À l'état régulier r constant, π croît au taux n (car π ∝ Y/A et Y/A croît à n). Alors r·p_A − ṗ_A = π constante en équivalent croissance ⇒ p_A croît lui aussi au taux n. C'est la condition de cohérence de la trajectoire équilibrée.",
+      "id": "romerv-015"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 1,
+      "q": "Aghion-Howitt (1992) modélisent l'innovation comme un processus de Poisson avec intensité λ·n.",
+      "a": true,
+      "why": "Innovations discrètes, arrivées poissonniennes. λ = productivité individuelle du chercheur, n = effort R&D. Contra Romer 1990 où l'innovation est continue. Loi des grands nombres ⇒ sentier moyen déterministe malgré l'aléa individuel.",
+      "id": "aghhow-011"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Aghion-Howitt, la formule g = λ·n·ln(γ) confond γ (facteur de qualité) et ln(γ), erreur fréquente.",
+      "a": false,
+      "trap": "niveau-log",
+      "why": "La formule EST correcte : g=λ·n·ln(γ). Ce qui est une confusion fréquente, c'est de simplifier à λ·n·γ (choix incorrect). γ multiplicatif ⇒ ln(γ) additif en log — précisément parce que g mesure d(ln A)/dt.",
+      "id": "aghhow-012"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "L'effet-U inversé sur concurrence-innovation (Aghion et al. 2005) implique qu'un renforcement de la concurrence est toujours favorable à la croissance.",
+      "a": false,
+      "trap": "endo-exo",
+      "why": "U inversé : la relation n'est PAS monotone. Concurrence trop faible = pas d'entrant motivé (Schumpeter) ; concurrence trop forte = rente d'innovation nulle. Optimum médian. Politique subtile — donc pas de règle simple « plus de concurrence = mieux ».",
+      "id": "aghhow-013"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Chez Aghion-Howitt (1992), la croissance en temps continu se fait par sauts stochastiques, mais la loi des grands nombres garantit un sentier régulier moyen.",
+      "a": true,
+      "trap": "statique-dyn",
+      "why": "Innovation individuelle = saut aléatoire. Nombre de firmes grand, arrivées Poisson indépendantes ⇒ agrégat converge (LGN) vers E[g_A]=λ·n·ln(γ). Le sentier moyen est régulier, malgré la volatilité locale. Distinction fondamentale : stochastique au micro, déterministe au macro.",
+      "id": "aghhow-014"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "q": "Chez Aghion-Howitt pur (1992), l'effet d'échelle est absent : doubler la population n'affecte pas g.",
+      "a": false,
+      "trap": "endo-exo",
+      "why": "g=λ·n·ln(γ) : n est l'effort de R&D, monte avec la population (s_R constant). Aghion 1992 CONSERVE l'effet d'échelle. Pour l'éliminer, il faut ajouter une complexité croissante (Aghion-Howitt 1998, Segerstrom 1998) : semi-endogénéité.",
+      "id": "aghhow-015"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 1,
+      "q": "Dans Diamond (1965), un agent vit exactement deux périodes.",
+      "a": true,
+      "why": "Structure canonique OLG : jeune actif (t) puis vieux retraité (t+1). C'est ce qui distingue OLG de Ramsey (horizon infini).",
+      "id": "diamold-009"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "q": "Avec utilité logarithmique, l'épargne du jeune dans Diamond dépend positivement de r.",
+      "a": false,
+      "trap": "endo-exo",
+      "why": "Cas log : les effets substitution et revenu s'annulent exactement. s* = β/(1+β)·w, indépendante de r. C'est un résultat souvent piégé.",
+      "id": "diamold-010"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "q": "L'équilibre décentralisé de Diamond coïncide toujours avec la règle d'or.",
+      "a": false,
+      "trap": "statique-dyn",
+      "why": "Il peut y avoir suraccumulation (r < n) ou sous-accumulation (r > n). La règle d'or n'est pas un attracteur : la rationalité individuelle n'internalise pas l'externalité intergénérationnelle.",
+      "id": "diamold-011"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 3,
+      "q": "Un système de retraite par répartition Pareto-améliore uniquement si l'économie est dynamiquement inefficace.",
+      "a": true,
+      "why": "Résultat de Diamond-Samuelson : la répartition rend un rendement implicite égal à n. Si r < n (suraccumulation), elle bat le marché. Si r > n, elle détériore le bien-être.",
+      "id": "diamold-012"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "q": "En OLG avec croissance g, la condition d'inefficience dynamique devient r < n + g.",
+      "a": true,
+      "why": "Généralisation de la règle d'or : on compare le rendement du capital à la croissance de la masse salariale (n + g). Résultat standard des extensions Phelps-Diamond.",
+      "id": "diamold-013"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 1,
+      "q": "L'article AJR 2001 « Colonial Origins » est publié dans l'American Economic Review.",
+      "a": true,
+      "why": "AER, 2001. Le second article célèbre, « Reversal of Fortune » (2002), paraît dans le QJE.",
+      "id": "ajr-009"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "q": "Le coefficient IV obtenu par AJR (2001) sur l'effet des institutions sur le PIB en log est de l'ordre de un.",
+      "a": true,
+      "why": "Ordre de grandeur ≈ 1 log-point (échelle propriété privée 0-10). Première étape r² > 0,25. Robustesse discutée mais coefficient stable dans leurs spécifications.",
+      "id": "ajr-010"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "q": "Selon AJR, les colonies riches en 1500 sont aujourd'hui en général plus riches que les colonies pauvres en 1500.",
+      "a": false,
+      "why": "C'est l'inverse — le « revers de fortune » (Reversal of Fortune, QJE 2002). Densité pré-coloniale élevée → institutions extractives → pauvreté aujourd'hui.",
+      "id": "ajr-011"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 3,
+      "q": "La critique de Glaeser et al. (2004) soutient que le vrai canal causal est le capital humain des colons, pas les institutions transférées.",
+      "a": true,
+      "why": "« Do Institutions Cause Growth? » JEG 2004. En contrôlant pour l'éducation initiale, l'effet institutions dans AJR s'évanouit. Débat non tranché.",
+      "id": "ajr-012"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 3,
+      "q": "La comparaison Corées Nord/Sud est utilisée par AJR pour illustrer une expérience naturelle où seule la géographie diverge.",
+      "a": false,
+      "why": "Exactement le contraire : c'est parce que géographie, culture, gènes sont IDENTIQUES pré-1948 que la divergence de PIB (× 16 en 60 ans) est attribuable aux INSTITUTIONS. C'est la variation résiduelle.",
+      "id": "ajr-013"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 1,
+      "q": "Malthus publie son Essai sur le principe de population en 1798.",
+      "a": true,
+      "why": "Première édition anonyme. Il révisera 6 fois jusqu'en 1826 avec des nuances (obstacles préventifs, contrôle des naissances).",
+      "id": "malthd-009"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "q": "Dans le modèle malthusien standard, une hausse permanente de B augmente durablement le revenu par tête à l'état stationnaire.",
+      "a": false,
+      "trap": "statique-dyn",
+      "why": "Hausse ponctuelle de B → hausse temporaire de y → hausse de L → retour à y de subsistance. Seul L* monte. Seul un progrès technique CONTINU (g > 0) peut élever y*.",
+      "id": "malthd-010"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "q": "Chez Kremer (1993), la population elle-même génère les idées, ce qui produit une accélération cumulative jusqu'à la sortie du piège.",
+      "a": true,
+      "why": "Modèle scale-effects extrême : Ḃ/B = φ·A·L avec λ=1, φ=1. Plus L monte, plus B accélère, plus L accélère. Décollage endogène. Prédit correctement l'histoire pré-1970 mais rate la baisse récente de n.",
+      "id": "malthd-011"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 3,
+      "q": "Selon Galor-Weil (2000), la fertilité est une fonction monotone décroissante du revenu sur toute la période historique.",
+      "a": false,
+      "why": "Non : croissante sous y_T (éducation gratuite, plus d'enfants), décroissante au-dessus de y_T (arbitrage Q/Q, coût d'opportunité domine). Fonction en cloche. C'est la NON-monotonie qui capte les 3 régimes du cours.",
+      "id": "malthd-012"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "q": "Selon Maddison, la croissance annuelle mondiale de y entre 1000 et 1820 était d'environ 1 %.",
+      "a": false,
+      "why": "0,05 % — quasi-nulle. Le piège malthusien produit une quasi-stagnation sur 820 ans. Le chiffre de 1 % ne s'observe que post-industrialisation (1870-1913 : 1,3 %).",
+      "id": "malthd-013"
     }
   ],
   "SENS": [
@@ -12429,6 +14873,632 @@
       "var": "Adoption industrielle effective par l'économie",
       "a": "down",
       "why": "L'élite bloque : elle craint que les entrepreneurs hors élite se les approprient et que le pouvoir politique bascule (peur de la destruction créatrice). L'adoption est freinée ou bloquée."
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle Dornbusch (1976), prix rigides à court terme, PNCTI, anticipations rationnelles, économie ouverte à mobilité parfaite des capitaux",
+      "shock": "Hausse permanente de la masse monétaire Ms de 5 %",
+      "var": "Taux de change nominal e (au certain, en log) à l'impact",
+      "a": "up",
+      "trap": "statique-dyn",
+      "why": "e SAUTE vers le haut à l'impact au-delà de sa valeur de long terme (surajustement). Au certain, une hausse de e = dépréciation. À LT, dépréciation partielle vers +5 %.",
+      "id": "dornbu-016"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle Dornbusch, choc monétaire Ms↑ permanent déjà absorbé (t tend vers l'infini), retour au sentier de selle",
+      "shock": "Passage du court terme au long terme dans le sentier post-choc Ms↑",
+      "var": "Taux de change nominal e",
+      "a": "down",
+      "trap": "statique-dyn",
+      "why": "Entre CT et LT, e RÉ-APPRÉCIE : partant du surajustement (ex. +15 %), il revient vers la cible de LT (+10 %). Baisse de e sur le sentier. Différence subtile avec le mouvement à l'impact.",
+      "id": "dornbu-017"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle Dornbusch, paramètres b (élasticité de la demande de monnaie à i) et q (vitesse d'ajustement des prix)",
+      "shock": "Baisse du paramètre q (prix encore plus rigides qu'auparavant, choc Ms↑ standard)",
+      "var": "Amplitude du surajustement de e à l'impact",
+      "a": "up",
+      "trap": "statique-dyn",
+      "why": "q ↓ ⇒ prix plus rigides ⇒ i reste bas plus longtemps ⇒ appréciation anticipée requise plus grande ⇒ e doit surajuster davantage. Amplitude du surajustement croît avec la rigidité.",
+      "id": "dornbu-018"
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle Dornbusch, choc Ms↑ à l'impact (temps t = 0⁺), avant tout ajustement des prix domestiques",
+      "shock": "Hausse permanente de Ms",
+      "var": "Taux d'intérêt domestique i à l'impact",
+      "a": "down",
+      "trap": "fixe-flexible",
+      "why": "Prix rigides ⇒ équation LM (mt = pt + a·yt − b·it) : à p et y donnés, Ms↑ ⇒ i↓. Piège classique : ne pas confondre avec Frenkel où i n'a pas de dynamique de CT distincte.",
+      "id": "dornbu-019"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "ctx": "Modèle de portefeuille de Kouri (1976), α > 0, σ²_E > 0, i, i*, eᵃ donnés",
+      "shock": "Détérioration de la PEN (accumulation de dette externe, f − f₀ augmente)",
+      "var": "Prime de risque exigée ρ sur les actifs domestiques",
+      "a": "up",
+      "trap": "stock-flux",
+      "why": "ρ = α·σ²_E·(f − f₀). Une PEN plus négative signifie f ↑ (plus d'actifs domestiques détenus à l'étranger, offre plus abondante) ⇒ ρ ↑. Effet stock-sur-prime, absent de la PNCTI classique.",
+      "id": "kouri-016"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "ctx": "Modèle de Kouri à eᵃ, i, i* donnés, α et σ²_E fixes, économie ouverte à mobilité imparfaite",
+      "shock": "Émission massive de dette souveraine domestique achetée par les non-résidents (f augmente)",
+      "var": "Taux de change nominal e à l'ajustement (au certain, en log)",
+      "a": "up",
+      "trap": "stock-flux",
+      "why": "f↑ ⇒ ρ↑ requis ⇒ e = eᵃ + (i − i*) + ρ (par recomposition) ⇒ e↑ (au certain : dépréciation). Cohérent avec l'intuition : plus de dette externe = monnaie plus faible.",
+      "id": "kouri-017"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 2,
+      "ctx": "Modèle de Kouri avec α > 0 fixe, économie ouverte à mobilité imparfaite des capitaux",
+      "shock": "Baisse de la variance σ²_E du taux de change (ancrage plus crédible, régime plus stable)",
+      "var": "Prime de risque de change ρ",
+      "a": "down",
+      "trap": "endo-exo",
+      "why": "ρ = α·σ²_E·(f − f₀). σ²_E ↓ ⇒ ρ ↓. Un régime plus stable réduit la prime, même à aversion α constante. Rationalise l'idée qu'un flottement contrôlé ou une union monétaire réduit le coût de financement.",
+      "id": "kouri-018"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "ctx": "Modèle de Kouri, deux pays A et B ne différant que par leur PEN : A détient une PEN positive nette, B une PEN négative, α et σ²_E identiques",
+      "shock": "Comparaison des primes de risque exigées sur les actifs A et B, autres facteurs égaux",
+      "var": "Prime de risque ρ_B − ρ_A",
+      "a": "up",
+      "trap": "stock-flux",
+      "why": "PEN(B) < PEN(A) ⇒ f_B > f_A ⇒ ρ_B > ρ_A. Le pays débiteur paie une prime plus élevée à même aversion et variance. Un cas d'école qui étaye l'intuition « déficit courant chronique = coût de financement plus élevé ».",
+      "id": "kouri-019"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Meese-Rogoff (1983), prévision hors échantillon, comparaison RMSE(modèle) / RMSE(marche aléatoire)",
+      "shock": "Passage d'un horizon de prévision de 1 mois à 12 mois",
+      "var": "Ratio RMSE(modèle monétaire) / RMSE(marche aléatoire)",
+      "a": "same",
+      "trap": "endo-exo",
+      "why": "Résultat central : le ratio reste proche de 1 sur toute la fourchette 1-12 mois. Aucun horizon (dans cette plage) ne fait significativement mieux ou pire — d'où la robustesse du résultat.",
+      "id": "meesero-015"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Meese-Rogoff (1983), comparaison des modèles structurels entre eux, à horizon court",
+      "shock": "Passage du modèle Frenkel (prix flexibles) au modèle Dornbusch-Frankel (prix rigides)",
+      "var": "Performance prédictive hors échantillon (baisse du RMSE)",
+      "a": "same",
+      "trap": "endo-exo",
+      "why": "Aucune amélioration significative : les modèles à prix rigides ne surperforment pas ceux à prix flexibles. Le raffinement théorique de Dornbusch ne se traduit pas en gain prédictif. Un des aspects les plus démoralisants pour la théorie structurelle.",
+      "id": "meesero-016"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Extension Cheung-Chinn-Garcia-Pascual (2005), période 1973-2000, modèles à correction d'erreur",
+      "shock": "Passage du protocole Meese-Rogoff 1983 au protocole CCGP 2005 (période plus longue, économétrie corrigée)",
+      "var": "Ratio RMSE(modèle) / RMSE(marche aléatoire) à horizon 3 mois",
+      "a": "same",
+      "trap": "endo-exo",
+      "why": "CCGP confirment Meese-Rogoff : les améliorations économétriques ne changent pas significativement le ratio à horizon court. Le puzzle persiste sur des données actualisées et avec traitement de la non-stationnarité.",
+      "id": "meesero-017"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Meese-Rogoff (1983), même modèle monétaire de base, cadre de prévision hors échantillon",
+      "shock": "Passage d'un horizon de prévision de 12 mois à 36 mois (long terme)",
+      "var": "Ratio RMSE(modèle monétaire) / RMSE(marche aléatoire)",
+      "a": "down",
+      "trap": "statique-dyn",
+      "why": "Au-delà de 12 mois, les études postérieures (Mark 1995, Chinn-Meese 1995) trouvent que les fondamentaux monétaires commencent à battre la marche aléatoire : ratio < 1. La déconnexion est un phénomène de COURT terme. Différence CT/LT.",
+      "id": "meesero-018"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Meese-Rogoff (1983), protocole hors échantillon avec valeurs futures réelles des fondamentaux fournies aux modèles",
+      "shock": "Retrait de l'avantage informationnel : les modèles doivent aussi prévoir les fondamentaux (m, y, i) eux-mêmes",
+      "var": "Erreur de prévision du modèle monétaire (RMSE)",
+      "a": "up",
+      "trap": "endo-exo",
+      "why": "Sans information sur les fondamentaux futurs, l'erreur augmente mécaniquement. Meese-Rogoff donnaient les vraies valeurs pour tester le modèle dans ses conditions les plus favorables — et il échouait déjà.",
+      "id": "meesero-019"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Bretton Woods, années 1960 : dilemme de Triffin, dollars détenus par les banques centrales étrangères",
+      "shock": "Poursuite du déficit courant américain pour fournir la liquidité mondiale",
+      "var": "Couverture-or du dollar (stock d'or Fed / dollars détenus par l'étranger)",
+      "a": "down",
+      "trap": "stock-flux",
+      "why": "Le stock d'or Fed reste borné (Fort Knox), tandis que le dénominateur (dollars détenus par l'étranger) enfle avec le déficit US. Le ratio baisse mécaniquement — c'est l'expression quantitative du dilemme.",
+      "id": "triffin-013"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Bretton Woods, mobilité imparfaite des capitaux, dilemme de Triffin",
+      "shock": "Perte de confiance des banques centrales étrangères, conversions massives de dollars en or à 35 $/once",
+      "var": "Stock d'or de la Fed",
+      "a": "down",
+      "trap": "signe-bdp",
+      "why": "Conversion officielle : dollars étrangers → or sortant de Fort Knox. Cette « ruée à l'or » précipite la fermeture du guichet or (Nixon, 15 août 1971). Le stock d'or Fed avait déjà chuté d'environ 25 000 tonnes (1945) à 8 000 tonnes (1971).",
+      "id": "triffin-014"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Toute devise internationale (dollar, euro, RMB) : contrainte de Triffin",
+      "shock": "Volonté d'internationaliser sans accepter de creuser le déficit courant",
+      "var": "Encours de la devise détenu à l'extérieur",
+      "a": "same",
+      "trap": "signe-bdp",
+      "why": "Sans déficit courant (net), aucune sortie nette de la devise. L'encours détenu à l'extérieur reste inchangé : l'internationalisation stagne. C'est précisément le blocage du RMB.",
+      "id": "triffin-015"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "États-Unis, 1971 : suspension de la convertibilité or",
+      "shock": "Annonce de Nixon le 15 août 1971 (fermeture du guichet or)",
+      "var": "Crédibilité du système Bretton Woods des changes fixes",
+      "a": "down",
+      "trap": "fixe-flexible",
+      "why": "La suspension marque l'effondrement de facto de Bretton Woods : les parités fixes ne peuvent plus être défendues contre le dollar. Les accords Smithsonian (dec. 1971) tentent une réparation vite abandonnée (1973 : flottement).",
+      "id": "triffin-016"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Bretton Woods, années 1960 : logique de Triffin sur la solvabilité",
+      "shock": "Émission croissante de DTS par le FMI (1969)",
+      "var": "Contrainte de déficit US pour fournir la liquidité mondiale",
+      "a": "down",
+      "trap": "endo-exo",
+      "why": "Les DTS créent une liquidité internationale endogène au FMI (indépendante d'un déficit national). Théoriquement, ils allègent la contrainte de Triffin. En pratique, leur poids est resté limité et le dilemme n'a pas été résolu par ce canal.",
+      "id": "triffin-017"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "ctx": "Pays émergent en rattrapage, marché du travail unifié, Balassa-Samuelson standard",
+      "shock": "Accélération des gains de productivité dans le secteur échangeable (ΔΠE_T augmente)",
+      "var": "Salaires du secteur non-échangeable (abrité)",
+      "a": "up",
+      "trap": "bs-etapes",
+      "why": "Étape 2-3 du mécanisme : ΠE_T ↑ → salaires T ↑ → contagion (marché du travail unique) → salaires N ↑. C'est la contagion salariale, souvent oubliée. Sans elle, prix N ne bougeraient pas.",
+      "id": "bsdet-013"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "ctx": "Pays émergent, marché du travail unifié, γ = 0,3, Balassa-Samuelson",
+      "shock": "Gains de productivité échangeable domestique supérieurs à l'étranger (ΔΠE_T > ΔΠE*_T)",
+      "var": "Taux de change réel q (variation)",
+      "a": "up",
+      "trap": "bs-etapes",
+      "why": "Δq = (1−γ)·(ΔΠE_T − ΔΠE*_T) > 0 : appréciation réelle. Le sens du signe est fixé par la convention du cours (q monte = appréciation réelle). Ordre de grandeur : 1-3 %/an pour les émergents en rattrapage.",
+      "id": "bsdet-014"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "ctx": "Pays très dualiste (large secteur informel, marché du travail non unifié)",
+      "shock": "Gains de productivité dans l'échangeable formel",
+      "var": "Prix des non-échangeables informels (services locaux)",
+      "a": "ambig",
+      "trap": "bs-etapes",
+      "why": "Sans contagion salariale (marché du travail rompu par le dualisme), les salaires T ne se propagent pas au N informel. L'effet BS s'éteint : la variation de P_N devient ambiguë, dépendant d'autres canaux (demande locale, migration urbaine).",
+      "id": "bsdet-015"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 2,
+      "ctx": "Balassa-Samuelson, pays émergent en rattrapage, prix des échangeables fixés par la loi du prix unique",
+      "shock": "Hausse des salaires dans le secteur échangeable (suite à ΠE_T ↑)",
+      "var": "Prix des non-échangeables (P_N)",
+      "a": "up",
+      "trap": "bs-etapes",
+      "why": "P_T est ancré par l'arbitrage international (loi du prix unique). Toute hausse des coûts salariaux dans N (via contagion) se répercute directement sur P_N, puisque N n'est pas contraint par une concurrence internationale.",
+      "id": "bsdet-016"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "ctx": "Balassa-Samuelson : deux pays comparables, γ_domestique > γ_étranger (poids des non-échangeables plus élevé au niveau domestique)",
+      "shock": "Même rattrapage de productivité T dans les deux pays",
+      "var": "Ampleur de l'appréciation réelle domestique",
+      "a": "down",
+      "trap": "endo-exo",
+      "why": "Δq = (1−γ)·(ΔΠE_T − ΔΠE*_T) : γ_dom plus grand ⇒ (1−γ_dom) plus petit ⇒ l'appréciation prédite pour un même différentiel T est plus faible. Piège fréquent : croire que « plus de N ⇒ plus d'effet ».",
+      "id": "bsdet-017"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, changes fixes, mobilité imparfaite des capitaux (BP pentue positivement)",
+      "shock": "Hausse des dépenses publiques G",
+      "var": "Production Y à l'équilibre",
+      "a": "up",
+      "trap": "mf-regime",
+      "why": "IS à droite → intersection avec LM à un i plus élevé → entrées de capitaux via BP pentue → BC accommode partiellement (achète les devises) → LM à droite mais moins qu'en mobilité parfaite. Y augmente, effet intermédiaire.",
+      "id": "mfdet-013"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, changes flexibles, mobilité imparfaite des capitaux",
+      "shock": "Hausse permanente de l'offre de monnaie Ms",
+      "var": "Production Y à l'équilibre",
+      "a": "up",
+      "trap": "mf-regime",
+      "why": "LM à droite → i ↓ → sorties de capitaux (limitées par la BP pentue) → dépréciation → X−M ↑. Effet sur Y positif mais plus modéré qu'en mobilité parfaite (où le canal du change est amplifié).",
+      "id": "mfdet-014"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, changes fixes, mobilité parfaite, intervention stérilisée simultanée pour maintenir Ms",
+      "shock": "Entrée de capitaux étrangers (i > i*)",
+      "var": "Efficacité de la politique monétaire domestique après stérilisation",
+      "a": "same",
+      "trap": "sterilise",
+      "why": "La BC stérilise l'accumulation de réserves (open market inverse) — Ms reste maîtrisée sur le court terme. Mais en mobilité parfaite (substituts parfaits), l'effet portefeuille est négligeable : l'autonomie recouvrée est illusoire, i converge vers i*.",
+      "id": "mfdet-015"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 2,
+      "ctx": "Mundell-Fleming, changes flexibles, mobilité parfaite, prix fixes à court terme",
+      "shock": "Hausse des dépenses publiques G (choc budgétaire expansionniste)",
+      "var": "Taux de change nominal (e au certain)",
+      "a": "up",
+      "trap": "certain-incertain",
+      "why": "G ↑ → i ↑ (pression sur IS) → entrées de capitaux → appréciation nominale (au certain, e monte). Attention à la convention : e = valeur d'une unité domestique en devise étrangère, une hausse = appréciation.",
+      "id": "mfdet-016"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, changes fixes, mobilité parfaite",
+      "shock": "Baisse autonome de la demande de monnaie (choc de portefeuille : les agents veulent moins de Ms)",
+      "var": "Réserves de change de la banque centrale",
+      "a": "down",
+      "trap": "sterilise",
+      "why": "Baisse demande Ms → offre excédentaire → pression baissière sur i → sorties de capitaux → la BC doit vendre des devises pour tenir la parité → réserves ↓. Sans stérilisation, Ms baisse en retour, ramenant i à i*.",
+      "id": "mfdet-017"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Solow avec progrès technique, α=1/3, sentier régulier",
+      "shock": "Hausse permanente du taux d'épargne s",
+      "var": "Taux de croissance de long terme du revenu par tête g_y",
+      "a": "same",
+      "trap": "statique-dyn",
+      "why": "g_y=g exogène, indépendant de s. Effet de niveau (ŷ* ↑) mais pas d'effet en croissance. Confusion très fréquente : croire qu'une politique d'épargne relève la croissance permanente.",
+      "id": "solowd-016"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Solow avec progrès technique, α=1/3, sur le sentier régulier",
+      "shock": "Hausse permanente du taux de croissance démographique n",
+      "var": "Revenu par unité de travail efficace ŷ*",
+      "a": "down",
+      "trap": "niveau-log",
+      "why": "ŷ*=(s/(n+g+δ))^(α/(1−α)) : n ↑ ⇒ n+g+δ ↑ ⇒ ŷ* ↓ (courbe ipm plus pentue). Effet en niveau négatif ; taux de croissance de y à LT toujours = g.",
+      "id": "solowd-017"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 3,
+      "ctx": "Solow avec progrès technique, en transition, économie initialement à l'état régulier",
+      "shock": "Accélération permanente du progrès technique (g₀ → g₁ > g₀)",
+      "var": "Capital par unité de travail efficace k̂ à l'impact",
+      "a": "same",
+      "trap": "statique-dyn",
+      "why": "À l'impact les stocks K, L, A sont donnés : k̂=K/(AL) est inchangé. C'est en TRANSITION que k̂ chute (ipm plus pentu, sf(k̂) même) puis se stabilise à un nouveau k̂*<k̂*₀. Piège classique : croire que l'accélération de g abaisse k̂ immédiatement.",
+      "id": "solowd-018"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Romer 1990 avec Ȧ=δ·H_A·A, H total constant, économie sur sentier régulier",
+      "shock": "Hausse permanente de la part des chercheurs s_R=H_A/H",
+      "var": "Taux de croissance de long terme g_A",
+      "a": "up",
+      "trap": "endo-exo",
+      "why": "g_A=δ·s_R·H : s_R↑ ⇒ g_A↑ de façon PERMANENTE (effet en croissance). Croissance endogène : politique de R&D affecte g_LT, contrairement à Solow. C'est LE contre-résultat de Jones 1995 (contredit empiriquement).",
+      "id": "romerv-016"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Romer 1990, monopoleur du bien intermédiaire i, demande p(x)·x^(1−α) avec coût marginal r",
+      "shock": "Hausse du mark-up 1/α (baisse de α, biens moins substituables)",
+      "var": "Perte sèche par variété (deadweight loss)",
+      "a": "up",
+      "trap": "endo-exo",
+      "why": "Mark-up plus fort ⇒ le monopoleur produit moins par rapport au socialement optimal ⇒ triangle rouge plus large ⇒ perte sèche ↑. Justifie subvention à la R&D et/ou à l'achat de biens intermédiaires.",
+      "id": "romerv-017"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Romer 1990, population H et s_R constants, économie sur sentier régulier",
+      "shock": "Hausse ponctuelle de la population H (immigration nette)",
+      "var": "Taux de croissance de long terme g",
+      "a": "up",
+      "trap": "endo-exo",
+      "why": "g=δ·s_R·H : H↑ ⇒ g↑ (effet d'échelle). Prédiction non observée : les grands pays ne croissent pas systématiquement plus vite que les petits. Jones (1995) : cet effet doit disparaître dans un bon modèle.",
+      "id": "romerv-018"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Aghion-Howitt 1992, économie sur sentier régulier avec g=λ·n·ln(γ)",
+      "shock": "Hausse du saut de qualité γ à chaque innovation (γ₀ → γ₁ > γ₀)",
+      "var": "Taux de croissance de long terme g",
+      "a": "up",
+      "trap": "niveau-log",
+      "why": "g=λ·n·ln(γ) : γ↑ ⇒ ln(γ)↑ ⇒ g↑. Attention : g croît en ln(γ) pas en γ. Doubler γ ne double PAS g. Piège classique confusion niveau/log.",
+      "id": "aghhow-016"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Aghion-Bloom-Blundell-Griffith-Howitt 2005, secteur au-dessus du niveau de concurrence optimal",
+      "shock": "Renforcement supplémentaire de la concurrence (loi antitrust plus stricte)",
+      "var": "Taux de croissance du secteur",
+      "a": "down",
+      "trap": "endo-exo",
+      "why": "Au-delà du sommet de la U inversée, concurrence supplémentaire écrase la rente d'innovation (Schumpeter domine « escape competition »). g diminue. En-dessous du sommet, l'effet serait inverse (g↑). Politique subtile — dépend de la position du secteur.",
+      "id": "aghhow-017"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Aghion-Howitt 1992, économie stationnaire, entrée facilitée sur marché des biens intermédiaires",
+      "shock": "Baisse du coût d'entrée pour un innovateur potentiel",
+      "var": "Rythme de rotation des firmes (turnover)",
+      "a": "up",
+      "why": "Coût d'entrée bas ⇒ plus d'entrées ⇒ plus d'innovations réussies ⇒ turnover ↑. Corrélation directe entre turnover et g dans les modèles Schumpetériens. Politique : réduire barrières administratives à l'entrée.",
+      "id": "aghhow-018"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle de Diamond OLG, log-utilité, économie initialement à l'état régulier",
+      "shock": "Hausse permanente du facteur de préférence pour le futur β",
+      "var": "Capital par tête à l'état régulier k*",
+      "a": "up",
+      "why": "β↑ → s* = β/(1+β)·w augmente → plus d'épargne agrégée → k* monte à l'ES. Plus les jeunes valorisent l'avenir, plus ils épargnent, plus le stock de capital converge vers une valeur élevée.",
+      "id": "diamold-014"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle de Diamond, β élevé et technologie k^α avec α faible, initialement à un état régulier tel que r < n",
+      "shock": "Introduction d'un système de retraite par répartition (transfert des jeunes vers les vieux)",
+      "var": "Bien-être moyen intergénérationnel",
+      "a": "up",
+      "trap": "statique-dyn",
+      "why": "Économie dynamiquement inefficace : la répartition offre un rendement (n) supérieur au marché (r). Elle Pareto-améliore. C'est précisément la préconisation de Diamond pour ce cas.",
+      "id": "diamold-015"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle de Diamond CRRA U = c^{1-σ}/(1-σ) avec σ > 1, économie à l'état régulier",
+      "shock": "Hausse permanente du taux d'intérêt r",
+      "var": "Épargne du jeune s",
+      "a": "down",
+      "trap": "endo-exo",
+      "why": "σ > 1 → faible substituabilité intertemporelle → effet revenu domine l'effet substitution. r↑ signifie qu'on atteint c2 cible avec moins d'épargne. s baisse. Cas log (σ=1) : s inchangée. σ<1 : s monte.",
+      "id": "diamold-016"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle de Diamond, économie à l'état régulier",
+      "shock": "Hausse permanente du taux de croissance démographique n",
+      "var": "Capital par tête k*",
+      "a": "down",
+      "why": "k_{t+1} = s/(1+n) : diviseur plus grand → k* stationnaire plus faible. Chaque jeune est équipé de moins de capital hérité. Résultat analogue au modèle de Solow.",
+      "id": "diamold-017"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Cadre AJR 2001, échantillon d'anciennes colonies européennes",
+      "shock": "Hausse historique du taux de mortalité des colons dans une zone donnée",
+      "var": "Qualité des institutions actuelles (indice propriété privée)",
+      "a": "down",
+      "why": "Mécanisme central de l'IV AJR : mortalité élevée → colonisation par comptoirs extractifs → institutions prédatrices → persistance jusqu'à aujourd'hui. Corrélation négative significative dans leur première étape.",
+      "id": "ajr-014"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Cadre AJR 2002 « Reversal of Fortune », comparaison entre deux anciennes colonies",
+      "shock": "Hausse de la densité de population en 1500 (choc de comparaison entre pays)",
+      "var": "PIB par habitant actuel",
+      "a": "down",
+      "why": "Revers de fortune : les colonies denses en 1500 (Aztèques, Incas, Mogols) ont hérité d'institutions extractives ; les zones vides (Amérique du Nord, Australie) ont hérité d'institutions inclusives → richesse actuelle inversée. Perishable inévitable sur 'actuel'.",
+      "id": "ajr-015"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle AJR : deux anciennes colonies A et B, PIB comparables aujourd'hui, A dotée d'institutions inclusives et B d'institutions extractives",
+      "shock": "Épisode d'innovation technologique majeure (analogue à la révolution industrielle) exogène et disponible pour toutes les colonies",
+      "var": "Écart de PIB entre A et B après 30 ans",
+      "a": "up",
+      "why": "AJR : les élites extractives bloquent l'adoption (craintes de spoliation et de mobilité sociale menaçant le pouvoir). A investit et bénéficie, B stagne. L'écart se creuse — mécanisme utilisé pour expliquer le revers de 1800.",
+      "id": "ajr-016"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Cadre Nunn (QJE 2008), régions d'Afrique subsaharienne",
+      "shock": "Hausse du nombre historique de personnes déportées par la traite négrière",
+      "var": "Niveau de PIB par tête actuel de la région",
+      "a": "down",
+      "why": "Nunn : effet négatif fort et robuste. Canal : effondrement des institutions locales, culture de défiance persistante, fragmentation politique. Signalement 'actuel' inévitable pour ces cats institutionnelles historiques.",
+      "id": "ajr-017"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle malthusien standard, progrès technique exogène nul, économie à l'état régulier",
+      "shock": "Amélioration ponctuelle de la productivité totale des facteurs B",
+      "var": "Population à long terme L*",
+      "a": "up",
+      "why": "L* = (X·(B/y_subsistance)^{1/β})^{1} : L* monte avec B. Le gain de productivité est intégralement absorbé par une population plus large, y restant à subsistance. C'est le piège.",
+      "id": "malthd-014"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Modèle malthusien avec progrès technique exogène constant g > 0, économie à l'ES",
+      "shock": "Hausse permanente de g",
+      "var": "Revenu par tête à long terme y*",
+      "a": "up",
+      "why": "Avec g > 0 le revenu peut s'établir au-dessus de la subsistance. y* dépend de g/β : hausse de g fait monter y*. Ce mécanisme est le préalable au décollage (mais insuffisant seul selon le cours).",
+      "id": "malthd-015"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle Galor-Weil, économie initialement en régime malthusien avec y < y_T",
+      "shock": "Augmentation exogène de y au-dessus du seuil y_T",
+      "var": "Nombre d'enfants par ménage",
+      "a": "down",
+      "why": "Sous y_T, éducation gratuite → n croît avec y. Au-dessus, coût d'opportunité domine → n décroît avec y. Le franchissement de y_T inverse le signe. C'est la transition démographique.",
+      "id": "malthd-016"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 3,
+      "ctx": "Modèle de Kremer (1993), λ=1, φ=1, économie en régime malthusien",
+      "shock": "Choc positif à la taille initiale de population L",
+      "var": "Taux de croissance de la productivité Ḃ/B",
+      "a": "up",
+      "why": "Ḃ/B = φ·A·L : plus de personnes = plus d'inventeurs = croissance des idées plus rapide. C'est l'effet d'échelle pur (scale effect) qui produit l'accélération cumulative jusqu'à la sortie du piège.",
+      "id": "malthd-017"
     }
   ],
   "ORDRE": [
@@ -13071,6 +16141,163 @@
       ],
       "why": "Thèse Acemoglu-Robinson : les institutions sont causes fondamentales via le canal des incitations. Nord/Sud Corée = exemple canonique. Partie_3_Chap2_Institutions.txt.",
       "id": "institutions-006"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Dilemme de Triffin et sa résolution historique (1960-1971)",
+      "title": "Ordonner la chaîne du dilemme de Triffin jusqu'à la fin de Bretton Woods",
+      "steps": [
+        "Bretton Woods (1944) : parités fixes contre dollar, dollar convertible en or à 35 $/once",
+        "Déficits US persistants pour fournir la liquidité mondiale, encours de dollars détenus par l'étranger croissant",
+        "Diagnostic Triffin (1960) : contradiction entre liquidité et crédibilité",
+        "Baisse continue de la couverture-or (55 % en 1950 → 22 % en 1971)",
+        "Conversions massives par les banques centrales étrangères, pression sur le stock d'or Fed",
+        "Suspension de la convertibilité par Nixon (15 août 1971) : fin de Bretton Woods"
+      ],
+      "trap": "stock-flux",
+      "why": "L'enchaînement suit la logique stock/flux : déficit (flux) → encours (stock) qui gonfle → ratio de couverture (stock/stock) qui chute → perte de confiance → suspension. Le prof exige la chaîne complète.",
+      "id": "triffin-018"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "ctx": "Effet Balassa-Samuelson détaillé, pays émergent en rattrapage, marché du travail unifié",
+      "title": "Ordonner les 5 étapes détaillées de Balassa-Samuelson avec la contagion",
+      "steps": [
+        "Rattrapage technologique : gains de productivité dans le secteur échangeable (ΠE_T ↑)",
+        "Hausse des salaires dans le secteur échangeable (concurrence internationale, W_T ↑)",
+        "Contagion salariale au non-échangeable via l'unicité du marché du travail (W_N ↑)",
+        "Coûts unitaires N ↑ (productivité N stagnante) → prix N ↑",
+        "Hausse du niveau général des prix (pondération par γ) → appréciation réelle (q ↑)"
+      ],
+      "trap": "bs-etapes",
+      "why": "Cinq étapes strictes. L'étape 3 (contagion) est celle qu'on oublie ; l'étape 4 exige la stagnation de la productivité N pour que la hausse salariale se répercute intégralement sur les prix.",
+      "id": "bsdet-018"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "ctx": "Mundell-Fleming, changes fixes + mobilité parfaite, hausse de G, stérilisation optionnelle",
+      "title": "Ordonner les effets d'une hausse de G en fixe + mobilité parfaite (avec stérilisation optionnelle)",
+      "steps": [
+        "G ↑ ⇒ IS à droite",
+        "i tend à monter au-dessus de i*",
+        "Entrées massives de capitaux (arbitrage i > i*)",
+        "BC achète les devises pour tenir la parité (accumulation de réserves)",
+        "Sans stérilisation : Ms ↑ ⇒ LM à droite ⇒ Y ↑ (budgétaire pleinement efficace)",
+        "Avec stérilisation : LM inchangée, mais mobilité parfaite ⇒ stérilisation inefficace, i revient à i*"
+      ],
+      "trap": "sterilise",
+      "why": "Le prof exige les deux branches : sans stérilisation (efficacité maximale) et avec stérilisation (illusoire en mobilité parfaite). C'est le test le plus complet du régime fixe + mobilité parfaite.",
+      "id": "mfdet-018"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Solow 1956 avec progrès technique, économie initialement sur son sentier régulier, hausse permanente du taux d'épargne s",
+      "title": "Ordonner les étapes de la réaction de l'économie",
+      "steps": [
+        "La courbe d'investissement s·f(k̂) pivote vers le haut",
+        "À l'impact, k̂ inchangé mais dk̂/dt devient positif",
+        "En transition, k̂ monte de plus en plus lentement (rendements décroissants)",
+        "Nouvel état régulier atteint avec k̂* et ŷ* plus élevés",
+        "Trajectoire de ln y déplacée parallèlement vers le haut (effet niveau)"
+      ],
+      "trap": "statique-dyn",
+      "why": "Séquence classique demandée à l'examen. L'effet est de NIVEAU (pente inchangée = g exogène) et non de croissance. Confusion fréquente : croire que l'accélération transitoire est permanente.",
+      "id": "solowd-019"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Romer 1990, économie stationnaire, subvention publique permanente à la R&D",
+      "title": "Ordonner les étapes de l'effet d'une subvention à la R&D",
+      "steps": [
+        "Le rendement privé de la R&D augmente (subvention couvre partie du coût)",
+        "L'arbitrage brevet vs capital se déplace : plus d'individus choisissent la R&D",
+        "s_R = H_A/H augmente",
+        "g_A = δ·s_R·H augmente immédiatement et de façon permanente",
+        "Le sentier de ln A monte plus vite (effet en croissance permanent)"
+      ],
+      "trap": "endo-exo",
+      "why": "Chez Romer, la subvention à la R&D produit un EFFET EN CROISSANCE (contra Solow où c'est un effet niveau). C'est la promesse de la croissance endogène : la politique peut relever le taux de long terme.",
+      "id": "romerv-019"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "ctx": "Aghion-Howitt 1992, un chercheur invente une nouvelle version supérieure du bien intermédiaire",
+      "title": "Ordonner les étapes de la destruction créatrice",
+      "steps": [
+        "Innovation réussie avec probabilité μ = λ·n_i^(1−ϕ)·A^(ϕ−1)",
+        "Le chercheur obtient un brevet pour un bien de qualité γ·A",
+        "Nouvelle firme entre sur le marché du bien intermédiaire",
+        "Concurrence à la Bertrand : l'ancien fabricant perd tous ses clients",
+        "L'ancien monopoleur sort ; le nouveau capture la rente π"
+      ],
+      "why": "Séquence type de la destruction créatrice à la Schumpeter formalisée. Ordre indispensable : innovation → brevet → entrée → Bertrand → destruction/rotation. Le point crucial est la sortie du sortant, absente chez Romer.",
+      "id": "aghhow-019"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "title": "Diamond OLG : ordonner les étapes de la dérivation de l'état régulier avec log-utilité et Cobb-Douglas",
+      "steps": [
+        "Poser la contrainte budgétaire intertemporelle c1 + c2/(1+r) = w",
+        "Écrire U = ln(c1) + β·ln(c2) et maximiser sous contrainte",
+        "Dériver l'épargne optimale s* = β/(1+β)·w, indépendante de r",
+        "Écrire la loi d'accumulation k_{t+1} = s(w_t)/(1+n)",
+        "Injecter w = (1-α)·k^α et résoudre pour k* stationnaire"
+      ],
+      "why": "Cette séquence est la dérivation standard du cours. Piège fréquent : oublier de diviser par (1+n) dans la loi dynamique, ou faire dépendre s de r malgré la log-utilité.",
+      "id": "diamold-018"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "title": "AJR 2001 : ordonner les étapes de la chaîne causale mortalité → PIB",
+      "steps": [
+        "Taux de mortalité historique des colons (haut vs bas)",
+        "Ampleur de la colonisation par peuplement (peu vs beaucoup de colons)",
+        "Nature des premières institutions coloniales (extractives vs inclusives)",
+        "Persistance jusqu'aux institutions actuelles",
+        "Effet sur le PIB par habitant actuel"
+      ],
+      "why": "Chaîne standard AJR reproduite dans le cours (partie 3 ch. 2 p. 27). C'est l'ordre exact qu'un étudiant doit être capable de restituer. Piège : intervertir institutions et peuplement.",
+      "id": "ajr-018"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "title": "Malthus étendu : ordonner les étapes de la sortie du piège selon Kremer",
+      "steps": [
+        "Population L faible et Ḃ/B ≈ 0 : régime malthusien initial",
+        "Petit accroissement de L via meilleure productivité agricole (B ↑ ponctuellement)",
+        "Ḃ/B = φ·A·L augmente mécaniquement (plus d'inventeurs)",
+        "Progrès technique accéléré fait croître y plus vite que la démographie",
+        "Franchissement du seuil y_T : bascule vers l'équilibre moderne"
+      ],
+      "why": "Séquence Kremer 1993 telle qu'exposée dans le cours (partie 3 ch. 1 p. 13-19). L'ordre est critique : c'est l'accumulation d'idées via l'effet d'échelle qui fait sortir du piège, pas un choc externe.",
+      "id": "malthd-018"
     }
   ],
   "OUVERTE": [
@@ -14997,6 +18224,412 @@
         "institutions mesurées par indice PRS (protection contre expropriation)"
       ],
       "why": "Attendu type sujet 2023-24 : bien poser le problème identificationnel, expliquer l'IV, citer un résultat chiffré, discuter une limite. Ne pas confondre corrélation et causalité."
+    },
+    {
+      "mat": "emi",
+      "cat": "dornbu",
+      "ch": 3,
+      "diff": 3,
+      "q": "Écrire les trois équations centrales du modèle Dornbusch (1976), en précisant chaque notation, et expliquer pourquoi la combinaison rigidité prix + PNCTI + anticipations rationnelles force le surajustement.",
+      "model": "Éq LM : m − p = a·y − b·i ; PNCTI : i − i* = eᵃ − e ; ajustement des prix : ṗ = q·(d − y) avec d = g·y − δ·(e + p*− p). Ms↑ à p rigide ⇒ i↓ (LM). PNCTI ⇒ eᵃ − e < 0 ⇒ appréciation anticipée à venir, donc e doit d'abord dépasser ē pour ensuite s'apprécier. Sans rigidité (q infini), PPA continue ⇒ Frenkel, pas de surajustement.",
+      "points": [
+        "équation LM (marché monnaie)",
+        "PNCTI en log au certain",
+        "équation d'ajustement des prix (courbe de Phillips)",
+        "hypothèse d'anticipations rationnelles / exactes",
+        "démonstration de i↓ à l'impact via LM à p fixé",
+        "démonstration du surajustement via PNCTI + anticipation d'appréciation",
+        "convergence à LT vers Δe = Δm (PPA rétablie)"
+      ],
+      "notations": [
+        "m, p, p* en log",
+        "e taux au certain en log",
+        "i, i* niveaux (annualisés)",
+        "a élasticité de la demande de monnaie à y",
+        "b élasticité à i",
+        "q vitesse d'ajustement des prix",
+        "d demande, y offre exogène"
+      ],
+      "why": "Réponse type d'examen. Traiter les trois équations, montrer la boucle logique du surajustement, et énoncer les deux cas limites (q infini ⇒ Frenkel, anticipations naïves ⇒ pas de saut initial).",
+      "id": "dornbu-020"
+    },
+    {
+      "mat": "emi",
+      "cat": "kouri",
+      "ch": 4,
+      "diff": 3,
+      "q": "Écrire l'équation de portefeuille de Kouri (1976) en précisant les notations, et expliquer par quel mécanisme un déficit courant persistant produit une dépréciation nominale de la monnaie domestique.",
+      "model": "e = eᵃ + (i − i*) + α·σ²_E·(f − f₀). Déficit courant persistant ⇒ PEN ↓ ⇒ f > f₀ ⇒ prime ρ requise. Trois marges d'ajustement : (1) e↑ (dépréciation immédiate créant appréciation anticipée) ; (2) i↑ (attirer les capitaux) ; (3) combinaison. Sous α = 0, mécanisme absent : c'est l'aversion au risque qui rend la PEN pertinente.",
+      "points": [
+        "équation de portefeuille avec prime α·σ²_E·(f − f₀)",
+        "déficit courant = flux, PEN = stock (distinction)",
+        "PEN ↓ ⇒ f ↑ ⇒ ρ ↑ requis",
+        "trois marges d'ajustement : e, i, ρ",
+        "cas limite α = 0 ⇒ PNCTI récupérée",
+        "lien avec l'échec empirique de la PNCTI"
+      ],
+      "notations": [
+        "e taux nominal (log, certain)",
+        "eᵃ anticipation",
+        "α aversion au risque",
+        "σ²_E variance du change",
+        "f part des actifs domestiques détenus par étrangers",
+        "f₀ demande initiale, PEN position extérieure nette"
+      ],
+      "why": "Éléments attendus : équation exacte, distinction stock/flux, mécanisme complet du déficit à la dépréciation, cas limite. Réponse-type niveau CC pour la partie portefeuille.",
+      "id": "kouri-020"
+    },
+    {
+      "mat": "emi",
+      "cat": "meesero",
+      "ch": 3,
+      "diff": 3,
+      "q": "Énoncer précisément le résultat de Meese-Rogoff (1983), en distinguant performance in-sample et performance hors échantillon, et présenter deux interprétations théoriques usuelles.",
+      "model": "Post-flottement, horizons 1-12 mois : aucun modèle structurel (Frenkel, Dornbusch-Frankel, Hooper-Morton) ne bat la marche aléatoire e_t = e_{t−1} + v_t hors échantillon (RMSE ≥ 1). In-sample, ajustement correct. Interprétations : (1) exchange rate disconnect à CT ; (2) instabilité paramétrique. CCGP (2005) confirment.",
+      "points": [
+        "comparaison à la marche aléatoire",
+        "hors échantillon vs in-sample : la différence est centrale",
+        "modèles testés : Frenkel + Dornbusch-Frankel + portefeuille",
+        "horizons 1-12 mois, ratio RMSE proche de 1",
+        "interprétation « disconnect »",
+        "interprétation par instabilité paramétrique",
+        "extension Cheung-Chinn-Garcia-Pascual confirme"
+      ],
+      "notations": [
+        "e taux nominal",
+        "v_t innovation",
+        "RMSE root mean squared error",
+        "in-sample / out-of-sample"
+      ],
+      "why": "Réponse type d'examen. Toujours distinguer in-sample et out-of-sample : le prof piège dessus. Les deux interprétations sont demandées dans le corrigé du cours.",
+      "id": "meesero-020"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 3,
+      "q": "Exposer en détail le dilemme de Triffin (1960), en incluant le mécanisme quantitatif (couverture-or), le verdict historique, et une application contemporaine.",
+      "model": "Robert Triffin (1960) : pour fournir la liquidité mondiale, les USA doivent creuser un déficit permanent, donc l'encours de dollars détenus par l'étranger croît. Mais Bretton Woods exige la convertibilité or à 35 $/once : la crédibilité suppose la rareté du dollar. Couverture-or (stock or Fed / dollars détenus) : 55 % en 1950, 22 % en 1971. Verdict : Nixon suspend la convertibilité (15 août 1971). Application : RMB freiné par la contrainte inverse (pas de déficit ⇒ pas d'internationalisation).",
+      "points": [
+        "double contrainte liquidité vs crédibilité",
+        "mécanisme : déficit US → encours dollars ↑",
+        "couverture-or 55 % → 22 %",
+        "verdict 15 août 1971 Nixon",
+        "application contemporaine (RMB, euro)"
+      ],
+      "notations": [
+        "convertibilité or (35 $/once)",
+        "couverture-or (ratio stock/stock)",
+        "encours de dollars détenus par l'étranger"
+      ],
+      "why": "Question type examen : le prof attend la formulation du dilemme, un chiffre précis (couverture-or), la date de suspension, et l'extension à toute monnaie internationale.",
+      "id": "triffin-019"
+    },
+    {
+      "mat": "emi",
+      "cat": "triffin",
+      "ch": 2,
+      "diff": 2,
+      "q": "En quoi le dilemme de Triffin est-il structurel plutôt que conjoncturel, et pourquoi ne se réduit-il pas à un simple problème d'inflation américaine des années 1960.",
+      "model": "Structurel car il découle de la nature même du régime (une devise nationale sert de monnaie internationale) : quel que soit le comportement monétaire US, la logique liquidité/crédibilité opère. L'inflation US des années 1960 (Vietnam, Great Society) accélère la fuite d'or, mais même sans inflation, la couverture-or aurait décliné par le seul creusement de l'encours. Toute monnaie internationale hérite du dilemme (RMB, euro).",
+      "points": [
+        "distinction structurel/conjoncturel",
+        "logique stock/flux (encours croissant vs stock d'or fini)",
+        "l'inflation accélère mais n'est pas la cause",
+        "applicable à toute devise internationale"
+      ],
+      "notations": [
+        "structurel vs conjoncturel",
+        "devise internationale"
+      ],
+      "why": "Le piège classique de l'étudiant : réduire Triffin à un problème d'inflation. Le prof insiste : c'est structurel, la logique s'applique aussi aux régimes flottants pour toute monnaie de réserve.",
+      "id": "triffin-020"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "Exposer en détail le mécanisme Balassa-Samuelson (les 5 étapes, la formule Δq = (1−γ)·(ΔΠE_T − ΔΠE*_T) − γ·(ΔΠE_N − ΔΠE*_N), les hypothèses clefs et une critique).",
+      "model": "Étapes : (1) rattrapage ΠE_T domestique, (2) salaires T ↑, (3) contagion (marché du travail unifié) : salaires N ↑, (4) productivité N stagnante ⇒ prix N ↑, (5) niveau agrégé ↑ ⇒ appréciation réelle. Formule : Δq = (1−γ)·(ΔΠE_T − ΔΠE*_T) − γ·(ΔΠE_N − ΔΠE*_N), γ = part des non-échangeables (~0,3-0,5). Hypothèses : loi du prix unique sur T, marché du travail unifié. Critique : dualisme des PED rompt la contagion.",
+      "points": [
+        "5 étapes avec la contagion",
+        "formule complète avec γ",
+        "hypothèse marché du travail unifié",
+        "loi du prix unique sur les échangeables",
+        "critique (dualisme des PED)"
+      ],
+      "notations": [
+        "ΠE_T, ΠE_N (productivités)",
+        "γ (part des non-échangeables)",
+        "q (TCR)"
+      ],
+      "why": "Question canonique du chapitre 5. La note complète exige la formule, les 5 étapes (surtout la contagion), et une critique fondée.",
+      "id": "bsdet-019"
+    },
+    {
+      "mat": "emi",
+      "cat": "bsdet",
+      "ch": 5,
+      "diff": 3,
+      "q": "Un pays émergent voit sa productivité échangeable croître de 4 % par an contre 1 % chez son partenaire, sans écart de productivité N. Avec γ = 0,3, calculer l'appréciation réelle prédite et commenter.",
+      "model": "Δq = (1−γ)·(ΔΠE_T − ΔΠE*_T) − γ·(ΔΠE_N − ΔΠE*_N) = 0,7 × (4 % − 1 %) − 0,3 × 0 = 2,1 %/an. Commentaire : ordre de grandeur cohérent avec les émergents en rattrapage (Chine, Corée années 1980-2000). Piège : c'est (1−γ) qui pondère le différentiel T, pas γ.",
+      "points": [
+        "application numérique correcte : 2,1 %",
+        "pondération par (1−γ), pas γ",
+        "sens : appréciation réelle",
+        "ordre de grandeur empirique (1-3 %/an)"
+      ],
+      "notations": [
+        "Δq (variation TCR)",
+        "γ = 0,3",
+        "ΔΠE_T (variation productivité T)"
+      ],
+      "why": "Le prof aime tester le maniement de la formule. L'erreur classique est d'inverser γ et (1−γ) ou d'oublier la pondération par la part des N.",
+      "id": "bsdet-020"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "Établir la matrice complète d'efficacité des politiques budgétaire et monétaire en Mundell-Fleming (régime × mobilité 2×2), en précisant le mécanisme.",
+      "model": "Matrice : (fixe + mobilité parfaite) budgétaire OK / monétaire KO. (Flexible + mobilité parfaite) budgétaire KO (éviction totale) / monétaire OK. (Fixe + mobilité imparfaite) budgétaire modérée / monétaire faible. (Flexible + mobilité imparfaite) budgétaire faible / monétaire modérée. Mécanismes : fixe amplifie budgétaire (accommodation BC), flexible amplifie monétaire (canal change), la mobilité parfaite exacerbe la spécialisation.",
+      "points": [
+        "matrice 2×2 complète",
+        "mécanisme fixe + parfaite (BC accommode)",
+        "mécanisme flexible + parfaite (éviction totale)",
+        "cas intermédiaires (mobilité imparfaite)"
+      ],
+      "notations": [
+        "IS-LM-BP",
+        "i, i*, e (au certain)"
+      ],
+      "why": "Question fréquente d'examen. La matrice 2×2 doit être maîtrisée avec le mécanisme dans chaque case.",
+      "id": "mfdet-019"
+    },
+    {
+      "mat": "emi",
+      "cat": "mfdet",
+      "ch": 6,
+      "diff": 3,
+      "q": "Définir l'intervention stérilisée et discuter en quoi son efficacité dépend du degré de mobilité des capitaux.",
+      "model": "Stérilisation = intervention change (achat/vente devises) compensée par open market inverse, laissant Ms inchangée. En mobilité parfaite (titres domestiques et étrangers = substituts parfaits) : canal portefeuille négligeable, la stérilisation est quasi inefficace, i converge vers i*. En mobilité imparfaite : substitution imparfaite ⇒ canal portefeuille + canal signalisation ⇒ stérilisation partiellement efficace pour maintenir l'écart i − i* et le taux de change.",
+      "points": [
+        "définition (intervention + open market inverse, Ms inchangée)",
+        "efficacité quasi nulle en mobilité parfaite (canal portefeuille faible)",
+        "efficacité modérée en mobilité imparfaite",
+        "canaux : portefeuille, signalisation"
+      ],
+      "notations": [
+        "Ms (masse monétaire)",
+        "canal portefeuille",
+        "substitution parfaite"
+      ],
+      "why": "Sujet-piège classique : la stérilisation semble un outil puissant, mais son efficacité est très conditionnelle à la mobilité. Le prof teste la conclusion précise (canal portefeuille faible en mobilité parfaite).",
+      "id": "mfdet-020"
+    },
+    {
+      "cat": "solowd",
+      "mat": "croissance",
+      "ch": 1,
+      "diff": 3,
+      "q": "Dériver formellement k̂* et ŷ* dans Solow avec progrès technique (Cobb-Douglas), puis appliquer au cas α=1/3, s=0,2, n=0,01, g=0,02, δ=0,05.",
+      "model": "Fonction : ŷ=f(k̂)=k̂^α. Équation dynamique : dk̂/dt = s·f(k̂) − (n+g+δ)·k̂. État régulier dk̂/dt=0 ⇒ s·k̂*^α = (n+g+δ)·k̂*. Isoler : k̂*^(1−α) = s/(n+g+δ), soit k̂* = (s/(n+g+δ))^(1/(1−α)). Puis ŷ* = k̂*^α = (s/(n+g+δ))^(α/(1−α)). Application : s/(n+g+δ)=0,2/0,08=2,5. k̂* = 2,5^(3/2) ≈ 3,95. ŷ* = 2,5^(1/2) ≈ 1,58.",
+      "points": [
+        "équation dynamique s·f(k̂)−(n+g+δ)·k̂",
+        "condition d'état régulier k̂*",
+        "formule k̂*=(s/(n+g+δ))^(1/(1−α))",
+        "formule ŷ*=(s/(n+g+δ))^(α/(1−α))",
+        "application chiffrée k̂*≈3,95 et ŷ*≈1,58"
+      ],
+      "notations": [
+        "k̂=K/(AL) capital par travail efficace",
+        "ŷ=Y/(AL) revenu par travail efficace",
+        "α part du capital",
+        "s, n, g, δ paramètres"
+      ],
+      "why": "Dérivation canonique attendue à l'examen. Attention à l'exposant 1/(1−α) sur k̂ vs α/(1−α) sur ŷ — LE piège du calcul.",
+      "id": "solowd-020"
+    },
+    {
+      "cat": "romerv",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Expliquer le mécanisme central du modèle Romer (1990) et pourquoi la croissance devient endogène. Écrire g_A et la formule finale g = δ·s_R·H.",
+      "model": "Trois secteurs : final (Y=L_Y^(1−α)·∫x_i^α di), intermédiaires (monopoles brevetés, x_i=k_i), R&D. R&D : Ȧ=δ·H_A·A ⇒ g_A=δ·H_A. Avec H_A=s_R·H : g=δ·s_R·H. R&D motivée par rente monopoliste (arbitrage p_A·r=π+ṗ_A). ENDOGÈNE car g dépend de s_R. Sous-optimalités : externalité + mark-up ⇒ subvention à la R&D justifiée.",
+      "points": [
+        "trois secteurs : final, intermédiaires, R&D",
+        "fonction R&D Ȧ=δ·H_A·A",
+        "arbitrage brevet vs capital (p_A·r=π+ṗ_A)",
+        "g=δ·s_R·H et effet d'échelle sur H",
+        "deux sources de sous-optimalité"
+      ],
+      "notations": [
+        "A stock d'idées, H_A chercheurs, s_R part",
+        "π profit monopoliste, p_A prix du brevet",
+        "δ productivité R&D"
+      ],
+      "why": "Question type d'examen sur la croissance endogène par variétés. La distinction avec Solow (exogène) et Aghion (vertical) est fondamentale.",
+      "id": "romerv-020"
+    },
+    {
+      "cat": "aghhow",
+      "mat": "croissance",
+      "ch": 2,
+      "diff": 3,
+      "q": "Exposer le modèle Aghion-Howitt (1992). Dériver g = λ·n·ln(γ). Discuter la critique par rapport à Romer 1990.",
+      "model": "Innovations verticales : A_{i+1}=γ·A_i, γ>1. Arrivée Poisson d'intensité λ·n. Espérance E[dln A]=λ·n·ln(γ). LGN ⇒ g=λ·n·ln(γ). Bertrand qualité : entrant évince incumbent (destruction créatrice). Contra Romer 1990 (horizontal), les idées se substituent. Effet d'échelle persiste sans complexité croissante.",
+      "points": [
+        "innovations verticales par sauts γ",
+        "processus Poisson intensité λ·n",
+        "formule g=λ·n·ln(γ)",
+        "destruction créatrice (Bertrand qualité)",
+        "distinction avec Romer (horizontal vs vertical)"
+      ],
+      "notations": [
+        "λ productivité chercheur, n effort R&D",
+        "γ facteur de qualité, γ>1",
+        "μ=λ·n probabilité d'innovation instantanée"
+      ],
+      "why": "Question canonique sur la croissance schumpetérienne. Formule g=λ·n·ln(γ) à démontrer proprement — attention au ln(γ) et non γ.",
+      "id": "aghhow-020"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 2,
+      "q": "Décrire le modèle de Diamond (1965) : agents, contrainte budgétaire intertemporelle, choix d'épargne, loi d'accumulation.",
+      "model": "Agents à deux périodes : jeune (travaille salaire w, épargne s), vieux (consomme s·(1+r)). Contrainte : c1 + c2/(1+r) = w. Utilité U(c1,c2) maximisée → s = s(w,r). Avec log : s* = β/(1+β)·w, indépendante de r. Accumulation par tête : k_{t+1} = s/(1+n). État régulier k* solution implicite de k* = s(w(k*),r(k*))/(1+n).",
+      "points": [
+        "deux périodes",
+        "contrainte c1 + c2/(1+r) = w",
+        "s optimale par maximisation d'utilité",
+        "cas log : s indépendante de r",
+        "k_{t+1} = s/(1+n)"
+      ],
+      "notations": [
+        "c1, c2 (consommations)",
+        "w, r (salaire, taux d'intérêt)",
+        "β (préférence pour le futur)",
+        "n (croissance démographique)"
+      ],
+      "why": "Question type examen L3. Le correcteur cherche les cinq éléments-clés dans l'ordre. Oublier /(1+n) est l'erreur la plus fréquente.",
+      "id": "diamold-019"
+    },
+    {
+      "mat": "croissance",
+      "cat": "diamold",
+      "ch": 3,
+      "diff": 3,
+      "q": "Expliquer la notion d'inefficience dynamique dans Diamond et son lien avec la sécurité sociale par répartition.",
+      "model": "Inefficience dynamique : équilibre avec r < n (r < n+g avec croissance). L'économie sur-épargne, consommer du capital Pareto-améliore. Répartition (PAYG) rend n implicitement : bat le marché ssi r < n (Diamond-Samuelson). Empiriquement (AMSZ 1989), les économies OCDE ont r > n+g : Diamond ne légitime pas la répartition dans ce cas.",
+      "points": [
+        "condition r < n (règle d'or franchie par excès)",
+        "répartition rend un rendement n",
+        "Pareto-amélioration ssi économie inefficace",
+        "empiriquement r > n+g dans économies OCDE"
+      ],
+      "notations": [
+        "r, n, g",
+        "rendement implicite de la répartition",
+        "règle d'or (Phelps)"
+      ],
+      "why": "Sujet classique. Le piège est de confondre le résultat théorique conditionnel (Diamond) avec une préconisation universelle en faveur de la répartition. Les données empiriques (AMSZ) sont attendues au niveau L3.",
+      "id": "diamold-020"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 2,
+      "q": "Présenter la démarche empirique d'Acemoglu, Johnson, Robinson (2001) : question, problème d'endogénéité, instrument, résultat.",
+      "model": "Question : les institutions causent-elles le PIB ? Endogénéité (causalité inverse, variables omises) → OLS biaisé. IV : mortalité historique des colons. Mécanisme : mortalité haute → peu de colons → institutions extractives → persistance. Résultat : IV ≈ 1, r² 1re étape > 0,25. Limite : exclusion invérifiable.",
+      "points": [
+        "endogénéité (causalité inverse)",
+        "IV mortalité des colons",
+        "mécanisme extractif vs inclusif",
+        "résultat empirique ≈ 1",
+        "limite : exclusion invérifiable"
+      ],
+      "notations": [
+        "IV (instrument)",
+        "mortalité des colons",
+        "institutions (indice propriété)",
+        "PIB log par habitant"
+      ],
+      "why": "Sujet-pilier de la partie 3. Réponse attendue : démarche IV explicite, mécanisme causal, ordre de grandeur, LIMITE. Un étudiant qui restitue seulement le résultat sans discussion sera pénalisé.",
+      "id": "ajr-019"
+    },
+    {
+      "mat": "croissance",
+      "cat": "ajr",
+      "ch": 3,
+      "diff": 3,
+      "q": "Expliquer et illustrer le « revers de fortune » (AJR 2002).",
+      "model": "Fait : parmi les anciennes colonies, celles riches en 1500 (Mexique, Pérou, Inde) sont pauvres aujourd'hui ; celles vides (Amérique du Nord, Australie) sont riches. Mesure de 1500 : urbanisation, densité. Mécanisme : densité → rentes → institutions extractives ; vide → peuplement inclusif. Revers au XIXᵉ. Cas : Guatemala/Uruguay.",
+      "points": [
+        "fait empirique du revers",
+        "proxy urbanisation/densité pour 1500",
+        "exemples riches 1500 / pauvres 1500",
+        "mécanisme institutions extractives / inclusives",
+        "cas Guatemala-Uruguay ou équivalent"
+      ],
+      "notations": [
+        "revers de fortune (Reversal of Fortune)",
+        "institutions extractives / inclusives",
+        "densité en 1500"
+      ],
+      "why": "Sujet à connaître avec un exemple chiffré. Perishable inévitable sur 'aujourd'hui' pour cette question historico-comparative. Le correcteur exige un cas illustratif précis.",
+      "id": "ajr-020"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 2,
+      "q": "Décrire précisément le piège malthusien : hypothèses, dynamique, effet d'une hausse ponctuelle de B, effet d'une croissance g > 0.",
+      "model": "Hypothèses : terre X fixe, y = B·(X/L)^β (rendements décroissants), natalité positive avec y. Dynamique : y↑ → L↑ → y↓ jusqu'au niveau de subsistance. À l'ES : y = subsistance, L* croît en B. Hausse ponctuelle de B : y temporairement haut, puis L* absorbe le gain, y revient (piège). Croissance g > 0 continue : y* > subsistance, y* croît en g/β.",
+      "points": [
+        "y = B·(X/L)^β",
+        "natalité positive avec y",
+        "hausse B ponctuelle : L↑ mais y* inchangé",
+        "g > 0 permanent : y* > subsistance",
+        "piège = équilibre absorbant"
+      ],
+      "notations": [
+        "B (PTF), X (terre), β (part de la terre)",
+        "L (population), y (revenu par tête)",
+        "y_sub (niveau de subsistance)"
+      ],
+      "why": "Question type. Le correcteur attend la fonction de production PRÉCISE, la distinction ponctuel/permanent, et le mécanisme des rendements décroissants.",
+      "id": "malthd-019"
+    },
+    {
+      "mat": "croissance",
+      "cat": "malthd",
+      "ch": 3,
+      "diff": 3,
+      "q": "Expliquer, dans le cadre du modèle de Kremer (1993), pourquoi le taux de croissance démographique s'accélère avec la population — et pourquoi cette prédiction se brise après 1970.",
+      "model": "Kremer : Ḃ/B = φ·A·L (λ=1, φ=1). À l'ES malthusien, y à subsistance implique n = φ·A·L/β. Plus L monte, plus n monte : accélération cumulative. Prédiction correcte pré-1970. Après 1970 : n chute malgré L croissant. Relais théorique : Galor-Weil (arbitrage Q/Q), au-dessus de y_T le coût d'opportunité domine, n décroît en y.",
+      "points": [
+        "formule Ḃ/B = φ·A·L",
+        "déduction n = φ·A·L/β à l'ES malthusien",
+        "accélération cumulative",
+        "rupture post-1970 : n chute",
+        "complément Galor-Weil : arbitrage Q/Q"
+      ],
+      "notations": [
+        "Ḃ/B (croissance des idées)",
+        "φ, A, L",
+        "y_T (seuil de transition)",
+        "n (croissance démographique)"
+      ],
+      "why": "Question de synthèse. Le correcteur attend d'abord la mécanique Kremer, PUIS son échec empirique, PUIS le relais théorique par Galor-Weil. Trois temps.",
+      "id": "malthd-020"
     }
   ],
   "ETOILE": [
