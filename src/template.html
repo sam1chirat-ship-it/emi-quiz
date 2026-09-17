@@ -80,27 +80,28 @@ input[type=text], input[type=password] {
   top: 0;
   z-index: 4;
   display: flex;
-  gap: 6px;
+  gap: 5px;
   align-items: center;
-  padding: max(30px, calc(10px + var(--sat))) 10px 8px;
+  padding: max(30px, calc(10px + var(--sat))) 8px 8px;
   background: linear-gradient(180deg, rgba(11, 18, 48, .92) 0%, rgba(11, 18, 48, .0) 100%);
   backdrop-filter: blur(4px);
-  /* J42 : sur écran étroit (iPhone SE), 6 boutons + spacer débordent.
-     On rend la topbar scrollable horizontalement — le user peut atteindre
-     COURS/PALMARES en swipant. */
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  /* Pas d'overflow-x — cela crée un scroll container qui, en position:
+     sticky sur iOS Safari, capture les taps comme des swipes horizontaux
+     et empêche onPointerUp. Les 6 boutons compacts tiennent dans 375 px
+     (iPhone SE) sans scroll. flex-wrap pour les cas plus étroits. */
+  flex-wrap: nowrap;
 }
-.topbar::-webkit-scrollbar { display: none; }
-.topbar .spacer { flex: 0 0 auto; width: 8px; }
+.topbar .spacer { flex: 0 0 4px; }
 .topbar button {
   font-family: var(--sans);
-  letter-spacing: .04em;
+  letter-spacing: .03em;
   flex: 0 0 auto;
-  padding: 8px 9px;
+  padding: 10px 9px;
   font-size: 12px;
   white-space: nowrap;
+  min-height: 40px;      /* zone tactile confortable */
+  -webkit-touch-callout: none;
+  pointer-events: auto;
 }
 
 /* header : z-index 3 (flux) */
