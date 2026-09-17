@@ -19622,7 +19622,7 @@
         {
           "kind": "mecanisme",
           "title": "Règle d'or (démonstration)",
-          "text": "Question du prof : quel taux d'épargne s maximise la consommation par tête à l'état régulier ?\n\nÀ l'état régulier : \\(c^*\\) = (1 − s) \\(y^*\\) = f(\\(k^*\\)) − (n + g + δ) \\(k^*\\).\n\nMaximiser en \\(k^*\\) : dc*/dk* = f'(\\(k^*\\)) − (n + g + δ) = 0.\n\n**Règle d'or : f'(\\(k^*\\)_or) = n + g + δ.**\n\nInterprétation : le taux d'intérêt à l'équilibre concurrentiel (= f'(\\(k^*\\))) doit égaler le taux de croissance démographique + progrès technique + dépréciation.\n\nCorollaire : si s > s_or, on suraccumule (« consommation dynamiquement inefficace »). Solution : baisser s, tout le monde consomme plus, aujourd'hui ET demain. Empiriquement, la plupart des pays sont EN DESSOUS de la règle d'or (sauf Singapour, longtemps au-dessus)."
+          "text": "Question du prof : quel taux d'épargne s maximise la consommation par tête à l'état régulier ?\n\nÀ l'état régulier : \\(c^*\\) = (1 − s) \\(y^*\\) = f(\\(k^*\\)) − (n + g + δ) \\(k^*\\).\n\nMaximiser en \\(k^*\\) : dc*/dk* = f'(\\(k^*\\)) − (n + g + δ) = 0.\n\n**Règle d'or** : f'(\\(k^*\\)_or) = n + g + δ.\n\nInterprétation : le taux d'intérêt à l'équilibre concurrentiel (= f'(\\(k^*\\))) doit égaler le taux de croissance démographique + progrès technique + dépréciation.\n\nCorollaire : si s > s_or, on suraccumule (« consommation dynamiquement inefficace »). Solution : baisser s, tout le monde consomme plus, aujourd'hui ET demain. Empiriquement, la plupart des pays sont EN DESSOUS de la règle d'or (sauf Singapour, longtemps au-dessus)."
         },
         {
           "kind": "exemple",

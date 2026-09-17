@@ -1206,6 +1206,10 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
 
 /*__KATEX_CSS__*/
 
+/* Gras Markdown (**xxx**) → convention thème : blanc cassé + weight */
+strong { font-weight: 600; color: #fff; }
+.cours-block strong, .why strong { color: var(--gold); }
+
 /* Ajustements KaTeX pour intégration au thème (fond sombre, doré) */
 .katex { color: var(--gold); font-size: 1.02em; }
 .katex-display { margin: .8em 0; overflow-x: auto; overflow-y: hidden; }
@@ -1364,6 +1368,15 @@ function esc(s) {
     .replace(/'/g, "&#39;");
 }
 
+/* Comme esc(), mais convertit aussi les marqueurs Markdown `**...**`
+   en <strong>...</strong>. Utilisé pour les segments de texte non-math
+   dans renderMath(). Le texte est d'abord échappé (HTML-safe), puis
+   les paires `**` sont remplacées — les autres `*` isolés sont préservés
+   tels quels. */
+function escMd(s) {
+  return esc(s).replace(/\*\*([^*]{1,200}?)\*\*/g, "<strong>$1</strong>");
+}
+
 /* Rend un texte pouvant contenir du LaTeX :
    \(...\) = mode inline, \[...\] = mode display.
    Choix de délimiteurs : évite le collision avec $ (USD, symbole
@@ -1407,8 +1420,8 @@ function renderMath(s) {
     if (nxParen < 0) nx = nxBrack;
     else if (nxBrack < 0) nx = nxParen;
     else nx = Math.min(nxParen, nxBrack);
-    if (nx < 0) { out.push(esc(str.slice(i))); break; }
-    out.push(esc(str.slice(i, nx)));
+    if (nx < 0) { out.push(escMd(str.slice(i))); break; }
+    out.push(escMd(str.slice(i, nx)));
     i = nx;
   }
   return out.join("");
