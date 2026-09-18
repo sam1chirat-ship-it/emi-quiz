@@ -244,16 +244,20 @@ def reprocess_math_blocks(text: str) -> str:
 _GREEK = "ΔΠΣαβγδεηθλμπρστφϕω"
 _MOD = "ᵃᵇⁿᵗᵢⱼₖₙ⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉"     # modifier letters
 _DIA = "̇̄̂"                       # combining dot/bar/hat
-_PRECOMP_DIA = "ȦȧḂḃḢḣĠġẊẋẎẏŻżĀāĒēĪīŌōŪūȲȳÂâĤĥŶŷ"  # attention: Êê=vraie
-                                                    # accentuation FR, exclue
+# Précomposées math seulement (pas d'homographe FR courant).
+# Exclu : Ââ Êê Ĥĥ Ŷŷ (souvent français : âne, être, hôtel, y).
+# Gardé : uniquement le dot-above (Ȧ Ẋ Ẏ Ż Ġ Ḃ Ḣ) → dérivée temporelle
+_PRECOMP_DIA = "ȦȧḂḃḢḣĠġẊẋẎẏŻż"
 
-# 1) Motif « variable + sub/sup » : `g_A`, `\pi_T^*`, `y^n`
+# 1) Motif « variable + sub/sup » : `g_A`, `\pi_T^*`, `y^n`, `e_actuel`
+#    Sub/sup peut être : caractère unique, mot alphanumérique multi-char,
+#    ou expression braced.
 RE_VARIABLE = re.compile(
     r"(?<![A-Za-zÀ-ÿ0-9\\])"
     r"[A-Za-z" + _GREEK + r"]"
     r"(?:"
-    r"_(?:[A-Za-z0-9]|\{[^{}]{1,15}\})"
-    r"|\^(?:[*A-Za-z0-9]|\{[^{}]{1,15}\})"
+    r"_(?:[A-Za-z0-9]+|\{[^{}]{1,20}\})"
+    r"|\^(?:[*A-Za-z0-9]+|\{[^{}]{1,20}\})"
     r")+"
     r"(?![A-Za-zÀ-ÿ])"
 )
@@ -301,10 +305,22 @@ RE_GREEK_LONE = re.compile(
     r"(?![A-Za-zÀ-ÿ])"
 )
 
+# 8) Expression avec variables ÉCON en majuscules (1 à 6 lettres)
+#    reliées par des opérateurs math : `TC + CC ≈ CF`, `PIB = C + I + G`,
+#    `X + M = 0`. Convertit chaque sigle 2+ MAJUSCULES en \mathrm{},
+#    les 1-lettre restent italiques math.
+RE_UPPER_ABBREV_EXPR = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9\\])"
+    r"([A-Z][A-Z0-9]{0,5}[₀-₉]?)"
+    r"(\s*[=+\-−·×/≈≠≤≥<>]\s*(?:[A-Z][A-Z0-9]{0,5}[₀-₉]?|[0-9]+(?:[.,][0-9]+)?))+"
+    r"(?![A-Za-zÀ-ÿ])"
+)
+
 # Réunion : n'importe lequel des patterns, dans l'ordre du + spécifique
 # au + générique.
 _ALL_INLINE = [RE_VARIABLE, RE_DELTA_PREFIX, RE_STAR, RE_MODIFIER,
-               RE_COMBINING, RE_PRECOMP, RE_GREEK_LONE]
+               RE_COMBINING, RE_PRECOMP, RE_GREEK_LONE,
+               RE_UPPER_ABBREV_EXPR]
 
 
 def wrap_inline_math(text: str) -> str:
@@ -336,6 +352,10 @@ def wrap_inline_math(text: str) -> str:
         parts.append(text[nx:end + 2])
         i = end + 2
     joined = "".join(parts)
+    # Absorbe les modifieurs traînants (`\(\hat{k}\)*` → `\(\hat{k}^*\)`,
+    # `\(\hat{k}\)̇` → `\(\dot{\hat{k}}\)`) — passe globale car ils
+    # peuvent chevaucher les frontières de bloc.
+    joined = _absorb_trailing_modifiers(joined)
     # Merge : `\(x\) op \(y\)` → `\(x op y\)`
     joined = _merge_adjacent_math(joined)
     return joined
@@ -439,9 +459,52 @@ def _wrap_prose(prose: str) -> str:
     def _repl(m: re.Match) -> str:
         return "\\(" + to_latex(m.group(0)) + "\\)"
 
+    def _repl_abbrev(m: re.Match) -> str:
+        # `TC + CC ≈ CF` → `\(\mathrm{TC} + \mathrm{CC} \approx \mathrm{CF}\)`
+        # Wrap chaque sigle 2+ MAJUSCULES en \mathrm{}
+        text = m.group(0)
+        text = re.sub(
+            r"\b([A-Z]{2,6})(?![A-Za-z])",
+            r"\\mathrm{\1}",
+            text,
+        )
+        return "\\(" + to_latex(text) + "\\)"
+
     for pat in _ALL_INLINE:
-        prose = pat.sub(_repl, prose)
+        if pat is RE_UPPER_ABBREV_EXPR:
+            prose = pat.sub(_repl_abbrev, prose)
+        else:
+            prose = pat.sub(_repl, prose)
     return prose
+
+
+# Absorbe dans un bloc math un suffixe modifieur immédiat :
+#   `\(\hat{k}\)*`   → `\(\hat{k}^*\)`
+#   `\(\hat{k}\)̇`   → `\(\dot{\hat{k}}\)`  (combining dot après macro)
+#   `\(\hat{k}\)^\alpha` (already math ^ outside) — pas géré ici
+RE_TRAIL_STAR = re.compile(r"\\\(([^()]{1,400})\\\)\*(?![A-Za-z*])")
+RE_TRAIL_COMB = re.compile(r"\\\(([^()]{1,400})\\\)([" + _DIA + r"])")
+RE_TRAIL_SUB = re.compile(
+    r"\\\(([^()]{1,400})\\\)_([A-Za-z0-9]+)(?![A-Za-z])"
+)
+RE_TRAIL_SUP = re.compile(
+    r"\\\(([^()]{1,400})\\\)\^([A-Za-z0-9]+)(?![A-Za-z])"
+)
+
+
+def _absorb_trailing_modifiers(text: str) -> str:
+    text = RE_TRAIL_STAR.sub(lambda m: r"\(" + m.group(1) + r"^*\)", text)
+    diamap = {"̇": r"\dot", "̄": r"\bar", "̂": r"\hat"}
+    text = RE_TRAIL_COMB.sub(
+        lambda m: r"\(" + diamap[m.group(2)] + "{" + m.group(1) + r"}\)",
+        text,
+    )
+    # `\(X\)_word` → `\(X_{word}\)` (multi-letter sub absorbé)
+    text = RE_TRAIL_SUB.sub(
+        lambda m: r"\(" + m.group(1) + "_{" + m.group(2) + r"}\)", text)
+    text = RE_TRAIL_SUP.sub(
+        lambda m: r"\(" + m.group(1) + "^{" + m.group(2) + r"}\)", text)
+    return text
 
 
 def latexify_text(text: str) -> str:
