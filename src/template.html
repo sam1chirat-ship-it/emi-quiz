@@ -413,6 +413,7 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
   font-size: 12px; line-height: 18px; text-align: center;
   opacity: .8;
 }
+.choices.qcmm .mtxt { flex: 1 1 0; min-width: 0; }
 .choices.qcmm > button.picked {
   background: rgba(255, 196, 61, .16);
   border-color: rgba(255, 196, 61, .6);
@@ -3337,7 +3338,7 @@ function renderQuestion() {
       '<button data-act="mPick" data-v="' + i + '" aria-pressed="' + (picked.includes(i) ? 'true' : 'false') + '"' +
         (picked.includes(i) ? ' class="picked"' : '') + '>' +
         '<span class="mbox" aria-hidden="true">' + (picked.includes(i) ? '✓' : '') + '</span>' +
-        renderMath(c) + '</button>'
+        '<span class="mtxt">' + renderMath(c) + '</span></button>'
     ).join("");
     return (
       '<article class="card">' +
@@ -3478,7 +3479,8 @@ function renderWhy() {
       const x = (!isGood && isPicked && q.koWhy && q.koWhy[i])
         ? '<span class="kowhy">' + renderMath(q.koWhy[i]) + '</span>' : '';
       return '<button class="' + cls + '" disabled data-v="' + i + '">' +
-        '<span class="mbox" aria-hidden="true">' + tag + '</span>' + renderMath(c) + x + '</button>';
+        '<span class="mbox" aria-hidden="true">' + tag + '</span>' +
+        '<span class="mtxt">' + renderMath(c) + '</span>' + x + '</button>';
     }).join("") + '</div>';
     if (!ans.ok && !ans.coupBas) {
       verdict = '<div class="answered-bad">Tout ou rien : ' + q.good.length + ' bonne(s) réponse(s) sur ' + q.choices.length + '</div>';

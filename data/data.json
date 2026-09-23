@@ -179,6 +179,36 @@
       "name": "Malthus (1798) détaillé",
       "ch": 3,
       "mat": "croissance"
+    },
+    "banque": {
+      "name": "Qu'est-ce qu'une banque ?",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "lelandpyle": {
+      "name": "Leland & Pyle (1977)",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "diamond84": {
+      "name": "Diamond (1984)",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "dd83": {
+      "name": "Diamond & Dybvig (1983)",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "stiglitzw": {
+      "name": "Stiglitz & Weiss (1981)",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "paniques": {
+      "name": "Modèles de paniques (après DD)",
+      "ch": 1,
+      "mat": "mbf"
     }
   },
   "BOTS": [
@@ -12352,6 +12382,313 @@
       "a": false,
       "why": "0,05 % — quasi-nulle. Le piège malthusien produit une quasi-stagnation sur 820 ans. Le chiffre de 1 % ne s'observe que post-industrialisation (1870-1913 : 1,3 %).",
       "id": "malthd-013"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "En marchés parfaits et complets, les banques n'auraient aucune raison d'exister.",
+        "Si les marchés étaient parfaits et complets, l'existence des banques ne se justifierait pas."
+      ],
+      "a": true,
+      "why": "La banque naît des imperfections de marché (asymétries d'information, besoin de liquidité).",
+      "id": "banque-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "La transformation d'échéances consiste, pour une banque, à avoir un actif plus court que son passif.",
+        "Une banque transforme les échéances en finançant des actifs courts par des ressources longues."
+      ],
+      "a": false,
+      "why": "C'est l'inverse : passif court (dépôts) et actif long (crédits).",
+      "trap": "actif-passif",
+      "id": "banque-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Au bilan d'une grande banque universelle, la part des fonds propres est plus élevée qu'au bilan d'une banque mutualiste de proximité.",
+        "Une grande banque universelle est, en proportion de son bilan, mieux capitalisée qu'une petite banque de proximité."
+      ],
+      "a": false,
+      "why": "Tableau du cours : 5 % de fonds propres pour la grande banque universelle contre 16 % pour la banque de proximité.",
+      "trap": "actif-passif",
+      "id": "banque-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Selon Sharpe (1990), la relation de long terme avec sa clientèle procure à la banque un avantage informationnel et un pouvoir de marché.",
+        "Pour Sharpe (1990), la banque qui entretient des relations durables avec ses clients peut les « capturer »."
+      ],
+      "a": true,
+      "why": "Sharpe (1990) : avantage informationnel + capture de la clientèle + pouvoir de marché → concurrence imparfaite.",
+      "id": "banque-013"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pour Fama (1985), c'est la fourniture jointe du crédit et de la gestion des dépôts qui donne à la banque un avantage informationnel.",
+        "Fama (1985) explique l'avantage informationnel de la banque par le fait qu'elle gère à la fois les dépôts et les crédits de ses clients."
+      ],
+      "a": true,
+      "why": "Fama (1985) : fourniture jointe des services de crédit et de gestion des dépôts.",
+      "id": "banque-014"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Les fonds propres d'une banque sont des sommes immobilisées qu'elle ne peut pas investir.",
+        "Une banque doit laisser ses fonds propres immobilisés dans une réserve."
+      ],
+      "a": false,
+      "why": "Les fonds propres ne sont pas immobilisés : la banque les investit comme elle l'entend. Ne pas les confondre avec les réserves obligatoires.",
+      "trap": "actif-passif",
+      "id": "banque-015"
+    },
+    {
+      "mat": "mbf",
+      "cat": "lelandpyle",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Leland & Pyle (1977) traitent d'une asymétrie d'information ex ante, source de sélection adverse.",
+        "Le problème étudié par Leland & Pyle (1977) se pose avant la conclusion du contrat financier."
+      ],
+      "a": true,
+      "why": "Ex ante : l'emprunteur connaît mieux la qualité de son projet → sélection adverse → coûts de signal.",
+      "trap": "ai-exante-expost",
+      "id": "lelandpyle-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "lelandpyle",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Chez Leland & Pyle (1977), la valeur de la firme diminue avec la part du capital détenue par l'entrepreneur.",
+        "Dans Leland & Pyle (1977), plus l'entrepreneur garde une part importante de son projet, plus le marché le dévalorise."
+      ],
+      "a": false,
+      "why": "C'est l'inverse : la valeur de la firme augmente avec la part détenue par l'entrepreneur (signal).",
+      "id": "lelandpyle-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "lelandpyle",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Leland & Pyle (1977) expliquent aussi pourquoi les intermédiaires financiers sont fortement endettés.",
+        "Selon Leland & Pyle (1977), leur approche par l'information permet de comprendre le fort levier des intermédiaires."
+      ],
+      "a": true,
+      "why": "Les actifs des intermédiaires ont un faible risque spécifique ; leur modèle implique alors un fort levier (dette ou dépôts).",
+      "id": "lelandpyle-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Diamond (1984) fait de la banque un contrôleur délégué face à un problème d'aléa moral ex post.",
+        "Chez Diamond (1984), la banque surveille les emprunteurs pour le compte des prêteurs, le problème se posant après la conclusion du contrat."
+      ],
+      "a": true,
+      "why": "Aléa moral ex post → coût de contrôle → délégation à la banque.",
+      "trap": "ai-exante-expost",
+      "id": "diamond84-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans Diamond (1984), l'intermédiation est viable même si la banque ne prête qu'à un seul emprunteur.",
+        "Selon Diamond (1984), une banque qui financerait un unique projet serait une solution viable."
+      ],
+      "a": false,
+      "why": "Avec un seul emprunteur et m déposants, l'intermédiation n'est pas viable : la diversification est la clé.",
+      "id": "diamond84-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans Diamond (1984), plus le nombre de projets financés par la banque est grand, moins sa dette envers les déposants est risquée.",
+        "Diamond (1984) montre que la diversification des prêts rend la dette de la banque envers ses déposants moins risquée."
+      ],
+      "a": true,
+      "why": "Loi des grands nombres : la diversification réduit la probabilité de rendements extrêmement bas.",
+      "id": "diamond84-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Dans Diamond (1984), la diversification ne joue un rôle que parce que les agents sont averses au risque.",
+        "La diversification n'a d'intérêt chez Diamond (1984) que si les prêteurs sont averses au risque."
+      ],
+      "a": false,
+      "why": "La diversification est importante même en neutralité au risque universelle, en raison de la contrainte de richesse.",
+      "id": "diamond84-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Dans Diamond & Dybvig (1983), la panique bancaire est un pur risque de passif.",
+        "Le modèle de Diamond & Dybvig (1983) ne comporte aucun risque sur l'actif de la banque."
+      ],
+      "a": true,
+      "why": "Technologie sans risque : la ruée vient du seul comportement des déposants.",
+      "trap": "actif-passif",
+      "id": "dd83-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans Diamond & Dybvig (1983), le type d'un consommateur (consommer tôt ou tard) est une information publique et vérifiable.",
+        "Chez Diamond & Dybvig (1983), la banque observe si chaque déposant est de type 1 ou de type 2."
+      ],
+      "a": false,
+      "why": "Le type est une information privée : c'est pourquoi le risque n'est pas assurable par contrat et que la banque doit laisser les déposants choisir leur date de retrait.",
+      "id": "dd83-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Diamond & Dybvig (1983) jugent la garantie publique des dépôts préférable à la suspension de la convertibilité.",
+        "Des deux remèdes envisagés par Diamond & Dybvig (1983), c'est la garantie des dépôts qui l'emporte."
+      ],
+      "a": true,
+      "why": "La suspension suppose de connaître la proportion de types 1 ; la garantie financée par l'impôt élimine la ruée dans tous les cas.",
+      "id": "dd83-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans Diamond & Dybvig (1983), interrompre la production en t = 1 permet de récupérer plus que la mise initiale.",
+        "Chez Diamond & Dybvig (1983), liquider l'investissement de façon anticipée rapporte un rendement supérieur à 1."
+      ],
+      "a": false,
+      "why": "L'interruption en t = 1 permet juste de recouvrer le montant investi : le rendement R n'est obtenu qu'en t = 2.",
+      "id": "dd83-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Chez Stiglitz & Weiss (1981), la banque offre le même taux à toutes les entreprises parce qu'elle ne connaît pas les caractéristiques de leurs projets.",
+        "Faute d'observer le risque des projets, la banque de Stiglitz & Weiss (1981) pratique un taux unique."
+      ],
+      "a": true,
+      "why": "Asymétrie d'information : la banque ne peut pas ajuster son taux à la nature du projet.",
+      "id": "stiglitzw-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans Stiglitz & Weiss (1981), exiger davantage de garanties élimine toujours le rationnement du crédit.",
+        "Selon Stiglitz & Weiss (1981), une hausse du collatéral exigé suffit à supprimer le rationnement."
+      ],
+      "a": false,
+      "why": "Dans l'article, les exigences de garantie peuvent elles-mêmes avoir des effets de sélection adverse.",
+      "trap": "rationnement-prix",
+      "id": "stiglitzw-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Stiglitz & Weiss (1981) montrent qu'au-delà d'un certain taux, une hausse du taux d'intérêt diminue le rendement espéré de la banque.",
+        "Pour Stiglitz & Weiss (1981), le profit espéré de la banque n'est pas une fonction croissante du taux qu'elle pratique."
+      ],
+      "a": true,
+      "why": "Effets de sélection adverse et d'incitation : le rendement espéré de la banque est non monotone en r.",
+      "trap": "rationnement-prix",
+      "id": "stiglitzw-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "paniques",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pour Bhattacharya & Jacklin (1988), c'est l'insolvabilité qui provoque la faillite lors d'une ruée informationnelle.",
+        "Dans les ruées informationnelles de Bhattacharya & Jacklin (1988), les déposants réagissent à un signal sur le rendement futur de l'actif bancaire."
+      ],
+      "a": true,
+      "why": "BJ : les ruées se produisent en raison du signal reçu sur le rendement futur de l'actif bancaire.",
+      "id": "paniques-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "paniques",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Selon Gorton (1985), en information imparfaite, une rumeur peut provoquer des ruées rationnelles mais inefficaces.",
+        "Gorton (1985) distingue les ruées efficaces (information parfaite) des ruées rationnelles mais inefficaces (information imparfaite)."
+      ],
+      "a": true,
+      "why": "En information parfaite, les ruées peuvent être rationnelles et efficaces ; sinon, une rumeur peut produire des ruées inefficaces.",
+      "id": "paniques-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "paniques",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pour Bhattacharya & Gale (1987), le marché interbancaire ne présente que des avantages.",
+        "Selon Bhattacharya & Gale (1987), le marché interbancaire exclut toute pénurie globale de liquidité."
+      ],
+      "a": false,
+      "why": "Rôle positif, mais passager clandestin : une banque sous-investit en actifs liquides → pénurie globale possible.",
+      "id": "paniques-006"
     }
   ],
   "SENS": [
@@ -15499,6 +15836,92 @@
       "a": "up",
       "why": "\\(\\dot B\\)/B = \\(\\varphi\\cdot A\\cdot L\\) : plus de personnes = plus d'inventeurs = croissance des idées plus rapide. C'est l'effet d'échelle pur (scale effect) qui produit l'accélération cumulative jusqu'à la sortie du piège.",
       "id": "malthd-017"
+    },
+    {
+      "mat": "mbf",
+      "cat": "lelandpyle",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Leland & Pyle (1977), signal d'équilibre",
+      "shock": "L'entrepreneur conserve une part plus grande du capital de son projet",
+      "var": "Valeur du projet perçue par le marché",
+      "a": "up",
+      "why": "Le signal est la part conservée : plus elle est élevée, plus le marché infère un projet de qualité, et la valeur de la firme augmente.",
+      "id": "lelandpyle-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Diamond (1984), délégation du contrôle à un moniteur unique (coûts K et D donnés)",
+      "shock": "Hausse du nombre m de prêteurs nécessaires par projet",
+      "var": "Économie de coûts procurée par la délégation (\\(mK - K - D\\))",
+      "a": "up",
+      "why": "Le contrôle direct coûte mK et croît avec m ; le coût délégué K + D n'en dépend pas : l'avantage de la délégation grandit.",
+      "id": "diamond84-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Diamond (1984), intermédiaire qui finance N projets indépendants",
+      "shock": "Hausse du nombre N de projets financés (diversification)",
+      "var": "Risque de la dette de l'intermédiaire envers ses déposants",
+      "a": "down",
+      "why": "Loi des grands nombres : moins de rendements extrêmement bas, la dette envers les déposants devient moins risquée.",
+      "id": "diamond84-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 3,
+      "ctx": "Diamond & Dybvig (1983), banque qui assure la liquidité (\\(r_1 > 1\\))",
+      "shock": "La banque promet un \\(r_1\\) plus élevé",
+      "var": "Rendement \\(r_2\\) servi à ceux qui attendent t = 2",
+      "a": "down",
+      "why": "Plus la banque sert aux types 1, moins il reste pour les types 2 : \\(r_2\\) baisse (tout en restant supérieur à \\(r_1\\) pour éviter la ruée).",
+      "id": "dd83-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Stiglitz & Weiss (1981), taux déjà supérieur au taux \\(r^*\\) qui maximise le profit",
+      "shock": "La banque relève encore son taux d'intérêt",
+      "var": "Profit espéré de la banque",
+      "a": "down",
+      "why": "Au-delà de \\(r^*\\), sélection adverse et incitation l'emportent : le profit espéré baisse. D'où le rationnement.",
+      "trap": "rationnement-prix",
+      "id": "stiglitzw-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Stiglitz & Weiss (1981), taux unique, emprunteurs à responsabilité limitée",
+      "shock": "Hausse du taux d'intérêt",
+      "var": "Risque moyen du portefeuille de prêts",
+      "a": "up",
+      "why": "Sélection adverse (les plus sûrs renoncent) et incitation (projets plus risqués) : le risque moyen augmente.",
+      "trap": "rationnement-prix",
+      "id": "stiglitzw-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "paniques",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Bhattacharya & Jacklin, actif bancaire à rendement aléatoire",
+      "shock": "Hausse de l'écart-type du rendement des actifs bancaires",
+      "var": "Probabilité de panique bancaire",
+      "a": "up",
+      "why": "Si l'actif est risqué, la probabilité de panique devient une fonction croissante du risque des actifs bancaires.",
+      "id": "paniques-007"
     }
   ],
   "ORDRE": [
@@ -16298,6 +16721,54 @@
       ],
       "why": "Séquence Kremer 1993 telle qu'exposée dans le cours (partie 3 ch. 1 p. 13-19). L'ordre est critique : c'est l'accumulation d'idées via l'effet d'échelle qui fait sortir du piège, pas un choc externe.",
       "id": "malthd-018"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 2,
+      "title": "Diamond & Dybvig (1983) : remettre dans l'ordre le déroulé d'une ruée",
+      "steps": [
+        "En t = 0, des consommateurs identiques déposent leur dotation à la banque",
+        "La banque investit dans la technologie de long terme et promet \\(r_1 > 1\\)",
+        "En t = 1, un événement observable (même une tache solaire) fait anticiper une ruée",
+        "Les types 2 se déclarent de type 1 et retirent aussi en t = 1",
+        "La banque, servant dans l'ordre d'arrivée, liquide ses actifs et fait défaut"
+      ],
+      "why": "Dépôt → transformation → anticipation → tous retirent → liquidation. Même une banque saine peut tomber : la ruée est un pur risque de passif.",
+      "id": "dd83-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 2,
+      "title": "Diamond (1984) : du problème d'aléa moral à la banque viable",
+      "steps": [
+        "Le rendement du projet n'est observé que par l'entrepreneur",
+        "Il faut contrôler l'emprunteur, ce qui coûte K à chaque prêteur",
+        "Déléguer le contrôle à un moniteur unique coûte K + D au lieu de mK",
+        "Le moniteur doit à son tour être incité à tenir ses engagements envers les déposants",
+        "La diversification de ses prêts rend la délégation viable"
+      ],
+      "why": "Aléa moral ex post → coût de contrôle → délégation si \\(K + D < mK\\) → coût de délégation → diversification.",
+      "id": "diamond84-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 2,
+      "title": "Stiglitz & Weiss (1981) : la logique du rationnement",
+      "steps": [
+        "La banque ne connaît pas le risque des projets et pratique un taux unique",
+        "Une hausse du taux attire les emprunteurs risqués et incite à prendre plus de risques",
+        "Au-delà du taux \\(r^*\\), le profit espéré de la banque diminue",
+        "La banque fixe son taux à \\(r^*\\) malgré l'excès de demande",
+        "Une partie des demandeurs n'obtient pas de crédit : rationnement d'équilibre"
+      ],
+      "why": "Asymétrie → sélection adverse et incitation → profit non monotone → taux maximisant le profit → rationnement.",
+      "id": "stiglitzw-009"
     }
   ],
   "OUVERTE": [
@@ -18630,6 +19101,158 @@
       ],
       "why": "Question de synthèse. Le correcteur attend d'abord la mécanique Kremer, PUIS son échec empirique, PUIS le relais théorique par Galor-Weil. Trois temps.",
       "id": "malthd-020"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "En quoi la banque se distingue-t-elle des autres institutions financières, et en quoi ces différences sont-elles contestées ?",
+        "Quelles sont les spécificités de la banque parmi les institutions financières, et sont-elles pérennes ?"
+      ],
+      "model": "Elle crée de la monnaie, gère les moyens de paiement et transforme les échéances (passif court, actif long). Les cryptomonnaies contestent le monopole de création monétaire, les fintech la gestion des paiements, le shadow banking l'exclusivité de la transformation.",
+      "points": [
+        "création monétaire",
+        "moyens de paiement",
+        "transformation d'échéances",
+        "cryptos / fintech / shadow banking"
+      ],
+      "why": "Structure attendue : trois spécificités, trois contestations.",
+      "id": "banque-016"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Pourquoi dit-on que ce qui fait la raison d'être des banques fait aussi leur fragilité ?",
+        "Expliquez en quoi le service rendu par la banque est aussi la source de sa fragilité."
+      ],
+      "model": "La banque fournit un service de liquidité : elle transforme des dépôts retirables à tout moment en crédits longs (Diamond & Dybvig). Ce faisant, elle devient structurellement illiquide : si trop de déposants retirent en même temps, elle ne peut pas les servir, même saine. D'où la ruée et le besoin de garantie des dépôts.",
+      "points": [
+        "service de liquidité",
+        "transformation",
+        "illiquidité structurelle",
+        "ruée même si saine",
+        "garantie / régulation"
+      ],
+      "why": "La phrase du cours : ce qui fait la raison d'être des banques (le service de liquidité) est aussi ce qui fait leur fragilité.",
+      "id": "banque-017"
+    },
+    {
+      "mat": "mbf",
+      "cat": "lelandpyle",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Quel problème Leland & Pyle (1977) traitent-ils, et quel signal proposent-ils ?",
+        "Présentez le mécanisme de signal de Leland & Pyle (1977) et son lien avec l'intermédiation."
+      ],
+      "model": "Asymétrie ex ante : l'entrepreneur connaît la qualité de son projet → sélection adverse, marché de lemons. Signal : la part \\(\\alpha\\) du capital qu'il conserve ; la valeur de la firme croît avec \\(\\alpha\\). L'intermédiaire rend l'information appropriable en la logeant dans son portefeuille et signale sa qualité par ses fonds propres.",
+      "points": [
+        "ex ante / sélection adverse",
+        "signal = part conservée α",
+        "valeur croissante en α",
+        "appropriabilité et crédibilité",
+        "réponse naturelle"
+      ],
+      "why": "LP 1977 : la banque, réponse naturelle aux asymétries d'information.",
+      "notations": [
+        "α : part du capital conservée"
+      ],
+      "id": "lelandpyle-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "À quelle condition la délégation du contrôle à une banque est-elle avantageuse selon Diamond (1984), et pourquoi la diversification est-elle essentielle ?",
+        "Expliquez la notion de contrôleur délégué chez Diamond (1984)."
+      ],
+      "model": "Aléa moral ex post : contrôler coûte K à chacun des m prêteurs. Déléguer à une banque coûte K + D. Avantage si \\(K + D < mK\\). La banque doit être incitée à rembourser ses déposants : en diversifiant ses prêts, elle rend sa dette peu risquée et D tend vers zéro. Avec un seul emprunteur, elle n'est pas viable.",
+      "points": [
+        "aléa moral ex post",
+        "K + D < mK",
+        "coût de délégation",
+        "diversification",
+        "un seul emprunteur : non viable"
+      ],
+      "why": "Diamond 1984.",
+      "notations": [
+        "K : coût de contrôle",
+        "D : coût de délégation",
+        "m : nombre de prêteurs"
+      ],
+      "id": "diamond84-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Présentez le modèle de Diamond & Dybvig (1983) : hypothèses, équilibres, remèdes.",
+        "Pourquoi la banque de Diamond & Dybvig (1983) est-elle à la fois utile et fragile ?"
+      ],
+      "model": "Trois dates ; technologie sans risque rentable en t = 2 ; types privés révélés en t = 1. La banque assure la liquidité : \\(r_1 > 1\\), \\(r_2 < R\\), \\(r_2 > r_1\\), mieux que le marché. Mais elle est illiquide : deux équilibres (vérité, panique). Remèdes : suspension de convertibilité ou garantie publique des dépôts, préférable.",
+      "points": [
+        "t = 0, 1, 2 et types privés",
+        "r1 > 1, r2 < R",
+        "deux équilibres de Nash",
+        "service séquentiel",
+        "suspension / garantie"
+      ],
+      "why": "DD 1983 : pur risque de passif.",
+      "notations": [
+        "r1, r2 : rendements promis",
+        "R : rendement de long terme"
+      ],
+      "id": "dd83-013"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pourquoi le marché du crédit peut-il être rationné à l'équilibre selon Stiglitz & Weiss (1981) ?",
+        "Expliquez le rationnement du crédit chez Stiglitz & Weiss (1981)."
+      ],
+      "model": "Asymétrie d'information : la banque pratique un taux unique. Un taux plus élevé attire les emprunteurs risqués (sélection adverse) et pousse à des projets plus risqués (incitation), car la responsabilité limitée tronque les pertes des emprunteurs. Au-delà de \\(r^*\\), le profit espéré de la banque baisse : elle rationne au lieu de monter son taux.",
+      "points": [
+        "taux unique",
+        "sélection adverse",
+        "incitation",
+        "responsabilité limitée",
+        "r* maximise le profit",
+        "équilibre"
+      ],
+      "why": "SW 1981.",
+      "id": "stiglitzw-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "paniques",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pourquoi le marché interbancaire est-il à la fois une protection et une source de fragilité pour les banques ?",
+        "Quel est le rôle du marché interbancaire dans les modèles de paniques ?"
+      ],
+      "model": "Il mutualise le risque de liquidité : les banques résistent mieux aux chocs et investissent plus à long terme (Bhattacharya & Gale ; Rochet & Tirole). Mais une banque peut sous-investir en actifs liquides en comptant sur les autres (pénurie globale), et la sélection adverse entre banques peut bloquer le marché (Flannery) : il faut un prêteur en dernier ressort.",
+      "points": [
+        "mutualisation du risque de liquidité",
+        "passager clandestin",
+        "pénurie globale",
+        "sélection adverse (Flannery)",
+        "prêteur en dernier ressort"
+      ],
+      "why": "Chapitre 1, modèles de paniques.",
+      "id": "paniques-008"
     }
   ],
   "ETOILE": [
@@ -21269,6 +21892,1197 @@
           "text": "Fiche express pour l'exam :\n\n- Malthus 1798 = modèle pré-industriel, rendements décroissants sur terre fixe.\n- y = \\(A/L\\)^\\(\\theta\\) ; b(y) croissante, d(y) décroissante ; équilibre \\(y^*\\) de subsistance.\n- Choc positif sur A ⇒ effet transitoire sur y, effet permanent sur L. Piège malthusien.\n- Empiriquement : \\(g_{\\mathrm{y}} \\approx 0,05\\) %/an sur 1000-1820 (Maddison). Sortie ~1780-1820 (Angleterre).\n- Kremer 1993 : \\(\\dot A\\)/A = \\(\\delta\\)·L, population = moteur d'innovation.\n- Galor-Weil : transition démographique via arbitrage quantité/qualité des enfants, seuil \\(y_{\\mathrm{T}}\\).\n- Ne pas confondre description valide (2000 ans) et prédiction (fausse post-1800)."
         }
       ]
+    },
+    "banque": {
+      "title": "Qu'est-ce qu'une banque ?",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Premier chapitre du cours « Banques et marchés » : à quoi sert une banque, pourquoi elle existe à côté des marchés de titres, et pourquoi elle est à la fois spéciale et fragile. Au partiel, les premières questions portent presque toujours sur la définition de la banque, la structure de son bilan et la raison de sa fragilité. Les choix de réponses changent chaque année : il faut comprendre, pas réciter."
+        },
+        {
+          "kind": "convention",
+          "title": "La définition du cours",
+          "text": "Une banque est une entité financière qui **s'interpose entre un ensemble de prêteurs** (épargnants, déposants) **et un ensemble d'emprunteurs**.\n\n- Activité traditionnelle : collecte et gestion des dépôts, octroi de crédits.\n- Activités de marché : investissement en titres, conseil, hors-bilan, titrisation.\n\nParmi les institutions financières (OPCVM, assureurs, entreprises d'investissement, fonds de pension…), elle se distingue par trois traits : elle **crée de la monnaie**, elle **gère les moyens de paiement**, elle fait de la **transformation d'échéances** (passif court, actif long)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Trois spécificités… contestées",
+          "text": "Chaque spécificité est aujourd'hui remise en question par un nouvel acteur :\n\n- Création monétaire → les **cryptomonnaies** contestent le monopole bancaire.\n- Gestion des moyens de paiement → les **fintech**.\n- Transformation d'échéances → le **shadow banking**, qui la pratique aussi hors réglementation bancaire."
+        },
+        {
+          "kind": "exemple",
+          "title": "Deux bilans que tout oppose",
+          "text": "Bilans consolidés (source : *Parlons banque*) d'une banque mutualiste de proximité et d'une grande banque universelle :\n\n- Crédits à la clientèle : environ 69 % de l'actif (proximité) contre 32 % (universelle).\n- Portefeuille de titres : 13 % contre 41 %.\n- Titres émis au passif : 1 % contre 34 %.\n- Fonds propres : 16 % contre 5 %.\n\nLa grande banque universelle a donc **moins de crédits et plus de titres à l'actif, plus de titres et moins de fonds propres au passif**. Son total de bilan est de l'ordre du PIB de la France."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Pourquoi la banque existe",
+          "text": "En marchés parfaits et complets, la banque n'a **aucune raison d'exister** : elle naît des **imperfections de marché**.\n\n- Asymétrie d'information **ex ante** (avant le contrat) : l'emprunteur connaît mieux son projet → risque de **sélection adverse** → coûts de signal ou de sélection (Leland & Pyle, 1977).\n- Asymétrie **ex post** (après le contrat) : l'emprunteur peut « tricher » → **aléa moral** → coûts de contrôle (Diamond, 1984 ; Sofianos, 1985).\n- Incertitude sur les **besoins de liquidité** des prêteurs → la banque assure la liquidité (Diamond & Dybvig, 1983).\n\nEn centralisant les relations de financement, la banque réalise des économies de coûts et mutualise les risques."
+        },
+        {
+          "kind": "astuce",
+          "title": "L'avantage informationnel",
+          "text": "La banque ne fait pas qu'éviter la duplication des coûts de contrôle :\n\n- **Fama (1985)** : la fourniture jointe du crédit et de la gestion des dépôts lui donne un avantage informationnel.\n- **Sharpe (1990)** : la relation de long terme avec le client → avantage informationnel, **capture** de la clientèle, pouvoir de marché, concurrence imparfaite."
+        },
+        {
+          "kind": "piege",
+          "title": "Les pièges classiques",
+          "text": "- « La banque est un pur intermédiaire qui prête ce qu'elle a collecté » : faux, elle crée de la monnaie (« les crédits font les dépôts »).\n- « Transformation = actif plus court que le passif » : c'est l'inverse, **passif court, actif long**.\n- « La banque est fragile parce qu'elle prend trop de risques » : non, elle est fragile parce qu'elle est **structurellement illiquide** (transformation → risque de panique), même sans risque sur ses actifs.\n- « La banque fait disparaître les asymétries d'information » : non, elle les **gère** mais elle peut en pâtir (rationnement du crédit)."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Banque = intermédiaire qui s'interpose, crée de la monnaie, gère les paiements, transforme les échéances. Elle naît des imperfections de marché (asymétries d'information, besoin de liquidité). Ce qui fait sa raison d'être (le service de liquidité) fait aussi sa fragilité. Banques et marchés sont complémentaires, et la banque appelle une réglementation."
+        }
+      ]
+    },
+    "lelandpyle": {
+      "title": "Leland & Pyle (1977) : la banque née de l'asymétrie",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Hayne Leland et David Pyle, *Informational Asymmetries, Financial Structure, and Financial Intermediation*, Journal of Finance, 1977. La phrase à connaître par cœur : la banque est **« une réponse naturelle aux problèmes d'asymétrie d'information »**. Le problème traité est celui d'avant le contrat (ex ante) : la sélection adverse."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le problème : un marché de « lemons »",
+          "text": "L'entrepreneur connaît la qualité de son projet, le prêteur non. Le marché valorise donc les projets à leur **qualité moyenne**. Les mauvais projets sont attirés, la qualité moyenne baisse, le coût du capital monte, et même les bons projets ne peuvent plus être financés : le marché peut **disparaître** (logique d'Akerlof, 1970).\n\nL'aléa moral empêche le transfert direct de l'information : l'emprunteur a intérêt à exagérer la qualité de son projet."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "La solution : un signal",
+          "text": "Les actes parlent plus fort que les mots. Le signal est la **part \\(\\alpha\\) du capital du projet que l'entrepreneur conserve** : s'il investit beaucoup dans son propre projet, c'est qu'il le croit bon.\n\nRésultats : la valeur de la firme **augmente avec la part détenue par l'entrepreneur** ; la structure financière dépend de la valeur du projet même sans impôts (contrairement à Modigliani-Miller) ; le signal a un coût en bien-être (l'entrepreneur détient plus de capital que s'il pouvait transmettre l'information directement)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Pourquoi un intermédiaire plutôt qu'un vendeur d'information",
+          "text": "Vendre directement de l'information se heurte à deux problèmes :\n\n1. **Appropriabilité** : l'information est un bien public, l'acheteur peut la revendre ou la partager.\n2. **Crédibilité** : on ne distingue pas la bonne information de la mauvaise → prix de la qualité moyenne → marché de « lemons » de l'information.\n\nL'intermédiaire règle les deux : il **achète et détient des actifs** sur la base de son information, qui devient un bien privé (le rendement de son portefeuille) ; et il **signale** sa qualité en investissant dans ses propres fonds propres."
+        },
+        {
+          "kind": "piege",
+          "title": "Ne pas confondre",
+          "text": "- Leland & Pyle = **sélection adverse, ex ante**, coûts de signal / de sélection.\n- Diamond (1984) = **aléa moral, ex post**, coûts de contrôle, contrôleur délégué.\n- Diamond & Dybvig (1983) = **assurance de liquidité**, ruées.\n\nAu partiel, les trois articles sont systématiquement proposés côte à côte : c'est le piège n° 1 du chapitre."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Leland & Pyle (1977) : asymétrie d'information ex ante → sélection adverse → la banque est une réponse naturelle ; le signal est la part du projet conservée par l'entrepreneur ; l'intermédiaire rend l'information appropriable et crédible en la logeant dans son portefeuille."
+        }
+      ]
+    },
+    "diamond84": {
+      "title": "Diamond (1984) : le contrôleur délégué",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Douglas Diamond, *Financial Intermediation and Delegated Monitoring*, Review of Economic Studies, 1984. La banque y est un **contrôleur délégué** : les prêteurs lui confient la surveillance coûteuse des emprunteurs. Le problème traité est celui d'après le contrat (ex post) : l'aléa moral."
+        },
+        {
+          "kind": "convention",
+          "title": "Les hypothèses",
+          "text": "- N entrepreneurs **neutres au risque**, chacun a besoin d'emprunter 1 pour un projet **indivisible** ; leur richesse propre est nulle.\n- Les prêteurs, neutres au risque aussi, détiennent chacun \\(1/m\\) : il faut donc **m prêteurs** par projet. Ils peuvent placer au taux sans risque R.\n- Le rendement y du projet est aléatoire et **observé sans coût par l'entrepreneur seul**. Il rembourse \\(z \\in [0, y]\\).\n- La **dette** est le contrat optimal ; il faut encore trouver le contrat de dette optimal en asymétrie d'information."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Deux contrats possibles",
+          "text": "1. Si y est **invérifiable** : dette à valeur faciale h constante ; si \\(y < h\\), l'entrepreneur rembourse \\(z = y\\) et subit une **pénalité** non pécuniaire.\n2. Si y est **vérifiable** : un **coût de contrôle K** lève l'asymétrie.\n\nLes deux sont plus coûteux qu'en information parfaite."
+        },
+        {
+          "kind": "formule",
+          "title": "La condition de la délégation",
+          "text": "Contrôler soi-même coûte \\(m \\cdot K\\) (chaque prêteur paie K). Déléguer à un seul moniteur coûte K, **plus un coût de délégation D** (il faut contrôler le contrôleur).\n\n\\[K + D < m \\cdot K\\]\n\nPlus m est grand, plus l'économie de coûts de la délégation est grande. Sans délégation, soit on duplique les coûts, soit personne ne contrôle (passager clandestin)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "La diversification, clé de la viabilité",
+          "text": "L'intermédiaire contracte avec N entrepreneurs et \\(m \\cdot N\\) déposants qui lui confient chacun \\(1/m\\). Il doit servir R aux déposants, couvrir le coût de délégation et laisser à l'entrepreneur au moins ce qu'il aurait eu sans intermédiation.\n\n- Avec **un seul emprunteur**, l'intermédiation **n'est pas viable**.\n- En **diversifiant** ses prêts, l'intermédiaire réduit la probabilité de rendements extrêmement bas (loi des grands nombres) : plus le nombre de projets financés est grand, **moins la dette de l'intermédiaire envers les déposants est risquée**, et le coût de délégation tend vers zéro."
+        },
+        {
+          "kind": "piege",
+          "title": "Portée et limites (à citer)",
+          "text": "- L'intermédiation évite la **duplication des coûts** de contrôle et le passager clandestin ; elle ne repose pas sur un « savoir-faire » ou un avantage informationnel particulier.\n- Avec aversion au risque, le contrat de dette se complique.\n- **Rien sur la liquidité des dépôts** (c'est Diamond & Dybvig).\n- La pénalité subie par l'intermédiaire est peu réaliste : mieux vaut des **fonds propres obligatoires** (Holmstrom & Tirole, 1993).\n- Question ouverte : une banque est-elle d'autant moins risquée pour ses déposants qu'elle est grande ?"
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Diamond (1984) : aléa moral ex post → coût de contrôle K ; la délégation à une banque est bénéfique si \\(K + D < mK\\) ; elle n'est viable que si l'actif de la banque est **suffisamment diversifié** (grand nombre d'emprunteurs)."
+        }
+      ]
+    },
+    "dd83": {
+      "title": "Diamond & Dybvig (1983) : l'assureur de liquidité",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Douglas Diamond et Philip Dybvig, *Bank Runs, Deposit Insurance, and Liquidity*, Journal of Political Economy, 1983 : l'article le plus célèbre de l'économie bancaire. Il explique en un seul modèle **pourquoi les banques existent** (elles fournissent une assurance de liquidité) et **pourquoi elles sont fragiles** (cette assurance les expose aux ruées). Diamond et Dybvig ont reçu le prix de la Banque de Suède en 2022, avec Ben Bernanke."
+        },
+        {
+          "kind": "convention",
+          "title": "Le cadre",
+          "text": "- Trois dates : \\(t = 0, 1, 2\\).\n- Une technologie **sans risque** : rendement R certain, mais seulement en \\(t = 2\\). L'interrompre en \\(t = 1\\) rend juste la mise initiale.\n- Des consommateurs identiques en \\(t = 0\\), qui découvrent en \\(t = 1\\) s'ils veulent consommer tôt (**type 1**) ou tard (**type 2**). Ce type est une **information privée** : le risque n'est pas assurable par un contrat classique."
+        },
+        {
+          "kind": "formule",
+          "title": "Marché contre banque",
+          "text": "Équilibre de marché concurrentiel (ou banque « liquide ») : \\(r_1 = 1\\), \\(r_2 = R\\). Aucun partage du risque.\n\nBanque « illiquide » qui assure contre le risque d'être de type 1 :\n\n\\[r_1 > 1, \\quad r_2 < R, \\quad r_2 > r_1\\]\n\n\\(r_1\\) se rapproche de \\(r_2\\) : meilleur partage du risque. Mais pour promettre \\(r_1 > 1\\), la banque se met **nécessairement en position d'illiquidité**."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Deux équilibres de Nash",
+          "text": "La banque sert les retraits dans l'ordre d'arrivée (**contrainte de service séquentiel**). Ce qu'obtient chaque déposant dépend donc de ce que font tous les autres : interaction stratégique.\n\n- **Bon équilibre** (« de la vérité ») : les types 1 retirent en \\(t = 1\\), les types 2 attendent \\(t = 2\\).\n- **Mauvais équilibre** (panique, *bank run*) : tout le monde se déclare de type 1 et retire en \\(t = 1\\) ; les types 2 « mentent ».\n\nLe basculement peut dépendre de **n'importe quelle variable observable** : panique dans une autre banque, mauvaise nouvelle, voire une « tache solaire ». **Même une banque saine peut succomber.**"
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Deux remèdes",
+          "text": "1. **Suspension de la convertibilité** des dépôts : efficace seulement si l'on connaît avec certitude la proportion d'agents de type 1.\n2. **Garantie publique des dépôts**, financée par une taxe prélevée en \\(t = 1\\) : la solution **préférable**. Elle rend l'attente dominante pour les types 2 et élimine la ruée, sans empêcher la transformation."
+        },
+        {
+          "kind": "piege",
+          "title": "Portée et limites",
+          "text": "- **Aucun risque à l'actif** : la panique est un **pur risque de passif**. C'est à la fois la limite et la force du modèle (une banque saine peut tomber).\n- Si l'on introduit un actif risqué, la probabilité de panique croît avec le risque des actifs (Bhattacharya & Jacklin).\n- L'intermédiaire modélisé est-il bien une banque ? Rien ne dit si son passif est détenu par des déposants ou par des actionnaires.\n- Le **pouvoir de création monétaire** des banques est ignoré (formalisé seulement récemment, cf. Rochet & Verdier, 2021)."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Diamond & Dybvig (1983) : la banque transforme des actifs illiquides en passifs liquides et assure les déposants contre un besoin de liquidité non vérifiable. Cette transformation la rend illiquide : deux équilibres, dont la ruée. Remède préféré : la garantie publique des dépôts."
+        }
+      ]
+    },
+    "stiglitzw": {
+      "title": "Stiglitz & Weiss (1981) : le rationnement du crédit",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Joseph Stiglitz et Andrew Weiss, *Credit Rationing in Markets with Imperfect Information*, American Economic Review, 1981. Message : la banque est une solution aux asymétries d'information, mais elle ne les fait pas disparaître, et elle peut en pâtir. Le symptôme est le **rationnement du crédit** : une situation d'équilibre où l'offre de crédit est **inférieure** à la demande."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le point de départ",
+          "text": "La banque ne connaît pas les caractéristiques de l'investissement de son client : elle ne peut pas ajuster son taux au projet et offre **le même taux à tous**. Or les projets ont **le même rendement moyen mais pas le même risque**.\n\nDivergence d'intérêts :\n- pour l'entreprise, un risque élevé est bénéfique : gains illimités en cas de succès, pertes limitées à ses fonds propres en cas d'échec (**responsabilité limitée**) ;\n- pour la banque, un risque élevé est préjudiciable : il augmente la probabilité de défaut sans augmenter son gain."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Deux effets d'une hausse du taux",
+          "text": "Dans l'article, le taux d'intérêt modifie la qualité du portefeuille de prêts de deux façons :\n\n1. **Effet de sélection adverse** : ceux qui acceptent de payer un taux élevé sont, en moyenne, les plus risqués.\n2. **Effet d'incitation** (aléa moral) : un taux plus élevé pousse les emprunteurs vers des projets plus risqués (moins de chances de succès, gain plus élevé en cas de succès)."
+        },
+        {
+          "kind": "formule",
+          "title": "Le taux qui maximise le profit",
+          "text": "Il existe **nécessairement** un taux \\(r^*\\) qui maximise le profit espéré de la banque. Au-delà, le risque des projets financés l'emporte sur la hausse des versements attendus : le rendement espéré de la banque **diminue** quand le taux monte.\n\nLa banque ne monte donc pas son taux au-dessus de \\(r^*\\) même si la demande excède l'offre : **elle rationne**. Le prix ne joue plus son rôle d'équilibrage."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Le rationnement n'est **pas un déséquilibre transitoire** ni l'effet d'une loi sur l'usure : c'est un **équilibre**.\n- Face à l'excès de demande, la banque **ne relève pas son taux** : c'est justement le réflexe qu'elle évite.\n- Exiger plus de garanties (collatéral) n'élimine pas forcément le rationnement : dans l'article, les exigences de garantie peuvent elles-mêmes avoir des effets de sélection adverse."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Stiglitz & Weiss (1981) : asymétrie d'information + responsabilité limitée → au-delà du taux \\(r^*\\), une hausse du taux réduit le profit de la banque (sélection adverse + incitation) → rationnement du crédit à l'équilibre."
+        }
+      ]
+    },
+    "paniques": {
+      "title": "Les modèles de paniques après Diamond & Dybvig",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Structurellement illiquides, les banques sont exposées à des paniques dont les sources sont multiples. Leur prévention est une justification majeure de l'intervention publique. Après Diamond & Dybvig, une large littérature distingue plusieurs types de ruées, puis déplace le regard de la banque individuelle vers le **marché interbancaire**."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Trois ruées",
+          "text": "- **Diamond & Dybvig (1983)** : ruée « spéculative », **défaut de coordination** des déposants, pur risque de passif.\n- **Bhattacharya & Jacklin (1988)** : ruées « **informationnelles** » : les déposants reçoivent un signal sur le rendement futur de l'actif bancaire ; c'est l'**insolvabilité** qui provoque la faillite.\n- **Chari & Jagannathan (1988)** : la panique vient d'un problème d'**extraction de l'information**, d'une « confusion » des déposants. Ils proposent la **suspension de la convertibilité**."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Illiquidité et insolvabilité",
+          "text": "La crainte de l'insolvabilité peut provoquer l'illiquidité : interaction forte entre les deux. Les autorités doivent intervenir **avant que l'illiquidité ne se transforme en insolvabilité**.\n\n**Gorton (1985)** : en information parfaite, les ruées peuvent être rationnelles et **efficaces** ; en information imparfaite, une rumeur peut produire des ruées rationnelles mais **inefficaces**."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le marché interbancaire",
+          "text": "Les banques se prêtent entre elles et détiennent des dépôts croisés : le marché interbancaire **mutualise le risque de liquidité**.\n\n- **Bhattacharya & Gale (1987)** : rôle positif (les banques résistent mieux aux chocs de liquidité), ce qui améliore la situation des déposants (**Rochet & Tirole, 1996**) et permet d'investir davantage à long terme. Mais **pénurie globale de liquidité** possible : une banque sous-investit en actifs liquides en comptant emprunter aux autres → **passager clandestin**.\n- **Flannery (1996)** : une banque peut douter de la solvabilité de ses contreparties → **sélection adverse** (« effet Akerlof »). Faute de distinguer bonnes et mauvaises banques, les prêteuses montent leurs taux ou refusent de prêter : la banque centrale doit jouer son rôle de **prêteur en dernier ressort**."
+        },
+        {
+          "kind": "exemple",
+          "title": "De vieux modèles toujours d'actualité",
+          "text": "Les ruées sont emblématiques de 1929 et ont « disparu » avec la garantie des dépôts. Mais la crise de 2007-2008 a montré : une ruée aux guichets (**Northern Rock**, 2007) ; la dépendance des banques au marché interbancaire et sa rupture ; la nécessité que les banques centrales injectent de la liquidité.\n\n**Ruées 2.0** : avec les services bancaires numériques, les dépôts se déplacent plus facilement. Koont, Santos et Zingales (2023) parlent de « **marche silencieuse** » (*bank walks*), plus lente qu'une ruée : érosion des dépôts des banques américaines après le resserrement monétaire de 2022, cas de la **Silicon Valley Bank** (mars 2023)."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- La garantie des dépôts n'a pas « totalement fait disparaître » les ruées : Northern Rock, SVB, marches silencieuses.\n- Bhattacharya & Jacklin ≠ Diamond & Dybvig : chez BJ, la ruée vient d'un **signal sur l'actif** (insolvabilité) ; chez DD, d'un **défaut de coordination** sans risque d'actif.\n- Bhattacharya & Gale : le marché interbancaire est **bénéfique** mais peut créer une **pénurie globale** de liquidité."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "DD : défaut de coordination. BJ : signal sur l'actif. CJ : confusion, suspension de convertibilité. Gorton : ruées efficaces ou inefficaces. BG : interbancaire utile mais passager clandestin. Flannery : sélection adverse interbancaire → prêteur en dernier ressort."
+        }
+      ]
     }
-  }
+  },
+  "QCMM": [
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Qu'est-ce qu'une banque ?",
+        "Selon le cours, une banque est :",
+        "Laquelle ou lesquelles de ces définitions de la banque sont justes ?"
+      ],
+      "ok": [
+        "Une institution financière qui gère des dépôts, octroie des crédits et intervient sur les marchés financiers",
+        "Une entité financière qui s'interpose entre un ensemble de prêteurs et un ensemble d'emprunteurs",
+        "Une institution financière qui a le pouvoir de créer de la monnaie",
+        "Un intermédiaire qui gère les moyens de paiement et pratique la transformation d'échéances"
+      ],
+      "ko": [
+        "Un pur intermédiaire qui ne prête que les ressources qu'il a préalablement collectées",
+        "Une institution sans but lucratif au service des ménages",
+        "Un intermédiaire financier qui ne détient pas de titres à l'actif de son bilan",
+        "Un intermédiaire qui se finance exclusivement auprès de ses déposants",
+        "Un intermédiaire financier qui, à la différence des OPCVM, ne crée pas de monnaie",
+        "Une institution qui ne se distingue en rien des autres intermédiaires financiers"
+      ],
+      "why": "Définition du cours : la banque s'interpose entre prêteurs et emprunteurs (dépôts, crédits, activités de marché) et se distingue des autres IF par trois traits : création monétaire, gestion des moyens de paiement, transformation d'échéances.",
+      "koWhy": [
+        "Faux : la banque crée de la monnaie (« les crédits font les dépôts »), elle n'est pas un pur intermédiaire.",
+        "Faux : une banque est une entreprise, pas une institution sans but lucratif.",
+        "Faux : les grandes banques détiennent beaucoup de titres (41 % de l'actif pour la grande banque universelle du cours).",
+        "Faux : elle se finance aussi sur l'interbancaire et par émission de titres.",
+        "Faux et inversé : c'est la banque qui crée de la monnaie, pas les OPCVM.",
+        "Faux : elle s'en distingue par la création monétaire, les paiements et la transformation."
+      ],
+      "trap": "auteur-role",
+      "id": "banque-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Au bilan d'une grande banque universelle, comparé à celui d'une petite banque mutualiste de proximité (en % du total de bilan), on trouve :",
+        "Comparons les bilans d'une grande banque européenne comme BNP Paribas et d'une banque de proximité. En proportion du total de bilan, la grande banque a :"
+      ],
+      "ok": [
+        "Moins de crédits à la clientèle à l'actif",
+        "Plus de titres à l'actif",
+        "Plus de titres émis au passif",
+        "Moins de fonds propres au passif"
+      ],
+      "ko": [
+        "Plus de crédits à la clientèle à l'actif",
+        "Moins de titres à l'actif",
+        "Plus de fonds propres au passif",
+        "Moins de dépôts de la clientèle au passif",
+        "Une part de fonds propres à peu près équivalente",
+        "Moins de titres émis au passif"
+      ],
+      "why": "Tableau du cours (données 2022) : crédits 32 % contre 69 %, titres 41 % contre 13 % à l'actif ; titres émis 34 % contre 1 %, fonds propres 5 % contre 16 % au passif. La grande banque est plus « marchéisée » et plus endettée.",
+      "koWhy": [
+        "Inversé : 32 % pour la grande banque contre 69 % pour la banque de proximité.",
+        "Inversé : 41 % contre 13 %.",
+        "Inversé : 5 % de fonds propres contre 16 %.",
+        "Faux : 38 % de dépôts pour la grande banque contre 29 % ; la banque de proximité se refinance surtout auprès de son réseau et de la banque centrale (51 %).",
+        "Non : 16 % contre 5 %, la banque de proximité est bien plus capitalisée.",
+        "Inversé : 34 % de titres émis au passif pour la grande banque contre 1 %."
+      ],
+      "trap": "actif-passif",
+      "id": "banque-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce qui a changé en moyenne au bilan des grandes banques européennes au cours des dernières décennies ?",
+        "Avec la mutation financière, le bilan des grandes banques européennes s'est transformé. Quelles évolutions sont exactes ?"
+      ],
+      "ok": [
+        "La taille du bilan a augmenté",
+        "La part des titres a augmenté à l'actif",
+        "La part des titres (dettes de marché) a augmenté au passif",
+        "La part des fonds propres a diminué"
+      ],
+      "ko": [
+        "La taille du bilan a diminué",
+        "La part des crédits a augmenté à l'actif",
+        "La part des fonds propres a augmenté",
+        "Les dépôts sont devenus la seule ressource des banques",
+        "Les titres ont disparu du passif au profit des dépôts"
+      ],
+      "why": "Avec la mutation financière, les banques ont grossi, développé leurs activités de marché (titres à l'actif) et se financent davantage par des dettes de marché (titres au passif), avec de moins en moins de fonds propres (levier accru).",
+      "koWhy": [
+        "Faux : concentration et croissance, jusqu'à des banques « too big to fail ».",
+        "Faux : c'est la part des titres qui augmente, celle des crédits recule.",
+        "Faux : le levier d'endettement a augmenté, la part des fonds propres a baissé.",
+        "Faux : les banques ont acquis de « nouvelles ressources : dettes de court terme » sur les marchés.",
+        "Faux : c'est l'inverse, les titres émis ont progressé au passif."
+      ],
+      "trap": "actif-passif",
+      "id": "banque-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Les fonds propres sont, pour une banque :",
+        "Qu'est-ce que les fonds propres d'une banque ?"
+      ],
+      "ok": [
+        "Une ressource issue des actions émises et des bénéfices mis en réserve",
+        "Une ressource non remboursable qui permet d'absorber les pertes",
+        "Une « éponge » à pertes, essentielle à la résilience de la banque",
+        "Une ressource que les banques ont eu tendance à remplacer par de la dette"
+      ],
+      "ko": [
+        "Une réserve immobilisée que la banque ne peut pas investir",
+        "Une ressource moins coûteuse pour les banques que la dette de marché",
+        "La même chose que les réserves obligatoires déposées à la banque centrale",
+        "Une ressource qui se réduit aux seules réserves",
+        "Une dette envers les actionnaires, remboursable à échéance"
+      ],
+      "why": "Fonds propres = actions émises + réserves (bénéfices non distribués). Ressource non remboursable, qui absorbe les pertes. Ce ne sont pas des sommes immobilisées : la banque les investit comme elle l'entend.",
+      "koWhy": [
+        "Faux : les fonds propres ne sont pas immobilisés, la banque les investit librement.",
+        "Faux : grâce aux garanties publiques, la dette coûte moins cher aux banques (Admati & Hellwig).",
+        "Faux : confusion entre fonds propres (passif) et réserves obligatoires (actif, à la banque centrale).",
+        "Faux : les réserves font partie des fonds propres, mais les fonds propres ne s'y réduisent pas.",
+        "Faux : les fonds propres ne sont pas remboursables tant que la banque est en activité."
+      ],
+      "trap": "actif-passif",
+      "id": "banque-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "On dit des banques qu'elles font de la transformation d'échéances :",
+        "La transformation d'échéances pratiquée par les banques signifie que :"
+      ],
+      "ok": [
+        "Leur passif est plus court que leur actif",
+        "Elles transforment des ressources de court terme en actifs de plus long terme",
+        "Certains acteurs du shadow banking ont aussi cette particularité",
+        "Elles s'exposent à un risque de panique"
+      ],
+      "ko": [
+        "Leur actif est plus court que leur passif",
+        "Elles transforment des crédits de long terme en dépôts de long terme",
+        "Seules les banques centrales la pratiquent",
+        "Elle protège les banques contre les ruées",
+        "Elle ne concerne que les activités de marché des banques"
+      ],
+      "why": "Transformation d'échéances : passif « court » (dépôts retirables à tout moment), actif « long » (crédits). C'est une spécificité bancaire, aujourd'hui partagée avec le shadow banking, et c'est la source de la fragilité (Diamond & Dybvig).",
+      "koWhy": [
+        "Inversé : passif court, actif long.",
+        "Faux : les dépôts sont des ressources de court terme.",
+        "Faux : c'est le cœur de l'activité des banques commerciales.",
+        "Faux : c'est précisément ce qui les expose aux ruées.",
+        "Faux : elle est au cœur de l'activité traditionnelle (dépôts → crédits)."
+      ],
+      "trap": "actif-passif",
+      "id": "banque-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pourquoi une banque est-elle intrinsèquement fragile ?",
+        "La fragilité intrinsèque des banques s'explique :"
+      ],
+      "ok": [
+        "Parce que la transformation d'échéances qu'elle pratique l'expose à un risque de panique",
+        "Parce qu'elle est structurellement illiquide face à des dépôts retirables à tout moment",
+        "Parce que le service de liquidité qui fait sa raison d'être fait aussi sa fragilité",
+        "Parce que même une banque saine peut subir une ruée de ses déposants"
+      ],
+      "ko": [
+        "Parce qu'elle est trop réglementée et ne peut pas s'adapter aux chocs",
+        "Parce qu'elle prend toujours trop de risques sur les crédits qu'elle accorde",
+        "Parce que son actif est systématiquement composé de titres très risqués",
+        "Parce qu'elle ne détient pas assez de titres pour diversifier son portefeuille",
+        "Parce que ses déposants sont mieux informés qu'elle sur la qualité de ses actifs"
+      ],
+      "why": "Diamond & Dybvig : la banque assure la liquidité des déposants en se rendant illiquide. La fragilité vient de la transformation, pas d'un excès de risque d'actif : même une banque saine peut tomber.",
+      "koWhy": [
+        "Faux : la réglementation vise à limiter cette fragilité, elle n'en est pas la cause.",
+        "Faux : dans Diamond & Dybvig, il n'y a aucun risque à l'actif et la banque reste fragile.",
+        "Faux : la fragilité ne tient pas à la composition risquée de l'actif mais à la transformation.",
+        "Faux : sans rapport avec la fragilité intrinsèque.",
+        "Faux : l'asymétrie va en sens inverse, les déposants contrôlent mal leur banque."
+      ],
+      "trap": "actif-passif",
+      "id": "banque-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Selon le cours, en quoi la banque naît-elle de l'imperfection des marchés ?",
+        "Sur quelles imperfections de marché les théories de l'intermédiation bancaire fondent-elles l'existence des banques ?"
+      ],
+      "ok": [
+        "En marchés parfaits et complets, les banques n'auraient aucune raison d'exister",
+        "Les asymétries d'information entre prêteurs et emprunteurs rendent la sélection et le contrôle coûteux",
+        "La banque évite la duplication des coûts de sélection et de contrôle",
+        "Le besoin de liquidité incertain des prêteurs justifie un service d'assurance de liquidité"
+      ],
+      "ko": [
+        "La banque fait disparaître les asymétries d'information",
+        "La banque naît d'un monopole naturel lié à des rendements d'échelle croissants",
+        "La théorie microéconomique standard explique parfaitement l'existence des banques",
+        "Les banques existent parce que les marchés sont parfaitement efficients",
+        "La banque naît des coûts de transaction, les asymétries d'information n'y jouent aucun rôle"
+      ],
+      "why": "La banque est une « solution » aux asymétries d'information et au besoin de liquidité, mais elle ne les fait pas disparaître (d'où le rationnement du crédit). Les théories des années 1980 (principal-agent, information imparfaite, contrats incomplets) ont fait progresser l'analyse de la firme bancaire.",
+      "koWhy": [
+        "Faux : elle les gère mais peut en pâtir (Stiglitz & Weiss).",
+        "Faux : les études n'apportent pas la preuve de rendements croissants (chapitre 4).",
+        "Faux : il est difficile d'analyser la banque dans le cadre de la microéconomie standard.",
+        "Faux : c'est l'imperfection des marchés qui fonde la banque.",
+        "Faux : Leland & Pyle jugent les coûts de transaction insuffisants et placent l'asymétrie d'information au cœur de l'explication."
+      ],
+      "trap": "ai-exante-expost",
+      "id": "banque-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Qu'est-ce qui distingue la banque des autres institutions financières, et quels acteurs contestent ces spécificités ?",
+        "Quelles associations « spécificité bancaire → acteur qui la conteste » sont exactes ?"
+      ],
+      "ok": [
+        "Création monétaire → cryptomonnaies",
+        "Gestion des moyens de paiement → fintech",
+        "Transformation d'échéances → shadow banking"
+      ],
+      "ko": [
+        "Création monétaire → shadow banking",
+        "Transformation d'échéances → cryptomonnaies",
+        "Gestion des moyens de paiement → OPCVM",
+        "Création monétaire → compagnies d'assurance",
+        "Transformation d'échéances → fonds de pension"
+      ],
+      "why": "Cours : les cryptos remettent en question le monopole bancaire de la création monétaire ; les fintech, la gestion des moyens de paiement ; le shadow banking, l'exclusivité de la transformation d'échéances.",
+      "koWhy": [
+        "Mauvaise association : le shadow banking conteste la transformation d'échéances.",
+        "Mauvaise association : les cryptos contestent la création monétaire.",
+        "Mauvaise association : ce sont les fintech.",
+        "Mauvaise association : les assureurs ne créent pas de monnaie.",
+        "Mauvaise association : c'est le shadow banking."
+      ],
+      "id": "banque-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "banque",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "D'après le rapport du Financial Stability Board de décembre 2025 sur l'intermédiation financière non bancaire :",
+        "Que retenir du « Global Monitoring Report on Non-Bank Financial Intermediation » du FSB (décembre 2025) ?"
+      ],
+      "ok": [
+        "Les banques détiennent environ 40 % du total des actifs financiers mondiaux",
+        "L'ensemble des institutions financières détient plus de 500 000 milliards de dollars d'actifs",
+        "Les actifs de l'ensemble des institutions financières valent environ 5 fois le PIB mondial"
+      ],
+      "ko": [
+        "Les banques détiennent environ 80 % du total des actifs financiers mondiaux",
+        "Les actifs de l'ensemble des institutions financières restent inférieurs au PIB mondial",
+        "Les institutions financières non bancaires sont devenues marginales dans le système",
+        "Les banques détiennent moins de 10 % du total des actifs financiers mondiaux"
+      ],
+      "why": "Rapport FSB de décembre 2025 cité en cours : banques = 38 % du total des actifs financiers ; ensemble des IF = 503 700 milliards de dollars, environ 5 fois le PIB mondial. Fait daté : il vaut pour ce rapport.",
+      "koWhy": [
+        "Faux : 38 %, donc la majorité des actifs est hors des banques.",
+        "Faux : environ 5 fois le PIB mondial.",
+        "Faux : elles détiennent la majorité des actifs financiers (62 %).",
+        "Faux : 38 %."
+      ],
+      "trap": "date-auteur",
+      "id": "banque-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "lelandpyle",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Dans l'article fondateur de H. Leland et D. Pyle (1977), la banque est :",
+        "Quelle vision de la banque défend l'article de Leland & Pyle (1977) ?",
+        "Leland et Pyle (1977) voient dans l'intermédiaire financier :"
+      ],
+      "ok": [
+        "Une réponse naturelle aux problèmes d'asymétrie d'information",
+        "Un producteur d'information sur la qualité des emprunteurs",
+        "Une réponse à la sélection adverse, asymétrie qui se pose ex ante",
+        "Un intermédiaire qui loge son information dans son portefeuille"
+      ],
+      "ko": [
+        "Un contrôleur délégué qui évite la duplication des coûts de contrôle",
+        "Un assureur de liquidité pour des déposants aux besoins non vérifiables",
+        "Une institution dont la spécificité est de créer de la monnaie",
+        "Une réponse à l'aléa moral, asymétrie qui se pose ex post",
+        "Un intermédiaire justifié par ses seuls coûts de transaction plus faibles",
+        "Un intermédiaire fragile, exposé aux ruées de ses déposants"
+      ],
+      "why": "Leland & Pyle (1977) : « la banque est une réponse naturelle aux problèmes d'asymétrie d'information ». Asymétrie ex ante → sélection adverse → coûts de signal / de sélection. L'intermédiaire produit de l'information et la rend appropriable en détenant des actifs.",
+      "koWhy": [
+        "C'est Diamond (1984).",
+        "C'est Diamond & Dybvig (1983).",
+        "Leland & Pyle n'abordent pas la création monétaire.",
+        "C'est Diamond (1984) : Leland & Pyle traitent l'asymétrie ex ante.",
+        "Leland & Pyle jugent les coûts de transaction insuffisants pour expliquer l'intermédiation.",
+        "C'est Diamond & Dybvig (1983)."
+      ],
+      "trap": "auteur-role",
+      "id": "lelandpyle-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "lelandpyle",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans Leland & Pyle (1977), quel est le signal qui transmet au marché la qualité du projet ?",
+        "Comment l'entrepreneur de Leland & Pyle (1977) signale-t-il la qualité de son projet ?"
+      ],
+      "ok": [
+        "La part du capital de son projet que l'entrepreneur conserve",
+        "Sa disposition à investir lui-même dans son propre projet",
+        "Un acte observable plutôt qu'une simple déclaration"
+      ],
+      "ko": [
+        "Le montant de dette émis, indépendamment de sa part au capital",
+        "Le taux d'intérêt élevé qu'il accepte de payer sur son emprunt",
+        "Le collatéral qu'il apporte en garantie de son emprunt",
+        "Une déclaration publique sur la qualité de son projet",
+        "La note attribuée à son projet par une agence de notation"
+      ],
+      "why": "Signal de Leland & Pyle : \\(\\alpha\\), la fraction du capital conservée par l'entrepreneur. Les actes « parlent plus fort que les mots » ; une déclaration n'est pas crédible car l'aléa moral pousse à exagérer. La valeur de la firme augmente avec \\(\\alpha\\).",
+      "koWhy": [
+        "Non : l'article montre que la dette seule ne peut pas servir de signal d'équilibre.",
+        "C'est l'idée de Stiglitz & Weiss (le taux comme instrument de tri), pas le signal de LP.",
+        "Le collatéral est discuté chez Stiglitz & Weiss.",
+        "Non crédible : l'emprunteur a intérêt à exagérer.",
+        "Hors du modèle."
+      ],
+      "trap": "auteur-role",
+      "id": "lelandpyle-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "lelandpyle",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Selon Leland & Pyle (1977), pourquoi une firme qui produit de l'information a-t-elle intérêt à devenir intermédiaire plutôt qu'à vendre cette information ?",
+        "Quels obstacles à la vente directe d'information l'intermédiation permet-elle de surmonter chez Leland & Pyle ?"
+      ],
+      "ok": [
+        "L'information est un bien public que l'acheteur peut revendre ou partager",
+        "On distingue mal la bonne information de la mauvaise (problème de crédibilité)",
+        "Logée dans le rendement d'un portefeuille, l'information devient un bien privé",
+        "L'intermédiaire signale sa qualité en investissant dans ses propres fonds"
+      ],
+      "ko": [
+        "Parce que la réglementation interdit de vendre directement de l'information",
+        "Parce que l'intermédiaire supprime toute asymétrie d'information sur les actifs",
+        "Parce que les coûts de transaction suffisent à eux seuls à justifier l'intermédiation",
+        "Parce que l'information perd toute sa valeur une fois détenue en portefeuille",
+        "Parce qu'un intermédiaire n'a besoin d'aucun signal pour être jugé crédible"
+      ],
+      "why": "LP : vendre de l'information bute sur l'appropriabilité (bien public) et la crédibilité (marché de lemons de l'information). En achetant et détenant des actifs sur la base de son information, l'intermédiaire en capte le rendement ; il signale sa qualité par sa mise en fonds propres. LP expliquent aussi le fort levier des intermédiaires.",
+      "koWhy": [
+        "Rien de tel dans l'article.",
+        "Faux : il la gère, elle subsiste.",
+        "Faux : LP jugent leur ampleur insuffisante pour être la cause unique.",
+        "Faux : c'est au contraire la façon d'en capter la valeur.",
+        "Faux : le signal reste nécessaire (mise en fonds propres des organisateurs)."
+      ],
+      "trap": "ai-exante-expost",
+      "id": "lelandpyle-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "lelandpyle",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Sans transfert d'information, que se passe-t-il sur le marché du financement des projets chez Leland & Pyle ?",
+        "Leland & Pyle décrivent l'échec du marché en l'absence de signal. Qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Le marché valorise tous les projets à leur qualité moyenne",
+        "Les mauvais projets affluent et la qualité moyenne baisse",
+        "Même les bons projets peuvent ne plus être financés",
+        "Le marché du capital-risque peut ne pas exister"
+      ],
+      "ko": [
+        "Les bons projets sont surévalués par rapport à leur qualité réelle",
+        "Le marché trie spontanément les bons et les mauvais projets",
+        "Le coût du capital baisse pour l'ensemble des projets",
+        "Seuls les mauvais projets finissent par être refusés",
+        "L'aléa moral disparaît faute de contrat entre les parties"
+      ],
+      "why": "Logique d'Akerlof (1970) : valorisation à la qualité moyenne → afflux de mauvais projets → hausse du coût du capital → éviction des bons projets, voire disparition du marché. Pour financer les bons projets, il faut un transfert d'information (signal).",
+      "koWhy": [
+        "Faux : ils sont sous-évalués (valorisés à la moyenne).",
+        "Faux : sans signal, le marché ne distingue pas.",
+        "Faux : il augmente avec la baisse de la qualité moyenne.",
+        "Faux : ce sont les bons qui sont évincés.",
+        "Faux : l'aléa moral est justement ce qui bloque le transfert direct d'information."
+      ],
+      "trap": "ai-exante-expost",
+      "id": "lelandpyle-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Dans l'article fondateur de D. W. Diamond (1984), la banque est :",
+        "Quelle vision de la banque défend Diamond (1984) ?",
+        "Selon Diamond (1984), l'intermédiaire financier se justifie comme :"
+      ],
+      "ok": [
+        "Un contrôleur délégué (delegated monitor)",
+        "Une réponse aux problèmes d'aléa moral dans les relations de financement",
+        "Une solution d'économie de coûts de contrôle, qui l'emporte si l'actif de la banque est suffisamment diversifié",
+        "Un moyen d'éviter la duplication des coûts de contrôle et le passager clandestin"
+      ],
+      "ko": [
+        "Une réponse aux problèmes de sélection adverse dans les relations de financement",
+        "Une solution d'économie de coûts de contrôle, qui l'emporte quelle que soit la taille de l'actif de la banque",
+        "Un assureur de liquidité",
+        "Une réponse naturelle aux problèmes d'asymétrie d'information ex ante",
+        "Un intermédiaire dont l'avantage repose sur un savoir-faire informationnel supérieur",
+        "Une institution qui crée de la monnaie"
+      ],
+      "why": "Diamond (1984) : aléa moral ex post, coût de contrôle K ; la délégation à une banque évite la duplication (mK) et le passager clandestin. Elle n'est viable que si la banque est diversifiée (grand nombre d'emprunteurs).",
+      "koWhy": [
+        "C'est Leland & Pyle (asymétrie ex ante).",
+        "Faux : avec un seul emprunteur, l'intermédiation n'est pas viable ; la diversification est la clé.",
+        "C'est Diamond & Dybvig (1983).",
+        "C'est Leland & Pyle (1977).",
+        "Faux : le cours précise qu'il n'est pas question ici de savoir-faire ou d'avantage informationnel (c'est Fama, Sharpe).",
+        "Diamond (1984) ignore la création monétaire."
+      ],
+      "trap": "auteur-role",
+      "id": "diamond84-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "À quelles conditions la délégation à une banque du contrôle des emprunteurs est-elle bénéfique et viable (Diamond, 1984) ?",
+        "Chez Diamond (1984), qu'est-ce qui rend la délégation du contrôle avantageuse ?"
+      ],
+      "ok": [
+        "Il faut un grand nombre de prêteurs pour chaque emprunteur",
+        "Il faut un grand nombre d'emprunteurs, donc un actif diversifié",
+        "Il faut que \\(K + D < m K\\) : déléguer coûte moins que contrôler chacun",
+        "Les déposants doivent recevoir au moins R par unité déposée"
+      ],
+      "ko": [
+        "Il faut un seul grand emprunteur pour concentrer le contrôle",
+        "Il suffit que le coût de délégation D soit strictement positif",
+        "Il faut que \\(K + D > m K\\) : déléguer coûte plus que contrôler chacun",
+        "La banque doit prêter à un seul secteur pour mieux le connaître",
+        "Il faut que les prêteurs soient averses au risque, et non neutres"
+      ],
+      "why": "Diamond : délégation bénéfique si \\(K + D < mK\\) (plus m est grand, plus l'économie est grande) ; viable si l'intermédiaire diversifie : conditions de viabilité = R pour les déposants, rendement de l'IF > coût de délégation, entrepreneur au moins aussi bien qu'en finance directe.",
+      "koWhy": [
+        "Faux : avec un seul emprunteur, l'intermédiation n'est pas viable.",
+        "Faux : D doit être assez petit pour que \\(K + D < mK\\).",
+        "Inégalité inversée.",
+        "Faux : c'est la diversification qui rend la délégation viable.",
+        "Faux : le modèle suppose des agents neutres au risque ; la diversification compte quand même."
+      ],
+      "trap": "auteur-role",
+      "id": "diamond84-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Quelles hypothèses fondent le modèle de Diamond (1984) ?",
+        "Parmi ces hypothèses, lesquelles sont celles de Diamond (1984) ?"
+      ],
+      "ok": [
+        "Les entrepreneurs sont neutres au risque et sans richesse propre",
+        "Chaque projet est indivisible et nécessite d'emprunter 1",
+        "Le rendement n'est observé sans coût que par l'entrepreneur",
+        "Chaque prêteur détient 1/m : il faut m prêteurs par projet"
+      ],
+      "ko": [
+        "Les entrepreneurs sont averses au risque et disposent d'une richesse propre",
+        "Le rendement du projet est observé sans coût par tous les prêteurs",
+        "Les consommateurs découvrent en t = 1 s'ils veulent consommer tôt",
+        "Le rendement du projet est certain et connu de tous à l'avance",
+        "Chaque prêteur a assez de richesse pour financer seul un projet"
+      ],
+      "why": "Hypothèses de Diamond (1984) : neutralité au risque, richesse nulle, projet indivisible de taille 1, rendement aléatoire observé par l'entrepreneur seul, prêteurs de taille 1/m. D'où l'aléa moral ex post et le besoin de contrôle.",
+      "koWhy": [
+        "Faux : neutres au risque, richesse nulle.",
+        "Faux : c'est l'asymétrie ex post qui fonde le modèle.",
+        "C'est Diamond & Dybvig (1983).",
+        "Faux : il est aléatoire et peut être nul.",
+        "Faux : c'est précisément parce qu'il faut m prêteurs que le contrôle serait dupliqué."
+      ],
+      "trap": "auteur-role",
+      "id": "diamond84-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "diamond84",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Quelles sont les limites du modèle de Diamond (1984) soulignées en cours ?",
+        "Le cours discute la portée et les limites de Diamond (1984). Qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Il ne dit rien de la liquidité des dépôts bancaires",
+        "Avec aversion au risque, le contrat de dette serait plus compliqué",
+        "La pénalité subie par l'intermédiaire est peu réaliste : mieux vaut des fonds propres",
+        "Il ne repose pas sur un savoir-faire ou un avantage informationnel des banques"
+      ],
+      "ko": [
+        "Il ignore totalement le problème d'aléa moral entre prêteur et emprunteur",
+        "Il suppose que la banque ne diversifie pas ses prêts",
+        "Il n'explique pas pourquoi la dette est préférée aux actions",
+        "Il se concentre sur les ruées bancaires et néglige le contrôle",
+        "Il montre qu'une grande banque est plus risquée pour ses déposants"
+      ],
+      "why": "Limites de Diamond (1984) : rien sur la liquidité des dépôts (c'est DD), neutralité au risque, pénalité peu réaliste (d'où l'idée d'exiger des fonds propres). La question reste ouverte : une banque est-elle d'autant moins risquée pour ses déposants qu'elle est grande ?",
+      "koWhy": [
+        "Faux : l'aléa moral ex post est au cœur du modèle.",
+        "Faux : la diversification est la clé de sa viabilité.",
+        "Faux : la dette y est le contrat optimal ; le modèle en caractérise la forme.",
+        "C'est Diamond & Dybvig ; Diamond (1984) ne dit rien des ruées.",
+        "Faux : dans le modèle, plus la banque finance de projets, moins sa dette est risquée."
+      ],
+      "trap": "auteur-role",
+      "id": "diamond84-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Dans l'article fondateur de D. W. Diamond et P. Dybvig (1983), la banque est :",
+        "Quelle vision de la banque défendent Diamond & Dybvig (1983) ?",
+        "Selon Diamond & Dybvig (1983), la banque :"
+      ],
+      "ok": [
+        "Un intermédiaire qui fournit une assurance de liquidité aux déposants",
+        "Un intermédiaire qui concilie liquidité des prêteurs et financement long",
+        "Exposée à une ruée qui peut être déclenchée par une « tache solaire »",
+        "Un transformateur d'actifs illiquides en passifs liquides"
+      ],
+      "ko": [
+        "Un intermédiaire dont la spécificité est de créer de la monnaie",
+        "Un contrôleur délégué qui économise les coûts de surveillance",
+        "Une réponse naturelle aux asymétries d'information ex ante",
+        "Une institution fragile parce que ses actifs sont très risqués",
+        "Un intermédiaire moins efficace que le marché pour partager le risque"
+      ],
+      "why": "Diamond & Dybvig (1983) : la banque assure les déposants contre un besoin de liquidité non vérifiable, en transformant des actifs illiquides en passifs liquides ; elle devient illiquide et exposée à la ruée, qui peut dépendre de n'importe quelle variable observable, même une tache solaire.",
+      "koWhy": [
+        "Faux : le modèle ignore la nature monétaire du passif bancaire.",
+        "C'est Diamond (1984).",
+        "C'est Leland & Pyle (1977).",
+        "Faux : il n'y a aucun risque à l'actif dans DD, la panique est un pur risque de passif.",
+        "Faux : la banque permet un meilleur partage du risque que le marché."
+      ],
+      "trap": "auteur-role",
+      "id": "dd83-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans Diamond & Dybvig (1983), comparé à l'équilibre de marché, l'équilibre de la banque « illiquide » se caractérise par :",
+        "Quels rendements caractérisent le contrat de dépôt de la banque de Diamond & Dybvig (1983) ?"
+      ],
+      "ok": [
+        "\\(r_1 > 1\\)",
+        "\\(r_2 < R\\)",
+        "\\(r_2 > r_1\\)",
+        "Un meilleur partage du risque entre déposants"
+      ],
+      "ko": [
+        "\\(r_1 = 1\\) et \\(r_2 = R\\)",
+        "\\(r_1 < 1\\)",
+        "\\(r_2 > R\\)",
+        "\\(r_1 > r_2\\)",
+        "Une situation de parfaite liquidité de la banque en t = 1"
+      ],
+      "why": "Marché (ou banque liquide) : \\(r_1 = 1\\), \\(r_2 = R\\), pas d'assurance. Banque illiquide : \\(r_1 > 1\\), \\(r_2 < R\\), \\(r_2 > r_1\\). \\(r_1\\) se rapproche de \\(r_2\\) : meilleur partage du risque, au prix de l'illiquidité.",
+      "koWhy": [
+        "C'est l'équilibre de marché, sans assurance de liquidité.",
+        "Faux : l'assurance consiste à promettre plus que 1 en t = 1.",
+        "Faux : pour financer \\(r_1 > 1\\), la banque promet moins que R en t = 2.",
+        "Faux : les types 2 doivent préférer attendre, donc \\(r_2 > r_1\\).",
+        "Faux : pour promettre \\(r_1 > 1\\), la banque se met nécessairement en position d'illiquidité."
+      ],
+      "id": "dd83-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans Diamond & Dybvig (1983), les deux équilibres possibles en t = 1 sont :",
+        "Quels équilibres de Nash le modèle de Diamond & Dybvig (1983) fait-il apparaître ?"
+      ],
+      "ok": [
+        "Un bon équilibre : les types 1 retirent en t = 1, les types 2 attendent",
+        "Un équilibre de panique où tous tentent de retirer dès t = 1",
+        "Une panique où les types 2 « mentent » en se déclarant de type 1",
+        "Deux équilibres que peut départager n'importe quelle variable observable"
+      ],
+      "ko": [
+        "Un équilibre où seuls les types 2 retirent dès t = 1",
+        "Un équilibre unique, sans aucune panique possible",
+        "Une panique déclenchée seulement par l'insolvabilité de la banque",
+        "Une panique qui ne peut frapper que les banques en mauvaise santé",
+        "Un équilibre où la banque refuse de servir les types 1 en t = 1"
+      ],
+      "why": "Contrainte de service séquentiel → interaction stratégique → deux équilibres : vérité et panique. Le choix entre les deux dépend de n'importe quelle variable observable (panique ailleurs, mauvaise nouvelle, tache solaire). Même les banques saines peuvent succomber.",
+      "koWhy": [
+        "Faux : ce sont les types 1 qui ont besoin de liquidité en t = 1.",
+        "Faux : le contrat de dépôt a des équilibres multiples.",
+        "C'est Bhattacharya & Jacklin ; chez DD, la ruée est un défaut de coordination.",
+        "Faux : même une banque saine peut subir une ruée.",
+        "Faux : sans suspension, la banque sert dans l'ordre d'arrivée jusqu'à liquidation."
+      ],
+      "trap": "actif-passif",
+      "id": "dd83-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Quelles solutions Diamond & Dybvig (1983) envisagent-ils pour remédier aux paniques ?",
+        "Comment prévenir la ruée selon Diamond & Dybvig (1983) ?"
+      ],
+      "ok": [
+        "La suspension de la convertibilité des dépôts en monnaie",
+        "Une garantie publique des dépôts financée par une taxe en t = 1",
+        "La garantie publique des dépôts, jugée préférable à la suspension",
+        "La suspension, si l'on connaît la proportion exacte de types 1"
+      ],
+      "ko": [
+        "Un ratio de fonds propres minimal de 8 % des actifs pondérés",
+        "L'interdiction pure et simple de la transformation d'échéances",
+        "La diversification des prêts accordés par la banque",
+        "Une hausse du taux servi sur les dépôts à vue en t = 1",
+        "La suppression par le marché de la contrainte de service séquentiel"
+      ],
+      "why": "DD : suspension de la convertibilité (efficace si la proportion de types 1 est connue) ou garantie publique des dépôts financée par l'impôt, solution préférable : elle rend l'attente dominante pour les types 2.",
+      "koWhy": [
+        "C'est le ratio Cooke (Bâle 1, 1988), sans rapport avec DD.",
+        "Faux : la transformation est la raison d'être de la banque dans DD.",
+        "C'est la clé de Diamond (1984), pas de DD.",
+        "Faux : cela aggraverait l'illiquidité.",
+        "Faux : c'est l'État qui, par l'impôt, contourne la contrainte que la banque ne peut éviter."
+      ],
+      "id": "dd83-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Quelles sont la portée et les limites du modèle de Diamond & Dybvig (1983) ?",
+        "Que retenir des apports et des limites de Diamond & Dybvig (1983) ?"
+      ],
+      "ok": [
+        "La panique y est un pur risque de passif, sans risque à l'actif",
+        "Le modèle justifie à la fois l'existence et la fragilité des banques",
+        "Le pouvoir de création monétaire des banques y est ignoré",
+        "Rien ne dit si le passif est détenu par des déposants ou des actionnaires"
+      ],
+      "ko": [
+        "Le modèle explique précisément la création monétaire bancaire",
+        "La panique y vient d'un signal sur la mauvaise qualité des actifs",
+        "Le modèle conclut que l'intervention publique est inutile",
+        "Le modèle montre qu'une banque saine ne subit jamais de ruée",
+        "Le modèle a été conçu pour expliquer la crise de 2007-2008"
+      ],
+      "why": "DD justifie l'existence des banques et leur fragilité, donc la prévention publique des paniques. Limites : pas de risque d'actif (limite et force), intermédiaire qui n'est pas forcément une banque, nature monétaire du passif ignorée (formalisée seulement récemment, Rochet & Verdier, 2021).",
+      "koWhy": [
+        "Faux : le modèle l'ignore.",
+        "C'est Bhattacharya & Jacklin.",
+        "Faux : il justifie la garantie publique des dépôts.",
+        "Faux : même les banques saines peuvent succomber.",
+        "Faux : il date de 1983 (illustré par la crise de 1929)."
+      ],
+      "trap": "actif-passif",
+      "id": "dd83-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "dd83",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "En 2022, à qui la Banque de Suède a-t-elle décerné son prix en l'honneur d'Alfred Nobel ?",
+        "Quel trio d'économistes a reçu le prix de la Banque de Suède en 2022 ?"
+      ],
+      "ok": [
+        "Ben Bernanke, Douglas Diamond et Philip Dybvig, conjointement",
+        "Les auteurs de « Bank Runs, Deposit Insurance, and Liquidity » et Ben Bernanke"
+      ],
+      "ko": [
+        "Douglas Diamond seul, pour son modèle du contrôleur délégué",
+        "Ben Bernanke seul, pour ses travaux sur la Grande Dépression",
+        "Philip Dybvig seul, pour son modèle des ruées bancaires",
+        "Joseph Stiglitz et Andrew Weiss, pour le rationnement du crédit",
+        "Hayne Leland et David Pyle, pour leur modèle de signal"
+      ],
+      "why": "Prix 2022 : Ben Bernanke, Douglas Diamond et Philip Dybvig, conjointement. Au partiel, une seule réponse était juste : celle qui cite les trois.",
+      "koWhy": [
+        "Faux : le prix est partagé entre les trois.",
+        "Faux : partagé avec Diamond et Dybvig.",
+        "Faux : partagé avec Diamond et Bernanke.",
+        "Non primés en 2022.",
+        "Non primés en 2022."
+      ],
+      "trap": "date-auteur",
+      "id": "dd83-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Selon Stiglitz & Weiss (1981), le rationnement du crédit est :",
+        "Qu'appelle-t-on rationnement du crédit chez Stiglitz & Weiss (1981) ?"
+      ],
+      "ok": [
+        "Une situation où l'offre de crédit est inférieure à la demande",
+        "Une situation d'équilibre, pas un déséquilibre transitoire",
+        "Une conséquence de l'asymétrie d'information sur les projets"
+      ],
+      "ko": [
+        "Une situation où l'offre de crédit excède durablement la demande",
+        "Un déséquilibre temporaire dû à la rigidité passagère des taux",
+        "La conséquence d'une loi plafonnant les taux d'intérêt (usure)",
+        "Une situation qu'une hausse du taux d'intérêt suffit à résorber",
+        "Un phénomène propre aux banques en situation de monopole"
+      ],
+      "why": "Stiglitz & Weiss montrent qu'à l'équilibre, un marché du crédit peut être rationné : offre < demande, sans que le prix (le taux) ne s'ajuste. La cause est l'information imparfaite qui subsiste après l'examen des dossiers.",
+      "koWhy": [
+        "Inversé.",
+        "Faux : c'est justement l'explication qu'ils écartent ; le rationnement est un équilibre.",
+        "Faux : ils écartent aussi l'explication par les contraintes réglementaires.",
+        "Faux : au-delà de \\(r^*\\), une hausse du taux réduit le profit de la banque.",
+        "Faux : même un monopole relèverait son taux s'il n'y avait pas d'asymétrie d'information."
+      ],
+      "trap": "rationnement-prix",
+      "id": "stiglitzw-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pourquoi, chez Stiglitz & Weiss (1981), la banque ne relève-t-elle pas son taux quand la demande de crédit excède l'offre ?",
+        "Qu'est-ce qui explique qu'au-delà d'un certain taux la banque préfère rationner (Stiglitz & Weiss, 1981) ?"
+      ],
+      "ok": [
+        "Au-delà de \\(r^*\\), le surcroît de risque l'emporte sur la hausse des versements",
+        "Un taux plus élevé attire des emprunteurs plus risqués (sélection adverse)",
+        "Un taux plus élevé pousse vers des projets plus risqués (effet d'incitation)",
+        "Il existe nécessairement un taux qui maximise le profit de la banque"
+      ],
+      "ko": [
+        "Parce que la réglementation lui interdit de dépasser un taux plafond",
+        "Parce que la banque connaît parfaitement le risque de chaque projet",
+        "Parce que tous les projets présentent exactement le même risque",
+        "Parce que la banque est averse au risque de variation des taux",
+        "Parce qu'un taux plus élevé améliore la qualité moyenne des emprunteurs"
+      ],
+      "why": "Au-delà de \\(r^*\\), une hausse du taux fait baisser le rendement espéré de la banque, par sélection adverse et par incitation. Elle rationne donc plutôt que de relever son taux.",
+      "koWhy": [
+        "Faux : pas de contrainte réglementaire dans le modèle.",
+        "Faux : elle ne connaît pas les caractéristiques des projets, d'où le taux unique.",
+        "Faux : même rendement moyen, risques différents.",
+        "Faux : le mécanisme ne repose pas sur le risque de taux.",
+        "Faux : c'est l'inverse, la qualité moyenne se dégrade."
+      ],
+      "trap": "rationnement-prix",
+      "id": "stiglitzw-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "stiglitzw",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans Stiglitz & Weiss (1981), la divergence d'intérêts entre la banque et l'entreprise tient au fait que :",
+        "Pourquoi un projet risqué plaît-il à l'emprunteur mais pas à la banque chez Stiglitz & Weiss (1981) ?"
+      ],
+      "ok": [
+        "Pour l'entreprise, le risque paie : gains illimités, pertes plafonnées",
+        "Le risque accroît le défaut sans augmenter le gain de la banque",
+        "La responsabilité limitée de l'emprunteur tronque ses pertes"
+      ],
+      "ko": [
+        "La banque partage les gains de l'entreprise en cas de succès",
+        "Un risque élevé augmente le rendement moyen des projets financés",
+        "L'entreprise supporte l'intégralité des pertes en cas d'échec",
+        "La banque peut ajuster librement son taux à chaque projet",
+        "Les projets les plus risqués ont un rendement moyen plus faible"
+      ],
+      "why": "Tous les projets ont le même rendement moyen mais pas le même risque. La banque reçoit au plus le remboursement convenu : le risque ne lui rapporte rien et augmente le défaut. L'entreprise, protégée par la responsabilité limitée, profite de la queue haute.",
+      "koWhy": [
+        "Faux : la banque ne touche que le remboursement convenu.",
+        "Faux : même rendement moyen.",
+        "Faux : ses pertes sont limitées à ses fonds propres.",
+        "Faux : elle ne connaît pas les caractéristiques des projets.",
+        "Faux : même rendement moyen par hypothèse."
+      ],
+      "trap": "rationnement-prix",
+      "id": "stiglitzw-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "paniques",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Associez correctement chaque modèle de panique à son mécanisme :",
+        "Quelles associations entre auteurs et type de ruée sont exactes ?"
+      ],
+      "ok": [
+        "Diamond & Dybvig (1983) : défaut de coordination, pur risque de passif",
+        "Bhattacharya & Jacklin (1988) : ruée informationnelle, signal sur l'actif",
+        "Chari & Jagannathan (1988) : extraction de l'information, « confusion »",
+        "Gorton (1985) : une rumeur peut causer des ruées rationnelles inefficaces"
+      ],
+      "ko": [
+        "Diamond & Dybvig (1983) : ruée déclenchée par l'insolvabilité de la banque",
+        "Bhattacharya & Jacklin (1988) : pur défaut de coordination, sans rôle de l'actif",
+        "Chari & Jagannathan (1988) : ruée provoquée par le marché interbancaire",
+        "Gorton (1985) : les ruées sont toujours irrationnelles et inefficaces",
+        "Flannery (1996) : ruée des déposants sur une banque parfaitement saine"
+      ],
+      "why": "DD = coordination (passif). BJ = signal sur l'actif, l'insolvabilité provoque la faillite. CJ = extraction de l'information, suspension de convertibilité. Gorton = ruées efficaces en information parfaite, inefficaces en information imparfaite.",
+      "koWhy": [
+        "Faux : chez DD, même une banque saine peut tomber.",
+        "Faux : c'est la description de DD.",
+        "Faux : le rôle de l'interbancaire est chez Bhattacharya & Gale ou Flannery.",
+        "Faux : rationnelles, efficaces ou inefficaces selon l'information.",
+        "Faux : Flannery traite la sélection adverse sur le marché interbancaire."
+      ],
+      "trap": "auteur-role",
+      "id": "paniques-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "paniques",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Quel rôle le marché interbancaire joue-t-il dans les modèles de paniques ?",
+        "Que montrent Bhattacharya & Gale (1987) et Flannery (1996) sur le marché interbancaire ?"
+      ],
+      "ok": [
+        "Il mutualise le risque de liquidité entre les banques",
+        "Une banque peut y sous-investir en actifs liquides (passager clandestin)",
+        "Une pénurie globale de liquidité peut malgré tout se produire",
+        "Faute de trier bonnes et mauvaises banques, les prêteuses cessent de prêter"
+      ],
+      "ko": [
+        "Il supprime tout risque de panique dans le secteur bancaire",
+        "Il rend le prêteur en dernier ressort parfaitement inutile",
+        "Il oblige les banques à détenir davantage d'actifs liquides",
+        "Il empêche les banques d'investir dans des actifs de long terme",
+        "Flannery y voit surtout un problème d'aléa moral des déposants"
+      ],
+      "why": "Bhattacharya & Gale (1987) : l'interbancaire aide à résister aux chocs de liquidité (Rochet & Tirole, 1996) et permet d'investir plus à long terme, mais le passager clandestin peut créer une pénurie globale. Flannery (1996) : sélection adverse (« effet Akerlof ») entre banques → la banque centrale doit jouer le prêteur en dernier ressort.",
+      "koWhy": [
+        "Faux : il peut lui-même se gripper.",
+        "Faux : c'est précisément la conclusion de Flannery.",
+        "Faux : il leur permet au contraire d'en détenir moins.",
+        "Faux : il permet d'accroître les investissements de long terme, plus rentables.",
+        "Faux : Flannery traite la sélection adverse entre banques."
+      ],
+      "trap": "auteur-role",
+      "id": "paniques-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "paniques",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Les ruées aux guichets sont :",
+        "Que peut-on dire des ruées bancaires à l'ère numérique ?"
+      ],
+      "ok": [
+        "Un phénomène emblématique de la crise de 1929",
+        "Un phénomène que le numérique fait revenir sous une forme plus lente",
+        "Un risque encore illustré en 2007 par Northern Rock",
+        "Un phénomène que la garantie des dépôts avait fait largement reculer"
+      ],
+      "ko": [
+        "Un phénomène que la garantie des dépôts a fait totalement disparaître",
+        "Un phénomène apparu seulement avec la crise des subprimes",
+        "Un risque qui ne concerne que les banques déjà insolvables",
+        "Un phénomène que les services bancaires numériques rendent impossible"
+      ],
+      "why": "Les ruées ont « disparu » avec la garantie des dépôts, mais pas totalement : Northern Rock (2007), Silicon Valley Bank (2023). Koont, Santos et Zingales parlent de « marches silencieuses » (bank walks) : des dépôts plus mobiles, qui s'érodent sans ruée spectaculaire.",
+      "koWhy": [
+        "Faux : Northern Rock en 2007, SVB en 2023.",
+        "Faux : emblématique de 1929.",
+        "Faux : même une banque saine peut subir une ruée (DD).",
+        "Faux : les dépôts deviennent plus mobiles, donc potentiellement plus instables."
+      ],
+      "id": "paniques-003"
+    }
+  ]
 }

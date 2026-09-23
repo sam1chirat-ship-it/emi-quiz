@@ -371,6 +371,73 @@ async function runScenario(baseUrl, browser, baseline, results) {
     results.push(`  → screen=${S?.screen} phase=${S?.phase} mat=${S?.mat} vues=${seen.length} calc=${calcTotal - calcForeign.length}/${calcTotal} pageerrors=${pageErrors.length}`);
   });
 
+  // Run 4 : mat=mbf (Banque et marché), bots=weak, seed=45, joueur juste.
+  // Exerce le QCM à réponses multiples (qcmm) : cocher les bonnes, valider.
+  // Puis run 4b : même matière, bots=strong, joueur faux (une case fausse
+  // cochée → tout ou rien → faux), qui doit finir éliminé.
+  // Enfin 4c : fatal-probe mbf (aucun générateur calc) → qcm3 tirés des qcmm.
+  const MBF_CATS = await (async () => {
+    const d = JSON.parse(readFileSync(new URL("../data/data.json", import.meta.url), "utf-8"));
+    return Object.keys(d.CATS).filter(c => d.CATS[c].mat === "mbf");
+  })();
+  async function bootMbf(page, url) {
+    await page.goto(url);
+    await page.evaluate((cats) => {
+      localStorage.clear();
+      localStorage.setItem("emi.settings.v1", JSON.stringify({ mat: "mbf", cats, sfx: false, express: false }));
+    }, MBF_CATS);
+    await page.goto(url);
+    await page.locator('#boot [data-act="bootStart"]').click();
+    await page.locator('[data-act="startShow"]').click();
+    await page.locator('[data-act="introOK"]').click();
+    await page.waitForFunction(() => window.eval && window.eval("S && S.phase === 'q'"));
+  }
+  await withPage(browser, `${baseUrl}/index.html?seed=45&bots=weak`, baseUrl, async (page, pageErrors) => {
+    await bootMbf(page, `${baseUrl}/index.html?seed=45&bots=weak`);
+    await capture(page, "scenario-4-envoi-q1", baseline, results);
+    const first = await getState(page);
+    if (first.qFmt !== "qcmm") errs.push(`scenario 4 : 1re question en ${first.qFmt} (attendu qcmm)`);
+    else if (!(first.q.good.length >= 1 && first.q.good.length < first.q.choices.length)) errs.push("scenario 4 : good incohérent");
+    const seen = [];
+    await playThrough(page, "juste", 400, seen);
+    await capture(page, "scenario-4-bilan", baseline, results);
+    const S = await getState(page);
+    if (!(S && S.screen === "bilan")) errs.push("scenario 4 : n'a pas atteint le bilan");
+    const foreign = seen.filter(q => !q.id.startsWith("calc-") && !MBF_CATS.includes(q.cat));
+    if (foreign.length) errs.push(`scenario 4 : items hors matière : ${foreign.slice(0,3).map(q => q.id).join(",")}`);
+    const nQcmm = seen.filter(q => q.fmt === "qcmm").length;
+    if (!nQcmm) errs.push("scenario 4 : aucun qcmm posé");
+    if (pageErrors.length) errs.push("scenario 4 pageerrors: " + pageErrors.join(" | "));
+    results.push(`  → screen=${S?.screen} phase=${S?.phase} mat=${S?.mat} vues=${seen.length} qcmm=${nQcmm} pageerrors=${pageErrors.length}`);
+  });
+  await withPage(browser, `${baseUrl}/index.html?seed=46&bots=strong`, baseUrl, async (page, pageErrors) => {
+    await bootMbf(page, `${baseUrl}/index.html?seed=46&bots=strong`);
+    await playThrough(page, "faux", 400);
+    const S = await getState(page);
+    if (!(S && S.players && S.players[0].out)) errs.push("scenario 4b : joueur devait être éliminé");
+    const qcmmErr = (S && S.errors || []).filter(e => e.fmt === "qcmm");
+    if (!qcmmErr.length || !qcmmErr.every(e => e.snap && Array.isArray(e.snap.choices))) errs.push("scenario 4b : erreurs qcmm sans snapshot");
+    if (pageErrors.length) errs.push("scenario 4b pageerrors: " + pageErrors.join(" | "));
+    results.push(`  → 4b screen=${S?.screen} joueur.out=${S?.players?.[0]?.out} erreurs qcmm=${qcmmErr.length} pageerrors=${pageErrors.length}`);
+  });
+  await withPage(browser, `${baseUrl}/index.html?seed=47`, baseUrl, async (page, pageErrors) => {
+    await bootMbf(page, `${baseUrl}/index.html?seed=47`);
+    const probe = await page.evaluate(() => {
+      S.manche = "fatal"; S.qIdx = 0; S.fatal = { a: 0, b: 1, cur: 0 };
+      S.clocks = [90000, 90000]; S.newlyRed = null; S.elimInfo = null;
+      const out = [];
+      for (let i = 0; i < 12; i++) {
+        window.nextFatalQ();
+        out.push({ fmt: S.qFmt, n: S.q.choices.length, a: S.q.a, cat: S.q.cat });
+      }
+      return out;
+    });
+    const bad = probe.filter(x => x.fmt !== "qcm3" || x.n !== 3 || !(x.a >= 0 && x.a < 3) || !MBF_CATS.includes(x.cat));
+    if (bad.length) errs.push(`scenario 4c fatal-probe mbf : ${bad.length} tirages invalides`);
+    if (pageErrors.length) errs.push("scenario 4c pageerrors: " + pageErrors.join(" | "));
+    results.push(`  → 4c fatal-probe mbf : ${probe.length - bad.length}/${probe.length} qcm3 valides`);
+  });
+
   // Run 3b : fatal-probe. Boot en croissance, force S.manche="fatal" et
   // appelle nextFatalQ() N fois pour vérifier directement le filtrage
   // GEN_MAT sur des tirages calc effectifs (le run 3 naturel n'exerce
