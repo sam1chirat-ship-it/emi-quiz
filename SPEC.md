@@ -232,24 +232,30 @@ Fonctions JS `GEN[name](rng) → {q, choices, a, why}`. Contrainte : **faisable 
 
 ## 5. Répétition espacée et persistance
 
-### 5.1 `emi.srs.v1`
+### 5.1 `emi.srs.v1` — SM-2 ou FSRS-4.5 (J38, choix au setup)
+Deux algorithmes, au choix du joueur (`settings.srsAlgo`, SM-2 par défaut). Chaque carte porte son `algo` ; changer de réglage migre la carte à la volée au prochain passage (les anciennes cartes à boîtes `{box, ok, ko}` sont migrées aussi).
 ```
-{ "<id>": { "box":0..4, "due":<ts>, "ok":Number, "ko":Number, "last":<ts> } }
+SM-2 : { "<id>": { "algo":"sm2",  "due":<ms>, "last":<ms>, "reps":N, "lapses":N, "ef":≥1.3, "interval":jours } }
+FSRS : { "<id>": { "algo":"fsrs", "due":<ms>, "last":<ms>, "reps":N, "lapses":N, "S":stabilité, "D":1..10, "state":"new|learning|review|relearning" } }
 ```
-Intervalles par boîte : `[0, 1, 2, 4, 7]` jours (examen proche : pas d'intervalle long). Bonne réponse → `box+1` (max 4), `due = now + interval`. Mauvaise, ou « coup bas » → `box = 0`, `due = now`. Sur `ouverte` : Su = bonne, À moitié = reste, Pas su = mauvaise.
+Note sur l'échelle SM-2 (0-5) : bonne réponse → 4, mauvaise → 1 ; coup de maître : Su → 4, À moitié → 3, Pas su → 1. FSRS reçoit la note convertie ({0,1} → Again, 2 → Hard, 3-4 → Good, 5 → Easy), rétention cible 90 %, 17 poids par défaut de FSRS-4.5.
+- **SM-2** : échec → `reps = 0`, intervalle 1 jour ; succès → 1, puis 6 jours, puis `intervalle × ef` ; `ef` ajusté à chaque note (plancher 1,3).
+- **FSRS** : stabilité S et difficulté D mises à jour selon la rétention estimée ; intervalle ≈ S jours.
+
+**Maîtrisé** (`isMastered`) : SM-2 `reps ≥ 2` et intervalle ≥ 4 jours ; FSRS `state = review` et S ≥ 4.
 
 ### 5.2 Tirage — `pickDue(format, cats)`
-1. Candidats = items du format, dans les catégories cochées, non encore posés dans l'émission.
-2. Priorité : échus (`due ≤ now`) triés par `box` croissant → puis jamais vus → puis les autres par `due` croissant.
-3. Parmi les ex æquo, tirage PRNG pondéré par la faiblesse de la catégorie (1 + part d'items en boîte 0-1).
-4. Si la banque du format est vide pour ces catégories : on ignore le filtre « non posés », log une seule fois (`S.warned[format]`), jamais `null`.
+1. Candidats = items du format, de la matière courante, dans les catégories cochées, non encore posés dans l'émission. Si tous ont été posés : on ignore le filtre « non posés » (log une seule fois, `S.warned[format]`). `null` seulement si le format n'a aucun item dans ces catégories (l'appelant bascule alors sur un autre format).
+2. Paliers : échus (`due ≤ now`) → jamais vus → autres. On prend le premier palier non vide.
+3. Dans ce palier, seuls les ex æquo restent en lice : échus → clé de maîtrise minimale (`reps` en SM-2, ⌊S⌋ en FSRS) ; autres → même jour d'échéance le plus proche ; jamais vus → tous.
+4. Tirage PRNG pondéré par la faiblesse de la catégorie : poids = 1 + part des items de la catégorie (tous formats) non maîtrisés, jamais vus compris (∈ [1, 2]).
 
 ### 5.3 Jauge de catégorie
-`part des items de la catégorie en boîte ≥ 2`. Affichée au setup et au bilan (jauge, pas de pourcentage brut).
+Part des items de la catégorie **maîtrisés** (`isMastered`). Affichée au setup et au bilan.
 
 ### 5.4 Autres clefs
 - `emi.regne.v1` (§1.8).
-- `emi.settings.v1` : `{ cats:[ids], sfx:Boolean, express:Boolean }`.
+- `emi.settings.v1` : `{ mat, cats:[ids], sfx:Boolean, express:Boolean, srsAlgo:"sm2"|"fsrs" }`.
 - Rien d'autre. L'émission en cours n'est pas sauvegardée : `exportGame()` / `importGame()` (format `{version:1, ts, S, SRS, REGNE}`) sont le seul moyen d'y revenir.
 
 ### 5.5 Export / import
@@ -416,6 +422,7 @@ Repris de `bamboozle-questions` : `strict_dup`, `fuzzy_dup` (ratio > 0.72), `ans
 | J31 | 8 étoiles croissance ajoutées (et-17 à et-24) : Résidu de Solow, Fil du rasoir de Harrod, Faits stylisés de Kaldor, MRW, Convergence conditionnelle, Modèle AK, Non-rivalité des idées, Critique de Jones. Parité étoiles atteinte : **12 EMI + 12 croissance = 24**. |
 | J32 | Enrichissement banque EMI depuis 15 fichiers `sources/drive-download-*` : 6 VF (si×2, equil×2, mf×2) + 2 SENS (si, forex) — cats les plus faibles remontées à ≥ 5. Correction du modèle d'allocation d'id (unicité **cross-bank**, pas par bank). Étoile OLG Diamond ajoutée (et-25) : 13 étoiles croissance, couvrant les 12 cats. Doc SPEC.md finalisée. **377 items, 25 étoiles, 0 signalement audit**. |
 
+| J42-bis | SRS : SM-2 / FSRS conservés, SPEC §5 réécrite en conséquence ; `pickDue` respecte enfin les paliers et les ex æquo et pondère le tirage par la faiblesse de la catégorie. |
 | J42 | Matière `mbf` (Banque et marché) : format `qcmm` à réservoirs (format du partiel, tout ou rien), variantes de formulation, verify/audit/add étendus. 34 catégories (17 notions + 17 auteurs), 34 cours, 357 items (151 qcmm, 123 vf, 36 sens, 14 ordre, 33 ouvertes) + 12 étoiles, 8 générateurs `calc` mbf. Playtest : scénarios 4, 4b, 4c. Sources : diapos chap. 1-4, chap. 5, Carré, ESRB, Cœuré, VoxEU, articles fondateurs (OCR), partiels 2020 et 2026. Contradictions : NOTES.md. |
 
 **Patterns clés stabilisés J24→J32** :

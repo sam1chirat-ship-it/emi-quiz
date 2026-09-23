@@ -1742,8 +1742,36 @@ function _dueSortKey(card) {
   return card.box | 0;
 }
 
-// SPEC §5.2 : priorité échus (par box ↑) → jamais vus → autres (par due ↑).
-// Pas de pondération par faiblesse de catégorie en J1 (NOTES §5).
+// Poids de faiblesse par catégorie (SPEC §5.2) : 1 + part des items de la
+// catégorie (tous formats) non maîtrisés, jamais vus compris. ∈ [1, 2].
+function _catWeakWeights(cats, srs) {
+  const tot = {}, weak = {};
+  for (const it of quizBank()) {
+    if (!cats.includes(it.cat)) continue;
+    tot[it.cat] = (tot[it.cat] | 0) + 1;
+    if (!isMastered(srs[it.id])) weak[it.cat] = (weak[it.cat] | 0) + 1;
+  }
+  const w = {};
+  for (const c of cats) w[c] = 1 + (tot[c] ? (weak[c] | 0) / tot[c] : 1);
+  return w;
+}
+
+// Tirage PRNG pondéré (un seul appel à rng(), comme rngPick).
+function _weightedPick(items, weightOf) {
+  const ws = items.map(weightOf);
+  const total = ws.reduce((a, b) => a + b, 0);
+  let x = rng() * total;
+  for (let i = 0; i < items.length; i++) {
+    x -= ws[i];
+    if (x < 0) return items[i];
+  }
+  return items[items.length - 1];
+}
+
+// SPEC §5.2 : priorité échus → jamais vus → autres. Dans le palier retenu,
+// seuls les ex æquo les plus faibles restent en lice (échus : clé de
+// maîtrise minimale ; autres : même jour d'échéance le plus proche), puis
+// tirage pondéré par la faiblesse de leur catégorie.
 function pickDue(fmt, cats) {
   const bank =
     (fmt === "qcm")     ? DATA.QCM :
@@ -1785,11 +1813,20 @@ function pickDue(fmt, cats) {
     else if (st.due <= now) due.push(it);
     else later.push(it);
   }
-  due.sort((a, b) => _dueSortKey(srs[a.id]) - _dueSortKey(srs[b.id]));
-  later.sort((a, b) => srs[a.id].due - srs[b.id].due);
-
-  const pool = due.length ? due : (fresh.length ? fresh : later);
-  return rngPick(pool);
+  let pool;
+  if (due.length) {
+    const kMin = Math.min.apply(null, due.map(it => _dueSortKey(srs[it.id])));
+    pool = due.filter(it => _dueSortKey(srs[it.id]) === kMin);
+  } else if (fresh.length) {
+    pool = fresh;
+  } else {
+    const dayOf = (it) => Math.floor(srs[it.id].due / DAY_MS);
+    const dMin = Math.min.apply(null, later.map(dayOf));
+    pool = later.filter(it => dayOf(it) === dMin);
+  }
+  if (pool.length === 1) return pool[0];
+  const w = _catWeakWeights(cats, srs);
+  return _weightedPick(pool, it => w[it.cat] || 1);
 }
 
 // ---------- générateurs calc (SPEC §4) ----------

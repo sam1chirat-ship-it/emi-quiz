@@ -576,6 +576,42 @@ async function runSRS(baseUrl, browser, baseline, results) {
     if (pageErrors.length) errs.push("srs pageerrors: " + pageErrors.join(" | "));
   });
 
+  // pickDue (SPEC §5.2) : (a) parmi les échus, la carte la moins maîtrisée
+  // sort toujours ; (b) entre ex æquo, la catégorie la plus faible est
+  // tirée plus souvent (poids 1 + part non maîtrisée).
+  await withPage(browser, `${baseUrl}/index.html?seed=7`, baseUrl, async (page, pageErrors) => {
+    await bootAndSetup(page, `${baseUrl}/index.html?seed=7`);
+    const r = await page.evaluate(() => {
+      const now = Date.now(), DAY = 86400000;
+      const card = (reps, due, interval) => ({ algo: "sm2", due, last: now - DAY, reps, lapses: 0, ef: 2.5, interval });
+      S.asked = [];
+      // (a) bdp : deux qcm échus (reps 0 et 2), les autres à échéance future.
+      const bdpQ = DATA.QCM.filter(it => it.cat === "bdp");
+      const srsA = {};
+      bdpQ.forEach(it => { srsA[it.id] = card(3, now + 5 * DAY, 10); });
+      srsA[bdpQ[0].id] = card(2, now - DAY, 6);
+      srsA[bdpQ[1].id] = card(0, now - DAY, 1);
+      saveSRS(srsA);
+      let okA = 0;
+      for (let i = 0; i < 30; i++) if (pickDue("qcm", ["bdp"]).id === bdpQ[1].id) okA++;
+      // (b) qcm bdp et pen tous échus à égalité ; tout le reste de bdp maîtrisé.
+      const srsB = {};
+      quizBank().filter(it => it.cat === "bdp").forEach(it => { srsB[it.id] = card(3, now + 5 * DAY, 10); });
+      DATA.QCM.filter(it => it.cat === "bdp" || it.cat === "pen").forEach(it => { srsB[it.id] = card(0, now - DAY, 1); });
+      saveSRS(srsB);
+      let pen = 0;
+      const n = 600;
+      for (let i = 0; i < n; i++) if (pickDue("qcm", ["bdp", "pen"]).cat === "pen") pen++;
+      const nPen = DATA.QCM.filter(it => it.cat === "pen").length;
+      const nBdp = DATA.QCM.filter(it => it.cat === "bdp").length;
+      return { okA, share: pen / n, uniform: nPen / (nPen + nBdp) };
+    });
+    if (r.okA !== 30) errs.push(`srs pickDue : la carte la moins maîtrisée n'est sortie que ${r.okA}/30 fois`);
+    if (!(r.share > r.uniform + 0.04)) errs.push(`srs pickDue : pondération inopérante (pen ${r.share.toFixed(2)} vs uniforme ${r.uniform.toFixed(2)})`);
+    results.push(`  pickDue : moins maîtrisée ${r.okA}/30 · catégorie faible ${r.share.toFixed(2)} (uniforme ${r.uniform.toFixed(2)})`);
+    if (pageErrors.length) errs.push("srs pickDue pageerrors: " + pageErrors.join(" | "));
+  });
+
   return errs;
 }
 
