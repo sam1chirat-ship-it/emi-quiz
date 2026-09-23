@@ -432,10 +432,15 @@ async function runScenario(baseUrl, browser, baseline, results) {
       }
       return out;
     });
-    const bad = probe.filter(x => x.fmt !== "qcm3" || x.n !== 3 || !(x.a >= 0 && x.a < 3) || !MBF_CATS.includes(x.cat));
+    // Alternance calc (générateurs mbf) / qcm3 (tiré des qcmm) : tout doit
+    // rester dans la matière mbf ; qcm3 = 3 choix, calc = 4 choix.
+    const bad = probe.filter(x => !MBF_CATS.includes(x.cat) || !(x.a >= 0 && x.a < x.n)
+      || (x.fmt === "qcm3" && x.n !== 3) || (x.fmt === "calc" && x.n !== 4) || (x.fmt !== "qcm3" && x.fmt !== "calc"));
+    const nCalc = probe.filter(x => x.fmt === "calc").length;
     if (bad.length) errs.push(`scenario 4c fatal-probe mbf : ${bad.length} tirages invalides`);
+    if (!nCalc) errs.push("scenario 4c fatal-probe mbf : aucun calc mbf tiré");
     if (pageErrors.length) errs.push("scenario 4c pageerrors: " + pageErrors.join(" | "));
-    results.push(`  → 4c fatal-probe mbf : ${probe.length - bad.length}/${probe.length} qcm3 valides`);
+    results.push(`  → 4c fatal-probe mbf : ${probe.length - bad.length}/${probe.length} valides · ${nCalc} calc`);
   });
 
   // Run 3b : fatal-probe. Boot en croissance, force S.manche="fatal" et
