@@ -28,11 +28,22 @@ from collections import defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from verify import TRAPS as VERIFY_TRAPS  # noqa: E402  (source unique des traps)
 DATA_JSON = REPO / "data" / "data.json"
 
 FUZZY_THRESHOLD = 0.72
 ANSWER_TOO_LONG_CHARS = 75
 QCM_CORRECT_LONGEST_PCT = 0.40
+QCMM_OK_LONGER_RATIO = 1.25   # longueur moyenne des « ok » / « ko » par catégorie
+BANKS = ("QCM", "QCMM", "VF", "SENS", "ORDRE", "OUVERTE")
+
+
+def variants(v) -> list[str]:
+    """Un champ texte peut être une chaîne ou une liste de formulations."""
+    if isinstance(v, list):
+        return [str(x) for x in v]
+    return [str(v or "")]
 
 PERISHABLE_PATTERNS = [
     r"\bactuel(le|s|les)?\b", r"\baujourd'hui\b", r"\brecord\b",
@@ -66,6 +77,8 @@ def load_data(path: Path) -> dict:
 def collect_answers(item: dict) -> list[str]:
     """Retourne les textes de réponse d'un item (par format)."""
     fmt = _detect_fmt(item)
+    if fmt == "qcmm":
+        return [str(x) for x in item.get("ok") or []]
     if fmt == "qcm":
         return [str(item["choices"][item["a"]])]
     if fmt == "vf":
@@ -80,6 +93,8 @@ def collect_answers(item: dict) -> list[str]:
 
 
 def _detect_fmt(it: dict) -> str:
+    if "ok" in it and "ko" in it:
+        return "qcmm"
     if "choices" in it and "a" in it and isinstance(it["a"], int):
         return "qcm"
     if isinstance(it.get("a"), bool):
@@ -95,16 +110,14 @@ def _detect_fmt(it: dict) -> str:
 
 def _item_source(it: dict) -> str:
     fmt = _detect_fmt(it)
-    if fmt == "qcm":
-        return it.get("q", "")
-    if fmt == "vf":
-        return it.get("q", "")
+    if fmt in ("qcm", "vf", "qcmm"):
+        return " / ".join(variants(it.get("q", "")))
     if fmt == "sens":
         return (it.get("ctx", "") + " | " + it.get("shock", "") + " → " + it.get("var", "")).strip(" |→ ")
     if fmt == "ordre":
         return it.get("title", "") or ""
     if fmt == "ouverte":
-        return it.get("q", "")
+        return " / ".join(variants(it.get("q", "")))
     return ""
 
 
@@ -113,7 +126,7 @@ def audit_data(data: dict) -> tuple[list[str], list[str]]:
     warnings: list[str] = []
 
     all_items: list[tuple[str, dict]] = []
-    for key in ("QCM", "VF", "SENS", "ORDRE", "OUVERTE"):
+    for key in BANKS:
         for it in data.get(key) or []:
             all_items.append((key, it))
 
@@ -161,12 +174,7 @@ def audit_data(data: dict) -> tuple[list[str], list[str]]:
                     blocking.append(f"fuzzy_dup fmt={fmt} ratio={r:.2f} ids=[{id_a},{id_b}]")
 
     # Traps autorisés (SPEC §10) — miroir de verify.py.
-    TRAPS_OK = {
-        "signe-bdp", "stock-flux", "bc-bcour", "certain-incertain",
-        "niveau-log", "horizon", "sens-parite", "fixe-flexible",
-        "mf-regime", "bs-etapes", "ml-symetrie", "endo-exo",
-        "statique-dyn", "sterilise",
-    }
+    TRAPS_OK = VERIFY_TRAPS
 
     # 3-8 : contrôles item par item.
     for key, it in all_items:
@@ -201,17 +209,15 @@ def audit_data(data: dict) -> tuple[list[str], list[str]]:
                 continue
             if fmt == "vf":
                 continue  # "vrai" / "faux" ne comptent pas.
-            if nans in normalize(src):
+            if any(nans in normalize(v) for v in variants(it.get("q", "")) if fmt in ("qcm", "qcmm", "ouverte")) \
+                    or (fmt not in ("qcm", "qcmm", "ouverte") and nans in normalize(src)):
                 blocking.append(f"answer_in_question id={iid} ans in question")
 
         # 4. multi_question : plusieurs '?' dans l'énoncé.
-        text = src
-        if fmt == "qcm":
-            text = it.get("q", "")
-        elif fmt == "ouverte":
-            text = it.get("q", "")
-        if text.count("?") > 1:
-            blocking.append(f"multi_question id={iid} count={text.count('?')}")
+        texts = variants(it.get("q", "")) if fmt in ("qcm", "qcmm", "vf", "ouverte") else [src]
+        for text in texts:
+            if text.count("?") > 1:
+                blocking.append(f"multi_question id={iid} count={text.count('?')}")
 
         # 5. answer_too_long : réponse > 75 caractères. S'applique à `vf`
         #    (jamais > 4 chars en pratique). Les `ouverte` ont des
@@ -243,6 +249,19 @@ def audit_data(data: dict) -> tuple[list[str], list[str]]:
                     blocking.append(f"qcm_choice_dup id={iid} choix « {c[:40]} »")
                 seen.add(n)
 
+        # 6 bis. qcmm : pas de proposition en double (ok ∪ ko), aucune
+        #        proposition à la fois juste et fausse ; longueur signalée.
+        if fmt == "qcmm":
+            seen = {}
+            for side in ("ok", "ko"):
+                for c in it.get(side) or []:
+                    n = normalize_math(c)
+                    if n in seen:
+                        blocking.append(f"qcmm_choice_dup id={iid} « {c[:40]} » ({seen[n]}/{side})")
+                    seen[n] = side
+                    if len(c) > 160:
+                        warnings.append(f"qcmm_choice_long id={iid} len={len(c)}")
+
         # 7. sens_no_ctx : un sens sans ctx est ambigu (bloquant).
         if fmt == "sens":
             if not (it.get("ctx") or "").strip():
@@ -272,6 +291,19 @@ def audit_data(data: dict) -> tuple[list[str], list[str]]:
             warnings.append(
                 f"qcm_correct_longest cat={cat} {cnt}/{len(items)} ({100*cnt/len(items):.0f}%)"
             )
+
+    # qcmm_ok_longer : par catégorie, les propositions justes sont en
+    # moyenne nettement plus longues que les fausses (indice de longueur).
+    qcmm_cat: dict[str, list[dict]] = defaultdict(list)
+    for it in data.get("QCMM") or []:
+        qcmm_cat[it["cat"]].append(it)
+    for cat, items in qcmm_cat.items():
+        oks = [len(c) for it in items for c in it.get("ok") or []]
+        kos = [len(c) for it in items for c in it.get("ko") or []]
+        if oks and kos:
+            r = (sum(oks) / len(oks)) / (sum(kos) / len(kos))
+            if r > QCMM_OK_LONGER_RATIO:
+                warnings.append(f"qcmm_ok_longer cat={cat} ratio={r:.2f}")
 
     # perishable : mots-clefs ou années récentes dans l'énoncé.
     perish_re = re.compile("|".join(PERISHABLE_PATTERNS), re.IGNORECASE)
@@ -311,7 +343,7 @@ def main() -> int:
     for b in blocking:
         print(f"BLOCK {b}", file=sys.stderr)
 
-    n_items = sum(len(data.get(k) or []) for k in ("QCM", "VF", "SENS", "ORDRE", "OUVERTE"))
+    n_items = sum(len(data.get(k) or []) for k in BANKS)
     print(f"audit : {n_items} items, {len(blocking)} bloquants, {len(warnings)} signalements", file=sys.stderr)
 
     if blocking:

@@ -395,6 +395,38 @@ button.b-sm    { padding: 8px 10px; font-size: 13px; border-bottom-width: 4px; }
 }
 .choices > button:disabled { opacity: .85; }
 
+/* qcmm : réponses multiples, case à cocher dessinée à gauche */
+.qcmm-hint {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--muted);
+  margin: 6px 0 2px;
+}
+.choices.qcmm > button { display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.choices.qcmm .mbox {
+  flex: 0 0 auto;
+  min-width: 22px; height: 22px;
+  border: 2px solid currentColor;
+  border-radius: 5px;
+  padding: 0 4px;
+  font-size: 12px; line-height: 18px; text-align: center;
+  opacity: .8;
+}
+.choices.qcmm > button.picked {
+  background: rgba(255, 196, 61, .16);
+  border-color: rgba(255, 196, 61, .6);
+}
+.choices.qcmm > button.missed { border-style: dashed; }
+.choices.qcmm .kowhy {
+  flex-basis: 100%;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  padding-left: 32px;
+}
+
 /* format sens : ctx + shock + var, 4 boutons ↑ ↓ = ? */
 .sens-ctx {
   font-family: var(--serif);
@@ -1283,10 +1315,18 @@ const T = {
   bootTitle: "Les 12 coups de l'EMI",
   bootHint: "Révisions L3 Paris 1 · Économie Monétaire Internationale",
   bootStart: "Commencer",
+  // Libellés affichés des matières (setup, cours). Défaut : id en capitales.
+  mats: { mbf: "Banque et marché" },
+  valider: "Valider",
+  qcmmHint: "Plusieurs réponses possibles · tout ou rien",
 };
 
-// Points par format (SPEC §1.4)
-const POINTS = { qcm: 100, vf: 100, sens: 150, ordre: 200, qcm3: 0, calc: 0 };
+function matLabel(m) {
+  return (T.mats && T.mats[m]) || String(m).toUpperCase();
+}
+
+// Points par format (SPEC §1.4). qcmm = QCM à réponses multiples (tout ou rien).
+const POINTS = { qcm: 100, vf: 100, sens: 150, ordre: 200, qcm3: 0, calc: 0, qcmm: 150 };
 // Le coup fatal ne rapporte pas de points (§1.4) : on joue le titre.
 
 // Paliers du coup de maître (SPEC §1.6). L'index = nombre de « Su ».
@@ -1484,12 +1524,17 @@ function saveRegne(o)   { saveJSON(KEY_REGNE, o); }
 // (§2 SPEC). Se base sur les items — pas sur DATA.CATS — pour que le
 // sélecteur reste transparent tant qu'aucun item d'une matière n'existe,
 // même si des CATS de cette matière ont déjà été déclarées (structure prête).
+// Toutes les banques d'items « révisables » (SRS, jauges, bilan).
+function quizBank() {
+  return [].concat(
+    DATA.QCM || [], DATA.QCMM || [], DATA.VF || [], DATA.SENS || [],
+    DATA.ORDRE || [], DATA.OUVERTE || []
+  );
+}
+
 function getMats() {
   const set = new Set();
-  const bank = [].concat(
-    DATA.QCM || [], DATA.VF || [], DATA.SENS || [],
-    DATA.ORDRE || [], DATA.OUVERTE || [], DATA.ETOILE || []
-  );
+  const bank = quizBank().concat(DATA.ETOILE || []);
   for (const it of bank) {
     if (typeof it.mat === "string" && it.mat.trim()) set.add(it.mat);
   }
@@ -1701,6 +1746,7 @@ function _dueSortKey(card) {
 function pickDue(fmt, cats) {
   const bank =
     (fmt === "qcm")     ? DATA.QCM :
+    (fmt === "qcmm")    ? (DATA.QCMM || []) :
     (fmt === "vf")      ? DATA.VF :
     (fmt === "sens")    ? DATA.SENS :
     (fmt === "ordre")   ? DATA.ORDRE :
@@ -2207,8 +2253,8 @@ function botAccOverride(base) {
   // ?bots=weak|strong surcharge tous les acc à 0.1 / 0.9 (SPEC Annexe A).
   // Utile pour le playtest et pour le réglage.
   const q = new URL(window.location.href).searchParams.get("bots");
-  if (q === "weak")   return { qcm: 0.10, vf: 0.10, sens: 0.10, ordre: 0.10, calc: 0.10, qcm3: 0.10, ouverte: 0.10 };
-  if (q === "strong") return { qcm: 0.90, vf: 0.90, sens: 0.90, ordre: 0.90, calc: 0.90, qcm3: 0.90, ouverte: 0.90 };
+  if (q === "weak")   return { qcm: 0.10, vf: 0.10, sens: 0.10, ordre: 0.10, calc: 0.10, qcm3: 0.10, ouverte: 0.10, qcmm: 0.10 };
+  if (q === "strong") return { qcm: 0.90, vf: 0.90, sens: 0.90, ordre: 0.90, calc: 0.90, qcm3: 0.90, ouverte: 0.90, qcmm: 0.90 };
   return base;
 }
 
@@ -2258,7 +2304,8 @@ function newShow(settings) {
     elimInfo: null,
     orderPick: null,
     orderPerm: null,
-    fatal: null,       // { a, b, cur } — indices S.players. cur ∈ {0,1}.
+    mPick: null,       // qcmm : indices cochés (réponses multiples)
+    fatal: null,      // { a, b, cur } — indices S.players. cur ∈ {0,1}.
     fatalMsg: null,    // "réflexion..." / verdict rapide affiché en fatal.
     etoile: null,      // { id, name, aliases, clues, indicesRevealed, guessed, matched }
     etoileWon: false,  // vrai si l'étoile a été trouvée cette émission
@@ -2298,12 +2345,84 @@ function bannerClearNow() {
 }
 
 // ---------- flux question ----------
+// Vrai si la banque du format contient au moins un item des cats données
+// (et de la matière courante). Ne consomme pas le PRNG.
+function bankHas(fmt, cats) {
+  const bank = (fmt === "qcmm") ? (DATA.QCMM || []) : [];
+  const mat = S && S.mat;
+  return bank.some(it => cats.includes(it.cat) && (!mat || it.mat === mat));
+}
+
 function fmtForNext() {
-  // Alternance des formats selon la manche.
-  if (S.manche === "envoi") return (S.qIdx % 2 === 0) ? "qcm" : "vf";
+  // Alternance des formats selon la manche. Le QCM à réponses multiples
+  // (qcmm, format du partiel de Banque et marché) remplace le QCM simple
+  // quand la matière en possède ; sinon rien ne change (EMI, croissance).
+  if (S.manche === "envoi") {
+    if (S.qIdx % 2 === 1) return "vf";
+    return bankHas("qcmm", S.cats) ? "qcmm" : "qcm";
+  }
   if (S.manche === "cpc")   return (S.qIdx % 2 === 0) ? "sens" : "ordre";
   throw new Error("fmtForNext: manche non gérée " + S.manche);
 }
+
+// ---------- matérialisation (variantes de formulation) ----------
+// Un champ texte d'item peut être une liste de formulations équivalentes :
+// on en tire une à l'affichage. S.q reçoit une COPIE figée (sérialisable),
+// l'id reste celui de l'item → la SRS suit l'item, pas la formulation.
+// Un item sans liste ne consomme pas le PRNG (déterminisme EMI inchangé).
+function pickVariant(v) {
+  return Array.isArray(v) ? rngPick(v) : v;
+}
+
+// QCM à réservoirs → question concrète : 1 à 3 bonnes réponses tirées dans
+// `ok`, complétées par des distracteurs tirés dans `ko` (4 ou 5 choix),
+// mélangées. `good` = indices (croissants) des bonnes réponses.
+function materializeQcmm(it) {
+  const nOkMax = Math.min(3, it.ok.length);
+  const total = Math.min(it.ok.length + it.ko.length,
+                         (it.ok.length + it.ko.length >= 7) ? 4 + rngInt(2) : 4);
+  const nOk = Math.min(1 + rngInt(nOkMax), total - 1);
+  const nKo = Math.min(total - nOk, it.ko.length);
+  const oks = rngShuffle(it.ok.map((_, i) => i)).slice(0, nOk)
+    .map(i => ({ t: it.ok[i], ok: true, x: null }));
+  const kos = rngShuffle(it.ko.map((_, i) => i)).slice(0, nKo)
+    .map(i => ({ t: it.ko[i], ok: false, x: (it.koWhy && it.koWhy[i]) || null }));
+  const all = rngShuffle(oks.concat(kos));
+  return {
+    id: it.id, mat: it.mat, cat: it.cat, ch: it.ch, diff: it.diff,
+    q: pickVariant(it.q),
+    choices: all.map(c => c.t),
+    good: all.map((c, i) => c.ok ? i : -1).filter(i => i >= 0),
+    koWhy: all.map(c => c.x),
+    trap: it.trap || null,
+    why: it.why || "",
+  };
+}
+
+// QCM à réservoirs → qcm à 3 choix, une seule bonne réponse (coup fatal).
+function qcmmToQcm3(it) {
+  const okT = rngPick(it.ok);
+  const kos = rngShuffle(it.ko.slice()).slice(0, 2);
+  const choices = rngShuffle([okT].concat(kos));
+  return {
+    id: it.id, mat: it.mat, cat: it.cat, ch: it.ch, diff: it.diff,
+    q: pickVariant(it.q), choices: choices, a: choices.indexOf(okT),
+    trap: it.trap || null, why: it.why || "",
+    _shrunk: true, _originalId: it.id,
+  };
+}
+
+function materialize(it, fmt) {
+  if (fmt === "qcmm") return materializeQcmm(it);
+  if (!Array.isArray(it.q)) return it;
+  return Object.assign({}, it, { q: pickVariant(it.q) });
+}
+
+// Chaîne de repli quand la banque du format demandé est vide.
+const FMT_FALLBACK = {
+  qcmm: ["qcm", "vf"], qcm: ["qcmm", "vf"], vf: ["qcmm", "qcm"],
+  sens: ["ordre"], ordre: ["sens"],
+};
 
 function maxQForManche(m) {
   const ex = isExpress();
@@ -2319,28 +2438,27 @@ function fatalClockMs() {
 
 function nextQ() {
   const fmt = fmtForNext();
-  const it = pickDue(fmt, S.cats);
+  let useFmt = fmt;
+  let it = pickDue(fmt, S.cats);
   if (!it) {
     // Aucune banque disponible dans les cats cochées pour ce format :
-    // tenter l'autre format de la manche (fallback pédagogique).
-    const otherFmt =
-      (fmt === "qcm")  ? "vf"   :
-      (fmt === "vf")   ? "qcm"  :
-      (fmt === "sens") ? "ordre":
-      "sens";
-    const it2 = pickDue(otherFmt, S.cats);
-    if (!it2) { endManche(); return; }
-    S.q = it2;
-    S.qFmt = otherFmt;
-  } else {
-    S.q = it;
-    S.qFmt = fmt;
+    // tenter les autres formats de la manche (fallback pédagogique).
+    // qcmm n'est tenté que s'il existe (évite un log « banque épuisée »).
+    for (const alt of FMT_FALLBACK[fmt] || []) {
+      if (alt === "qcmm" && !bankHas("qcmm", S.cats)) continue;
+      it = pickDue(alt, S.cats);
+      if (it) { useFmt = alt; break; }
+    }
+    if (!it) { endManche(); return; }
   }
+  S.q = materialize(it, useFmt);
+  S.qFmt = useFmt;
   S.asked.push(S.q.id);
   S.phase = "q";
   S.answered = null;
   S.orderPick = null;
   S.orderPerm = null;
+  S.mPick = [];
   shuffleCurrentQ();
   render();
 }
@@ -2401,7 +2519,12 @@ function resolveNormal(payload) {
   } else {
     p.combo = 1;
     p.feu = Math.min(2, p.feu + 1);
-    S.errors.push({ id: S.q.id, fmt, given: payload.given, ok: false });
+    const err = { id: S.q.id, fmt, given: payload.given, ok: false };
+    // Question tirée dans des réservoirs : on garde la version posée pour
+    // que le bilan montre exactement ce que le joueur a vu.
+    if (fmt === "qcmm") err.snap = { q: S.q.q, choices: S.q.choices, good: S.q.good };
+    else if (typeof S.q.q === "string") err.snap = { q: S.q.q };
+    S.errors.push(err);
     if (p.feu === 2)      banner("bad", T.feuRouge);
     else if (p.feu === 1) banner("warn", T.feuOrange);
     else                  banner("bad", T.wrong);
@@ -2820,10 +2943,9 @@ function nextFatalQ() {
     const names = Object.keys(GEN).filter(n => GEN_MAT[n] === mat);
     if (names.length === 0) {
       // Aucun générateur pour cette matière : bascule sur qcm3 pour ne pas planter.
-      const q = pickDue("qcm", S.cats);
-      if (!q) { finishFatal(1 - S.fatal.cur); return; }
-      item = shrinkQCM(q);
-      S.asked.push(q.id);
+      item = pickQcm3();
+      if (!item) { finishFatal(1 - S.fatal.cur); return; }
+      S.asked.push(item.id);
       S.q = item; S.qFmt = "qcm3"; S.phase = "q"; S.answered = null; S.fatalMsg = null;
       shuffleCurrentQ();
       startClock();
@@ -2841,10 +2963,9 @@ function nextFatalQ() {
     });
   } else {
     // qcm à 3 choix : tirer un qcm ordinaire, retirer un distracteur.
-    const q = pickDue("qcm", S.cats);
-    if (!q) { finishFatal(1 - S.fatal.cur); return; }
-    item = shrinkQCM(q);
-    S.asked.push(q.id);
+    item = pickQcm3();
+    if (!item) { finishFatal(1 - S.fatal.cur); return; }
+    S.asked.push(item.id);
   }
   S.q = item;
   S.qFmt = fmt;
@@ -2858,6 +2979,17 @@ function nextFatalQ() {
   const p = S.players[fatalPlayerIdx(S.fatal.cur)];
   if (p.bot) scheduleBotAnswerFatal();
   render();
+}
+
+// qcm3 du coup fatal : un qcm simple amputé d'un distracteur, ou à défaut
+// (matière sans qcm simple, ex. Banque et marché) un qcmm réduit à
+// 1 bonne réponse + 2 distracteurs.
+function pickQcm3() {
+  const q = pickDue("qcm", S.cats);
+  if (q) return shrinkQCM(materialize(q, "qcm"));
+  if (!bankHas("qcmm", S.cats)) return null;
+  const m = pickDue("qcmm", S.cats);
+  return m ? qcmmToQcm3(m) : null;
 }
 
 function shrinkQCM(q) {
@@ -2986,7 +3118,7 @@ function nextMaitreQ() {
     finishMaitre("banque");
     return;
   }
-  S.q = item;
+  S.q = materialize(item, "ouverte");
   S.qFmt = "ouverte";
   S.asked.push(item.id);
   S.maitre.n += 1;
@@ -3096,7 +3228,7 @@ function renderSetup() {
       '<div class="mats-lbl">Matière</div>' +
       mats.map(m =>
         '<span class="cat-chip' + (m === settings.mat ? ' on' : '') +
-          '" data-act="pickMat" data-v="' + esc(m) + '">' + esc(m.toUpperCase()) + '</span>'
+          '" data-act="pickMat" data-v="' + esc(m) + '">' + esc(matLabel(m)) + '</span>'
       ).join("") +
     '</div>'
   ) : "";
@@ -3105,8 +3237,7 @@ function renderSetup() {
     const cat = DATA.CATS[cid];
     const on = settings.cats.includes(cid) ? " on" : "";
     // Jauge = part des items de la cat en boîte ≥ 2 (§5.3).
-    const bank = [].concat(DATA.QCM || [], DATA.VF || [], DATA.SENS || [], DATA.ORDRE || [], DATA.OUVERTE || []);
-    const inCat = bank.filter(it => it.cat === cid);
+    const inCat = quizBank().filter(it => it.cat === cid);
     const knownIds = Object.keys(srs);
     const good = inCat.filter(it => knownIds.includes(it.id) && isMastered(srs[it.id])).length;
     const pct = inCat.length ? Math.round(100 * good / inCat.length) : 0;
@@ -3197,6 +3328,26 @@ function renderQuestion() {
         '<div class="eyebrow">' + eyebrow + '</div>' +
         '<div class="qtext">' + renderMath(q.q) + '</div>' +
         '<div class="choices">' + choices + '</div>' +
+      '</article>'
+    );
+  }
+  if (fmt === "qcmm") {
+    const picked = Array.isArray(S.mPick) ? S.mPick : [];
+    const choices = q.choices.map((c, i) =>
+      '<button data-act="mPick" data-v="' + i + '" aria-pressed="' + (picked.includes(i) ? 'true' : 'false') + '"' +
+        (picked.includes(i) ? ' class="picked"' : '') + '>' +
+        '<span class="mbox" aria-hidden="true">' + (picked.includes(i) ? '✓' : '') + '</span>' +
+        renderMath(c) + '</button>'
+    ).join("");
+    return (
+      '<article class="card">' +
+        '<div class="eyebrow">' + eyebrow + '</div>' +
+        '<div class="qtext">' + renderMath(q.q) + '</div>' +
+        '<div class="qcmm-hint">' + esc(T.qcmmHint) + '</div>' +
+        '<div class="choices qcmm">' + choices + '</div>' +
+        '<div class="btnrow" style="margin-top:12px">' +
+          '<button class="b-gold" data-act="mValid"' + (picked.length ? '' : ' disabled') + '>' + esc(T.valider) + '</button>' +
+        '</div>' +
       '</article>'
     );
   }
@@ -3314,6 +3465,24 @@ function renderWhy() {
       else if (origIdx === ans.given && !ans.ok) cls = " wrong";
       return '<button class="' + cls.trim() + '" disabled data-v="' + origIdx + '">' + renderMath(q.choices[origIdx]) + '</button>';
     }).join("") + '</div>';
+  } else if (fmt === "qcmm") {
+    // Vert = bonne réponse (cochée ou non), rouge = cochée à tort,
+    // « manquée » = bonne réponse non cochée. Sous chaque distracteur
+    // coché à tort : pourquoi il est faux (koWhy), s'il existe.
+    const given = Array.isArray(ans.given) ? ans.given : [];
+    choicesBlock = '<div class="choices qcmm">' + q.choices.map((c, i) => {
+      const isGood = q.good.includes(i);
+      const isPicked = given.includes(i);
+      const cls = isGood ? (isPicked ? "correct" : "correct missed") : (isPicked ? "wrong" : "");
+      const tag = isGood ? (isPicked ? "✓" : "oubliée") : (isPicked ? "✗" : "");
+      const x = (!isGood && isPicked && q.koWhy && q.koWhy[i])
+        ? '<span class="kowhy">' + renderMath(q.koWhy[i]) + '</span>' : '';
+      return '<button class="' + cls + '" disabled data-v="' + i + '">' +
+        '<span class="mbox" aria-hidden="true">' + tag + '</span>' + renderMath(c) + x + '</button>';
+    }).join("") + '</div>';
+    if (!ans.ok && !ans.coupBas) {
+      verdict = '<div class="answered-bad">Tout ou rien : ' + q.good.length + ' bonne(s) réponse(s) sur ' + q.choices.length + '</div>';
+    }
   } else if (fmt === "vf") {
     const goodLabel = q.a ? T.vrai : T.faux;
     verdict = '<div class="answered-good">Bonne réponse : ' + esc(goodLabel) + '</div>';
@@ -3396,21 +3565,28 @@ function renderBilan() {
 
   // Retrouve chaque item d'erreur pour l'afficher.
   const byId = {};
-  for (const list of [DATA.QCM, DATA.VF, DATA.SENS]) {
+  for (const list of [DATA.QCM, DATA.QCMM, DATA.VF, DATA.SENS]) {
     for (const it of (list || [])) byId[it.id] = it;
   }
   const errItems = S.errors.map(e => {
     const it = byId[e.id];
     if (!it) return "";
     const cat = (DATA.CATS[it.cat] && DATA.CATS[it.cat].name) || it.cat;
+    // Formulation effectivement posée (snap) sinon la première variante.
+    const posed = (e.snap && e.snap.q) || (Array.isArray(it.q) ? it.q[0] : it.q);
     let qtxt = "";
     let ta = "";
     if (e.fmt === "qcm") {
-      qtxt = it.q;
+      qtxt = posed;
       ta = "<b>OK :</b> " + esc(it.choices[it.a]) +
            " · <i>Toi :</i> " + esc(it.choices[e.given] || "—");
+    } else if (e.fmt === "qcmm" && e.snap && Array.isArray(e.snap.choices)) {
+      qtxt = posed;
+      const given = Array.isArray(e.given) ? e.given : [];
+      ta = "<b>OK :</b> " + e.snap.good.map(i => esc(e.snap.choices[i])).join(" · ") +
+           "<br><i>Toi :</i> " + (given.length ? given.map(i => esc(e.snap.choices[i])).join(" · ") : "—");
     } else if (e.fmt === "vf") {
-      qtxt = it.q;
+      qtxt = posed;
       const okL = it.a ? T.vrai : T.faux;
       const taL = e.given ? T.vrai : T.faux;
       ta = "<b>OK :</b> " + esc(okL) + " · <i>Toi :</i> " + esc(taL);
@@ -3438,8 +3614,7 @@ function renderBilan() {
   const jaugeCats = jaugeMat ? catIdsFor(jaugeMat) : Object.keys(DATA.CATS);
   const jauges = jaugeCats.map(cid => {
     const cat = DATA.CATS[cid];
-    const bank = [].concat(DATA.QCM || [], DATA.VF || [], DATA.SENS || [], DATA.ORDRE || [], DATA.OUVERTE || []);
-    const inCat = bank.filter(it => it.cat === cid);
+    const inCat = quizBank().filter(it => it.cat === cid);
     if (!inCat.length) return "";
     const good = inCat.filter(it => isMastered(srs[it.id])).length;
     const pct = Math.round(100 * good / inCat.length);
@@ -3676,7 +3851,7 @@ function renderCoursIndex() {
       );
     }).join("");
     return (
-      '<div class="cours-index-mat">' + esc(mat.toUpperCase()) + '</div>' +
+      '<div class="cours-index-mat">' + esc(matLabel(mat)) + '</div>' +
       items
     );
   }).join("");
@@ -4023,6 +4198,23 @@ const ACT = {
       throw new Error("answer: format non géré " + fmt);
     }
     answer({ ok, given });
+  },
+  mPick(v) {
+    // qcmm : coche / décoche une proposition (tout ou rien à la validation).
+    if (!S || S.phase !== "q" || S.qFmt !== "qcmm") return;
+    const idx = parseInt(v, 10);
+    if (!(idx >= 0 && idx < S.q.choices.length)) throw new Error("mPick: v invalide " + v);
+    const cur = Array.isArray(S.mPick) ? S.mPick : [];
+    S.mPick = cur.includes(idx) ? cur.filter(i => i !== idx) : cur.concat([idx]);
+    render();
+  },
+  mValid() {
+    if (!S || S.phase !== "q" || S.qFmt !== "qcmm") return;
+    const given = (Array.isArray(S.mPick) ? S.mPick : []).slice().sort((a, b) => a - b);
+    if (!given.length) return;
+    const good = S.q.good;
+    const ok = given.length === good.length && given.every((v, i) => v === good[i]);
+    answer({ ok: ok, given: given });
   },
   order(v) {
     if (!S || S.phase !== "q" || S.qFmt !== "ordre") return;

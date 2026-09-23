@@ -105,7 +105,7 @@ Même déroulé, 4 / 3 / 60 s / 3 questions. Pas dans la v1.
 
 ## 2. Catégories
 
-Chaque entrée de `CATS` porte un champ `mat` (chaîne, `"emi"` ou `"croissance"`). Le setup filtre par **matière** avant de filtrer par **catégorie** (si une seule matière est présente dans la banque, l'étape est transparente ; la structure est prête pour les deux matières simultanément).
+Chaque entrée de `CATS` porte un champ `mat` (chaîne, `"emi"`, `"croissance"` ou `"mbf"` — Banque et marché, libellé affiché via `T.mats`). Le setup filtre par **matière** avant de filtrer par **catégorie** (si une seule matière est présente dans la banque, l'étape est transparente ; la structure est prête pour les deux matières simultanément).
 
 | id | Catégorie | ch | Contenu |
 |---|---|---|---|
@@ -126,7 +126,7 @@ Chaque entrée de `CATS` porte un champ `mat` (chaîne, `"emi"` ou `"croissance"
 
 ## 3. Formats et schémas (`data/data.json`)
 
-Champs communs à tout item : `id` (stable, ex. `bdp-012` — **jamais un hash du texte**, pour que la SRS survive aux corrections de formulation), `mat` (chaîne — matière ; `"emi"` ou `"croissance"`, présent sur chaque item), `cat`, `ch`, `diff` (1-3), `why` (explication courte, obligatoire), `trap` (optionnel : quelle confusion classique la question teste, cf. §10).
+Champs communs à tout item : `id` (stable, ex. `bdp-012` — **jamais un hash du texte**, pour que la SRS survive aux corrections de formulation), `mat` (chaîne — matière ; `"emi"`, `"croissance"` ou `"mbf"`, présent sur chaque item), `cat`, `ch`, `diff` (1-3), `why` (explication courte, obligatoire), `trap` (optionnel : quelle confusion classique la question teste, cf. §10).
 
 ### `qcm`
 ```json
@@ -137,6 +137,20 @@ Champs communs à tout item : `id` (stable, ex. `bdp-012` — **jamais un hash d
  "why":"i = i* − (eᵃ − e) ⇒ e = eᵃ + (i − i*). À anticipation donnée, i↑ ⇒ e↑ : appréciation immédiate."}
 ```
 Toujours 4 `choices`, `a` = indice de la bonne. Les distracteurs viennent des confusions du prof (§10), pas du hasard.
+
+### `qcmm` — QCM à réponses multiples, à réservoirs (Banque et marché)
+Format du partiel de Banque et marché : plusieurs propositions justes, notation tout ou rien. Pour que la même notion revienne formulée autrement à chaque passage, l'item stocke des **réservoirs** :
+```json
+{"id":"diamond84-001","mat":"mbf","cat":"diamond84","ch":1,"diff":2,
+ "q":["Dans Diamond (1984), la banque est :","Selon Diamond (1984), l'intermédiaire bancaire se justifie comme :"],
+ "ok":["un contrôleur délégué","une réponse à l'aléa moral ex post", "…"],
+ "ko":["un assureur de liquidité","une réponse à la sélection adverse ex ante", "…"],
+ "koWhy":["C'est Diamond-Dybvig (1983).","C'est Leland-Pyle (1977).", "…"],
+ "trap":"auteur-role","why":"…"}
+```
+`q` : une formulation ou une liste ; `ok` ≥ 2 propositions justes ; `ko` ≥ 3 distracteurs ; `koWhy` optionnel, aligné sur `ko`. À l'affichage (`materializeQcmm`) : 1 à 3 justes + distracteurs, 4 ou 5 choix, mélangés au PRNG ; `S.q` reçoit la version figée (`choices`, `good`), l'id ne change pas (SRS). Au coup fatal, un qcmm se réduit à 1 juste + 2 fausses (`qcmmToQcm3`). En coup d'envoi, `qcmm` remplace `qcm` quand la matière en possède.
+
+**Variantes de formulation (tous formats texte)** : `q` d'un `qcm`, `vf`, `ouverte` peut aussi être une liste de formulations équivalentes ; une est tirée à l'affichage. Un item sans liste ne consomme pas le PRNG (rendus EMI/croissance inchangés).
 
 ### `vf`
 ```json
@@ -354,7 +368,7 @@ emi-quiz/
 2. `node --check` sur le script extrait.
 3. `const DATA=` re-parsé en JSON strict et **égal** à `data.json` (round-trip).
 4. Tous les ids du squelette DOM (§7.1) présents.
-5. Schéma : chaque item a `id` unique, `mat` (chaîne, `"emi"` ou `"croissance"`), `cat` ∈ CATS, `ch`, `diff`, `why` ; `qcm` a 4 `choices` et `0 ≤ a < 4` ; `vf.a` booléen ; `sens.a` ∈ {up,down,same,ambig} ; `ordre.steps` 3-6 ; `ouverte` a `model` et `points` ; `etoile` a 5 `clues` et un `mat` ; `trap` ∈ liste §10. Chaque entrée de `CATS` porte également un `mat` (`"emi"` ou `"croissance"`) ; toutes les matières présentes dans les items sont référencées dans au moins une catégorie.
+5. Schéma : chaque item a `id` unique, `mat` (chaîne, `"emi"`, `"croissance"` ou `"mbf"`), `cat` ∈ CATS, `ch`, `diff`, `why` ; `qcm` a 4 `choices` et `0 ≤ a < 4` ; `vf.a` booléen ; `sens.a` ∈ {up,down,same,ambig} ; `ordre.steps` 3-6 ; `ouverte` a `model` et `points` ; `etoile` a 5 `clues` et un `mat` ; `qcmm` a `ok` ≥ 2, `ko` ≥ 3, `koWhy` aligné ; `q` chaîne ou liste de variantes ; `trap` ∈ liste §10 / §10 bis. Chaque entrée de `CATS` porte également un `mat` (`"emi"`, `"croissance"` ou `"mbf"`) ; toutes les matières présentes dans les items sont référencées dans au moins une catégorie.
 6. Volumes minimaux par catégorie (§3) — **warning** en v1, bloquant à partir de la cible.
 7. Taille : `index.html` ≥ 95 % de la taille du précédent build (protection troncature, remplace le plancher fixe).
 
@@ -402,6 +416,8 @@ Repris de `bamboozle-questions` : `strict_dup`, `fuzzy_dup` (ratio > 0.72), `ans
 | J31 | 8 étoiles croissance ajoutées (et-17 à et-24) : Résidu de Solow, Fil du rasoir de Harrod, Faits stylisés de Kaldor, MRW, Convergence conditionnelle, Modèle AK, Non-rivalité des idées, Critique de Jones. Parité étoiles atteinte : **12 EMI + 12 croissance = 24**. |
 | J32 | Enrichissement banque EMI depuis 15 fichiers `sources/drive-download-*` : 6 VF (si×2, equil×2, mf×2) + 2 SENS (si, forex) — cats les plus faibles remontées à ≥ 5. Correction du modèle d'allocation d'id (unicité **cross-bank**, pas par bank). Étoile OLG Diamond ajoutée (et-25) : 13 étoiles croissance, couvrant les 12 cats. Doc SPEC.md finalisée. **377 items, 25 étoiles, 0 signalement audit**. |
 
+| J42 | Matière `mbf` (Banque et marché) : format `qcmm` à réservoirs (format du partiel, tout ou rien), variantes de formulation, verify/audit étendus, 34 catégories (17 notions + 17 auteurs). |
+
 **Patterns clés stabilisés J24→J32** :
 - **Reject-sampling GEN** : chaque générateur avec distracteurs contraints boucle jusqu'à 20 fois pour garantir 4 réponses toutes distinctes. Cassure discrète du déterminisme par seed (au bord des collisions) mais préservation du principe « distracteurs = confusions du prof, pas remplissage ».
 - **Registre `GEN_MAT`** : map `{name → mat}` co-localisée avec `GEN`. Filtre appliqué dans `nextFatalQ` (`Object.keys(GEN).filter(n => GEN_MAT[n] === S.mat)`) + fallback qcm3 si aucun générateur disponible pour la matière.
@@ -443,6 +459,27 @@ Extraits des diapos « erreurs fréquentes » et « conseils ». Chaque `trap` e
 | `endo-exo` | Variable endogène/exogène, équilibre de marché | traiter `e` comme exogène sous PNCTI |
 | `statique-dyn` | MF statique vs Dornbusch dynamique (CT/LT) | pas de surajustement dans Dornbusch |
 | `sterilise` | Intervention stérilisée sans effet sur LM | « la stérilisation déplace LM » |
+
+### 10 bis. Banque et marché — pièges → `trap`
+
+| `trap` | Confusion |
+|---|---|
+| `ai-exante-expost` | Sélection adverse (ex ante, Leland-Pyle) vs aléa moral (ex post, Diamond 1984) |
+| `auteur-role` | Signal (Leland-Pyle) / contrôleur délégué (Diamond) / assureur de liquidité (Diamond-Dybvig) |
+| `desintermediation` | Croire à la désintermédiation ; mesure en valeur vs en volume |
+| `actif-passif` | Risque d'actif vs de passif ; illiquidité vs insolvabilité |
+| `rationnement-prix` | Stiglitz-Weiss : la banque rationne au lieu de monter le taux |
+| `levier-sens` | Ratio de levier FP/A vs levier A/FP ; sens de la variation |
+| `rwa-actif` | FP/RWA (pondéré) vs FP/A (non pondéré) |
+| `lineaire` | Finance-croissance linéaire vs en cloche ; corrélation ≠ causalité |
+| `bulle-type` | Rationnelle / mimétique / comportementale : information et rationalité |
+| `minsky-regimes` | Financement couvert / spéculatif / Ponzi |
+| `paradoxe` | Tranquillité (Minsky) vs crédibilité (Borio) |
+| `cua-law` | Cleaning up afterwards vs leaning against the wind |
+| `micro-macro` | Microprudentiel vs macroprudentiel |
+| `bale-version` | Mesure attribuée au mauvais accord de Bâle |
+| `canal` | Canal du crédit strict / large vs prise de risque vs prix d'actifs |
+| `date-auteur` | Mauvaise date ou mauvais auteur |
 
 ---
 

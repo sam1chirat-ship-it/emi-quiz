@@ -57,6 +57,15 @@ CATS_ORDER = [
     # J39 : cats ultra-fines par auteur / modèle (EMI 6 + Croissance 6).
     "dornbu", "kouri", "meesero", "triffin", "bsdet", "mfdet",
     "solowd", "romerv", "aghhow", "diamold", "ajr", "malthd",
+    # Banque et marché (mbf) — 17 notions (ordre du plan du cours) …
+    "banque", "mutation", "titrisation", "levier", "fintech", "climat",
+    "financement", "systfin", "fincroiss",
+    "instab", "bulles", "bcbulles", "canaux",
+    "regjust", "bale", "separation", "macropru",
+    # … et 17 catégories « auteur ».
+    "lelandpyle", "diamond84", "dd83", "stiglitzw", "paniques", "silberkane",
+    "admati", "levine", "laporta", "goldsmith", "arcand",
+    "borio", "blanchardw", "mimetisme", "fisher", "minsky", "bernanke",
 ]
 
 # `trap` autorisés (SPEC §10)
@@ -65,15 +74,31 @@ TRAPS = {
     "niveau-log", "horizon", "sens-parite", "fixe-flexible",
     "mf-regime", "bs-etapes", "ml-symetrie", "endo-exo",
     "statique-dyn", "sterilise",
+    # Banque et marché (SPEC §10 bis)
+    "ai-exante-expost", "auteur-role", "desintermediation", "actif-passif",
+    "rationnement-prix", "levier-sens", "rwa-actif", "lineaire",
+    "bulle-type", "minsky-regimes", "paradoxe", "cua-law",
+    "micro-macro", "bale-version", "canal", "date-auteur",
 }
 
 SENS_ANSWERS = {"up", "down", "same", "ambig"}
 
 # Matières autorisées (SPEC §2, §3, §8.2 règle 5)
-ALLOWED_MATS = {"emi", "croissance"}
+ALLOWED_MATS = {"emi", "croissance", "mbf"}
 
 # Volumes minimaux par catégorie (SPEC §3, ligne 196)
 MIN_PER_CAT = {"qcm": 6, "vf": 4, "sens": 4, "ordre": 1, "ouverte": 2}
+# Minima propres à une matière (remplacent MIN_PER_CAT). Banque et marché
+# s'entraîne au format du partiel (qcmm), pas au qcm simple.
+MIN_PER_CAT_BY_MAT = {"mbf": {"qcmm": 4, "vf": 3, "ouverte": 1}}
+
+
+def _is_text_or_variants(v) -> bool:
+    """Chaîne non vide, ou liste non vide de chaînes non vides (variantes)."""
+    if isinstance(v, str):
+        return bool(v.strip())
+    return (isinstance(v, list) and len(v) > 0
+            and all(isinstance(x, str) and x.strip() for x in v))
 
 
 def _extract_script(html: str) -> tuple[list[str], str]:
@@ -214,10 +239,30 @@ def _validate_schema(data: dict) -> list[str]:
         if not isinstance(a, int) or not 0 <= a < 4:
             errors.append(f"QCM[{i}] ({it.get('id')}): a doit être 0..3")
 
+    for i, it in enumerate(data.get("QCMM") or []):
+        _base(it, "QCMM", i)
+        iid = it.get("id")
+        if not _is_text_or_variants(it.get("q")):
+            errors.append(f"QCMM[{i}] ({iid}): q chaîne ou liste de variantes")
+        ok, ko = it.get("ok"), it.get("ko")
+        if not (isinstance(ok, list) and len(ok) >= 2
+                and all(isinstance(x, str) and x.strip() for x in ok)):
+            errors.append(f"QCMM[{i}] ({iid}): ok ≥ 2 formulations justes")
+        if not (isinstance(ko, list) and len(ko) >= 3
+                and all(isinstance(x, str) and x.strip() for x in ko)):
+            errors.append(f"QCMM[{i}] ({iid}): ko ≥ 3 distracteurs")
+        kw = it.get("koWhy")
+        if kw is not None:
+            if not (isinstance(kw, list) and isinstance(ko, list) and len(kw) == len(ko)
+                    and all(x is None or (isinstance(x, str) and x.strip()) for x in kw)):
+                errors.append(f"QCMM[{i}] ({iid}): koWhy = liste alignée sur ko")
+
     for i, it in enumerate(data.get("VF") or []):
         _base(it, "VF", i)
         if not isinstance(it.get("a"), bool):
             errors.append(f"VF[{i}] ({it.get('id')}): a doit être booléen")
+        if not _is_text_or_variants(it.get("q")):
+            errors.append(f"VF[{i}] ({it.get('id')}): q chaîne ou liste de variantes")
 
     for i, it in enumerate(data.get("SENS") or []):
         _base(it, "SENS", i)
@@ -242,6 +287,8 @@ def _validate_schema(data: dict) -> list[str]:
         _base(it, "OUVERTE", i)
         if not isinstance(it.get("model"), str) or not it["model"].strip():
             errors.append(f"OUVERTE[{i}] ({it.get('id')}): model manquant")
+        if not _is_text_or_variants(it.get("q")):
+            errors.append(f"OUVERTE[{i}] ({it.get('id')}): q chaîne ou liste de variantes")
         pts = it.get("points")
         if not isinstance(pts, list) or not pts:
             errors.append(f"OUVERTE[{i}] ({it.get('id')}): points liste non vide")
@@ -280,15 +327,19 @@ def _volumes_warnings(data: dict) -> list[str]:
     """Règle 6 : volumes minimaux par catégorie — warnings en v1."""
     warnings: list[str] = []
     per_cat: dict[str, dict[str, int]] = {c: {} for c in CATS_ORDER}
-    fmt_map = [("QCM", "qcm"), ("VF", "vf"), ("SENS", "sens"),
+    fmt_map = [("QCM", "qcm"), ("QCMM", "qcmm"), ("VF", "vf"), ("SENS", "sens"),
                ("ORDRE", "ordre"), ("OUVERTE", "ouverte")]
+    cats = data.get("CATS") or {}
     for key, fmt in fmt_map:
         for it in data.get(key) or []:
             c = it.get("cat")
             if c in per_cat:
                 per_cat[c][fmt] = per_cat[c].get(fmt, 0) + 1
     for c in CATS_ORDER:
-        for fmt, n_min in MIN_PER_CAT.items():
+        if c not in cats:
+            continue  # catégorie prévue mais pas encore créée
+        mins = MIN_PER_CAT_BY_MAT.get((cats.get(c) or {}).get("mat"), MIN_PER_CAT)
+        for fmt, n_min in mins.items():
             n = per_cat[c].get(fmt, 0)
             if n < n_min:
                 warnings.append(f"cat={c} fmt={fmt}: {n}/{n_min} (cible v1)")

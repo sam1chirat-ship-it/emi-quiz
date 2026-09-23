@@ -131,9 +131,12 @@ async function getState(page) {
 async function answerJuste(page) {
   const info = await page.evaluate(() => {
     const S = window.eval("S");
-    return { phase: S.phase, fmt: S.qFmt, manche: S.manche, a: S.q ? S.q.a : null, steps: S.q ? (S.q.steps || null) : null, choices: S.q ? (S.q.choices || null) : null };
+    return { phase: S.phase, fmt: S.qFmt, manche: S.manche, a: S.q ? S.q.a : null, good: S.q ? (S.q.good || null) : null, steps: S.q ? (S.q.steps || null) : null, choices: S.q ? (S.q.choices || null) : null };
   });
-  if (info.fmt === "qcm" || info.fmt === "qcm3") {
+  if (info.fmt === "qcmm") {
+    for (const i of info.good) await page.locator(`[data-act="mPick"][data-v="${i}"]`).click();
+    await page.locator('[data-act="mValid"]').click();
+  } else if (info.fmt === "qcm" || info.fmt === "qcm3") {
     await page.locator(`.choices > button[data-v="${info.a}"]`).first().click();
   } else if (info.fmt === "vf") {
     await page.locator(`[data-act="answer"][data-v="${info.a ? "true" : "false"}"]`).click();
@@ -158,9 +161,14 @@ async function answerJuste(page) {
 async function answerFaux(page) {
   const info = await page.evaluate(() => {
     const S = window.eval("S");
-    return { fmt: S.qFmt, a: S.q ? S.q.a : null, steps: S.q ? (S.q.steps || null) : null };
+    return { fmt: S.qFmt, a: S.q ? S.q.a : null, good: S.q ? (S.q.good || null) : null, n: S.q && S.q.choices ? S.q.choices.length : 0, steps: S.q ? (S.q.steps || null) : null };
   });
-  if (info.fmt === "qcm" || info.fmt === "qcm3") {
+  if (info.fmt === "qcmm") {
+    // Coche une seule proposition fausse : tout ou rien → faux garanti.
+    const bad = [...Array(info.n).keys()].find(i => !info.good.includes(i));
+    await page.locator(`[data-act="mPick"][data-v="${bad}"]`).click();
+    await page.locator('[data-act="mValid"]').click();
+  } else if (info.fmt === "qcm" || info.fmt === "qcm3") {
     const bad = (info.a + 1) % 4;
     await page.locator(`.choices > button[data-v="${bad}"]`).first().click();
   } else if (info.fmt === "vf") {
