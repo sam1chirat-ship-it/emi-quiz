@@ -22265,6 +22265,218 @@
         "Sous log-utilité, l'épargne du jeune vaut β·w/(1+β), indépendamment du taux d'intérêt."
       ],
       "mat": "croissance"
+    },
+    {
+      "id": "et-26",
+      "name": "Diamond & Dybvig (1983)",
+      "aliases": [
+        "diamond dybvig",
+        "diamond et dybvig",
+        "diamond & dybvig",
+        "dd",
+        "dd83",
+        "bank runs deposit insurance and liquidity"
+      ],
+      "clues": [
+        "Nous sommes deux et avons été primés en 2022 avec un troisième économiste.",
+        "Notre article paraît au Journal of Political Economy en 1983.",
+        "Chez nous, la banque transforme des actifs illiquides en passifs liquides.",
+        "Dans notre modèle, deux équilibres coexistent, dont une ruée.",
+        "Nous préférons la garantie publique des dépôts à la suspension de convertibilité."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-27",
+      "name": "Leland & Pyle (1977)",
+      "aliases": [
+        "leland pyle",
+        "leland et pyle",
+        "leland & pyle"
+      ],
+      "clues": [
+        "Nous publions au Journal of Finance en 1977.",
+        "Chez nous, les actes parlent plus fort que les mots.",
+        "Notre signal est la part du capital que l'entrepreneur conserve.",
+        "Nous traitons une asymétrie d'information ex ante.",
+        "Pour nous, la banque est une réponse naturelle aux asymétries d'information."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-28",
+      "name": "Contrôleur délégué",
+      "aliases": [
+        "controleur delegue",
+        "contrôleur délégué",
+        "delegated monitor",
+        "delegated monitoring",
+        "monitoring delegue"
+      ],
+      "clues": [
+        "Je suis une vision de la banque née en 1984.",
+        "J'évite qu'on duplique m fois un même coût.",
+        "Je ne suis viable que si mon actif est diversifié.",
+        "Ma condition s'écrit K + D < mK.",
+        "Douglas Diamond m'a donné mon nom."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-29",
+      "name": "Rationnement du crédit",
+      "aliases": [
+        "rationnement",
+        "rationnement du credit",
+        "credit rationing"
+      ],
+      "clues": [
+        "Je suis un équilibre, pas un déséquilibre transitoire.",
+        "Je nais d'une asymétrie d'information et de la responsabilité limitée.",
+        "Au-delà d'un certain taux, relever le prix ne sert plus la banque.",
+        "L'offre de crédit y reste inférieure à la demande.",
+        "Stiglitz et Weiss m'ont formalisé en 1981."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-30",
+      "name": "Titrisation",
+      "aliases": [
+        "titrisation",
+        "securitisation",
+        "securitization"
+      ],
+      "clues": [
+        "Je fais passer la banque du « to hold » au « to distribute ».",
+        "Mes véhicules, SPV ou FCC, ne sont pas réglementés.",
+        "Je rends négociables des créances qui ne l'étaient pas.",
+        "J'ai nourri le shadow banking avant 2007.",
+        "ABS et MBS sont mes enfants."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-31",
+      "name": "Deleveraging",
+      "aliases": [
+        "deleveraging",
+        "desendettement",
+        "désendettement"
+      ],
+      "clues": [
+        "Plus les fonds propres sont faibles, plus je suis ample.",
+        "Je peux aggraver la baisse des prix que je veux corriger.",
+        "Je passe par des ventes d'actifs.",
+        "Je vise à rétablir un ratio de levier.",
+        "On me traduit par désendettement."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-32",
+      "name": "Paradoxe de la tranquillité",
+      "aliases": [
+        "paradoxe de la tranquillite",
+        "paradoxe de la tranquillité",
+        "tranquillite",
+        "tranquillité"
+      ],
+      "clues": [
+        "Je relie stabilité apparente et prise de risque.",
+        "C'est quand tout va bien que je prépare la crise.",
+        "La grande modération m'a illustré.",
+        "Je nourris les financements spéculatifs et Ponzi.",
+        "Hyman Minsky m'a énoncé."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-33",
+      "name": "Paradoxe de la crédibilité",
+      "aliases": [
+        "paradoxe de la credibilite",
+        "paradoxe de la crédibilité",
+        "credibilite",
+        "crédibilité"
+      ],
+      "clues": [
+        "Je suis né à la BRI.",
+        "Je réfute l'hypothèse de Schwartz.",
+        "Une inflation basse et stable réduit l'aversion au risque.",
+        "La stabilité monétaire ne garantit pas la stabilité financière.",
+        "Claudio Borio m'a formulé."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-34",
+      "name": "Financement Ponzi",
+      "aliases": [
+        "ponzi",
+        "financement ponzi"
+      ],
+      "clues": [
+        "Je porte le nom d'un spéculateur des années 1920.",
+        "Je suis le plus risqué des trois régimes de Minsky.",
+        "Mes revenus ne couvrent même pas mes intérêts.",
+        "Je dois m'endetter pour payer la charge de ma dette.",
+        "Couvert, spéculatif et moi."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-35",
+      "name": "Debt deflation",
+      "aliases": [
+        "debt deflation",
+        "deflation par la dette",
+        "déflation par la dette",
+        "fisher"
+      ],
+      "clues": [
+        "Je date de 1933.",
+        "Plus on veut se désendetter, plus je m'aggrave.",
+        "J'accrois la valeur réelle des dettes.",
+        "Minsky m'a remis à l'honneur.",
+        "Irving Fisher m'a théorisée."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-36",
+      "name": "Ratio Cooke",
+      "aliases": [
+        "cooke",
+        "ratio cooke",
+        "bale 1",
+        "bâle 1"
+      ],
+      "clues": [
+        "Je suis né en 1988.",
+        "J'ignorais les risques de marché et opérationnel.",
+        "Je pondérais les pays de l'OCDE à 0 % et les entreprises à 100 %.",
+        "J'exigeais 8 % de fonds propres sur les crédits pondérés.",
+        "On m'appelle aussi Bâle 1."
+      ],
+      "mat": "mbf"
+    },
+    {
+      "id": "et-37",
+      "name": "Too much finance",
+      "aliases": [
+        "too much finance",
+        "trop de finance",
+        "arcand"
+      ],
+      "clues": [
+        "Je suis un titre de 2011, publié en revue en 2015.",
+        "J'ai fait naître un nouveau consensus d'après-crise.",
+        "Je dessine une courbe en cloche.",
+        "Au-delà de 110 % de crédit privé / PIB, je nuis à la croissance.",
+        "Arcand, Berkes et Panizza m'ont signé."
+      ],
+      "mat": "mbf"
     }
   ],
   "CHEATSHEET": {

@@ -128,3 +128,31 @@ Source de données : nouveau champ `CHEATSHEET` dans `data.json`
 (ajouté au verify), ou construction automatique par un
 `tools/build_cheatsheet.py` qui parcourt les `notations` de OUVERTE
 + dictionnaire fixe pour les sigles.
+
+## Banque et marché (mbf) — contradictions entre sources (J42)
+
+Relevées sans être tranchées par ma mémoire ; les items suivent la source indiquée.
+
+1. **Seuil d'Arcand, Berkes & Panizza.** 110 % du crédit privé / PIB dans les
+   diapos (chap. 2), la note VoxEU (2011) et Boucher et al. (chap. 5).
+   Carré & L'Oeillet (2017) écrivent « autour d'un ratio crédit/PIB de
+   80 %-100 % » ; Cournède & Denk (OCDE) ≈ 100 %. Items : 110 %, avec le
+   piège signalé dans le cours `arcand`.
+2. **Date de Bâle 2.** Diapos chap. 4 : « Bâle 2 signés en 2003 » puis
+   « accords signés en 2004 ». Le partiel de janvier 2026 (Q57) écrit 2004 :
+   retenu 2004.
+3. **Bhattacharya & Jacklin.** Diapos chap. 1 : « Battacharya et Jackling
+   (1986) » puis « Battacharya et Jacklin (1988) ». Retenu 1988 (graphie
+   Bhattacharya & Jacklin).
+4. **Modèles internes.** Diapos : Bâle 2 (accords de 2004) autorise les
+   modèles internes ; Boucher et al. : « dès 1996 » (amendement risques de
+   marché). Items : modèles internes = Bâle 2, la date 1996 citée en
+   explication seulement.
+
+## Banque et marché — faits datés conservés
+
+Le partiel interroge des rapports datés (FSB déc. 2025, Banking on Climate
+Chaos 2022, Banking on Business as Usual 2025, prix de la Banque de Suède
+2022). Ces items sont ancrés sur leur source et leur date (« d'après le
+rapport X de … ») : ils restent vrais pour cette source, mais audit.py les
+signale en « perishable » (avertissement non bloquant).
