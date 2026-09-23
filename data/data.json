@@ -244,6 +244,41 @@
       "name": "Banques & climat",
       "ch": 1,
       "mat": "mbf"
+    },
+    "financement": {
+      "name": "Modalités & fonctions du financement",
+      "ch": 2,
+      "mat": "mbf"
+    },
+    "systfin": {
+      "name": "Systèmes orientés banque / marché",
+      "ch": 2,
+      "mat": "mbf"
+    },
+    "levine": {
+      "name": "Levine (2002) & Demirgüç-Kunt : which is better ?",
+      "ch": 2,
+      "mat": "mbf"
+    },
+    "laporta": {
+      "name": "La Porta et al. (1997) : Law and Finance",
+      "ch": 2,
+      "mat": "mbf"
+    },
+    "goldsmith": {
+      "name": "Goldsmith, King & Levine : finance et croissance",
+      "ch": 2,
+      "mat": "mbf"
+    },
+    "arcand": {
+      "name": "Arcand, Berkes & Panizza : too much finance",
+      "ch": 2,
+      "mat": "mbf"
+    },
+    "fincroiss": {
+      "name": "Trop de finance ? Taille et coûts du secteur",
+      "ch": 2,
+      "mat": "mbf"
     }
   },
   "BOTS": [
@@ -13069,6 +13104,312 @@
       "a": true,
       "why": "Le cours le qualifie de « cheval de Troie », par opposition au brown penalizing factor.",
       "id": "climat-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "financement",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "L'achat de titres par une banque est une forme de financement indirect.",
+        "Quand un intermédiaire financier achète des obligations d'entreprise, le financement est intermédié."
+      ],
+      "a": true,
+      "why": "Financement indirect = crédits + titres achetés par les IF.",
+      "trap": "desintermediation",
+      "id": "financement-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "financement",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Les administrations publiques dégagent globalement une capacité de financement chaque année.",
+        "Chaque année, l'épargne brute des administrations publiques excède globalement leur FBCF."
+      ],
+      "a": false,
+      "why": "Elles ont un besoin de financement, vu la faiblesse de leur épargne brute face aux dépenses publiques.",
+      "id": "financement-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "financement",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Pour Bodie & Merton, chaque fonction du système financier est remplie par un seul type d'institution.",
+        "Au sein du système financier, la gestion des risques est réservée aux assureurs et le financement aux banques."
+      ],
+      "a": false,
+      "why": "Les fonctions sont remplies par diverses formes d'institutions (banques, assureurs, marchés).",
+      "id": "financement-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Dans un système orienté marché, les risques sont gérés par transfert plutôt que par mutualisation.",
+        "Les systèmes orientés marché gèrent les risques en les transférant, les systèmes orientés banque en les mutualisant."
+      ],
+      "a": true,
+      "why": "Orienté marché : transfert ; orienté banque : mutualisation.",
+      "id": "systfin-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Pour corriger l'effet de la valorisation boursière, la part des financements intermédiés doit être mesurée en volume plutôt qu'en valeur.",
+        "Mesurer le taux d'intermédiation en valeur surestime la baisse de l'intermédiation."
+      ],
+      "a": true,
+      "why": "France 1994-2001 : 64 % → 49 % en valeur (biaisé), mais 64 % → 62 % en volume.",
+      "trap": "desintermediation",
+      "id": "systfin-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Les placements des ménages sont désormais majoritairement détenus en direct sur les marchés.",
+        "Les ménages européens détiennent l'essentiel de leur épargne financière sous forme de titres en direct."
+      ],
+      "a": false,
+      "why": "Ils restent fortement intermédiés (assurance-vie, OPCVM) : 70 % aux États-Unis, 80 % en Allemagne, France, Royaume-Uni.",
+      "trap": "desintermediation",
+      "id": "systfin-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Un marché boursier petit mais très actif présente un ratio transactions / capitalisation élevé.",
+        "Le ratio volume des transactions / capitalisation boursière mesure l'efficience d'un marché plutôt que sa taille."
+      ],
+      "a": true,
+      "why": "Indicateur d'efficience : un marché grand mais peu liquide a un ratio faible.",
+      "id": "systfin-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levine",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Pour Levine (2002), savoir si un système est orienté banque ou marché n'aide pas à expliquer les écarts de croissance entre pays.",
+        "Levine (2002) montre que la structure financière n'est pas la bonne variable explicative de la croissance."
+      ],
+      "a": true,
+      "why": "C'est le niveau global de développement financier qui compte.",
+      "trap": "lineaire",
+      "id": "levine-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levine",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Selon Demirgüç-Kunt & Levine (1999), l'absence de garantie explicite des dépôts favoriserait l'orientation marché.",
+        "Demirgüç-Kunt & Levine (1999) associent l'absence de garantie explicite des dépôts à une orientation marché."
+      ],
+      "a": true,
+      "why": "Avec la Common law, la protection des actionnaires, les standards comptables et une faible corruption.",
+      "id": "levine-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levine",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Rajan & Zingales (1998) suggèrent que l'orientation banque serait un avantage dans les pays dotés d'un système légal faible.",
+        "Selon l'hypothèse de Rajan & Zingales (1998) testée par Levine, les banques compensent un système légal peu développé."
+      ],
+      "a": true,
+      "why": "Cinquième relation testée par Levine (2002).",
+      "id": "levine-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "laporta",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Selon La Porta et al. (1997), la Common law protège mieux les créanciers et les actionnaires minoritaires que le droit civil français.",
+        "Pour l'approche Law and Finance, le droit civil français protège moins bien les investisseurs que la Common law."
+      ],
+      "a": true,
+      "why": "D'où des financements de marché plus développés en Common law.",
+      "trap": "auteur-role",
+      "id": "laporta-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "laporta",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Dans les études finance-croissance, la tradition juridique sert souvent de variable instrumentale.",
+        "La variable « légale » est utilisée pour traiter l'endogénéité entre finance et croissance."
+      ],
+      "a": true,
+      "why": "Elle est liée au développement financier sans être influencée par la croissance.",
+      "id": "laporta-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "laporta",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "L'histoire financière de l'Europe continentale confirme que le système juridique détermine seul l'architecture financière.",
+        "En Europe, les marchés se sont développés puis contractés au rythme des changements du droit."
+      ],
+      "a": false,
+      "why": "Au contraire : marchés développés puis contractés, puis retour des marchés, à droit inchangé.",
+      "id": "laporta-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "goldsmith",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Goldsmith (1969) a démontré que la finance cause la croissance.",
+        "L'étude de Goldsmith (1969) établit un lien de causalité de la finance vers la croissance."
+      ],
+      "a": false,
+      "why": "Il met en évidence une corrélation positive, dans une étude très fruste : corrélation n'est pas causalité.",
+      "trap": "lineaire",
+      "id": "goldsmith-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "goldsmith",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Pour Levine & Zervos (1998), c'est la liquidité du marché boursier, mesurée par le taux de rotation, qui est corrélée à la croissance.",
+        "Levine & Zervos (1998) trouvent que la taille du marché boursier compte moins que sa liquidité."
+      ],
+      "a": true,
+      "why": "Taux de rotation = valeur des actions échangées / valeur des actions cotées.",
+      "id": "goldsmith-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "goldsmith",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Les firmes petites et moyennes, plus dépendantes du financement externe, profitent davantage du développement financier.",
+        "Le développement financier améliore surtout la croissance des firmes les plus dépendantes du financement externe."
+      ],
+      "a": true,
+      "why": "Rajan & Zingales (1998) ; Beck, Demirgüç-Kunt, Laeven, Levine (2004).",
+      "id": "goldsmith-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "arcand",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Pour Arcand, Berkes & Panizza, au-delà d'un crédit au secteur privé de 110 % du PIB, la finance a des effets négatifs sur la croissance.",
+        "Le seuil de « too much finance » identifié par Arcand, Berkes & Panizza est de 110 % de crédit privé rapporté au PIB."
+      ],
+      "a": true,
+      "why": "Seuil des diapositives, de la note VoxEU et du chapitre de Boucher et al.",
+      "trap": "lineaire",
+      "id": "arcand-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "arcand",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Arcand et al. en déduisent que, dans de nombreux pays, des normes de crédit plus strictes favoriseraient la croissance.",
+        "Selon « Too much finance ? », resserrer les normes de crédit pourrait être bénéfique à la croissance de nombreux pays."
+      ],
+      "a": true,
+      "why": "À rebours des travaux des années 1990 qui soutenaient la libéralisation financière.",
+      "id": "arcand-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "arcand",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Le seuil d'Arcand et al. est proche de celui à partir duquel Easterly et al. (2000) observent une volatilité macroéconomique accrue.",
+        "Easterly, Islam et Stiglitz (2000) trouvent qu'au-delà de 100 % de crédit / PIB la volatilité augmente."
+      ],
+      "a": true,
+      "why": "Relation finance-volatilité elle aussi non linéaire.",
+      "id": "arcand-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Pour James Tobin (1984), les rendements sociaux du secteur financier peuvent être inférieurs à ses rendements privés.",
+        "Tobin (1984) craint que la finance ne « ravisse » des talents au détriment des secteurs productifs."
+      ],
+      "a": true,
+      "why": "Plus de financiers, c'est aussi moins d'ingénieurs.",
+      "id": "fincroiss-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Selon les travaux récents, c'est la qualité et la destination du crédit qui comptent pour la croissance, plus que son volume.",
+        "Pour la croissance, un euro de crédit à une jeune entreprise innovante vaut plus qu'un euro de crédit immobilier."
+      ],
+      "a": true,
+      "why": "Hasan et al. (2009) ; Beck et al. (2009) ; Cœuré (2014).",
+      "id": "fincroiss-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Pour Benoît Cœuré, un secteur financier trop gros et des établissements trop gros sont un seul et même problème.",
+        "Cœuré confond problème macro (secteur trop grand) et problème micro (établissements trop grands)."
+      ],
+      "a": false,
+      "why": "Il les distingue : même un secteur petit peut compter des banques « too big to fail ».",
+      "id": "fincroiss-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Selon l'ESRB (2014), l'Europe est devenue plus orientée marché au cours des quinze dernières années, comme le reste du monde.",
+        "Le biais bancaire européen s'est réduit depuis 1995 selon l'ESRB."
+      ],
+      "a": false,
+      "why": "À rebours de la tendance mondiale, le biais bancaire européen a augmenté.",
+      "id": "fincroiss-009"
     }
   ],
   "SENS": [
@@ -16376,6 +16717,57 @@
       "a": "up",
       "why": "Les achats de titres font les dépôts : la banque crédite le compte du vendeur.",
       "id": "fintech-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "financement",
+      "ch": 2,
+      "diff": 1,
+      "ctx": "Comptes d'un agent : épargne brute (EB) et FBCF",
+      "shock": "Hausse de la FBCF, à épargne brute inchangée",
+      "var": "Besoin de financement externe",
+      "a": "up",
+      "why": "Besoin = FBCF − EB : il augmente.",
+      "id": "financement-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Mesure du taux d'intermédiation en valeur (encours valorisés au prix de marché)",
+      "shock": "Forte hausse des cours boursiers",
+      "var": "Part apparente des financements intermédiés",
+      "a": "down",
+      "why": "La valorisation gonfle les encours de titres détenus en direct : la part intermédiée paraît baisser, d'où la nécessité de mesurer en volume.",
+      "trap": "desintermediation",
+      "id": "systfin-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "arcand",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Arcand, Berkes & Panizza : crédit au secteur privé déjà supérieur à 110 % du PIB",
+      "shock": "Hausse supplémentaire du crédit au secteur privé",
+      "var": "Croissance économique",
+      "a": "down",
+      "why": "Au-delà du seuil, l'effet marginal du développement financier sur la croissance est négatif.",
+      "trap": "lineaire",
+      "id": "arcand-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "arcand",
+      "ch": 2,
+      "diff": 2,
+      "ctx": "Arcand, Berkes & Panizza : pays peu développé financièrement (crédit privé ≈ 30 % du PIB)",
+      "shock": "Hausse du crédit au secteur privé",
+      "var": "Croissance économique",
+      "a": "up",
+      "why": "En deçà du seuil, la finance reste bénéfique : partie croissante de la courbe en cloche.",
+      "trap": "lineaire",
+      "id": "arcand-008"
     }
   ],
   "ORDRE": [
@@ -17284,6 +17676,22 @@
       ],
       "why": "deleveraging → baisse des prix d'actifs → dégradation des bilans → deleveraging…",
       "id": "levier-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "goldsmith",
+      "ch": 2,
+      "diff": 2,
+      "title": "Remettre dans l'ordre chronologique les travaux sur finance et croissance",
+      "steps": [
+        "Goldsmith : corrélation finance-croissance sur 36 pays",
+        "McKinnon et Shaw : critique de la répression financière",
+        "King & Levine : « Schumpeter might be right »",
+        "Levine & Zervos : la liquidité boursière compte",
+        "Arcand, Berkes & Panizza : « Too much finance ? »"
+      ],
+      "why": "1969 → 1973 → 1993 → 1998 → 2011.",
+      "id": "goldsmith-007"
     }
   ],
   "OUVERTE": [
@@ -19891,6 +20299,123 @@
       ],
       "why": "Chapitre 1 §3 et chapitre 4 §5.",
       "id": "climat-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "financement",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Quelles sont les fonctions d'un système financier selon Bodie & Merton ?",
+        "À quoi sert un système financier ?"
+      ],
+      "model": "Fonction de base : allocation efficace des ressources. Six fonctions stables dans le temps et l'espace : paiement, collecte de l'épargne, transfert des ressources (temps, espace, entreprises), gestion des risques, production d'information, résolution des problèmes d'incitation. Remplies par des intermédiaires et des marchés.",
+      "points": [
+        "allocation efficace",
+        "six fonctions",
+        "stables",
+        "diverses institutions"
+      ],
+      "why": "Chapitre 2, section 2.",
+      "id": "financement-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 3,
+      "q": [
+        "Pourquoi le clivage « orienté banque / orienté marché » est-il jugé peu discriminant, et pourquoi parler de désintermédiation est-il une erreur ?",
+        "La désintermédiation a-t-elle eu lieu ?"
+      ],
+      "model": "La part des financements intermédiés reste stable (≈ 70 % en Europe) : la baisse des crédits est compensée par les titres achetés par les IF, concerne surtout les APU (effet de structure) et est exagérée par la mesure en valeur. Les placements restent intermédiés. Les pays diffèrent par le mode d'intermédiation, pas par son niveau.",
+      "points": [
+        "≈ 70 % stable",
+        "titres achetés par les IF",
+        "effet de structure APU",
+        "valeur vs volume",
+        "mode d'intermédiation"
+      ],
+      "why": "Chapitre 2, section 3.E.",
+      "id": "systfin-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levine",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Présentez les quatre points de vue confrontés par Levine (2002) et sa conclusion.",
+        "Which is better : bank-based ou market-based ?"
+      ],
+      "model": "Bank-based (information, liquidité, contrôle ; mais TBTF, collusion, rentes), market-based (incitations, gouvernance, diversification ; mais prix qui découragent l'information, liquidité qui décourage le contrôle), financial services, legal system. Conclusion : la structure n'explique pas la croissance, le développement financier global si.",
+      "points": [
+        "quatre vues",
+        "pour / contre",
+        "structure non pertinente",
+        "financial services view"
+      ],
+      "why": "Levine (2002).",
+      "id": "levine-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "laporta",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Présentez la thèse de La Porta et al. (1997) et ses limites.",
+        "Le droit détermine-t-il le système financier ?"
+      ],
+      "model": "Le droit fixe le contenu et l'exécution des contrats ; la Common law, plus flexible et protectrice des investisseurs, favoriserait les marchés ; la civil law, rigide, la concentration et l'intermédiation. Limites : architectures changeantes à droit constant en Europe. D'autres déterminants : culture, religion, structure productive, retraites.",
+      "points": [
+        "protection des investisseurs",
+        "Common law / civil law",
+        "instrument",
+        "limites historiques",
+        "autres déterminants"
+      ],
+      "why": "Chapitre 2, section 3.D.",
+      "id": "laporta-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "arcand",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Présentez le résultat de « Too much finance ? » et ses implications.",
+        "Pourquoi peut-il y avoir « trop de finance » ?"
+      ],
+      "model": "Arcand, Berkes & Panizza (2011) : relation en cloche ; au-delà de 110 % de crédit privé / PIB, l'effet marginal sur la croissance devient négatif. Explications : bailout anticipé, crises et volatilité, talents détournés, financement de marché. Implication : des normes de crédit plus strictes seraient souhaitables dans bien des pays.",
+      "points": [
+        "courbe en cloche",
+        "110 %",
+        "explications",
+        "implications de politique"
+      ],
+      "why": "Chapitre 2, section 4.",
+      "id": "arcand-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 3,
+      "q": [
+        "Pourquoi le secteur financier a-t-il tant grossi, et quels coûts cela fait-il peser sur l'économie ?",
+        "« Quand la finance ne sert plus la croissance » : causes, coûts, remèdes."
+      ],
+      "model": "Causes : procyclicité, sous-taxation et subventions implicites, relâchement réglementaire (modèles internes, hors bilan, shadow banking). Coûts : instabilité, talents détournés (Tobin), inégalités, crédit mal orienté vers l'immobilier. Remèdes : surveillance des tendances, règles de marché, taille des établissements, taxation.",
+      "points": [
+        "procyclicité",
+        "sous-taxation / subventions",
+        "relâchement réglementaire",
+        "coûts",
+        "remèdes"
+      ],
+      "why": "Boucher et al. (2013).",
+      "id": "fincroiss-010"
     }
   ],
   "ETOILE": [
@@ -23035,6 +23560,256 @@
           "text": "Double matérialité (climat → finance et finance → climat) ; flux non alignés, engagements volontaires ; Carney 2015 (physique, transition, responsabilité) ; incertitude radicale, irréversibilité, dimension systémique ; approche par les risques insuffisante → macroprudentiel et règles structurelles."
         }
       ]
+    },
+    "financement": {
+      "title": "Les modalités et les fonctions du financement",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Chapitre 2 : comprendre comment l'économie se finance et à quoi sert un système financier. Message central du chapitre : les banques restent au cœur du financement, et tous les systèmes financiers sont fortement « intermédiés »."
+        },
+        {
+          "kind": "formule",
+          "title": "Autofinancement et capacité de financement",
+          "text": "Revenus primaires → redistribution → revenu disponible brut (RDB) ; RDB − consommation = **épargne brute (EB)**.\n\n- **Autofinancement** : partie de l'investissement (FBCF) financée par l'épargne brute.\n- **Financement externe** : partie qui nécessite un tiers.\n\n\\[EB < FBCF \\Rightarrow \\text{besoin de financement}\\qquad EB > FBCF \\Rightarrow \\text{capacité de financement}\\]\n\nGlobalement chaque année : **entreprises** et **administrations publiques** ont un besoin de financement (FBCF importante ; épargne faible face aux dépenses publiques), les **ménages** une capacité."
+        },
+        {
+          "kind": "convention",
+          "title": "Direct ou indirect",
+          "text": "Le système financier organise la rencontre des agents à capacité et à besoin de financement :\n\n- **financement direct** : émission de titres sur un marché (actions, obligations, TCN) ;\n- **financement indirect** (intermédié) : un intermédiaire s'interpose : **crédits**, mais aussi **achats de titres par les intermédiaires financiers**.\n\nHors système financier : crédits interentreprises, crowdfunding."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Les fonctions du système financier (Bodie & Merton)",
+          "text": "Système financier = intermédiaires + marchés + mécanismes institutionnels (réglementations, compensation, régime de change). Fonction de base : **allocation efficace des ressources**, déclinée en **six fonctions primordiales, relativement stables dans le temps et dans l'espace** :\n\n1. système de **paiement** ;\n2. **collecte** (mise en commun) de l'épargne ;\n3. **transfert des ressources** dans le temps, l'espace, entre entreprises ;\n4. **gestion des risques** (assurance, dérivés, partage du risque de faillite) ;\n5. **production d'information** (prix publics ; information privée des banques, des agences de notation) ;\n6. **résolution des problèmes d'incitation** (sélection adverse, aléa moral, conflits d'agence : stock-options, OPA/OPE)."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Les fonctions sont **en petit nombre, stables**, et **peu différentes d'un pays à l'autre** ; elles sont remplies par **diverses formes d'institutions** (pas une fonction par type d'institution).\n- L'achat de titres par un intermédiaire financier est du **financement indirect**, pas direct.\n- Ce sont les ménages, pas les entreprises, qui dégagent globalement une capacité de financement."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "EB − FBCF donne capacité ou besoin de financement. Financement direct (titres) ou indirect (crédits et titres achetés par des IF). Six fonctions de Bodie & Merton, stables, communes à tous les pays, remplies par une variété d'institutions."
+        }
+      ]
+    },
+    "systfin": {
+      "title": "Systèmes orientés banque, systèmes orientés marché",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Classer les systèmes financiers entre « orientés banque » et « orientés marché » est un grand classique. Le cours montre pourtant que ce clivage est **très peu discriminant** : ce qui distingue vraiment les pays, c'est le **type** d'intermédiation (banques ou autres intermédiaires), pas le degré d'intermédiation."
+        },
+        {
+          "kind": "convention",
+          "title": "Deux idéaux-types",
+          "text": "Hicks (1974) : **économie d'endettement** (financement intermédié) contre **économie de marchés de capitaux** (financement direct). Allen & Gale (2000), Levine (2002), Rajan & Zingales (2003) : *bank-based* contre *market-based*.\n\n**Orienté banque** : rencontre indirecte via les IF ; relations bilatérales fondées sur l'information privée ; gestion des risques par **mutualisation** ; capital des entreprises **concentré** ; entreprises liées à quelques grandes banques universelles (pays européens ?).\n\n**Orienté marché** : rencontre directe ; relations multilatérales fondées sur l'information publique (prix) ; gestion des risques par **transfert** ; capital **fragmenté** ; discipline de marché (OPA/OPE, stock-options) ; secteur bancaire étroit et spécialisé (pays anglo-saxons ?)."
+        },
+        {
+          "kind": "formule",
+          "title": "Mesurer le développement financier",
+          "text": "Intermédiation : taille (actifs bancaires / PIB), activité (crédits / PIB), efficience (marge d'intermédiation / actif), concentration (actif des 3 ou 5 premières banques / actif total).\n\nMarchés : taille (capitalisation / PIB), activité (transactions / PIB), efficience (transactions / capitalisation : un marché petit mais actif a un ratio élevé).\n\nLe plus souvent, on retient le ratio **crédit / PIB** : une mesure étroite, mais aisément disponible. C'est aussi un **indicateur avancé d'instabilité financière**."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Vous avez dit désintermédiation ?",
+          "text": "On a longtemps décrit la mutation financière comme une **désintermédiation**. Empiriquement, on ne la constate pas :\n\n- la part des financements intermédiés est restée stable, **près de 70 % en moyenne en Europe** ;\n- la baisse des crédits a été compensée par la **hausse des titres achetés par les IF** ;\n- la baisse des crédits concerne bien plus les **administrations publiques** que les entreprises (**effet de structure**) ;\n- mesurée en **valeur**, la part des financements intermédiés paraît chuter à cause de la **valorisation boursière** ; il faut la mesurer en **volume** (France 1994-2001 : 64 % → 49 % en valeur, mais 64 % → 62 % en volume) ;\n- les **placements des ménages** restent fortement intermédiés (70 % aux États-Unis, 80 % en Allemagne, en France, au Royaume-Uni)."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Le clivage banque / marché est **très peu discriminant** empiriquement.\n- Les écarts entre pays tiennent **plus au mode d'intermédiation** (bancaire ou non bancaire) qu'à la part de l'intermédiation totale.\n- S'il y a convergence, c'est vers **plus de mixité** banque / marché, pas vers moins de banques : les marchés portent des activités pour les IF, qui leur apportent de la liquidité."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Orienté banque : indirect, bilatéral, mutualisation, capital concentré. Orienté marché : direct, multilatéral, transfert, capital fragmenté. Pas de désintermédiation (mesurer en volume, effet de structure APU). Clivage peu discriminant : c'est le type d'intermédiation qui compte."
+        }
+      ]
+    },
+    "levine": {
+      "title": "Levine (2002) et Demirgüç-Kunt & Levine (1999)",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "*Bank-based or Market-based Financial Systems: Which is Better?* (Levine, 2002). Réponse de l'article : la question du titre **n'est pas la bonne**. Avant lui, Demirgüç-Kunt & Levine (1999) classaient les pays et proposaient une vision assez linéaire du développement financier."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Demirgüç-Kunt & Levine (1999)",
+          "text": "Classement fondé sur le ratio (actifs bancaires / PIB) / (capitalisation boursière / PIB) : ratio élevé → orienté banque ; inférieur à la moyenne → orienté marché.\n\nProblème : un ratio élevé peut refléter un secteur bancaire développé **ou** des marchés sous-développés. D'où **trois catégories** : peu développé financièrement, orienté banque, orienté marché.\n\nRésultats : systèmes plus développés, plus actifs, plus efficients dans les pays riches ; marchés plus efficients que les banques dans les pays à haut revenu ; en s'enrichissant, les pays **convergeraient vers l'orientation marché** (cf. Boyd & Smith, 1998). La Common law, la protection des petits actionnaires, les standards comptables, une faible corruption et **l'absence de garantie explicite des dépôts** favoriseraient l'orientation marché."
+        },
+        {
+          "kind": "convention",
+          "title": "Les quatre points de vue de Levine (2002)",
+          "text": "- **Bank-based view** (Diamond, Rajan, Zingales, Stiglitz) : pour : meilleure production d'information (pas de passager clandestin), gestion du risque de liquidité, économies d'échelle, contrôle des entreprises grâce aux relations longues ; contre : too big to fail, collusion banques-entreprises, rentes défavorables à l'innovation.\n- **Market-based view** (Tirole, Obstfeld, Jensen) : pour : incitation à produire de l'information, gouvernance disciplinante (OPA/OPE, rémunération indexée), diversification ; contre : les prix révèlent l'information et découragent sa recherche, la liquidité décourage le contrôle (on vend ses titres).\n- **Financial services view** (Merton, Bodie, Levine) : ce qui compte, ce sont les services financiers, rendus par des banques ou des marchés.\n- **Legal system view** (La Porta, Lopez-de-Silanes, Shleifer, Vishny) : le système légal détermine le développement financier."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Ce que Levine teste et trouve",
+          "text": "Il relie la croissance du PIB par tête (1) à la **structure** financière, (2) au **développement financier global** (avec puis sans instrument légal), (3) aux deux à la fois, (4) à l'interaction structure × revenu (Boyd & Smith, 1998), (5) à l'interaction structure × système légal (Rajan & Zingales, 1998 : l'orientation banque serait un avantage quand le système légal est faible).\n\nRésultats : la **structure n'est pas la variable explicative pertinente** ; c'est le **niveau global de développement financier** qui explique les écarts de croissance, ce qui conforte la *financial services view*. La composante du développement financier expliquée par les variables légales est positivement liée à la croissance de long terme."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Levine ne conclut **ni** à la supériorité des banques **ni** à celle des marchés.\n- La vision de Demirgüç-Kunt & Levine (1999) est **linéaire** et ne rend pas compte du développement **concomitant** des IF et des marchés en Europe dans les années 1990.\n- Le rapport ESRB (2014) nuance : sur des données récentes, les systèmes très orientés banque sont associés à une croissance un peu plus faible."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "DK&L (1999) : trois catégories, convergence vers le marché avec l'enrichissement. Levine (2002) : quatre vues ; la structure n'explique pas la croissance, le niveau de développement financier si ; financial services view confortée."
+        }
+      ]
+    },
+    "laporta": {
+      "title": "La Porta, Lopez-de-Silanes, Shleifer & Vishny (1997)",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "*Legal Determinants of External Finance* (Journal of Finance, 1997) : l'environnement juridique compte pour la taille et l'étendue des marchés de capitaux. C'est l'approche **« Law and Finance »**, dont la variable légale sert souvent d'**instrument** dans les études empiriques du lien finance-croissance."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "La thèse",
+          "text": "Le cadre juridique définit le contenu des contrats et leurs conditions d'exécution ; la **protection des investisseurs** individuels est un déterminant important de la faisabilité des contrats financiers.\n\n- **Common law** (droit fondé sur la jurisprudence) : favoriserait l'accès aux financements, notamment de marché : contrats plus diversifiés, droit plus adaptable, **meilleure protection** des créanciers et des actionnaires minoritaires.\n- **French civil law** : centralisé et rigide, plus soucieux de l'État que des intérêts particuliers ; il inciterait à la concentration du capital et donnerait plus de poids aux institutions financières, mieux à même de faire exécuter les contrats."
+        },
+        {
+          "kind": "formule",
+          "title": "Le rôle d'instrument",
+          "text": "Pour établir que la finance **cause** la croissance, on remplace la variable de développement financier par une variable qui lui est très liée mais **non influencée par la croissance** : la tradition juridique. Si la croissance est liée à cette variable instrumentée, la relation s'interprète comme causale (la finance cause la croissance)."
+        },
+        {
+          "kind": "piege",
+          "title": "Les limites de la thèse",
+          "text": "- Au début du XXe siècle, plusieurs pays d'Europe continentale avaient des marchés développés qui se sont ensuite contractés au profit de l'intermédiation, **sans que leur droit change**.\n- Depuis une vingtaine d'années, retour des financements de marché dans ces pays, **sans changement majeur du droit**.\n- La French civil law n'a pas empêché la profonde transformation du système financier français. Un même cadre juridique peut donc porter des architectures très différentes : le droit n'est ni un déterminant exclusif ni décisif.\n- Il reste incontestable que l'état de droit est un **préalable** au développement des contrats financiers (Levine, 1999)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "D'autres déterminants",
+          "text": "- La **culture** : une plus grande aversion à l'incertitude va avec l'orientation banque.\n- La **religion** (Max Weber, *L'éthique protestante et l'esprit du capitalisme*).\n- La **structure productive** : taille des entreprises, secteurs plus ou moins dépendants du financement externe.\n- La **protection sociale** : les retraites par capitalisation accroissent le besoin de marchés financiers."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "La Porta et al. (1997) : Common law = meilleure protection des investisseurs = marchés plus développés ; civil law = concentration, intermédiation. Variable instrumentale classique. Limite : l'histoire montre des architectures changeantes à droit constant."
+        }
+      ]
+    },
+    "goldsmith": {
+      "title": "De Goldsmith (1969) au consensus d'avant-crise",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "La poule et l'œuf : la finance cause-t-elle la croissance, ou l'inverse ? Débat ancien, tranché avant la crise par un **consensus** forgé pour l'essentiel à la Banque mondiale : plus de finance, plus de croissance."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le débat fondateur",
+          "text": "- **Schumpeter** : les institutions financières sont nécessaires à l'innovation qui sous-tend la croissance.\n- **Joan Robinson** : causalité inverse, « là où l'entreprise mène, la finance suit ».\n- Années 1960-1970 : **Hicks (1969), McKinnon (1973), Shaw (1973)** dénoncent les politiques de **répression financière** qui brident le développement financier et donc la croissance. Deux questions mêlées : réglementation et lien finance-croissance."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Les études empiriques",
+          "text": "- **Goldsmith (1969)** : 36 pays, 1860-1963, croissance moyenne expliquée par le développement financier (actifs bancaires / PIB) : **corrélation positive et significative**. Étude fruste, et **corrélation n'est pas causalité**.\n- **King & Levine (1993)**, « *Finance and growth: Schumpeter might be right* » : 77 pays, 1960-1989 ; la taille du secteur financier en 1960 **laissait présager** la croissance, l'investissement et la productivité des trente années suivantes, même en contrôlant le revenu initial, la scolarisation, la consommation publique, l'ouverture.\n- **Levine & Zervos (1998)** : 42 pays, 1976-1993 ; c'est la **liquidité** du marché boursier (taux de rotation), **et non sa taille**, qui est corrélée à la croissance ; le crédit bancaire initial aussi.\n- **Rajan & Zingales (1998)** et Beck et al. (2004) : les firmes petites et moyennes, plus dépendantes du financement externe, profitent davantage du développement financier."
+        },
+        {
+          "kind": "convention",
+          "title": "Le consensus",
+          "text": "+ de finance = + de croissance, et + de finance **→** + de croissance (causalité). Les limites et effets de seuil n'ont guère été interrogés avant la crise de 2007-2008. Levine, économiste à la Banque mondiale de 1990 à 1997, en est le chef de file ; la variable légale (La Porta) sert d'instrument pour établir la causalité."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Goldsmith établit une **corrélation**, pas une causalité.\n- Levine & Zervos : la **liquidité**, pas la taille.\n- Robinson, pas Schumpeter, défend que la finance suit la croissance."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Schumpeter vs Robinson ; répression financière (Hicks, McKinnon, Shaw) ; Goldsmith 1969 (corrélation) ; King & Levine 1993 (la finance prédit la croissance) ; Levine & Zervos 1998 (liquidité boursière) ; Rajan & Zingales 1998 (dépendance au financement externe) ; consensus Banque mondiale."
+        }
+      ]
+    },
+    "arcand": {
+      "title": "Arcand, Berkes & Panizza : « Too much finance ? »",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Mars 2011 (IMF Working Paper 2012, *Journal of Economic Growth* 2015) : Jean-Louis Arcand, Enrico Berkes et Ugo Panizza montrent qu'au-delà d'un seuil, **plus de finance nuit à la croissance**. Article séminal du « nouveau consensus » d'après-crise."
+        },
+        {
+          "kind": "formule",
+          "title": "Le résultat",
+          "text": "L'effet marginal du développement financier sur la croissance devient **négatif** quand le **crédit au secteur privé dépasse 110 % du PIB**. Résultat robuste aux estimateurs (régressions simples, semi-paramétriques) et aux données (pays, industries).\n\nLa relation est **non linéaire**, en forme de **courbe en cloche** : croissante jusqu'au seuil, puis décroissante."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Pourquoi, et avec quelles preuves",
+          "text": "- Un modèle simple : même avec rationnement du crédit, l'**anticipation d'un sauvetage** (*bailout*) peut rendre le secteur financier trop grand par rapport à l'optimum social.\n- Le seuil est proche de celui à partir duquel la finance accroît la **volatilité** macroéconomique (Easterly et al., 2000 : crédit > 100 % du PIB).\n- Toutes les économies avancées en difficulté après la crise étaient **au-dessus du seuil** ; la taille du secteur financier a amplifié la récession qui a suivi la faillite de Lehman.\n- Explications avancées : prépondérance du financement de marché, crises probables quand la finance s'emballe, **fuite des cerveaux** vers la finance."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Un nouveau consensus ?",
+          "text": "Jusqu'au début des années 1990, moins de 5 % des pays dépassaient 110 % ; en 2006, 17 pays le dépassaient. Rousseau & Wachtel (2011) : le lien positif des années 1960-1980 **disparaît** sur les données 1990-2000 (*vanishing effect*, relâchement faible du consensus). La relation **négative** au-delà d'un seuil est le relâchement **fort** (nouvelle littérature à la Panizza).\n\nConséquence de politique : pour de nombreux pays, des normes de crédit **plus strictes** favoriseraient la croissance, à rebours des travaux des années 1990 qui prônaient la libéralisation."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Le seuil de 110 % est celui des diapositives, de la note VoxEU et du chapitre de Boucher et al. La revue de Carré & L'Oeillet (2017) le situe « autour d'un ratio crédit/PIB de 80 %-100 % », comme Cournède & Denk (OCDE, 100 %) : ne pas se laisser piéger par un autre chiffre proposé comme « le » seuil d'Arcand.\n- La relation n'est **ni linéaire, ni toujours décroissante**.\n- Critique de **Cline (2015)** : une « illusion statistique », un biais négatif du terme quadratique quand la variable financière est liée au PIB par tête."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Arcand, Berkes & Panizza (2011) : au-delà de 110 % de crédit privé / PIB, l'effet marginal de la finance sur la croissance devient négatif ; relation non linéaire en cloche ; explications : bailout, crises, talents ; implication : des normes de crédit plus strictes."
+        }
+      ]
+    },
+    "fincroiss": {
+      "title": "Trop de finance ? Taille, coûts et remèdes",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Pourquoi le secteur financier a-t-il tant grossi, et à quel prix ? Lectures du chapitre : Boucher, Capelle-Blancard, Couppey-Soubeyran & Havrylchyk, « Quand la finance ne sert plus la croissance » (2013) ; Carré & L'Oeillet (2017) ; le discours de Benoît Cœuré à la BCE (2014) ; le rapport de l'ESRB *Is Europe Overbanked?* (2014)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Pourquoi la sphère financière a tant grossi",
+          "text": "Au-delà des technologies, du vieillissement et du recyclage des revenus pétroliers, Boucher et al. insistent sur :\n\n- la **procyclicité** du secteur (canal de la prise de risque) ;\n- sa **sous-taxation** : exemption de TVA, optimisation et paradis fiscaux, **subventions implicites** (garanties) estimées à dix fois l'impôt payé par les grandes banques européennes ;\n- le **relâchement de la réglementation** : modèles internes autorisés dès 1996, conduits hors bilan exemptés de fonds propres → titrisation et **shadow banking** (de l'ordre de deux fois les crédits bancaires traditionnels selon la Fed de New York)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Ce que coûte trop de finance",
+          "text": "- **Instabilité** : crises bancaires et financières, volatilité accrue (Minsky, Kindleberger ; Rajan 2005).\n- **Mauvaise allocation des talents** : Tobin (1984), les rendements sociaux de la finance sont inférieurs à ses rendements privés, elle « ravit » les talents (« trop de banquiers, pas assez d'ingénieurs ») ; primes salariales (Philippon & Reshef) ; bonus qui poussent au risque.\n- **Inégalités** de revenus accrues.\n- Crédit mal orienté : l'**immobilier** l'emporte sur les entreprises innovantes. C'est la **qualité** et la destination du crédit qui comptent, plus que son volume."
+        },
+        {
+          "kind": "convention",
+          "title": "Les cinq explications de Cœuré (2014)",
+          "text": "1. Des activités de « non-intermédiation » (trading), plus risquées et plus difficiles à mesurer.\n2. Des rentes informationnelles et des salaires excessifs, qui détournent les talents.\n3. Une mauvaise allocation du crédit, vers les ménages et l'immobilier.\n4. Une prise de risque accrue (concurrence, liquidité abondante, aléa moral).\n5. La **complexité** et l'interconnexion, qui croissent avec la taille.\n\nCœuré distingue le problème **macro** (secteur trop gros) du problème **micro** (établissements trop gros)."
+        },
+        {
+          "kind": "exemple",
+          "title": "L'Europe surbancarisée (ESRB, 2014)",
+          "text": "Actifs bancaires de l'UE : 274 % du PIB (334 % avec les filiales étrangères), contre 83 % aux États-Unis. Le quasi-doublement depuis 1996 est entièrement dû aux 20 plus grandes banques, devenues plus concentrées et plus endettées. La structure européenne est devenue **encore plus orientée banque**, à rebours de la tendance mondiale, et les systèmes très bancarisés vont avec une croissance un peu plus faible. Causes : soutien public et supervision inadéquate, politique (« champions nationaux »), technologie et concurrence."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Les remèdes",
+          "text": "- **Surveiller les tendances** (crédit / PIB, capitalisation / PIB) : un pan du macroprudentiel.\n- **Réglementaires** : règles de marché (MIFID 2, chambres de compensation pour les dérivés de gré à gré), encadrement du shadow banking, fonds propres et liquidité (Bâle 3), limiter la taille des établissements : « mieux vaut 500 établissements gérant chacun 100 milliards que 100 en gérant chacun 500 ».\n- **Fiscaux** : taxe sur les transactions financières (≈ 0,1 % sur actions et obligations, 0,01 % sur dérivés), taxe sur les activités financières (FAT)."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "La finance a grossi par procyclicité, sous-taxation et subventions implicites, relâchement réglementaire. Coûts : instabilité, talents, inégalités, crédit mal orienté. Remèdes : surveillance macroprudentielle, règles, taille des établissements, taxation."
+        }
+      ]
     }
   },
   "QCMM": [
@@ -24938,6 +25713,826 @@
       "why": "Macroprudentiel (coussin de risque climatique), règles de flux et de stock, plans de transition contraignants, principe de précaution (Chenet & Kalinowski), verdissement de la politique monétaire.",
       "trap": "micro-macro",
       "id": "climat-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "financement",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Les fonctions du système financier sont :",
+        "Selon Bodie & Merton, les fonctions du système financier :"
+      ],
+      "ok": [
+        "En petit nombre et relativement stables au cours du temps",
+        "Peu différentes d'un pays à l'autre",
+        "Remplies par diverses formes d'institutions",
+        "Au service d'une fonction de base : l'allocation efficace des ressources"
+      ],
+      "ko": [
+        "En grand nombre et très instables au cours du temps",
+        "Très différentes d'un pays à l'autre",
+        "Chacune remplie par un seul type d'institution",
+        "Réduites au seul financement des entreprises par les banques"
+      ],
+      "koWhy": [
+        "Inversé : six fonctions, stables.",
+        "Inversé : stables dans l'espace aussi.",
+        "Faux : banques, assureurs, marchés… se partagent les fonctions.",
+        "Faux : paiement, épargne, transfert, risques, information, incitations."
+      ],
+      "why": "Six fonctions primordiales, relativement stables dans le temps et dans l'espace, au service de l'allocation efficace des ressources, remplies par des intermédiaires comme par des marchés.",
+      "id": "financement-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "financement",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Parmi ces fonctions, lesquelles figurent parmi les six fonctions du système financier ?",
+        "Quelles fonctions Bodie & Merton attribuent-ils au système financier ?"
+      ],
+      "ok": [
+        "Fournir un système de paiement efficace",
+        "Collecter et mettre en commun l'épargne",
+        "Transférer des ressources dans le temps et dans l'espace",
+        "Gérer et transférer les risques",
+        "Produire de l'information et résoudre les problèmes d'incitation"
+      ],
+      "ko": [
+        "Fixer le niveau général des prix",
+        "Garantir le plein-emploi des facteurs de production",
+        "Assurer l'équilibre de la balance des paiements",
+        "Supprimer les asymétries d'information",
+        "Financer exclusivement les administrations publiques"
+      ],
+      "koWhy": [
+        "C'est une mission de politique monétaire, pas une fonction du système financier.",
+        "Hors du champ du système financier.",
+        "Hors sujet.",
+        "Faux : il les gère (information, contrats incitatifs), il ne les supprime pas.",
+        "Faux : il finance tous les agents."
+      ],
+      "why": "Paiement, collecte de l'épargne, transfert des ressources, gestion des risques, production d'information, résolution des problèmes d'incitation.",
+      "id": "financement-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "financement",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Qu'est-ce qui distingue capacité et besoin de financement ?",
+        "Épargne brute (EB) et FBCF : qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Si EB < FBCF, l'agent a un besoin de financement externe",
+        "Si EB > FBCF, l'agent dégage une capacité de financement",
+        "Les entreprises ont globalement, chaque année, un besoin de financement",
+        "Les ménages dégagent globalement une capacité de financement"
+      ],
+      "ko": [
+        "Si EB > FBCF, l'agent a un besoin de financement externe",
+        "Les ménages ont globalement, chaque année, un besoin de financement",
+        "Les administrations publiques dégagent globalement une capacité de financement",
+        "L'autofinancement désigne la part de l'investissement financée par un tiers"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Inversé : globalement une capacité.",
+        "Inversé : besoin, vu l'ampleur des dépenses publiques.",
+        "C'est le financement externe."
+      ],
+      "why": "Besoin si EB < FBCF (entreprises, APU), capacité si EB > FBCF (ménages). Autofinancement = part de l'investissement financée par l'épargne brute.",
+      "id": "financement-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "financement",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Parmi ces opérations, lesquelles relèvent du financement indirect (intermédié) ?",
+        "Qu'est-ce qui constitue du financement intermédié ?"
+      ],
+      "ok": [
+        "Un crédit bancaire accordé à une entreprise",
+        "L'achat par un intermédiaire financier d'obligations émises par une entreprise",
+        "Un financement dans lequel un intermédiaire s'interpose entre prêteur et emprunteur"
+      ],
+      "ko": [
+        "L'émission d'actions souscrites directement par des ménages",
+        "Un crédit interentreprises entre un fournisseur et son client",
+        "L'investissement d'une entreprise financé par sa propre épargne brute",
+        "L'émission de TCN achetés directement par des entreprises non financières"
+      ],
+      "koWhy": [
+        "Financement direct.",
+        "Financement externe hors système financier.",
+        "C'est de l'autofinancement.",
+        "Financement direct."
+      ],
+      "why": "Financement indirect : crédits et achats de titres par les IF. Direct : émission de titres achetés par les agents non financiers. Le crédit interentreprises est hors système financier ; l'autofinancement n'est pas externe.",
+      "trap": "desintermediation",
+      "id": "financement-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Dans un système financier orienté banque :",
+        "Quelles caractéristiques sont celles d'un système orienté banque ?"
+      ],
+      "ok": [
+        "Le financement est indirect",
+        "Le capital des entreprises est concentré",
+        "La gestion des risques s'opère par mutualisation",
+        "Les relations sont bilatérales et fondées sur l'information privée"
+      ],
+      "ko": [
+        "Le financement est direct",
+        "Le capital des entreprises est fragmenté",
+        "La gestion des risques s'opère par transfert",
+        "Les relations sont multilatérales et fondées sur les prix de marché"
+      ],
+      "koWhy": [
+        "C'est l'orientation marché.",
+        "C'est l'orientation marché.",
+        "C'est l'orientation marché.",
+        "C'est l'orientation marché."
+      ],
+      "why": "Orienté banque : rencontre indirecte via les IF, information privée, mutualisation, capital concentré, banques universelles. Chaque distracteur décrit l'orientation marché.",
+      "id": "systfin-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Ce qui différencie les systèmes financiers d'un pays à l'autre :",
+        "Que retenir de la comparaison des systèmes financiers nationaux ?"
+      ],
+      "ok": [
+        "Ne tient pas vraiment à l'opposition « orientation banque » / « orientation marché », peu discriminante",
+        "Tient plus au mode d'intermédiation (bancaire / non bancaire) qu'à la part de l'intermédiation totale",
+        "S'accompagne d'une convergence vers plus de mixité banque / marché, pas vers moins de banques"
+      ],
+      "ko": [
+        "Tient à l'opposition « orientation banque » / « orientation marché », distinction très discriminante",
+        "Tient moins au mode d'intermédiation (bancaire / non bancaire) qu'à la part de l'intermédiation totale",
+        "S'accompagne d'une convergence vers l'orientation marché, avec le recul progressif des banques",
+        "Se résume pour l'essentiel au degré de développement des marchés boursiers nationaux"
+      ],
+      "koWhy": [
+        "Inversé : très peu discriminante.",
+        "Inversé.",
+        "Faux : pas d'uniformisation vers l'orientation marché.",
+        "Réducteur et faux."
+      ],
+      "why": "Les écarts entre pays tiennent bien plus aux modalités de l'intermédiation (banques ou autres IF) qu'aux financements externes dans leur ensemble.",
+      "trap": "desintermediation",
+      "id": "systfin-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 3,
+      "q": [
+        "Pourquoi le cours conteste-t-il la thèse d'une « désintermédiation » financière ?",
+        "La désintermédiation est-elle confirmée empiriquement : qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "La part des financements intermédiés est restée assez stable, près de 70 % en Europe",
+        "La baisse des crédits a été compensée par la hausse des titres achetés par les IF",
+        "Mesurée en valeur, la part intermédiée est biaisée à la baisse par la valorisation boursière",
+        "La baisse des crédits concerne surtout les administrations publiques (effet de structure)"
+      ],
+      "ko": [
+        "La part des crédits bancaires dans les financements externes s'est effondrée partout",
+        "Il faut mesurer le taux d'intermédiation en valeur plutôt qu'en volume",
+        "Les placements des ménages sont devenus majoritairement détenus en direct",
+        "La baisse des crédits concerne surtout les entreprises non financières"
+      ],
+      "koWhy": [
+        "Faux : les écarts sont limités et compensés par les titres.",
+        "Inversé : en volume.",
+        "Faux : 70 à 80 % intermédiés.",
+        "Inversé : surtout les APU."
+      ],
+      "why": "Pas de désintermédiation : stabilité autour de 70 %, substitution crédits → titres achetés par les IF, biais de valorisation (mesurer en volume), effet de structure APU, placements des ménages intermédiés à 70-80 %.",
+      "trap": "desintermediation",
+      "id": "systfin-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "La mesure du développement financier :",
+        "Comment mesure-t-on le développement financier ?"
+      ],
+      "ok": [
+        "S'effectue souvent par le ratio crédit / PIB, mesure étroite mais aisément disponible",
+        "Peut mobiliser des indicateurs de taille, d'activité et d'efficience, pour banques et marchés",
+        "Peut aussi servir d'indicateur avancé d'instabilité financière"
+      ],
+      "ko": [
+        "S'effectue souvent par le ratio crédit / PIB, car c'est une mesure large de la finance",
+        "Fournit toujours un excellent indicateur avancé de la croissance économique future",
+        "Se limite en pratique à la capitalisation boursière rapportée au PIB",
+        "Ne concerne que les intermédiaires financiers, jamais les marchés de titres"
+      ],
+      "koWhy": [
+        "Faux : c'est une mesure étroite.",
+        "Faux : au-delà d'un seuil, le lien s'inverse.",
+        "Réducteur.",
+        "Faux : indicateurs de marché aussi."
+      ],
+      "why": "Crédit / PIB : étroit mais disponible. Batterie d'indicateurs (taille, activité, efficience, concentration). Dans les travaux de la BRI, le crédit / PIB est un indicateur du cycle financier et d'instabilité.",
+      "trap": "lineaire",
+      "id": "systfin-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "systfin",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Qui oppose une « économie d'endettement » à une « économie de marchés de capitaux » ?",
+        "Quelles associations d'auteurs à la typologie des systèmes financiers sont exactes ?"
+      ],
+      "ok": [
+        "John Hicks (1974) : économie d'endettement / économie de marchés de capitaux",
+        "Allen & Gale, Levine, Rajan & Zingales : bank-based / market-based",
+        "Levine (2002) : la structure n'est pas la variable pertinente"
+      ],
+      "ko": [
+        "Irving Fisher (1933) : économie d'endettement / économie de marchés de capitaux",
+        "Hyman Minsky : bank-based / market-based",
+        "Levine (2002) : l'orientation marché est toujours supérieure",
+        "La Porta et al. : l'orientation banque est toujours supérieure"
+      ],
+      "koWhy": [
+        "Fisher : la debt deflation (chapitre 3).",
+        "Minsky : l'instabilité financière.",
+        "Faux : Levine conclut que la question n'est pas la bonne.",
+        "Faux : ils relient le droit au développement financier."
+      ],
+      "why": "Hicks (1974) pour la première typologie ; Allen & Gale (2000), Levine (2002), Rajan & Zingales (2003) pour bank-based / market-based.",
+      "trap": "date-auteur",
+      "id": "systfin-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levine",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Que conclut Levine (2002) dans son article sur le choix entre systèmes orientés banque et orientés marché ?",
+        "Quel est le principal résultat de Levine (2002) ?"
+      ],
+      "ok": [
+        "La structure financière n'est pas la variable pertinente pour expliquer la croissance",
+        "Le niveau global de développement financier explique les écarts de croissance",
+        "Ses estimations confortent la « financial services view »",
+        "La composante légale du développement financier est liée positivement à la croissance"
+      ],
+      "ko": [
+        "Les systèmes orientés marché assurent une croissance plus forte",
+        "Les systèmes orientés banque assurent une croissance plus forte",
+        "Le développement financier n'a aucun lien avec la croissance de long terme",
+        "Le système légal n'influence en rien le développement financier"
+      ],
+      "koWhy": [
+        "Faux : la question du titre n'est pas la bonne.",
+        "Faux : même réponse.",
+        "Faux : il trouve un lien fort avec le développement global.",
+        "Faux : la composante légale est liée à la croissance."
+      ],
+      "why": "Levine (2002) : distinguer les pays par leur structure n'explique pas les écarts de croissance ; les distinguer par leur niveau global de développement financier le fait. Le cadre légal influence le développement financier, qui influence la croissance.",
+      "trap": "lineaire",
+      "id": "levine-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levine",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Associez chaque « vue » de Levine (2002) à ses auteurs :",
+        "Quelles associations entre points de vue et auteurs sont exactes (Levine, 2002) ?"
+      ],
+      "ok": [
+        "Bank-based view : Diamond, Rajan, Zingales, Stiglitz",
+        "Market-based view : Tirole, Obstfeld, Jensen",
+        "Financial services view : Merton, Bodie, Levine",
+        "Legal system view : La Porta, Lopez-de-Silanes, Shleifer, Vishny"
+      ],
+      "ko": [
+        "Bank-based view : Tirole, Obstfeld, Jensen",
+        "Market-based view : Diamond, Rajan, Zingales",
+        "Financial services view : La Porta, Shleifer, Vishny",
+        "Legal system view : Merton, Bodie, Levine"
+      ],
+      "koWhy": [
+        "Inversé avec la market-based view.",
+        "Inversé avec la bank-based view.",
+        "Inversé avec la legal system view.",
+        "Inversé avec la financial services view."
+      ],
+      "why": "Quatre vues : bank-based (Diamond, Rajan, Zingales, Stiglitz), market-based (Tirole, Obstfeld, Jensen), financial services (Merton, Bodie, Levine), legal system (La Porta et al.).",
+      "trap": "auteur-role",
+      "id": "levine-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levine",
+      "ch": 2,
+      "diff": 3,
+      "q": [
+        "Quels arguments le cours range-t-il contre la « market-based view » ?",
+        "Quelles critiques peut-on adresser à l'orientation marché selon Levine (2002) ?"
+      ],
+      "ok": [
+        "La révélation de l'information par les prix réduit l'incitation à rechercher de l'information",
+        "La liquidité du marché décourage un contrôle rigoureux des entreprises",
+        "Les investisseurs peuvent se débarrasser facilement de leurs titres au lieu de contrôler"
+      ],
+      "ko": [
+        "Le risque que les grandes banques deviennent « too big to fail »",
+        "La collusion entre les banques et les entreprises qu'elles financent, au détriment des épargnants",
+        "L'exploitation de rentes par les banques, défavorable à l'innovation et à la concurrence",
+        "Les banques résolvent mieux que les marchés le problème du passager clandestin informationnel"
+      ],
+      "koWhy": [
+        "Argument contre la bank-based view.",
+        "Argument contre la bank-based view.",
+        "Argument contre la bank-based view.",
+        "Argument pour la bank-based view."
+      ],
+      "why": "Contre les marchés : les prix révèlent l'information (passager clandestin informationnel), la liquidité décourage le contrôle. Les distracteurs sont les arguments contre les banques, ou pour les banques.",
+      "trap": "auteur-role",
+      "id": "levine-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levine",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Comment Demirgüç-Kunt & Levine (1999) classent-ils les systèmes financiers ?",
+        "Que retenir de la classification de Demirgüç-Kunt & Levine (1999) ?"
+      ],
+      "ok": [
+        "Ils rapportent le développement bancaire au développement boursier",
+        "Un ratio élevé peut aussi traduire des marchés sous-développés, d'où une troisième catégorie",
+        "Ils distinguent systèmes peu développés, orientés banque et orientés marché",
+        "En s'enrichissant, les pays convergeraient vers l'orientation marché"
+      ],
+      "ko": [
+        "Ils classent les pays selon leur seule capitalisation boursière",
+        "Un ratio élevé traduit toujours un secteur bancaire très développé",
+        "Ils concluent que les pays riches convergent vers l'orientation banque",
+        "Leur vision permet d'expliquer l'essor simultané des banques et des marchés en Europe"
+      ],
+      "koWhy": [
+        "Faux : ratio banques / marchés.",
+        "Faux : c'est justement le problème de ce ratio.",
+        "Inversé.",
+        "Faux : c'est la limite de leur vision linéaire."
+      ],
+      "why": "Ratio (actifs bancaires / PIB) / (capitalisation / PIB) ; trois catégories ; convergence vers le marché avec le revenu. Vision linéaire, qui n'explique pas le développement concomitant des IF et des marchés dans les années 1990 en Europe.",
+      "id": "levine-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "laporta",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "L'approche « Law and Finance » met en avant :",
+        "Que défendent La Porta, Lopez-de-Silanes, Shleifer et Vishny (1997) ?"
+      ],
+      "ok": [
+        "La tradition juridique comme déterminant du développement financier",
+        "La flexibilité du droit coutumier (Common law), qui facilite le développement financier",
+        "La meilleure protection des investisseurs en Common law, bénéfique aux contrats financiers",
+        "Une variable souvent utilisée comme instrument dans les études empiriques"
+      ],
+      "ko": [
+        "La plus grande protection des investisseurs privés dans le droit civil",
+        "La supériorité du droit civil français pour développer les marchés de titres",
+        "L'absence de lien entre système juridique et structure financière",
+        "La religion comme seul déterminant du développement financier"
+      ],
+      "koWhy": [
+        "Inversé : meilleure protection en Common law.",
+        "Inversé : la civil law serait un frein.",
+        "Faux : c'est leur thèse centrale.",
+        "Faux : Weber est un autre déterminant, pas le seul."
+      ],
+      "why": "Law and Finance : le droit détermine la protection des investisseurs, donc la faisabilité des contrats et la taille des marchés. La variable légale sert d'instrument pour traiter l'endogénéité finance-croissance.",
+      "trap": "auteur-role",
+      "id": "laporta-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "laporta",
+      "ch": 2,
+      "diff": 3,
+      "q": [
+        "Quelles limites le cours oppose-t-il à la thèse de La Porta et al. (1997) ?",
+        "Pourquoi le droit n'est-il pas un déterminant décisif du système financier selon le cours ?"
+      ],
+      "ok": [
+        "Des marchés européens développés au début du XXe siècle se sont contractés à droit inchangé",
+        "Le retour des financements de marché en Europe s'est fait sans changement majeur du droit",
+        "La French civil law n'a pas empêché la transformation du système financier français",
+        "Un même cadre juridique peut porter des architectures financières très différentes"
+      ],
+      "ko": [
+        "Le droit n'a en réalité aucune importance pour la conclusion des contrats financiers",
+        "L'état de droit n'est pas un préalable au développement des contrats financiers",
+        "La Common law protège moins bien les créanciers et les actionnaires minoritaires",
+        "Le droit civil favorise la dispersion du capital des entreprises entre petits actionnaires"
+      ],
+      "koWhy": [
+        "Excessif : l'état de droit est un préalable.",
+        "Faux : il l'est, incontestablement.",
+        "Inversé.",
+        "Inversé : il inciterait à la concentration du capital."
+      ],
+      "why": "L'histoire montre des architectures changeantes à droit constant. Mais l'état de droit reste un préalable nécessaire (Levine, 1999).",
+      "id": "laporta-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "laporta",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Outre le droit, quels autres déterminants des systèmes financiers le cours cite-t-il ?",
+        "Quels facteurs, autres que juridiques, influencent la structure d'un système financier ?"
+      ],
+      "ok": [
+        "La culture : plus d'aversion à l'incertitude va avec l'orientation banque",
+        "La religion (Weber, L'éthique protestante et l'esprit du capitalisme)",
+        "La structure productive et la dépendance au financement externe",
+        "Les régimes de retraite : la capitalisation accroît le besoin de marchés"
+      ],
+      "ko": [
+        "La culture : plus d'aversion à l'incertitude va avec l'orientation marché",
+        "Les retraites par répartition, qui accroissent le besoin de marchés financiers",
+        "Le régime de change, seul déterminant de l'orientation financière",
+        "Le niveau des taux directeurs fixés par la banque centrale"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Inversé : c'est la capitalisation.",
+        "Hors du cours.",
+        "Hors du cours."
+      ],
+      "why": "Culture, religion, structure productive, protection sociale.",
+      "id": "laporta-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "goldsmith",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "Jusqu'à la crise financière de 2007-2008, la plupart des études empiriques sur le lien entre finance et croissance concluaient à :",
+        "Quel était le consensus d'avant-crise sur le lien finance-croissance ?"
+      ],
+      "ok": [
+        "Une corrélation positive et forte entre finance et croissance",
+        "Un lien de causalité : la finance « cause » la croissance",
+        "Un consensus largement forgé par des travaux de la Banque mondiale"
+      ],
+      "ko": [
+        "Une corrélation faible entre finance et croissance",
+        "Un lien de causalité : la croissance « cause » la finance",
+        "Une contribution faible de la finance, due à l'excès de crédit immobilier",
+        "L'absence de tout consensus entre économistes"
+      ],
+      "koWhy": [
+        "Inversé : forte.",
+        "C'est la thèse de Joan Robinson, minoritaire.",
+        "C'est un argument de l'après-crise (mauvaise allocation).",
+        "Faux : le débat semblait quasiment clos au début des années 2000."
+      ],
+      "why": "Consensus d'avant-crise : + de finance = + de croissance, et la finance cause la croissance ; effets de seuil peu interrogés.",
+      "trap": "lineaire",
+      "id": "goldsmith-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "goldsmith",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Associez correctement les auteurs à leur apport sur le lien finance-croissance :",
+        "Quelles associations entre études et résultats sont exactes ?"
+      ],
+      "ok": [
+        "Goldsmith (1969) : corrélation positive et significative, sur 36 pays de 1860 à 1963",
+        "King & Levine (1993) : la taille du secteur financier en 1960 présageait la croissance future",
+        "Levine & Zervos (1998) : c'est la liquidité boursière, non la taille, qui est liée à la croissance",
+        "Rajan & Zingales (1998) : les secteurs dépendants du financement externe profitent le plus"
+      ],
+      "ko": [
+        "Goldsmith (1969) : preuve d'une causalité de la finance vers la croissance, sur 36 pays",
+        "King & Levine (1993) : la finance suit la croissance, sans jamais la précéder",
+        "Levine & Zervos (1998) : c'est la taille du marché boursier, et non sa liquidité, qui compte",
+        "Arcand et al. (1993) : la finance a toujours un effet positif sur la croissance future"
+      ],
+      "koWhy": [
+        "Faux : corrélation n'est pas causalité.",
+        "Inversé : elle la précède (« Schumpeter might be right »).",
+        "Faux : la liquidité, pas la taille.",
+        "Faux : Arcand et al. (2011) montrent l'effet de seuil."
+      ],
+      "why": "Goldsmith : corrélation (fruste). King & Levine : « Schumpeter might be right ». Levine & Zervos : taux de rotation. Rajan & Zingales : dépendance au financement externe.",
+      "trap": "date-auteur",
+      "id": "goldsmith-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "goldsmith",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Qui défend quoi dans le débat « la poule et l'œuf » entre finance et croissance ?",
+        "Quelles positions historiques sur le lien finance-croissance sont correctement attribuées ?"
+      ],
+      "ok": [
+        "Schumpeter : les institutions financières sont nécessaires à l'innovation et à la croissance",
+        "Joan Robinson : « là où l'entreprise mène, la finance suit »",
+        "McKinnon et Shaw (1973) : la répression financière bride le développement financier"
+      ],
+      "ko": [
+        "Schumpeter : la finance ne fait que suivre la croissance",
+        "Joan Robinson : la finance est la condition préalable de l'innovation",
+        "McKinnon et Shaw (1973) : la libéralisation financière freine la croissance",
+        "Goldsmith (1969) : la répression financière favorise la croissance"
+      ],
+      "koWhy": [
+        "Inversé : c'est Robinson.",
+        "Inversé : c'est Schumpeter.",
+        "Inversé : c'est la répression qu'ils critiquent.",
+        "Faux : Goldsmith mesure une corrélation."
+      ],
+      "why": "Schumpeter : finance → croissance. Robinson : croissance → finance. Hicks, McKinnon, Shaw : critique de la répression financière.",
+      "trap": "date-auteur",
+      "id": "goldsmith-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "arcand",
+      "ch": 2,
+      "diff": 1,
+      "q": [
+        "D'après Arcand, Berkes et Panizza (2011), la relation entre finance et croissance est :",
+        "Quelle forme prend la relation finance-croissance chez Arcand, Berkes & Panizza ?"
+      ],
+      "ok": [
+        "Non linéaire",
+        "De la forme d'une courbe en cloche",
+        "Croissante jusqu'à un seuil du ratio crédit / PIB, puis décroissante"
+      ],
+      "ko": [
+        "Linéaire et toujours positive",
+        "Toujours décroissante",
+        "Croissante sans limite, avec des rendements constants",
+        "Nulle quel que soit le niveau de développement financier"
+      ],
+      "koWhy": [
+        "C'est l'ancien consensus.",
+        "Faux : positive jusqu'au seuil.",
+        "C'est l'ancien consensus.",
+        "Faux : positive puis négative."
+      ],
+      "why": "Courbe en cloche : l'effet marginal devient négatif au-delà de 110 % de crédit au secteur privé / PIB.",
+      "trap": "lineaire",
+      "id": "arcand-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "arcand",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Qu'établissent Arcand, Berkes & Panizza dans leur article sur le « trop de finance » ?",
+        "Quels résultats de l'article d'Arcand, Berkes & Panizza (2011) sont exacts ?"
+      ],
+      "ok": [
+        "L'effet marginal de la finance sur la croissance devient négatif au-delà de 110 % de crédit privé / PIB",
+        "Le résultat est robuste à différents estimateurs et à des données pays comme industries",
+        "Les économies avancées en difficulté après la crise étaient au-dessus du seuil",
+        "L'anticipation d'un sauvetage peut rendre le secteur financier trop grand"
+      ],
+      "ko": [
+        "L'effet marginal de la finance devient négatif au-delà de 50 % de crédit privé / PIB",
+        "Le résultat ne tient que pour les pays en développement, pas pour les économies avancées",
+        "Les économies avancées en difficulté après la crise étaient toutes sous le seuil",
+        "Le rationnement du crédit empêche tout excès de taille du secteur financier"
+      ],
+      "koWhy": [
+        "Faux : 110 %.",
+        "Faux : pays et industries, économies avancées comprises.",
+        "Inversé.",
+        "Faux : même avec rationnement, le bailout fait grossir le secteur."
+      ],
+      "why": "Seuil de 110 %, robustesse, économies en crise au-dessus du seuil, modèle de bailout.",
+      "trap": "lineaire",
+      "id": "arcand-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "arcand",
+      "ch": 2,
+      "diff": 3,
+      "q": [
+        "Comment la littérature d'après-crise a-t-elle relâché l'ancien consensus finance-croissance ?",
+        "Vanishing effect, relation négative, seuil : qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Le « vanishing effect » : la relation positive s'affaiblit jusqu'à devenir non significative",
+        "La relation négative au-delà d'un seuil est un relâchement fort du consensus",
+        "Rousseau & Wachtel (2011) ne retrouvent pas le lien positif sur les données récentes",
+        "Cline (2015) y voit une illusion statistique liée au terme quadratique"
+      ],
+      "ko": [
+        "Le « vanishing effect » désigne une relation devenue négative",
+        "Rousseau & Wachtel (2011) confirment le lien positif sur les données 1990-2000",
+        "Cline (2015) apporte la preuve définitive du seuil de 110 %",
+        "Le nouveau consensus nie tout effet positif de la finance, à tout niveau"
+      ],
+      "koWhy": [
+        "Faux : relation qui disparaît, pas négative.",
+        "Inversé.",
+        "Faux : il conteste le résultat.",
+        "Faux : effet positif jusqu'au seuil."
+      ],
+      "why": "Relâchement faible : vanishing effect (Rousseau & Wachtel). Relâchement fort : relation négative au-delà d'un seuil (Arcand et al.). Critique : Cline (2015), biais du terme quadratique.",
+      "trap": "lineaire",
+      "id": "arcand-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Pourquoi le secteur financier a-t-il connu une croissance si forte selon Boucher et al. (2013) ?",
+        "Quelles raisons de l'expansion de la sphère financière sont avancées dans « Quand la finance ne sert plus la croissance » ?"
+      ],
+      "ok": [
+        "La procyclicité du secteur financier et le canal de la prise de risque",
+        "La sous-taxation du secteur bancaire, exempté de TVA dans la plupart des pays",
+        "Des garanties publiques assimilables à des subventions implicites",
+        "Le relâchement de la réglementation (modèles internes, conduits hors bilan)"
+      ],
+      "ko": [
+        "Une surtaxation du secteur bancaire qui l'a poussé à croître pour compenser",
+        "Le durcissement de la réglementation prudentielle au cours des années 1990",
+        "La disparition des garanties publiques après la crise de 1929",
+        "L'interdiction du shadow banking à partir du milieu des années 2000"
+      ],
+      "koWhy": [
+        "Inversé : sous-taxé.",
+        "Inversé : relâchement.",
+        "Faux : garanties explicites et implicites.",
+        "Faux : il s'est étendu jusqu'à la crise."
+      ],
+      "why": "Procyclicité, sous-taxation et subventions implicites, relâchement réglementaire.",
+      "id": "fincroiss-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Pourquoi un secteur financier trop développé peut-il nuire à la croissance ?",
+        "Quels canaux expliquent qu'au-delà d'un seuil la finance nuise à la croissance ?"
+      ],
+      "ok": [
+        "Il accroît l'instabilité et la fréquence des crises",
+        "Il détourne les talents des secteurs productifs (Tobin, 1984)",
+        "Il oriente le crédit vers l'immobilier plutôt que vers les entreprises innovantes",
+        "Ses rendements sociaux peuvent être inférieurs à ses rendements privés"
+      ],
+      "ko": [
+        "Il réduit mécaniquement les salaires versés dans le secteur financier",
+        "Il supprime la volatilité macroéconomique grâce au partage des risques",
+        "Il oriente le crédit vers les jeunes entreprises innovantes plutôt que vers l'immobilier",
+        "Il réduit les inégalités de revenus en démocratisant l'accès au crédit"
+      ],
+      "koWhy": [
+        "Inversé : primes salariales élevées.",
+        "Inversé : volatilité accrue.",
+        "Inversé.",
+        "Inversé : il les accroît."
+      ],
+      "why": "Instabilité, mauvaise allocation des talents, crédit mal orienté, inégalités.",
+      "id": "fincroiss-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 3,
+      "q": [
+        "Selon Benoît Cœuré (2014), pourquoi l'effet de la finance sur la croissance est-il non linéaire ?",
+        "Quelles explications du « trop de finance » Benoît Cœuré avance-t-il ?"
+      ],
+      "ok": [
+        "L'extension vers des activités de non-intermédiation comme le trading, plus risquées",
+        "Des rentes informationnelles et des salaires qui détournent les talents",
+        "Une mauvaise allocation du crédit vers les ménages et l'immobilier",
+        "Une complexité et une interconnexion qui croissent avec la taille"
+      ],
+      "ko": [
+        "Une concurrence trop faible qui renforce la valeur de franchise des banques",
+        "Une pénurie de liquidité due à une politique monétaire restrictive",
+        "Un crédit trop concentré sur les jeunes entreprises innovantes",
+        "Une taille du secteur sans lien avec sa complexité"
+      ],
+      "koWhy": [
+        "Inversé : la concurrence érode la valeur de franchise et pousse au risque.",
+        "Inversé : liquidité abondante.",
+        "Inversé.",
+        "Faux : la complexité croît avec la taille."
+      ],
+      "why": "Cinq explications : non-intermédiation, rentes et talents, mauvaise allocation du crédit, prise de risque, complexité.",
+      "id": "fincroiss-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Que conclut le rapport de l'ESRB sur la surbancarisation de l'Europe (2014) ?",
+        "Quels constats fait l'ESRB sur le système bancaire européen ?"
+      ],
+      "ok": [
+        "Le système bancaire européen est devenu anormalement grand, concentré et endetté",
+        "Sa croissance depuis 1996 est entièrement due aux 20 plus grandes banques",
+        "La structure financière européenne est devenue plus orientée banque",
+        "Les grandes banques universelles sont davantage exposées au risque systémique"
+      ],
+      "ko": [
+        "Le système bancaire européen est plus petit que celui des États-Unis",
+        "L'Europe est devenue plus orientée marché, comme le reste du monde",
+        "La structure financière n'a aucun lien avec la croissance",
+        "Les petites banques spécialisées contribuent le plus au risque systémique"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Inversé : à rebours de la tendance mondiale.",
+        "Faux : les systèmes très bancarisés vont avec une croissance un peu plus faible.",
+        "Inversé."
+      ],
+      "why": "ESRB : 274 % du PIB contre 83 % aux États-Unis ; concentration et levier accrus ; biais bancaire croissant à rebours du monde ; banques universelles plus risquées.",
+      "id": "fincroiss-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fincroiss",
+      "ch": 2,
+      "diff": 2,
+      "q": [
+        "Quels instruments proposent Boucher et al. (2013) pour contenir la taille du secteur financier ?",
+        "Comment remettre la finance au service de l'économie réelle selon « Quand la finance ne sert plus la croissance » ?"
+      ],
+      "ok": [
+        "Surveiller les tendances des ratios crédit / PIB et capitalisation / PIB",
+        "Renforcer les règles de marché et encadrer le shadow banking",
+        "Limiter la taille des établissements pour rendre la faillite à nouveau possible",
+        "Taxer les transactions financières ou les activités financières"
+      ],
+      "ko": [
+        "Fixer un seuil précis de taille optimale du secteur à ne jamais dépasser",
+        "Supprimer toute exigence de fonds propres pour relancer le crédit",
+        "Multiplier les plates-formes de négociation pour accroître les volumes",
+        "Exonérer les banques de toute taxation pour renforcer leur rentabilité"
+      ],
+      "koWhy": [
+        "Faux : pas besoin de définir un seuil, c'est la tendance qui compte.",
+        "Inversé.",
+        "C'est ce qui a fait exploser les volumes (Reg NMS, MIFID).",
+        "Inversé : le secteur est déjà sous-taxé."
+      ],
+      "why": "Tendances à surveiller, règles (MIFID 2, compensation, shadow banking), taille des établissements (500 × 100 plutôt que 100 × 500), taxation (TTF, FAT).",
+      "id": "fincroiss-005"
     }
   ]
 }
