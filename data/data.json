@@ -329,6 +329,26 @@
       "name": "Bernanke : accélérateur financier & canal du crédit",
       "ch": 3,
       "mat": "mbf"
+    },
+    "regjust": {
+      "name": "Pourquoi réguler les banques ?",
+      "ch": 4,
+      "mat": "mbf"
+    },
+    "bale": {
+      "name": "Microprudentiel : de Bâle 1 à Bâle 3",
+      "ch": 4,
+      "mat": "mbf"
+    },
+    "separation": {
+      "name": "Séparation des activités bancaires",
+      "ch": 4,
+      "mat": "mbf"
+    },
+    "macropru": {
+      "name": "Macroprudentiel, supervision & Union bancaire",
+      "ch": 4,
+      "mat": "mbf"
     }
   },
   "BOTS": [
@@ -13930,6 +13950,221 @@
       "why": "Avec Greenspan, il jugeait impossible, voire dangereux, de faire éclater une bulle (consensus de Jackson Hole).",
       "trap": "cua-law",
       "id": "bernanke-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 1,
+      "q": [
+        "L'industrie bancaire est un monopole naturel, ce qui justifie sa réglementation.",
+        "Les rendements d'échelle croissants de la banque justifient à eux seuls sa réglementation."
+      ],
+      "a": false,
+      "why": "Les études trouvent des économies d'échelle mineures ou partielles, pas de rendements croissants.",
+      "id": "regjust-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Pour une banque, le coût social d'une faillite est bien supérieur à son coût privé.",
+        "Contrairement à une entreprise ordinaire, la faillite d'une banque coûte bien plus à la société qu'à ses propriétaires."
+      ],
+      "a": true,
+      "why": "Contagion, bien public, risque systémique.",
+      "id": "regjust-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "La garantie des dépôts et le prêteur en dernier ressort sont deux formes d'intervention publique dans le secteur bancaire.",
+        "Outre la réglementation, l'État intervient via la garantie des dépôts et le prêteur en dernier ressort."
+      ],
+      "a": true,
+      "why": "Trois formes : réglementation, garantie des dépôts, prêteur en dernier ressort.",
+      "id": "regjust-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "La décision de ne pas sauver Lehman Brothers en septembre 2008 fait consensus comme un bon choix.",
+        "Tous les économistes jugent que laisser tomber Lehman Brothers a été la bonne décision."
+      ],
+      "a": false,
+      "why": "Elle montrait que le sauvetage n'était pas systématique, mais beaucoup y voient une erreur qui a amplifié la crise.",
+      "id": "regjust-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 1,
+      "q": [
+        "Le ratio de levier de Bâle 3 impose des fonds propres d'au moins 3 % de l'actif total.",
+        "Bâle 3 introduit un ratio fonds propres / actif total non pondéré d'au moins 3 %."
+      ],
+      "a": true,
+      "why": "Actif jusqu'à 33 fois les fonds propres ; Admati & Hellwig préconisaient 20 à 30 %.",
+      "trap": "bale-version",
+      "id": "bale-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Le LCR vise à ce que les banques résistent à une crise de liquidité sévère d'environ 30 jours.",
+        "Le ratio de liquidité à court terme de Bâle 3 couvre environ un mois de tensions."
+      ],
+      "a": true,
+      "why": "Le NSFR, plus structurel, vise à réduire les écarts de maturité.",
+      "trap": "bale-version",
+      "id": "bale-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Le coussin contracyclique de Bâle 3 est compris entre 0 et 2,5 % et fixé par les autorités nationales.",
+        "Bâle 3 laisse aux autorités nationales le soin de fixer un coussin contracyclique de 0 à 2,5 %."
+      ],
+      "a": true,
+      "why": "Micro-touche de macroprudentiel, avec les surcharges systémiques.",
+      "trap": "bale-version",
+      "id": "bale-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Ce sont les accords de Bâle 3 qui ont, pour la première fois, autorisé les modèles internes de risque.",
+        "Les modèles internes d'évaluation des risques sont une innovation de Bâle 3."
+      ],
+      "a": false,
+      "why": "C'est Bâle 2 (et dès 1996 pour les risques de marché selon Boucher et al.).",
+      "trap": "bale-version",
+      "id": "bale-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Les études d'impact du Comité de Bâle ont confirmé les prévisions apocalyptiques des banques sur Bâle 3.",
+        "Bâle 3 a provoqué la forte contraction du crédit annoncée par l'IIF."
+      ],
+      "a": false,
+      "why": "Les ajustements se sont faits sans trop de problème ; les hypothèses de l'IIF étaient très contestables.",
+      "id": "bale-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "separation",
+      "ch": 4,
+      "diff": 1,
+      "q": [
+        "Le rapport Liikanen préfère cantonner le « lion » plutôt que la « gazelle ».",
+        "Pour le rapport Liikanen, ce sont les activités de marché risquées qu'il faut isoler."
+      ],
+      "a": true,
+      "why": "Le lion = les activités de marché ; la gazelle = la banque de détail.",
+      "trap": "date-auteur",
+      "id": "separation-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "separation",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Le Glass-Steagall Act a durablement réduit la taille du secteur financier américain dans son ensemble.",
+        "Séparer les activités bancaires réduit mécaniquement la taille de la finance."
+      ],
+      "a": false,
+      "why": "Il a réduit la taille des banques, pas celle du secteur financier : plus d'IF non bancaires aux États-Unis.",
+      "id": "separation-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "separation",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Les règles Volcker font partie du Dodd-Frank Act.",
+        "Les règles Volcker ont été adoptées aux États-Unis dans le cadre du Dodd-Frank Act de 2010."
+      ],
+      "a": true,
+      "why": "Limiter le trading pour compte propre et les investissements dans les hedge funds et le private equity.",
+      "trap": "date-auteur",
+      "id": "separation-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 1,
+      "q": [
+        "Le macroprudentiel emprunte à la politique monétaire la dimension macro de son objectif et au microprudentiel celle de ses instruments.",
+        "La politique macroprudentielle vise la stabilité financière globale avec des instruments de nature microprudentielle."
+      ],
+      "a": true,
+      "why": "Chaînon manquant entre microprudentiel et politique monétaire.",
+      "trap": "micro-macro",
+      "id": "macropru-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "La garantie européenne des dépôts de l'Union bancaire repose sur un fonds européen unique pleinement opérationnel.",
+        "Un fonds européen commun garantit les dépôts de toute la zone euro."
+      ],
+      "a": false,
+      "why": "Harmonisée, elle reste tributaire des fonds nationaux : on ne s'achemine guère vers un fonds européen.",
+      "id": "macropru-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "La crise a montré qu'un modèle de supervision (sectoriel, intégré, Twin Peaks) était nettement supérieur aux autres.",
+        "Le modèle intégré de supervision s'est révélé supérieur pendant la crise."
+      ],
+      "a": false,
+      "why": "Aucune supériorité démontrée ; le facteur décisif est la proximité entre banque centrale et superviseur.",
+      "id": "macropru-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "En France, le Haut Conseil de stabilité financière a remplacé le Corefris avec la loi de séparation et de régulation de 2013.",
+        "Le HCSF est l'autorité macroprudentielle française issue de la loi bancaire de 2013."
+      ],
+      "a": true,
+      "why": "Corefris (2010) → HCSF (juillet 2013).",
+      "id": "macropru-011"
     }
   ],
   "SENS": [
@@ -17479,6 +17714,57 @@
       "why": "Les bilans se dégradent : la prime augmente, avec des effets d'autant plus dépressifs que l'endettement est élevé.",
       "trap": "canal",
       "id": "bernanke-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "ctx": "Ratio FP / RWA (Bâle 2) avec modèles internes",
+      "shock": "La banque optimise ses modèles pour abaisser les pondérations de ses actifs",
+      "var": "Fonds propres exigés pour un même actif total",
+      "a": "down",
+      "why": "Les RWA baissent, donc les fonds propres exigés aussi : le ratio mord moins.",
+      "trap": "rwa-actif",
+      "id": "bale-013"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "ctx": "Banque soumise à un ratio FP / actif total (ratio de levier)",
+      "shock": "La banque remplace des prêts aux entreprises par des titres souverains, à actif total inchangé",
+      "var": "Fonds propres exigés par le ratio de levier",
+      "a": "same",
+      "why": "Le ratio de levier ne pondère pas les actifs : l'exigence ne change pas.",
+      "trap": "rwa-actif",
+      "id": "bale-014"
+    },
+    {
+      "mat": "mbf",
+      "cat": "separation",
+      "ch": 4,
+      "diff": 2,
+      "ctx": "Séparation stricte des activités bancaires (type Glass-Steagall)",
+      "shock": "Mise en œuvre de la séparation",
+      "var": "Taille du secteur financier dans son ensemble",
+      "a": "ambig",
+      "why": "La taille des banques baisse, mais d'autres IF non bancaires peuvent reprendre les activités : l'effet sur le secteur est ambigu.",
+      "id": "separation-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "ctx": "Politique macroprudentielle, dimension temporelle",
+      "shock": "Phase d'essor du cycle du crédit",
+      "var": "Coussin contracyclique de fonds propres exigé",
+      "a": "up",
+      "why": "On constitue des matelas de sécurité dans les bonnes périodes, utilisables dans les mauvaises.",
+      "trap": "micro-macro",
+      "id": "macropru-012"
     }
   ],
   "ORDRE": [
@@ -18466,6 +18752,35 @@
       ],
       "why": "Hausse des prix → baisse du levier → achats → bilans plus gros → hausse des prix.",
       "id": "canaux-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 1,
+      "title": "Remettre dans l'ordre chronologique les étapes de la régulation bâloise",
+      "steps": [
+        "Création du Comité de Bâle après la faillite de Herstatt",
+        "Ratio Cooke : 8 % des crédits pondérés",
+        "Bâle 2 : ratio McDonough et modèles internes",
+        "Bâle 3 : fonds propres durcis, levier et liquidité"
+      ],
+      "why": "1974 → 1988 → 2004 → 2010 (finalisé en 2017).",
+      "id": "bale-015"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "title": "L'ordre de mise à contribution en cas de résolution bancaire dans l'Union bancaire",
+      "steps": [
+        "Actionnaires et créanciers hors déposants (bail-in, au moins 8 % des pertes)",
+        "Le fonds de résolution",
+        "L'argent public, en dernier recours (bail-out)"
+      ],
+      "why": "Plus de bail-in, moins de bail-out : les contribuables en dernier.",
+      "id": "macropru-013"
     }
   ],
   "OUVERTE": [
@@ -21391,6 +21706,84 @@
       ],
       "why": "Bernanke & Gertler (1989).",
       "id": "bernanke-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Quelles sont les justifications de l'intervention publique dans le secteur bancaire ?",
+        "Pourquoi les banques doivent-elles être réglementées ?"
+      ],
+      "model": "Pas de monopole naturel. Asymétries d'information : reportées sur des déposants dispersés qui ne peuvent contrôler et dont la ruée est déstabilisante. Externalités : coût social ≫ coût privé. D'où micro (protéger les déposants) et macro (prévenir le risque systémique), en organisant la faillite pour limiter l'aléa moral.",
+      "points": [
+        "pas de monopole naturel",
+        "asymétries / déposants",
+        "externalités",
+        "micro / macro",
+        "aléa moral / résolution"
+      ],
+      "why": "Chapitre 4, section 1.",
+      "id": "regjust-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 3,
+      "q": [
+        "Comparez Bâle 1, Bâle 2 et Bâle 3.",
+        "Comment la réglementation prudentielle a-t-elle évolué de Bâle 1 à Bâle 3 ?"
+      ],
+      "model": "Bâle 1 (Cooke, 1988) : FP ≥ 8 % des crédits pondérés, risque de crédit seul. Bâle 2 (2004) : assiette élargie (marché, opérationnel), modèles internes, FP/RWA ≥ 8 % mais moins contraignant. Bâle 3 (2010) : vrais fonds propres, 10,5 % avec le coussin de conservation, levier 3 %, LCR et NSFR, coussin contracyclique.",
+      "points": [
+        "Cooke",
+        "Bâle 2 : assiette et modèles internes",
+        "Bâle 3 : FP, levier, liquidité",
+        "critiques"
+      ],
+      "why": "Chapitre 4, section 2.B.",
+      "id": "bale-016"
+    },
+    {
+      "mat": "mbf",
+      "cat": "separation",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Présentez les propositions de séparation des activités bancaires et leurs limites.",
+        "Faut-il séparer les activités bancaires ?"
+      ],
+      "model": "Volcker (limiter le trading pour compte propre et les fonds), Vickers (protéger la banque de détail), Liikanen (cantonner le lion), loi française (isoler l'utile). Diagnostic solide (taille, complexité, fonds propres insuffisants, garantie indue). Limites : on réduit les banques, pas la finance ; pourquoi garder l'ivraie ? Taxer les bilans ?",
+      "points": [
+        "Volcker / Vickers / Liikanen / loi française",
+        "diagnostic",
+        "limites",
+        "taxation"
+      ],
+      "why": "Chapitre 4, section 2.C.",
+      "id": "separation-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 3,
+      "q": [
+        "Qu'est-ce que la politique macroprudentielle et en quoi se distingue-t-elle du microprudentiel ?",
+        "Présentez l'Union bancaire et ses limites."
+      ],
+      "model": "Micro : risques individuels, fonds propres et liquidité. Macro : risque systémique, objectif macro et instruments micro, dimension temporelle (coussins contracycliques, LTV, LTI) et transversale (surcharges systémiques). Union bancaire : MSU (BCE), MRU, garantie des dépôts ; limite : pas d'union budgétaire.",
+      "points": [
+        "micro / macro",
+        "temporel / transversal",
+        "instruments",
+        "MSU / MRU / garantie",
+        "limites"
+      ],
+      "why": "Chapitre 4, sections 3-4.",
+      "id": "macropru-014"
     }
   ],
   "ETOILE": [
@@ -25163,6 +25556,161 @@
           "kind": "resume",
           "title": "À retenir",
           "text": "Prime de financement externe dépendant de la richesse nette de l'emprunteur → accélérateur qui fait persister les chocs (Bernanke & Gertler). Open market → offre de prêts bancaires (Bernanke & Blinder). Nobel 2022."
+        }
+      ]
+    },
+    "regjust": {
+      "title": "Pourquoi réguler les banques ?",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Chapitre 4 : dans un secteur ordinaire, marché et auto-contrôle suffisent. Pas dans la banque. L'intervention publique y prend trois formes : **réglementation** (règles imposées pour la stabilité financière), **garantie des dépôts** (prévenir les paniques, indemniser les déposants), **prêteur en dernier ressort** (restaurer la liquidité en crise)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Trois défaillances de marché, deux pertinentes",
+          "text": "En économie publique, l'intervention se justifie par trois sources de défaillance :\n\n- **Monopole naturel** : l'industrie bancaire n'en est **pas** un. Malgré de lourds coûts fixes, les études trouvent des économies d'échelle mineures, pas de rendements croissants.\n- **Asymétries d'information** : levée entre prêteurs et emprunteurs ultimes, l'asymétrie est **reportée** entre la banque et ses déposants. Ceux-ci, clients dispersés à faible surface financière, ne peuvent pas contrôler la gestion des risques de leur banque ; leur seule sanction, la ruée, est très déstabilisante (Diamond & Dybvig). Il faut donc les représenter et les protéger.\n- **Externalités** : pour une entreprise ordinaire, coût privé ≈ coût social de la faillite ; pour une banque, **coût social ≫ coût privé** (contagion ; l'activité bancaire est un « bien public »)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Organiser la faillite plutôt que l'empêcher",
+          "text": "Protéger systématiquement les banques crée de l'**aléa moral**. Lehman Brothers (15 septembre 2008) : ne pas la sauver montrait que le sauvetage n'était pas systématique, mais beaucoup y voient une erreur qui a amplifié la crise.\n\nD'où les dispositifs de **résolution** : *bail-in*, plans de résolution, **testaments bancaires** (*living wills*), qui obligent les établissements systémiques à intégrer leur risque de faillite et à simplifier leurs structures. La faillite doit rester une sanction possible."
+        },
+        {
+          "kind": "convention",
+          "title": "Deux objectifs",
+          "text": "- **Protéger les déposants** → amener chaque banque à gérer prudemment ses risques : réglementation et supervision **microprudentielles**.\n- **Prévenir la crise systémique** → éviter contagion, amplification, procyclicité : réglementation et supervision **macroprudentielles**."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Substitut ou complément du marché ?",
+          "text": "Les premiers cadres (Banking Act de 1933 aux États-Unis, après-guerre en Europe) voulaient pallier les défaillances du marché. Deux écueils : supposer la réglementation **omnisciente** ; négliger la réaction des firmes. **Coase** (« Le problème du coût social », 1960) : il faut évaluer l'organisation défaillante **et** celle qui se présente en remède.\n\nCoûts de la réglementation : directs (fonctionnement), indirects (effets pervers : aléa moral, contournement), d'opportunité. Ils ne remettent pas en cause son bien-fondé, mais appellent à la combiner à d'autres modes de régulation (discipline de marché, contrôle interne)."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- La réglementation vise les **déposants** et la **stabilité systémique**, pas la protection des actionnaires.\n- L'industrie bancaire n'est **pas** un monopole naturel.\n- Une réglementation microprudentielle **ne vise pas à remplacer** les mécanismes de marché : elle oriente les comportements tout en les laissant jouer (*level playing field*)."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Réglementation, garantie des dépôts, prêteur en dernier ressort. Justifications : asymétries d'information (protéger des déposants incapables de contrôler) et externalités (coût social ≫ coût privé). Pas de monopole naturel. Organiser la faillite (bail-in, testaments). Micro pour les déposants, macro pour le système."
+        }
+      ]
+    },
+    "bale": {
+      "title": "La réglementation microprudentielle : de Bâle 1 à Bâle 3",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Avec la déréglementation, l'intervention publique passe de l'administration des prix et des volumes (encadrement du crédit, contrôle des changes) à une **supervision prudentielle** qui oriente les comportements tout en laissant jouer le marché. Son instrument principal : les **ratios de fonds propres**, « éponge à risques », « l'aspirine de la gestion des risques »."
+        },
+        {
+          "kind": "convention",
+          "title": "Le Comité de Bâle",
+          "text": "Créé en **décembre 1974** par les banques centrales du G10, après les faillites de la banque allemande **Herstatt** (juin 1974) et de la **Franklin National Bank** (octobre 1974), sous l'égide de la **BRI**. Il n'a **aucun pouvoir officiel** de réglementation : ses standards sont des recommandations, reprises (ou non) dans les droits nationaux."
+        },
+        {
+          "kind": "formule",
+          "title": "Bâle 1 : le ratio Cooke (1988)",
+          "text": "\\[\\frac{\\text{fonds propres}}{\\text{actifs pondérés (crédits)}} \\geq 8\\,\\%\\]\n\nTrois problèmes :\n- des définitions hétérogènes des fonds propres : seulement **2 %** de fonds propres de base exigés au final ;\n- des pondérations mal mesurées, fondées sur la nature de la contrepartie : pays de l'OCDE à 0 %, entreprises à 100 % quelle que soit leur taille, ce qui incite à l'arbitrage vers les actifs les plus risqués ;\n- une assiette limitée au **risque de crédit**, alors que les risques de marché et opérationnel montaient."
+        },
+        {
+          "kind": "formule",
+          "title": "Bâle 2 : le ratio McDonough (signé en 2004)",
+          "text": "\\[\\frac{\\text{FP}}{\\text{RWA}} \\geq 8\\,\\%\\]\n\n- Assiette **élargie** : risque de crédit, de marché, **opérationnel**.\n- Choix entre approche standard (notations externes) et avancée : les banques obtiennent d'utiliser leurs **modèles internes** (VaR).\n- « Le mieux est l'ennemi du bien » : les banques optimisent leurs pondérations, les RWA ne représentent plus que 30 à 50 % de l'actif : un ratio **moins contraignant** que Cooke. À peine en application en 2007, la crise oblige à préparer Bâle 3."
+        },
+        {
+          "kind": "formule",
+          "title": "Bâle 3 : signé en 2010, finalisé en 2017",
+          "text": "Signé avec une rapidité inédite (G20 de Washington 2008, Pittsburgh 2009) :\n\n- **plus de vrais fonds propres** : fonds propres de base 4 % en 2014, 4,5 % en 2015, 7 % en 2019 ;\n- un **coussin de conservation** de 2,5 %, qui porte l'exigence totale à **10,5 %** ;\n- toujours en % des **RWA** ;\n- un **ratio de levier** indépendant du risque : \\(\\text{FP}/A \\geq 3\\,\\%\\) (actif jusqu'à 33 fois les fonds propres) ;\n- **deux ratios de liquidité** : **LCR** (résister à une crise de liquidité d'environ 30 jours ; 60 % en 2015, puis +10 points par an jusqu'à 100 % en 2019) et **NSFR** (financement stable, réduire les écarts de maturité) ;\n- une micro-touche de macroprudentiel : un **coussin contracyclique de 0 à 2,5 %** et des **surcharges** pour les établissements systémiques."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Bilan de Bâle 3",
+          "text": "L'UE a été bonne élève (CRD IV, 2014) ; les États-Unis ont traîné des pieds et préfèrent le ratio de levier. Les banques annonçaient des effets apocalyptiques (étude de l'IIF : moins de crédit, de croissance, d'emplois), sur des hypothèses contestables. Les études d'impact du Comité montrent au contraire des ajustements sans grande difficulté. Bâle 3 est bien plus critiquable par sa **timidité** : trop peu de macroprudentiel, ratio de levier très faible (« the mouse that did not roar », Martin Wolf). Les réformes naissent des crises : 1929 → Glass-Steagall ; 1974 → Comité de Bâle ; 1998 → Forum de stabilité financière ; 2008 → Bâle 3, Dodd-Frank, Union bancaire."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Assiette élargie et modèles internes = **Bâle 2** ; redéfinition des fonds propres, coussin de conservation, ratios de liquidité, ratio de levier = **Bâle 3**.\n- Ratio de levier de Bâle 3 : **3 %**, pas 10 %. Coussin contracyclique : **0 à 2,5 %**.\n- Risque d'**insolvabilité** : pertes d'actifs, réduit par les fonds propres. Risque d'**illiquidité** : fuite de ressources au passif, réduit par des ressources stables et des actifs liquides de haute qualité."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Cooke 1988 (8 % des crédits pondérés) ; Bâle 2 2004 (FP/RWA ≥ 8 %, risques de marché et opérationnel, modèles internes, moins contraignant) ; Bâle 3 2010 (vrais fonds propres, 10,5 % avec le coussin, levier 3 %, LCR et NSFR, coussin contracyclique 0-2,5 %)."
+        }
+      ]
+    },
+    "separation": {
+      "title": "La séparation des activités bancaires",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Après la crise, plusieurs pays ont proposé de **séparer** les activités bancaires, ce qui pointe l'insuffisance des règles prudentielles. Le diagnostic est peu contestable, l'efficacité reste à prouver."
+        },
+        {
+          "kind": "convention",
+          "title": "Quatre propositions",
+          "text": "- **Règles Volcker** (Dodd-Frank Act, États-Unis, 2010) : limiter l'investissement des banques dans les hedge funds et le private equity (moins de 3 % de leurs fonds propres Tier 1) et le trading pour compte propre.\n- **Rapport Vickers** (Royaume-Uni, 2011) : mettre la banque de détail à l'abri des activités de marché (cantonnement).\n- **Rapport Liikanen** (UE, 2012) : préfère **cantonner le « lion » plutôt que la « gazelle »** : isoler les activités de marché risquées.\n- **Loi française** de séparation et de régulation des activités bancaires (projet de décembre 2012, loi de 2013) : isoler les activités « utiles au financement de l'économie » de celles jugées spéculatives."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Un diagnostic peu contestable",
+          "text": "1. La crise a eu un impact considérable sur l'économie réelle.\n2. Le secteur bancaire a crû excessivement dans les années 2000.\n3. Certains groupes sont devenus excessivement gros, surtout en Europe.\n4. Leurs structures capitalistiques sont devenues extraordinairement complexes.\n5. Les exigences de fonds propres sur les activités de marché étaient très insuffisantes.\n6. Ces activités bénéficiaient indûment de la **garantie publique de sauvetage**."
+        },
+        {
+          "kind": "piege",
+          "title": "Une efficacité qui reste à prouver",
+          "text": "- Une gamme d'activités plus étroite peut réduire la taille des banques, mais **pas forcément celle du secteur financier** dans son ensemble.\n- Taille du secteur financier comparable : **430 % du PIB** aux États-Unis et en France, **470 %** dans la zone euro ; mais les banques (banques centrales comprises) pèsent près de **240 %** du PIB en France et dans la zone euro contre **moins de 100 %** aux États-Unis. Séparer, comme le Glass-Steagall Act, réduit la taille des banques, pas celle du secteur financier.\n- Si l'on sait séparer le bon grain de l'ivraie, pourquoi garder l'ivraie ?\n- La **taxation des bilans bancaires** ne serait-elle pas plus efficace pour contenir leur taille ?"
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Volcker (États-Unis, limiter le trading pour compte propre et les fonds), Vickers (Royaume-Uni, protéger la banque de détail), Liikanen (UE, cantonner le lion), loi française (isoler l'utile). Diagnostic solide, efficacité douteuse : on réduit les banques, pas la finance."
+        }
+      ]
+    },
+    "macropru": {
+      "title": "Macroprudentiel, supervision et Union bancaire",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Longtemps ignorée, la surveillance globale du système financier fait consensus dans la littérature (Borio, Goodhart, Aglietta). En pratique : quelques avancées institutionnelles, une gestation lente. Et des dispositifs de supervision qui restent un **patchwork**."
+        },
+        {
+          "kind": "convention",
+          "title": "Le chaînon manquant",
+          "text": "Avant la crise : supervision **microprudentielle**, tournée vers les risques individuels. Le macroprudentiel est le **chaînon manquant** entre microprudentiel et politique monétaire : il a de la politique monétaire la dimension **macro** de son objectif (stabilité financière globale), et du microprudentiel la dimension **micro** de ses instruments.\n\nObjectif : **prévenir le risque systémique**, dans ses deux dimensions :\n- **temporelle** : réguler le cycle du crédit et des prix d'actifs (coussins contracycliques, provisions dynamiques, **LTV**, **LTI**, contrôle des flux de capitaux) ;\n- **transversale** : limiter la contribution des groupes au risque systémique (**surcharges systémiques**, liste d'établissements systémiques)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Policy-mix et institutions",
+          "text": "- **Tinbergen** (un instrument par objectif) et **Mundell** (affecter l'instrument à l'objectif où il est le plus efficace) : lecture stricte → *policy-mix séparé* ; lecture souple → *policy-mix intégré*.\n- Design : la banque centrale garde la politique monétaire et une autre autorité le macroprudentiel ; ou elle prend les deux, avec deux conseils séparés (Banque d'Angleterre) ou des réunions communes.\n- Avancées : **Conseil européen du risque systémique** (CERS/ESRB, 2011), **FSOC** aux États-Unis, en France **Corefris** (2010) puis **Haut Conseil de stabilité financière** (loi de juillet 2013).\n- Bâle 3 ne contient que deux instruments macroprudentiels : le coussin contracyclique (0-2,5 %) et les surcharges systémiques."
+        },
+        {
+          "kind": "convention",
+          "title": "Trois modèles de supervision",
+          "text": "- **Sectoriel** : un superviseur par secteur (banque, assurance, titres) : Europe du Sud, pays en développement ; la France avant la fusion CB + ACAM → ACP.\n- **Intégré** : une seule autorité pour tout : Royaume-Uni, Allemagne, Japon.\n- **Twin Peaks** : deux piliers, la supervision des institutions et le bon fonctionnement des marchés (*conduct of business*) : Australie, Pays-Bas.\n\nBarth, Caprio & Levine (2006) : sur 152 pays, 105 sectoriels, 46 intégrés. Pour l'intégré : vision d'ensemble, moins d'arbitrage réglementaire, une seule voix, économies d'échelle. Contre : concentration du pouvoir et **capture**, déséconomies, perte d'émulation. Ni la théorie ni l'empirie ne tranchent ; la crise a révélé un facteur décisif : la **proximité entre banque centrale et superviseur**. Masciandaro & Freytag (2005) : plus la banque centrale est impliquée dans la supervision, plus le dispositif est sectoriel."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "L'Union bancaire",
+          "text": "Objectif : rompre le **cercle vicieux** entre crise bancaire et dégradation des finances publiques. Trois volets :\n\n1. **MSU** (Mécanisme de surveillance unique) : la **BCE** supervise les quelque **120 plus grandes banques** de la zone euro ; opérationnel depuis **novembre 2014**.\n2. **MRU** (Mécanisme de résolution unique) : organise le démantèlement ou la liquidation des banques insolvables ; pleinement opérationnel en 2023, avec des limites vues lors des difficultés des banques italiennes (Monte dei Paschi 2016, Popolare di Vicenza et Veneto Banca 2017, qui avaient vendu leur dette à leurs clients comme un placement sans risque).\n3. **Garantie unique des dépôts** jusqu'à **100 000 €** : harmonisée, mais toujours tributaire des fonds nationaux. Limite d'une union bancaire sans union budgétaire.\n\n**Bail-in** : actionnaires et créanciers (hors déposants) mis à contribution à hauteur d'au moins **8 % des pertes**, puis le fonds de résolution, puis seulement l'argent public (*bail-out*)."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Le MSU n'est **pas** issu de Bâle 3 et ne couvre **pas** toutes les banques de l'UE : la BCE supervise les banques **d'importance** de la zone euro.\n- Le CERS surveille le risque systémique ; il ne supervise pas les banques.\n- Les réserves obligatoires sont un instrument de politique monétaire, pas du macroprudentiel.\n- Avant la crise, la tendance était aux modèles **intégrés** ; les réformes post-2008 ont rendu des missions de contrôle aux banques centrales."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Macroprudentiel : objectif macro, instruments micro ; temporel (coussins, LTV, LTI) et transversal (surcharges). Trois modèles de supervision ; la proximité banque centrale-superviseur est décisive. Union bancaire : MSU (BCE, 2014), MRU, garantie à 100 000 € ; bail-in ≥ 8 % des pertes."
         }
       ]
     }
@@ -29169,6 +29717,674 @@
       "why": "Gertler : accélérateur. Blinder : canal strict. Nobel 2022 avec Diamond et Dybvig.",
       "trap": "date-auteur",
       "id": "bernanke-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 1,
+      "q": [
+        "La réglementation du secteur bancaire est justifiée principalement par :",
+        "Pourquoi réglemente-t-on les banques ?"
+      ],
+      "ok": [
+        "La prévention des crises systémiques et de leurs conséquences",
+        "La protection des déposants",
+        "Les externalités des faillites bancaires, dont le coût social dépasse le coût privé",
+        "L'asymétrie d'information entre la banque et ses déposants"
+      ],
+      "ko": [
+        "La protection des actionnaires des banques",
+        "L'existence de rendements d'échelle croissants qui font de la banque un monopole naturel",
+        "La nécessité de fixer le prix du crédit à la place du marché",
+        "L'absence totale d'asymétries d'information dans la relation bancaire"
+      ],
+      "koWhy": [
+        "Faux : ce sont les déposants qu'on protège.",
+        "Faux : les études ne trouvent pas de rendements croissants.",
+        "C'était l'approche administrée d'avant la déréglementation, abandonnée.",
+        "Faux : l'asymétrie est reportée sur les déposants."
+      ],
+      "why": "Justifications : protéger les déposants (asymétrie d'information reportée sur eux) et prévenir les crises systémiques (externalités). Pas de monopole naturel.",
+      "trap": "micro-macro",
+      "id": "regjust-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Pourquoi le coût social d'une faillite bancaire dépasse-t-il son coût privé ?",
+        "En quoi les faillites bancaires diffèrent-elles de celles d'une entreprise ordinaire ?"
+      ],
+      "ok": [
+        "Les faillites bancaires sont contagieuses",
+        "Le dysfonctionnement de l'activité bancaire perturbe les échanges : c'est un « bien public »",
+        "Elles peuvent dégénérer en crise systémique"
+      ],
+      "ko": [
+        "Parce que les banques sont des monopoles naturels",
+        "Parce que les actionnaires des banques ne perdent jamais leur mise",
+        "Parce que les déposants sont mieux informés que les créanciers ordinaires",
+        "Parce qu'une faillite bancaire ne touche que la banque elle-même"
+      ],
+      "koWhy": [
+        "Faux.",
+        "Faux.",
+        "Inversé.",
+        "Inversé : contagion."
+      ],
+      "why": "Entreprise ordinaire : coût privé ≈ coût social. Banque : coût social ≫ coût privé (contagion, bien public, risque systémique).",
+      "id": "regjust-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Comment le cours justifie-t-il la protection des déposants ?",
+        "Pourquoi les déposants ne sont-ils pas des créanciers ordinaires ?"
+      ],
+      "ok": [
+        "L'asymétrie d'information est reportée sur la relation entre la banque et ses déposants",
+        "Les déposants sont des clients dispersés, à faible surface financière",
+        "Ils ne peuvent guère contrôler la gestion des risques de leur banque",
+        "Leur seule sanction, la ruée, peut être très déstabilisante"
+      ],
+      "ko": [
+        "Ils disposent de plus d'information que la banque sur ses propres risques",
+        "Ils peuvent facilement exercer un contrôle actif sur la gestion de leur banque",
+        "Ils sont peu nombreux et très concentrés",
+        "Leur retrait prématuré n'a aucun effet sur la solidité de la banque"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Inversé.",
+        "Inversé : dispersés.",
+        "Faux : la ruée peut provoquer la faillite (DD)."
+      ],
+      "why": "La banque lève l'asymétrie prêteurs-emprunteurs mais la reporte sur ses déposants, qui ne peuvent pas contrôler. D'où leur représentation et leur protection par les pouvoirs publics.",
+      "trap": "actif-passif",
+      "id": "regjust-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 3,
+      "q": [
+        "La réglementation est-elle un substitut ou un complément du marché défaillant ?",
+        "Que retenir du débat réglementation / marché dans le cours ?"
+      ],
+      "ok": [
+        "Aucun mode de régulation n'est omniscient, ni la réglementation ni le marché",
+        "Coase (1960) : il faut évaluer l'organisation défaillante et celle qui se présente en remède",
+        "La réglementation a des coûts directs, indirects (effets pervers) et d'opportunité",
+        "Elle doit être combinée à d'autres modes de régulation (discipline de marché, contrôle interne)"
+      ],
+      "ko": [
+        "La réglementation est un mode de régulation omniscient, qui corrige toutes les défaillances",
+        "Les coûts de la réglementation suffisent à remettre en cause son bien-fondé",
+        "La réaction des firmes à la réglementation est négligeable et peut être ignorée",
+        "Coase (1960) montre que le marché est toujours supérieur à la réglementation"
+      ],
+      "koWhy": [
+        "Faux.",
+        "Faux : ils appellent seulement des modalités efficaces.",
+        "Faux : contournement, détournement.",
+        "Faux : il demande d'évaluer tous les effets."
+      ],
+      "why": "La réglementation se justifie, mais n'est ni omnisciente ni gratuite (aléa moral, contournement). Il faut combiner les modes de régulation.",
+      "id": "regjust-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "regjust",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Pourquoi organiser la faillite des banques plutôt que l'empêcher systématiquement ?",
+        "Que visent les dispositifs de résolution bancaire ?"
+      ],
+      "ok": [
+        "Éviter systématiquement les faillites crée de l'aléa moral",
+        "La faillite doit rester une sanction possible",
+        "Les testaments bancaires obligent les établissements à intégrer leur risque de faillite",
+        "Les testaments bancaires poussent à des structures plus simples et moins opaques"
+      ],
+      "ko": [
+        "Sauver systématiquement toutes les banques supprime l'aléa moral",
+        "La faillite d'une banque n'a jamais de coût social supérieur à son coût privé",
+        "Les testaments bancaires organisent la transmission du patrimoine des dirigeants",
+        "Le bail-in fait payer d'abord les contribuables, avant les créanciers"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Faux.",
+        "Absurde.",
+        "Inversé : actionnaires et créanciers d'abord (bail-in)."
+      ],
+      "why": "Résolution : bail-in, plans de résolution, testaments bancaires (living wills). On organise la faillite pour qu'elle reste une sanction crédible.",
+      "trap": "micro-macro",
+      "id": "regjust-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Les accords de Bâle 2, signés en 2004, ont :",
+        "Qu'ont apporté les accords de Bâle 2 ?"
+      ],
+      "ok": [
+        "Élargi l'assiette des risques couverts (marché, opérationnel)",
+        "Autorisé les banques à utiliser leurs modèles internes d'évaluation des risques",
+        "Défini le ratio FP / RWA ≥ 8 %, finalement moins contraignant que le ratio Cooke"
+      ],
+      "ko": [
+        "Redéfini plus strictement les fonds propres, avec davantage de « vrais » fonds propres",
+        "Introduit deux ratios de liquidité, le LCR et le NSFR",
+        "Ajouté un coussin de conservation portant le seuil du ratio à 10,5 %",
+        "Introduit un ratio de levier indépendant du risque des actifs, d'au moins 3 %"
+      ],
+      "koWhy": [
+        "C'est Bâle 3.",
+        "C'est Bâle 3.",
+        "C'est Bâle 3.",
+        "C'est Bâle 3."
+      ],
+      "why": "Bâle 2 : assiette élargie, approche standard ou modèles internes (VaR), ratio McDonough. Les distracteurs sont des mesures de Bâle 3.",
+      "trap": "bale-version",
+      "id": "bale-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Les accords de Bâle 3, signés en 2010 et finalisés en 2017, ont :",
+        "Quelles mesures relèvent de Bâle 3 ?"
+      ],
+      "ok": [
+        "Redéfini plus strictement les fonds propres",
+        "Introduit deux ratios de liquidité",
+        "Ajouté un coussin de conservation portant le seuil du ratio à 10,5 %",
+        "Introduit un ratio de levier d'au moins 3 %"
+      ],
+      "ko": [
+        "Introduit un ratio de levier d'au moins 10 %",
+        "Interdit l'utilisation des modèles internes",
+        "Introduit un coussin contracyclique compris entre 0 et 12,5 %",
+        "Élargi pour la première fois l'assiette au risque opérationnel"
+      ],
+      "koWhy": [
+        "Faux : 3 %.",
+        "Faux : ils restent autorisés.",
+        "Faux : 0 à 2,5 %.",
+        "C'est Bâle 2."
+      ],
+      "why": "Bâle 3 : vrais fonds propres (7 % en 2019), coussin de conservation 2,5 % (total 10,5 %), levier 3 %, LCR et NSFR, coussin contracyclique 0-2,5 %, surcharges systémiques.",
+      "trap": "bale-version",
+      "id": "bale-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 1,
+      "q": [
+        "Le ratio Cooke (1988) :",
+        "Qu'est-ce que le ratio Cooke ?"
+      ],
+      "ok": [
+        "Est le premier ratio de fonds propres recommandé par le Comité de Bâle",
+        "Exige des fonds propres au moins égaux à 8 % des engagements risqués pondérés",
+        "Ne couvrait que le risque de crédit",
+        "Pondérait les risques selon la nature de la contrepartie (OCDE à 0 %, entreprises à 100 %)"
+      ],
+      "ko": [
+        "Exigeait des fonds propres au moins égaux à 8 % de l'actif total non pondéré",
+        "Couvrait les risques de crédit, de marché et opérationnel",
+        "Autorisait les banques à utiliser leurs modèles internes",
+        "Pondérait les entreprises selon leur taille et leur secteur"
+      ],
+      "koWhy": [
+        "Faux : actifs pondérés.",
+        "C'est Bâle 2.",
+        "C'est Bâle 2.",
+        "Faux : 100 % quelle que soit la taille."
+      ],
+      "why": "Cooke (Bâle 1) : FP / crédits pondérés ≥ 8 %. Problèmes : définition des FP, pondérations grossières, assiette limitée au crédit.",
+      "trap": "bale-version",
+      "id": "bale-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Le risque d'insolvabilité au bilan d'une banque est :",
+        "Qu'est-ce qui caractérise le risque d'insolvabilité ?"
+      ],
+      "ok": [
+        "D'autant moins grand que les fonds propres sont élevés",
+        "Un risque lié à des pertes sur les actifs"
+      ],
+      "ko": [
+        "D'autant moins grand que les fonds propres sont faibles",
+        "Un risque systématiquement dû à un manque de liquidité",
+        "Un risque réduit par la détention de ressources stables",
+        "Un risque qui ne dépend jamais de la qualité des actifs"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Faux : illiquidité et insolvabilité interagissent mais ne se confondent pas.",
+        "Les ressources stables réduisent surtout le risque d'illiquidité.",
+        "Faux."
+      ],
+      "why": "Insolvabilité : pertes d'actifs qui dépassent les fonds propres ; les fonds propres l'absorbent.",
+      "trap": "actif-passif",
+      "id": "bale-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Le risque d'illiquidité au bilan d'une banque est :",
+        "Qu'est-ce qui caractérise le risque d'illiquidité ?"
+      ],
+      "ok": [
+        "Un risque de passif lié à des fuites de dépôts et à une rupture de ressources",
+        "Un risque réduit par la détention de ressources stables",
+        "Un risque réduit par la détention d'actifs liquides de haute qualité"
+      ],
+      "ko": [
+        "Un risque d'actif lié à de mauvais investissements de la banque",
+        "Un risque toujours indépendant du risque d'insolvabilité de la banque",
+        "Un risque qu'un ratio de levier suffit à éliminer complètement",
+        "Un risque qui ne concerne jamais les banques en bonne santé"
+      ],
+      "koWhy": [
+        "C'est l'insolvabilité.",
+        "Faux : interaction forte.",
+        "Faux : c'est l'objet des ratios de liquidité.",
+        "Faux : même une banque saine peut subir une ruée."
+      ],
+      "why": "Illiquidité : passif (fuite de dépôts, rupture de refinancement) ; réduit par des ressources stables (NSFR) et des actifs liquides de haute qualité (LCR). La crainte de l'insolvabilité peut provoquer l'illiquidité.",
+      "trap": "actif-passif",
+      "id": "bale-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 3,
+      "q": [
+        "Pourquoi Bâle 2 s'est-il révélé moins contraignant que le ratio Cooke ?",
+        "Pourquoi dit-on de Bâle 2 que « le mieux est l'ennemi du bien » ?"
+      ],
+      "ok": [
+        "Les banques ont utilisé leurs modèles internes pour optimiser leurs pondérations",
+        "Les actifs pondérés ne représentent plus que 30 à 50 % de l'actif total",
+        "Un ratio FP / RWA flatteur peut masquer un ratio FP / actif total très faible"
+      ],
+      "ko": [
+        "Parce qu'il a abaissé le seuil minimal du ratio de fonds propres de 8 % à 4 %",
+        "Parce qu'il a supprimé toute pondération des actifs par les risques",
+        "Parce qu'il ne couvrait plus le risque de crédit, remplacé par le risque de marché",
+        "Parce qu'il imposait un ratio de levier trop élevé aux grandes banques"
+      ],
+      "koWhy": [
+        "Faux : le seuil reste 8 %.",
+        "Faux : il affine la pondération.",
+        "Faux : l'assiette est élargie.",
+        "Faux : le ratio de levier vient avec Bâle 3."
+      ],
+      "why": "La recherche de sophistication (modèles internes, VaR) a permis de faire baisser les RWA et d'économiser des fonds propres. Écart FP/RWA vs FP/A (Deutsche Bank : 14 % contre 2,5 %).",
+      "trap": "rwa-actif",
+      "id": "bale-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bale",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce que le Comité de Bâle ?",
+        "Quelles affirmations sur le Comité de Bâle sont exactes ?"
+      ],
+      "ok": [
+        "Il a été créé en 1974 par les banques centrales du G10",
+        "Il est né après les faillites de Herstatt et de la Franklin National Bank",
+        "Il est placé sous l'égide de la BRI",
+        "Il n'a aucun pouvoir officiel : ses standards sont des recommandations"
+      ],
+      "ko": [
+        "Il a été créé en 1988 pour adopter le ratio Cooke",
+        "Il est né de la faillite de Lehman Brothers",
+        "Il est une institution de l'Union européenne",
+        "Ses standards s'imposent directement aux banques du monde entier"
+      ],
+      "koWhy": [
+        "Faux : 1974.",
+        "Anachronique.",
+        "Faux : BRI.",
+        "Faux : ils doivent être transposés."
+      ],
+      "why": "Décembre 1974, G10, après Herstatt (juin 1974) et Franklin National Bank (octobre 1974), sous l'égide de la BRI, sans pouvoir réglementaire propre.",
+      "trap": "date-auteur",
+      "id": "bale-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "separation",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Associez chaque proposition de séparation des activités bancaires à son contenu :",
+        "Quelles associations entre réformes structurelles et contenu sont exactes ?"
+      ],
+      "ok": [
+        "Règles Volcker : limiter le trading pour compte propre et l'investissement dans les hedge funds",
+        "Rapport Vickers : mettre la banque de détail à l'abri des activités de marché",
+        "Rapport Liikanen : cantonner le « lion » plutôt que la « gazelle »",
+        "Loi française : isoler les activités utiles au financement de l'économie"
+      ],
+      "ko": [
+        "Règles Volcker : cantonner la banque de détail au Royaume-Uni",
+        "Rapport Vickers : réforme structurelle proposée pour l'Union européenne",
+        "Rapport Liikanen : cantonner la « gazelle » plutôt que le « lion »",
+        "Loi française : interdire aux banques toute activité de marché"
+      ],
+      "koWhy": [
+        "Faux : c'est Vickers.",
+        "Faux : c'est Liikanen.",
+        "Inversé.",
+        "Excessif : elle isole les activités jugées spéculatives."
+      ],
+      "why": "Volcker (Dodd-Frank, 2010), Vickers (2011), Liikanen (2012), loi française (2013).",
+      "trap": "date-auteur",
+      "id": "separation-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "separation",
+      "ch": 4,
+      "diff": 3,
+      "q": [
+        "Pourquoi l'efficacité de la séparation des activités bancaires reste-t-elle à prouver ?",
+        "Quelles objections le cours oppose-t-il à la séparation ?"
+      ],
+      "ok": [
+        "Réduire la taille des banques ne réduit pas forcément celle du secteur financier",
+        "Le secteur financier a une taille comparable aux États-Unis et en Europe, avec moins de banques aux États-Unis",
+        "Si l'on sait séparer le bon grain de l'ivraie, on peut se demander pourquoi garder l'ivraie",
+        "Taxer les bilans bancaires pourrait être plus efficace pour contenir leur taille"
+      ],
+      "ko": [
+        "La séparation réduit mécaniquement la taille de l'ensemble du secteur financier",
+        "Le secteur financier américain est deux fois plus petit que celui de la zone euro",
+        "Le Glass-Steagall Act n'a eu aucun effet durable sur la taille des banques américaines",
+        "Le diagnostic à l'origine de ces propositions est jugé très contestable par le cours"
+      ],
+      "koWhy": [
+        "Faux.",
+        "Faux : 430 % contre 470 %.",
+        "Faux : il a réduit durablement la taille des banques.",
+        "Faux : le diagnostic est peu contestable."
+      ],
+      "why": "Séparer réduit les banques, pas la finance (États-Unis : 430 % du PIB de secteur financier, moins de 100 % de banques). Alternatives : taxation des bilans.",
+      "id": "separation-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "separation",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Sur quel diagnostic reposent les propositions de séparation des activités bancaires ?",
+        "Quels constats justifient les projets de séparation ?"
+      ],
+      "ok": [
+        "Le secteur bancaire a crû excessivement au cours des années 2000",
+        "Certains groupes bancaires sont devenus excessivement gros, surtout en Europe",
+        "Les exigences de fonds propres sur les activités de marché étaient très insuffisantes",
+        "Les activités de marché bénéficiaient indûment de la garantie publique de sauvetage"
+      ],
+      "ko": [
+        "Les activités de marché des banques étaient déjà trop lourdement taxées",
+        "La crise financière n'a eu qu'un faible impact sur l'économie réelle",
+        "Les structures capitalistiques des groupes bancaires sont devenues plus simples",
+        "Les grandes banques européennes étaient plus petites que les américaines"
+      ],
+      "koWhy": [
+        "Faux : le secteur est sous-taxé.",
+        "Inversé.",
+        "Inversé.",
+        "Inversé."
+      ],
+      "why": "Six constats : impact réel de la crise, croissance excessive, gigantisme, complexité, fonds propres insuffisants sur les activités de marché, garantie publique indue.",
+      "id": "separation-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Une réglementation bancaire microprudentielle :",
+        "Qu'est-ce qui caractérise l'approche microprudentielle ?"
+      ],
+      "ok": [
+        "Vise à prévenir les risques individuels des établissements bancaires",
+        "Repose sur des exigences de fonds propres et de liquidité",
+        "Ne vise pas à remplacer les mécanismes de marché"
+      ],
+      "ko": [
+        "Vise à prévenir le risque systémique du secteur bancaire",
+        "Repose sur des exigences de fonds propres modulées selon le cycle financier",
+        "Change directement la structure des bilans bancaires",
+        "Repose sur une liste d'établissements systémiques"
+      ],
+      "koWhy": [
+        "C'est le macroprudentiel.",
+        "C'est le macroprudentiel.",
+        "C'est l'approche structurelle.",
+        "C'est le macroprudentiel (dimension transversale)."
+      ],
+      "why": "Micro : risques individuels, fonds propres et liquidité, en laissant jouer le marché. Les distracteurs décrivent le macroprudentiel ou l'approche structurelle.",
+      "trap": "micro-macro",
+      "id": "macropru-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Une réglementation bancaire macroprudentielle :",
+        "Qu'est-ce qui caractérise l'approche macroprudentielle ?"
+      ],
+      "ok": [
+        "Vise à prévenir le risque systémique du secteur bancaire",
+        "Repose sur des exigences de fonds propres modulées selon le cycle financier et la systémicité",
+        "Permet en théorie de réguler le cycle financier",
+        "Permet en théorie d'accroître la résilience des banques systémiques",
+        "S'appuie sur une liste d'établissements systémiques"
+      ],
+      "ko": [
+        "Vise à prévenir les risques individuels des établissements bancaires",
+        "Repose sur les réserves obligatoires déposées à la banque centrale",
+        "Se confond avec la politique monétaire de taux d'intérêt",
+        "Ne concerne que la dimension temporelle du risque systémique"
+      ],
+      "koWhy": [
+        "C'est le microprudentiel.",
+        "Instrument de politique monétaire.",
+        "Faux : chaînon manquant, distinct de la politique monétaire.",
+        "Faux : aussi la dimension transversale."
+      ],
+      "why": "Macro : objectif de stabilité globale, instruments micro (coussins contracycliques, LTV, LTI, surcharges systémiques).",
+      "trap": "micro-macro",
+      "id": "macropru-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 1,
+      "q": [
+        "La réglementation du secteur bancaire issue de Bâle 3 :",
+        "Sur quelle approche repose principalement la réglementation bancaire issue des réformes post-2008 ?"
+      ],
+      "ok": [
+        "Repose principalement sur une approche microprudentielle",
+        "Ne comporte que quelques instruments macroprudentiels (coussin contracyclique, surcharges)"
+      ],
+      "ko": [
+        "Repose principalement sur une approche macroprudentielle de prévention du risque systémique",
+        "Repose principalement sur une approche structurelle d'orientation des financements",
+        "A abandonné toute exigence de fonds propres au profit du seul contrôle interne",
+        "Interdit purement et simplement les activités de marché des banques universelles"
+      ],
+      "koWhy": [
+        "Faux : pilier encore faible.",
+        "Faux : pilier manquant.",
+        "Faux.",
+        "Faux."
+      ],
+      "why": "Le cœur reste microprudentiel (ratios de fonds propres et de liquidité) ; le macroprudentiel est une « micro-touche » ; le structurel est le pilier manquant.",
+      "trap": "micro-macro",
+      "id": "macropru-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Le « mécanisme de supervision unique » (MSU) est :",
+        "Qu'est-ce que le MSU ?"
+      ],
+      "ok": [
+        "Le premier volet de l'Union bancaire, entré en vigueur en novembre 2014",
+        "Un dispositif qui confie à la BCE la supervision des banques d'importance de la zone euro",
+        "Un dispositif qui concerne les quelque 120 plus grandes banques de la zone euro"
+      ],
+      "ko": [
+        "Un dispositif issu des accords de Bâle 3",
+        "Un dispositif qui confie à la BCE la supervision de toutes les banques de l'UE",
+        "Un dispositif qui confie au Conseil européen du risque systémique la supervision des banques",
+        "Le dispositif européen de garantie des dépôts jusqu'à 100 000 €"
+      ],
+      "koWhy": [
+        "Faux : c'est un volet de l'Union bancaire.",
+        "Faux : les banques d'importance de la zone euro.",
+        "Faux : la BCE.",
+        "C'est le troisième volet."
+      ],
+      "why": "MSU : BCE, grandes banques de la zone euro, depuis novembre 2014. MRU et garantie des dépôts sont les deux autres volets.",
+      "trap": "micro-macro",
+      "id": "macropru-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Quels sont les trois volets de l'Union bancaire, et leurs limites ?",
+        "Union bancaire : qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Elle vise à rompre le cercle vicieux entre crises bancaires et finances publiques",
+        "Le MRU organise la résolution des banques insolvables",
+        "La garantie des dépôts reste tributaire des fonds nationaux",
+        "Actionnaires et créanciers doivent absorber au moins 8 % des pertes (bail-in)"
+      ],
+      "ko": [
+        "Un fonds européen unique de garantie des dépôts est pleinement opérationnel",
+        "Le MRU était pleinement opérationnel dès 2014",
+        "Le bail-in fait payer d'abord les contribuables",
+        "Les déposants sont mis à contribution avant les créanciers obligataires"
+      ],
+      "koWhy": [
+        "Faux : on ne s'achemine guère vers un fonds européen.",
+        "Faux : pleinement en 2023.",
+        "Inversé : c'est le bail-out.",
+        "Inversé : les déposants sont protégés."
+      ],
+      "why": "MSU, MRU, garantie des dépôts. Limites : union bancaire sans union budgétaire, cas italiens de 2016-2017. Bail-in avant le fonds de résolution, avant l'argent public.",
+      "trap": "micro-macro",
+      "id": "macropru-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 3,
+      "q": [
+        "Associez chaque modèle de supervision à ses exemples :",
+        "Modèles de supervision : quelles associations sont exactes ?"
+      ],
+      "ok": [
+        "Modèle sectoriel : un superviseur par secteur (Italie, Espagne, France avant l'ACP)",
+        "Modèle intégré : une seule autorité pour tout le secteur (Royaume-Uni, Allemagne, Japon)",
+        "Twin Peaks : institutions d'un côté, conduite des affaires de l'autre (Australie, Pays-Bas)"
+      ],
+      "ko": [
+        "Modèle intégré : un superviseur spécialisé par secteur (Italie, Espagne)",
+        "Twin Peaks : une seule autorité pour tout le secteur financier (Royaume-Uni, Japon)",
+        "Modèle sectoriel : deux piliers, institutions et marchés (Australie, Pays-Bas)",
+        "Modèle intégré : la supervision confiée à la seule banque centrale (États-Unis)"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Inversé.",
+        "Inversé.",
+        "Faux : superviseurs multiples."
+      ],
+      "why": "Sectoriel, intégré, Twin Peaks. Les États-Unis ont un dispositif à superviseurs multiples.",
+      "trap": "date-auteur",
+      "id": "macropru-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "macropru",
+      "ch": 4,
+      "diff": 2,
+      "q": [
+        "Quels instruments relèvent de la politique macroprudentielle ?",
+        "Parmi ces outils, lesquels sont macroprudentiels ?"
+      ],
+      "ok": [
+        "Les coussins contracycliques de fonds propres",
+        "Les plafonds de LTV (loan to value) et de LTI (loan to income)",
+        "Les provisions dynamiques",
+        "Les surcharges pour les établissements systémiques"
+      ],
+      "ko": [
+        "Les réserves obligatoires à la banque centrale",
+        "Le taux directeur de la banque centrale",
+        "Le ratio Cooke de 8 % sur les crédits pondérés",
+        "Le contrôle interne de chaque établissement"
+      ],
+      "koWhy": [
+        "Politique monétaire.",
+        "Politique monétaire.",
+        "Microprudentiel.",
+        "Régulation interne, pas macroprudentielle."
+      ],
+      "why": "Temporel : coussins contracycliques, provisions dynamiques, LTV, LTI, contrôle des flux de capitaux. Transversal : surcharges systémiques.",
+      "trap": "micro-macro",
+      "id": "macropru-007"
     }
   ]
 }
