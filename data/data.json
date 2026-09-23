@@ -304,6 +304,31 @@
       "name": "Keynes, Orléan : bulles mimétiques & comportementales",
       "ch": 3,
       "mat": "mbf"
+    },
+    "bcbulles": {
+      "name": "Banques centrales face aux bulles : CUA ou LAW",
+      "ch": 3,
+      "mat": "mbf"
+    },
+    "fisher": {
+      "name": "Fisher (1933) : la debt deflation",
+      "ch": 3,
+      "mat": "mbf"
+    },
+    "minsky": {
+      "name": "Minsky : l'instabilité endogène",
+      "ch": 3,
+      "mat": "mbf"
+    },
+    "canaux": {
+      "name": "Canaux de diffusion : crédit, risque, prix d'actifs",
+      "ch": 3,
+      "mat": "mbf"
+    },
+    "bernanke": {
+      "name": "Bernanke : accélérateur financier & canal du crédit",
+      "ch": 3,
+      "mat": "mbf"
     }
   },
   "BOTS": [
@@ -13688,6 +13713,223 @@
       "a": false,
       "why": "L'arbitrage est risqué et limité : l'irrationalité peut avoir un impact substantiel et durable.",
       "id": "mimetisme-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Le consensus de Jackson Hole consistait à « nettoyer les dégâts après coup » plutôt qu'à faire éclater les bulles.",
+        "Avant 2007, le consensus de Jackson Hole jugeait impossible, voire dangereux, de faire éclater une bulle."
+      ],
+      "a": true,
+      "why": "CUA : Greenspan puis Bernanke.",
+      "trap": "cua-law",
+      "id": "bcbulles-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Une règle de Taylor augmentée d'un objectif de prix d'actifs aurait donné en 2007 des taux à deux chiffres.",
+        "Intégrer la stabilité financière dans la règle de Taylor aurait conduit à des taux très élevés en 2007."
+      ],
+      "a": true,
+      "why": "D'où la conclusion : le taux d'intérêt ne peut pas tout, le macroprudentiel est plus efficace.",
+      "id": "bcbulles-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Avant la crise, les banques centrales n'avaient pas identifié la bulle immobilière américaine.",
+        "La Fed n'avait aucun indice d'une bulle immobilière avant 2007."
+      ],
+      "a": false,
+      "why": "Elle l'avait identifiée (FOMC du 30 juin 2004 : ratio loyers / prix écarté de sa moyenne historique) mais s'est contentée d'avertir.",
+      "trap": "cua-law",
+      "id": "bcbulles-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fisher",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Chez Fisher (1933), la déflation accroît la valeur réelle des dettes.",
+        "Selon la debt deflation, la baisse des prix alourdit la charge réelle de l'endettement."
+      ],
+      "a": true,
+      "why": "D'où la spirale : plus on se désendette, plus la dette réelle pèse.",
+      "id": "fisher-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fisher",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Pour Fisher, comme pour Schumpeter, des innovations sont généralement à l'origine de la phase ascendante du cycle.",
+        "Fisher rattache l'endettement initial à de nouvelles inventions, industries, ressources ou marchés."
+      ],
+      "a": true,
+      "why": "Des facteurs psychologiques (euphorie) généralisent ensuite le mouvement.",
+      "id": "fisher-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fisher",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "La théorie de Fisher a été remise à l'honneur dès les années 1930 et n'a jamais cessé d'inspirer la politique économique.",
+        "La debt deflation est restée au cœur de l'analyse des crises tout au long des Trente glorieuses."
+      ],
+      "a": false,
+      "why": "Elle a été quelque peu oubliée jusqu'au milieu des années 1970, puis remise à l'honneur par Minsky.",
+      "id": "fisher-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Une firme « Ponzi » au sens de Minsky doit s'endetter pour payer les intérêts de sa dette.",
+        "Chez Minsky, le financement Ponzi ne couvre même pas les intérêts par les revenus courants."
+      ],
+      "a": true,
+      "why": "Insuffisance chronique de liquidité.",
+      "trap": "minsky-regimes",
+      "id": "minsky-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Dans le financement spéculatif de Minsky, les revenus ne couvrent pas les intérêts de la dette.",
+        "Le financement spéculatif oblige à emprunter pour payer les intérêts."
+      ],
+      "a": false,
+      "why": "Les revenus couvrent les intérêts ; c'est le remboursement du capital qui est différé. S'endetter pour payer les intérêts, c'est Ponzi.",
+      "trap": "minsky-regimes",
+      "id": "minsky-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Pour Aglietta, la stabilité de l'inflation, couplée à la libéralisation financière, favorise le boom du crédit et des prix d'actifs.",
+        "Aglietta voit dans la stabilité des prix un facteur d'instabilité financière, sorte de paradoxe de la tranquillité revisité."
+      ],
+      "a": true,
+      "why": "« Banques centrales et globalisation » (2009).",
+      "id": "minsky-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Le canal de la prise de risque est un canal de transmission de la régulation financière.",
+        "Le risk taking channel décrit l'effet de la réglementation prudentielle sur les banques."
+      ],
+      "a": false,
+      "why": "C'est un canal de transmission de la politique monétaire.",
+      "trap": "canal",
+      "id": "canaux-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Selon Altunbas, Gambacorta & Marqués-Ibáñez (2010), une politique monétaire accommodante pousse les banques à prendre davantage de risques.",
+        "Une étude portant sur 1 100 banques de 16 pays conclut que des taux bas accroissent la prise de risque bancaire."
+      ],
+      "a": true,
+      "why": "Elle réduit à court terme le risque des crédits en portefeuille et pousse à en prendre davantage.",
+      "trap": "canal",
+      "id": "canaux-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Le canal du crédit a longtemps été jugé négligeable dans les pays aux systèmes financiers développés.",
+        "Avant la crise, on pensait que le crédit ne comptait plus guère dans la transmission de la politique monétaire."
+      ],
+      "a": true,
+      "why": "Illusion entretenue par l'essor des marchés et de la titrisation (et la thèse de la désintermédiation).",
+      "id": "canaux-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "L'effet d'amplification d'Adrian & Shin est plus fort quand le levier cible est procyclique.",
+        "Un levier cible plus élevé en expansion qu'en récession renforce l'amplification par les prix d'actifs."
+      ],
+      "a": true,
+      "why": "L'ajustement à la hausse du levier entraîne des achats encore plus importants.",
+      "id": "canaux-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bernanke",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Dans l'accélérateur financier, la prime de financement externe dépend de la richesse nette et de la liquidité de l'emprunteur.",
+        "Bernanke & Gertler font dépendre le surcoût du financement externe de la situation financière de l'emprunteur."
+      ],
+      "a": true,
+      "why": "External finance premium.",
+      "trap": "canal",
+      "id": "bernanke-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bernanke",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Bernanke & Blinder (1988) montrent que les opérations d'open market peuvent limiter l'offre de prêts bancaires.",
+        "Le modèle de Bernanke & Blinder fonde le canal strict du crédit bancaire."
+      ],
+      "a": true,
+      "why": "En réduisant l'accès des banques aux fonds prêtables.",
+      "trap": "canal",
+      "id": "bernanke-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bernanke",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Avant la crise, Ben Bernanke plaidait pour que la Fed fasse éclater les bulles de façon préemptive.",
+        "Bernanke défendait le leaning against the wind avant 2007."
+      ],
+      "a": false,
+      "why": "Avec Greenspan, il jugeait impossible, voire dangereux, de faire éclater une bulle (consensus de Jackson Hole).",
+      "trap": "cua-law",
+      "id": "bernanke-005"
     }
   ],
   "SENS": [
@@ -17109,6 +17351,134 @@
       "a": "up",
       "why": "La surévaluation peut s'accroître à court terme sous l'effet des achats des investisseurs ignorants.",
       "id": "mimetisme-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Règle de Taylor standard : \\(i = 1 + \\pi + \\tfrac12(\\pi - 2) + \\tfrac12 \\text{écart de production}\\)",
+      "shock": "Hausse de l'inflation de 1 point",
+      "var": "Taux directeur recommandé",
+      "a": "up",
+      "why": "Le taux recommandé monte de 1,5 point (1 + ½) : plus que l'inflation.",
+      "id": "bcbulles-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Taux directeurs durablement inférieurs au taux de Taylor (2003-2006)",
+      "shock": "Élargissement de l'écart entre taux de Taylor et taux directeur",
+      "var": "Hausse des prix du logement",
+      "a": "up",
+      "why": "Corrélation positive et significative entre ce gap et la hausse des prix du logement.",
+      "trap": "cua-law",
+      "id": "bcbulles-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fisher",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Debt deflation (Fisher, 1933), dettes nominales fixes",
+      "shock": "Baisse du niveau général des prix",
+      "var": "Valeur réelle des dettes",
+      "a": "up",
+      "why": "Les dettes sont fixées en nominal : la déflation en alourdit la valeur réelle.",
+      "id": "fisher-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Minsky : phase d'expansion économique tranquille",
+      "shock": "Prolongation d'une période de stabilité macroéconomique",
+      "var": "Part des financements spéculatifs et Ponzi",
+      "a": "up",
+      "why": "La confiance pousse vers des structures de financement plus risquées : paradoxe de la tranquillité.",
+      "trap": "minsky-regimes",
+      "id": "minsky-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Firme en financement Ponzi",
+      "shock": "Hausse des taux d'intérêt",
+      "var": "Risque d'insolvabilité de la firme",
+      "a": "up",
+      "why": "Déjà incapable de payer ses intérêts par ses revenus, elle bascule dans l'insolvabilité si les taux montent.",
+      "trap": "minsky-regimes",
+      "id": "minsky-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Adrian & Shin : banque qui cible un levier constant (bilan en valeur de marché)",
+      "shock": "Hausse du prix des titres détenus",
+      "var": "Achats de titres par la banque",
+      "a": "up",
+      "why": "Le levier baisse ; pour le rétablir, la banque s'endette et achète.",
+      "trap": "canal",
+      "id": "canaux-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Adrian & Shin : banque qui cible un levier constant",
+      "shock": "Baisse du prix des titres détenus",
+      "var": "Taille du bilan de la banque",
+      "a": "down",
+      "why": "Le levier monte ; pour le rétablir, la banque vend des titres et rembourse sa dette : le bilan se contracte.",
+      "trap": "canal",
+      "id": "canaux-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Canal de la prise de risque (BRI)",
+      "shock": "Baisse durable des taux directeurs",
+      "var": "Prise de risque des banques",
+      "a": "up",
+      "why": "Politique accommodante → perception et tolérance du risque modifiées → prise de risque accrue.",
+      "trap": "canal",
+      "id": "canaux-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bernanke",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Accélérateur financier (Bernanke & Gertler, 1989)",
+      "shock": "Choc de productivité favorable qui améliore la richesse nette des emprunteurs",
+      "var": "Prime de financement externe",
+      "a": "down",
+      "why": "Une meilleure situation financière réduit la prime et facilite l'investissement.",
+      "trap": "canal",
+      "id": "bernanke-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bernanke",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Canal large du crédit (bilan)",
+      "shock": "Hausse des taux directeurs alors que les agents sont très endettés",
+      "var": "Prime de financement externe",
+      "a": "up",
+      "why": "Les bilans se dégradent : la prime augmente, avec des effets d'autant plus dépressifs que l'endettement est élevé.",
+      "trap": "canal",
+      "id": "bernanke-007"
     }
   ],
   "ORDRE": [
@@ -18049,6 +18419,53 @@
       ],
       "why": "Les arbres ne montent pas jusqu'au ciel : la boucle tourne jusqu'à l'explosion.",
       "id": "instab-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fisher",
+      "ch": 3,
+      "diff": 2,
+      "title": "La spirale de la déflation par la dette (Fisher, 1933)",
+      "steps": [
+        "Surendettement généralisé nourri par l'euphorie",
+        "Défaillance de gros emprunteurs : la défiance se généralise",
+        "Assèchement du crédit et pression déflationniste",
+        "Ventes d'actifs dans l'urgence et baisse des prix",
+        "Hausse de la valeur réelle des dettes, qui appelle de nouvelles ventes"
+      ],
+      "why": "Surendettement → retournement → déflation → ventes → dette réelle plus lourde.",
+      "id": "fisher-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 2,
+      "title": "La dynamique de la crise selon Minsky, dans l'ordre",
+      "steps": [
+        "Environnement tranquille : les agents deviennent confiants",
+        "Les financements spéculatifs et Ponzi se multiplient",
+        "Ralentissement du crédit ou hausse des taux : premières faillites",
+        "La défiance se généralise, le besoin de liquidité n'est pas satisfait",
+        "Effet domino, qui s'étend jusqu'aux firmes prudentes"
+      ],
+      "why": "Tranquillité → prise de risque → retournement → défiance → domino.",
+      "id": "minsky-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "title": "Le canal des prix d'actifs (Adrian & Shin), à la hausse",
+      "steps": [
+        "Le prix des titres détenus par la banque augmente",
+        "Les fonds propres augmentent et le levier tombe sous sa cible",
+        "La banque s'endette pour acheter des titres",
+        "Le bilan grossit et la demande de titres pousse les prix à la hausse"
+      ],
+      "why": "Hausse des prix → baisse du levier → achats → bilans plus gros → hausse des prix.",
+      "id": "canaux-012"
     }
   ],
   "OUVERTE": [
@@ -20877,6 +21294,103 @@
       ],
       "why": "Chapitre 3, sections 3.C et 3.D.",
       "id": "mimetisme-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Pourquoi les banques centrales ont-elles longtemps refusé d'agir contre les bulles, et qu'est-ce qui a changé ?",
+        "CUA ou LAW ?"
+      ],
+      "model": "Hypothèse de Schwartz → principe de séparation ; conditions de Rudebusch rarement réunies ; consensus de Jackson Hole : nettoyer après coup. Taux sous la règle de Taylor, bulle identifiée mais seulement dénoncée. La crise a sonné l'échec du CUA : LAW (resserrement préemptif) coordonné au macroprudentiel.",
+      "points": [
+        "Schwartz / séparation",
+        "Rudebusch",
+        "CUA / Jackson Hole",
+        "Taylor",
+        "LAW + macroprudentiel"
+      ],
+      "why": "Chapitre 3 section 3.E et chapitre 4 section 3.A.",
+      "id": "bcbulles-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fisher",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Expliquez la théorie de la déflation par la dette d'Irving Fisher (1933).",
+        "Pourquoi le désendettement peut-il aggraver une crise selon Fisher ?"
+      ],
+      "model": "Innovations et euphorie → surendettement. Le retournement (défaillance de gros emprunteurs) assèche le crédit : déflation. Les débiteurs bradent leurs actifs, les prix baissent, la valeur réelle des dettes monte : l'effort de désendettement l'accroît. Ruées et faillites bancaires ; l'intervention publique est indispensable.",
+      "points": [
+        "surendettement",
+        "retournement",
+        "déflation",
+        "dette réelle",
+        "intervention publique"
+      ],
+      "why": "Fisher (1933).",
+      "id": "fisher-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Présentez les trois modes de financement de Minsky et le paradoxe de la tranquillité.",
+        "Pourquoi l'instabilité financière est-elle endogène chez Minsky ?"
+      ],
+      "model": "Couvert (revenus > charge de la dette), spéculatif (intérêts couverts, capital différé), Ponzi (s'endetter pour payer les intérêts). En période tranquille, la confiance pousse vers le spéculatif et le Ponzi. Une hausse des taux ou un ralentissement du crédit déclenche les faillites : domino. La fragilité naît du fonctionnement même du système.",
+      "points": [
+        "couvert / spéculatif / Ponzi",
+        "paradoxe de la tranquillité",
+        "déformation au cours du cycle",
+        "endogène"
+      ],
+      "why": "Minsky (1982, 1986).",
+      "id": "minsky-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Présentez les canaux de diffusion de l'instabilité financière.",
+        "Canal du crédit, canal de la prise de risque, canal des prix d'actifs : quelles différences ?"
+      ],
+      "model": "Crédit : strict (offre de prêts, Bernanke & Blinder) et large (bilans, prime de financement externe), longtemps négligé. Prise de risque : les taux bas modifient la perception du risque (BRI, version moderne de Minsky). Prix d'actifs : levier cible, achats à la hausse, ventes à la baisse (Adrian & Shin).",
+      "points": [
+        "canal strict / large",
+        "RTC",
+        "prix d'actifs",
+        "levier cible"
+      ],
+      "why": "Chapitre 3, section 5.",
+      "id": "canaux-013"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bernanke",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Expliquez l'accélérateur financier de Bernanke & Gertler (1989).",
+        "Pourquoi les chocs réels persistent-ils en présence d'asymétries d'information ?"
+      ],
+      "model": "L'asymétrie d'information impose sélection et contrôle : le financement externe coûte plus que l'autofinancement (prime de financement externe). Elle dépend de la richesse nette et de la liquidité de l'emprunteur. Un choc favorable la réduit et stimule l'investissement, un choc défavorable l'accroît : l'effet est amplifié et persiste.",
+      "points": [
+        "asymétrie",
+        "prime de financement externe",
+        "richesse nette",
+        "persistance"
+      ],
+      "why": "Bernanke & Gertler (1989).",
+      "id": "bernanke-008"
     }
   ],
   "ETOILE": [
@@ -24466,6 +24980,191 @@
           "text": "Mimétisme : rationnel en information asymétrique (Keynes, concours de beauté ; Orléan, mimétisme autoréférentiel). Bulle faible / forte, connaissance mutuelle. Comportementales : noise traders, arbitrage limité, risque de synchronisation (Abreu & Brunnermeier)."
         }
       ]
+    },
+    "bcbulles": {
+      "title": "Les banques centrales face aux bulles",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Avant 2007, les banques centrales ignoraient les bulles en formation et se faisaient fort de « nettoyer les dégâts après coup ». La crise a ouvert l'ère du *leaning against the wind*. Questions de partiel très fréquentes."
+        },
+        {
+          "kind": "convention",
+          "title": "L'héritage monétariste",
+          "text": "Les banques centrales ont gardé du monétarisme deux hypothèses :\n\n- **H1** : l'inflation est un phénomène monétaire (Friedman) ;\n- **H2**, **hypothèse de Schwartz** (Anna Schwartz, co-autrice de Friedman) : la stabilité des prix favorise la stabilité financière ; l'instabilité financière résulte d'une forte instabilité des prix.\n\nD'où le **principe de séparation** : stabilité monétaire et stabilité financière sont deux missions distinctes, la première prioritaire. La meilleure contribution d'une banque centrale à la stabilité financière serait de se concentrer sur la stabilité des prix."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Cleaning up afterwards",
+          "text": "Réagir à une bulle suppose des conditions très strictes (**Rudebusch, 2005**) : l'existence de la bulle démontrée ; des conséquences macroéconomiques importantes en cas d'éclatement ; des effets d'une hausse des taux sur la bulle certains et peu coûteux.\n\nRarement réunies, ces conditions ont conduit à n'agir qu'après coup : **CUA** (*cleaning up afterwards*), en intervenant comme **prêteur en dernier ressort**. Greenspan puis Bernanke : faire éclater une bulle est impossible, voire dangereux : c'est le **consensus de Jackson Hole**.\n\nJustifications de Greenspan : le cycle tient à la « nature humaine » ; les modèles sont trop simples ; les autorités sont démunies face aux bulles. Le CUA semblait conforté par la gestion des krachs de 1987 et 2000 et par la grande modération."
+        },
+        {
+          "kind": "formule",
+          "title": "Des taux trop bas : la règle de Taylor",
+          "text": "Règle de Taylor standard (en %) :\n\n\\[i = 1 + \\pi + \\tfrac{1}{2}(\\pi - 2) + \\tfrac{1}{2}\\,\\text{écart de production}\\]\n\nÀ partir de 2003, les taux directeurs sont bien **inférieurs** au taux de Taylor aux États-Unis comme dans la zone euro : politique trop accommodante (critique de Taylor lui-même ; réponse de Bernanke). L'écart est corrélé positivement à la hausse des prix du logement. Les banques centrales avaient **identifié** la bulle (FOMC du 30 juin 2004) mais se sont contentées d'**avertir**. Mésonnier & Frappa (2010) : les prix réels des logements ont crû plus vite dans les pays qui ciblaient l'inflation."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "La nouvelle ère du LAW",
+          "text": "La crise marque l'échec du CUA, qui favoriserait en outre la hausse des prix d'actifs, voire l'inflation à terme. Les économistes de la BRI (White, 2009) contestent ses deux piliers : la banque centrale « ne pourrait pas naviguer à contre-courant » et « pourrait réparer les dégâts ».\n\n**LAW** (*leaning against the wind*) : resserrement **préemptif** en cas de bulle, étroitement coordonné au **macroprudentiel**, voire au budgétaire : un cadre pour la stabilité macrofinancière.\n\nRègle de Taylor **augmentée** d'un objectif financier :\n\n\\[i = r^* + \\pi + \\alpha(\\pi - \\pi^*) + \\beta(y - y^*) + \\gamma(f - f^*)\\]\n\nEn 2007, elle aurait donné des taux à deux chiffres : le taux d'intérêt ne peut pas tout, le macroprudentiel est plus efficace contre l'instabilité."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Avant 2007 : CUA et principe de séparation, **pas** LAW. Les banques centrales intervenaient bien comme **prêteur** en dernier ressort, pas régulièrement comme **acheteur** en dernier ressort.\n- Pour une prochaine crise : prêteur **et** acheteur en dernier ressort (achats de titres, QE), pas faillite des grandes banques.\n- L'hypothèse de Schwartz est précisément ce que la crise a réfuté (paradoxe de la crédibilité)."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Schwartz → séparation → CUA (Rudebusch, Greenspan, Jackson Hole). Taux sous la règle de Taylor, bulle identifiée mais pas combattue. Après la crise : LAW, Taylor augmentée, et surtout coordination avec le macroprudentiel."
+        }
+      ]
+    },
+    "fisher": {
+      "title": "Irving Fisher (1933) : la déflation par la dette",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "*The Debt-Deflation Theory of Great Depressions* (1933) : l'une des premières explications des crises financières. Toute crise est précédée d'un **surendettement** puis accompagnée de **déflation** ; la dette et les prix déterminent la gravité et la durée des crises."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "La phase ascendante",
+          "text": "La montée de l'endettement prend racine dans des perspectives de profits élevés liées à « de nouvelles inventions, de nouvelles industries, le développement de nouvelles ressources, l'accessibilité de nouveaux terrains ou de nouveaux marchés ». Comme chez **Schumpeter**, des innovations lancent le cycle ; des facteurs psychologiques (**euphorie**) généralisent l'endettement. Les banques prêtent sans trop compter. Plus les agents s'endettent, plus ils sont fragiles face au retournement."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "La spirale de la déflation par la dette",
+          "text": "1. La défaillance d'un ou plusieurs gros emprunteurs donne le signal du retournement : défiance, chute de l'offre de financement.\n2. L'assèchement du crédit réduit la monnaie en circulation : pression **déflationniste**.\n3. Les débiteurs bradent leurs actifs pour rembourser : les **prix baissent**, la valeur de leurs actifs aussi.\n4. Ils vendent davantage ; si le surendettement initial est assez grand, le désendettement ne rattrape pas la baisse des prix.\n5. La déflation **accroît la valeur réelle des dettes**.\n\n« L'effort même des individus pour diminuer la charge de leur dette l'augmente, car la course à la liquidation a pour effet de gonfler la valeur de chaque dollar dû »."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Crise bancaire et intervention publique",
+          "text": "Rétention de liquidité, faillites de débiteurs, retraits de dépôts → ruées → faillites bancaires → désorganisation du système financier. L'**intervention publique est indispensable** pour rompre la spirale : injections de liquidité pour sauver banques et marchés, dépenses publiques pour relancer la croissance.\n\nOubliée après 1929, la théorie est remise à l'honneur par **Minsky** à partir du milieu des années 1970."
+        },
+        {
+          "kind": "exemple",
+          "title": "L'anecdote",
+          "text": "À la veille du krach de 1929, Irving Fisher aurait déclaré : « Le prix des actions a atteint ce qui paraît être un haut plateau permanent. »"
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- L'effort de désendettement **accentue** la déflation au lieu de la résorber.\n- Les crises ne se résorbent **pas** d'elles-mêmes : l'intervention publique est indispensable.\n- Fisher ≠ Minsky : Fisher (1933) décrit la spirale dette-déflation ; Minsky distingue trois régimes de financement et formule le paradoxe de la tranquillité."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Surendettement (innovations + euphorie) → retournement → ventes forcées → baisse des prix → hausse de la valeur réelle des dettes → nouvelles ventes. Le désendettement aggrave la dette réelle. L'État doit intervenir."
+        }
+      ]
+    },
+    "minsky": {
+      "title": "Hyman Minsky : l'instabilité financière endogène",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "À partir du milieu des années 1970, Hyman Minsky remet à l'honneur Fisher dans une série d'articles sur l'instabilité financière ; son livre de 1986 s'intitule *Stabilizing an Unstable Economy*. Pour lui, la fragilité financière est **endogène**, **intrinsèque** au fonctionnement du système."
+        },
+        {
+          "kind": "convention",
+          "title": "Trois modes de financement (Minsky, 1982)",
+          "text": "- **Couvert** (prudent) : les revenus attendus excèdent la charge de l'emprunt et tous les besoins de trésorerie, à chaque période.\n- **Spéculatif** : les revenus couvrent les **intérêts**, mais le **capital** ne peut être remboursé qu'à un horizon éloigné.\n- **Ponzi** : il faut **s'endetter pour payer les intérêts** de la dette (du nom d'un spéculateur italo-américain des années 1920). Projets au rendement élevé mais lointain ; insuffisance chronique de liquidité ; à la merci d'un non-renouvellement des crédits, d'une hausse des taux ou d'un profit final décevant."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le paradoxe de la tranquillité",
+          "text": "Plus l'environnement macroéconomique est **tranquille**, plus les investisseurs sont confiants et adoptent des comportements risqués. Dans l'expansion, les financements spéculatifs et Ponzi se développent et fragilisent l'économie : la structure du financement **se déforme au cours du cycle**.\n\nPuis le ralentissement du crédit ou la hausse des taux (tension entre épargne et investissement, demande de monnaie) déclenche les premières faillites. La défiance se généralise, le besoin de liquidité n'est pas satisfait : effet domino sur les firmes Ponzi puis spéculatives, qui s'étend aux firmes prudentes (chute des ventes, rationnement du crédit)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Les prolongements",
+          "text": "- **Aglietta** : un nouveau régime macroéconomique (changement de régime d'inflation lié aux émergents) ; « la stabilité des prix, couplée à la libéralisation financière, entraîne un bas coût du crédit qui favorise un boom de la consommation et des prix des actifs » : un paradoxe de la tranquillité revisité.\n- **Borio** : perception du risque et défaut de coordination ; paradoxe de la crédibilité.\n- Le **canal de la prise de risque** est une version moderne de l'analyse de Minsky.\n\nChaîne de la grande modération : inflation basse et stable → baisse des taux et des primes de risque → hausse du crédit → hausse des prix d'actifs → hausse de la valeur des collatéraux."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- L'instabilité naît de la prise de risque **d'autant plus grande que l'environnement est stable**, pas instable.\n- Le risque est **endogène**, pas exogène.\n- Pouvoir **rouler sa dette** n'annule pas le risque : c'est le cas des firmes Ponzi, à la merci d'un non-renouvellement.\n- Spéculatif = intérêts couverts, capital non ; Ponzi = même les intérêts exigent de s'endetter."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Minsky : couvert / spéculatif / Ponzi ; la structure du financement se déforme au cours du cycle ; paradoxe de la tranquillité ; instabilité endogène, cyclique, que la régulation peut stabiliser (Stabilizing an Unstable Economy, 1986)."
+        }
+      ]
+    },
+    "canaux": {
+      "title": "Les canaux de diffusion de l'instabilité",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Par quels canaux l'instabilité se propage-t-elle, et comment la politique monétaire y contribue-t-elle ? Trois canaux au programme : le canal du **crédit** (longtemps sous-estimé), le canal de la **prise de risque**, le canal des **variations de prix d'actifs**."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le canal du crédit, trop vite évacué",
+          "text": "Canal du crédit : l'ensemble des répercussions des variations de taux directeurs sur l'**offre de crédit**. L'essor des marchés et de la titrisation a entretenu l'illusion que le crédit ne comptait plus ; on l'a jugé négligeable au nom d'une désintermédiation… qui n'a pas eu lieu.\n\n- **Canal strict** (crédit bancaire) : les taux directeurs modifient les conditions de refinancement des banques, donc leur capacité à créer de la monnaie et à prêter. **Bernanke & Blinder (1988)** : en réduisant l'accès des banques aux fonds prêtables, l'open market limite l'offre de prêts.\n- **Canal large** (canal du bilan) : une variation des taux modifie la structure des bilans, donc la **prime de financement externe** ; une hausse des taux est plus dépressive si les agents sont déjà très endettés.\n\nConditions d'existence (**Woodford, 2010**) : entreprises dépendantes du crédit ; banques sensibles à leurs conditions de refinancement ; activité bancaire orientée vers le crédit."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le canal de la prise de risque (RTC)",
+          "text": "Le canal du crédit appréhende trop étroitement la banque. Le **risk taking channel** montre comment la politique monétaire affecte la prise de risque des banques dans leurs crédits **et** leurs activités de marché : une **version moderne de Minsky**.\n\nQuand les conditions deviennent accommodantes, la perception du risque et la tolérance au risque changent (**Shirakawa, 2009**) → expansion du crédit et du levier → accumulation de déséquilibres → au-delà d'un point critique, choc brutal.\n\nTravaux de la BRI : Borio & Lowe (2002), Rajan (2005), Borio & Zhu (2008), Adrian & Shin (2007, 2008). **Altunbas, Gambacorta & Marqués-Ibáñez (2010)** : 1 100 banques, 16 pays, 1998-2008 : une politique accommodante réduit à court terme le risque des crédits en portefeuille et pousse à en prendre davantage."
+        },
+        {
+          "kind": "formule",
+          "title": "Le canal des prix d'actifs : Adrian & Shin",
+          "text": "Les banques d'investissement comptabilisent en valeur de marché et visent un **levier cible** (actif / fonds propres = 10). Bilan : actif 100, dette 90, fonds propres 10.\n\n- Les titres montent de 1 % : actif 101, fonds propres 11, levier \\(101/11 \\approx 9{,}18\\). Pour revenir à 10 : \\(\\frac{101 + D}{11} = 10 \\Rightarrow D = 9\\). La banque **s'endette de 9 pour acheter 9 de titres** : une hausse de 1 du prix fait grossir le portefeuille de 9.\n- À la baisse : le portefeuille recule à 109 (dette 99, fonds propres 10) : levier \\(109/10 = 10{,}9\\) → **vendre 9** et rembourser 9.\n\nHausse des prix → baisse du levier → achats → bilans plus gros → hausse des prix. L'amplification est encore plus forte si le levier cible est **procyclique**. Mécanisme au cœur de la crise de 2007-2008."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- RTC = canal de transmission de la **politique monétaire**, pas de la régulation.\n- Les travaux sur le bas niveau des taux d'avant 2008 et la prise de risque, c'est le **RTC** ; ceux sur l'amplification des bilans par les prix d'actifs, c'est le **canal des prix d'actifs**.\n- Adrian & Shin : une **hausse** des prix fait **baisser** le levier, ce qui conduit à **acheter**."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Canal du crédit strict (Bernanke & Blinder) et large (bilan, prime de financement externe). RTC : taux bas → perception du risque → prise de risque (BRI, version moderne de Minsky). Prix d'actifs : levier cible → achats quand les prix montent, ventes quand ils baissent (Adrian & Shin)."
+        }
+      ]
+    },
+    "bernanke": {
+      "title": "Ben Bernanke : accélérateur financier et canal du crédit",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Ben Bernanke, prix de la Banque de Suède 2022 avec Diamond et Dybvig, apparaît trois fois dans le cours : l'**accélérateur financier** (Bernanke & Gertler, 1989), le **canal strict du crédit** (Bernanke & Blinder, 1988), et la doctrine des banques centrales face aux bulles (président de la Fed après Greenspan)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "L'accélérateur financier (Bernanke & Gertler, 1989)",
+          "text": "L'asymétrie d'information oblige le prêteur à sélectionner et contrôler, ce qui élève le coût du financement externe : c'est la **prime de financement externe** (*external finance premium*). Elle dépend de la **situation financière de l'emprunteur** (richesse nette, liquidité).\n\nUn choc réel qui améliore cette situation (choc de productivité) **réduit** la prime et facilite l'investissement ; un choc qui la dégrade l'augmente. L'accélérateur **fait persister** l'effet initial du choc."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le canal strict du crédit (Bernanke & Blinder, 1988)",
+          "text": "En réduisant l'accès des banques aux fonds prêtables, les opérations d'open market limitent l'**offre de prêts bancaires**. Le canal **large** applique la logique de l'accélérateur à la **politique monétaire** : une hausse des taux dégrade les bilans et relève la prime de financement externe."
+        },
+        {
+          "kind": "exemple",
+          "title": "Bernanke et les bulles",
+          "text": "Avec Greenspan, Bernanke a défendu le consensus de Jackson Hole : faire éclater une bulle serait impossible, voire dangereux. Face à Taylor, qui jugeait la politique d'avant-crise trop accommodante, il a répondu (blog de la Brookings, 2015). Diamond & Dybvig citaient déjà ses travaux sur la Grande Dépression : les faillites bancaires prédisent mieux la détresse économique que la masse monétaire."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- L'accélérateur financier ne donne **pas** de rôle spécifique aux banques : il porte sur la prime de financement externe de tout emprunteur. Le canal strict, lui, se concentre sur les banques.\n- Bernanke & **Gertler** (1989) = accélérateur ; Bernanke & **Blinder** (1988) = canal strict.\n- La prime baisse quand la situation financière de l'emprunteur **s'améliore**."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Prime de financement externe dépendant de la richesse nette de l'emprunteur → accélérateur qui fait persister les chocs (Bernanke & Gertler). Open market → offre de prêts bancaires (Bernanke & Blinder). Nobel 2022."
+        }
+      ]
     }
   },
   "QCMM": [
@@ -27862,6 +28561,614 @@
       "why": "Abreu & Brunnermeier : dilemme attaquer trop tôt / trop tard ; le marché devient un jeu dont personne ne veut sortir en premier.",
       "trap": "date-auteur",
       "id": "mimetisme-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Avant la crise financière de 2007-2008, les banques centrales :",
+        "Quelle était la doctrine des banques centrales face aux bulles avant 2007 ?"
+      ],
+      "ok": [
+        "Avaient confiance dans leur capacité à « nettoyer les dégâts après coup »",
+        "Appliquaient un principe de séparation entre stabilité monétaire et stabilité financière",
+        "Considéraient que faire éclater une bulle était impossible, voire dangereux",
+        "Intervenaient après coup comme prêteur en dernier ressort"
+      ],
+      "ko": [
+        "Suivaient une stratégie de « leaning against the wind » contre les bulles",
+        "N'intervenaient jamais comme prêteur en dernier ressort, même après un krach",
+        "Intervenaient régulièrement comme acheteur en dernier ressort sur les marchés",
+        "Relevaient leurs taux de façon préemptive dès qu'une bulle apparaissait"
+      ],
+      "koWhy": [
+        "C'est la doctrine d'après-crise.",
+        "Faux : c'est ainsi qu'elles nettoyaient les dégâts.",
+        "Faux : les achats massifs de titres (QE) viennent avec la crise.",
+        "Faux : c'est le LAW."
+      ],
+      "why": "Principe de séparation, CUA, consensus de Jackson Hole : on n'agit qu'après coup, comme prêteur en dernier ressort.",
+      "trap": "cua-law",
+      "id": "bcbulles-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "En cas de prochaine crise financière, les banques centrales :",
+        "Comment les banques centrales réagiraient-elles à une nouvelle crise financière ?"
+      ],
+      "ok": [
+        "Interviendraient comme prêteurs en dernier ressort",
+        "Interviendraient comme acheteurs en dernier ressort (achats de titres)"
+      ],
+      "ko": [
+        "Laisseraient les grandes banques commerciales faire faillite",
+        "Ne feraient rien qui puisse accroître les inégalités ou l'instabilité à long terme",
+        "S'interdiraient toute injection de liquidité pour éviter l'aléa moral",
+        "Se limiteraient à relever leurs taux directeurs"
+      ],
+      "koWhy": [
+        "Faux : le cas Lehman est resté une exception controversée.",
+        "Faux : la gestion des crises passées montre l'inverse (bulles, prix d'actifs).",
+        "Faux.",
+        "Faux : elles baissent les taux et injectent de la liquidité."
+      ],
+      "why": "Gestion des crises de 2007-2008 et de 2020 : prêts de liquidité et programmes massifs d'achats d'actifs. Ces programmes ont pu favoriser de nouvelles bulles.",
+      "trap": "cua-law",
+      "id": "bcbulles-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce que l'hypothèse de Schwartz, et à quoi a-t-elle conduit ?",
+        "Hypothèse de Schwartz et principe de séparation : qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Elle pose que la stabilité des prix favorise la stabilité financière",
+        "Elle attribue l'instabilité financière à une forte instabilité des prix",
+        "Elle a conduit à séparer stabilité monétaire et stabilité financière",
+        "Elle est due à Anna Schwartz, co-autrice de Milton Friedman"
+      ],
+      "ko": [
+        "Elle pose que la stabilité des prix nuit à la stabilité financière",
+        "Elle a conduit les banques centrales à cibler directement les prix d'actifs",
+        "Elle est due à Hyman Minsky, dans Stabilizing an Unstable Economy",
+        "La crise de 2007-2008 l'a pleinement confirmée"
+      ],
+      "koWhy": [
+        "Inversé : c'est ce qu'a montré la crise (Borio).",
+        "Faux : au contraire, ignorer les bulles.",
+        "Faux auteur.",
+        "Inversé : elle l'a réfutée."
+      ],
+      "why": "Hypothèse de Schwartz (H2 monétariste) → principe de séparation. La crise l'a réfutée : la stabilité monétaire peut nourrir l'instabilité financière (paradoxe de la crédibilité).",
+      "trap": "paradoxe",
+      "id": "bcbulles-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Selon Rudebusch (2005), à quelles conditions une banque centrale devrait-elle réagir à une bulle ?",
+        "Quelles conditions très restrictives justifient d'agir contre une bulle (Rudebusch, 2005) ?"
+      ],
+      "ok": [
+        "L'existence de la bulle doit être démontrée",
+        "Son éclatement pourrait avoir des conséquences macroéconomiques importantes",
+        "Les effets d'une hausse des taux sur la bulle doivent être certains et peu coûteux"
+      ],
+      "ko": [
+        "Il suffit que les prix d'actifs augmentent plus vite que l'inflation",
+        "La bulle doit avoir déjà éclaté pour qu'on puisse la mesurer",
+        "Le gouvernement doit en faire la demande officielle",
+        "Les banques commerciales doivent être déjà en difficulté"
+      ],
+      "koWhy": [
+        "Faux : il faut démontrer une bulle.",
+        "Faux : on veut agir avant.",
+        "Hors sujet.",
+        "Hors sujet."
+      ],
+      "why": "Trois conditions rarement réunies : d'où la stratégie du CUA.",
+      "trap": "cua-law",
+      "id": "bcbulles-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Que montre la comparaison des taux directeurs avec la règle de Taylor au début des années 2000 ?",
+        "Politique monétaire et bulle immobilière avant 2007 : qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Les taux directeurs étaient nettement inférieurs au taux de Taylor, aux États-Unis comme en zone euro",
+        "L'écart entre taux directeur et taux de Taylor est corrélé positivement à la hausse des prix du logement",
+        "La Fed avait identifié la bulle immobilière mais s'est contentée d'avertir",
+        "Les prix réels du logement ont crû plus vite dans les pays ciblant l'inflation"
+      ],
+      "ko": [
+        "Les taux directeurs étaient nettement supérieurs au taux de Taylor, aux États-Unis comme en zone euro",
+        "La Fed n'avait jamais identifié la bulle immobilière avant son éclatement",
+        "La Fed a relevé ses taux de façon préemptive dès 2003 pour dégonfler la bulle",
+        "Les pays ciblant l'inflation ont connu une hausse plus lente des prix réels du logement"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Faux : les comptes rendus du FOMC le montrent.",
+        "Faux : pas d'action préemptive.",
+        "Inversé."
+      ],
+      "why": "Taux trop bas vs Taylor (critique de Taylor lui-même) ; FOMC du 30 juin 2004 ; Mésonnier & Frappa (2010) sur 17 pays de l'OCDE.",
+      "trap": "cua-law",
+      "id": "bcbulles-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bcbulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Qu'appelle-t-on leaning against the wind (LAW) ?",
+        "Que préconisent les économistes de la BRI après la crise ?"
+      ],
+      "ok": [
+        "Une politique monétaire à contre-courant en cas de tensions financières",
+        "Un resserrement préemptif, en relevant les taux en cas de bulle",
+        "Une politique étroitement coordonnée à la politique macroprudentielle",
+        "Un rejet des deux piliers du CUA : « can't lean » et « can clean »"
+      ],
+      "ko": [
+        "Une politique qui se contente de nettoyer les dégâts une fois la bulle éclatée",
+        "Une politique qui laisse les bulles se former sans intervenir",
+        "Le remplacement de toute politique macroprudentielle par le seul taux directeur",
+        "Une baisse des taux directeurs dès que les prix d'actifs augmentent"
+      ],
+      "koWhy": [
+        "C'est le CUA.",
+        "C'est le CUA.",
+        "Faux : le taux ne peut pas tout.",
+        "Inversé."
+      ],
+      "why": "LAW : contre-courant, préemptif, coordonné au macroprudentiel (voire au budgétaire). White (2009) conteste que la banque centrale « ne puisse pas » s'opposer au boom et « puisse » réparer ensuite.",
+      "trap": "cua-law",
+      "id": "bcbulles-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fisher",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "D'après Irving Fisher (1933), les crises financières :",
+        "Que dit la théorie de la debt deflation de Fisher (1933) ?"
+      ],
+      "ok": [
+        "Sont précédées d'un surendettement et accompagnées de déflation",
+        "Provoquent une déflation que l'effort de désendettement des agents ne fait qu'accentuer",
+        "Exigent une intervention publique pour rompre la spirale",
+        "Prennent racine dans des perspectives de profit liées à des innovations"
+      ],
+      "ko": [
+        "Sont cycliques et se résorbent d'elles-mêmes, sans intervention",
+        "Provoquent une déflation que l'effort de désendettement parvient à résorber",
+        "Laissent les États et les banques centrales impuissants face à la dépression",
+        "Naissent dans un environnement macroéconomique déjà dépressif"
+      ],
+      "koWhy": [
+        "Faux : l'intervention est indispensable.",
+        "Inversé : il l'accentue.",
+        "Faux : ils peuvent rompre la spirale (liquidité, dépenses publiques).",
+        "Faux : l'endettement naît dans l'euphorie de la phase ascendante."
+      ],
+      "why": "Surendettement → déflation ; le désendettement accroît la valeur réelle des dettes ; intervention publique indispensable ; innovations et euphorie à l'origine de l'endettement.",
+      "trap": "date-auteur",
+      "id": "fisher-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fisher",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Pourquoi, chez Fisher, l'effort de désendettement aggrave-t-il la charge de la dette ?",
+        "« L'effort même des individus pour diminuer la charge de leur dette l'augmente » : pourquoi ?"
+      ],
+      "ok": [
+        "Les ventes d'actifs dans l'urgence font baisser les prix",
+        "La baisse des prix réduit la valeur de l'actif des débiteurs, qui doivent vendre davantage",
+        "La déflation accroît la valeur réelle des dettes",
+        "L'assèchement du crédit réduit la monnaie en circulation"
+      ],
+      "ko": [
+        "Parce que les taux d'intérêt nominaux montent fortement pendant la crise",
+        "Parce que l'inflation érode la valeur réelle des actifs des débiteurs",
+        "Parce que les banques accordent davantage de crédit pendant la crise",
+        "Parce que la valeur nominale des dettes augmente avec la déflation"
+      ],
+      "koWhy": [
+        "Hors du mécanisme de Fisher.",
+        "Inversé : déflation.",
+        "Inversé : l'offre de crédit chute.",
+        "Faux : la valeur nominale est fixe, c'est la valeur réelle qui monte."
+      ],
+      "why": "Course à la liquidation → baisse des prix → dette réelle plus lourde. C'est la valeur réelle (pas nominale) des dettes qui augmente.",
+      "trap": "date-auteur",
+      "id": "fisher-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fisher",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Qu'aurait déclaré Irving Fisher à la veille du krach de 1929 ?",
+        "Quelle déclaration de Fisher, en 1929, est restée célèbre ?"
+      ],
+      "ok": [
+        "« Le prix des actions a atteint ce qui paraît être un haut plateau permanent »",
+        "Une prédiction de stabilité durable des cours boursiers, démentie quelques jours plus tard"
+      ],
+      "ko": [
+        "« Le surendettement des ménages et des entreprises va nous plonger dans une profonde dépression »",
+        "« Les arbres ne montent pas jusqu'au ciel, et les cours boursiers non plus »",
+        "« Il vaut mieux avoir tort avec le marché que raison contre lui »",
+        "Un avertissement solennel sur l'imminence d'un krach boursier de grande ampleur"
+      ],
+      "koWhy": [
+        "Ce n'est pas ce qu'il a déclaré.",
+        "Formule du cours sur les emballements.",
+        "Keynes, concours de beauté.",
+        "Formule sur les banques too big to fail."
+      ],
+      "why": "Anecdote du cours (« La finance est un jeu… dangereux », Librio, 2010) : Fisher croyait au plateau permanent.",
+      "trap": "date-auteur",
+      "id": "fisher-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "D'après Hyman Minsky, les crises financières prennent racine :",
+        "Où Minsky situe-t-il l'origine des crises financières ?"
+      ],
+      "ok": [
+        "Dans une prise de risque d'autant plus grande que l'environnement macroéconomique est stable",
+        "Dans le fonctionnement même du système financier : le risque de crise est endogène",
+        "Dans la déformation de la structure du financement au cours de l'expansion"
+      ],
+      "ko": [
+        "Dans un environnement macroéconomique déjà instable et récessif",
+        "Dans une prise de risque d'autant plus grande que l'environnement est instable",
+        "Dans des chocs purement aléatoires : le risque de crise est exogène au système",
+        "Dans une politique monétaire trop restrictive pendant la phase d'expansion"
+      ],
+      "koWhy": [
+        "Inversé : c'est la tranquillité qui prépare les crises.",
+        "Inversé.",
+        "Inversé : endogène.",
+        "Hors analyse de Minsky."
+      ],
+      "why": "Paradoxe de la tranquillité : la stabilité rend confiant et pousse au risque ; l'instabilité est endogène.",
+      "trap": "paradoxe",
+      "id": "minsky-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Distinguez les trois modes de financement de Minsky :",
+        "Quelles définitions des régimes de financement de Minsky sont exactes ?"
+      ],
+      "ok": [
+        "Couvert : les revenus attendus excèdent la charge de l'emprunt à chaque période",
+        "Spéculatif : les revenus couvrent les intérêts, pas le remboursement du capital à court terme",
+        "Ponzi : il faut s'endetter pour payer les intérêts de sa dette"
+      ],
+      "ko": [
+        "Couvert : les revenus couvrent les intérêts, mais pas encore le remboursement du capital",
+        "Spéculatif : il faut s'endetter à nouveau pour payer les intérêts de la dette",
+        "Ponzi : les revenus couvrent les intérêts et le capital à chaque période",
+        "Spéculatif : aucun emprunt n'est nécessaire pour financer le projet"
+      ],
+      "koWhy": [
+        "C'est le spéculatif.",
+        "C'est le Ponzi.",
+        "C'est le couvert.",
+        "Faux : il y a bien endettement."
+      ],
+      "why": "Couvert (prudent), spéculatif (intérêts couverts, capital différé), Ponzi (endettement pour payer les intérêts).",
+      "trap": "minsky-regimes",
+      "id": "minsky-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Dans l'analyse de Hyman Minsky, la structure du financement :",
+        "Que dit Minsky de la structure du financement des investissements ?"
+      ],
+      "ok": [
+        "Est un facteur déterminant de l'instabilité financière",
+        "Se déforme au cours du cycle",
+        "Est d'autant plus risquée que les agents se sentent en confiance"
+      ],
+      "ko": [
+        "Est d'autant plus risquée que les agents perdent confiance",
+        "Est sans risque dès lors que les agents peuvent rouler leur dette",
+        "Reste stable tout au long du cycle économique",
+        "N'a aucun lien avec l'instabilité financière"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Faux : les firmes Ponzi sont à la merci d'un non-renouvellement de leurs crédits.",
+        "Faux : elle se déforme.",
+        "Faux."
+      ],
+      "why": "En expansion, les financements spéculatifs et Ponzi se multiplient ; la confiance pousse au risque.",
+      "trap": "minsky-regimes",
+      "id": "minsky-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "D'après Hyman Minsky, l'instabilité financière est :",
+        "Comment qualifier l'instabilité financière chez Minsky ?"
+      ],
+      "ok": [
+        "Cyclique",
+        "Endogène, intrinsèque au fonctionnement du système",
+        "Endogène mais stabilisable, comme l'indique le titre de son livre de 1986"
+      ],
+      "ko": [
+        "Exogène, provoquée par des chocs extérieurs",
+        "Impossible à stabiliser par une quelconque politique",
+        "Un phénomène marginal propre aux marchés boursiers",
+        "Résorbée d'elle-même par les forces du marché"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Contredit le titre même de son livre.",
+        "Faux : elle concerne l'ensemble du financement.",
+        "Faux."
+      ],
+      "why": "Instabilité cyclique et endogène ; Stabilizing an Unstable Economy (1986) : elle peut être stabilisée.",
+      "trap": "paradoxe",
+      "id": "minsky-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "minsky",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Qui est l'auteur de « Stabilizing an Unstable Economy » (1986) ?",
+        "« Stabiliser une économie instable » (1986) est un ouvrage de :"
+      ],
+      "ok": [
+        "Hyman Minsky, l'économiste du paradoxe de la tranquillité",
+        "L'auteur de la distinction entre financements couvert, spéculatif et Ponzi"
+      ],
+      "ko": [
+        "Charles Kindleberger, l'historien des manias, paniques et krachs",
+        "Claudio Borio, l'économiste de la BRI qui a formalisé le cycle financier",
+        "Anna Schwartz, co-autrice de Milton Friedman",
+        "Irving Fisher, le théoricien de la déflation par la dette"
+      ],
+      "koWhy": [
+        "Kindleberger : Manias, Panics, and Crashes.",
+        "Borio : cycle financier, paradoxe de la crédibilité.",
+        "Schwartz : l'hypothèse de Schwartz.",
+        "Fisher : debt deflation, 1933."
+      ],
+      "why": "Hyman Minsky, 1986.",
+      "trap": "date-auteur",
+      "id": "minsky-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Le canal de la prise de risque :",
+        "Qu'est-ce que le « risk taking channel » ?"
+      ],
+      "ok": [
+        "Est un canal de transmission de la politique monétaire",
+        "Désigne des travaux montrant que les taux bas d'avant 2008 ont favorisé la prise de risque des banques",
+        "Affecte la prise de risque dans les crédits comme dans les activités de marché",
+        "Est une version moderne de l'analyse de Minsky"
+      ],
+      "ko": [
+        "Est un canal de transmission de la régulation financière",
+        "Désigne des travaux montrant que les variations de prix d'actifs amplifient les bilans",
+        "Ne concerne que l'offre de crédit aux entreprises",
+        "A été mis en évidence par la Fed avant la crise pour justifier le CUA"
+      ],
+      "koWhy": [
+        "Faux : de la politique monétaire.",
+        "C'est le canal des prix d'actifs.",
+        "Faux : aussi les activités de marché.",
+        "Faux : ce sont des travaux de la BRI, qui critiquent le CUA."
+      ],
+      "why": "RTC : politique monétaire accommodante → perception et tolérance du risque modifiées → prise de risque accrue (BRI : Borio & Lowe, Borio & Zhu, Adrian & Shin ; Altunbas et al.).",
+      "trap": "canal",
+      "id": "canaux-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Le canal des variations de prix d'actifs :",
+        "Qu'est-ce qui caractérise le canal des prix d'actifs (Adrian & Shin) ?"
+      ],
+      "ok": [
+        "Est un canal de propagation de l'instabilité financière",
+        "Montre que les variations de prix d'actifs amplifient l'amélioration ou la dégradation des bilans",
+        "Suit l'enchaînement : hausse des prix, baisse du levier, achats de titres, bilans plus gros",
+        "Repose sur des banques qui gèrent activement leur bilan autour d'un levier cible"
+      ],
+      "ko": [
+        "Montre que les taux bas d'avant 2008 ont favorisé la prise de risque des banques",
+        "Suit l'enchaînement : hausse des prix, hausse du levier, ventes de titres, bilans plus gros",
+        "Suppose des bilans bancaires comptabilisés au coût historique",
+        "Joue seulement à la hausse des prix, jamais à la baisse"
+      ],
+      "koWhy": [
+        "C'est le RTC.",
+        "Inversé : le levier baisse et la banque achète.",
+        "Faux : en valeur de marché.",
+        "Faux : il fonctionne dans les deux sens."
+      ],
+      "why": "Adrian & Shin : bilans en valeur de marché, levier cible ; hausse des prix → levier en baisse → achats financés par dette → bilans et prix en hausse ; à la baisse, ventes.",
+      "trap": "canal",
+      "id": "canaux-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Une banque vise un levier actif / fonds propres de 10 : actif 100, dette 90, fonds propres 10. Ses titres gagnent 1 %. Qu'est-ce qui est exact ?",
+        "Adrian & Shin : actif 100, dette 90, fonds propres 10, levier cible 10. Les titres montent de 1 %. Que fait la banque ?"
+      ],
+      "ok": [
+        "Ses fonds propres passent à 11 et son levier tombe à environ 9,2",
+        "Elle s'endette de 9 pour acheter 9 de titres",
+        "Une hausse de 1 du prix fait grossir son portefeuille de 9",
+        "Après l'achat, son levier est revenu à 10"
+      ],
+      "ko": [
+        "Ses fonds propres restent à 10 et son levier monte à 10,1",
+        "Elle vend 9 de titres pour rembourser 9 de dette",
+        "Elle ne modifie pas son bilan car son levier reste à 10",
+        "Elle s'endette de 1 pour acheter 1 de titres"
+      ],
+      "koWhy": [
+        "Faux : la hausse va aux fonds propres (dette constante).",
+        "C'est ce qu'elle fait à la baisse.",
+        "Faux : le levier est tombé à 9,18.",
+        "Faux : D = 9."
+      ],
+      "why": "Actif 101, fonds propres 11, levier 101/11 ≈ 9,18 ; (101 + D)/11 = 10 ⇒ D = 9 : elle emprunte 9 et achète 9.",
+      "trap": "levier-sens",
+      "id": "canaux-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "canaux",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Canal du crédit strict et canal large : qu'est-ce qui est exact ?",
+        "Distinguez canal strict du crédit bancaire et canal large (du bilan) :"
+      ],
+      "ok": [
+        "Canal strict : les taux directeurs modifient le refinancement des banques et leur offre de crédit",
+        "Bernanke & Blinder (1988) : l'open market limite l'offre de prêts bancaires",
+        "Canal large : les taux modifient la structure des bilans et la prime de financement externe",
+        "Canal large : une hausse des taux est plus dépressive si les agents sont très endettés"
+      ],
+      "ko": [
+        "Canal strict : les taux directeurs n'agissent que sur la demande de crédit des ménages",
+        "Canal large : il ne concerne que les bilans des banques, pas ceux des emprunteurs",
+        "Le canal du crédit a toujours été au cœur des politiques monétaires d'avant-crise",
+        "Canal large : une hausse des taux est moins dépressive si les agents sont très endettés"
+      ],
+      "koWhy": [
+        "Faux : l'offre de crédit.",
+        "Faux : le bilan des agents économiques.",
+        "Faux : il a été tenu pour négligeable.",
+        "Inversé."
+      ],
+      "why": "Strict : offre de crédit bancaire (Bernanke & Blinder). Large : bilan des emprunteurs et prime de financement externe (comme l'accélérateur de Bernanke & Gertler, mais appliqué à la politique monétaire).",
+      "trap": "canal",
+      "id": "canaux-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bernanke",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce que l'accélérateur financier de Bernanke & Gertler (1989) ?",
+        "Quels éléments définissent l'accélérateur financier ?"
+      ],
+      "ok": [
+        "L'asymétrie d'information impose sélection et contrôle, ce qui renchérit le financement externe",
+        "La prime de financement externe dépend de la situation financière de l'emprunteur",
+        "Un choc qui améliore la richesse nette de l'emprunteur réduit sa prime et facilite l'investissement",
+        "L'accélérateur fait persister l'effet initial du choc"
+      ],
+      "ko": [
+        "La prime de financement externe est indépendante de la situation de l'emprunteur",
+        "Un choc qui améliore la richesse nette de l'emprunteur augmente sa prime",
+        "L'accélérateur donne un rôle spécifique aux banques dans la transmission des chocs",
+        "L'accélérateur amortit l'effet initial des chocs réels"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Inversé.",
+        "Faux : c'est le canal strict qui se concentre sur les banques.",
+        "Inversé : il le fait persister."
+      ],
+      "why": "Bernanke & Gertler : prime de financement externe fonction de la richesse nette et de la liquidité ; choc favorable → prime plus basse → investissement ; persistance.",
+      "trap": "canal",
+      "id": "bernanke-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bernanke",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Associez correctement Bernanke et ses co-auteurs à leurs apports :",
+        "Quelles associations sont exactes ?"
+      ],
+      "ok": [
+        "Bernanke & Gertler (1989) : l'accélérateur financier",
+        "Bernanke & Blinder (1988) : l'open market limite l'offre de prêts bancaires",
+        "Bernanke, Diamond & Dybvig : prix de la Banque de Suède 2022"
+      ],
+      "ko": [
+        "Bernanke & Blinder (1988) : l'accélérateur financier",
+        "Bernanke & Gertler (1989) : le canal de la prise de risque",
+        "Bernanke & Taylor : la règle de Taylor augmentée",
+        "Bernanke, Stiglitz & Weiss : prix de la Banque de Suède 2022"
+      ],
+      "koWhy": [
+        "Inversé avec Gertler.",
+        "Faux : le RTC vient de la BRI.",
+        "Faux : Taylor critiquait la Fed ; Bernanke lui a répondu.",
+        "Faux."
+      ],
+      "why": "Gertler : accélérateur. Blinder : canal strict. Nobel 2022 avec Diamond et Dybvig.",
+      "trap": "date-auteur",
+      "id": "bernanke-002"
     }
   ]
 }
