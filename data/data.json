@@ -209,6 +209,41 @@
       "name": "Modèles de paniques (après DD)",
       "ch": 1,
       "mat": "mbf"
+    },
+    "mutation": {
+      "name": "Mutation financière",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "silberkane": {
+      "name": "Silber & Kane : l'innovation financière",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "titrisation": {
+      "name": "Titrisation & fragilité accrue",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "levier": {
+      "name": "Levier & deleveraging",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "admati": {
+      "name": "Admati & Hellwig : les fonds propres",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "fintech": {
+      "name": "Fintech, cryptos & mode acquisitif",
+      "ch": 1,
+      "mat": "mbf"
+    },
+    "climat": {
+      "name": "Banques & climat",
+      "ch": 1,
+      "mat": "mbf"
     }
   },
   "BOTS": [
@@ -12689,6 +12724,351 @@
       "a": false,
       "why": "Rôle positif, mais passager clandestin : une banque sous-investit en actifs liquides → pénurie globale possible.",
       "id": "paniques-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "La mutation financière s'est traduite par une désintermédiation : la part des banques dans le financement a fortement reculé.",
+        "Avec la mutation financière, les banques ont perdu l'essentiel de leur place dans le financement de l'économie."
+      ],
+      "a": false,
+      "why": "Erreur d'analyse selon le cours : pas de désintermédiation, les banques se sont adaptées et ont connu un formidable essor.",
+      "trap": "desintermediation",
+      "id": "mutation-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans les pays « suiveurs » comme la France, les innovations financières ont surtout pris la forme de réformes publiques.",
+        "En Europe continentale, la mutation financière a été largement impulsée par l'État, via des réformes financières."
+      ],
+      "a": true,
+      "why": "Innovations privées dans les pays leaders, publiques (réformes) dans les pays suiveurs.",
+      "id": "mutation-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "L'intégration des NTIC par les banques a fait monter le risque opérationnel.",
+        "Datamining, scoring et automatisation ont exposé davantage les banques au risque opérationnel."
+      ],
+      "a": true,
+      "why": "Standardisation et nouveaux outils → montée du risque opérationnel.",
+      "id": "mutation-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "La loi bancaire française de 1984 a renforcé la spécialisation des établissements.",
+        "En 1984, la France a cloisonné davantage les métiers bancaires."
+      ],
+      "a": false,
+      "why": "Elle a déspécialisé les banques : modèle de la banque universelle.",
+      "id": "mutation-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "silberkane",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "E. Kane (1988) décrit un jeu du chat et de la souris entre le régulateur et les banques.",
+        "La « dialectique réglementaire » de Kane (1988) enchaîne réglementation, innovation et re-réglementation."
+      ],
+      "a": true,
+      "why": "Kane : réglementation → innovation → re-réglementation.",
+      "trap": "date-auteur",
+      "id": "silberkane-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "silberkane",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pour E. Kane, la réglementation freine l'innovation financière.",
+        "Selon Kane (1988), plus la réglementation est forte, moins les banques innovent."
+      ],
+      "a": false,
+      "why": "C'est l'inverse : la réglementation suscite des innovations qui la contournent.",
+      "trap": "date-auteur",
+      "id": "silberkane-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "silberkane",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pour W. Silber (1975), la concurrence fait partie des contraintes qui suscitent l'innovation financière.",
+        "Silber (1975) range la concurrence parmi les trois contraintes à l'origine des innovations financières."
+      ],
+      "a": true,
+      "why": "Risques, concurrence, réglementation.",
+      "id": "silberkane-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Le véhicule de titrisation (SPV) est soumis à la réglementation bancaire.",
+        "Les SPV qui émettent les titres issus de la titrisation sont réglementés comme des banques."
+      ],
+      "a": false,
+      "why": "Le SPV n'est pas réglementé : c'est l'un des canaux du shadow banking.",
+      "id": "titrisation-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Côté cédants, les banques européennes sont moins présentes que les banques américaines sur le marché de la titrisation.",
+        "Les banques américaines titrisent davantage de créances que les banques européennes."
+      ],
+      "a": true,
+      "why": "Graphique du cours (Parlons banque) : banques européennes moins présentes côté cédants.",
+      "id": "titrisation-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Grâce à la titrisation, une banque ne peut jamais voir revenir à son bilan le risque des créances cédées.",
+        "Une fois les créances cédées au SPV, la banque cédante est à l'abri de tout retour du risque."
+      ],
+      "a": false,
+      "why": "Le SPV reste lié au cédant par des lignes de crédit : en cas de problème, la banque doit les exercer.",
+      "id": "titrisation-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Les exigences de fonds propres imposées à partir de la fin des années 1980 ont poussé les banques à titriser.",
+        "La titrisation s'explique en partie par la volonté d'économiser des fonds propres réglementaires."
+      ],
+      "a": true,
+      "why": "Sortir des crédits du bilan réduit les fonds propres exigés.",
+      "id": "titrisation-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Un ratio de levier (fonds propres / actif) faible signifie qu'une banque est peu capitalisée.",
+        "Plus le ratio fonds propres / actif est bas, plus la banque est endettée."
+      ],
+      "a": true,
+      "why": "Ratio de levier F/A faible = levier d'actif A/F élevé.",
+      "trap": "levier-sens",
+      "id": "levier-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Un deleveraging permet toujours d'assainir le bilan d'une banque.",
+        "En vendant des actifs pour se désendetter, une banque est certaine d'améliorer sa situation."
+      ],
+      "a": false,
+      "why": "Les ventes font baisser les prix d'actifs, ce qui dégrade les bilans : spirale possible.",
+      "trap": "levier-sens",
+      "id": "levier-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Selon Admati & Hellwig (2013), la dette représente en moyenne 90 à 95 % du bilan des banques.",
+        "Les banques financent en moyenne 5 à 10 % de leur bilan par fonds propres (Admati & Hellwig)."
+      ],
+      "a": true,
+      "why": "Chiffre du cours : 90 à 95 % de dette.",
+      "id": "levier-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "admati",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Admati & Hellwig préconisent un ratio de levier de l'ordre de 20 à 30 %.",
+        "Pour Admati & Hellwig, les fonds propres devraient représenter 20 à 30 % de l'actif total des banques."
+      ],
+      "a": true,
+      "why": "À comparer aux 3 % du ratio de levier de Bâle 3.",
+      "trap": "levier-sens",
+      "id": "admati-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "admati",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pour Admati & Hellwig, les fonds propres bancaires sont coûteux pour la société, ce qui justifie des exigences modérées.",
+        "Admati & Hellwig concluent qu'exiger davantage de fonds propres renchérirait fortement le crédit."
+      ],
+      "a": false,
+      "why": "C'est le mythe qu'ils dénoncent : « why bank equity is not expensive ».",
+      "id": "admati-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "admati",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Selon Admati & Hellwig, la dette est un phénomène addictif pour les banques.",
+        "Admati & Hellwig soulignent que, sans contrainte, l'endettement des banques tend à s'auto-entretenir."
+      ],
+      "a": true,
+      "why": "Tant que rien n'oblige au deleveraging, la dette continue d'augmenter.",
+      "id": "admati-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Dans le mode acquisitif de création monétaire, ce sont les achats de titres qui font les dépôts.",
+        "Avec la financiarisation, la banque crée aussi de la monnaie en achetant des titres à des agents non bancaires."
+      ],
+      "a": true,
+      "why": "Mode acquisitif : « les achats de titres font les dépôts ».",
+      "id": "fintech-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "L'assouplissement quantitatif (QE) est une création de monnaie centrale selon le mode acquisitif.",
+        "En achetant des titres, les banques centrales ont créé de la monnaie centrale selon le mode acquisitif."
+      ],
+      "a": true,
+      "why": "QE = achat de titres = création de monnaie centrale, crises de 2007-2008 et 2020-2021.",
+      "id": "fintech-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pour le cours, les fintech posent pour l'instant beaucoup plus de problèmes aux banques que les GAFAM.",
+        "Les fintech sont, selon le cours, la menace principale pour les banques, devant les GAFAM."
+      ],
+      "a": false,
+      "why": "Les fintech concurrencent les banques sans trop de problème ; l'irruption des GAFAM est beaucoup plus dangereuse.",
+      "id": "fintech-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "La numérisation des services bancaires rend les dépôts plus mobiles, donc potentiellement plus instables.",
+        "Le numérique expose les banques à un risque d'érosion de leurs dépôts."
+      ],
+      "a": true,
+      "why": "Arme à double tranchant : cas de la Silicon Valley Bank (mars 2023).",
+      "id": "fintech-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "La double matérialité désigne l'impact du climat sur la finance et l'impact de la finance sur le climat.",
+        "Parler de double matérialité, c'est considérer à la fois le risque climatique pour la finance et l'effet de la finance sur le climat."
+      ],
+      "a": true,
+      "why": "Impact financier du changement climatique + impact physique de la finance.",
+      "id": "climat-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "L'« approche par les risques » des autorités appréhende les deux faces de la double matérialité.",
+        "Banques centrales et superviseurs intègrent pleinement l'impact de la finance sur le climat."
+      ],
+      "a": false,
+      "why": "Elle n'appréhende que l'impact financier du changement climatique, pas l'impact de la finance sur le climat.",
+      "id": "climat-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Selon le rapport « Banking on Business as Usual » (2025), les grandes banques ont alloué entre 2021 et 2024 plus de deux fois plus aux énergies fossiles qu'aux énergies soutenables.",
+        "D'après « Banking on Business as Usual » (2025), pour 1 dollar accordé aux fossiles, les grandes banques n'ont accordé que 0,42 dollar aux énergies soutenables."
+      ],
+      "a": true,
+      "why": "1 368 milliards pour les soutenables contre 3 285 pour les fossiles entre 2021 et 2024.",
+      "trap": "date-auteur",
+      "id": "climat-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "L'incertitude radicale du risque climatique porte sur la réalité même du changement climatique.",
+        "C'est l'existence du changement climatique qui est radicalement incertaine."
+      ],
+      "a": false,
+      "why": "Elle porte sur les coûts de ses manifestations et les bénéfices de l'atténuation ; la réalité est documentée par le GIEC.",
+      "id": "climat-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Le green supporting factor consiste à alléger les exigences de fonds propres sur les financements verts.",
+        "Le green supporting factor, voulu par la FBF, réduit les exigences de capital sur les actifs verts."
+      ],
+      "a": true,
+      "why": "Le cours le qualifie de « cheval de Troie », par opposition au brown penalizing factor.",
+      "id": "climat-011"
     }
   ],
   "SENS": [
@@ -15922,6 +16302,80 @@
       "a": "up",
       "why": "Si l'actif est risqué, la probabilité de panique devient une fonction croissante du risque des actifs bancaires.",
       "id": "paniques-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "silberkane",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Silber (1975), contrainte réglementaire donnée",
+      "shock": "Hausse du coût d'adhésion à la contrainte (règle plus coûteuse à respecter)",
+      "var": "Incitation des banques à innover pour la contourner",
+      "a": "up",
+      "why": "On innove quand le coût de contournement devient inférieur au coût d'adhésion : plus la règle coûte, plus l'innovation est rentable.",
+      "id": "silberkane-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Modèle « originate to distribute »",
+      "shock": "Hausse de la part des crédits titrisés et sortis du bilan",
+      "var": "Incitation de la banque à sélectionner et contrôler ses emprunteurs",
+      "a": "down",
+      "why": "La banque ne garde plus le risque : elle a moins intérêt à contrôler. La titrisation dilue l'incitation au monitoring.",
+      "id": "titrisation-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Banque qui cible un ratio de levier constant (dette fixe, pertes absorbées par les fonds propres)",
+      "shock": "Baisse du prix des titres qu'elle détient",
+      "var": "Montant d'actifs qu'elle doit vendre pour revenir à son ratio cible",
+      "a": "up",
+      "why": "Les fonds propres fondent, le ratio F/A baisse : pour le rétablir, il faut réduire l'actif, donc vendre.",
+      "trap": "levier-sens",
+      "id": "levier-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Deux banques subissent la même perte sur leurs titres",
+      "shock": "La banque a moins de fonds propres au départ",
+      "var": "Ampleur du deleveraging nécessaire",
+      "a": "up",
+      "why": "Plus la part initiale des fonds propres est faible, moins la banque absorbe les pertes et plus le deleveraging doit être ample.",
+      "trap": "levier-sens",
+      "id": "levier-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "admati",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Admati & Hellwig : banque bénéficiant d'une garantie implicite de renflouement",
+      "shock": "Renforcement de la garantie publique perçue par les créanciers",
+      "var": "Coût de la dette pour la banque",
+      "a": "down",
+      "why": "Rassurés, les créanciers exigent moins de rendement : la dette coûte moins cher, ce qui pousse à s'endetter davantage.",
+      "id": "admati-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 2,
+      "ctx": "Mode acquisitif de création monétaire",
+      "shock": "Une banque achète des titres à des agents non bancaires",
+      "var": "Masse des dépôts dans l'économie",
+      "a": "up",
+      "why": "Les achats de titres font les dépôts : la banque crédite le compte du vendeur.",
+      "id": "fintech-009"
     }
   ],
   "ORDRE": [
@@ -16769,6 +17223,67 @@
       ],
       "why": "Asymétrie → sélection adverse et incitation → profit non monotone → taux maximisant le profit → rationnement.",
       "id": "stiglitzw-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 2,
+      "title": "Remettre dans l'ordre chronologique la libéralisation financière française",
+      "steps": [
+        "Loi bancaire : déspécialisation, naissance de la banque universelle (1984)",
+        "Réforme du marché monétaire et fin de la bonification des taux (1985)",
+        "Fin de l'encadrement du crédit (1986)",
+        "Essor spectaculaire des marchés de titres (fin des années 1980-1990)"
+      ],
+      "why": "1984 → 1985 → 1986 → essor des marchés.",
+      "id": "mutation-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "silberkane",
+      "ch": 1,
+      "diff": 1,
+      "title": "La dialectique réglementaire de Kane (1988), dans l'ordre",
+      "steps": [
+        "Le régulateur impose une contrainte aux banques",
+        "Les banques innovent pour contourner la contrainte",
+        "Le régulateur re-réglemente pour encadrer l'innovation",
+        "De nouvelles innovations contournent la nouvelle règle"
+      ],
+      "why": "Jeu du chat et de la souris : le cycle recommence.",
+      "id": "silberkane-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 1,
+      "title": "Les étapes d'une opération de titrisation",
+      "steps": [
+        "La banque accorde des crédits (origination)",
+        "Elle cède des paquets de créances à un véhicule (SPV)",
+        "Le SPV émet des titres adossés aux créances (ABS, MBS)",
+        "Des investisseurs achètent ces titres et portent le risque"
+      ],
+      "why": "Origination → cession → émission → placement.",
+      "id": "titrisation-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 2,
+      "title": "La spirale du deleveraging, dans l'ordre",
+      "steps": [
+        "Un choc fait baisser le prix des actifs détenus par les banques",
+        "Les fonds propres encaissent la perte et le ratio de levier chute",
+        "Les banques vendent des actifs pour rétablir leur ratio",
+        "Ces ventes font encore baisser le prix des actifs",
+        "Les bilans se dégradent à nouveau, appelant de nouvelles ventes"
+      ],
+      "why": "deleveraging → baisse des prix d'actifs → dégradation des bilans → deleveraging…",
+      "id": "levier-010"
     }
   ],
   "OUVERTE": [
@@ -19253,6 +19768,129 @@
       ],
       "why": "Chapitre 1, modèles de paniques.",
       "id": "paniques-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Qu'appelle-t-on mutation financière et quels en sont les moteurs ?",
+        "Présentez la mutation financière : contexte, moteurs, conséquences."
+      ],
+      "model": "Transformation des systèmes financiers amorcée dans les années 1970 (anglo-saxons), 1980 (Europe), 1990 (émergents). Contexte : fin de Bretton Woods, désinflation, pétrodollars, déficits. Moteurs : globalisation (décloisonnement) et innovations. Conséquences : produits, gestion des risques, mais instabilité et risque systémique.",
+      "points": [
+        "dates et vagues",
+        "contexte",
+        "globalisation / innovations",
+        "avantages / inconvénients",
+        "pas de désintermédiation"
+      ],
+      "why": "Chapitre 1, partie 2.",
+      "id": "mutation-013"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce que la titrisation et pourquoi a-t-elle accru la fragilité des banques ?",
+        "Expliquez le passage de l'origination-conservation à l'origination-distribution."
+      ],
+      "model": "Cession de créances à un SPV non réglementé qui émet des titres (ABS, MBS) achetés par des investisseurs. Essor : yield appetite, euro, techniques, exigences de fonds propres. Effet : originate-to-distribute, contrôle des risques dilué, produits opaques, shadow banking ; le risque revient via les lignes de crédit.",
+      "points": [
+        "définition et acteurs",
+        "facteurs d'essor",
+        "originate to distribute",
+        "dilution du contrôle",
+        "shadow banking"
+      ],
+      "why": "Chapitre 1, section C.",
+      "id": "titrisation-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pourquoi une banque faiblement capitalisée est-elle plus vulnérable à une baisse du prix de ses actifs ?",
+        "Expliquez le deleveraging à partir de l'exemple de deux banques au levier différent."
+      ],
+      "model": "La dette ne bouge pas : la perte est absorbée par les fonds propres. Avec 6 de fonds propres pour 100 d'actif, une perte de 5 les ramène à 1 (ratio ≈ 1 %) ; pour revenir à 6 %, il faudrait vendre 78 d'actifs : impossible, il faut recapitaliser. Les ventes font baisser les prix : spirale.",
+      "points": [
+        "F absorbe la perte",
+        "calcul du ratio",
+        "actif cible = F / ratio",
+        "recapitalisation",
+        "spirale"
+      ],
+      "why": "Exemple Baileys' Bank / Leveraged Bank.",
+      "notations": [
+        "F/A : ratio de levier"
+      ],
+      "id": "levier-011"
+    },
+    {
+      "mat": "mbf",
+      "cat": "admati",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Que recommandent Admati & Hellwig et sur quels arguments ?",
+        "Pourquoi, selon Admati & Hellwig, les banques ont-elles trop peu de fonds propres ?"
+      ],
+      "model": "Garanties publiques explicites et implicites + déductibilité des intérêts → dette subventionnée → fonds propres passés de 20-30 % à 6-8 %. Moindre capacité d'absorption des pertes. Ils préconisent un ratio de levier (FP/A) de 20 à 30 %, contre 3 % dans Bâle 3 ; les fonds propres ne sont pas chers pour la société.",
+      "points": [
+        "garanties publiques",
+        "dette subventionnée",
+        "20-30 % → 6-8 %",
+        "ratio de levier 20-30 %",
+        "equity not expensive"
+      ],
+      "why": "Admati & Hellwig (2013).",
+      "id": "admati-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce que le mode acquisitif de création monétaire ?",
+        "En quoi le changement de modèle bancaire a-t-il provoqué une mutation monétaire ?"
+      ],
+      "model": "Traditionnellement, les crédits font les dépôts : l'accès à la monnaie suppose un projet rentable et un endettement. Dans le mode acquisitif, les achats de titres font les dépôts : la condition est la détention préalable de titres, et le vendeur n'est pas endetté (désencastrement partiel de la dette). Le QE en est la version banque centrale.",
+      "points": [
+        "crédits font les dépôts",
+        "achats de titres font les dépôts",
+        "contrepartie titre",
+        "désencastrement de la dette",
+        "QE"
+      ],
+      "why": "Chapitre 1, section D.",
+      "id": "fintech-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Qu'est-ce que la double matérialité et pourquoi l'approche par les risques des autorités est-elle jugée insuffisante ?",
+        "Pourquoi le risque climatique n'est-il pas un risque financier comme les autres ?"
+      ],
+      "model": "Double matérialité : climat → finance (pertes) et finance → climat (financement du carbone). Les autorités ne voient que le premier pan. Leur approche est étroite, quantitative (elle surestime la mesurabilité d'un risque radicalement incertain, irréversible, systémique) et sans action. Pistes : macroprudentiel, règles de flux et de stock.",
+      "points": [
+        "double matérialité",
+        "approche par les risques",
+        "incertitude radicale",
+        "irréversibilité, systémique",
+        "macroprudentiel et structurel"
+      ],
+      "why": "Chapitre 1 §3 et chapitre 4 §5.",
+      "id": "climat-012"
     }
   ],
   "ETOILE": [
@@ -22127,6 +22765,276 @@
           "text": "DD : défaut de coordination. BJ : signal sur l'actif. CJ : confusion, suspension de convertibilité. Gorton : ruées efficaces ou inefficaces. BG : interbancaire utile mais passager clandestin. Flannery : sélection adverse interbancaire → prêteur en dernier ressort."
         }
       ]
+    },
+    "mutation": {
+      "title": "La mutation financière des années 1980",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "À partir des années 1970 dans les pays anglo-saxons, des années 1980 en Europe et des années 1990 dans les pays émergents, les systèmes financiers se transforment en profondeur : c'est la **mutation financière**, passage d'un capitalisme industriel à un capitalisme financier. Au partiel, la question classique est : par quoi s'est-elle caractérisée, et qu'a-t-elle changé pour les banques ?"
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Un contexte international favorable",
+          "text": "- Abandon de **Bretton Woods (1973)** → montée du **risque de change**.\n- Fin de la tolérance envers l'inflation (**Volcker, 1979**) → montée du **risque de taux d'intérêt**.\n- Circulation des **pétrodollars** après les deux chocs pétroliers.\n- **Besoins de financement** croissants (montée des déficits publics)."
+        },
+        {
+          "kind": "convention",
+          "title": "Deux moteurs",
+          "text": "1. **Globalisation financière** : intégration et décloisonnement à trois échelles : les **marchés** (ouverture, décloisonnement), les **produits** (gamme élargie), les **institutions** (bancassurance, nouveaux intermédiaires actifs sur les marchés de titres).\n2. **Innovations financières** : de **produits** (SICAV, TCN, dérivés), de **marché** (marchés dérivés, nouveaux segments de cotation), de **procédé** (carte à puce, informatisation, DAB/GAB).\n\nVagues : pays **leaders** (États-Unis, Royaume-Uni, Canada, années 1970) avec des innovations **privées** ; pays **suiveurs** (Europe années 1980, émergents années 1990) avec des innovations **publiques** (réformes financières)."
+        },
+        {
+          "kind": "exemple",
+          "title": "Le cas français",
+          "text": "Années 1970 : prédominance de l'intermédiation bancaire, cloisonnement et spécialisation des établissements, secteur bancaire nationalisé, encadrement strict du crédit et contrôle des changes.\n\nLibéralisation : **loi bancaire de 1984** (déspécialisation → « banque universelle ») ; **réforme du marché monétaire en 1985** ; fin de la bonification des taux d'intérêt (**1985**) et de l'**encadrement du crédit (1986)** ; fin du contrôle des changes. Résultat : essor spectaculaire des marchés de titres."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Les banques, actrices et non victimes",
+          "text": "Les banques n'ont pas subi passivement l'essor des marchés :\n- elles ont développé leurs **activités de marché** et intégré d'autres métiers (assurance, OPCVM) → nouveaux **risques de marché**, nouvelles ressources (**dettes de court terme**) ;\n- elles ont intégré les NTIC (datamining, scoring) → montée du **risque opérationnel** ;\n- les exigences de fonds propres (fin des années 1980) les ont poussées vers la **titrisation**.\n\nConséquences des transformations : taille accrue, éventail d'activités élargi, internationalisation, externalisation du cœur de métier, levier accru, concurrence puis **concentration**."
+        },
+        {
+          "kind": "piege",
+          "title": "Le grand piège : la « désintermédiation »",
+          "text": "La mutation financière ne s'est **pas** traduite par une désintermédiation : la part des banques dans le financement n'a pas baissé, elles se sont adaptées et ont connu un « formidable essor » dans les années 1990-2000 (chapitre 2). Réponse fausse classique au partiel."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Mutation financière = libéralisation (déréglementation), globalisation (décloisonnement) et accélération des innovations, amorcée dans les années 1970-1980. Avantages : plus de produits, gestion des risques facilitée, coûts de transaction plus bas, meilleure information. Inconvénients : retour de l'instabilité financière, montée du risque systémique."
+        }
+      ]
+    },
+    "silberkane": {
+      "title": "Silber (1975) et Kane (1988) : pourquoi on innove",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Deux théories de l'innovation financière, souvent proposées ensemble au partiel. La première explique **pourquoi** on innove (des contraintes à contourner), la seconde décrit la **dynamique** entre innovation et régulateur."
+        },
+        {
+          "kind": "formule",
+          "title": "Silber (1975)",
+          "text": "William Silber, *Financial Innovation* (1975) : les innovations financières répondent à **trois types de contraintes** :\n\n- les **risques** ;\n- la **concurrence** ;\n- la **réglementation**.\n\nOn innove quand \\(\\text{coût de contournement} < \\text{coût d'adhésion à la contrainte}\\)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Kane (1988) : la dialectique réglementaire",
+          "text": "Edward Kane décrit un cycle **réglementation → innovation → re-réglementation** : un jeu du **chat et de la souris** entre le régulateur et les banques. La réglementation **suscite** l'innovation qui la contourne, ce qui appelle une nouvelle réglementation."
+        },
+        {
+          "kind": "exemple",
+          "title": "Illustration",
+          "text": "Les exigences de fonds propres imposées à partir de la fin des années 1980 ont poussé les banques vers la **titrisation** : sortir des crédits du bilan pour économiser des fonds propres. Puis les conduits hors bilan exemptés d'exigences ont nourri le shadow banking, et la crise a appelé une re-réglementation (Bâle 3)."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Kane ne dit **pas** que la réglementation entrave l'innovation : elle la **stimule** (on innove pour la contourner).\n- Silber : trois contraintes, pas seulement la réglementation.\n- Au chapitre 4, le cours parle aussi de la dialectique **réglementation → déréglementation → re-réglementation (prudentielle)** qui a accompagné la libéralisation : ne pas la confondre avec la formule de Kane."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Silber : risques + concurrence + réglementation ; innover si coût de contournement < coût d'adhésion. Kane : réglementation → innovation → re-réglementation, jeu du chat et de la souris."
+        }
+      ]
+    },
+    "titrisation": {
+      "title": "La titrisation et la fragilité accrue des banques",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Dans les années 1990-2000, les banques ont **externalisé leur cœur de métier** : la gestion des risques. L'outil : la titrisation et les dérivés de crédit. La banque experte en sélection et gestion des risques est devenue experte en **transfert** des risques. Chapitre clé pour comprendre la crise de 2007-2008."
+        },
+        {
+          "kind": "convention",
+          "title": "Définition et acteurs",
+          "text": "La titrisation consiste à **rendre négociables des créances qui ne le sont pas** initialement. Trois acteurs :\n\n- le **cédant** (initiateur, la banque) cède des paquets de créances ;\n- le **véhicule émetteur** (SPV, SIV, FCC) les achète et émet des titres (**ABS, MBS**…) ;\n- les **investisseurs** achètent ces titres.\n\nLe SPV **n'est pas réglementé** et reste lié au cédant par des protections (**lignes de crédit**) : en cas de problème, la banque doit les honorer."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Pourquoi un tel essor",
+          "text": "- L'appétit des investisseurs pour une nouvelle classe d'actifs (*yield appetite*).\n- L'**euro** : extension et intégration des marchés européens.\n- De nouvelles techniques d'évaluation des risques et de structuration.\n- Les **exigences de fonds propres** : sortir des crédits du bilan économise des fonds propres."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le basculement du modèle d'activité",
+          "text": "**« Origination-conservation »** (*originate to hold*) → **« origination-distribution »** (*originate to distribute*) : les créances ne restent plus au bilan, elles sont distribuées à des sociétés ad hoc. Les banques se détournent du **monitoring**.\n\nEn disséminant le risque, la titrisation a **dilué l'incitation à le contrôler** et réduit le coût d'en prendre davantage ; elle a multiplié les intermédiaires et les produits complexes, nourrissant l'**opacité**. Les conduits hors bilan exemptés de fonds propres ont nourri le **shadow banking**."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Avant la crise, les autorités y voyaient un instrument de **partage des risques au service de la stabilité** : elles ne s'en sont pas méfiées. Elle s'est révélée être un facteur de **dilution du contrôle** et d'expansion du shadow banking.\n- Côté cédants, les banques **européennes** sont moins présentes que les banques **américaines**.\n- Les investisseurs, pas la banque, supportent le risque initialement porté par la banque… sauf quand les lignes de crédit la font revenir au bilan."
+        },
+        {
+          "kind": "exemple",
+          "title": "Too big to fail",
+          "text": "La concentration des années 1990-2000 a créé des groupes « **too big to fail** » : « pile ils gagnent, face l'État perd ». Si on les laisse tomber, ils peuvent entraîner tout le secteur. Plusieurs éléments du rapport **Liikanen** (2012) documentent cette taille excessive, surtout en Europe."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Titrisation : cédant → SPV (non réglementé) → titres (ABS, MBS) → investisseurs. Moteurs : yield appetite, euro, techniques, exigences de fonds propres. Effet : originate-to-distribute, dilution du contrôle des risques, opacité, shadow banking."
+        }
+      ]
+    },
+    "levier": {
+      "title": "Levier d'endettement et deleveraging",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Moins de fonds propres, plus de dette : les banques ont accru leur levier, jusqu'à 90 à 95 % de dette au bilan (Admati & Hellwig, 2013). Conséquence : une moindre capacité à absorber les pertes, et des spirales de désendettement (*deleveraging*) en cas de choc. Exercice chiffré classique."
+        },
+        {
+          "kind": "formule",
+          "title": "Trois ratios à ne pas confondre",
+          "text": "Avec A l'actif total, F les fonds propres, D la dette (\\(A = F + D\\)) :\n\n- **levier d'endettement** : \\(D / F\\) ;\n- **levier d'actif** : \\(A / F\\) ;\n- **ratio de levier** : \\(F / A\\), l'inverse du levier d'actif.\n\nUn levier élevé = un ratio de levier faible. Une banque « très levierisée » a peu de fonds propres."
+        },
+        {
+          "kind": "exemple",
+          "title": "Baileys' Bank contre Leveraged Bank",
+          "text": "Deux banques, actif = prêts 50 + titres 50 = 100.\n\n- BB : fonds propres 30, dette 70 → ratio de levier 30 %.\n- LB : fonds propres 6, dette 94 → ratio de levier 6 %.\n\nLe prix des titres chute de 10 % (50 → 45) ; la dette ne bouge pas, les fonds propres encaissent la perte de 5 :\n\n- BB : F = 25, A = 95 → ratio \\(25/95 \\approx 26\\,\\%\\).\n- LB : F = 1, A = 95 → ratio \\(1/95 \\approx 1\\,\\%\\) !"
+        },
+        {
+          "kind": "formule",
+          "title": "Le désendettement nécessaire",
+          "text": "Pour revenir au ratio initial, il faut ramener l'actif à \\(A = F / \\text{ratio cible}\\), en vendant des actifs pour rembourser la dette.\n\n- BB : \\(25 / 0{,}30 \\approx 83\\) → vendre environ **12** d'actifs : faisable.\n- LB : \\(1 / 0{,}06 \\approx 17\\) → il faudrait vendre **78**, or LB n'a pas autant d'actifs négociables : seule issue, la **recapitalisation**.\n\nLB n'aurait supporté qu'une perte d'environ 5 % sur ses titres."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "La spirale",
+          "text": "deleveraging → baisse du prix des actifs → dégradation des bilans → deleveraging…\n\nPlus la part des fonds propres est faible au départ, moins la banque absorbe les pertes et plus le deleveraging doit être ample. Tant que rien n'y oblige, la dette continue d'augmenter : pour Admati & Hellwig, **la dette est addictive**."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Le deleveraging = des **ventes** d'actifs (pas des achats) pour rétablir le ratio.\n- Il n'assainit **pas toujours** le bilan : par son effet sur les prix d'actifs, il peut accentuer la dégradation.\n- La hausse du levier est liée aux **garanties publiques** : explicites (garantie des dépôts) et implicites (renflouement, *bail-out*)."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Ratio de levier = F/A. Une banque peu capitalisée voit ses fonds propres fondre au moindre choc et ne peut se désendetter qu'en vendant massivement (spirale) ou en se recapitalisant."
+        }
+      ]
+    },
+    "admati": {
+      "title": "Admati & Hellwig : plus de fonds propres",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Anat Admati et Martin Hellwig, *The Bankers' New Clothes* (2013), et Admati, DeMarzo, Hellwig et Pfleiderer (2010-2011), *Fallacies, Irrelevant Facts, and Myths in the Discussion of Capital Regulation: Why Bank Equity is Not Expensive*. Leur thèse : les banques ont trop peu de fonds propres, et en exiger beaucoup plus ne coûterait pas cher à la société."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Pourquoi les fonds propres ont fondu",
+          "text": "Les garanties publiques explicites (garantie des dépôts) et implicites (renflouement, *bail-out*) rassurent les créanciers et réduisent leurs exigences de rendement :\n\n- la dette coûte **moins cher** aux banques qu'aux entreprises non financières ;\n- elle est **subventionnée** par les pouvoirs publics, avec en plus la **déductibilité fiscale des intérêts**.\n\nRésultat : la part des fonds propres au bilan est passée de **20 à 30 %** au début du XXe siècle à **6 à 8 %** dans les années 1980."
+        },
+        {
+          "kind": "convention",
+          "title": "Ce qu'ils préconisent",
+          "text": "Un **ratio de levier** (fonds propres / actif total, non pondéré par les risques) de **20 à 30 %**. À comparer au ratio de levier de Bâle 3 : **3 %** (actif jusqu'à 33 fois les fonds propres)."
+        },
+        {
+          "kind": "exemple",
+          "title": "FP/RWA contre FP/A",
+          "text": "Exemple d'Admati & Hellwig : fin 2011, la Deutsche Bank avait 55 milliards de fonds propres, soit **14 %** de ses actifs pondérés par les risques (381 milliards) mais seulement **2,5 %** de son actif total (2 200 milliards). Quand une banque européenne annonce 10 % de fonds propres, c'est en fait 5 %, voire 2 à 3 % de son actif total."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Recommander un ratio de levier **plus élevé** = plus de fonds propres = un levier d'endettement **plus faible**. Ne pas inverser.\n- « Les fonds propres sont chers » est précisément le **mythe** qu'ils dénoncent.\n- La dette est **addictive** : tant que rien n'oblige au deleveraging, elle continue d'augmenter."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Admati & Hellwig : garanties publiques → dette subventionnée → fonds propres tombés de 20-30 % à 6-8 % ; ils recommandent un ratio de levier de 20-30 % ; les fonds propres ne sont pas chers pour la société."
+        }
+      ]
+    },
+    "fintech": {
+      "title": "Fintech, cryptos et mutation monétaire",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Deux transformations récentes : la banque a changé sa façon de **créer de la monnaie** (mode acquisitif), et elle affronte depuis 2008 une nouvelle vague d'innovations (fintech, cryptos, GAFAM). Faut-il y voir une « ubérisation » des banques ? Le cours répond non : transformation plutôt que disparition."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le mode acquisitif de création monétaire",
+          "text": "- Mode traditionnel : **« les crédits font les dépôts »**. L'accès à la monnaie suppose un projet marchand rentable ; la monnaie est entièrement encastrée dans la dette.\n- Mode **acquisitif** : **« les achats de titres font les dépôts »** (*Le pouvoir de la monnaie*, 2024). Quand une banque achète un titre à un agent non bancaire, elle crée des dépôts. La condition d'accès est la **détention préalable de titres**.\n\nLa contrepartie titre remplace la contrepartie crédit : « à chaque capitalisme sa monnaie ». Mode en partie **désencastré de la dette** : le vendeur du titre n'est pas endetté envers la banque acheteuse. Les banques centrales s'y sont converties avec le **QE** (2007-2008, 2020-2021)."
+        },
+        {
+          "kind": "convention",
+          "title": "La nouvelle vague d'innovations",
+          "text": "- **Monnaie** : cryptomonnaies (privées, numériques, décentralisées, sans intermédiaires ni tiers de confiance, non fondées sur le crédit, ex. le bitcoin) ; monnaies locales (plutôt *lowtech*).\n- **Paiements** : sans contact, paiement mobile, nouveaux services des fintech.\n- **Financement** : crowdlending, crowdfunding (Ulule, Lendix devenu October, Unilend).\n- **Gestion de patrimoine** : services d'épargne moins chers.\n\nFintech = finance + technologie : de nouveaux acteurs, plutôt spécialisés, avec un avantage technologique."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Quel impact sur les banques",
+          "text": "Les fintech sont entrées sur un terrain fragile (« colosses aux pieds d'argile », rentabilité structurellement faible), mais les concurrencent **sans trop de problème pour l'instant**. Les **GAFAM** sont beaucoup plus dangereux.\n\nNe pas surestimer le changement de structure : les mégabanques **rachètent** ces innovations (BNP Paribas → compte Nickel ; BPCE → Fidor ; Crédit Agricole et Société Générale → Linxo et Fiduceo). Si les GAFAM l'emportent, la concentration **augmentera**."
+        },
+        {
+          "kind": "piege",
+          "title": "Le numérique, arme à double tranchant",
+          "text": "Les dépôts deviennent plus mobiles → risque d'**érosion des dépôts** (Silicon Valley Bank, mars 2023), « marches silencieuses ». La **monnaie numérique de banque centrale** inquiète aussi les banques commerciales.\n\nPiège : parler de **désintermédiation** ou d'**ubérisation**. C'est la même erreur d'analyse que pour la mutation des années 1980 : transformation de l'intermédiation plutôt que disparition, avec fragilité à la clé, donc enjeu de régulation."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Mode acquisitif : les achats de titres font les dépôts (QE compris). Nouvelle vague : cryptos, paiements, crowdfunding, gestion d'épargne. Les fintech ne bouleversent pas encore la structure du secteur ; les GAFAM sont la vraie menace ; le numérique rend les dépôts plus volatils."
+        }
+      ]
+    },
+    "climat": {
+      "title": "Banques, finance et changement climatique",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Fil rouge du cours : notre système financier est-il compatible avec le respect des limites planétaires ? Les questions de partiel portent sur la double matérialité, le discours de Mark Carney, les rapports d'ONG sur les financements fossiles et la façon dont la régulation commence à intégrer le risque climatique."
+        },
+        {
+          "kind": "convention",
+          "title": "La double matérialité",
+          "text": "- **Impact financier du changement climatique** : il fait peser un risque de pertes sur les bilans bancaires et financiers.\n- **Impact physique de la finance** : en finançant une économie trop carbonée, la finance contribue au changement climatique.\n\nLes autorités n'appréhendent qu'**un seul pan** : l'impact du climat sur la finance (« approche par les risques »), pas celui de la finance sur le climat."
+        },
+        {
+          "kind": "exemple",
+          "title": "Des flux non alignés",
+          "text": "Accord de Paris (2015) : rendre les flux financiers compatibles avec la baisse des émissions. Mais les engagements des banques sont **volontaires et non contraignants** ; elles « financent l'économie comme elle est ».\n\n- *Banking on Climate Chaos* 2022 : les 60 plus grandes banques ont accordé **4 582 milliards de dollars** aux énergies fossiles depuis l'Accord de Paris ; la place de Paris est le **1er soutien de l'UE** à cette industrie (87 % venant de BNP Paribas, Société Générale, Crédit Agricole).\n- *Banking on Business as Usual* 2025 : entre 2021 et 2024, 1 368 milliards aux énergies soutenables contre 3 285 aux fossiles, soit **0,42 dollar pour 1** : plus de deux fois plus aux fossiles."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le discours de Carney (2015)",
+          "text": "Septembre 2015, Mark Carney : *Breaking the tragedy of the horizon*. Il dénonce l'incompatibilité entre l'horizon court des financiers et l'horizon long du climat, et explicite trois risques financiers : **physique**, **de transition**, **de responsabilité**. Suites : création du **NGFS** (2017), discours de Benoît Cœuré (2018).\n\nLimite : il a enfermé les autorités dans une **approche par les risques** étroite (impact financier seulement), quantitative (surestime la mesurabilité) et sans action."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Un risque pas comme les autres",
+          "text": "Le changement climatique se caractérise par :\n\n- une **incertitude radicale**, qui porte non sur sa réalité (documentée par le GIEC) mais sur les **coûts** de ses manifestations et les **bénéfices** de l'atténuation ; elle rend obsolètes les modèles *backward looking* fondés sur des risques probabilisables (rapport *Green Swan*, BRI et Banque de France, 2020) ;\n- son **irréversibilité** (seuils, accumulation de gaz à effet de serre) ;\n- sa dimension **systémique**."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Réguler : de la transparence aux règles",
+          "text": "- **Pilier 3** (transparence) : reporting extra-financier (art. 173 de la loi de 2016, CSRD, SFDR), engagements volontaires, *comply or explain* : insuffisant.\n- **Pilier 2** : **stress-tests climatiques**, plans de transition obligatoires (I4CE).\n- **Pilier 1** : exigences de capital sur les projets néfastes (Finance Watch). *Green supporting factor* (voulu par la FBF, « cheval de Troie ») contre *brown penalizing factor*.\n- Le risque climatique étant systémique, le **macroprudentiel** doit primer (coussin de risque climatique), complété par des règles **structurelles** de flux et de stock."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- La régulation a commencé à intégrer le climat par le **reporting** et les **stress-tests**, pas par des coussins climatiques ou des interdictions (qui restent des propositions).\n- L'incertitude radicale ne porte **pas** sur la réalité du changement climatique.\n- Les engagements des banques ne sont **pas contraignants**."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Double matérialité (climat → finance et finance → climat) ; flux non alignés, engagements volontaires ; Carney 2015 (physique, transition, responsabilité) ; incertitude radicale, irréversibilité, dimension systémique ; approche par les risques insuffisante → macroprudentiel et règles structurelles."
+        }
+      ]
     }
   },
   "QCMM": [
@@ -23083,6 +23991,953 @@
         "Faux : les dépôts deviennent plus mobiles, donc potentiellement plus instables."
       ],
       "id": "paniques-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "La mutation financière des années 1980-1990 s'est caractérisée par :",
+        "Quels traits caractérisent la mutation financière amorcée dans les années 1970-1980 ?"
+      ],
+      "ok": [
+        "Une libéralisation financière (déréglementation)",
+        "Une accélération des innovations financières",
+        "Un décloisonnement des marchés financiers",
+        "Une globalisation financière à l'échelle des marchés, des produits et des institutions"
+      ],
+      "ko": [
+        "Une désintermédiation financière généralisée",
+        "Un renforcement du contrôle des activités bancaires",
+        "Un cloisonnement accru des établissements financiers",
+        "Une spécialisation plus stricte des banques par métier",
+        "Un repli des banques sur leur activité de crédit traditionnelle"
+      ],
+      "koWhy": [
+        "Piège classique : le cours montre qu'il n'y a pas eu de désintermédiation.",
+        "Inversé : c'est une période de déréglementation.",
+        "Inversé : décloisonnement.",
+        "Inversé : déspécialisation (loi bancaire de 1984 → banque universelle).",
+        "Faux : elles ont développé leurs activités de marché."
+      ],
+      "why": "Mutation = libéralisation, globalisation (décloisonnement des marchés, extension des produits, intégration des institutions) et innovations. Pas de désintermédiation : les banques se sont adaptées.",
+      "trap": "desintermediation",
+      "id": "mutation-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "La mutation financière désigne :",
+        "Qu'entend-on par « mutation financière » ?"
+      ],
+      "ok": [
+        "Une transformation des systèmes financiers amorcée dans les années 1970-1980",
+        "Le passage d'un capitalisme industriel à un capitalisme financier",
+        "Une évolution partie des pays anglo-saxons, puis de l'Europe et des émergents"
+      ],
+      "ko": [
+        "Une transformation des systèmes financiers amorcée dans les années 1990-2000",
+        "Une période de renforcement du contrôle des activités financières",
+        "La crise financière déclenchée par la chute de Lehman Brothers",
+        "Le retour à l'encadrement du crédit après les chocs pétroliers",
+        "L'essor des cryptomonnaies et des fintech depuis 2008"
+      ],
+      "koWhy": [
+        "Trop tardif : la mutation est amorcée dans les années 1970-1980.",
+        "Inversé : libéralisation et déréglementation.",
+        "Hors sujet : c'est la crise de 2007-2008.",
+        "Inversé : l'encadrement du crédit est supprimé (1986 en France).",
+        "C'est la « nouvelle vague » d'innovations, bien plus récente."
+      ],
+      "why": "Mutation financière : années 1970 (pays anglo-saxons), 1980 (Europe), 1990 (émergents). Transformation du capitalisme industriel en capitalisme financier, portée par la globalisation et les innovations.",
+      "trap": "date-auteur",
+      "id": "mutation-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Quels éléments du contexte international ont favorisé la mutation financière ?",
+        "La mutation financière s'inscrit dans un contexte international particulier. Lequel ?"
+      ],
+      "ok": [
+        "L'abandon de Bretton Woods en 1973, qui fait monter le risque de change",
+        "La fin de la tolérance envers l'inflation (Volcker, 1979) : hausse du risque de taux",
+        "La circulation des pétrodollars après les deux chocs pétroliers",
+        "Des besoins de financement croissants liés aux déficits publics"
+      ],
+      "ko": [
+        "La création de l'euro, qui supprime le risque de change en Europe",
+        "Une politique monétaire américaine très accommodante tout au long des années 1980",
+        "La disparition des déficits publics dans les pays industrialisés",
+        "La mise en place des accords de Bâle 3 et du ratio de liquidité",
+        "Le retour aux changes fixes après la fin de Bretton Woods"
+      ],
+      "koWhy": [
+        "Anachronique : l'euro date de 1999 et joue sur l'essor de la titrisation, pas sur la mutation.",
+        "Inversé : Volcker durcit la politique monétaire en 1979.",
+        "Inversé : les déficits publics montent.",
+        "Anachronique : Bâle 3 date de 2010.",
+        "Faux : c'est la généralisation des changes flottants qui fait monter le risque de change."
+      ],
+      "why": "Contexte : fin de Bretton Woods (risque de change), désinflation Volcker (risque de taux), pétrodollars, besoins de financement publics. Les risques nouveaux appellent des innovations de couverture.",
+      "id": "mutation-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Comment la France a-t-elle libéralisé son système financier ?",
+        "Quelles réformes marquent la libéralisation financière en France ?"
+      ],
+      "ok": [
+        "La loi bancaire de 1984, qui déspécialise les banques (banque universelle)",
+        "La réforme du marché monétaire de 1985",
+        "La fin de l'encadrement du crédit en 1986",
+        "La fin de la bonification des taux d'intérêt en 1985"
+      ],
+      "ko": [
+        "La nationalisation de l'ensemble du secteur bancaire en 1986",
+        "Le renforcement du contrôle des changes en 1985",
+        "La création d'un encadrement strict du crédit en 1984",
+        "La séparation stricte des banques de dépôt et d'affaires en 1984"
+      ],
+      "koWhy": [
+        "Inversé : la décennie est celle de la libéralisation.",
+        "Inversé : fin du contrôle des changes.",
+        "Inversé : l'encadrement du crédit prend fin en 1986.",
+        "Inversé : la loi de 1984 déspécialise ; la séparation est un débat post-2008."
+      ],
+      "why": "Cas français : loi bancaire 1984 (banque universelle), réforme du marché monétaire 1985, fin de la bonification (1985) et de l'encadrement du crédit (1986), fin du contrôle des changes.",
+      "id": "mutation-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Les transformations du secteur bancaire au cours des dernières décennies ont eu pour conséquences :",
+        "Qu'a produit la mutation financière sur la structure du secteur bancaire ?"
+      ],
+      "ok": [
+        "Un éventail plus large d'activités bancaires",
+        "Une internationalisation des groupes bancaires",
+        "Une concurrence accrue au sein du secteur bancaire",
+        "Une concentration accrue du secteur bancaire"
+      ],
+      "ko": [
+        "Une spécialisation plus poussée des banques",
+        "Un repli national de l'activité des banques",
+        "Une diminution de la taille des grandes banques",
+        "Une disparition des banques « too big to fail »"
+      ],
+      "koWhy": [
+        "Inversé : déspécialisation et banque universelle.",
+        "Inversé : internationalisation.",
+        "Inversé : la taille des banques s'est accrue.",
+        "Inversé : de nombreux groupes sont devenus « too big to fail »."
+      ],
+      "why": "Concurrence accrue dans les années 1980, puis vaste mouvement de concentration dans les années 1990-2000 ; éventail d'activités élargi, internationalisation, taille accrue.",
+      "id": "mutation-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "L'essor des marchés de capitaux à partir de la fin des années 1970 a :",
+        "Quel effet l'essor des marchés de capitaux a-t-il eu sur les banques ?"
+      ],
+      "ok": [
+        "Conduit les banques à élargir leur éventail d'activités",
+        "Financiarisé l'activité des banques (titres, activités de marché)",
+        "Favorisé l'essor du shadow banking via la titrisation",
+        "Rendu banques et marchés plus complémentaires"
+      ],
+      "ko": [
+        "Réduit l'éventail d'activités des banques face à la concurrence",
+        "Réduit la part des banques dans le financement de l'économie",
+        "Fait disparaître la transformation d'échéances",
+        "Cantonné les banques à la collecte de dépôts et au crédit"
+      ],
+      "koWhy": [
+        "Inversé : elles ont élargi leur éventail.",
+        "Faux : la part des financements intermédiés est restée stable (pas de désintermédiation).",
+        "Faux : elle demeure et s'étend même au shadow banking.",
+        "Inversé : elles ont investi les marchés."
+      ],
+      "why": "Les banques se sont adaptées : activités de marché, bancassurance, titrisation. Les marchés portent des activités pour les banques, qui leur apportent de la liquidité. La titrisation a nourri le shadow banking.",
+      "trap": "desintermediation",
+      "id": "mutation-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mutation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Quels ont été les avantages et les inconvénients de la mutation financière ?",
+        "Le cours dresse un bilan de la mutation financière. Qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Avantage : un plus large éventail de produits offerts",
+        "Avantage : une gestion des risques facilitée et des coûts de transaction plus bas",
+        "Inconvénient : la résurgence de l'instabilité financière",
+        "Inconvénient : la montée du risque systémique"
+      ],
+      "ko": [
+        "Avantage : la disparition des crises bancaires et des krachs boursiers",
+        "Avantage : un net recul du risque systémique grâce aux innovations",
+        "Inconvénient : une moindre diffusion de l'information sur les marchés",
+        "Inconvénient : une hausse générale des coûts de transaction"
+      ],
+      "koWhy": [
+        "Faux : les crises reviennent (bulles, krachs, crises bancaires).",
+        "Inversé : le risque systémique monte.",
+        "Inversé : meilleure diffusion avec l'essor des NTIC.",
+        "Inversé : les coûts de transaction diminuent."
+      ],
+      "why": "Avantages : produits, gestion des risques, coûts de transaction, diffusion de l'information (NTIC). Inconvénients : bulles, krachs, crises bancaires et de change, risque systémique.",
+      "id": "mutation-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "silberkane",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "L'innovation financière est :",
+        "Que disent les théories de l'innovation financière vues en cours ?"
+      ],
+      "ok": [
+        "Une réponse à des contraintes de risque, de concurrence et de réglementation (Silber)",
+        "Un moyen de contourner la réglementation",
+        "Plutôt le fait d'agents privés dans les pays leaders et de réformes publiques chez les suiveurs",
+        "Un élément d'un cycle réglementation, innovation, re-réglementation (Kane)"
+      ],
+      "ko": [
+        "Entravée par la réglementation, d'après les travaux de E. Kane (1988)",
+        "Plutôt le fait d'agents publics dans les pays de Common law, et d'agents privés ailleurs",
+        "Une réponse aux seules contraintes réglementaires, d'après W. Silber (1975)",
+        "Un phénomène indépendant de la réglementation et de la concurrence"
+      ],
+      "koWhy": [
+        "Faux : pour Kane, la réglementation suscite l'innovation (chat et souris).",
+        "Inversé : innovations privées dans les pays leaders anglo-saxons.",
+        "Faux : trois contraintes, dont les risques et la concurrence.",
+        "Faux : la réglementation est l'une des contraintes à contourner."
+      ],
+      "why": "Silber (1975) : trois contraintes (risques, concurrence, réglementation). Kane (1988) : dialectique réglementaire, la réglementation stimule l'innovation qui la contourne. Pays leaders (anglo-saxons) : innovations privées ; suiveurs : réformes publiques.",
+      "trap": "date-auteur",
+      "id": "silberkane-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "silberkane",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Selon W. Silber (1975), une innovation financière voit le jour quand :",
+        "À quelle condition une banque innove-t-elle selon Silber (1975) ?"
+      ],
+      "ok": [
+        "Le coût de contournement d'une contrainte est inférieur au coût d'y adhérer",
+        "Une contrainte de risque, de concurrence ou de réglementation pèse sur elle",
+        "Contourner la règle revient moins cher que la respecter"
+      ],
+      "ko": [
+        "Le coût d'adhésion à la contrainte est inférieur au coût de contournement",
+        "Le régulateur l'autorise explicitement à mettre au point un nouveau produit",
+        "La contrainte réglementaire qui pesait sur elle disparaît complètement",
+        "Les coûts de transaction deviennent nuls sur le marché concerné",
+        "Une crise oblige le régulateur à re-réglementer tout le secteur"
+      ],
+      "koWhy": [
+        "Inégalité inversée : on préférerait alors respecter la contrainte.",
+        "Faux : l'innovation vise au contraire à contourner.",
+        "Faux : c'est la présence de la contrainte qui motive l'innovation.",
+        "Hors sujet.",
+        "C'est la re-réglementation chez Kane, pas la condition de Silber."
+      ],
+      "why": "Silber : l'innovation est une réponse aux contraintes ; elle apparaît quand le coût de contournement est inférieur au coût d'adhésion.",
+      "trap": "date-auteur",
+      "id": "silberkane-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Qu'est-ce que la titrisation ?",
+        "La titrisation est une technique qui :"
+      ],
+      "ok": [
+        "Rend négociables des créances qui ne l'étaient pas initialement",
+        "Met en relation un cédant, un véhicule émetteur (SPV) et des investisseurs",
+        "Permet au SPV d'émettre des titres adossés aux créances cédées (ABS, MBS)",
+        "Transfère aux investisseurs le risque initialement porté par la banque"
+      ],
+      "ko": [
+        "Transforme des dépôts à vue en crédits de long terme au bilan de la banque",
+        "Consiste pour la banque à conserver ses crédits jusqu'à leur échéance",
+        "Oblige la banque à détenir davantage de fonds propres",
+        "Est réservée aux banques centrales dans le cadre du QE",
+        "Soumet le véhicule émetteur à la même réglementation que la banque"
+      ],
+      "koWhy": [
+        "C'est la transformation d'échéances.",
+        "C'est l'« origination-conservation », que la titrisation remplace.",
+        "Inversé : elle permet d'en économiser.",
+        "Faux : c'est une technique des banques et des marchés.",
+        "Faux : le SPV n'est pas réglementé."
+      ],
+      "why": "Titrisation : cession de créances à un SPV qui émet des titres achetés par des investisseurs ; le risque sort du bilan de la banque (sauf lignes de crédit).",
+      "id": "titrisation-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Quels facteurs expliquent l'essor de la titrisation ?",
+        "Pourquoi la titrisation a-t-elle connu un tel essor dans les années 1990-2000 ?"
+      ],
+      "ok": [
+        "L'appétit des investisseurs pour une nouvelle classe d'actifs (yield appetite)",
+        "L'euro, qui a étendu et intégré les marchés européens",
+        "De nouvelles techniques d'évaluation des risques et de structuration",
+        "Les exigences de fonds propres, que la titrisation permet d'alléger"
+      ],
+      "ko": [
+        "La disparition des exigences de fonds propres dans les années 1990",
+        "La méfiance des autorités de supervision envers la dispersion des risques",
+        "La réglementation stricte des véhicules de titrisation",
+        "La baisse de l'appétit des investisseurs pour le rendement"
+      ],
+      "koWhy": [
+        "Faux : ce sont justement ces exigences qui poussent à titriser.",
+        "Faux : les autorités y voyaient un instrument de partage des risques.",
+        "Faux : le SPV n'est pas réglementé.",
+        "Inversé : yield appetite."
+      ],
+      "why": "Quatre facteurs du cours : yield appetite, euro, techniques financières, exigences de fonds propres.",
+      "id": "titrisation-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Quelles conséquences la titrisation a-t-elle eues sur le modèle d'activité des banques ?",
+        "En quoi la titrisation a-t-elle fait basculer le modèle bancaire ?"
+      ],
+      "ok": [
+        "Le passage de l'origination-conservation à l'origination-distribution",
+        "Un détournement des banques de leur fonction de monitoring",
+        "Une dilution de l'incitation à contrôler les risques",
+        "Une expansion du shadow banking, secteur bancaire de l'ombre non réglementé"
+      ],
+      "ko": [
+        "Le passage de l'origination-distribution à l'origination-conservation",
+        "Un renforcement du contrôle des risques par les banques cédantes",
+        "Une plus grande transparence des produits financiers",
+        "La disparition des intermédiaires entre banques et investisseurs"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Inversé : incitation à contrôler diluée.",
+        "Inversé : produits très complexes, opacité.",
+        "Inversé : elle a multiplié les intermédiaires."
+      ],
+      "why": "La banque experte en sélection et gestion des risques devient experte en transfert des risques. Le risque est disséminé, le contrôle dilué, les intermédiaires multipliés, l'opacité accrue.",
+      "id": "titrisation-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Avant la crise de 2007-2008, comment la titrisation était-elle perçue, et comment s'est-elle révélée ?",
+        "Perception et réalité de la titrisation : qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Elle était perçue comme une technique de partage du risque",
+        "Les autorités de supervision ne s'en sont pas méfiées",
+        "Elle s'est révélée un facteur de dilution du contrôle des risques",
+        "Elle a nourri l'opacité du système en multipliant les produits complexes"
+      ],
+      "ko": [
+        "Elle était perçue comme la cause principale du risque systémique",
+        "Les superviseurs l'avaient interdite dès les années 1990",
+        "Elle s'est révélée un facteur de réduction du levier",
+        "Elle a concentré le risque dans les seules banques cédantes"
+      ],
+      "koWhy": [
+        "Inversé : elle était vue comme stabilisatrice.",
+        "Faux : elles y voyaient un outil de partage des risques.",
+        "Faux : elle a accompagné la hausse du levier.",
+        "Faux : elle a disséminé le risque, qui revient au bilan via les lignes de crédit."
+      ],
+      "why": "Avant la crise : instrument de partage des risques au service de la stabilité. En réalité : dilution du contrôle des risques, expansion du shadow banking, opacité.",
+      "id": "titrisation-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "titrisation",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pourquoi dit-on des grandes banques « too big to fail » que « pile elles gagnent, face l'État perd » ?",
+        "Qu'est-ce qu'une banque « too big to fail » ?"
+      ],
+      "ok": [
+        "Une banque dont la taille oblige les pouvoirs publics à la sauver en cas de problème",
+        "Une banque systémique qui peut entraîner dans sa chute tout le secteur",
+        "Une banque qui garde ses gains mais dont les pertes retombent sur l'État"
+      ],
+      "ko": [
+        "Une banque rendue très solide par sa taille et sa diversification",
+        "Une banque trop grande pour être supervisée par une autorité nationale",
+        "Une banque dont les pertes sont entièrement supportées par ses actionnaires",
+        "Une banque qui ne peut pas faire faillite car elle n'a pas de dettes"
+      ],
+      "koWhy": [
+        "Faux : la taille ne la rend pas solide, elle rend sa faillite trop coûteuse socialement.",
+        "Hors sujet.",
+        "Inversé : ce sont les contribuables qui paient (bail-out).",
+        "Absurde : ce sont des banques très endettées."
+      ],
+      "why": "La concentration des années 1990-2000 a créé des groupes too big to fail : garantie implicite de sauvetage, donc aléa moral.",
+      "id": "titrisation-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 1,
+      "q": [
+        "Un phénomène de deleveraging désigne :",
+        "Qu'appelle-t-on deleveraging (désendettement) ?"
+      ],
+      "ok": [
+        "Des ventes d'actifs visant à rétablir le ratio de levier après une dégradation du bilan",
+        "Un désendettement qui, par son effet sur les prix d'actifs, peut aggraver la dégradation du bilan",
+        "Un processus d'autant plus ample que la part initiale des fonds propres est faible"
+      ],
+      "ko": [
+        "Des achats d'actifs visant à rétablir le ratio de levier après une dégradation du bilan",
+        "Une opération de désendettement qui permet toujours in fine d'assainir le bilan",
+        "Une hausse du levier d'endettement décidée par la banque en phase d'euphorie",
+        "Une augmentation de capital imposée par le superviseur à une banque saine"
+      ],
+      "koWhy": [
+        "Inversé : il s'agit de ventes.",
+        "Faux : la spirale deleveraging → baisse des prix → dégradation peut s'enclencher.",
+        "C'est l'inverse (leveraging).",
+        "Ce serait une recapitalisation, pas un deleveraging."
+      ],
+      "why": "Deleveraging : la banque vend des actifs pour rembourser sa dette et revenir à son ratio cible. La baisse des prix d'actifs qui en résulte peut enclencher une spirale.",
+      "trap": "levier-sens",
+      "id": "levier-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Une banque a 100 d'actif (50 de prêts, 50 de titres), 6 de fonds propres et 94 de dette. Le prix des titres baisse de 10 %. Qu'est-ce qui est exact ?",
+        "Leveraged Bank : actif 100 dont 50 de titres, fonds propres 6, dette 94. Les titres perdent 10 %. Que se passe-t-il ?"
+      ],
+      "ok": [
+        "Ses fonds propres tombent à 1",
+        "Son ratio de levier passe d'environ 6 % à environ 1 %",
+        "Elle ne peut pas revenir à 6 % en vendant des actifs : il lui faut une recapitalisation",
+        "Sa dette reste à 94 : ce sont les fonds propres qui absorbent la perte"
+      ],
+      "ko": [
+        "Ses fonds propres tombent à 5,4, car la perte ne porte que sur 10 % des fonds propres",
+        "Son ratio de levier reste proche de 6 %, la perte étant répartie sur tout le bilan",
+        "Elle revient à 6 % sans difficulté en vendant environ 12 d'actifs",
+        "Sa dette baisse de 5 tandis que ses fonds propres restent à 6"
+      ],
+      "koWhy": [
+        "Faux : la perte est de 5 (10 % de 50), pas de 10 % des fonds propres.",
+        "Faux : 1/95 ≈ 1 %.",
+        "C'est le cas de Baileys' Bank (30 % de fonds propres).",
+        "Inversé : la dette ne bouge pas, les fonds propres encaissent."
+      ],
+      "why": "Perte de 5 sur les titres (50 → 45) : F = 6 − 5 = 1, A = 95, ratio ≈ 1 %. Pour revenir à 6 %, il faudrait A ≈ 17, donc vendre 78 d'actifs : impossible, d'où la recapitalisation.",
+      "trap": "levier-sens",
+      "id": "levier-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Soit A l'actif, F les fonds propres et D la dette d'une banque. Quelles définitions sont exactes ?",
+        "Quels ratios mesurent correctement le levier d'une banque ?"
+      ],
+      "ok": [
+        "Levier d'endettement : \\(D / F\\)",
+        "Levier d'actif : \\(A / F\\)",
+        "Ratio de levier : \\(F / A\\)",
+        "Un ratio de levier faible signifie un levier d'actif élevé"
+      ],
+      "ko": [
+        "Levier d'endettement : \\(F / D\\)",
+        "Ratio de levier : \\(A / F\\)",
+        "Levier d'actif : \\(F / A\\)",
+        "Un ratio de levier élevé signifie une banque peu capitalisée"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "C'est le levier d'actif.",
+        "C'est le ratio de levier.",
+        "Inversé : ratio de levier élevé = beaucoup de fonds propres."
+      ],
+      "why": "Levier d'endettement D/F, levier d'actif A/F, ratio de levier F/A (inverse du levier d'actif). Ratio de levier faible = beaucoup de dette.",
+      "trap": "levier-sens",
+      "id": "levier-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "levier",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Pourquoi le levier d'endettement des banques s'est-il accru ?",
+        "Qu'est-ce qui explique la hausse du levier des banques au cours des dernières décennies ?"
+      ],
+      "ok": [
+        "Les garanties publiques explicites, comme la garantie des dépôts",
+        "Les garanties publiques implicites de renflouement (bail-out)",
+        "Une dette rendue moins chère pour les banques que pour les autres entreprises"
+      ],
+      "ko": [
+        "Une réglementation interdisant aux banques d'émettre des actions",
+        "La disparition de toute garantie publique des dépôts",
+        "Un coût de la dette plus élevé pour les banques que pour les entreprises",
+        "L'obligation de maintenir un ratio de levier de 20 à 30 %"
+      ],
+      "koWhy": [
+        "Faux : rien de tel.",
+        "Inversé.",
+        "Inversé : la dette coûte moins cher aux banques.",
+        "C'est la recommandation d'Admati & Hellwig, jamais appliquée."
+      ],
+      "why": "Garanties explicites et implicites → les créanciers exigent moins de rendement → la dette bancaire est subventionnée (plus la déductibilité des intérêts) → plus de dette, moins de fonds propres.",
+      "trap": "levier-sens",
+      "id": "levier-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "admati",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "D'après A. Admati et M. Hellwig, la part des fonds propres au bilan des banques à la fin du XIXe siècle était :",
+        "Que disent Admati & Hellwig de la part des fonds propres des banques au tournant du XXe siècle ?"
+      ],
+      "ok": [
+        "Bien plus élevée qu'à la fin du XXe siècle",
+        "De l'ordre de 20 % ou davantage",
+        "Un argument pour recommander un ratio de levier plus élevé"
+      ],
+      "ko": [
+        "Équivalente à celle de la fin du XXe siècle",
+        "Moins élevée qu'à la fin du XXe siècle",
+        "De l'ordre de 5 % seulement",
+        "Un argument pour recommander un ratio de levier plus faible"
+      ],
+      "koWhy": [
+        "Faux : elle a fortement baissé.",
+        "Inversé.",
+        "Faux : c'est l'ordre de grandeur des années 1980 et après.",
+        "Inversé : ils veulent plus de fonds propres, donc un ratio de levier plus élevé."
+      ],
+      "why": "Part des fonds propres : 20 à 30 % au début du XXe siècle contre 6 à 8 % dans les années 1980. Admati & Hellwig en tirent la recommandation d'un ratio de levier de 20 à 30 %.",
+      "trap": "levier-sens",
+      "id": "admati-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "admati",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Selon Admati & Hellwig, pourquoi la part des fonds propres des banques a-t-elle fondu ?",
+        "Quel mécanisme Admati & Hellwig identifient-ils derrière la hausse de l'endettement bancaire ?"
+      ],
+      "ok": [
+        "Les garanties publiques réduisent les exigences de rendement des créanciers",
+        "La dette bancaire est en quelque sorte subventionnée par les pouvoirs publics",
+        "La déductibilité fiscale des intérêts rend la dette encore plus attractive"
+      ],
+      "ko": [
+        "Les fonds propres sont une ressource structurellement plus chère pour la société",
+        "La réglementation interdisait aux banques d'émettre des actions",
+        "Les créanciers exigent un rendement plus élevé des banques que des entreprises",
+        "La disparition de toute garantie publique a renchéri les fonds propres"
+      ],
+      "koWhy": [
+        "C'est le mythe que dénonce « Why Bank Equity is Not Expensive ».",
+        "Faux : rien de tel.",
+        "Inversé : la dette coûte moins cher aux banques.",
+        "Faux : les garanties ont été étendues, pas supprimées."
+      ],
+      "why": "Garanties explicites et implicites → créanciers rassurés → dette moins chère → plus de dette. Les fonds propres ne sont pas chers pour la société : c'est le mythe qu'ils dénoncent.",
+      "trap": "levier-sens",
+      "id": "admati-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "admati",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Fin 2011, la Deutsche Bank détenait 55 milliards de fonds propres, 381 milliards d'actifs pondérés par les risques et 2 200 milliards d'actif total. Qu'en conclure ?",
+        "Exemple d'Admati & Hellwig : 55 Md€ de fonds propres, 381 Md€ d'actifs pondérés, 2 200 Md€ d'actif total. Qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Ses fonds propres représentent environ 14 % des actifs pondérés",
+        "Ses fonds propres représentent environ 2,5 % de l'actif total",
+        "Le ratio pondéré (FP/RWA) donne une image flatteuse de sa solidité"
+      ],
+      "ko": [
+        "Ses fonds propres représentent environ 14 % de l'actif total",
+        "Ses fonds propres représentent environ 25 % des actifs pondérés",
+        "Les deux ratios donnent une image équivalente de sa solidité",
+        "Ses actifs pondérés dépassent son actif total"
+      ],
+      "koWhy": [
+        "Faux : 14 % des actifs pondérés, pas de l'actif total.",
+        "Faux : 55/381 ≈ 14 %.",
+        "Faux : 14 % contre 2,5 %.",
+        "Faux : les RWA ne représentent qu'une fraction de l'actif."
+      ],
+      "why": "55/381 ≈ 14 % des RWA, mais 55/2 200 = 2,5 % de l'actif. Les modèles internes font baisser les pondérations : le ratio pondéré flatte la solvabilité.",
+      "trap": "rwa-actif",
+      "id": "admati-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "La mutation financière amorcée dans les années 1980 s'est-elle aussi traduite par une mutation monétaire ?",
+        "Le changement de modèle des banques a-t-il transformé la création monétaire ?"
+      ],
+      "ok": [
+        "Oui : quand une banque achète un titre à un agent non bancaire, elle crée des dépôts",
+        "Oui : les achats de titres sont devenus une contrepartie de la masse monétaire",
+        "Oui : ce mode désencastre en partie la création monétaire de la dette",
+        "Oui : les banques centrales s'y sont converties avec l'assouplissement quantitatif"
+      ],
+      "ko": [
+        "Non : le mode de création monétaire n'a pas changé depuis les années 1980",
+        "Non : ce sont toujours uniquement les crédits qui font les dépôts",
+        "Non : ce sont toujours uniquement les dépôts qui font les crédits",
+        "Oui : le vendeur du titre se retrouve endetté envers la banque acheteuse"
+      ],
+      "koWhy": [
+        "Faux : le mode acquisitif s'est développé avec la financiarisation.",
+        "Faux : les achats de titres font aussi les dépôts.",
+        "Faux et inversé : les crédits font les dépôts, pas l'inverse.",
+        "Faux : à la différence d'un emprunteur, il n'est pas endetté (désencastrement)."
+      ],
+      "why": "Mode acquisitif : « les achats de titres font les dépôts ». Contrepartie titre, condition d'accès = détention préalable de titres, en partie désencastré de la dette. Le QE est une création de monnaie centrale selon ce mode.",
+      "id": "fintech-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Une nouvelle vague d'innovations financières s'observe depuis la crise de 2008 dans le domaine :",
+        "Dans quels domaines se déploie la vague d'innovations financières récente ?"
+      ],
+      "ok": [
+        "Des paiements : sans contact, paiement mobile, agrégateurs de comptes",
+        "Monétaire : cryptos, monnaies privées et numériques, sans intermédiaire bancaire",
+        "Des financements : crowdlending, crowdfunding, et de la gestion d'épargne",
+        "D'un ensemble de services à fort contenu technologique"
+      ],
+      "ko": [
+        "Des innovations qui vont profondément changer la structure du secteur bancaire",
+        "Des innovations qui ont déjà fait disparaître le monopole des banques",
+        "De la réglementation prudentielle, avec un ratio de levier plus élevé",
+        "Des marchés dérivés organisés, créés à cette occasion"
+      ],
+      "koWhy": [
+        "Faux : ne pas surestimer ; les mégabanques rachètent ces innovations.",
+        "Faux : les fintech concurrencent les banques sans trop de problème pour l'instant.",
+        "Hors sujet : ce n'est pas une innovation financière privée.",
+        "Anachronique : les marchés dérivés datent de la mutation des années 1970-1980."
+      ],
+      "why": "Nouvelle vague : monnaie, paiements, financement, gestion de patrimoine, fort contenu technologique. Le cours invite à ne pas surestimer le changement de structure.",
+      "id": "fintech-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Quelles conséquences les fintech et les GAFAM peuvent-ils avoir sur la structure du secteur bancaire ?",
+        "Peut-on parler d'« ubérisation » des banques : qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "L'essor des fintech va dans le sens d'acteurs plus nombreux et plus petits",
+        "Les mégabanques ont les moyens de racheter ces innovations et le font déjà",
+        "Si les GAFAM l'emportent, la concentration du secteur augmentera",
+        "Parler de désintermédiation reproduit l'erreur d'analyse des années 1980"
+      ],
+      "ko": [
+        "Les fintech ont déjà fortement réduit la concentration du secteur",
+        "Les GAFAM sont moins dangereux pour les banques que les fintech",
+        "Les grandes banques ne se sont jamais intéressées aux fintech",
+        "La désintermédiation est achevée : les banques ne financent plus l'économie"
+      ],
+      "koWhy": [
+        "Faux : pas de changement de structure majeur pour l'instant.",
+        "Inversé : les GAFAM sont bien plus dangereux.",
+        "Faux : BNPP → Nickel, BPCE → Fidor, CA et SG → Linxo et Fiduceo.",
+        "Faux : c'est l'erreur d'analyse dénoncée par le cours."
+      ],
+      "why": "Fintech : plus de diversité, mais rachats par les mégabanques (Nickel, Fidor, Linxo, Fiduceo). GAFAM : menace plus sérieuse et concentration accrue. Transformation de l'intermédiation, pas disparition.",
+      "trap": "desintermediation",
+      "id": "fintech-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "fintech",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce qu'une cryptomonnaie au sens du cours ?",
+        "Comment le cours caractérise-t-il les cryptomonnaies, apparues depuis 2008 ?"
+      ],
+      "ok": [
+        "Une monnaie privée, numérique, non bancaire",
+        "Une monnaie créée et gérée de façon décentralisée, sans tiers de confiance",
+        "Une monnaie qui n'est pas fondée sur le crédit, comme le bitcoin"
+      ],
+      "ko": [
+        "Une monnaie-dette émise par les banques commerciales",
+        "Une monnaie numérique émise par la banque centrale",
+        "Une monnaie locale « lowtech » gérée par des associations",
+        "Une monnaie garantie par la garantie publique des dépôts"
+      ],
+      "koWhy": [
+        "Inversé : elles s'opposent à la monnaie-dette bancaire.",
+        "C'est la monnaie numérique de banque centrale.",
+        "Ce sont les monnaies locales.",
+        "Faux : aucune garantie publique."
+      ],
+      "why": "Cryptos : monnaies non bancaires privées, numériques, décentralisées, sans intermédiaires ni tiers de confiance, non fondées sur le crédit. Très différentes de la monnaie-dette bancaire.",
+      "id": "fintech-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Depuis l'Accord de Paris (2015), qui engage à rendre les flux financiers compatibles avec la baisse des émissions :",
+        "Où en est l'alignement des flux financiers sur l'Accord de Paris selon le cours ?"
+      ],
+      "ok": [
+        "Les flux financiers ne sont pas sur une trajectoire d'alignement",
+        "Les engagements des banques et des autres acteurs sont seulement volontaires",
+        "Banques centrales et superviseurs appréhendent les risques que le climat fait peser sur la finance",
+        "On appelle double matérialité l'impact du climat sur la finance et celui de la finance sur le climat"
+      ],
+      "ko": [
+        "Les flux sont alignés grâce aux engagements contraignants pris par les banques",
+        "Les superviseurs appréhendent aussi bien l'impact de la finance sur le climat",
+        "La double matérialité désigne le double risque, physique et de transition",
+        "Les grandes banques ont cessé de financer les nouvelles énergies fossiles"
+      ],
+      "koWhy": [
+        "Faux : engagements volontaires et non contraignants.",
+        "Faux : c'est justement le pan négligé par l'approche par les risques.",
+        "Faux : la double matérialité croise climat → finance et finance → climat.",
+        "Faux : les financements fossiles ne diminuent guère."
+      ],
+      "why": "Flux non alignés, engagements volontaires ; les autorités ne voient qu'un pan de la double matérialité : l'impact du climat sur la finance.",
+      "trap": "micro-macro",
+      "id": "climat-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "« Breaking the tragedy of the horizon » :",
+        "Que retenir du discours « Breaking the tragedy of the horizon » ?"
+      ],
+      "ok": [
+        "Est un discours prononcé par Mark Carney en 2015",
+        "Explicite les risques auxquels le changement climatique expose les institutions financières",
+        "A sensibilisé les autorités mais en les enfermant dans une approche « par les risques »",
+        "Distingue risque physique, risque de transition et risque de responsabilité"
+      ],
+      "ko": [
+        "Est un discours prononcé par Benoît Cœuré en 2018",
+        "A doté les autorités de l'approche adéquate pour décarboner fortement les bilans",
+        "Porte sur l'impact de la finance sur le climat, et non l'inverse",
+        "A conduit à l'interdiction du financement du charbon en Europe"
+      ],
+      "koWhy": [
+        "Cœuré (2018) : « Monetary policy and climate change », une suite du discours de Carney.",
+        "Faux : l'approche par les risques ne débouche pas sur l'action nécessaire.",
+        "Inversé : il explicite l'impact du climat sur la finance.",
+        "Faux : aucune interdiction de ce type n'en découle."
+      ],
+      "why": "Carney, septembre 2015 : tragédie de l'horizon (horizon court des financiers contre horizon long du climat), trois risques financiers. Prise de conscience (NGFS 2017) mais approche par les risques étroite, quantitative, sans action.",
+      "trap": "date-auteur",
+      "id": "climat-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Le changement climatique se caractérise par :",
+        "Pourquoi le risque climatique est-il difficile à mesurer comme un risque financier ordinaire ?"
+      ],
+      "ok": [
+        "Une incertitude radicale qui porte sur les coûts de ses manifestations et les bénéfices de l'atténuation",
+        "Une incertitude radicale qui rend obsolètes les modèles fondés sur des risques probabilisables",
+        "Son irréversibilité, par seuils et accumulation de gaz à effet de serre",
+        "Sa dimension systémique"
+      ],
+      "ko": [
+        "Une incertitude radicale qui porte sur la réalité même du changement climatique",
+        "Un risque parfaitement probabilisable à partir des données passées",
+        "Un risque réversible si l'on agit dans les dix ans",
+        "Un risque purement individuel, propre à chaque établissement"
+      ],
+      "koWhy": [
+        "Faux : la réalité est largement documentée par le GIEC.",
+        "Faux : les modèles backward looking deviennent obsolètes.",
+        "Faux : le dérèglement procède par seuils d'irréversibilité.",
+        "Faux : il a les caractéristiques du risque systémique."
+      ],
+      "why": "Incertitude radicale (pas sur la réalité du changement climatique, documentée par le GIEC, mais sur les coûts et les bénéfices), irréversibilité, dimension systémique : autant d'obstacles à la mesurabilité (Green Swan, BRI et Banque de France, 2020).",
+      "id": "climat-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "Dans l'édition 2022 du rapport « Banking on Climate Chaos » (500 ONG dont Reclaim Finance), on peut lire que :",
+        "Que révèle le rapport « Banking on Climate Chaos » de 2022 ?"
+      ],
+      "ok": [
+        "Les 60 plus grandes banques ont accordé 4 582 milliards de dollars aux fossiles depuis l'Accord de Paris",
+        "La place de Paris est le premier soutien de l'Union européenne à l'industrie fossile",
+        "L'essentiel des financements fossiles de la place de Paris vient de trois banques"
+      ],
+      "ko": [
+        "Les 60 plus grandes banques ont réduit de 29 % leurs financements fossiles depuis Paris",
+        "Les banques françaises ne font pas partie des grands financeurs des énergies fossiles",
+        "La place de Paris finance moins les fossiles que toutes les autres places européennes",
+        "Les banques ont consacré plus de fonds aux énergies soutenables qu'aux fossiles"
+      ],
+      "koWhy": [
+        "Faux : les financements fossiles ne diminuent guère.",
+        "Faux : BNP Paribas, Société Générale et Crédit Agricole concentrent 87 % des montants parisiens.",
+        "Inversé : premier soutien de l'UE.",
+        "Faux : le rapport 2025 montre au contraire 0,42 dollar pour les soutenables contre 1 pour les fossiles."
+      ],
+      "why": "BOCC 2022 : 4 582 milliards de dollars depuis Paris ; place de Paris : 352 milliards en six ans, 1er soutien de l'UE, talonnant Londres ; 87 % de BNP Paribas, Société Générale et Crédit Agricole. Faits datés : ils valent pour ce rapport.",
+      "trap": "date-auteur",
+      "id": "climat-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 2,
+      "q": [
+        "La régulation bancaire a commencé à prendre en compte le risque climatique grâce à :",
+        "Par quels instruments le risque climatique est-il entré dans la régulation bancaire ?"
+      ],
+      "ok": [
+        "Des exigences de reporting extra-financier",
+        "Des stress-tests intégrant le risque climatique",
+        "Une discipline de la transparence (pilier 3 du contrôle prudentiel)"
+      ],
+      "ko": [
+        "Des coussins climatiques de fonds propres déjà en vigueur",
+        "Des interdictions réglementaires de financer le secteur du charbon",
+        "Un dispositif de défaisance des actifs carbonés",
+        "Un brown penalizing factor appliqué à toutes les banques européennes"
+      ],
+      "koWhy": [
+        "Proposition (coussin de risque climatique), pas encore en vigueur.",
+        "Les exclusions du charbon sont des politiques volontaires des banques, pas des règles.",
+        "Proposition (traitement des actifs échoués), non mise en œuvre.",
+        "Proposition, opposée au green supporting factor voulu par la FBF."
+      ],
+      "why": "Reporting (pilier 3) et stress-tests climatiques (pilier 2). Coussins climatiques, brown penalizing factor, règles de flux et de stock restent des propositions.",
+      "trap": "micro-macro",
+      "id": "climat-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "climat",
+      "ch": 1,
+      "diff": 3,
+      "q": [
+        "Comment verdir la régulation des banques selon le cours ?",
+        "Quelles pistes le cours propose-t-il pour aligner les financements bancaires sur les objectifs climatiques ?"
+      ],
+      "ok": [
+        "Faire primer l'action macroprudentielle, le risque climatique étant systémique",
+        "Ajouter des règles structurelles de flux et de stock sur les financements carbonés",
+        "Rendre contraignants les plans de transition des banques",
+        "Passer de l'approche par les risques au principe de précaution"
+      ],
+      "ko": [
+        "S'en remettre au green supporting factor, qui allège les exigences sur les actifs verts",
+        "S'appuyer uniquement sur la transparence et les engagements volontaires",
+        "Traiter le risque climatique au seul niveau microprudentiel",
+        "Attendre une mesure exacte du risque climatique avant d'agir"
+      ],
+      "koWhy": [
+        "Le cours y voit un « cheval de Troie » voulu par la FBF.",
+        "Constat du cours : cela ne suffit pas.",
+        "Faux : le niveau microprudentiel est mal adapté à un risque systémique.",
+        "C'est l'écueil de l'approche par les risques ; le principe de précaution consiste à ne pas attendre."
+      ],
+      "why": "Macroprudentiel (coussin de risque climatique), règles de flux et de stock, plans de transition contraignants, principe de précaution (Chenet & Kalinowski), verdissement de la politique monétaire.",
+      "trap": "micro-macro",
+      "id": "climat-006"
     }
   ]
 }
