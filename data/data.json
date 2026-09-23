@@ -279,6 +279,31 @@
       "name": "Trop de finance ? Taille et coûts du secteur",
       "ch": 2,
       "mat": "mbf"
+    },
+    "instab": {
+      "name": "Instabilité financière & risque systémique",
+      "ch": 3,
+      "mat": "mbf"
+    },
+    "borio": {
+      "name": "Borio : cycle financier & paradoxe de la crédibilité",
+      "ch": 3,
+      "mat": "mbf"
+    },
+    "bulles": {
+      "name": "Bulles spéculatives : définition & dangers",
+      "ch": 3,
+      "mat": "mbf"
+    },
+    "blanchardw": {
+      "name": "Blanchard & Watson : bulles rationnelles",
+      "ch": 3,
+      "mat": "mbf"
+    },
+    "mimetisme": {
+      "name": "Keynes, Orléan : bulles mimétiques & comportementales",
+      "ch": 3,
+      "mat": "mbf"
     }
   },
   "BOTS": [
@@ -13410,6 +13435,259 @@
       "a": false,
       "why": "À rebours de la tendance mondiale, le biais bancaire européen a augmenté.",
       "id": "fincroiss-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "C'est quand tout va bien que l'instabilité financière prend racine.",
+        "Paradoxalement, l'euphorie et la stabilité apparente préparent les crises."
+      ],
+      "a": true,
+      "why": "Paradoxe de la tranquillité (Minsky).",
+      "trap": "paradoxe",
+      "id": "instab-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Sur un marché d'actifs financiers, la hausse du prix d'un titre peut en accroître la demande.",
+        "Contrairement à un marché de biens, un marché financier peut voir la demande d'un titre augmenter avec son prix."
+      ],
+      "a": true,
+      "why": "C'est la logique de momentum qui nourrit les bulles et le risque systémique.",
+      "id": "instab-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Toutes les crises financières sont systémiques.",
+        "Une crise financière dégénère nécessairement en crise systémique."
+      ],
+      "a": false,
+      "why": "Toutes ne le sont pas : la gravité et le coût dépendent notamment de la nature de la bulle (Mishkin).",
+      "id": "instab-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Des crises bancaires et de change survenant ensemble sont qualifiées de crises « jumelles ».",
+        "On parle de crises jumelles quand une crise bancaire et une crise de change se conjuguent."
+      ],
+      "a": true,
+      "why": "Crises potentiellement systémiques.",
+      "id": "instab-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Selon Borio, le cycle financier peut s'étirer sur 16 à 20 ans, contre 5 à 8 ans pour le cycle des affaires.",
+        "Le cycle financier est plus long que le cycle des affaires."
+      ],
+      "a": true,
+      "why": "Deuxième caractéristique du cycle financier.",
+      "id": "borio-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Pour Borio, le PIB potentiel devrait se définir comme ce qui peut être produit sans pressions inflationnistes et sans accumuler de déséquilibres financiers.",
+        "Borio propose d'intégrer les déséquilibres financiers dans la définition du PIB potentiel."
+      ],
+      "a": true,
+      "why": "Cinquième caractéristique : l'observation du cycle financier aide à mieux prévoir le PIB potentiel.",
+      "id": "borio-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Le paradoxe de la tranquillité est dû à Claudio Borio.",
+        "C'est Borio qui a formulé le « paradoxe de la tranquillité »."
+      ],
+      "a": false,
+      "why": "La tranquillité, c'est Minsky ; Borio a formulé le paradoxe de la crédibilité.",
+      "trap": "paradoxe",
+      "id": "borio-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Pour Borio, la libéralisation financière, le ciblage d'inflation et la mondialisation commerciale ont alimenté le cycle financier.",
+        "Le régime macroéconomique des années 1990-2000 a amplifié le cycle financier selon Borio."
+      ],
+      "a": true,
+      "why": "Sixième caractéristique : l'amplitude du cycle dépend du régime.",
+      "id": "borio-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Une bulle spéculative ne concerne que des actifs financiers.",
+        "L'immobilier ou une devise ne peuvent pas faire l'objet d'une bulle spéculative."
+      ],
+      "a": false,
+      "why": "L'actif est souvent financier, mais pas nécessairement (immobilier, devise…).",
+      "trap": "bulle-type",
+      "id": "bulles-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "La bulle Internet de la fin des années 1990 s'est accompagnée d'une spirale auto-entretenue entre crédit et prix d'actifs.",
+        "La bulle Internet était une bulle de crédit."
+      ],
+      "a": false,
+      "why": "Elle ne s'est pas caractérisée par cette spirale : c'était une bulle purement spéculative, moins dangereuse.",
+      "trap": "bulle-type",
+      "id": "bulles-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "La bulle immobilière américaine a éclaté avec la hausse des taux d'intérêt à partir de 2004.",
+        "Endettés à taux variable, de nombreux « nouveaux propriétaires » américains ont dû revendre leur bien quand les taux ont monté."
+      ],
+      "a": true,
+      "why": "La défaillance de ces ménages est à l'origine de la crise des subprimes.",
+      "id": "bulles-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Une bulle spéculative n'est reconnue comme telle qu'après son explosion.",
+        "Ex ante, il est difficile de distinguer une bulle d'un boom fondé sur l'amélioration des fondamentaux."
+      ],
+      "a": true,
+      "why": "C'est ex post que la surévaluation devient manifeste : « cette fois, c'est différent ».",
+      "id": "bulles-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "blanchardw",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Dans la théorie des bulles rationnelles, parier sur la poursuite de la hausse peut être la meilleure prévision possible.",
+        "Participer à une bulle peut être rationnel quand on anticipe que le marché restera haussier."
+      ],
+      "a": true,
+      "why": "Anticipations auto-réalisatrices : elles entrent dans la catégorie des anticipations rationnelles.",
+      "trap": "bulle-type",
+      "id": "blanchardw-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "blanchardw",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Selon la théorie des bulles rationnelles, une bulle peut apparaître à n'importe quel moment de la vie d'un actif.",
+        "Une bulle rationnelle peut naître bien après l'émission de l'actif."
+      ],
+      "a": false,
+      "why": "Elle ne peut jamais apparaître après la création de l'actif : elle est « congénitale ».",
+      "id": "blanchardw-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "blanchardw",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Chez Evans (1991), la probabilité de dégonflement d'une bulle dépend de sa taille.",
+        "Le modèle d'Evans (1991) fait passer la bulle d'un régime sans éclatement à un régime où elle peut se dégonfler."
+      ],
+      "a": true,
+      "why": "Bulle strictement positive, régime 1 puis régime 2.",
+      "id": "blanchardw-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Pour Keynes, sur les marchés, mieux vaut avoir tort avec le marché que raison contre lui.",
+        "Le concours de beauté keynésien conduit à suivre l'opinion moyenne plutôt que sa propre évaluation."
+      ],
+      "a": true,
+      "why": "Les investisseurs décident selon l'idée qu'ils se font de l'opinion des autres.",
+      "id": "mimetisme-006"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "André Orléan parle de mimétisme autoréférentiel : les investisseurs se fondent sur l'opinion majoritaire produite par le marché lui-même.",
+        "Pour Orléan, les investisseurs abandonnent la valeur fondamentale comme référence au profit de l'opinion du marché."
+      ],
+      "a": true,
+      "why": "Mimétisme autoréférentiel.",
+      "id": "mimetisme-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Dans les bulles mimétiques, le mimétisme est une stratégie irrationnelle.",
+        "Imiter les autres investisseurs est toujours irrationnel."
+      ],
+      "a": false,
+      "why": "En information asymétrique, c'est une stratégie rationnelle : l'agent imité est supposé mieux informé.",
+      "trap": "bulle-type",
+      "id": "mimetisme-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Pour la finance comportementale, l'arbitrage suffit toujours à éliminer l'influence des noise traders.",
+        "Les arbitragistes ramènent systématiquement les prix vers leur valeur fondamentale."
+      ],
+      "a": false,
+      "why": "L'arbitrage est risqué et limité : l'irrationalité peut avoir un impact substantiel et durable.",
+      "id": "mimetisme-009"
     }
   ],
   "SENS": [
@@ -16768,6 +17046,69 @@
       "why": "En deçà du seuil, la finance reste bénéfique : partie croissante de la courbe en cloche.",
       "trap": "lineaire",
       "id": "arcand-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Marché d'actifs financiers en phase d'emballement (logique de momentum)",
+      "shock": "Hausse du prix d'un titre",
+      "var": "Demande de ce titre",
+      "a": "up",
+      "why": "Contrairement à un marché non financier, la hausse du prix attire les acheteurs : c'est l'auto-entretien de la bulle.",
+      "id": "instab-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Paradoxe de la crédibilité (Borio)",
+      "shock": "Hausse de la crédibilité anti-inflation de la banque centrale",
+      "var": "Prise de risque des agents financiers",
+      "a": "up",
+      "why": "Inflation basse et stable → moindre aversion au risque → prise de risque accrue.",
+      "trap": "paradoxe",
+      "id": "borio-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Bulle de crédit (spirale auto-entretenue)",
+      "shock": "Hausse du crédit accordé pour acheter un actif",
+      "var": "Prix de l'actif",
+      "a": "up",
+      "why": "Plus de crédit → plus d'achats → prix en hausse → collatéral en hausse → plus de crédit.",
+      "trap": "bulle-type",
+      "id": "bulles-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "blanchardw",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Bulle rationnelle déterministe de Blanchard & Watson, \\(B_t = B_0(1+r)^t\\)",
+      "shock": "Le temps passe, sans éclatement",
+      "var": "Taille de la bulle",
+      "a": "up",
+      "why": "La bulle déterministe croît au taux r.",
+      "trap": "bulle-type",
+      "id": "blanchardw-008"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 2,
+      "ctx": "Bulle comportementale (noise traders et suivi de tendance)",
+      "shock": "Achats massifs des noise traders sur un titre déjà surévalué",
+      "var": "Surévaluation du titre à court terme",
+      "a": "up",
+      "why": "La surévaluation peut s'accroître à court terme sous l'effet des achats des investisseurs ignorants.",
+      "id": "mimetisme-010"
     }
   ],
   "ORDRE": [
@@ -17692,6 +18033,22 @@
       ],
       "why": "1969 → 1973 → 1993 → 1998 → 2011.",
       "id": "goldsmith-007"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "title": "La boucle auto-entretenue du risque systémique, dans l'ordre",
+      "steps": [
+        "Vague d'optimisme dans un secteur d'activité",
+        "Hausse du prix des actions de ce secteur, qui attire de nouveaux acheteurs",
+        "Le prix s'écarte des fondamentaux : formation d'une bulle",
+        "La valeur des collatéraux augmente, l'endettement aussi",
+        "De nouveaux achats de titres relancent la hausse des prix"
+      ],
+      "why": "Les arbres ne montent pas jusqu'au ciel : la boucle tourne jusqu'à l'explosion.",
+      "id": "instab-011"
     }
   ],
   "OUVERTE": [
@@ -20416,6 +20773,110 @@
       ],
       "why": "Boucher et al. (2013).",
       "id": "fincroiss-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "En quoi l'instabilité financière est-elle historique, cyclique et polymorphe ?",
+        "Pourquoi dit-on que le risque systémique est endogène ?"
+      ],
+      "model": "Historique : crises récurrentes (Kindleberger, 31 années de crises 1720-1987), dans les phases hautes. Cyclique : alternance boom / bust, cycle financier. Polymorphe : bulles, krachs, crises bancaires, de change, souveraines, immobilières. Endogène : boucles prix, collatéral, dette qui s'auto-entretiennent.",
+      "points": [
+        "historique",
+        "cyclique",
+        "polymorphe",
+        "endogène et auto-entretenu"
+      ],
+      "why": "Chapitre 3, sections 1-2.",
+      "id": "instab-012"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce que le cycle financier selon Borio, et en quoi est-il utile ?",
+        "Présentez le paradoxe de la crédibilité."
+      ],
+      "model": "Alternance boom / bust résumée par le crédit et l'immobilier, plus ample et plus longue (16-20 ans) que le cycle des affaires, dont les pics coïncident avec les crises. Utile pour détecter les risques et fonder le macroprudentiel. Paradoxe de la crédibilité : la stabilité des prix réduit l'aversion au risque et nourrit l'instabilité.",
+      "points": [
+        "crédit et immobilier",
+        "16-20 ans",
+        "pics = crises",
+        "macroprudentiel",
+        "crédibilité"
+      ],
+      "why": "Borio (2011, 2012).",
+      "id": "borio-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce qu'une bulle spéculative, et pourquoi toutes les bulles ne sont-elles pas également dangereuses ?",
+        "Bulle de crédit ou bulle purement spéculative : quelle différence ?"
+      ],
+      "model": "Bulle : appréciation durable et écart cumulatif entre prix de marché et valeur fondamentale, reconnue ex post, actif pas forcément financier. Mishkin : les bulles de crédit (spirale crédit-prix, souvent immobilier) sont les plus coûteuses et peuvent être systémiques ; les bulles purement spéculatives (Internet, 1987) le sont moins.",
+      "points": [
+        "définition",
+        "reconnue ex post",
+        "bulle de crédit",
+        "bulle spéculative",
+        "Mishkin"
+      ],
+      "why": "Chapitre 3, section 2.D et 3.A.",
+      "id": "bulles-010"
+    },
+    {
+      "mat": "mbf",
+      "cat": "blanchardw",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Présentez le modèle de bulles rationnelles de Blanchard & Watson (1982) et ses limites.",
+        "Pourquoi dit-on que les bulles rationnelles sont « congénitales » ?"
+      ],
+      "model": "\\(P_t = F_t + B_t\\) : valeur fondamentale + bulle ; infinité de solutions. Bulle déterministe au taux r, puis aléatoire. Diba & Grossman : un aléa négatif donnerait un prix négatif, la bulle ne peut renaître. Seconde génération (Froot & Obstfeld, Evans). Limite : une bulle doit exister dès l'émission, elle est congénitale.",
+      "points": [
+        "P = F + B",
+        "infinité de solutions",
+        "déterministe / aléatoire",
+        "Diba & Grossman",
+        "congénitales"
+      ],
+      "why": "Chapitre 3, section 3.B.",
+      "notations": [
+        "F : valeur fondamentale",
+        "B : bulle",
+        "r : taux d'actualisation"
+      ],
+      "id": "blanchardw-009"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Pourquoi le mimétisme peut-il être rationnel ? Illustrez avec le concours de beauté de Keynes.",
+        "Bulles mimétiques et bulles comportementales : quelles différences ?"
+      ],
+      "model": "En information asymétrique, imiter ceux qu'on croit mieux informés est rationnel. Concours de beauté : on choisit ce que les autres jugeront beau ; les investisseurs suivent l'opinion moyenne (Orléan : mimétisme autoréférentiel). Comportementales : noise traders irrationnels, arbitrage risqué et limité, risque de synchronisation.",
+      "points": [
+        "information imparfaite",
+        "mimétisme rationnel",
+        "concours de beauté",
+        "autoréférentiel",
+        "noise traders / arbitrage limité"
+      ],
+      "why": "Chapitre 3, sections 3.C et 3.D.",
+      "id": "mimetisme-011"
     }
   ],
   "ETOILE": [
@@ -23810,6 +24271,201 @@
           "text": "La finance a grossi par procyclicité, sous-taxation et subventions implicites, relâchement réglementaire. Coûts : instabilité, talents, inégalités, crédit mal orienté. Remèdes : surveillance macroprudentielle, règles, taille des établissements, taxation."
         }
       ]
+    },
+    "instab": {
+      "title": "L'instabilité financière : historique, cyclique, polymorphe",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Chapitre 3 : l'instabilité financière est un phénomène **historique**, **cyclique** et **polymorphe**, et surtout **endogène** et **auto-entretenu**. Notions clés : emballement du crédit, bulles, krachs, cycle financier, paradoxe de la tranquillité, crise systémique."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Un phénomène historique",
+          "text": "- **Charles Kindleberger** recense **31 années de crises financières entre 1720 et 1987** (Angleterre, France, Pays-Bas, puis États-Unis à partir de 1819). La crise de **1929** fut la plus sévère (Grande Dépression, fermeture aux échanges).\n- Les crises se répètent **sans jamais se ressembler vraiment** : des ingrédients communs (endettement, spéculation), une conjonction toujours inédite.\n- Trait commun souligné par Kindleberger : elles surviennent dans les **phases hautes** du cycle, après un « **déplacement** » de l'économie par une invention ou une découverte (organisation scientifique du travail avant 1929, informatisation des marchés avant 1987, Internet avant 2000, puissance de calcul avant 2007-2008).\n- **Recrudescence** à partir des années 1980, avec l'expansion des marchés : marchés plus complets, mais plus instables et pas forcément plus efficaces."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Un phénomène polymorphe",
+          "text": "Bulles et krachs, volatilité excessive des prix d'actifs, assèchement de la liquidité, interruption des paiements, emballement ou rationnement du crédit, défaillances d'institutions, volatilité du change… Crises boursières, bancaires, de change (parfois **jumelles**), obligataires, de dette souveraine, immobilières.\n\nD'où un phénomène difficile à appréhender, à mesurer (**risque systémique ≠ somme des risques individuels**) et à prévenir."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le risque systémique",
+          "text": "Risque d'un dysfonctionnement **global** du secteur financier. Il peut venir de la **contagion** (interconnexions), mais il est **surtout endogène** : vague d'optimisme → hausse du prix des actions → **hausse de la demande** du titre (sur un marché non financier, la hausse du prix ralentirait la demande) → bulle → hausse des collatéraux → hausse de l'endettement → nouveaux achats… Des **boucles qui s'auto-entretiennent** (logique de *momentum*).\n\nDeux dimensions : **temporelle** (évolution du risque global dans le temps, source : la **procyclicité**) et **transversale** (répartition du risque à un moment donné, source : les **expositions communes** et les liens entre contreparties)."
+        },
+        {
+          "kind": "exemple",
+          "title": "Ce que coûtent les crises systémiques",
+          "text": "Reinhart & Rogoff, *The Aftermath of Financial Crises* (2009) : après les grandes crises, les prix immobiliers baissent en moyenne de **35 %** pendant environ 6 ans ; les cours boursiers de **55 %** (plus de 3 ans et demi pour se redresser) ; le chômage augmente de plus de **7 points** ; la production recule de plus de **9 %**, mais se redresse plus vite que l'emploi.\n\nToutes les crises ne sont pas systémiques : la crise systémique marque le retournement du cycle financier, survient souvent à l'éclatement d'une bulle et débouche sur une **récession de bilan**."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Les crises surviennent dans les phases **hautes**, pas basses, du cycle.\n- C'est quand tout va bien que l'instabilité prend racine : **paradoxe de la tranquillité** (Minsky).\n- *Cette fois c'est différent* est de Reinhart & Rogoff ; *Une brève histoire de l'euphorie financière* de Galbraith (1992)."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Historique (Kindleberger, 1720-1987), cyclique (cycle financier), polymorphe (crises multiples). Risque systémique endogène et auto-entretenu, à deux dimensions (temporelle / procyclicité, transversale / expositions communes). Les crises systémiques sont très coûteuses (Reinhart & Rogoff)."
+        }
+      ]
+    },
+    "borio": {
+      "title": "Claudio Borio (BRI) : le cycle financier",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Économiste de la BRI, Claudio Borio a placé le **cycle financier** au cœur de l'analyse de l'instabilité (Borio, 2012, BIS WP n° 395) et formulé le **paradoxe de la crédibilité**. Ses travaux fondent l'approche macroprudentielle et le canal de la prise de risque."
+        },
+        {
+          "kind": "convention",
+          "title": "Les 7 caractéristiques du cycle financier",
+          "text": "1. Bien résumé par le **crédit** et les **prix immobiliers**.\n2. **Moindre fréquence** que le cycle des affaires : 16 à 20 ans au lieu de 5 à 8.\n3. Ses **pics coïncident** avec les crises financières systémiques.\n4. Il aide à identifier les risques de crise : **crédit / PIB, prix immobiliers**.\n5. Il aide à mieux estimer le **PIB potentiel** : ce qui peut être produit sans pressions inflationnistes **et** sans accumulation de déséquilibres financiers.\n6. Son amplitude et sa longueur **dépendent du régime** : libéralisation financière, ciblage d'inflation, mondialisation commerciale l'ont alimenté.\n7. Ses phases de repli s'accompagnent de **récessions de bilan**, plus graves, aux pertes de production souvent permanentes."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Deux dimensions, deux principes (Borio, 2011)",
+          "text": "- Dimension **temporelle**, source : la **procyclicité** → constituer des **matelas de sécurité** (*buffers*) dans les bonnes périodes, à utiliser dans les mauvaises.\n- Dimension **transversale**, source : les **expositions communes** → calibrer les outils prudentiels sur la **contribution de chaque institution au risque systémique**.\n\nLa prévention exige une **approche macroprudentielle**."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Perception du risque et coordination",
+          "text": "- **Perception du risque** : les agents comparent bien les risques à un instant donné, mais prévoient mal leur évolution. Le risque paraît **faible dans le boom**, élevé dans la récession, alors que les déséquilibres se préparent pendant le boom.\n- **Défaut de coordination** : ce qui serait collectivement souhaitable (ne pas relâcher son ratio de capital, provisionner en haut de cycle, ne pas vendre quand les prix baissent) n'est pas choisi individuellement, par crainte que les autres ne le fassent pas."
+        },
+        {
+          "kind": "formule",
+          "title": "Le paradoxe de la crédibilité",
+          "text": "À trop bien œuvrer pour la stabilité des prix, les banques centrales ont créé un environnement **propice à l'instabilité financière** :\n\n\\[\\text{crédibilité anti-inflation} \\Rightarrow \\text{inflation basse et stable} \\Rightarrow \\text{moindre aversion au risque} \\Rightarrow \\text{instabilité}\\]\n\nLa stabilité monétaire **ne garantit pas** la stabilité financière. Borio & Lowe (2002) : la grande modération a favorisé un excès de confiance et une prise de risque accrue."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Le cycle financier se mesure par le **crédit et l'immobilier**, pas par les indices boursiers.\n- Il n'est **pas indépendant** du régime macroéconomique.\n- Paradoxe de la **tranquillité** = Minsky ; paradoxe de la **crédibilité** = Borio."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Cycle financier : crédit + immobilier, 16-20 ans, pics = crises, utile au macroprudentiel, dépend du régime. Deux dimensions du risque systémique. Paradoxe de la crédibilité : la stabilité des prix peut nourrir l'instabilité financière."
+        }
+      ]
+    },
+    "bulles": {
+      "title": "Les bulles spéculatives",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Tulipes, mers du Sud, 1929, Japon, Internet, subprimes… et peut-être l'IA. Une bulle se reconnaît après coup. Le cours distingue trois théories des bulles et, surtout, les bulles **de crédit**, les plus dangereuses."
+        },
+        {
+          "kind": "convention",
+          "title": "Définition",
+          "text": "Il y a bulle lorsque :\n\n- la phase d'appréciation est **durable** ;\n- il existe un **écart cumulatif** entre la valeur de marché et la **valeur fondamentale**.\n\nUne bulle concerne un actif souvent financier, **mais pas nécessairement** (immobilier, devise…). Toute spéculation à la hausse n'est pas une bulle. Elle n'est **reconnue qu'après son explosion** : ex ante, on trouvera toujours de quoi penser que « cette fois, c'est différent »."
+        },
+        {
+          "kind": "exemple",
+          "title": "Quelques bulles célèbres",
+          "text": "- **Tulipomania** (Hollande, 1634-1637) : en 1636, un bulbe valait « un carrosse neuf, ses deux chevaux et leur harnais » (Galbraith).\n- Bulle des **mers du Sud** (1720).\n- Valeurs des années folles avant **1929**.\n- **Japon** fin des années 1980 : la valeur foncière théorique de Tokyo dépassait celle des États-Unis.\n- **Internet** : le NASDAQ-100 multiplié par plus de 4 entre octobre 1998 et mars 2000, puis −70 % en avril 2002.\n- **Immobilier** : prix multipliés par 3 aux États-Unis entre 1995 et 2006 ; éclatement avec la hausse des taux à partir de 2004 → crise des subprimes."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Bulles de crédit contre bulles spéculatives",
+          "text": "**Frederic Mishkin** (2009) : « toutes les bulles ne présentent pas un risque pour l'économie ». Il distingue :\n\n- les **bulles de crédit**, les plus coûteuses : spirale auto-entretenue entre crédit et prix d'actifs (Fisher) ;\n- les bulles **purement spéculatives** (*irrational exuberance*), aux incidences macroéconomiques moindres (Internet, 1987).\n\nJordà, Schularick & Taylor (2014, 2016) soulignent la dangerosité des bulles de crédit, notamment **immobilier** (*The Great Mortgaging*). La crise de 2007-2008, alimentée par une énorme bulle de crédit, a été systémique : il faut réguler le **cycle du crédit**."
+        },
+        {
+          "kind": "convention",
+          "title": "Trois théories",
+          "text": "- **Rationnelles** : information parfaite + anticipations rationnelles.\n- **Mimétiques** : information imparfaite + rationalité.\n- **Comportementales** : information imparfaite + irrationalité d'une partie des agents.\n\nÀ l'éclatement : krach relatif (un marché), krach global (tous les marchés), crise systémique (tout le système)."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Une bulle n'est **pas** une simple hausse du prix de marché, ni une hausse de la valeur fondamentale.\n- Une bulle n'est **pas nécessairement irrationnelle** : il existe des bulles rationnelles.\n- Mishkin : les bulles **de crédit** sont les plus dangereuses, pas les bulles purement spéculatives.\n- La gestion de la crise par le QE a peut-être nourri de nouvelles bulles (obligations, actions, cryptos) : on ne le saura que si elles éclatent."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Bulle = hausse durable + écart cumulatif entre prix de marché et valeur fondamentale, reconnue ex post. Trois théories (rationnelle, mimétique, comportementale). Les bulles de crédit, surtout immobilier, sont les plus dangereuses."
+        }
+      ]
+    },
+    "blanchardw": {
+      "title": "Blanchard & Watson (1982) : les bulles rationnelles",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Premier courant de la théorie des bulles : même en connaissant la surévaluation, il peut être **parfaitement rationnel** de parier sur la hausse. Olivier Blanchard et Mark Watson (1982) en donnent la formalisation fondatrice."
+        },
+        {
+          "kind": "formule",
+          "title": "Le prix d'un actif",
+          "text": "Le prix est la valeur actualisée des flux attendus (dividende et prix de revente) :\n\n\\[P_t = \\frac{E_t(D_{t+1})}{1+r} + \\frac{E_t(P_{t+1})}{1+r}\\]\n\nEn itérant, on obtient \\(P_t = F_t + B_t\\), où \\(F_t = \\sum_i \\frac{E_t(D_{t+i})}{(1+r)^i}\\) est la **valeur fondamentale** (somme actualisée des dividendes anticipés) et \\(B_t\\) une **bulle**.\n\nSans bulle, \\(P_t = F_t\\). Avec bulle, le prix n'est plus borné : **infinité de solutions**, autant que de bulles possibles."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Bulles déterministes, bulles aléatoires",
+          "text": "- Modèle initial : bulle **déterministe**, qui croît au taux r à partir d'une bulle initiale : \\(B_t = B_0 (1+r)^t\\).\n- Or les bulles finissent par éclater : Blanchard & Watson proposent une bulle **aléatoire**, qui éclate avec une probabilité p pour se réduire à un aléa pur de moyenne nulle.\n\nLogique **d'anticipations auto-réalisatrices** : si les anticipations sont en moyenne validées, parier sur la hausse est la meilleure prévision possible, donc une anticipation rationnelle. Parier trop tôt sur la baisse coûte des manques à gagner."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Les critiques et la seconde génération",
+          "text": "- **Diba & Grossman (1988)** : un aléa de moyenne nulle doit prendre des valeurs négatives ; une bulle relancée à partir d'un aléa négatif donnerait un **prix négatif**, impossible. L'aléa doit donc être nul en permanence, et la bulle ne peut pas **renaître** après avoir éclaté.\n- **Froot & Obstfeld (1991)** : bulles **intrinsèques**, dépendant de façon non linéaire des fondamentaux (sur-réaction aux dividendes) ; croissance exponentielle, dégonflements transitoires possibles.\n- **Evans (1991)** : bulle **strictement positive**, dont la probabilité de dégonflement dépend de sa **taille** (régime 1 sans éclatement, puis régime 2)."
+        },
+        {
+          "kind": "piege",
+          "title": "Des bulles « congénitales »",
+          "text": "Même amendée, la théorie reste très restrictive : une bulle rationnelle ne peut jamais apparaître **après** la création de l'actif. Elle doit être présente **dès l'émission** (l'actif serait surévalué dès le départ) et ne disparaît jamais complètement. Les bulles restent difficilement réconciliables avec l'efficience des marchés.\n\nDate : Blanchard & Watson **1982**, pas 2002."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "\\(P_t = F_t + B_t\\) ; infinité de solutions ; bulle déterministe au taux r, puis aléatoire. Diba & Grossman : pas de renaissance possible. Seconde génération : Froot & Obstfeld (intrinsèques), Evans (taille). Bulles « congénitales »."
+        }
+      ]
+    },
+    "mimetisme": {
+      "title": "Bulles mimétiques et comportementales",
+      "mat": "mbf",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Les bulles rationnelles n'expliquent pas **comment** les anticipations se coordonnent. Il faut lever l'hypothèse d'information parfaite (bulles **mimétiques**), puis celle de rationalité de tous les agents (bulles **comportementales**)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Le mimétisme, stratégie rationnelle",
+          "text": "Information imparfaite et distribuée de façon asymétrique (accès, coûts de traitement, dissimulation, capacités de calcul). Le **mimétisme** : des comportements individuels corrélés, non indépendants ; un agent imite les autres même si son propre signal lui indique autre chose. En information asymétrique, c'est une **stratégie rationnelle** : l'agent imité est supposé mieux informé. Elle domine quand les gains dépendent des décisions de tous (revue : Brunnermeier, 2001)."
+        },
+        {
+          "kind": "exemple",
+          "title": "Le concours de beauté de Keynes",
+          "text": "Keynes, *Théorie générale* (1936) : il faut choisir les six plus jolis visages parmi une centaine de photographies ; gagne celui dont le choix se rapproche le plus de la **sélection moyenne**. Il faut donc choisir non pas le visage qu'on trouve le plus joli, mais celui dont on pense que **les autres** le jugeront tel.\n\nSur les marchés, les investisseurs décident en fonction de l'idée qu'ils se font de l'**opinion des autres** : « mieux vaut avoir tort avec le marché que raison contre lui »."
+        },
+        {
+          "kind": "convention",
+          "title": "Orléan et les bulles au sens faible ou fort",
+          "text": "**André Orléan** : **mimétisme autoréférentiel**. Les investisseurs ne se fondent plus sur une référence extérieure (la valeur fondamentale) mais sur une donnée produite par le marché lui-même : l'opinion majoritaire.\n\nEn information imparfaite, un actif peut avoir autant de valeurs fondamentales que de spéculateurs :\n- **bulle au sens faible** : le prix dépasse **toutes** les valeurs fondamentales espérées ;\n- **bulle au sens fort** : **aucune** réalisation des dividendes ne peut justifier un prix aussi élevé. Elle suppose une **connaissance mutuelle** (tous savent) mais **pas commune** (chacun pense que les autres ne savent pas)."
+        },
+        {
+          "kind": "mecanisme",
+          "title": "Les bulles comportementales",
+          "text": "Des investisseurs rationnels interagissent avec des investisseurs ignorants, les **noise traders**, qui achètent et vendent sur des croyances erronées. La théorie traditionnelle compte sur l'**arbitrage** pour ramener les prix aux fondamentaux ; la finance comportementale montre qu'il est **risqué et limité** : marché globalement mal valorisé, choc fondamental qui valide ex post la surévaluation, achats des noise traders ou suivi de tendance, coûts de transaction.\n\n**Abreu & Brunnermeier (2003)** : **risque de synchronisation**. Un investisseur seul ne peut pas retourner le marché ; attaquer la bulle trop tôt prive de gains, trop tard fait subir l'éclatement : personne n'est incité à sortir le premier."
+        },
+        {
+          "kind": "piege",
+          "title": "Pièges",
+          "text": "- Bulles mimétiques : agents **rationnels**, information **imparfaite** ; les bulles n'y sont pas des phénomènes irrationnels.\n- Bulles comportementales : **une partie** des agents est irrationnelle, pas tous.\n- Concours de beauté : décider selon l'opinion **des autres**, pas la sienne."
+        },
+        {
+          "kind": "resume",
+          "title": "À retenir",
+          "text": "Mimétisme : rationnel en information asymétrique (Keynes, concours de beauté ; Orléan, mimétisme autoréférentiel). Bulle faible / forte, connaissance mutuelle. Comportementales : noise traders, arbitrage limité, risque de synchronisation (Abreu & Brunnermeier)."
+        }
+      ]
     }
   },
   "QCMM": [
@@ -26533,6 +27189,679 @@
       ],
       "why": "Tendances à surveiller, règles (MIFID 2, compensation, shadow banking), taille des établissements (500 × 100 plutôt que 100 × 500), taxation (TTF, FAT).",
       "id": "fincroiss-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "D'après Charles Kindleberger, les crises financières :",
+        "Que retient le cours de l'analyse historique de Kindleberger ?"
+      ],
+      "ok": [
+        "Surviennent plutôt dans les phases hautes du cycle économique",
+        "Sont souvent précédées par des découvertes ou des inventions (un « déplacement »)",
+        "Présentent des traits communs sans jamais se ressembler vraiment",
+        "Ont été recensées sur 31 années entre 1720 et 1987"
+      ],
+      "ko": [
+        "Surviennent plutôt dans les phases basses du cycle économique",
+        "N'ont jamais de traits communs d'une crise à l'autre",
+        "Ont disparu après la crise de 1929 grâce à la régulation",
+        "Sont toujours déclenchées par un choc extérieur au système financier"
+      ],
+      "koWhy": [
+        "Inversé : phases hautes.",
+        "Faux : endettement et spéculation reviennent.",
+        "Faux : recrudescence à partir des années 1980.",
+        "Faux : l'instabilité est endogène."
+      ],
+      "why": "Kindleberger : 31 années de crises entre 1720 et 1987, dans les phases hautes, après un boom lié à une innovation ; ingrédients communs (endettement, spéculation), conjonction inédite.",
+      "trap": "date-auteur",
+      "id": "instab-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "À propos de l'instabilité financière comme phénomène historique :",
+        "Qu'est-ce qui est exact sur l'histoire de l'instabilité financière ?"
+      ],
+      "ok": [
+        "L'histoire financière est jalonnée de crises, avec une recrudescence depuis les années 1980",
+        "« Une brève histoire de l'euphorie financière » est un ouvrage de J. K. Galbraith (1992)",
+        "« Cette fois, c'est différent » est un ouvrage de Reinhart & Rogoff",
+        "La crise de 1929 fut la plus sévère de la période recensée par Kindleberger"
+      ],
+      "ko": [
+        "Les XXe et XXIe siècles n'ont connu aucune recrudescence de l'instabilité",
+        "« Cette fois, c'est différent » est un ouvrage de Ben Bernanke (2010)",
+        "« Une brève histoire de l'euphorie financière » est un ouvrage de Minsky (1986)",
+        "La crise de 1987 fut la plus sévère de la période recensée par Kindleberger"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Faux auteur : Reinhart & Rogoff.",
+        "Faux auteur : Galbraith ; Minsky a écrit Stabilizing an Unstable Economy.",
+        "Faux : 1929."
+      ],
+      "why": "Recrudescence depuis les années 1980 (1987, caisses d'épargne, pays scandinaves, SME, Asie, Russie, Argentine, Internet, subprimes). Galbraith (1992) ; Reinhart & Rogoff (2009) ; 1929 la plus sévère.",
+      "trap": "date-auteur",
+      "id": "instab-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Le risque systémique :",
+        "Qu'est-ce qui caractérise le risque systémique selon le cours ?"
+      ],
+      "ok": [
+        "Est un risque de dysfonctionnement global du secteur bancaire et financier",
+        "Est surtout endogène au fonctionnement du système financier",
+        "Suit une dynamique auto-entretenue : il grandit dans la phase d'essor du cycle",
+        "N'est pas la simple somme des risques individuels des établissements"
+      ],
+      "ko": [
+        "Est exclusivement exogène, dû à des chocs extérieurs au système financier",
+        "Se réduit à un simple effet domino entre établissements interconnectés",
+        "Se forme pendant la phase de repli du cycle financier, pas pendant l'essor",
+        "Se mesure en additionnant les risques de chaque établissement"
+      ],
+      "koWhy": [
+        "Faux : surtout endogène.",
+        "Faux : au-delà de l'effet domino, des boucles auto-entretenues.",
+        "Inversé : dans la phase d'essor.",
+        "Faux : c'est l'écueil d'une mesure trop micro."
+      ],
+      "why": "Risque systémique : global, endogène, auto-entretenu (boucles de momentum) ; il se forme dans l'essor, se réalise au retournement, se réduit dans le repli ; risque systémique ≠ Σ risques individuels.",
+      "trap": "micro-macro",
+      "id": "instab-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Quelles sont les deux dimensions du risque systémique, et leurs sources ?",
+        "Dimensions du risque systémique : quelles associations sont exactes ?"
+      ],
+      "ok": [
+        "Dimension temporelle : évolution du risque global dans le temps",
+        "Source de la dimension temporelle : la procyclicité du système financier",
+        "Dimension transversale : répartition du risque dans le système à un moment donné",
+        "Source de la dimension transversale : les expositions communes et les liens entre contreparties"
+      ],
+      "ko": [
+        "Dimension temporelle : répartition du risque entre établissements à un moment donné",
+        "Source de la dimension temporelle : les expositions communes aux mêmes risques",
+        "Dimension transversale : évolution du risque global au cours du cycle",
+        "Source de la dimension transversale : la procyclicité du système financier"
+      ],
+      "koWhy": [
+        "Inversé avec la transversale.",
+        "Inversé.",
+        "Inversé avec la temporelle.",
+        "Inversé."
+      ],
+      "why": "Borio (2011) : temporelle ↔ procyclicité → buffers constitués en haut de cycle ; transversale ↔ expositions communes → outils calibrés sur la contribution de chaque institution au risque systémique.",
+      "trap": "micro-macro",
+      "id": "instab-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "instab",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Selon Reinhart & Rogoff (2009), après les grandes crises financières :",
+        "Quelles conséquences des grandes crises financières documentent Reinhart & Rogoff ?"
+      ],
+      "ok": [
+        "Les prix immobiliers baissent en moyenne d'environ 35 % sur six ans environ",
+        "Les cours boursiers chutent d'environ 55 %",
+        "Le chômage augmente de plus de 7 points en moyenne",
+        "La production se redresse plus vite que l'emploi"
+      ],
+      "ko": [
+        "Les prix immobiliers baissent en moyenne d'environ 5 % sur un an",
+        "Les cours boursiers se redressent en quelques semaines",
+        "Le chômage reste stable grâce aux stabilisateurs automatiques",
+        "L'emploi se redresse plus vite que la production"
+      ],
+      "koWhy": [
+        "Faux : bien plus profond et long.",
+        "Faux : plus de 3 ans et demi.",
+        "Faux : +7 points.",
+        "Inversé."
+      ],
+      "why": "Aftermath of financial crises : immobilier −35 % (≈ 6 ans), actions −55 % (> 3,5 ans), chômage +7 points (≈ 4 ans), production −9 %, reprise plus rapide de la production que de l'emploi.",
+      "trap": "date-auteur",
+      "id": "instab-005"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "D'après Claudio Borio, le cycle financier est :",
+        "Comment Borio caractérise-t-il le cycle financier ?"
+      ],
+      "ok": [
+        "Une alternance de phases d'expansion et de repli des activités financières",
+        "Plus ample et moins fréquent que le cycle des affaires",
+        "Un indicateur utile à la politique macroprudentielle",
+        "Bien résumé par les évolutions du crédit et des prix immobiliers"
+      ],
+      "ko": [
+        "Indépendant du régime macroéconomique et monétaire dans lequel il se déploie",
+        "Mesuré principalement à partir des indices boursiers",
+        "Plus court et plus fréquent que le cycle des affaires",
+        "Sans lien avec les crises financières systémiques"
+      ],
+      "koWhy": [
+        "Faux : libéralisation, ciblage d'inflation, mondialisation l'ont alimenté.",
+        "Faux : crédit et prix immobiliers.",
+        "Inversé.",
+        "Faux : ses pics coïncident avec les crises systémiques."
+      ],
+      "why": "Sept caractéristiques : crédit + immobilier ; 16-20 ans ; pics = crises ; indicateur de risque ; PIB potentiel ; dépend du régime ; récessions de bilan.",
+      "trap": "paradoxe",
+      "id": "borio-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Le « paradoxe de la crédibilité » énoncé par Claudio Borio signifie que :",
+        "Que désigne le paradoxe de la crédibilité ?"
+      ],
+      "ok": [
+        "Plus une banque centrale est crédible contre l'inflation, plus sa politique peut nourrir l'instabilité financière",
+        "La stabilité monétaire ne garantit pas la stabilité financière",
+        "Une inflation basse et stable réduit l'aversion au risque des agents"
+      ],
+      "ko": [
+        "Plus une banque centrale est crédible, moins elle a besoin d'agir pour la stabilité financière",
+        "Plus une banque centrale est crédible, plus elle doit communiquer sur sa politique",
+        "La stabilité monétaire est une condition nécessaire et suffisante de la stabilité financière",
+        "C'est le paradoxe formulé par Hyman Minsky sur la tranquillité"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Hors sujet.",
+        "C'est l'hypothèse de Schwartz, que le paradoxe réfute.",
+        "Confusion : paradoxe de la tranquillité (Minsky)."
+      ],
+      "why": "Paradoxe de la crédibilité : à trop bien œuvrer pour la stabilité des prix, les banques centrales créent un environnement propice à l'instabilité financière.",
+      "trap": "paradoxe",
+      "id": "borio-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Pourquoi le risque est-il mal perçu et mal traité collectivement selon Borio ?",
+        "Perception du risque et défaut de coordination chez Borio : qu'est-ce qui est exact ?"
+      ],
+      "ok": [
+        "Le risque est perçu comme faible en période de boom, alors que les déséquilibres s'y préparent",
+        "Les agents comparent mieux les risques à un instant donné qu'ils ne prévoient leur évolution",
+        "Provisionner en haut de cycle serait collectivement souhaitable mais n'est pas choisi individuellement",
+        "Chacun craint que les autres n'adoptent pas les comportements prudents"
+      ],
+      "ko": [
+        "Le risque est perçu comme élevé en période de boom, ce qui freine les excès",
+        "Les agents prévoient mieux l'évolution des risques qu'ils ne les comparent à un instant donné",
+        "Les comportements individuels coïncident spontanément avec l'intérêt collectif",
+        "Les déséquilibres financiers se forment surtout pendant les récessions"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Inversé.",
+        "Faux : défaut de coordination.",
+        "Inversé : pendant le boom."
+      ],
+      "why": "Perception du risque procyclique et défaut de coordination : d'où la nécessité de règles macroprudentielles.",
+      "id": "borio-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "borio",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Pour prévenir le risque systémique, quel principe Borio (2011) associe-t-il à chaque dimension ?",
+        "Quels principes de politique Borio associe-t-il aux deux sources de troubles systémiques ?"
+      ],
+      "ok": [
+        "Contre la procyclicité : constituer des matelas de sécurité en haut de cycle",
+        "Contre les expositions communes : calibrer les outils sur la contribution au risque systémique",
+        "Dans les deux cas : une approche macroprudentielle"
+      ],
+      "ko": [
+        "Contre la procyclicité : relâcher les exigences en haut de cycle",
+        "Contre les expositions communes : appliquer les mêmes exigences à tous, quelle que soit leur taille",
+        "Dans les deux cas : une approche purement microprudentielle",
+        "Contre la procyclicité : relever les taux en bas de cycle"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Faux : calibrer selon la contribution systémique.",
+        "Faux : macroprudentiel.",
+        "Hors principe."
+      ],
+      "why": "Buffers constitués dans les bonnes périodes, utilisés dans les mauvaises ; outils calibrés selon la contribution de chaque institution au risque systémique.",
+      "trap": "micro-macro",
+      "id": "borio-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 1,
+      "q": [
+        "Une bulle spéculative désigne :",
+        "Qu'appelle-t-on une bulle spéculative ?"
+      ],
+      "ok": [
+        "Un engouement spéculatif pour un actif, pas nécessairement financier",
+        "Un écart cumulatif entre le prix de marché et la valeur fondamentale d'un actif",
+        "Un phénomène toujours contestable tant que la bulle n'a pas éclaté",
+        "Une phase d'appréciation durable du prix d'un actif"
+      ],
+      "ko": [
+        "Toute hausse du prix de marché d'un actif financier",
+        "La hausse de la valeur fondamentale d'un actif financier",
+        "Un phénomène toujours attribuable à l'irrationalité des agents",
+        "Un phénomène qu'on identifie facilement avant son éclatement"
+      ],
+      "koWhy": [
+        "Faux : toute spéculation à la hausse n'est pas une bulle.",
+        "Faux : la bulle est l'écart à la valeur fondamentale.",
+        "Faux : il existe des bulles rationnelles.",
+        "Faux : reconnue seulement après son explosion."
+      ],
+      "why": "Bulle : appréciation durable + écart cumulatif prix / fondamentaux ; actif pas forcément financier ; reconnue ex post.",
+      "trap": "bulle-type",
+      "id": "bulles-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "D'après Frederic Mishkin, les bulles :",
+        "Que dit Mishkin (2009) des bulles ?"
+      ],
+      "ok": [
+        "Ne sont pas toujours dangereuses pour l'économie",
+        "Sont plus dangereuses quand ce sont des bulles de crédit",
+        "Purement spéculatives, elles ont de moindres incidences macroéconomiques"
+      ],
+      "ko": [
+        "Sont toujours des bulles de crédit, quel que soit l'actif concerné",
+        "Sont toujours purement spéculatives (« irrational exuberance »)",
+        "Sont plus dangereuses quand elles sont purement spéculatives",
+        "Présentent toutes un risque systémique pour l'économie réelle"
+      ],
+      "koWhy": [
+        "Faux : il distingue deux types.",
+        "Faux.",
+        "Inversé.",
+        "Faux."
+      ],
+      "why": "Mishkin : « toutes les bulles ne présentent pas un risque pour l'économie » ; les bulles de crédit sont les plus coûteuses ; l'exubérance irrationnelle pure l'est moins.",
+      "trap": "bulle-type",
+      "id": "bulles-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Pourquoi les bulles de crédit sont-elles plus dangereuses que les bulles purement spéculatives ?",
+        "Qu'est-ce qui rend une bulle de crédit si coûteuse ?"
+      ],
+      "ok": [
+        "Elles entraînent une spirale auto-entretenue entre crédit et prix d'actifs",
+        "Elles se forment souvent dans l'immobilier (Jordà, Schularick & Taylor)",
+        "La crise de 2007-2008, alimentée par une bulle de crédit, a été systémique",
+        "Elles justifient une régulation du cycle du crédit"
+      ],
+      "ko": [
+        "Elles ne concernent que les actions des entreprises technologiques",
+        "La bulle Internet de la fin des années 1990 en est l'exemple type",
+        "Le krach boursier de 1987 en est l'exemple type",
+        "Elles éclatent sans jamais affecter durablement l'économie réelle"
+      ],
+      "koWhy": [
+        "Faux : surtout immobilier.",
+        "Faux : bulle purement spéculative, sans spirale crédit.",
+        "Faux : pas de spirale crédit-prix.",
+        "Inversé."
+      ],
+      "why": "Bulle de crédit : hausse du crédit → hausse des prix d'actifs → hausse du crédit… ; les plus dangereuses sont alimentées par le crédit, notamment immobilier.",
+      "trap": "bulle-type",
+      "id": "bulles-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "bulles",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Classez les théories des bulles selon l'information et la rationalité des agents :",
+        "Quelles associations entre type de bulle et hypothèses sont exactes ?"
+      ],
+      "ok": [
+        "Bulles rationnelles : information parfaite et anticipations rationnelles",
+        "Bulles mimétiques : information imparfaite et agents rationnels",
+        "Bulles comportementales : information imparfaite et irrationalité de certains agents"
+      ],
+      "ko": [
+        "Bulles rationnelles : information imparfaite et agents irrationnels",
+        "Bulles mimétiques : information parfaite et agents irrationnels",
+        "Bulles comportementales : information parfaite et agents tous rationnels",
+        "Bulles mimétiques : information imparfaite et agents tous irrationnels"
+      ],
+      "koWhy": [
+        "Faux.",
+        "Faux.",
+        "Faux.",
+        "Faux : le mimétisme est une stratégie rationnelle."
+      ],
+      "why": "Rationnelles : info parfaite + rationalité. Mimétiques : info imparfaite + rationalité. Comportementales : info imparfaite + irrationalité d'une partie des agents.",
+      "trap": "bulle-type",
+      "id": "bulles-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "blanchardw",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Dans la théorie des bulles rationnelles :",
+        "Qu'est-ce qui caractérise la théorie des bulles rationnelles ?"
+      ],
+      "ok": [
+        "Les agents sont rationnels et leur information est parfaite",
+        "Il peut être rationnel de parier sur la hausse d'un actif qu'on sait surévalué",
+        "Le modèle fondateur est celui de Blanchard & Watson (1982)",
+        "Le prix admet une infinité de solutions, autant que de bulles possibles"
+      ],
+      "ko": [
+        "Les agents sont rationnels mais leur information est incomplète ou asymétrique",
+        "Les agents perdent leur rationalité en période d'emballement financier",
+        "Le modèle fondateur est celui de Blanchard & Watson (2002)",
+        "Le prix d'un actif est toujours égal à sa valeur fondamentale"
+      ],
+      "koWhy": [
+        "C'est la théorie des bulles mimétiques.",
+        "C'est plutôt l'idée des bulles comportementales.",
+        "Mauvaise date : 1982.",
+        "Faux : c'est seulement le cas sans bulle."
+      ],
+      "why": "Bulles rationnelles : information parfaite + anticipations rationnelles, anticipations auto-réalisatrices, Blanchard & Watson (1982), P = F + B avec une infinité de bulles possibles.",
+      "trap": "bulle-type",
+      "id": "blanchardw-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "blanchardw",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Dans le modèle de Blanchard & Watson (1982), le prix d'un actif s'écrit \\(P_t = F_t + B_t\\). Qu'est-ce qui est exact ?",
+        "Que représentent \\(F_t\\) et \\(B_t\\) dans \\(P_t = F_t + B_t\\) ?"
+      ],
+      "ok": [
+        "\\(F_t\\) est la somme actualisée des dividendes anticipés",
+        "\\(B_t\\) est une bulle spéculative",
+        "Une bulle déterministe croît au taux r à partir d'une bulle initiale",
+        "En l'absence de bulle, \\(P_t = F_t\\)"
+      ],
+      "ko": [
+        "\\(F_t\\) est le prix de revente anticipé de l'actif",
+        "\\(B_t\\) est la prime de risque exigée par les investisseurs",
+        "Une bulle déterministe décroît au taux r jusqu'à disparaître",
+        "En l'absence de bulle, \\(P_t\\) n'est pas borné"
+      ],
+      "koWhy": [
+        "Faux : le prix de revente est intégré dans l'itération.",
+        "Faux : c'est la bulle.",
+        "Inversé : elle croît.",
+        "Inversé : c'est avec bulle que le prix n'est pas borné."
+      ],
+      "why": "F : valeur fondamentale (dividendes actualisés). B : bulle. Bulle déterministe : \\(B_t = B_0(1+r)^t\\). Sans bulle, P = F ; avec bulle, prix non borné.",
+      "trap": "bulle-type",
+      "id": "blanchardw-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "blanchardw",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Quelle critique Diba & Grossman (1988) adressent-ils aux bulles rationnelles aléatoires ?",
+        "Pourquoi, selon Diba & Grossman, une bulle rationnelle ne peut-elle pas renaître ?"
+      ],
+      "ok": [
+        "Un aléa de moyenne nulle doit aussi prendre des valeurs négatives",
+        "Une bulle relancée depuis un aléa négatif donnerait un prix négatif, impossible",
+        "L'aléa doit donc être nul en permanence, et la bulle ne peut pas se reformer"
+      ],
+      "ko": [
+        "Une bulle rationnelle peut réapparaître à tout moment après son éclatement",
+        "Le prix d'un actif peut devenir négatif sans contradiction",
+        "Les bulles rationnelles disparaissent dès que les dividendes augmentent",
+        "La probabilité d'éclatement dépend de la taille de la bulle"
+      ],
+      "koWhy": [
+        "Inversé : c'est leur objection.",
+        "Faux : un prix d'actif est toujours positif.",
+        "Hors sujet.",
+        "C'est Evans (1991)."
+      ],
+      "why": "Diba & Grossman : un aléa de moyenne nulle prend des valeurs négatives, ce qui mènerait à un prix négatif ; l'aléa doit être nul en continu : la bulle ne peut pas renaître, contrairement à ce qu'on observe.",
+      "trap": "date-auteur",
+      "id": "blanchardw-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "blanchardw",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Quels sont les modèles de bulles rationnelles de seconde génération ?",
+        "Comment les modèles de seconde génération répondent-ils à Diba & Grossman ?"
+      ],
+      "ok": [
+        "Froot & Obstfeld (1991) : des bulles intrinsèques, fonction non linéaire des fondamentaux",
+        "Evans (1991) : une bulle strictement positive dont le dégonflement dépend de la taille",
+        "Dans ces modèles, la bulle ne disparaît jamais complètement"
+      ],
+      "ko": [
+        "Froot & Obstfeld (1991) : des bulles déterministes croissant au taux r",
+        "Evans (1991) : une bulle qui peut apparaître à tout moment après l'émission",
+        "Ces modèles établissent que les bulles sont compatibles avec l'efficience",
+        "Diba & Grossman (1988) : des bulles intrinsèques liées aux dividendes"
+      ],
+      "koWhy": [
+        "C'est le modèle initial de Blanchard & Watson.",
+        "Faux : la bulle doit être présente dès l'émission.",
+        "Faux : les bulles restent difficilement réconciliables avec l'efficience.",
+        "Confusion : Diba & Grossman sont les critiques."
+      ],
+      "why": "Froot & Obstfeld : bulles intrinsèques (sur-réaction aux dividendes), dégonflements transitoires. Evans : régimes selon la taille. Conditions très restrictives : bulles « congénitales », présentes dès l'émission.",
+      "trap": "date-auteur",
+      "id": "blanchardw-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Dans la théorie des bulles mimétiques :",
+        "Qu'est-ce qui caractérise les bulles mimétiques ?"
+      ],
+      "ok": [
+        "Les agents sont rationnels et leur information est incomplète ou asymétrique",
+        "Les agents imitent rationnellement ceux qu'ils supposent mieux informés",
+        "Les bulles ne sont pas des phénomènes irrationnels",
+        "Un agent peut imiter les autres même si son propre signal indique autre chose"
+      ],
+      "ko": [
+        "Les agents sont irrationnels et leur information est incomplète ou asymétrique",
+        "Les agents disposent tous d'une information parfaite",
+        "Les bulles résultent de l'irrationalité de tous les investisseurs",
+        "Chaque agent décide en fonction de son seul signal privé"
+      ],
+      "koWhy": [
+        "Faux : les agents sont rationnels.",
+        "C'est le cadre des bulles rationnelles.",
+        "Faux.",
+        "Inversé : il imite."
+      ],
+      "why": "Bulles mimétiques : information imparfaite + rationalité ; le mimétisme est une stratégie rationnelle en information asymétrique.",
+      "trap": "bulle-type",
+      "id": "mimetisme-001"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Dans la Théorie générale (1936), Keynes utilise la métaphore du « concours de beauté ». Elle illustre :",
+        "Que montre le concours de beauté keynésien sur les marchés financiers ?"
+      ],
+      "ok": [
+        "Des investisseurs qui décident selon l'idée qu'ils se font de l'opinion des autres",
+        "Le fait qu'il vaut mieux avoir tort avec le marché que raison contre lui",
+        "Un mimétisme autoréférentiel : l'opinion majoritaire remplace la valeur fondamentale"
+      ],
+      "ko": [
+        "Des investisseurs qui décident selon leur propre opinion de la valeur des titres",
+        "La possibilité d'avoir durablement raison contre le marché et d'en profiter",
+        "Un marché qui ramène toujours les prix vers leur valeur fondamentale",
+        "Une situation où les gains ne dépendent pas des décisions des autres"
+      ],
+      "koWhy": [
+        "Inversé.",
+        "Inversé.",
+        "Faux : la référence extérieure est abandonnée.",
+        "Faux : les gains dépendent de la sélection moyenne."
+      ],
+      "why": "Concours de beauté : choisir ce que les autres jugeront le plus joli. Orléan : mimétisme autoréférentiel, fondé sur l'opinion majoritaire produite par le marché.",
+      "trap": "bulle-type",
+      "id": "mimetisme-002"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Dans la théorie des bulles comportementales :",
+        "Qu'est-ce qui caractérise les bulles comportementales ?"
+      ],
+      "ok": [
+        "Une partie des agents est rationnelle, l'autre pas (noise traders)",
+        "Les possibilités d'arbitrage sont rendues difficiles par la présence de noise traders",
+        "L'arbitrage est risqué et limité, donc l'irrationalité peut durablement peser sur les cours",
+        "Les investisseurs rationnels font face à un risque de synchronisation"
+      ],
+      "ko": [
+        "Tous les agents sont rationnels et disposent d'une information parfaite",
+        "Tous les agents sont irrationnels, y compris les arbitragistes",
+        "L'arbitrage ramène toujours rapidement les prix à leur valeur fondamentale",
+        "Un investisseur rationnel peut, seul, retourner le marché et dégonfler la bulle"
+      ],
+      "koWhy": [
+        "Faux.",
+        "Faux : une partie seulement.",
+        "C'est la théorie traditionnelle que la finance comportementale réfute.",
+        "Faux : l'action doit être coordonnée."
+      ],
+      "why": "Comportementales : noise traders + investisseurs rationnels ; arbitrage risqué et limité ; risque de synchronisation (Abreu & Brunnermeier, 2003).",
+      "trap": "bulle-type",
+      "id": "mimetisme-003"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 3,
+      "q": [
+        "Bulle au sens faible, bulle au sens fort : qu'est-ce qui est exact ?",
+        "En information imparfaite, comment distingue-t-on les bulles au sens faible et au sens fort ?"
+      ],
+      "ok": [
+        "Bulle faible : le prix dépasse toutes les valeurs fondamentales espérées par les spéculateurs",
+        "Bulle forte : aucune réalisation des dividendes ne peut justifier un prix aussi élevé",
+        "La bulle forte suppose une connaissance mutuelle mais non commune de son existence"
+      ],
+      "ko": [
+        "Bulle faible : aucune réalisation des dividendes ne peut justifier le prix",
+        "Bulle forte : le prix dépasse la valeur fondamentale d'un seul spéculateur",
+        "La bulle forte suppose que son existence soit une connaissance commune",
+        "En information imparfaite, chaque actif n'a qu'une seule valeur fondamentale"
+      ],
+      "koWhy": [
+        "Inversé avec la bulle forte.",
+        "Faux.",
+        "Inversé : connaissance mutuelle, pas commune.",
+        "Faux : autant de valeurs fondamentales que de spéculateurs, à la limite."
+      ],
+      "why": "Faible : prix > toutes les valeurs fondamentales espérées. Forte : aucune réalisation des dividendes ne justifie le prix ; chacun sait (connaissance mutuelle) mais pense que les autres ne savent pas (pas de connaissance commune).",
+      "trap": "bulle-type",
+      "id": "mimetisme-004"
+    },
+    {
+      "mat": "mbf",
+      "cat": "mimetisme",
+      "ch": 3,
+      "diff": 2,
+      "q": [
+        "Qu'est-ce que le risque de synchronisation d'Abreu & Brunnermeier (2003) ?",
+        "Pourquoi les investisseurs rationnels n'arrivent-ils pas à faire éclater une bulle ?"
+      ],
+      "ok": [
+        "Un investisseur seul ne peut pas retourner le marché",
+        "L'action des investisseurs rationnels doit être coordonnée pour éliminer la surévaluation",
+        "Attaquer trop tôt prive de gains, attaquer trop tard fait subir l'éclatement",
+        "Personne n'est incité à sortir le premier, même si tous savent que la bulle éclatera"
+      ],
+      "ko": [
+        "Les investisseurs rationnels ignorent que l'actif est surévalué",
+        "Un investisseur rationnel peut à lui seul ramener les prix aux fondamentaux",
+        "Attaquer la bulle tôt est toujours la stratégie la plus rentable",
+        "Les noise traders coordonnent la sortie du marché"
+      ],
+      "koWhy": [
+        "Faux : ils le savent.",
+        "Faux.",
+        "Faux : on se prive des profits de la hausse.",
+        "Faux."
+      ],
+      "why": "Abreu & Brunnermeier : dilemme attaquer trop tôt / trop tard ; le marché devient un jeu dont personne ne veut sortir en premier.",
+      "trap": "date-auteur",
+      "id": "mimetisme-005"
     }
   ]
 }
